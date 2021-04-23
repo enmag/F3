@@ -62,6 +62,13 @@ The benchmarks are organised in the following categories:
 Each directory contains the benchmarks in the input language of a number of tools including F3.
 
 
+## F3 input files
+F3 loads a Python source files as input.    
+Such file should declare either a function `transition_system` or a function `check_ltl`.    
+The first method is used to provide a fair transition system for which we want to find a fair path, the second one is used to provide a transition system and a LTL specification for which we want to find a counterexample.
+Inputs that declare the `check_ltl` function can optionally define another function called `diverging_symbs`. Such function can be used to tell F3 which symbols of the system must diverge to infinity in the counterexample: the sum of all their assignments diverges to infinity.
+
+
 ## F3 command line options
 Every command line option supported by F3 comes with a default value, hence you can "just run it" without specifying anything special.
 Here we briefly describe the main command line options supported by F3.
@@ -89,10 +96,3 @@ Here we briefly describe the main command line options supported by F3.
 * `-propagate, --constr-propagate`: set mode of propagation of state inequalities through transition equalities.
 * `-generalised-lasso, --generalised-lasso`: enable/disable detection of generalised lassos.
 * `-smv-out, --smv-out`: write SMV model representing the funnel-loop in the given directory.
-
-
-## F3 input files
-F3 loads a Python source files as input.    
-Such file should declare either a function `transition_system` or a function `check_ltl`.    
-The first method is used to provide a fair transition system for which we want to find a fair path, the second one is used to provide a transition system and a LTL specification for which we want to find a counterexample.
-Inputs that declare the `check_ltl` function can optionally define another function called `diverging_symbs`. Such function can be used to tell F3 which symbols of the system must diverge to infinity in the counterexample: the sum of all their assignments diverges to infinity.
