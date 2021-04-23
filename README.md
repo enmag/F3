@@ -1,4 +1,4 @@
-# F3
+# F3 (FindFairFunnel)
 F3 searches for fair paths in transition systems.    
 F3 is capable of searching for counterexamples to LTL specification.    
 F3 can discard all paths in which the sum of the assignments to some symbol does not diverge to infinity. This can be used to remove all zeno-paths in timed systems.
@@ -11,11 +11,11 @@ Please be aware that the installation process downloads the SMT-solvers `mathsat
 
 Depending on your system-setup you might need to run the following commands as `sudo`.
 
-From the root directory of the project run
+From the root directory of the project run (the directory containing the file `Dockerfile`)
 ```shell
 docker build --tag f3 ./
 ```
-This should create a new docker image with tag `f3` based on Ubuntu:20.04.    
+This creates a new docker image with tag `f3` based on the Ubuntu:20.04 image.    
 The following command lists the docker images on your system. There should be one named `f3`.
 ```shell
 docker images
@@ -39,12 +39,18 @@ For example to run F3 with verbosity 1 on some benchmark `BENCHMARK` add the opt
 docker run f3 -v 1 $BENCHMARK
 ```
 
-## Manual install
+In general to tun F3 with options OPTS on benchmakr BENCH run:
+```shell
+docker run f3 $OPTS $BENCH
+```
+
+## Manual install on host system
 `INSTALL` contains the required information to install F3 on your system.
 
+
 ## Benchmarks
-The directory benchmarks contains a collection of software (non)termination and LTL model checking problems.
-More details on the benchmarks are provided in `benchmarks/README`
+The directory benchmarks contains a collection of software (non)termination and LTL model checking problems.    
+More details on the benchmarks are provided in `benchmarks/README`.   
 The benchmarks are organised in the following categories:
 * LS : linear software programs (directory `software_nontermination`),
 * NS : non-linear software programs (directory `nonlinear_software`),
