@@ -1,12 +1,12 @@
 # F3
 F3 searches for fair paths in transition systems.    
 F3 is capable of searching for counterexamples to LTL specification.    
-F3 can discard all paths in which the sum of the assignment to some symbol does not diverge to infinity. This can be used to remove all zeno-paths in timed systems.
+F3 can discard all paths in which the sum of the assignments to some symbol does not diverge to infinity. This can be used to remove all zeno-paths in timed systems.
 
 Upon success F3 will write on stdout the sequence of abstract regions and transition of the funnel-loop in a human readable format. For every loop the associated ranking function is provided. 
 
 ## Install in Docker image
-Using docker and the `Dockerfile` it is possible to create a docker image with F3 installed.   
+Using docker and the `Dockerfile` it is possible to create a docker image with F3 installed from your local copy of this repository.   
 Please be aware that the installation process downloads the SMT-solvers `mathsat` and `z3` and accepts their respective licences on your behalf. Do not proceed if you do not accept them.
 
 Depending on your system-setup you might need to run the following commands as `sudo`.
@@ -15,7 +15,11 @@ From the root directory of the project run
 ```shell
 docker build --tag f3 ./
 ```
-This should create a new docker image with tag `f3` based on Ubuntu:20.04.
+This should create a new docker image with tag `f3` based on Ubuntu:20.04.    
+The following command lists the docker images on your system. There should be one named `f3`.
+```shell
+docker images
+```
 
 The docker image contains all the benchmarks of this repository.   
 To run F3 on the software nontermination benchmark `NonTerminationSimple2_false-termination` execute:
