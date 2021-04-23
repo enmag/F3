@@ -39,10 +39,12 @@ For example to run F3 with verbosity 1 on some benchmark `BENCHMARK` add the opt
 docker run f3 -v 1 $BENCHMARK
 ```
 
-In general to tun F3 with options OPTS on benchmakr BENCH run:
+In general to tun F3 with options OPTS on benchmark BENCH run:
 ```shell
 docker run f3 $OPTS $BENCH
 ```
+If $BENCH is a directory instead of a single file, F3 will visit recursively all the subdirectories and try to load and execute every *.py file it finds.
+
 
 ## Manual install on host system
 `INSTALL` contains the required information to install F3 on your system.

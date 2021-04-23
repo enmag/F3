@@ -145,20 +145,26 @@ copy them into the virtual env directories:
   $> cp $HOME/.smt_solvers/msat/mathsat-5.6.6-linux-x86_64/include/mathsat.h $F3_HOME/venv/include/mathsat.h
   $> cp $HOME/.smt_solvers/msat/mathsat-5.6.6-linux-x86_64/lib/libmathsat.a $F3_HOME/venv/libmathsat.a
 Ensure that the file $F3_HOME/src/ltl/ltl.i contains the correct path to the mathsat.h file in the virtual environment.
+To deactivate the virtual environment execute the command:
+  $> deactivate
 
 
 ## Build LTL module of F3
 
 $F3_HOME/src/ltl, contains 2 scripts that build the LTL module and swig interface.
 These scripts require the libmathsat.a to be available in the system paths and the include path of mathsat.h in ltl.i should be correct.
+Activate the virtual environment if you installed F3 locally:
+  $> source $F3_HOME/venv/bin/activate
 Build the LTL module in release mode by running the following command:
   $> cd $F3_HOME/src/ltl; ./swig_release_build.sh
-Instead, to build in debug mode run:
-  $> $> cd $F3_HOME/src/ltl; ./swig_debug_build.sh
+or in debug mode with:
+  $> cd $F3_HOME/src/ltl; ./swig_debug_build.sh
 
 
 
 ## Run F3
+Before running F3 make sure to activate the virtual environment if you installed F3 locally:
+  $> source $F3_HOME/venv/bin/activate
 For a set of command line options $OPTS for F3 and benchmark file $BENCHMARK, the following command allows to run F3 with the given options on such benchmark.
   $> python3 -O $F3_HOME/src/run_benchmarks.py $OPTS $BENCHMARK
 e.g.
