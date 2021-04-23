@@ -1,0 +1,93 @@
+@TIME_DOMAIN continuous
+MODULE main
+  VAR
+    id : 0..24;
+    turn : 1..24;
+    proposed : array 0..23 of real;
+    max_prop : real;
+      p0 : P(1, id, turn, proposed[0], max_prop);
+  p1 : P(2, id, turn, proposed[1], max_prop);
+  p2 : P(3, id, turn, proposed[2], max_prop);
+  p3 : P(4, id, turn, proposed[3], max_prop);
+  p4 : P(5, id, turn, proposed[4], max_prop);
+  p5 : P(6, id, turn, proposed[5], max_prop);
+  p6 : P(7, id, turn, proposed[6], max_prop);
+  p7 : P(8, id, turn, proposed[7], max_prop);
+  p8 : P(9, id, turn, proposed[8], max_prop);
+  p9 : P(10, id, turn, proposed[9], max_prop);
+  p10 : P(11, id, turn, proposed[10], max_prop);
+  p11 : P(12, id, turn, proposed[11], max_prop);
+  p12 : P(13, id, turn, proposed[12], max_prop);
+  p13 : P(14, id, turn, proposed[13], max_prop);
+  p14 : P(15, id, turn, proposed[14], max_prop);
+  p15 : P(16, id, turn, proposed[15], max_prop);
+  p16 : P(17, id, turn, proposed[16], max_prop);
+  p17 : P(18, id, turn, proposed[17], max_prop);
+  p18 : P(19, id, turn, proposed[18], max_prop);
+  p19 : P(20, id, turn, proposed[19], max_prop);
+  p20 : P(21, id, turn, proposed[20], max_prop);
+  p21 : P(22, id, turn, proposed[21], max_prop);
+  p22 : P(23, id, turn, proposed[22], max_prop);
+  p23 : P(24, id, turn, proposed[23], max_prop);
+
+
+  INIT id = 0;
+
+  INVAR max_prop >= proposed[0];
+  INVAR max_prop >= proposed[1];
+  INVAR max_prop >= proposed[2];
+  INVAR max_prop >= proposed[3];
+  INVAR max_prop >= proposed[4];
+  INVAR max_prop >= proposed[5];
+  INVAR max_prop >= proposed[6];
+  INVAR max_prop >= proposed[7];
+  INVAR max_prop >= proposed[8];
+  INVAR max_prop >= proposed[9];
+  INVAR max_prop >= proposed[10];
+  INVAR max_prop >= proposed[11];
+  INVAR max_prop >= proposed[12];
+  INVAR max_prop >= proposed[13];
+  INVAR max_prop >= proposed[14];
+  INVAR max_prop >= proposed[15];
+  INVAR max_prop >= proposed[16];
+  INVAR max_prop >= proposed[17];
+  INVAR max_prop >= proposed[18];
+  INVAR max_prop >= proposed[19];
+  INVAR max_prop >= proposed[20];
+  INVAR max_prop >= proposed[21];
+  INVAR max_prop >= proposed[22];
+  INVAR max_prop >= proposed[23];
+
+  INVAR max_prop = proposed[0] | max_prop = proposed[1] | max_prop = proposed[2] | max_prop = proposed[3] | max_prop = proposed[4] | max_prop = proposed[5] | max_prop = proposed[6] | max_prop = proposed[7] | max_prop = proposed[8] | max_prop = proposed[9] | max_prop = proposed[10] | max_prop = proposed[11] | max_prop = proposed[12] | max_prop = proposed[13] | max_prop = proposed[14] | max_prop = proposed[15] | max_prop = proposed[16] | max_prop = proposed[17] | max_prop = proposed[18] | max_prop = proposed[19] | max_prop = proposed[20] | max_prop = proposed[21] | max_prop = proposed[22] | max_prop = proposed[23];
+
+
+  LTLSPEC F G next(max_prop) >= max_prop;
+
+
+MODULE P(pid, id, turn, prop, max_prop)
+  VAR
+    location : {idle, wait, req, cs};
+    x : clock;
+    saved_max : real;
+
+  INIT location = idle;
+  INIT x = 0;
+  INIT saved_max = max_prop;
+  INVAR prop > 0;
+  INVAR (location = req) -> x <= prop;
+
+  TRANS (turn != pid) -> (next(location) = location & next(x) = x & next(prop) = prop & next(saved_max) = saved_max);
+
+  TRANS (turn = pid & location = idle) ->  (next(location) = req & next(x) = 0 & next(id) = id & next(prop) = prop & next(saved_max) = max_prop);
+
+  TRANS (turn = pid & location = req)  ->  (next(location) = wait & next(x) = 0 & next(id) = pid & next(prop) = prop & next(saved_max) = max_prop);
+
+  TRANS (turn = pid & location = wait) -> ((next(location) = idle & next(x) = 0 & next(id) = id & next(prop) = prop & next(saved_max) = max_prop) |
+                                           (next(location) = cs & next(x) = x & next(id) = id & next(prop) = prop & next(saved_max) = max_prop));
+
+  TRANS (turn = pid & location = cs)   ->  (next(location) = idle & next(x) = x & next(id) = 0 & next(prop) < prop & next(saved_max) = max_prop);
+
+  TRANS (location = idle & next(location = req)) -> id = 0;
+  TRANS (location = req & next(location = wait)) -> x <= prop;
+  TRANS (location = wait & next(location = idle)) -> x > saved_max & id != pid;
+  TRANS (location = wait & next(location = cs)) -> x > saved_max & id = pid;

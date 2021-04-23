@@ -1,0 +1,69 @@
+MODULE main
+  DEFINE
+    MIN_ACC := -1; -- must be negative.
+    MAX_ACC := 2;
+
+  VAR
+    delta : real;
+    time : real;
+    leader : LeaderVehicle(1, delta, MIN_ACC, MAX_ACC);
+    f0 : Vehicle(1, delta, leader, MIN_ACC, MAX_ACC);
+
+  INVAR delta >= 0;
+  TRANS delta = 0 -> next(delta) > 0;
+
+  INIT time = 0;
+  TRANS next(time) = time + delta;
+
+  INVARSPEC f0.dist > 0;
+
+  LTLSPEC NAME BENCH := ! G F (delta > 0 & f0.v > 0);
+
+
+MODULE LeaderVehicle(period, delta, min_acc, max_acc)
+  DEFINE controller := (delta = 0 & c = period & next(c) = 0);
+  VAR
+    a : real;
+    v : real;
+    c : real;
+
+  INIT a = 0 & v = 0 & c = 0;
+
+  INVAR 0 <= c & c <= period;
+  INVAR v >= 0 & v + a * delta >= 0; -- never goes back.
+  INVAR min_acc <= a & a <= max_acc;
+
+  TRANS c = period -> (next(c) = 0 & delta = 0);
+  TRANS c < period -> next(c) = c + delta;
+
+  -- acceleration can change only when the controller executes, unless crash.
+  TRANS !controller -> (next(a) = a | next(a) = 0);
+
+  TRANS next(v) = v + a * delta |
+    (next(v) = 0 & next(a) = 0); -- crash
+
+
+MODULE Vehicle(period, delta, vehicle, min_acc, max_acc)
+  -- controller executes every period to adjust velocity.
+  DEFINE controller := (delta = 0 & c = period & next(c) = 0);
+  VAR
+    a : real;
+    v : real;
+    dist : real;
+    c : real;
+
+  INIT a = 0 & v = 0 & dist = 1 & c = 0;
+
+  INVAR 0 <= c & c <= period;
+  INVAR v >= 0 & v + a * delta >= 0;
+  INVAR min_acc <= a & a <= max_acc;
+
+  TRANS c = period -> (next(c) = 0 & delta = 0);
+  TRANS c < period -> next(c) = c + delta;
+
+  -- controller changes acceleration by preserving: current_distance - distance_in_next_period - space_to_stop > 0
+  TRANS controller -> (dist - v * period - f'1/2 * next(a) * pow(period, 2) + f'1/2 * pow(v + next(a) * period, 2) / min_acc > 0);
+  TRANS !controller -> next(a) = a;
+
+  TRANS next(v) = v + a * delta;
+  TRANS next(dist) = dist + vehicle.v * delta + f'1/2 * vehicle.a * pow(delta, 2) - (v * delta + f'1/2 * a * pow(delta, 2));

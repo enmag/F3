@@ -1,0 +1,92 @@
+MODULE main
+  DEFINE
+    MAX_IDX := 25;
+  VAR
+    number : array 0..MAX_IDX of integer;
+    min_num : integer;
+    max_num : integer;
+    run : 0..MAX_IDX;
+      p0 : Proc(0, run = 0, number, min_num, max_num);
+  p1 : Proc(1, run = 1, number, min_num, max_num);
+  p2 : Proc(2, run = 2, number, min_num, max_num);
+  p3 : Proc(3, run = 3, number, min_num, max_num);
+  p4 : Proc(4, run = 4, number, min_num, max_num);
+  p5 : Proc(5, run = 5, number, min_num, max_num);
+  p6 : Proc(6, run = 6, number, min_num, max_num);
+  p7 : Proc(7, run = 7, number, min_num, max_num);
+  p8 : Proc(8, run = 8, number, min_num, max_num);
+  p9 : Proc(9, run = 9, number, min_num, max_num);
+  p10 : Proc(10, run = 10, number, min_num, max_num);
+  p11 : Proc(11, run = 11, number, min_num, max_num);
+  p12 : Proc(12, run = 12, number, min_num, max_num);
+  p13 : Proc(13, run = 13, number, min_num, max_num);
+  p14 : Proc(14, run = 14, number, min_num, max_num);
+  p15 : Proc(15, run = 15, number, min_num, max_num);
+  p16 : Proc(16, run = 16, number, min_num, max_num);
+  p17 : Proc(17, run = 17, number, min_num, max_num);
+  p18 : Proc(18, run = 18, number, min_num, max_num);
+  p19 : Proc(19, run = 19, number, min_num, max_num);
+  p20 : Proc(20, run = 20, number, min_num, max_num);
+  p21 : Proc(21, run = 21, number, min_num, max_num);
+  p22 : Proc(22, run = 22, number, min_num, max_num);
+  p23 : Proc(23, run = 23, number, min_num, max_num);
+  p24 : Proc(24, run = 24, number, min_num, max_num);
+  p25 : Proc(25, run = 25, number, min_num, max_num);
+
+
+  INIT number[0] = 0 & number[1] = 0 & number[2] = 0 & number[3] = 0 & number[4] = 0 & number[5] = 0 & number[6] = 0 & number[7] = 0 & number[8] = 0 & number[9] = 0 & number[10] = 0 & number[11] = 0 & number[12] = 0 & number[13] = 0 & number[14] = 0 & number[15] = 0 & number[16] = 0 & number[17] = 0 & number[18] = 0 & number[19] = 0 & number[20] = 0 & number[21] = 0 & number[22] = 0 & number[23] = 0 & number[24] = 0 & number[25] = 0;
+
+  INVAR max_num >= number[0] & max_num >= number[1] & max_num >= number[2] & max_num >= number[3] & max_num >= number[4] & max_num >= number[5] & max_num >= number[6] & max_num >= number[7] & max_num >= number[8] & max_num >= number[9] & max_num >= number[10] & max_num >= number[11] & max_num >= number[12] & max_num >= number[13] & max_num >= number[14] & max_num >= number[15] & max_num >= number[16] & max_num >= number[17] & max_num >= number[18] & max_num >= number[19] & max_num >= number[20] & max_num >= number[21] & max_num >= number[22] & max_num >= number[23] & max_num >= number[24] & max_num >= number[25];
+  INVAR max_num = number[0] | max_num = number[1] | max_num = number[2] | max_num = number[3] | max_num = number[4] | max_num = number[5] | max_num = number[6] | max_num = number[7] | max_num = number[8] | max_num = number[9] | max_num = number[10] | max_num = number[11] | max_num = number[12] | max_num = number[13] | max_num = number[14] | max_num = number[15] | max_num = number[16] | max_num = number[17] | max_num = number[18] | max_num = number[19] | max_num = number[20] | max_num = number[21] | max_num = number[22] | max_num = number[23] | max_num = number[24] | max_num = number[25];
+
+  INVAR (number[0] = 0 & number[1] = 0 & number[2] = 0 & number[3] = 0 & number[4] = 0 & number[5] = 0 & number[6] = 0 & number[7] = 0 & number[8] = 0 & number[9] = 0 & number[10] = 0 & number[11] = 0 & number[12] = 0 & number[13] = 0 & number[14] = 0 & number[15] = 0 & number[16] = 0 & number[17] = 0 & number[18] = 0 & number[19] = 0 & number[20] = 0 & number[21] = 0 & number[22] = 0 & number[23] = 0 & number[24] = 0 & number[25] = 0) <-> min_num = 0;
+  INVAR number[0] > 0 -> min_num <= number[0];
+INVAR number[1] > 0 -> min_num <= number[1];
+INVAR number[2] > 0 -> min_num <= number[2];
+INVAR number[3] > 0 -> min_num <= number[3];
+INVAR number[4] > 0 -> min_num <= number[4];
+INVAR number[5] > 0 -> min_num <= number[5];
+INVAR number[6] > 0 -> min_num <= number[6];
+INVAR number[7] > 0 -> min_num <= number[7];
+INVAR number[8] > 0 -> min_num <= number[8];
+INVAR number[9] > 0 -> min_num <= number[9];
+INVAR number[10] > 0 -> min_num <= number[10];
+INVAR number[11] > 0 -> min_num <= number[11];
+INVAR number[12] > 0 -> min_num <= number[12];
+INVAR number[13] > 0 -> min_num <= number[13];
+INVAR number[14] > 0 -> min_num <= number[14];
+INVAR number[15] > 0 -> min_num <= number[15];
+INVAR number[16] > 0 -> min_num <= number[16];
+INVAR number[17] > 0 -> min_num <= number[17];
+INVAR number[18] > 0 -> min_num <= number[18];
+INVAR number[19] > 0 -> min_num <= number[19];
+INVAR number[20] > 0 -> min_num <= number[20];
+INVAR number[21] > 0 -> min_num <= number[21];
+INVAR number[22] > 0 -> min_num <= number[22];
+INVAR number[23] > 0 -> min_num <= number[23];
+INVAR number[24] > 0 -> min_num <= number[24];
+INVAR number[25] > 0 -> min_num <= number[25];
+
+  INVAR min_num = number[0] | min_num = number[1] | min_num = number[2] | min_num = number[3] | min_num = number[4] | min_num = number[5] | min_num = number[6] | min_num = number[7] | min_num = number[8] | min_num = number[9] | min_num = number[10] | min_num = number[11] | min_num = number[12] | min_num = number[13] | min_num = number[14] | min_num = number[15] | min_num = number[16] | min_num = number[17] | min_num = number[18] | min_num = number[19] | min_num = number[20] | min_num = number[21] | min_num = number[22] | min_num = number[23] | min_num = number[24] | min_num = number[25];
+
+  LTLSPEC (G ((F p0.pick_num) & (F !p0.pick_num))) -> (G F number[0] = 0);
+
+MODULE Proc(id, run, number, min_num, max_num)
+  VAR
+    loc : {_pick_num, _wait_turn, _cs, _unlock};
+
+  DEFINE
+    pick_num := loc = _pick_num;
+    wait_turn := loc = _wait_turn;
+    cs := loc = _cs;
+    unlock := loc = _unlock;
+
+  INIT pick_num;
+
+  TRANS (!run) -> (next(loc) = loc & next(number[id]) = number[id]);
+
+  TRANS (run & pick_num) -> (next(number[id]) = 1 + max_num & next(wait_turn));
+  TRANS (run & wait_turn) -> ((next(wait_turn) | next(cs)) & next(number[id]) = number[id]);
+  TRANS (run & wait_turn) -> (next(cs) <-> (number[id] <= min_num & (number[0] = min_num -> id = 0) & (number[1] = min_num -> id <= 1) & (number[2] = min_num -> id <= 2) & (number[3] = min_num -> id <= 3) & (number[4] = min_num -> id <= 4) & (number[5] = min_num -> id <= 5) & (number[6] = min_num -> id <= 6) & (number[7] = min_num -> id <= 7) & (number[8] = min_num -> id <= 8) & (number[9] = min_num -> id <= 9) & (number[10] = min_num -> id <= 10) & (number[11] = min_num -> id <= 11) & (number[12] = min_num -> id <= 12) & (number[13] = min_num -> id <= 13) & (number[14] = min_num -> id <= 14) & (number[15] = min_num -> id <= 15) & (number[16] = min_num -> id <= 16) & (number[17] = min_num -> id <= 17) & (number[18] = min_num -> id <= 18) & (number[19] = min_num -> id <= 19) & (number[20] = min_num -> id <= 20) & (number[21] = min_num -> id <= 21) & (number[22] = min_num -> id <= 22) & (number[23] = min_num -> id <= 23) & (number[24] = min_num -> id <= 24) & (number[25] = min_num -> id <= 25)));
+  TRANS (run & cs) -> (next(cs) | next(unlock)) & next(number[id]) = number[id];
+  TRANS (run & unlock) -> (next(pick_num)) & next(number[id]) = number[id];

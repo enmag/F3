@@ -1,0 +1,108 @@
+-- int LOCK;
+
+-- void lock(void) {
+--      if (LOCK == 0) {
+--              LOCK = 1;
+--      } else {
+--              // assert \false;
+--      }
+-- }
+
+-- void unlock(void) {
+--      if (LOCK == 1) {
+--              LOCK = 0;
+--      } else {
+--              // assert \false;
+--      }
+-- }
+
+-- int main() {
+--      int got_lock;
+--      int old = 0, new = 0;
+--      if (__VERIFIER_nondet_int()) { // l0
+--              do { // l1
+--                      got_lock = 0; // l2
+--                      if (__VERIFIER_nondet_int()) { // l3
+--                              lock(); // l4
+--                              got_lock++; // l5
+--                      }
+--                      if (got_lock) { // l6
+--                              unlock(); // l7
+--                      }
+--              } while (__VERIFIER_nondet_int()); // l8
+--      }
+--      do { // l9
+--              lock(); // l10
+--              old = new; // l11
+--              if (__VERIFIER_nondet_int()) { // l12
+--                      unlock(); // l13
+--                      new++; // l14
+--              }
+--      } while (new != old); // l15
+--      unlock(); // l16
+--      return 0; // end
+-- }
+
+MODULE main
+  VAR
+    pc : {l0, l1, l2, l3, l4, l5, l6, l7, l8, l9, l10, l11, l12, l13, l14, l15, l16, end};
+    LOCK : {0, 1};
+    got_lock : integer;
+    old : integer;
+    new : integer;
+
+ -- control flow graph (lock and unlock are inlined)
+  ASSIGN
+    init(pc) := l0;
+    next(pc) :=
+      case
+        pc = l0 : {l1, l9};
+        pc = l1 : l2;
+        pc = l2 : l3;
+        pc = l3 : {l4, l6};
+        pc = l4 : l5;
+        pc = l5 : l6;
+        pc = l6 & (got_lock > 0) : l7;
+        pc = l6 & !(got_lock > 0) : l8;
+        pc = l8 : {l1, l9};
+        pc = l9 : l10;
+        pc = l10 : l11;
+        pc = l11 : l12;
+        pc = l12 : {l13, l15};
+        pc = l13 : l14;
+        pc = l14 : l15;
+        pc = l15 & new != old : l9;
+        pc = l15 & !(new != old) : l16;
+        pc = l16 : end;
+        TRUE: end;
+      esac;
+
+  DEFINE
+    same_lock := next(LOCK) = LOCK;
+    same_got_lock := next(got_lock) = got_lock;
+    same_old := next(old) = old;
+    same_new := next(new) = new;
+    same := same_lock & same_got_lock & same_old & same_new;
+
+  INIT old = 0 & new = 0;
+
+  TRANS pc = l0 -> same;
+  TRANS pc = l1 -> same;
+  TRANS pc = l2 -> same_lock & next(got_lock) = 0 & same_old & same_new;
+  TRANS pc = l3 -> same;
+  TRANS pc = l4 -> next(LOCK) = 1 & same_got_lock & same_old & same_new;
+  TRANS pc = l5 -> same_lock & next(got_lock) = got_lock + 1 & same_old & same_new;
+  TRANS pc = l6 -> same;
+  TRANS pc = l7 -> next(LOCK) = 0 & same_got_lock & same_old & same_new;
+  TRANS pc = l8 -> same;
+  TRANS pc = l9 -> same;
+  TRANS pc = l10 -> next(LOCK) = 1 & same_got_lock & same_old & same_new;
+  TRANS pc = l11 -> same_lock & same_got_lock & next(old) = new & same_new;
+  TRANS pc = l12 -> same;
+  TRANS pc = l13 -> next(LOCK) = 0 & same_got_lock & same_old & same_new;
+  TRANS pc = l14 -> same_lock & same_got_lock & same_old & next(new) = new + 1;
+  TRANS pc = l15 -> same;
+  TRANS pc = l16 -> next(LOCK) = 0 & same_got_lock & same_old & same_new;
+  TRANS pc = end -> same;
+
+  LTLSPEC NAME TERMINATION := F pc = end;

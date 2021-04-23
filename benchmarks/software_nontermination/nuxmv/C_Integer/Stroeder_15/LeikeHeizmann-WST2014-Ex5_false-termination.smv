@@ -1,0 +1,46 @@
+-- int main() {
+--     int a, b, olda;
+--  a = __VERIFIER_nondet_int();
+--  b = __VERIFIER_nondet_int();
+--  while (a >= 7) { // l0
+--    olda = a; // l1
+--    a = b; // l2
+--    b = olda + 1; // l3
+--    // b = a + 1; is a typo in the paper
+--  }
+--  return 0; // end
+-- }
+
+MODULE main
+  VAR
+    pc : {l0, l1, l2, l3, end};
+    a : integer;
+    b : integer;
+    olda : integer;
+
+  --control flow graph
+  ASSIGN
+    init(pc) := l0;
+    next(pc) :=
+      case
+        pc = l0 & (a >= 7) : l1;
+        pc = l0 & !(a >= 7) : end;
+        pc = l1 : l2;
+        pc = l2 : l3;
+        pc = l3 : l0;
+        TRUE : end;
+      esac;
+
+  DEFINE
+    same_a := next(a) = a;
+    same_b := next(b) = b;
+    same_olda := next(olda) = olda;
+    same := same_a & same_b & same_olda;
+
+  TRANS pc = l0 -> same;
+  TRANS pc = l1 -> same_a & same_b & next(olda) = a;
+  TRANS pc = l2 -> next(a) = b & same_b & same_olda;
+  TRANS pc = l3 -> same_a & next(b) = olda + 1 & same_olda;
+  TRANS pc = end -> same;
+
+  LTLSPEC NAME TERMINATION := F pc = end;

@@ -1,0 +1,8 @@
+MODULE main
+  VAR
+    b : boolean;
+    x : integer;
+  INIT x >= 0;
+  TRANS b -> (next(x) < - (x + 1) & next(!b));
+  TRANS !b -> (next(x) > - (x - 1) & next(b));
+  LTLSPEC ! (G F x > 0);

@@ -1,0 +1,105 @@
+MODULE main
+  DEFINE
+    delay := 2;
+    drift0 := 3;
+    drift1 := 2;
+    drift2 := 4;
+    drift3 := 1;
+    drift4 := 10;
+
+  VAR
+    delta : real;
+    time : real;
+    cm0 : ComprMaster(delta, delay);
+    cm1 : ComprMaster(delta, delay);
+    sm0 : SyncMaster(delta, drift0);
+    sm1 : SyncMaster(delta, drift1);
+    sm2 : SyncMaster(delta, drift2);
+    sm3 : SyncMaster(delta, drift3);
+    sm4 : SyncMaster(delta, drift4);
+  -- synchronization of discrete transitions: cm0 and sm*.
+    sync00 : SyncTrans(cm0, sm0);
+    sync01 : SyncTrans(cm0, sm1);
+    sync02 : SyncTrans(cm0, sm2);
+    sync03 : SyncTrans(cm0, sm3);
+    sync04 : SyncTrans(cm0, sm4);
+  -- synchronization of discrete transitions: cm1 and sm*.
+    sync10 : SyncTrans(cm1, sm0);
+    sync11 : SyncTrans(cm1, sm1);
+    sync12 : SyncTrans(cm1, sm2);
+    sync13 : SyncTrans(cm1, sm3);
+    sync14 : SyncTrans(cm1, sm4);
+
+  INVAR delta >= 0;
+  INIT time = 0;
+  TRANS next(time) = time + delta;
+
+  -- set `cm` in transition from `receive` to `correct1`.
+  TRANS (cm0.mode = receive & next(cm0.mode) = correct1) -> next(cm0.cm) = (sm0.sm + sm1.sm + sm2.sm + sm3.sm + sm4.sm) / 5;
+  TRANS (cm1.mode = receive & next(cm1.mode) = correct1) -> next(cm1.cm) = (sm0.sm + sm1.sm + sm2.sm + sm3.sm + sm4.sm) / 5;
+
+  -- set `sm` in trasition from `sync1` to `sync2`.
+  TRANS (sm0.mode = sync1 & next(sm0.mode) = sync2) -> next(sm0.sm) = (cm0.cm + cm1.cm) / 2;
+  TRANS (sm1.mode = sync1 & next(sm1.mode) = sync2) -> next(sm1.sm) = (cm0.cm + cm1.cm) / 2;
+  TRANS (sm2.mode = sync1 & next(sm2.mode) = sync2) -> next(sm2.sm) = (cm0.cm + cm1.cm) / 2;
+  TRANS (sm3.mode = sync1 & next(sm3.mode) = sync2) -> next(sm3.sm) = (cm0.cm + cm1.cm) / 2;
+  TRANS (sm4.mode = sync1 & next(sm4.mode) = sync2) -> next(sm4.sm) = (cm0.cm + cm1.cm) / 2;
+
+  DEFINE avg_cm := (cm0.cm + cm1.cm) / 2;
+  LTLSPEC NAME BENCH := ! G F (sm0.sm = avg_cm & sm1.sm = avg_cm & sm2.sm = avg_cm & sm3.sm = avg_cm & sm4.sm = avg_cm);
+
+MODULE SyncTrans(cm, sm)
+  TRANS (cm.mode = waiting & next(cm.mode) = receive) <-> (sm.mode = work & next(sm.mode) = send);
+  TRANS (cm.mode = receive & next(cm.mode) = correct1) <-> (sm.mode = send & next(sm.mode) = sync1);
+  TRANS (cm.mode = correct1 & next(cm.mode) = correct2) <-> (sm.mode = sync1 & next(sm.mode) = sync2);
+  TRANS (cm.mode = correct2 & next(cm.mode) = waiting) <-> (sm.mode = sync2 & next(sm.mode) = work);
+
+
+MODULE ComprMaster(delta, delay)
+  VAR
+    mode : {waiting, receive, correct1, correct2};
+    cm : real;
+    x : real;
+
+  INIT cm = 0 & x = 0;
+
+  TRANS delta > 0 -> next(x) = x + delta;
+
+  INVAR mode != waiting -> (delta = 0 & x = 0);
+  INVAR mode = waiting -> x <= delay;
+
+  ASSIGN
+    init(mode) := waiting;
+    next(mode) :=
+      case
+        delta = 0 & mode = waiting : receive;
+        delta = 0 & mode = receive : correct1;
+        delta = 0 & mode = correct1 : correct2;
+        delta = 0 & mode = correct2 : waiting;
+        TRUE : mode;
+      esac;
+
+  TRANS (mode = waiting & next(mode) = receive) -> (x >= delay & next(x) = 0);
+  TRANS !(mode = receive & next(mode) = correct1) -> next(cm) = cm;
+
+
+MODULE SyncMaster(delta, drift)
+  VAR
+    mode : {work, send, sync1, sync2};
+    sm : real;
+
+  INIT sm = 0;
+  TRANS delta > 0 -> next(sm) = sm + delta;
+  ASSIGN
+    init(mode) := work;
+    next(mode) :=
+      case
+        delta = 0 & mode = work : send;
+        delta = 0 & mode = send : sync1;
+        delta = 0 & mode = sync1 : sync2;
+        delta = 0 & mode = sync2 : work;
+        TRUE : mode;
+      esac;
+
+  TRANS (mode = work & next(mode) = send) -> (sm - drift <= next(sm) & next(sm) <= sm + drift);
+  TRANS ((mode = send & next(mode) = sync1) | (mode = sync2 & next(mode) = work)) -> next(sm) = sm;

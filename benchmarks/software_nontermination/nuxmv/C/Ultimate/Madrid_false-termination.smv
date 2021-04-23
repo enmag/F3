@@ -1,0 +1,34 @@
+-- int main()
+-- {
+--  int x = 7; // l0
+--  while (1) { // l1
+--    x = 2; // l2
+--  }
+--  return 0; // end
+-- }
+
+MODULE main
+  VAR
+    pc : {l0, l1, l2, end};
+    x : integer;
+
+  -- control flow graph
+  ASSIGN
+    init(pc) := l0;
+    next(pc) :=
+      case
+        pc = l0: l1;
+        pc = l1 & TRUE : l2;
+        pc = l1 & !TRUE : end;
+        pc = l2 : l1;
+        TRUE: end;
+      esac;
+
+  INIT x = 7;
+
+  TRANS pc = l0 -> next(x) = x;
+  TRANS pc = l1 -> next(x) = x;
+  TRANS pc = l2 -> next(x) = 2;
+  TRANS pc = end -> next(x) = x;
+
+  LTLSPEC NAME TERMINATION := F pc = end;

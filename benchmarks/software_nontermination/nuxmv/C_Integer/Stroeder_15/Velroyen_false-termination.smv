@@ -1,0 +1,59 @@
+-- int main() {
+--  int x;
+--  while (x!=0) { // l0
+--      if (-5 <= x && x <= 35) { // l1
+--        if (x < 0) { // l2
+--          x = -5; // l3
+--      } else {
+--          if (x > 30) { // l4
+--            x = 35; // l5
+--        } else {
+--          x = x - 1; // l6
+--        }
+--      }
+--    } else {
+--        x = 0; // l7
+--    }
+--  }
+--     return 0; // end
+-- }
+
+MODULE main
+  VAR
+    pc : {l0, l1, l2, l3, l4, l5, l6, l7, end};
+    x : integer;
+
+  --control flow graph
+  ASSIGN
+    init(pc) := l0;
+    next(pc) :=
+      case
+        pc = l0 & (x != 0) : l1;
+        pc = l0 & !(x != 0) : end;
+        pc = l1 & (-5 <= x & x <= 35) : l2;
+        pc = l1 & !(-5 <= x & x <= 35) : l7;
+        pc = l2 & (x < 0) : l3;
+        pc = l2 & !(x < 0) : l4;
+        pc = l3 : l0;
+        pc = l4 & (x > 30) : l5;
+        pc = l4 & !(x > 30) : l6;
+        pc = l5 : l0;
+        pc = l6 : l0;
+        pc = l7 : l0;
+        TRUE : end;
+      esac;
+
+  DEFINE
+    same := next(x) = x;
+
+  TRANS pc = l0 -> same;
+  TRANS pc = l1 -> same;
+  TRANS pc = l2 -> same;
+  TRANS pc = l3 -> next(x) = -5;
+  TRANS pc = l4 -> same;
+  TRANS pc = l5 -> next(x) = 35;
+  TRANS pc = l6 -> next(x) = x - 1;
+  TRANS pc = l7 -> next(x) = 0;
+  TRANS pc = end -> same;
+
+  LTLSPEC NAME TERMINATION := F pc = end;

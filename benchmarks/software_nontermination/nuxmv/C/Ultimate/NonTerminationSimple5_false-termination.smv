@@ -1,0 +1,38 @@
+-- int main()
+-- {
+--  int x = __VERIFIER_nondet_int();
+--  while (x >= 0) { // l0
+--    if (__VERIFIER_nondet_int()) { // l1
+--      x -= 1; // l2
+--    } else {
+--      x += 1; // l3
+--    }
+--  }
+--  return 0; // end
+-- }
+
+MODULE main
+  VAR
+    pc : {l0, l1, l2, l3, end};
+    x : integer;
+
+  -- control flow graph
+  ASSIGN
+    init(pc) := l0;
+    next(pc) :=
+      case
+        pc = l0 & x >= 0: l1;
+        pc = l0 & !(x >= 0): end;
+        pc = l1 : {l2, l3};
+        pc = l2 : l0;
+        pc = l3 : l0;
+        TRUE: end;
+      esac;
+
+  TRANS pc = l0 -> next(x) = x;
+  TRANS pc = l1 -> next(x) = x;
+  TRANS pc = l2 -> next(x) = x - 1;
+  TRANS pc = l3 -> next(x) = x + 1;
+  TRANS pc = end -> next(x) = x;
+
+  LTLSPEC NAME TERMINATION := F pc = end;

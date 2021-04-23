@@ -1,0 +1,80 @@
+@TIME_DOMAIN continuous
+MODULE main
+
+  VAR
+    mgr : TokenManager;
+    total_transm_time : real;
+      st0 : Station(mgr);
+  st1 : Station(mgr);
+  st2 : Station(mgr);
+  st3 : Station(mgr);
+  st4 : Station(mgr);
+  st5 : Station(mgr);
+  st6 : Station(mgr);
+  st7 : Station(mgr);
+  st8 : Station(mgr);
+  st9 : Station(mgr);
+  st10 : Station(mgr);
+  st11 : Station(mgr);
+
+
+    -- only 1 station moves at a time.
+  TRANS st0.stutter | st1.stutter | st2.stutter | st3.stutter | st4.stutter | st5.stutter | st6.stutter | st7.stutter | st8.stutter | st9.stutter | st10.stutter | st11.stutter;
+  -- not all stutter.
+  TRANS !(mgr.stutter & st0.stutter & st1.stutter & st2.stutter & st3.stutter & st4.stutter & st5.stutter & st6.stutter & st7.stutter & st8.stutter & st9.stutter & st10.stutter & st11.stutter);
+  -- sync stations and mgr.
+  TRANS mgr.acquire <-> (st0.acquire | st1.acquire | st2.acquire | st3.acquire | st4.acquire | st5.acquire | st6.acquire | st7.acquire | st8.acquire | st9.acquire | st10.acquire | st11.acquire);
+  TRANS mgr.release <-> (st0.release | st1.release | st2.release | st3.release | st4.release | st5.release | st6.release | st7.release | st8.release | st9.release | st10.release | st11.release);
+
+  INIT total_transm_time = 0;
+  TRANS (mgr.counting & next(mgr.idle)) -> next(total_transm_time) = total_transm_time + mgr.c;
+  TRANS !(mgr.counting & next(mgr.idle)) -> next(total_transm_time) = total_transm_time;
+
+  INVARSPEC ! (st0.transm & st1.transm);
+  LTLSPEC (G F (mgr.counting & next(mgr.idle))) -> G F total_transm_time < 10;
+
+
+MODULE TokenManager
+  IVAR
+    evt : {_acquire, _release, _stutter};
+  VAR
+    loc : {_idle, _counting};
+    timeout : real;
+    c : clock;
+
+  DEFINE
+    acquire := evt = _acquire;
+    release := evt = _release;
+    stutter := evt = _stutter;
+    idle := loc = _idle;
+    counting := loc = _counting;
+
+  INIT c = 0 & idle & timeout = 0;
+  INVAR counting -> c <= timeout;
+
+  TRANS stutter -> next(loc) = loc & next(timeout) = timeout & next(c) = c;
+
+  TRANS (!stutter & idle) -> (acquire & next(counting) & next(c) = 0);
+  TRANS (!stutter & counting) -> (release & next(idle) & next(c) = 0 & next(timeout) = 0);
+
+
+MODULE Station(mgr)
+  IVAR
+    evt : {_acquire, _release, _stutter};
+  VAR
+    loc : {_idle, _transm};
+    req_time : real;
+
+  DEFINE
+    acquire := evt = _acquire;
+    release := evt = _release;
+    stutter := evt = _stutter;
+    idle := loc = _idle;
+    transm := loc = _transm;
+
+  INIT idle;
+  INVAR req_time > 0;
+
+  TRANS stutter -> (next(loc) = loc & next(req_time) = req_time);
+  TRANS (!stutter & idle) -> (acquire & next(transm) & next(mgr.timeout) = req_time & next(req_time) = req_time);
+  TRANS (!stutter & transm) -> (release & mgr.c > 0 & next(idle));

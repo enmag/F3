@@ -1,0 +1,148 @@
+///*** 1_foo ***///
+///*** 2_main ***///
+START: main_bb8;
+
+FROM: main_bb8;
+v7 := nondet();
+v8 := nondet();
+v10 := 1 - 1;
+TO: main_bb8_v_;
+
+FROM: main_bb8_v_;
+assume(v8 > 0);
+v_ := v10;
+TO: main_bb8_sv_;
+
+FROM: main_bb8_v_;
+assume(v8 < 0);
+v_ := v10;
+TO: main_bb8_sv_;
+
+FROM: main_bb8_v_;
+assume(v8 == 0);
+v_ := 1;
+TO: main_bb8_sv_;
+
+FROM: main_bb8_sv_;
+v11 := nondet();
+TO: main_bb8_end;
+
+FROM: main_bb8_end;
+assume(v11 > 0);
+TO: main_bb9;
+
+FROM: main_bb8_end;
+assume(v11 < 0);
+TO: main_bb9;
+
+FROM: main_bb8_end;
+assume(v11 == 0);
+TO: main_bb10;
+
+FROM: main_bb9;
+v13 := nondet();
+TO: main_bb10;
+
+FROM: main_bb10;
+v14 := nondet();
+TO: main_bb10_end;
+
+FROM: main_bb10_end;
+assume(v14 > 0);
+TO: main_bb11;
+
+FROM: main_bb10_end;
+assume(v14 < 0);
+TO: main_bb11;
+
+FROM: main_bb10_end;
+assume(v14 == 0);
+TO: main_bb12;
+
+FROM: main_bb11;
+v16 := nondet();
+TO: main_bb12;
+
+FROM: main_bb12;
+v17 := nondet();
+TO: main_bb12_end;
+
+FROM: main_bb12_end;
+assume(v17 > 0);
+TO: main_bb13;
+
+FROM: main_bb12_end;
+assume(v17 < 0);
+TO: main_bb13;
+
+FROM: main_bb12_end;
+assume(v17 == 0);
+TO: main_bb14;
+
+FROM: main_bb13;
+v19 := nondet();
+TO: main_bb14;
+
+FROM: main_bb14;
+v20 := nondet();
+TO: main_bb14_end;
+
+FROM: main_bb14_end;
+assume(v20 > 0);
+TO: main_bb15;
+
+FROM: main_bb14_end;
+assume(v20 < 0);
+TO: main_bb15;
+
+FROM: main_bb14_end;
+assume(v20 == 0);
+TO: main_bb16;
+
+FROM: main_bb15;
+v22 := nondet();
+TO: main_bb16;
+
+FROM: main_bb16;
+v23 := nondet();
+v25 := v_ - 1;
+TO: main_bb16_v__;
+FROM: main_bb16_v__;
+assume(v23 > 0);
+v__ := v25;
+TO: main_bb16_sv__;
+
+FROM: main_bb16_v__;
+assume(v23 < 0);
+v__ := v25;
+TO: main_bb16_sv__;
+
+FROM: main_bb16_v__;
+assume(v23 == 0);
+v__ := v_;
+TO: main_bb16_sv__;
+
+FROM: main_bb16_sv__;
+var__temp_vx_0 := v7;
+vx_0 := var__temp_vx_0;
+TO: main_bb17;
+
+FROM: main_bb17;
+TO: main_bb17_end;
+
+FROM: main_bb17_end;
+assume(vx_0 > 0);
+TO: main_bb18;
+
+FROM: main_bb17_end;
+assume(vx_0 <= 0);
+TO: main_bb19;
+
+FROM: main_bb18;
+v27 := vx_0 - v__;
+var__temp_vx_0 := v27;
+vx_0 := var__temp_vx_0;
+TO: main_bb17;
+
+FROM: main_bb19;
+TO: main_bb19_ret;

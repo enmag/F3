@@ -1,0 +1,100 @@
+@TIME_DOMAIN continuous
+MODULE main
+DEFINE
+  N := 4;
+  SA := 20;
+  TD := 0;
+  TRTT := 270;
+
+VAR
+  r : Ring(N, TD);
+  st0 : ST(0, SA, TRTT);
+  st1 : ST(1, SA, TRTT);
+  st2 : ST(2, SA, TRTT);
+  st3 : ST(3, SA, TRTT);
+  st4 : ST(4, SA, TRTT);
+
+
+TRANS !r.evt_stutter | !st0.evt_stutter |!st1.evt_stutter |!st2.evt_stutter |!st3.evt_stutter |!st4.evt_stutter;
+
+TRANS ((r.evt_rt & r.evt_id = 0) <-> st0.evt_rt) &  ((r.evt_tt & r.evt_id = 0) <-> st0.evt_tt);
+TRANS ((r.evt_rt & r.evt_id = 1) <-> st1.evt_rt) &  ((r.evt_tt & r.evt_id = 1) <-> st1.evt_tt);
+TRANS ((r.evt_rt & r.evt_id = 2) <-> st2.evt_rt) &  ((r.evt_tt & r.evt_id = 2) <-> st2.evt_tt);
+TRANS ((r.evt_rt & r.evt_id = 3) <-> st3.evt_rt) &  ((r.evt_tt & r.evt_id = 3) <-> st3.evt_tt);
+TRANS ((r.evt_rt & r.evt_id = 4) <-> st4.evt_rt) &  ((r.evt_tt & r.evt_id = 4) <-> st4.evt_tt);
+
+
+LTLSPEC (G F st0.l = y_async);
+
+MODULE Ring(N, TD)
+DEFINE
+  evt_stutter := event = stutter;
+  evt_rt := event = rt;
+  evt_tt := event = tt;
+IVAR
+  event : {stutter, rt, tt};
+  evt_id : 0..N;
+VAR
+  l : {ring_to_counter, ring_counter};
+  counter : 0..N;
+  x : clock;
+
+INIT l = ring_to_counter & counter = 0 & x = 0;
+INVAR l = ring_to_counter -> x <= TD;
+
+TRANS evt_stutter -> (next(l) = l & next(counter) = counter & next(x) = x);
+
+-- ring_to_counter -> ring_counter
+TRANS (!evt_stutter & l = ring_to_counter) -> (x <= TD & evt_tt & evt_id = counter & next(l) = ring_counter & next(x) = x & next(counter) = counter);
+
+-- ring_counter -> ring_to_counter (counter < N)
+TRANS (!evt_stutter & l = ring_counter & counter < N) -> (evt_rt & evt_id = counter & next(x) = 0 & next(counter) = counter + 1 & next(l) = ring_to_counter);
+
+-- ring_counter -> ring_to_counter (counter = N)
+TRANS (!evt_stutter & l = ring_counter & counter = N) -> (evt_rt & evt_id = counter & next(x) = 0 & next(counter) = 0 & next(l) = ring_to_counter);
+
+
+MODULE ST(id, SA, TRTT)
+IVAR
+  event : {stutter, move, rt, tt};
+DEFINE
+  evt_stutter := event = stutter;
+  evt_move := event = move;
+  evt_rt := event = rt;
+  evt_tt := event = tt;
+VAR
+  x : clock;
+  y : clock;
+  z : clock;
+  l : {z_idle, z_sync, z_async, y_idle, y_sync, y_async};
+
+INIT l = z_idle & x = 0 & y = 0 & z = 0;
+
+INVAR l = z_sync -> x <= SA;
+INVAR l = z_async -> x <= TRTT;
+-- INVAR l = y_sync -> x <= SA;
+INVAR l = y_async -> x <= TRTT;
+
+TRANS evt_stutter -> (next(l) = l & next(x) = x & next(y) = y & next(z) = z);
+
+-- z_idle -> z_sync
+TRANS (!evt_stutter & l = z_idle) -> (evt_tt & next(l) = z_sync & next(x) = 0 & next(y) = 0 & next(z) = z);
+
+-- z_sync -> [z_async | y_idle]
+TRANS (!evt_stutter & l = z_sync) -> ((next(l) = z_async | next(l) = y_idle) & next(x) = x & next(y) = y & next(z) = z);
+TRANS (l = z_sync & next(l) = z_async) -> (x >= SA & z < TRTT & evt_move);
+TRANS (l = z_sync & next(l) = y_idle) -> (x >= SA & z >= TRTT & evt_rt);
+
+-- z_async -> y_idle
+TRANS (!evt_stutter & l = z_async) -> (next(l) = y_idle & evt_rt & next(x) = x & next(y) = y & next(z) = z);
+
+-- y_idle -> y_sync
+TRANS (!evt_stutter & l = y_idle) -> (next(l) = y_sync & evt_tt & next(x) = 0 & next(y) = y & next(z) = 0);
+
+-- y_sync -> [y_async | z_idle]
+TRANS (!evt_stutter & l = y_sync) -> ((next(l) = y_async | next(l) = z_idle) & next(x) = x & next(y) = y & next(z) = z);
+TRANS (l = y_sync & next(l) = y_async) -> (x >= SA & y < TRTT & evt_move);
+TRANS (l = y_sync & next(l) = z_idle) -> (x >= SA & y >= TRTT & evt_rt);
+
+-- y_async -> z_idle
+TRANS (!evt_stutter & l = y_async) -> (next(l) = z_idle & evt_rt & next(x) = x & next(y) = y & next(z) = z);

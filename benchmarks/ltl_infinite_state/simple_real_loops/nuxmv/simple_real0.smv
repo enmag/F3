@@ -1,0 +1,7 @@
+MODULE main
+  VAR
+    x : real;
+  INIT x >= 0;
+  TRANS x > 0 -> next(x) < - (x + 1);
+  TRANS x <= 0 -> next(x) > - (x - 1);
+  LTLSPEC !(G F x >= 0);

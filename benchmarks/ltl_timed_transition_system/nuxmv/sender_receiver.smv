@@ -1,0 +1,63 @@
+@TIME_DOMAIN continuous
+MODULE main
+  VAR
+    r2s : integer;
+    s2r : integer;
+    r : Receiver(s2r, r2s);
+    s : Sender(r2s, s2r);
+
+    LTLSPEC (G F !s.stutter) -> G (s.wait_ack -> F s.send);
+
+MODULE Sender(in_c, out_c)
+  DEFINE
+    base_timeout := 1;
+  VAR
+    stutter : boolean;
+  VAR
+    loc : {_send, _wait_ack};
+    msg_id : integer;
+    timeout : real;
+    c : clock;
+
+  INVAR wait_ack -> c <= timeout;
+
+  DEFINE
+    send := loc = _send;
+    wait_ack := loc = _wait_ack;
+
+  INIT send & c = 0 & msg_id = 0;
+
+  TRANS stutter -> (next(loc) = loc & next(msg_id) = msg_id & next(timeout) = timeout & next(c) = c &
+                    next(out_c) = out_c);
+
+  TRANS (!stutter & send & next(send)) ->
+    (next(msg_id) = msg_id & next(timeout) = base_timeout & next(c) = 0 &
+     next(out_c) = out_c);
+
+  TRANS (!stutter & send & next(wait_ack)) ->
+    (next(msg_id) = msg_id + 1 & next(timeout) = base_timeout & next(c) = 0 & next(out_c) = out_c);
+
+  TRANS (!stutter & wait_ack) -> (next(c) = 0 & next(out_c) = out_c &
+                                  (next(wait_ack) <-> (in_c != msg_id & c >= timeout)));
+  TRANS (!stutter & wait_ack & next(wait_ack)) -> (next(timeout) > timeout);
+
+  TRANS (!stutter & wait_ack) -> (next(send) <-> (in_c = msg_id & c < timeout));
+  TRANS (!stutter & wait_ack & next(send)) -> (next(timeout) = base_timeout);
+
+
+
+MODULE Receiver(in_c, out_c)
+  VAR
+    loc : {_wait, _work};
+
+  DEFINE
+    wait := loc = _wait;
+    work := loc = _work;
+
+  INIT wait;
+
+  TRANS wait -> (next(wait) <-> in_c = out_c);
+  TRANS (wait & next(wait)) -> (next(out_c) = out_c);
+  -- TRANS wait -> (next(work) <-> in_c != out_c);
+  TRANS (wait & next(work)) -> next(out_c) = in_c;
+  TRANS work -> next(out_c) = out_c;

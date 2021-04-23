@@ -1,0 +1,51 @@
+-- SMV encondig of P10.java from benchmarks of paper "Disproving termination with overapproximation".
+MODULE main
+  VAR
+    a : integer;
+    b : integer;
+    x : integer;
+    y : integer;
+    z : integer;
+    pc : -1..9;
+
+  -- cfg
+  ASSIGN
+  init(pc) := 0;
+  next(pc) :=
+    case
+      pc = -1 : -1;
+      pc = 0 & !(x >= 1) : -1;
+      pc = 0 & x >= 1 : 1;
+      pc = 1 & !(b < 0) : -1;
+      pc = 1 & b < 0 : 2;
+      pc = 2 & !(a >= 0) : -1;
+      pc = 2 & a >= 0 : 3;
+      pc = 3 & !(x >= y & z < 42) : -1;
+      pc = 3 & (x >= y & z < 42) : 4;
+      pc = 4 : {5, 7};
+      pc = 5 : 6;
+      pc = 6 : 3;
+      pc = 7 : 8;
+      pc = 8 : 9;
+      pc = 9 : 3;
+    esac;
+
+  -- constraints
+  TRANS (pc = -1 & next(pc) = -1) -> (next(a) = a & next(b) = b & next(x) = x & next(y) = y & next(z) = z);
+  TRANS (pc = 0 & next(pc) = -1) -> (next(a) = a & next(b) = b & next(x) = x & next(y) = y & next(z) = z);
+  TRANS (pc = 0 & next(pc) = 1)  -> (next(a) = a & next(b) = b & next(x) = x & next(y) = y & next(z) = z);
+  TRANS (pc = 1 & next(pc) = -1) -> (next(a) = a & next(b) = b & next(x) = x & next(y) = y & next(z) = z);
+  TRANS (pc = 1 & next(pc) = 2)  -> (next(a) = a & next(b) = b & next(x) = x & next(y) = y & next(z) = z);
+  TRANS (pc = 2 & next(pc) = -1) -> (next(a) = a & next(b) = b & next(x) = x & next(y) = y & next(z) = z);
+  TRANS (pc = 2 & next(pc) = 3)  -> (next(a) = a & next(b) = b & next(x) = x & next(y) = y & next(z) = z);
+  TRANS (pc = 3 & next(pc) = -1) -> (next(a) = a & next(b) = b & next(x) = x & next(y) = y & next(z) = z);
+  TRANS (pc = 3 & next(pc) = 4)  -> (next(a) = a & next(b) = b & next(x) = x & next(y) = y & next(z) = z);
+  TRANS (pc = 4 & next(pc) = 5)  -> (next(a) = a & next(b) = b & next(x) = x & next(y) = y & next(z) = z);
+  TRANS (pc = 4 & next(pc) = 7)  -> (next(a) = a & next(b) = b & next(x) = x & next(y) = y & next(z) = z);
+  TRANS (pc = 5 & next(pc) = 6)  -> (next(a) = a & next(b) = b & next(x) = 1 & next(y) = y & next(z) = z);
+  TRANS (pc = 6 & next(pc) = 3)  -> (next(a) = a & next(b) = b & next(x) = x & next(y) = 15 & next(z) = z);
+  TRANS (pc = 7 & next(pc) = 8)  -> (next(a) = a & next(b) = b &               next(y) = y & next(z) = z);
+  TRANS (pc = 8 & next(pc) = 9)  -> (next(a) = a & next(b) = b & next(x) = x & next(y) = y & next(z) = a*b);
+  TRANS (pc = 9 & next(pc) = 3)  -> (next(a) = a+1 & next(b) = b & next(x) = x & next(y) = y & next(z) = z);
+
+  LTLSPEC NAME BENCH := F pc = -1;

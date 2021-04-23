@@ -1,0 +1,13 @@
+@TIME_DOMAIN continuous
+MODULE main
+  VAR
+    c : clock;
+    counter : integer;
+    bound : real;
+
+  INIT c = 0 & counter = 0;
+
+  TRANS c = bound -> (next(c) = pow(counter, 2) & next(counter) = counter + 1);
+  TRANS c != bound -> (next(c) = c & next(counter) = counter);
+
+  LTLSPEC F G (c != bound | ! X TRUE);

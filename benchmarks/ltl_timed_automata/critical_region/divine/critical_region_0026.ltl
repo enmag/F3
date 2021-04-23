@@ -1,0 +1,5 @@
+#define pc0_error (PC0.error)
+#define pc1_error (PC1.error)
+#define id0 (id == 0)
+
+#property (G !( pc0_error && pc1_error)) -> (G F id0)

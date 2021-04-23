@@ -1,0 +1,100 @@
+MODULE main
+DEFINE
+  a := 2;
+  b := 5;
+  c := 1;
+  d := 2;
+  e := 1;
+VAR
+  gate : Gate(c, d);
+  controller : Controller(e);
+  train0 : Train(a, b);
+  train1 : Train(a, b);
+
+
+TRANS train0.evt != stutter -> (train1.evt = stutter);
+TRANS train1.evt != stutter -> (train0.evt = stutter);
+
+
+TRANS controller.evt = lower <-> gate.evt = lower;
+TRANS controller.evt = rise <-> gate.evt = rise;
+TRANS controller.evt = approach <-> (train0.evt = approach | train1.evt = approach);
+TRANS controller.evt = exit <-> (train0.evt = exit | train1.evt = exit);
+
+MITLSPEC FALSE SR ((gate.l = g0 & gate.x_l = g1) -> (TRUE SU (gate.l = g2 & gate.x_l = g3)));
+
+MODULE Train(a, b)
+VAR
+  evt : {stutter, approach, exit, move};
+  l : {t0, t1, t2, t3};
+  x : clock(l = t0 & next(l) = t1);
+
+INIT l = t0;
+
+INVAR (l != t0) -> (x <= b);
+
+TRANS evt = stutter -> (next(l) = l);
+
+-- t0 -> t1
+TRANS (evt != stutter & l = t0) -> (next(l) = t1 & evt = approach);
+-- t1 -> t2
+TRANS (evt != stutter & l = t1) -> (next(l) = t2 & x > a & evt = move);
+-- t2 -> t3
+TRANS (evt != stutter & l = t2) -> (next(l) = t3 & evt = move);
+-- t3 -> t0
+TRANS (evt != stutter & l = t3) -> (next(l) = t0 & x <= b & evt = exit);
+
+
+MODULE Gate(c, d)
+VAR
+  evt : {stutter, lower, rise, move};
+  l : {g0, g1, g2, g3};
+  x_l : {g0, g1, g2, g3};
+  y : clock((l = g0 & next(l) = g1) |
+            (l = g2 & next(l) = g3));
+
+INIT l = g0;
+
+INVAR l = g1 -> y <= c;
+INVAR l = g3 -> y <= d;
+
+TRANS next(l) = x_l;
+TRANS evt = stutter -> (next(l) = l);
+
+-- g0 -> g1
+TRANS (evt != stutter & l = g0) -> (next(l) = g1 & evt = lower);
+-- g1 -> g2
+TRANS (evt != stutter & l = g1) -> (next(l) = g2 & y <= c & evt = move);
+-- g2 -> g3
+TRANS (evt != stutter & l = g2) -> (next(l) = g3 & evt = rise);
+-- g3 -> g0
+TRANS (evt != stutter & l = g3) -> (next(l) = g0 & y >= c & y <= d & evt = move);
+
+MODULE Controller(e)
+VAR
+  evt : {stutter, approach, exit, lower, rise};
+  cnt : 0..3;
+  l : {c0, c1, c2, c3};
+  z : clock((l = c0 & next(l) = c1) |
+            (l = c2 & next(l) = c3));
+
+INIT l = c0;
+
+INVAR (l = c1 | l = c3) -> (z <= e);
+
+TRANS evt = stutter -> (next(l) = l & next(cnt) = cnt);
+
+-- c0 -> c1
+TRANS (evt != stutter & l = c0) -> (next(l) = c1 & evt = approach & next(cnt) = 1);
+-- c1 -> [c1 | c2]
+TRANS (evt != stutter & l = c1) -> (next(l) = c1 | next(l) = c2);
+TRANS (evt != stutter & l = c1 & next(l) = c1) -> ((evt = approach & next(cnt) = cnt + 1) | (evt = exit & next(cnt) = cnt - 1));
+TRANS (l = c1 & next(l) = c2) -> (evt = lower & z = e & next(cnt) = cnt);
+-- c2 -> [c2 | c3]
+TRANS (evt != stutter & l = c2) -> (next(l) = c2 | next(l) = c3);
+TRANS (evt != stutter & l = c2 & next(l) = c2) -> ((cnt > 1 & evt = exit & next(cnt) = cnt - 1) | (evt = approach & next(cnt) = cnt + 1));
+TRANS (l = c2 & next(l) = c3) -> (cnt = 1 & evt = exit & next(cnt) = 0);
+-- c3 -> [c2 | c0]
+TRANS (evt != stutter & l = c3) -> (next(l) = c2 | next(l) = c0);
+TRANS (l = c3 & next(l) = c2) -> (z <= e & evt = approach & next(cnt) = cnt + 1);
+TRANS (l = c3 & next(l) = c0) -> (z <= e & evt = rise & next(cnt) = cnt);

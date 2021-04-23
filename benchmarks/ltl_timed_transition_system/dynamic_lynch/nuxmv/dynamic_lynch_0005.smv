@@ -1,0 +1,66 @@
+@TIME_DOMAIN continuous
+MODULE main
+  DEFINE
+    _T := 16;
+  VAR
+    v1 : 0..6;
+    v2 : boolean;
+    proposed : array 0..4 of real;
+    max_prop : real;
+      p0 : P(1, _T, v1, v2, proposed[0], max_prop);
+  p1 : P(2, _T, v1, v2, proposed[1], max_prop);
+  p2 : P(3, _T, v1, v2, proposed[2], max_prop);
+  p3 : P(4, _T, v1, v2, proposed[3], max_prop);
+  p4 : P(5, _T, v1, v2, proposed[4], max_prop);
+
+
+  INVAR max_prop >= proposed[0] & max_prop >= proposed[1] & max_prop >= proposed[2] & max_prop >= proposed[3] & max_prop >= proposed[4];
+  INVAR max_prop = proposed[0] | max_prop = proposed[1] | max_prop = proposed[2] | max_prop = proposed[3] | max_prop = proposed[4];
+
+
+  TRANS !(p0.evt_stutter & p1.evt_stutter & p2.evt_stutter & p3.evt_stutter & p4.evt_stutter);
+
+  INVARSPEC ! (p0.l = CS7 & p1.l = CS7);
+  LTLSPEC F G next(max_prop) >= max_prop;
+
+
+MODULE P(id, _T, v1, v2, prop, max_prop)
+  IVAR event : {stutter, move};
+  DEFINE
+    evt_stutter := event = stutter;
+    evt_move := event = move;
+  VAR
+    l : {L1, L2, L3, L4, L5, L6, CS7, L8, L9};
+    c : clock;
+
+  INIT l = L1 & c = 0 & prop = _T;
+
+  INVAR prop > 0;
+  INVAR (l = L2 | l = L5 | l = L8 | l = L9) -> c <= prop;
+
+  TRANS evt_stutter -> (next(c) = c & next(l) = l);
+
+  -- L1 -> L2
+  TRANS (!evt_stutter & l = L1) -> (v1 = 0 & next(l) = L2 & next(c) = 0 & (next(v2) <-> v2) & next(v1) = v1 & next(prop) = prop);
+  -- L2 -> L3
+  TRANS (!evt_stutter & l = L2) -> (next(v1) = id & next(l) = L3 & next(c) = 0 & (next(v2) <-> v2) & next(prop) = prop);
+  -- L3 -> [L1 | L4]
+  TRANS (!evt_stutter & l = L3) -> ((next(l) = L1 | next(l) = L4) & next(c) = c & (next(v2) <-> v2) & next(v1) = v1);
+  TRANS (l = L3 & next(l) = L1) -> (v1 != id & next(prop) = prop);
+  TRANS (l = L3 & next(l) = L4) -> (v1 = id & c > max_prop & next(prop) < prop);
+  -- L4 -> [L1 | L5]
+  TRANS (!evt_stutter & l = L4) -> ((next(l) = L1 | next(l) = L5) & (next(v2) <-> v2) & next(v1) = v1 & next(prop) = prop);
+  TRANS (l = L4 & next(l) = L1) -> (v2 & next(c) = c);
+  TRANS (l = L4 & next(l) = L5) -> (!v2 & next(c) = 0);
+  -- L5 -> L6
+  TRANS (!evt_stutter & l = L5) -> (next(l) = L6 & next(v2) & next(c) = 0 & next(v1) = v1 & next(prop) = prop);
+  -- L6 -> [L1 | CS7]
+  TRANS (!evt_stutter & l = L6) -> ((next(l) = L1 | next(l) = CS7) & next(c) = c & (next(v2) <-> v2) & next(v1) = v1 & next(prop) = prop);
+  TRANS (l = L6 & next(l) = L1) -> (v1 != id);
+  TRANS (l = L6 & next(l) = CS7) -> (v1 = id);
+  -- CS7 -> L8
+  TRANS (!evt_stutter & l = CS7) -> (next(l) = L8 & next(c) = 0 & (next(v2) <-> v2) & next(v1) = v1 & next(prop) = prop);
+  -- L8 -> L9
+  TRANS (!evt_stutter & l = L8) -> (next(l) = L9 & next(!v2) & next(c) = 0 & next(v1) = v1 & next(prop) = prop);
+  -- L9 -> L1
+  TRANS (!evt_stutter & l = L9) -> (next(l) = L1 & next(v1) = 0 & (next(v2) <-> v2) & next(c) = c & next(prop) = prop);

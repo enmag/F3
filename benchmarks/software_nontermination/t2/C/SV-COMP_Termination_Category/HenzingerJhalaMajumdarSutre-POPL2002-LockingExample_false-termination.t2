@@ -1,0 +1,103 @@
+///*** 1_lock ***///
+///*** 2_unlock ***///
+///*** 3_main ***///
+START: main_bb6;
+
+FROM: main_bb6;
+v4 := nondet();
+var__temp_vnew.0 := 0;
+vnew.0 := var__temp_vnew.0;
+TO: main_bb6_end;
+
+FROM: main_bb6_end;
+assume(v4 != 0);
+TO: main_bb7;
+
+FROM: main_bb6_end;
+assume(v4 == 0);
+TO: main_bb12;
+
+FROM: main_bb7;
+v6 := nondet();
+var__temp_vgot_lock.0 := 0;
+vgot_lock.0 := var__temp_vgot_lock.0;
+TO: main_bb7_end;
+
+FROM: main_bb7_end;
+assume(v6 != 0);
+TO: main_bb8;
+
+FROM: main_bb7_end;
+assume(v6 == 0);
+TO: main_bb9;
+
+FROM: main_bb8;
+v8 := 0 + 1;
+var__temp_vgot_lock.0 := v8;
+vgot_lock.0 := var__temp_vgot_lock.0;
+TO: main_bb9;
+
+FROM: main_bb9;
+TO: main_bb9_end;
+
+FROM: main_bb9_end;
+assume(vgot_lock.0 != 0);
+TO: main_bb10;
+
+FROM: main_bb9_end;
+assume(vgot_lock.0 == 0);
+TO: main_bb11;
+
+FROM: main_bb10;
+TO: main_bb11;
+
+FROM: main_bb11;
+v10 := nondet();
+var__temp_vnew.0 := 0;
+vnew.0 := var__temp_vnew.0;
+TO: main_bb11_end;
+
+FROM: main_bb11_end;
+assume(v10 != 0);
+TO: main_bb7;
+
+FROM: main_bb11_end;
+assume(v10 == 0);
+TO: main_bb12;
+
+FROM: main_bb12;
+v12 := nondet();
+var__temp_vnew.1 := vnew.0;
+vnew.1 := var__temp_vnew.1;
+TO: main_bb12_end;
+
+FROM: main_bb12_end;
+assume(v12 != 0);
+TO: main_bb13;
+
+FROM: main_bb12_end;
+assume(v12 == 0);
+TO: main_bb14;
+
+FROM: main_bb13;
+v14 := vnew.0 + 1;
+var__temp_vnew.1 := v14;
+vnew.1 := var__temp_vnew.1;
+TO: main_bb14;
+
+FROM: main_bb14;
+var__temp_vnew.0 := vnew.1;
+vnew.0 := var__temp_vnew.0;
+TO: main_bb14_end;
+
+FROM: main_bb14_end;
+assume(vnew.1 != vnew.0);
+TO: main_bb12;
+
+FROM: main_bb14_end;
+assume(vnew.1 == vnew.0);
+TO: main_bb15;
+
+FROM: main_bb15;
+TO: main_bb15_ret;
+

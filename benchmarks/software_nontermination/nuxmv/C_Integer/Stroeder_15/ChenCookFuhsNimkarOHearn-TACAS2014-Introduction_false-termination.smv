@@ -1,0 +1,50 @@
+-- int main() {
+--     int k, i;
+--  k = __VERIFIER_nondet_int();
+--  i = __VERIFIER_nondet_int();
+--  if (k >= 0) { // l0
+--    // skip
+--  } else {
+--    i = -1; // l1
+--  }
+--  while (i >= 0) { // l2
+--    i = __VERIFIER_nondet_int(); // l3
+--  }
+--  i = 2; // l4
+--  return 0; // end
+-- }
+
+MODULE main
+  VAR
+    pc : {l0, l1, l2, l3, l4, end};
+    k : integer;
+    i : integer;
+
+  --control flow graph
+  ASSIGN
+    init(pc) := l0;
+    next(pc) :=
+      case
+        pc = l0 & (k >= 0) : l2;
+        pc = l0 & !(k >= 0) : l1;
+        pc = l1 : l2;
+        pc = l2 & (i >= 0) : l3;
+        pc = l2 & !(i >= 0) : l4;
+        pc = l3 : l2;
+        pc = l4 : end;
+        TRUE : end;
+      esac;
+
+  DEFINE
+    same_k := next(k) = k;
+    same_i := next(i) = i;
+    same := same_k & same_i;
+
+  TRANS pc = l0 -> same;
+  TRANS pc = l1 -> same_k & next(i) = i - 1;
+  TRANS pc = l2 -> same;
+  TRANS pc = l3 -> same_k;
+  TRANS pc = l4 -> same_k & next(i) = 2;
+  TRANS pc = end -> same;
+
+  LTLSPEC NAME TERMINATION := F pc = end;

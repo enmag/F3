@@ -1,0 +1,34 @@
+-- SMV encondig of Plasso_example1.java from benchmarks of paper "Disproving termination with overapproximation".
+MODULE main
+  VAR
+    i : integer;
+    j : integer;
+    k : integer;
+    pc : -1..3;
+
+  -- cfg
+  ASSIGN
+  init(pc) := 0;
+  next(pc) :=
+    case
+      pc = -1 : -1;
+      pc = 0 & !(j >= 2) : -1;
+      pc = 0 & j >= 2 : 1;
+      pc = 1 & !(k >= 3) : -1;
+      pc = 1 & k >= 3 : 2;
+      pc = 2 & !(i >= 0) : -1;
+      pc = 2 & i >= 0 : 3;
+      pc = 3 : 2;
+    esac;
+
+  -- constraints
+  TRANS (pc = -1 & next(pc) = -1) -> (next(i) = i & next(j) = j & next(k) = k);
+  TRANS (pc = 0 & next(pc) = -1) -> (next(i) = i & next(j) = j & next(k) = k);
+  TRANS (pc = 0 & next(pc) = 1)  -> (next(i) = i & next(j) = j & next(k) = k);
+  TRANS (pc = 1 & next(pc) = -1) -> (next(i) = i & next(j) = j & next(k) = k);
+  TRANS (pc = 1 & next(pc) = 2)  -> (next(i) = i & next(j) = j & next(k) = k);
+  TRANS (pc = 2 & next(pc) = -1) -> (next(i) = i & next(j) = j & next(k) = k);
+  TRANS (pc = 2 & next(pc) = 3)  -> (next(i) = i & next(j) = j & next(k) = k);
+  TRANS (pc = 3 & next(pc) = 2)  -> (next(i) = j*k & next(j) = j & next(k) = k);
+
+  LTLSPEC NAME BENCH := F pc = -1;

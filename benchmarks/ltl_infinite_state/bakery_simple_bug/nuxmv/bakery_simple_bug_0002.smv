@@ -1,0 +1,44 @@
+MODULE main
+  DEFINE
+    MAX_IDX := 1;
+  VAR
+    number : array 0..MAX_IDX of integer;
+    min_num : integer;
+    max_num : integer;
+    run : 0..MAX_IDX;
+      p0 : Proc(0, run = 0, number, min_num, max_num);
+  p1 : Proc(1, run = 1, number, min_num, max_num);
+
+
+  INIT number[0] = 0 & number[1] = 0;
+
+  INVAR max_num >= number[0] & max_num >= number[1];
+  INVAR max_num = number[0] | max_num = number[1];
+
+  INVAR (number[0] = 0 & number[1] = 0) <-> min_num = 0;
+  INVAR number[0] > 0 -> min_num <= number[0];
+INVAR number[1] > 0 -> min_num <= number[1];
+
+  INVAR min_num = number[0] | min_num = number[1];
+
+  LTLSPEC (G ((F p0.pick_num) & (F !p0.pick_num))) -> (G F number[0] = 0);
+
+MODULE Proc(id, run, number, min_num, max_num)
+  VAR
+    loc : {_pick_num, _wait_turn, _cs, _unlock};
+
+  DEFINE
+    pick_num := loc = _pick_num;
+    wait_turn := loc = _wait_turn;
+    cs := loc = _cs;
+    unlock := loc = _unlock;
+
+  INIT pick_num;
+
+  TRANS (!run) -> (next(loc) = loc & next(number[id]) = number[id]);
+
+  TRANS (run & pick_num) -> (next(number[id]) = 1 + max_num & next(wait_turn));
+  TRANS (run & wait_turn) -> ((next(wait_turn) | next(cs)) & next(number[id]) = number[id]);
+  TRANS (run & wait_turn) -> (next(cs) <-> (number[id] <= min_num & (number[0] = min_num -> id = 0) & (number[1] = min_num -> id <= 1)));
+  TRANS (run & cs) -> (next(cs) | next(unlock)) & next(number[id]) = number[id];
+  TRANS (run & unlock) -> (next(pick_num)) & next(number[id]) = number[id];

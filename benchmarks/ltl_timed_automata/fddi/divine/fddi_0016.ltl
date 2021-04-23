@@ -1,0 +1,3 @@
+#define st0_y_async ST0.station_y_async
+
+#property (G F st0_y_async)

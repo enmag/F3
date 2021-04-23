@@ -1,0 +1,89 @@
+-- SMV encondig of PnCr_combinations.java from benchmarks of paper "Disproving termination with overapproximation".
+MODULE main
+  VAR
+    n_num : integer;
+    num : integer;
+    den : integer;
+    nmul : integer;
+    dmul : integer;
+    r_num : integer;
+    nCr : integer;
+    pc : -1..24;
+
+  -- cfg
+  ASSIGN
+  init(pc) := 0;
+  next(pc) :=
+    case
+      pc = -1 : -1;
+      pc = 0 & !(n_num >= 1) : -1;
+      pc = 0 & n_num >= 1 : 1;
+      pc = 1 : 2;
+      pc = 2 : 3;
+      pc = 3 : 4;
+      pc = 4 : 5;
+      pc = 5 : 6;
+      pc = 6 & n_num >= r_num : 7;
+      pc = 6 & !(n_num >= r_num) : 24;
+      pc = 7 : {8, 11};
+      pc = 8 & !(num < 1) : -1;
+      pc = 8 & num < 1 : 9;
+      pc = 9 : 10;
+      pc = 10 : -1;
+      pc = 11 & !(nCr >= 1) : 20;
+      pc = 11 & nCr >= 1 : 12;
+      pc = 12 : {13, 16};
+      pc = 13 & !(num < 1) : -1;
+      pc = 13 & num < 1 : 14;
+      pc = 14 : 15;
+      pc = 15 : -1;
+      pc = 16 : 17;
+      pc = 17 : 18;
+      pc = 18 : 19;
+      pc = 19 : 11;
+      pc = 20 : {-1, 21};
+      pc = 21 & !(num < 1) : -1;
+      pc = 21 & num < 1 : 22;
+      pc = 22 : 23;
+      pc = 23 : -1;
+      pc = 24 : -1;
+    esac;
+
+  -- constraints
+  TRANS (pc = -1 & next(pc) = -1) -> (next(n_num) = n_num & next(num) = num & next(den) = den & next(nmul) = nmul & next(dmul) = dmul & next(r_num) = r_num & next(nCr) = nCr);
+  TRANS (pc = 0 & next(pc) = -1)  -> (next(n_num) = n_num & next(num) = num & next(den) = den & next(nmul) = nmul & next(dmul) = dmul & next(r_num) = r_num & next(nCr) = nCr);
+  TRANS (pc = 0 & next(pc) = 1)   -> (next(n_num) = n_num & next(num) = num & next(den) = den & next(nmul) = nmul & next(dmul) = dmul & next(r_num) = r_num & next(nCr) = nCr);
+  TRANS (pc = 1 & next(pc) = 2)   -> (next(n_num) = n_num & next(num) = 1 & next(den) = den & next(nmul) = nmul & next(dmul) = dmul & next(r_num) = r_num & next(nCr) = nCr);
+  TRANS (pc = 2 & next(pc) = 3)   -> (next(n_num) = n_num & next(num) = num & next(den) = 1 & next(nmul) = nmul & next(dmul) = dmul & next(r_num) = r_num & next(nCr) = nCr);
+  TRANS (pc = 3 & next(pc) = 4)   -> (next(n_num) = n_num & next(num) = num & next(den) = den & next(nmul) = n_num & next(dmul) = dmul & next(r_num) = r_num & next(nCr) = nCr);
+  TRANS (pc = 4 & next(pc) = 5)   -> (next(n_num) = n_num & next(num) = num & next(den) = den & next(nmul) = nmul & next(dmul) = r_num & next(r_num) = r_num & next(nCr) = nCr);
+  TRANS (pc = 5 & next(pc) = 6)   -> (next(n_num) = n_num & next(num) = num & next(den) = den & next(nmul) = nmul & next(dmul) = dmul & next(r_num) = r_num & next(nCr) = 1);
+  TRANS (pc = 6 & next(pc) = 7)   -> (next(n_num) = n_num & next(num) = num & next(den) = den & next(nmul) = nmul & next(dmul) = dmul & next(r_num) = r_num & next(nCr) = nCr);
+  TRANS (pc = 6 & next(pc) = 24)  -> (next(n_num) = n_num & next(num) = num & next(den) = den & next(nmul) = nmul & next(dmul) = dmul & next(r_num) = r_num & next(nCr) = nCr);
+  TRANS (pc = 7 & next(pc) = 8)   -> (next(n_num) = n_num & next(num) = num & next(den) = den & next(nmul) = nmul & next(dmul) = dmul & next(r_num) = r_num & next(nCr) = nCr);
+  TRANS (pc = 7 & next(pc) = 11)  -> (next(n_num) = n_num & next(num) = num & next(den) = den & next(nmul) = nmul & next(dmul) = dmul & next(r_num) = r_num & next(nCr) = nCr);
+  TRANS (pc = 8 & next(pc) = -1)  -> (next(n_num) = n_num & next(num) = num & next(den) = den & next(nmul) = nmul & next(dmul) = dmul & next(r_num) = r_num & next(nCr) = nCr);
+  TRANS (pc = 8 & next(pc) = 9)   -> (next(n_num) = n_num & next(num) = num & next(den) = den & next(nmul) = nmul & next(dmul) = dmul & next(r_num) = r_num & next(nCr) = nCr);
+  TRANS (pc = 9 & next(pc) = 10)  -> (next(n_num) = n_num & next(num) = num & next(den) = den & next(nmul) = nmul & next(dmul) = dmul & next(r_num) = r_num & next(nCr) = num/den);
+  TRANS (pc = 10 & next(pc) = -1) -> (next(n_num) = n_num & next(num) = num & next(den) = den & next(nmul) = nmul & next(dmul) = dmul & next(r_num) = r_num & next(nCr) = nCr);
+  TRANS (pc = 11 & next(pc) = 20) -> (next(n_num) = n_num & next(num) = num & next(den) = den & next(nmul) = nmul & next(dmul) = dmul & next(r_num) = r_num & next(nCr) = nCr);
+  TRANS (pc = 11 & next(pc) = 12) -> (next(n_num) = n_num & next(num) = num & next(den) = den & next(nmul) = nmul & next(dmul) = dmul & next(r_num) = r_num & next(nCr) = nCr);
+  TRANS (pc = 12 & next(pc) = 13) -> (next(n_num) = n_num & next(num) = num & next(den) = den & next(nmul) = nmul & next(dmul) = dmul & next(r_num) = r_num & next(nCr) = nCr);
+  TRANS (pc = 12 & next(pc) = 16) -> (next(n_num) = n_num & next(num) = num & next(den) = den & next(nmul) = nmul & next(dmul) = dmul & next(r_num) = r_num & next(nCr) = nCr);
+  TRANS (pc = 13 & next(pc) = -1) -> (next(n_num) = n_num & next(num) = num & next(den) = den & next(nmul) = nmul & next(dmul) = dmul & next(r_num) = r_num & next(nCr) = nCr);
+  TRANS (pc = 13 & next(pc) = 14) -> (next(n_num) = n_num & next(num) = num & next(den) = den & next(nmul) = nmul & next(dmul) = dmul & next(r_num) = r_num & next(nCr) = nCr);
+  TRANS (pc = 14 & next(pc) = 15) -> (next(n_num) = n_num & next(num) = num & next(den) = den & next(nmul) = nmul & next(dmul) = dmul & next(r_num) = r_num & next(nCr) = num/den);
+  TRANS (pc = 15 & next(pc) = -1) -> (next(n_num) = n_num & next(num) = num & next(den) = den & next(nmul) = nmul & next(dmul) = dmul & next(r_num) = r_num & next(nCr) = nCr);
+  TRANS (pc = 16 & next(pc) = 17) -> (next(n_num) = n_num & next(num) = num*nmul & next(den) = den & next(nmul) = nmul & next(dmul) = dmul & next(r_num) = r_num & next(nCr) = nCr);
+  TRANS (pc = 17 & next(pc) = 18) -> (next(n_num) = n_num & next(num) = num & next(den) = den & next(nmul) = nmul - 1 & next(dmul) = dmul & next(r_num) = r_num & next(nCr) = nCr);
+  TRANS (pc = 18 & next(pc) = 19) -> (next(n_num) = n_num & next(num) = num & next(den) = den*dmul & next(nmul) = nmul & next(dmul) = dmul & next(r_num) = r_num & next(nCr) = nCr);
+  TRANS (pc = 19 & next(pc) = 11) -> (next(n_num) = n_num & next(num) = num & next(den) = den & next(nmul) = nmul & next(dmul) = dmul - 1 & next(r_num) = r_num & next(nCr) = nCr);
+  TRANS (pc = 20 & next(pc) = -1) -> (next(n_num) = n_num & next(num) = num & next(den) = den & next(nmul) = nmul & next(dmul) = dmul & next(r_num) = r_num & next(nCr) = nCr);
+  TRANS (pc = 20 & next(pc) = 21) -> (next(n_num) = n_num & next(num) = num & next(den) = den & next(nmul) = nmul & next(dmul) = dmul & next(r_num) = r_num & next(nCr) = nCr);
+  TRANS (pc = 21 & next(pc) = -1) -> (next(n_num) = n_num & next(num) = num & next(den) = den & next(nmul) = nmul & next(dmul) = dmul & next(r_num) = r_num & next(nCr) = nCr);
+  TRANS (pc = 21 & next(pc) = 22) -> (next(n_num) = n_num & next(num) = num & next(den) = den & next(nmul) = nmul & next(dmul) = dmul & next(r_num) = r_num & next(nCr) = nCr);
+  TRANS (pc = 22 & next(pc) = 23) -> (next(n_num) = n_num & next(num) = num & next(den) = den & next(nmul) = nmul & next(dmul) = dmul & next(r_num) = r_num & next(nCr) = num/den);
+  TRANS (pc = 23 & next(pc) = -1) -> (next(n_num) = n_num & next(num) = num & next(den) = den & next(nmul) = nmul & next(dmul) = dmul & next(r_num) = r_num & next(nCr) = nCr);
+  TRANS (pc = 24 & next(pc) = -1) -> (next(n_num) = n_num & next(num) = num & next(den) = den & next(nmul) = nmul & next(dmul) = dmul & next(r_num) = r_num & next(nCr) = nCr);
+
+  LTLSPEC NAME BENCH := F pc = -1;

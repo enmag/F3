@@ -1,0 +1,32 @@
+MODULE main
+  VAR
+    h : real;
+    v : real;
+    delta : real;
+    time : real;
+
+  DEFINE
+    g := 9.81;
+
+  INVAR (h = 0 & v < 0) -> delta = 0;
+  INVAR delta >= 0;
+  INVAR h >= 0;
+
+  ASSIGN
+  init(time) := 0;
+  next(time) := time + delta;
+  init(h) := 0;
+  init(v) := g;
+
+  next(h) :=
+    case
+      h = 0 & v < 0 : 0;
+      TRUE : h + v * delta - f'1/2 * g * pow(delta, 2);
+    esac;
+  next(v) :=
+    case
+      h = 0 & v < 0 : -1.1 * v;
+      TRUE : v - g * delta;
+    esac;
+
+  LTLSPEC NAME BENCH := ! G F h = 0;

@@ -1,0 +1,23 @@
+-- int main()
+-- {
+--  while (1) { // l0
+--    // do nothing
+--  }
+--  return 0; // end
+-- }
+
+MODULE main
+  VAR
+    pc : {l0, end};
+		dummy : integer;
+
+  -- control flow graph
+  ASSIGN
+    init(pc) := l0;
+    next(pc) :=
+      case
+        pc = l0 : l0;
+        TRUE: end;
+      esac;
+
+  LTLSPEC NAME TERMINATION := F pc = end;

@@ -1,0 +1,11 @@
+@TIME_DOMAIN continuous
+MODULE main
+  VAR
+    c : clock;
+    bound : integer;
+
+  INVAR TRUE -> c <= bound;
+  TRANS next(c) = c;
+  TRANS c < bound -> next(bound) = bound;
+
+  LTLSPEC F G next(bound) <= bound;

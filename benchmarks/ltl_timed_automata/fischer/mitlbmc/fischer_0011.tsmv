@@ -1,0 +1,49 @@
+MODULE P(pid, id, turn)
+DEFINE K := 2;
+VAR
+  location : {idle, req, wait, cs};
+  x : clock((location = idle & next(location) = req)
+            | (location = wait & next(location) = req)
+            | (location = req & next(location) = wait));
+
+INIT location = idle;
+INVAR location = req -> x <= K;
+
+TRANS (turn != pid) -> (next(location) = location)
+TRANS (turn = pid & location = idle) ->  next(location = req)
+TRANS (turn = pid & location = req)  ->  next(location = wait)
+TRANS (turn = pid & location = wait) -> (next(location = idle) | next(location = cs));
+TRANS (turn = pid & location = cs)   ->  next(location = idle)
+
+TRANS (turn = pid) -> next(id) =
+  case
+    location = req & next(location = wait) : pid;
+    location = cs & next(location = idle)  : 0;
+    TRUE                                   : id;
+  esac;
+
+TRANS (location = idle & next(location = req)) -> id = 0
+TRANS (location = req & next(location = wait)) -> x <= K
+TRANS (location = wait & next(location = idle)) -> x > K & id != pid
+TRANS (location = wait & next(location = cs)) -> x > K & id = pid
+
+MODULE main
+VAR
+  id : 0..11;
+  turn : 1..11;
+  P0 : P(1, id, turn);
+  P1 : P(2, id, turn);
+  P2 : P(3, id, turn);
+  P3 : P(4, id, turn);
+  P4 : P(5, id, turn);
+  P5 : P(6, id, turn);
+  P6 : P(7, id, turn);
+  P7 : P(8, id, turn);
+  P8 : P(9, id, turn);
+  P9 : P(10, id, turn);
+  P10 : P(11, id, turn);
+
+
+INIT id = 0;
+
+MITLSPEC (FALSE SR (TRUE SU (P0.location = wait))) -> (FALSE SR (TRUE SU (P0.location = cs)));

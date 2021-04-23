@@ -1,0 +1,41 @@
+-- int main() {
+--  int x = __VERIFIER_nondet_int();
+--  while (x > 1) { // l0
+--    int old_x = x; // l1
+--    x = __VERIFIER_nondet_int(); // l2
+--    if (x < 2*old_x) { // l3
+--      break;
+--    }
+--  }
+--  return 0; // end
+-- }
+
+MODULE main
+  VAR
+    pc : {l0, l1, l2, l3, end};
+    x : integer;
+    old_x : integer;
+
+  DEFINE same := next(x) = x & next(old_x) = old_x;
+
+  -- control flow graph
+  ASSIGN
+    init(pc) := l0;
+    next(pc) :=
+      case
+        pc = l0 & x > 1: l1;
+        pc = l0 & !(x > 1): end;
+        pc = l1 : l2;
+        pc = l2 : l3;
+        pc = l3 & (x < 2 * old_x): end;
+        pc = l3 & !(x < 2 * old_x): l0;
+        TRUE: end;
+      esac;
+
+  TRANS pc = l0 -> same;
+  TRANS pc = l1 -> next(x) = x & next(old_x) = x;
+  TRANS pc = l2 -> next(old_x) = old_x;
+  TRANS pc = l3 -> same;
+  TRANS pc = end -> same;
+
+  LTLSPEC NAME TERMINATION := F pc = end;

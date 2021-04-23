@@ -1,0 +1,68 @@
+@TIME_DOMAIN continuous
+MODULE main
+DEFINE
+  _T := 16;
+
+VAR
+  v1 : 0..15;
+  v2 : boolean;
+  p0 : P(1, v1, v2, _T);
+  p1 : P(2, v1, v2, _T);
+  p2 : P(3, v1, v2, _T);
+  p3 : P(4, v1, v2, _T);
+  p4 : P(5, v1, v2, _T);
+  p5 : P(6, v1, v2, _T);
+  p6 : P(7, v1, v2, _T);
+  p7 : P(8, v1, v2, _T);
+  p8 : P(9, v1, v2, _T);
+  p9 : P(10, v1, v2, _T);
+  p10 : P(11, v1, v2, _T);
+  p11 : P(12, v1, v2, _T);
+  p12 : P(13, v1, v2, _T);
+  p13 : P(14, v1, v2, _T);
+
+
+TRANS !(p0.evt_stutter & p1.evt_stutter & p2.evt_stutter & p3.evt_stutter & p4.evt_stutter & p5.evt_stutter & p6.evt_stutter & p7.evt_stutter & p8.evt_stutter & p9.evt_stutter & p10.evt_stutter & p11.evt_stutter & p12.evt_stutter & p13.evt_stutter);
+
+LTLSPEC (G F (v1 = 1)) -> (G F p0.l = CS7);
+
+
+MODULE P(id, v1, v2, _T)
+IVAR event : {stutter, move};
+DEFINE
+  evt_stutter := event = stutter;
+  evt_move := event = move;
+VAR
+  l : {L1, L2, L3, L4, L5, L6, CS7, L8, L9};
+  c : clock;
+
+INIT l = L1 & c = 0;
+
+INVAR (l = L2 | l = L5 | l = L8 | l = L9) -> c <= _T;
+
+TRANS evt_stutter -> (next(c) = c & next(l) = l);
+
+-- L1 -> L2
+TRANS (!evt_stutter & l = L1) -> (v1 = 0 & next(l) = L2 & next(c) = 0 & (next(v2) <-> v2) & next(v1) = v1);
+-- L2 -> L3
+TRANS (!evt_stutter & l = L2) -> (next(v1) = id & next(l) = L3 & next(c) = 0 & (next(v2) <-> v2));
+-- L3 -> [L1 | L4]
+TRANS (!evt_stutter & l = L3) -> ((next(l) = L1 | next(l) = L4) & next(c) = c & (next(v2) <-> v2) & next(v1) = v1);
+TRANS (l = L3 & next(l) = L1) -> (v1 != id);
+TRANS (l = L3 & next(l) = L4) -> (v1 = id & c > _T);
+-- L4 -> [L1 | L5]
+TRANS (!evt_stutter & l = L4) -> ((next(l) = L1 | next(l) = L5) & (next(v2) <-> v2) & next(v1) = v1);
+TRANS (l = L4 & next(l) = L1) -> (v2 & next(c) = c);
+TRANS (l = L4 & next(l) = L5) -> (!v2 & next(c) = 0);
+-- L5 -> L6
+TRANS (!evt_stutter & l = L5) -> (next(l) = L6 & next(v2) & next(c) = 0 & next(v1) = v1);
+-- L6 -> [L1 | CS7]
+TRANS (!evt_stutter & l = L6) -> ((next(l) = L1 | next(l) = CS7) & next(c) = c & (next(v2) <-> v2) & next(v1) = v1);
+TRANS (l = L6 & next(l) = L1) -> (v1 != id);
+TRANS (l = L6 & next(l) = CS7) -> (v1 = id);
+-- CS7 -> L8
+TRANS (!evt_stutter & l = CS7) -> (next(l) = L8 & next(c) = 0 & (next(v2) <-> v2) & next(v1) = v1);
+-- L8 -> L9
+TRANS (!evt_stutter & l = L8) -> (next(l) = L9 & next(!v2) & next(c) = 0 & next(v1) = v1);
+-- L9 -> L1
+TRANS (!evt_stutter & l = L9) -> (next(l) = L1 & next(v1) = 0 & (next(v2) <-> v2) & next(c) = c);

@@ -1,0 +1,40 @@
+MODULE main
+  IVAR
+    fault_corruption : boolean;
+    fault_deletion : boolean;
+
+    -- State variables from layer 'model'
+  VAR
+    -- collision : boolean;
+    device.exploded : boolean;
+    link.NewDataAvailable : boolean;
+    link.ValidCRC : boolean;
+    link.out_message : {other_message, explode, no_message};
+    link.out_Counter : integer; -- {14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0};
+    sensor.message : {other_message, explode, no_message};
+    sensor.Counter : integer; -- {14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0};
+    O_validExplode : boolean;
+    O_collision : boolean;
+
+  CONSTANTS
+    other_message, explode, no_message ;
+
+  INIT sensor.message = no_message;
+  INIT !link.NewDataAvailable
+  INIT O_validExplode <-> (link.NewDataAvailable & link.ValidCRC & link.out_message = explode);
+
+  -- TRANS collision <-> next(sensor.message) = explode;
+  TRANS O_collision <-> (O_collision | next(sensor.message) = explode);
+  TRANS sensor.message != no_message -> next(sensor.Counter) = (sensor.Counter + 1); -- mod 15;
+  TRANS sensor.message = no_message -> next(sensor.Counter) = sensor.Counter;
+  TRANS !fault_deletion -> (next(link.NewDataAvailable) <-> sensor.message != no_message & next(link.out_message) = sensor.message & next(link.out_Counter) = sensor.Counter);
+  TRANS next(link.NewDataAvailable) ->  !fault_deletion;
+  TRANS !fault_corruption -> next(link.ValidCRC);
+  TRANS next(link.ValidCRC) -> !fault_corruption;
+
+  TRANS next(O_validExplode) <-> O_validExplode | next(link.NewDataAvailable & link.ValidCRC & link.out_message = explode);
+  TRANS device.exploded ->  O_validExplode;
+
+  -- LTLSPEC NAME TEST0 := G (O_validExplode <-> O (link.NewDataAvailable & link.ValidCRC & link.out_message = explode))
+
+  LTLSPEC (G F sensor.message != no_message) -> G (device.exploded -> O_collision);

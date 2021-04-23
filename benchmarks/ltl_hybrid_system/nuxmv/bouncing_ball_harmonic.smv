@@ -1,0 +1,53 @@
+MODULE main
+  VAR
+    h : real;
+    v : real;
+    delta : real;
+    time : real;
+    counter : integer;
+    stop : boolean;
+
+  DEFINE
+    g := 9.81;
+
+  INVAR (h = 0 & v < 0) -> delta = 0;
+  INVAR delta >= 0;
+  INVAR h >= 0;
+
+  ASSIGN
+  init(time) := 0;
+  next(time) := time + delta;
+  init(counter) := 1;
+  next(counter) :=
+    case
+      h = 0 & v < 0 : counter + 1;
+      TRUE : counter;
+    esac;
+
+  init(h) := 0;
+  next(h) :=
+    case
+      h = 0 & stop : 0;
+      h = 0 & v <= 0 : 0;
+      TRUE : h + v * delta - f'1/2 * g * pow(delta, 2);
+    esac;
+
+  init(v) := g / 2.0;
+  next(v) :=
+    case
+      h = 0 & stop : 0;
+      h = 0 & v <= 0 : - v * counter / (counter + 1.0);
+      TRUE : v - g * delta;
+    esac;
+
+  TRANS (stop & h = 0) -> (next(h) = 0 & next(v) = 0);
+
+  -- this are additional constraints to show single execution via simulation.
+  -- init(delta) := 1;
+  -- next(delta) :=
+  --   case
+  --     h = 0 & v < 0 : 1.0 / (counter + 1);
+  --     TRUE : 0;
+  --   esac;
+
+  LTLSPEC NAME BENCH := ! G F (h = 0 & v > 0);

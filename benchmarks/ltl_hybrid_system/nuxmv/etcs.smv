@@ -1,0 +1,61 @@
+MODULE main
+  DEFINE
+    max_brake := 2.0;
+    max_acc := 4.0;
+  VAR
+    delta : real;
+    time : real;
+    rbc : RadioBlockController(max_brake);
+    train : Train(rbc, max_brake, max_acc, 1.0, delta);
+
+  INVAR delta >= 0;
+
+  INIT time = 0;
+  TRANS next(time) = time + delta;
+
+  LTLSPEC NAME BENCH := ! G F (delta > 0 & train.v > 0);
+
+
+MODULE RadioBlockController(max_brake)
+  VAR
+    s : {brake, drive};
+    m : real; -- end of track permission.
+    d : real; -- speed limit to exit track permission.
+    v_des : real; -- speed advice.
+
+  INIT s = brake & v_des = 0;
+  INVAR m >= 0 & d >= 0 & v_des >= 0;
+
+  TRANS next(s) = brake -> next(m) = m & next(d) = d;
+  TRANS next(s) = drive -> pow(d, 2) - pow(next(d), 2) <= 2 * max_brake * (next(m) - m);
+
+
+MODULE Train(rbc, max_brake, max_acc, period, delta)
+  -- distance required to obey exit speed limit.
+  DEFINE
+    SB := (pow(v, 2) - pow(rbc.d, 2)) / (2 * max_brake) + (max_acc / max_brake + 1) * (max_acc / 2 * pow(period, 2) + period * v);
+    controller := (c = period & next(c) = 0);
+  VAR
+    c : real; -- timer for controller action.
+    z : real; -- position.
+    v : real; -- velocity.
+    a : real; -- acceleration.
+
+  INIT z <= rbc.m & v = 0 & a = 0 & c = 0;
+
+  INVAR c <= period;
+  TRANS c < period -> next(c) = c + delta;
+  TRANS c >= period -> next(c) = 0 & delta = 0;
+
+  INVAR z >= 0;
+  INVAR - max_brake <= a & a <= max_acc;
+  INVAR v >= rbc.v_des -> a <= 0;
+
+  TRANS next(z) = z + v * delta + f'1/2 * a * pow(delta, 2);
+  TRANS next(v) = v + a * delta;
+
+  -- controller
+  TRANS controller & (rbc.m - z <= SB | rbc.s = brake) -> next(a) = - max_brake;
+  TRANS !controller -> next(a) = a;
+
+  INVARSPEC z >= rbc.m -> v <= rbc.d;

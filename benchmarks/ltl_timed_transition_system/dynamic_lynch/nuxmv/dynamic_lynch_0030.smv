@@ -1,0 +1,91 @@
+@TIME_DOMAIN continuous
+MODULE main
+  DEFINE
+    _T := 16;
+  VAR
+    v1 : 0..31;
+    v2 : boolean;
+    proposed : array 0..29 of real;
+    max_prop : real;
+      p0 : P(1, _T, v1, v2, proposed[0], max_prop);
+  p1 : P(2, _T, v1, v2, proposed[1], max_prop);
+  p2 : P(3, _T, v1, v2, proposed[2], max_prop);
+  p3 : P(4, _T, v1, v2, proposed[3], max_prop);
+  p4 : P(5, _T, v1, v2, proposed[4], max_prop);
+  p5 : P(6, _T, v1, v2, proposed[5], max_prop);
+  p6 : P(7, _T, v1, v2, proposed[6], max_prop);
+  p7 : P(8, _T, v1, v2, proposed[7], max_prop);
+  p8 : P(9, _T, v1, v2, proposed[8], max_prop);
+  p9 : P(10, _T, v1, v2, proposed[9], max_prop);
+  p10 : P(11, _T, v1, v2, proposed[10], max_prop);
+  p11 : P(12, _T, v1, v2, proposed[11], max_prop);
+  p12 : P(13, _T, v1, v2, proposed[12], max_prop);
+  p13 : P(14, _T, v1, v2, proposed[13], max_prop);
+  p14 : P(15, _T, v1, v2, proposed[14], max_prop);
+  p15 : P(16, _T, v1, v2, proposed[15], max_prop);
+  p16 : P(17, _T, v1, v2, proposed[16], max_prop);
+  p17 : P(18, _T, v1, v2, proposed[17], max_prop);
+  p18 : P(19, _T, v1, v2, proposed[18], max_prop);
+  p19 : P(20, _T, v1, v2, proposed[19], max_prop);
+  p20 : P(21, _T, v1, v2, proposed[20], max_prop);
+  p21 : P(22, _T, v1, v2, proposed[21], max_prop);
+  p22 : P(23, _T, v1, v2, proposed[22], max_prop);
+  p23 : P(24, _T, v1, v2, proposed[23], max_prop);
+  p24 : P(25, _T, v1, v2, proposed[24], max_prop);
+  p25 : P(26, _T, v1, v2, proposed[25], max_prop);
+  p26 : P(27, _T, v1, v2, proposed[26], max_prop);
+  p27 : P(28, _T, v1, v2, proposed[27], max_prop);
+  p28 : P(29, _T, v1, v2, proposed[28], max_prop);
+  p29 : P(30, _T, v1, v2, proposed[29], max_prop);
+
+
+  INVAR max_prop >= proposed[0] & max_prop >= proposed[1] & max_prop >= proposed[2] & max_prop >= proposed[3] & max_prop >= proposed[4] & max_prop >= proposed[5] & max_prop >= proposed[6] & max_prop >= proposed[7] & max_prop >= proposed[8] & max_prop >= proposed[9] & max_prop >= proposed[10] & max_prop >= proposed[11] & max_prop >= proposed[12] & max_prop >= proposed[13] & max_prop >= proposed[14] & max_prop >= proposed[15] & max_prop >= proposed[16] & max_prop >= proposed[17] & max_prop >= proposed[18] & max_prop >= proposed[19] & max_prop >= proposed[20] & max_prop >= proposed[21] & max_prop >= proposed[22] & max_prop >= proposed[23] & max_prop >= proposed[24] & max_prop >= proposed[25] & max_prop >= proposed[26] & max_prop >= proposed[27] & max_prop >= proposed[28] & max_prop >= proposed[29];
+  INVAR max_prop = proposed[0] | max_prop = proposed[1] | max_prop = proposed[2] | max_prop = proposed[3] | max_prop = proposed[4] | max_prop = proposed[5] | max_prop = proposed[6] | max_prop = proposed[7] | max_prop = proposed[8] | max_prop = proposed[9] | max_prop = proposed[10] | max_prop = proposed[11] | max_prop = proposed[12] | max_prop = proposed[13] | max_prop = proposed[14] | max_prop = proposed[15] | max_prop = proposed[16] | max_prop = proposed[17] | max_prop = proposed[18] | max_prop = proposed[19] | max_prop = proposed[20] | max_prop = proposed[21] | max_prop = proposed[22] | max_prop = proposed[23] | max_prop = proposed[24] | max_prop = proposed[25] | max_prop = proposed[26] | max_prop = proposed[27] | max_prop = proposed[28] | max_prop = proposed[29];
+
+
+  TRANS !(p0.evt_stutter & p1.evt_stutter & p2.evt_stutter & p3.evt_stutter & p4.evt_stutter & p5.evt_stutter & p6.evt_stutter & p7.evt_stutter & p8.evt_stutter & p9.evt_stutter & p10.evt_stutter & p11.evt_stutter & p12.evt_stutter & p13.evt_stutter & p14.evt_stutter & p15.evt_stutter & p16.evt_stutter & p17.evt_stutter & p18.evt_stutter & p19.evt_stutter & p20.evt_stutter & p21.evt_stutter & p22.evt_stutter & p23.evt_stutter & p24.evt_stutter & p25.evt_stutter & p26.evt_stutter & p27.evt_stutter & p28.evt_stutter & p29.evt_stutter);
+
+  INVARSPEC ! (p0.l = CS7 & p1.l = CS7);
+  LTLSPEC F G next(max_prop) >= max_prop;
+
+
+MODULE P(id, _T, v1, v2, prop, max_prop)
+  IVAR event : {stutter, move};
+  DEFINE
+    evt_stutter := event = stutter;
+    evt_move := event = move;
+  VAR
+    l : {L1, L2, L3, L4, L5, L6, CS7, L8, L9};
+    c : clock;
+
+  INIT l = L1 & c = 0 & prop = _T;
+
+  INVAR prop > 0;
+  INVAR (l = L2 | l = L5 | l = L8 | l = L9) -> c <= prop;
+
+  TRANS evt_stutter -> (next(c) = c & next(l) = l);
+
+  -- L1 -> L2
+  TRANS (!evt_stutter & l = L1) -> (v1 = 0 & next(l) = L2 & next(c) = 0 & (next(v2) <-> v2) & next(v1) = v1 & next(prop) = prop);
+  -- L2 -> L3
+  TRANS (!evt_stutter & l = L2) -> (next(v1) = id & next(l) = L3 & next(c) = 0 & (next(v2) <-> v2) & next(prop) = prop);
+  -- L3 -> [L1 | L4]
+  TRANS (!evt_stutter & l = L3) -> ((next(l) = L1 | next(l) = L4) & next(c) = c & (next(v2) <-> v2) & next(v1) = v1);
+  TRANS (l = L3 & next(l) = L1) -> (v1 != id & next(prop) = prop);
+  TRANS (l = L3 & next(l) = L4) -> (v1 = id & c > max_prop & next(prop) < prop);
+  -- L4 -> [L1 | L5]
+  TRANS (!evt_stutter & l = L4) -> ((next(l) = L1 | next(l) = L5) & (next(v2) <-> v2) & next(v1) = v1 & next(prop) = prop);
+  TRANS (l = L4 & next(l) = L1) -> (v2 & next(c) = c);
+  TRANS (l = L4 & next(l) = L5) -> (!v2 & next(c) = 0);
+  -- L5 -> L6
+  TRANS (!evt_stutter & l = L5) -> (next(l) = L6 & next(v2) & next(c) = 0 & next(v1) = v1 & next(prop) = prop);
+  -- L6 -> [L1 | CS7]
+  TRANS (!evt_stutter & l = L6) -> ((next(l) = L1 | next(l) = CS7) & next(c) = c & (next(v2) <-> v2) & next(v1) = v1 & next(prop) = prop);
+  TRANS (l = L6 & next(l) = L1) -> (v1 != id);
+  TRANS (l = L6 & next(l) = CS7) -> (v1 = id);
+  -- CS7 -> L8
+  TRANS (!evt_stutter & l = CS7) -> (next(l) = L8 & next(c) = 0 & (next(v2) <-> v2) & next(v1) = v1 & next(prop) = prop);
+  -- L8 -> L9
+  TRANS (!evt_stutter & l = L8) -> (next(l) = L9 & next(!v2) & next(c) = 0 & next(v1) = v1 & next(prop) = prop);
+  -- L9 -> L1
+  TRANS (!evt_stutter & l = L9) -> (next(l) = L1 & next(v1) = 0 & (next(v2) <-> v2) & next(c) = c & next(prop) = prop);

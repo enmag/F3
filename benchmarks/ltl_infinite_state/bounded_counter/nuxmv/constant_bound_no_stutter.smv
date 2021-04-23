@@ -1,0 +1,14 @@
+MODULE main
+  VAR
+    i : real;
+    r : real;
+
+  DEFINE
+    l := 10;
+
+  INIT r > 0 & r < l & i >= 0;
+  TRANS next(r) = r;
+  TRANS i < l -> next(i) = i + 1;
+  TRANS i >= l -> next(i) = 0;
+
+  LTLSPEC (G F next(i) > i) -> !G F r > i;

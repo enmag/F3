@@ -1,0 +1,44 @@
+-- SMV encondig of P1.java from benchmarks of paper "Disproving termination with overapproximation".
+MODULE main
+  VAR
+    x : integer;
+    y : integer;
+    z : integer;
+    pc : -1..8;
+
+  -- cfg
+  ASSIGN
+  init(pc) := 0;
+  next(pc) :=
+    case
+      pc = -1 : -1;
+      pc = 0 : 1;
+      pc = 1 & !(x >= y) : -1;
+      pc = 1 & (x >= y): 2;
+      pc = 2 : 3;
+      pc = 3 : 4;
+      pc = 4 & !(z >= 0) : -1;
+      pc = 4 & z >= 0 : 5;
+      pc = 5 & !(x <= y - 1) : -1;
+      pc = 5 & x <= y - 1 : 6;
+      pc = 6 : 7;
+      pc = 7 : 8;
+      pc = 8 : 5;
+    esac;
+
+  -- constraints
+  TRANS (pc = -1 & next(pc) = -1) -> (next(x) = x & next(y) = y & next(z) = z);
+  TRANS (pc = 0 & next(pc) = 1)  -> (next(x) = x & next(y) = y & next(z) = 2);
+  TRANS (pc = 1 & next(pc) = -1) -> (next(x) = x & next(y) = y & next(z) = z);
+  TRANS (pc = 1 & next(pc) = 2)  -> (next(x) = x & next(y) = y & next(z) = z);
+  TRANS (pc = 2 & next(pc) = 3)  -> (next(x) = 5 & next(y) = y & next(z) = z);
+  TRANS (pc = 3 & next(pc) = 4)  -> (next(x) = x & next(y) = 6 & next(z) = z);
+  TRANS (pc = 4 & next(pc) = -1) -> (next(x) = x & next(y) = y & next(z) = z);
+  TRANS (pc = 4 & next(pc) = 5)  -> (next(x) = x & next(y) = y & next(z) = z);
+  TRANS (pc = 5 & next(pc) = -1) -> (next(x) = x & next(y) = y & next(z) = z);
+  TRANS (pc = 5 & next(pc) = 6)  -> (next(x) = x & next(y) = y & next(z) = z);
+  TRANS (pc = 6 & next(pc) = 7)  -> (next(x) = x & next(y) = z*z & next(z) = z);
+  TRANS (pc = 7 & next(pc) = 8)  -> (next(x) = y & next(y) = y & next(z) = z);
+  TRANS (pc = 8 & next(pc) = 5)  -> (next(x) = x & next(y) = y+1 & next(z) = z);
+
+  LTLSPEC NAME BENCH := F pc = -1;

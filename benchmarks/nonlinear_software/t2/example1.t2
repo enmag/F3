@@ -1,0 +1,19 @@
+START: 1;
+
+FROM: 0;
+j := nondet();
+i := nondet();
+TO: 1;
+
+FROM: 1;
+assume(i >= 0);
+TO: 2;
+
+FROM: 1;
+assume(i < 0);
+TO: 3;
+
+FROM: 2;
+i := i + j;
+j := ((j * j * j) / 3) + 1;
+TO: 1;

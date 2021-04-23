@@ -1,0 +1,145 @@
+-- CSMA-CD
+-- In a broadcast network with a multi-access bus, the problem of assigning the bus to only one of many competing stations arises.
+-- The CSMA/CD protocol (Carrier Sense, Multiple-Access with Collision Detection) describes one solution.
+-- Roughly, whenever a station has data to send, if first listens to the bus.
+-- If the bus is idle (i.e., no other station is transmitting), the station begins to send a message.
+-- If it detects a busy bus in this process, it waits a random amount of time and then repeats the operation.
+@TIME_DOMAIN continuous
+MODULE main
+DEFINE
+  LAMBDA := 404;
+  SIGMA := 13;
+
+VAR
+  bus : Bus(SIGMA);
+  s0 : Station(LAMBDA, SIGMA);
+  s1 : Station(LAMBDA, SIGMA);
+  s2 : Station(LAMBDA, SIGMA);
+  s3 : Station(LAMBDA, SIGMA);
+  s4 : Station(LAMBDA, SIGMA);
+  s5 : Station(LAMBDA, SIGMA);
+  s6 : Station(LAMBDA, SIGMA);
+  s7 : Station(LAMBDA, SIGMA);
+  s8 : Station(LAMBDA, SIGMA);
+  s9 : Station(LAMBDA, SIGMA);
+  s10 : Station(LAMBDA, SIGMA);
+  s11 : Station(LAMBDA, SIGMA);
+  s12 : Station(LAMBDA, SIGMA);
+  s13 : Station(LAMBDA, SIGMA);
+  s14 : Station(LAMBDA, SIGMA);
+  s15 : Station(LAMBDA, SIGMA);
+  s16 : Station(LAMBDA, SIGMA);
+  s17 : Station(LAMBDA, SIGMA);
+  s18 : Station(LAMBDA, SIGMA);
+  s19 : Station(LAMBDA, SIGMA);
+  s20 : Station(LAMBDA, SIGMA);
+  s21 : Station(LAMBDA, SIGMA);
+
+
+-- stations can not move together.
+TRANS (s0.evt_stutter | s1.evt_stutter) & (s0.evt_stutter | s2.evt_stutter) & (s0.evt_stutter | s3.evt_stutter) & (s0.evt_stutter | s4.evt_stutter) & (s0.evt_stutter | s5.evt_stutter) & (s0.evt_stutter | s6.evt_stutter) & (s0.evt_stutter | s7.evt_stutter) & (s0.evt_stutter | s8.evt_stutter) & (s0.evt_stutter | s9.evt_stutter) & (s0.evt_stutter | s10.evt_stutter) & (s0.evt_stutter | s11.evt_stutter) & (s0.evt_stutter | s12.evt_stutter) & (s0.evt_stutter | s13.evt_stutter) & (s0.evt_stutter | s14.evt_stutter) & (s0.evt_stutter | s15.evt_stutter) & (s0.evt_stutter | s16.evt_stutter) & (s0.evt_stutter | s17.evt_stutter) & (s0.evt_stutter | s18.evt_stutter) & (s0.evt_stutter | s19.evt_stutter) & (s0.evt_stutter | s20.evt_stutter) & (s0.evt_stutter | s21.evt_stutter) & (s1.evt_stutter | s2.evt_stutter) & (s1.evt_stutter | s3.evt_stutter) & (s1.evt_stutter | s4.evt_stutter) & (s1.evt_stutter | s5.evt_stutter) & (s1.evt_stutter | s6.evt_stutter) & (s1.evt_stutter | s7.evt_stutter) & (s1.evt_stutter | s8.evt_stutter) & (s1.evt_stutter | s9.evt_stutter) & (s1.evt_stutter | s10.evt_stutter) & (s1.evt_stutter | s11.evt_stutter) & (s1.evt_stutter | s12.evt_stutter) & (s1.evt_stutter | s13.evt_stutter) & (s1.evt_stutter | s14.evt_stutter) & (s1.evt_stutter | s15.evt_stutter) & (s1.evt_stutter | s16.evt_stutter) & (s1.evt_stutter | s17.evt_stutter) & (s1.evt_stutter | s18.evt_stutter) & (s1.evt_stutter | s19.evt_stutter) & (s1.evt_stutter | s20.evt_stutter) & (s1.evt_stutter | s21.evt_stutter) & (s2.evt_stutter | s3.evt_stutter) & (s2.evt_stutter | s4.evt_stutter) & (s2.evt_stutter | s5.evt_stutter) & (s2.evt_stutter | s6.evt_stutter) & (s2.evt_stutter | s7.evt_stutter) & (s2.evt_stutter | s8.evt_stutter) & (s2.evt_stutter | s9.evt_stutter) & (s2.evt_stutter | s10.evt_stutter) & (s2.evt_stutter | s11.evt_stutter) & (s2.evt_stutter | s12.evt_stutter) & (s2.evt_stutter | s13.evt_stutter) & (s2.evt_stutter | s14.evt_stutter) & (s2.evt_stutter | s15.evt_stutter) & (s2.evt_stutter | s16.evt_stutter) & (s2.evt_stutter | s17.evt_stutter) & (s2.evt_stutter | s18.evt_stutter) & (s2.evt_stutter | s19.evt_stutter) & (s2.evt_stutter | s20.evt_stutter) & (s2.evt_stutter | s21.evt_stutter) & (s3.evt_stutter | s4.evt_stutter) & (s3.evt_stutter | s5.evt_stutter) & (s3.evt_stutter | s6.evt_stutter) & (s3.evt_stutter | s7.evt_stutter) & (s3.evt_stutter | s8.evt_stutter) & (s3.evt_stutter | s9.evt_stutter) & (s3.evt_stutter | s10.evt_stutter) & (s3.evt_stutter | s11.evt_stutter) & (s3.evt_stutter | s12.evt_stutter) & (s3.evt_stutter | s13.evt_stutter) & (s3.evt_stutter | s14.evt_stutter) & (s3.evt_stutter | s15.evt_stutter) & (s3.evt_stutter | s16.evt_stutter) & (s3.evt_stutter | s17.evt_stutter) & (s3.evt_stutter | s18.evt_stutter) & (s3.evt_stutter | s19.evt_stutter) & (s3.evt_stutter | s20.evt_stutter) & (s3.evt_stutter | s21.evt_stutter) & (s4.evt_stutter | s5.evt_stutter) & (s4.evt_stutter | s6.evt_stutter) & (s4.evt_stutter | s7.evt_stutter) & (s4.evt_stutter | s8.evt_stutter) & (s4.evt_stutter | s9.evt_stutter) & (s4.evt_stutter | s10.evt_stutter) & (s4.evt_stutter | s11.evt_stutter) & (s4.evt_stutter | s12.evt_stutter) & (s4.evt_stutter | s13.evt_stutter) & (s4.evt_stutter | s14.evt_stutter) & (s4.evt_stutter | s15.evt_stutter) & (s4.evt_stutter | s16.evt_stutter) & (s4.evt_stutter | s17.evt_stutter) & (s4.evt_stutter | s18.evt_stutter) & (s4.evt_stutter | s19.evt_stutter) & (s4.evt_stutter | s20.evt_stutter) & (s4.evt_stutter | s21.evt_stutter) & (s5.evt_stutter | s6.evt_stutter) & (s5.evt_stutter | s7.evt_stutter) & (s5.evt_stutter | s8.evt_stutter) & (s5.evt_stutter | s9.evt_stutter) & (s5.evt_stutter | s10.evt_stutter) & (s5.evt_stutter | s11.evt_stutter) & (s5.evt_stutter | s12.evt_stutter) & (s5.evt_stutter | s13.evt_stutter) & (s5.evt_stutter | s14.evt_stutter) & (s5.evt_stutter | s15.evt_stutter) & (s5.evt_stutter | s16.evt_stutter) & (s5.evt_stutter | s17.evt_stutter) & (s5.evt_stutter | s18.evt_stutter) & (s5.evt_stutter | s19.evt_stutter) & (s5.evt_stutter | s20.evt_stutter) & (s5.evt_stutter | s21.evt_stutter) & (s6.evt_stutter | s7.evt_stutter) & (s6.evt_stutter | s8.evt_stutter) & (s6.evt_stutter | s9.evt_stutter) & (s6.evt_stutter | s10.evt_stutter) & (s6.evt_stutter | s11.evt_stutter) & (s6.evt_stutter | s12.evt_stutter) & (s6.evt_stutter | s13.evt_stutter) & (s6.evt_stutter | s14.evt_stutter) & (s6.evt_stutter | s15.evt_stutter) & (s6.evt_stutter | s16.evt_stutter) & (s6.evt_stutter | s17.evt_stutter) & (s6.evt_stutter | s18.evt_stutter) & (s6.evt_stutter | s19.evt_stutter) & (s6.evt_stutter | s20.evt_stutter) & (s6.evt_stutter | s21.evt_stutter) & (s7.evt_stutter | s8.evt_stutter) & (s7.evt_stutter | s9.evt_stutter) & (s7.evt_stutter | s10.evt_stutter) & (s7.evt_stutter | s11.evt_stutter) & (s7.evt_stutter | s12.evt_stutter) & (s7.evt_stutter | s13.evt_stutter) & (s7.evt_stutter | s14.evt_stutter) & (s7.evt_stutter | s15.evt_stutter) & (s7.evt_stutter | s16.evt_stutter) & (s7.evt_stutter | s17.evt_stutter) & (s7.evt_stutter | s18.evt_stutter) & (s7.evt_stutter | s19.evt_stutter) & (s7.evt_stutter | s20.evt_stutter) & (s7.evt_stutter | s21.evt_stutter) & (s8.evt_stutter | s9.evt_stutter) & (s8.evt_stutter | s10.evt_stutter) & (s8.evt_stutter | s11.evt_stutter) & (s8.evt_stutter | s12.evt_stutter) & (s8.evt_stutter | s13.evt_stutter) & (s8.evt_stutter | s14.evt_stutter) & (s8.evt_stutter | s15.evt_stutter) & (s8.evt_stutter | s16.evt_stutter) & (s8.evt_stutter | s17.evt_stutter) & (s8.evt_stutter | s18.evt_stutter) & (s8.evt_stutter | s19.evt_stutter) & (s8.evt_stutter | s20.evt_stutter) & (s8.evt_stutter | s21.evt_stutter) & (s9.evt_stutter | s10.evt_stutter) & (s9.evt_stutter | s11.evt_stutter) & (s9.evt_stutter | s12.evt_stutter) & (s9.evt_stutter | s13.evt_stutter) & (s9.evt_stutter | s14.evt_stutter) & (s9.evt_stutter | s15.evt_stutter) & (s9.evt_stutter | s16.evt_stutter) & (s9.evt_stutter | s17.evt_stutter) & (s9.evt_stutter | s18.evt_stutter) & (s9.evt_stutter | s19.evt_stutter) & (s9.evt_stutter | s20.evt_stutter) & (s9.evt_stutter | s21.evt_stutter) & (s10.evt_stutter | s11.evt_stutter) & (s10.evt_stutter | s12.evt_stutter) & (s10.evt_stutter | s13.evt_stutter) & (s10.evt_stutter | s14.evt_stutter) & (s10.evt_stutter | s15.evt_stutter) & (s10.evt_stutter | s16.evt_stutter) & (s10.evt_stutter | s17.evt_stutter) & (s10.evt_stutter | s18.evt_stutter) & (s10.evt_stutter | s19.evt_stutter) & (s10.evt_stutter | s20.evt_stutter) & (s10.evt_stutter | s21.evt_stutter) & (s11.evt_stutter | s12.evt_stutter) & (s11.evt_stutter | s13.evt_stutter) & (s11.evt_stutter | s14.evt_stutter) & (s11.evt_stutter | s15.evt_stutter) & (s11.evt_stutter | s16.evt_stutter) & (s11.evt_stutter | s17.evt_stutter) & (s11.evt_stutter | s18.evt_stutter) & (s11.evt_stutter | s19.evt_stutter) & (s11.evt_stutter | s20.evt_stutter) & (s11.evt_stutter | s21.evt_stutter) & (s12.evt_stutter | s13.evt_stutter) & (s12.evt_stutter | s14.evt_stutter) & (s12.evt_stutter | s15.evt_stutter) & (s12.evt_stutter | s16.evt_stutter) & (s12.evt_stutter | s17.evt_stutter) & (s12.evt_stutter | s18.evt_stutter) & (s12.evt_stutter | s19.evt_stutter) & (s12.evt_stutter | s20.evt_stutter) & (s12.evt_stutter | s21.evt_stutter) & (s13.evt_stutter | s14.evt_stutter) & (s13.evt_stutter | s15.evt_stutter) & (s13.evt_stutter | s16.evt_stutter) & (s13.evt_stutter | s17.evt_stutter) & (s13.evt_stutter | s18.evt_stutter) & (s13.evt_stutter | s19.evt_stutter) & (s13.evt_stutter | s20.evt_stutter) & (s13.evt_stutter | s21.evt_stutter) & (s14.evt_stutter | s15.evt_stutter) & (s14.evt_stutter | s16.evt_stutter) & (s14.evt_stutter | s17.evt_stutter) & (s14.evt_stutter | s18.evt_stutter) & (s14.evt_stutter | s19.evt_stutter) & (s14.evt_stutter | s20.evt_stutter) & (s14.evt_stutter | s21.evt_stutter) & (s15.evt_stutter | s16.evt_stutter) & (s15.evt_stutter | s17.evt_stutter) & (s15.evt_stutter | s18.evt_stutter) & (s15.evt_stutter | s19.evt_stutter) & (s15.evt_stutter | s20.evt_stutter) & (s15.evt_stutter | s21.evt_stutter) & (s16.evt_stutter | s17.evt_stutter) & (s16.evt_stutter | s18.evt_stutter) & (s16.evt_stutter | s19.evt_stutter) & (s16.evt_stutter | s20.evt_stutter) & (s16.evt_stutter | s21.evt_stutter) & (s17.evt_stutter | s18.evt_stutter) & (s17.evt_stutter | s19.evt_stutter) & (s17.evt_stutter | s20.evt_stutter) & (s17.evt_stutter | s21.evt_stutter) & (s18.evt_stutter | s19.evt_stutter) & (s18.evt_stutter | s20.evt_stutter) & (s18.evt_stutter | s21.evt_stutter) & (s19.evt_stutter | s20.evt_stutter) & (s19.evt_stutter | s21.evt_stutter) & (s20.evt_stutter | s21.evt_stutter);
+-- not all stutter
+TRANS !bus.evt_stutter | !s0.evt_stutter | !s1.evt_stutter | !s2.evt_stutter | !s3.evt_stutter | !s4.evt_stutter | !s5.evt_stutter | !s6.evt_stutter | !s7.evt_stutter | !s8.evt_stutter | !s9.evt_stutter | !s10.evt_stutter | !s11.evt_stutter | !s12.evt_stutter | !s13.evt_stutter | !s14.evt_stutter | !s15.evt_stutter | !s16.evt_stutter | !s17.evt_stutter | !s18.evt_stutter | !s19.evt_stutter | !s20.evt_stutter | !s21.evt_stutter;
+
+-- sync bus and stations
+TRANS bus.evt_begin <-> (s0.evt_begin | s1.evt_begin | s2.evt_begin | s3.evt_begin | s4.evt_begin | s5.evt_begin | s6.evt_begin | s7.evt_begin | s8.evt_begin | s9.evt_begin | s10.evt_begin | s11.evt_begin | s12.evt_begin | s13.evt_begin | s14.evt_begin | s15.evt_begin | s16.evt_begin | s17.evt_begin | s18.evt_begin | s19.evt_begin | s20.evt_begin | s21.evt_begin);
+TRANS bus.evt_end <-> (s0.evt_end | s1.evt_end | s2.evt_end | s3.evt_end | s4.evt_end | s5.evt_end | s6.evt_end | s7.evt_end | s8.evt_end | s9.evt_end | s10.evt_end | s11.evt_end | s12.evt_end | s13.evt_end | s14.evt_end | s15.evt_end | s16.evt_end | s17.evt_end | s18.evt_end | s19.evt_end | s20.evt_end | s21.evt_end);
+TRANS bus.evt_busy <-> (s0.evt_busy | s1.evt_busy | s2.evt_busy | s3.evt_busy | s4.evt_busy | s5.evt_busy | s6.evt_busy | s7.evt_busy | s8.evt_busy | s9.evt_busy | s10.evt_busy | s11.evt_busy | s12.evt_busy | s13.evt_busy | s14.evt_busy | s15.evt_busy | s16.evt_busy | s17.evt_busy | s18.evt_busy | s19.evt_busy | s20.evt_busy | s21.evt_busy);
+TRANS bus.evt_cd <-> (s0.evt_cd | s1.evt_cd | s2.evt_cd | s3.evt_cd | s4.evt_cd | s5.evt_cd | s6.evt_cd | s7.evt_cd | s8.evt_cd | s9.evt_cd | s10.evt_cd | s11.evt_cd | s12.evt_cd | s13.evt_cd | s14.evt_cd | s15.evt_cd | s16.evt_cd | s17.evt_cd | s18.evt_cd | s19.evt_cd | s20.evt_cd | s21.evt_cd);
+TRANS ((bus.evt_cd & bus.cd_id = 0) <-> s0.evt_cd) & ((bus.evt_cd & bus.cd_id = 1) <-> s1.evt_cd) & ((bus.evt_cd & bus.cd_id = 2) <-> s2.evt_cd) & ((bus.evt_cd & bus.cd_id = 3) <-> s3.evt_cd) & ((bus.evt_cd & bus.cd_id = 4) <-> s4.evt_cd) & ((bus.evt_cd & bus.cd_id = 5) <-> s5.evt_cd) & ((bus.evt_cd & bus.cd_id = 6) <-> s6.evt_cd) & ((bus.evt_cd & bus.cd_id = 7) <-> s7.evt_cd) & ((bus.evt_cd & bus.cd_id = 8) <-> s8.evt_cd) & ((bus.evt_cd & bus.cd_id = 9) <-> s9.evt_cd) & ((bus.evt_cd & bus.cd_id = 10) <-> s10.evt_cd) & ((bus.evt_cd & bus.cd_id = 11) <-> s11.evt_cd) & ((bus.evt_cd & bus.cd_id = 12) <-> s12.evt_cd) & ((bus.evt_cd & bus.cd_id = 13) <-> s13.evt_cd) & ((bus.evt_cd & bus.cd_id = 14) <-> s14.evt_cd) & ((bus.evt_cd & bus.cd_id = 15) <-> s15.evt_cd) & ((bus.evt_cd & bus.cd_id = 16) <-> s16.evt_cd) & ((bus.evt_cd & bus.cd_id = 17) <-> s17.evt_cd) & ((bus.evt_cd & bus.cd_id = 18) <-> s18.evt_cd) & ((bus.evt_cd & bus.cd_id = 19) <-> s19.evt_cd) & ((bus.evt_cd & bus.cd_id = 20) <-> s20.evt_cd) & ((bus.evt_cd & bus.cd_id = 21) <-> s21.evt_cd);
+
+INVARSPEC NAME SAFE := !(s0.l = transm & s1.l = transm & s0.x > 2 * SIGMA);
+LTLSPEC NAME UNSAFE := G (s0.l = transm -> F s0.l = wait);
+
+MODULE Station(LAMBDA, SIGMA)
+IVAR
+  event : {stutter, begin, end, busy, cd};
+DEFINE
+  evt_stutter := event = stutter;
+  evt_begin := event = begin;
+  evt_end := event = end;
+  evt_busy := event = busy;
+  evt_cd := event = cd;
+VAR
+  l : {wait, transm, retry};
+  x : clock;
+
+TRANS evt_stutter -> (next(l) = l & next(x) = x);
+
+INIT l = wait & x = 0;
+
+INVAR l = transm -> x <= LAMBDA;
+INVAR l = retry -> x <= 2 * SIGMA;
+
+-- wait -> (wait | transm | retry1 | retry2)
+TRANS (!evt_stutter & l = wait) -> (next(l) = wait | next(l) = transm | next(l) = retry);
+-- wait -> wait
+TRANS (!evt_stutter & l = wait & next(l) = wait) -> (evt_cd & next(x) = 0);
+-- wait -> transm
+TRANS (!evt_stutter & l = wait & next(l) = transm) -> (evt_begin & next(x) = 0);
+-- wait -> retry1 | retry2
+TRANS (!evt_stutter & l = wait & next(l) = retry) -> (next(x) = 0 & (evt_cd | evt_busy));
+
+-- transm -> (wait | retry)
+TRANS (!evt_stutter & l = transm) -> (next(l) = wait | next(l) = retry);
+-- transm -> wait
+TRANS (!evt_stutter & l = transm & next(l) = wait) -> (evt_end & x >= LAMBDA & next(x) = 0);
+-- transm -> retry
+TRANS (!evt_stutter & l = transm & next(l) = retry) -> (evt_cd & x <= 2 * SIGMA & next(x) = 0);
+
+-- retry -> (retry | transm)
+TRANS (!evt_stutter & l = retry) -> (next(l) = retry | next(l) = transm);
+-- retry -> retry
+TRANS (!evt_stutter & l = retry & next(l) = retry) -> (evt_cd & x <= 2 * SIGMA & next(x) = 0);
+-- retry -> transm
+TRANS (!evt_stutter & l = retry & next(l) = transm) -> (evt_begin & x <= 2 * SIGMA & next(x) = 0);
+
+
+
+MODULE Bus(SIGMA)
+DEFINE
+  N := 21;
+  evt_stutter := event = stutter;
+  evt_begin := event = begin;
+  evt_end := event = end;
+  evt_busy := event = busy;
+  evt_cd := event = cd;
+IVAR
+  event : {stutter, begin, end, busy, cd};
+  cd_id : 0..N;
+VAR
+  j : 0..N;
+  x : Clock;
+  l : {idle, active, collision, transmit}; -- location of the timed automata
+
+TRANS evt_stutter -> (next(l) = l & next(x) = x & next(j) = j);
+
+INIT j = 0 & x = 0 & l = idle;
+
+-- no time elapse in location transmit
+URGENT l = transmit;
+
+-- location invariant.
+INVAR l = collision -> x < SIGMA;
+
+-- idle -> active
+TRANS (!evt_stutter & l = idle) -> (next(l) = active & evt_begin & next(j) = j & next(x) = 0);
+
+-- active -> (idle | active | collision)
+TRANS (!evt_stutter & l = active) -> (next(j) = j & (next(l) = idle | next(l) = active | next(l) = collision));
+-- active -> idle
+TRANS (!evt_stutter & l = active & next(l) = idle) -> (evt_end & next(x) = 0);
+-- active -> active
+TRANS (!evt_stutter & l = active & next(l) = active) -> (evt_busy & x >= SIGMA & next(x) = x);
+-- active -> collision
+TRANS (!evt_stutter & l = active & next(l) = collision) -> (evt_begin & x < SIGMA & next(x) = 0);
+
+-- collision -> transmit
+TRANS (!evt_stutter & l = collision) -> (next(l) = transmit & x < SIGMA & evt_cd & cd_id = j & next(x) = 0 & next(j) = j + 1);
+
+-- transmit -> (transmit | idle)
+TRANS (!evt_stutter & l = transmit) -> (next(l) = transmit | next(l) = idle);
+-- transmit -> transmit
+TRANS (!evt_stutter & l = transmit & next(l) = transmit) -> (j < N & next(x) = 0 & next(j) = j + 1 & evt_cd & cd_id = j);
+-- transmit -> idle
+TRANS (!evt_stutter & l = transmit & next(l) = idle) -> (j = N & evt_cd & cd_id = j & next(x) = 0 & next(j) = 0);

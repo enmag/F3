@@ -1,0 +1,40 @@
+-- int main() {
+--     int a, b;
+--  a = __VERIFIER_nondet_int();
+--  b = __VERIFIER_nondet_int();
+--  while (a >= 1 && b >= 1) { // l0
+--    a = 2*a; // l1
+--    b = 3*b; // l2
+--  }
+--  return 0; // end
+-- }
+
+MODULE main
+  VAR
+    pc : {l0, l1, l2, end};
+    a : integer;
+    b : integer;
+
+  --control flow graph
+  ASSIGN
+    init(pc) := l0;
+    next(pc) :=
+      case
+        pc = l0 & (a >= 1 & b >= 1) : l1;
+        pc = l0 & !(a >= 1 & b >= 1) : end;
+        pc = l1 : l2;
+        pc = l2 : l0;
+        TRUE : end;
+      esac;
+
+  DEFINE
+    same_a := next(a) = a;
+    same_b := next(b) = b;
+    same := same_a & same_b;
+
+  TRANS pc = l0 -> same;
+  TRANS pc = l1 -> next(a) = 2 * a & same_b;
+  TRANS pc = l2 -> same_a & next(b) = 3 * b;
+  TRANS pc = end -> same;
+
+  LTLSPEC NAME TERMINATION := F pc = end;

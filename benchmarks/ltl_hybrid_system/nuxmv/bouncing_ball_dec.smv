@@ -1,0 +1,45 @@
+MODULE main
+  VAR
+    h : real;
+    v : real;
+    delta : real;
+    time : real;
+    counter : real;
+
+  DEFINE
+    g := 9.81;
+
+  INVAR (h = 0 & v < 0) -> delta = 0;
+  INVAR delta >= 0;
+  INVAR h >= 0;
+  -- next(h) >= 0
+  INVAR h + v * delta - f'1/2 * g * pow(delta, 2) >= 0;
+
+  ASSIGN
+  init(time) := 0;
+  next(time) := time + delta;
+  init(counter) := 1;
+  init(h) := 0;
+  init(v) := g;
+
+  next(counter) :=
+    case
+      h = 0 & v < 0: counter * 0.5;
+      TRUE : counter;
+    esac;
+
+  next(h) :=
+    case
+      h = 0 & v < 0 : 0;
+      TRUE : h + v * delta - f'1/2 * g * pow(delta, 2);
+    esac;
+  next(v) :=
+    case
+      h = 0 & v < 0 : -f'1/2 * v;
+      TRUE : v - g * delta;
+    esac;
+
+  INVARSPEC v <= 10000 * counter;
+  INVARSPEC delta <= 10000 * counter;
+
+  LTLSPEC NAME BENCH := ! G F h = 0;

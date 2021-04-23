@@ -1,0 +1,51 @@
+-- int main() {
+--     int y1, y2;
+--  y1 = __VERIFIER_nondet_int();
+--  y2 = __VERIFIER_nondet_int();
+--  if (y1 >= 0 && y2 >= 0) { // l0
+--      while (y1 != y2) { // l1
+--        if (y1 > y2) { // l2
+--          y1 = y1 - y2; // l3
+--        } else {
+--          y2 = y2 - y1; // l4
+--        }
+--      }
+--  }
+--  return 0; // end
+-- }
+
+MODULE main
+  VAR
+    pc : {l0, l1, l2, l3, l4, end};
+    y1 : integer;
+    y2 : integer;
+
+  --control flow graph
+  ASSIGN
+    init(pc) := l0;
+    next(pc) :=
+      case
+        pc = l0 & (y1 >= 0 & y2 >= 0) : l1;
+        pc = l0 & !(y1 >= 0 & y2 >= 0) : end;
+        pc = l1 & (y1 != y2) : l2;
+        pc = l1 & !(y1 != y2) : end;
+        pc = l2 & (y1 > y2) : l3;
+        pc = l2 & !(y1 > y2) : l4;
+        pc = l3 : l1;
+        pc = l4 : l1;
+        TRUE : end;
+      esac;
+
+  DEFINE
+    same_y1 := next(y1) = y1;
+    same_y2 := next(y2) = y2;
+    same := same_y1 & same_y2;
+
+  TRANS pc = l0 -> same;
+  TRANS pc = l1 -> same;
+  TRANS pc = l2 -> same;
+  TRANS pc = l3 -> next(y1) = y1 - y2 & same_y2;
+  TRANS pc = l4 -> same_y1 & next(y2) = y2 - y1;
+  TRANS pc = end -> same;
+
+  LTLSPEC NAME TERMINATION := F pc = end;

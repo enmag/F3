@@ -1,0 +1,28 @@
+-- SMV encondig of P8.java from benchmarks of paper "Disproving termination with overapproximation".
+MODULE main
+  VAR
+    z : integer;
+    pc : -1..15;
+
+  -- cfg
+  ASSIGN
+  init(pc) := 0;
+  next(pc) :=
+    case
+      pc = -1 : -1;
+      pc = 0 & !(z >= 3) : -1;
+      pc = 0 & z >= 3 : 1;
+      pc = 1 & !(z >= 3) : -1;
+      pc = 1 & z >= 3 : 2;
+      pc = 2 : 1;
+    esac;
+
+  -- constraints
+  TRANS (pc = -1 & next(pc) = -1) -> (next(z) = z);
+  TRANS (pc = 0 & next(pc) = -1) -> (next(z) = z);
+  TRANS (pc = 0 & next(pc) = 1) -> (next(z) = z);
+  TRANS (pc = 1 & next(pc) = -1) -> (next(z) = z);
+  TRANS (pc = 1 & next(pc) = 2) -> (next(z) = z);
+  -- TRANS (pc = 2 & next(pc) = 1) -> (nondet);
+
+  LTLSPEC NAME BENCH := F pc = -1;

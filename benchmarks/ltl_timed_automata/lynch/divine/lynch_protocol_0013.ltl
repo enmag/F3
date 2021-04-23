@@ -1,0 +1,4 @@
+#define v1_eq_1 (v1_is_1)
+#define p0_cs7 (P0.CS7)
+
+#property (G F v1_eq_1) -> (G F p0_cs7)

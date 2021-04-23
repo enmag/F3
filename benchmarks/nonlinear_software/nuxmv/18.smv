@@ -1,0 +1,34 @@
+-- SMV encondig of P18.java from benchmarks of paper "Disproving termination with overapproximation".
+MODULE main
+  VAR
+    x : integer;
+    y : integer;
+    z : integer;
+    pc : -1..4;
+
+  -- cfg
+  ASSIGN
+  init(pc) := 0;
+  next(pc) :=
+    case
+      pc = -1 : -1;
+      pc = 0 & !(x <= y - 1) : -1;
+      pc = 0 & x <= y - 1 : 1;
+      pc = 1 & !(x <= y - 1) : -1;
+      pc = 1 & x <= y - 1 : 2;
+      pc = 2 : 3;
+      pc = 3 : 4;
+      pc = 4 : 1;
+    esac;
+
+  -- constraints
+  TRANS (pc = -1 & next(pc) = -1) -> (next(x) = x & next(y) = y & next(z) = z);
+  TRANS (pc = 0 & next(pc) = -1) -> (next(x) = x & next(y) = y & next(z) = z);
+  TRANS (pc = 0 & next(pc) = 1)  -> (next(x) = x & next(y) = y & next(z) = z);
+  TRANS (pc = 1 & next(pc) = -1) -> (next(x) = x & next(y) = y & next(z) = z);
+  TRANS (pc = 1 & next(pc) = 2)  -> (next(x) = x & next(y) = y & next(z) = z);
+  TRANS (pc = 2 & next(pc) = 3)  -> (next(x) = x & next(y) = z*z & next(z) = z);
+  TRANS (pc = 3 & next(pc) = 4)  -> (next(x) = y & next(y) = y & next(z) = z);
+  TRANS (pc = 4 & next(pc) = 1)  -> (next(x) = x & next(y) = y+1 & next(z) = z);
+
+  LTLSPEC NAME BENCH := F pc = -1;

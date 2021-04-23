@@ -1,0 +1,78 @@
+-- int main() {
+--  int i = __VERIFIER_nondet_int();
+--  int a[10];
+--  while (0 <= i && i < 10 && a[i] >= 0) { // l0
+--    i = __VERIFIER_nondet_int(); // l1
+--    a[i] = 0; // l2
+--  }
+--  return 0; // end
+-- }
+
+
+MODULE main
+  VAR
+    pc : {l0, l1, l2, end};
+    i : integer;
+    a : array 0..9 of integer;
+
+  DEFINE same := next(i) = i & next(a) = a;
+
+  -- control flow graph
+  ASSIGN
+    init(pc) := l0;
+    next(pc) :=
+      case
+        pc = l0 & (0 <= i & i < 10 & a[i] >= 0): l1;
+        pc = l0 & !(0 <= i & i < 10 & a[i] >= 0): end;
+        pc = l1 : l2;
+        pc = l2 : l0;
+        TRUE: end;
+      esac;
+
+  TRANS pc = l0 -> same;
+  TRANS pc = l1 -> next(a) = a;
+  TRANS pc = l2 -> next(i) = i &
+
+    (i = 0 -> (next(a[0]) = 0 & next(a[1]) = a[1] & next(a[2]) = a[2] & next(a[3]) = a[3] &
+               next(a[4]) = a[4] & next(a[5]) = a[5] & next(a[6]) = a[6] &
+               next(a[7]) = a[7] & next(a[8]) = a[8] & next(a[9]) = a[9])
+    ) &
+    (i = 1 -> (next(a[0]) = a[0] & next(a[1]) = 0 & next(a[2]) = a[2] & next(a[3]) = a[3] &
+               next(a[4]) = a[4] & next(a[5]) = a[5] & next(a[6]) = a[6] &
+               next(a[7]) = a[7] & next(a[8]) = a[8] & next(a[9]) = a[9])
+    ) &
+    (i = 2 -> (next(a[0]) = a[0] & next(a[1]) = a[1] & next(a[2]) = 0 & next(a[3]) = a[3] &
+               next(a[4]) = a[4] & next(a[5]) = a[5] & next(a[6]) = a[6] &
+               next(a[7]) = a[7] & next(a[8]) = a[8] & next(a[9]) = a[9])
+    ) &
+    (i = 3 -> (next(a[0]) = a[0] & next(a[1]) = a[1] & next(a[2]) = a[2] & next(a[3]) = 0 &
+               next(a[4]) = a[4] & next(a[5]) = a[5] & next(a[6]) = a[6] &
+               next(a[7]) = a[7] & next(a[8]) = a[8] & next(a[9]) = a[9])
+    ) &
+    (i = 4 -> (next(a[0]) = a[0] & next(a[1]) = a[1] & next(a[2]) = a[2] & next(a[3]) = a[3] &
+               next(a[4]) = 0 & next(a[5]) = a[5] & next(a[6]) = a[6] &
+               next(a[7]) = a[7] & next(a[8]) = a[8] & next(a[9]) = a[9])
+    ) &
+    (i = 5 -> (next(a[0]) = a[0] & next(a[1]) = a[1] & next(a[2]) = a[2] & next(a[3]) = a[3] &
+               next(a[4]) = a[4] & next(a[5]) = 0 & next(a[6]) = a[6] &
+               next(a[7]) = a[7] & next(a[8]) = a[8] & next(a[9]) = a[9])
+    ) &
+    (i = 6 -> (next(a[0]) = a[0] & next(a[1]) = a[1] & next(a[2]) = a[2] & next(a[3]) = a[3] &
+               next(a[4]) = a[4] & next(a[5]) = a[5] & next(a[6]) = 0 &
+               next(a[7]) = a[7] & next(a[8]) = a[8] & next(a[9]) = a[9])
+    ) &
+    (i = 7 -> (next(a[0]) = a[0] & next(a[1]) = a[1] & next(a[2]) = a[2] & next(a[3]) = a[3] &
+               next(a[4]) = a[4] & next(a[5]) = a[5] & next(a[6]) = a[6] &
+               next(a[7]) = 0 & next(a[8]) = a[8] & next(a[9]) = a[9])
+    ) &
+    (i = 8 -> (next(a[0]) = a[0] & next(a[1]) = a[1] & next(a[2]) = a[2] & next(a[3]) = a[3] &
+               next(a[4]) = a[4] & next(a[5]) = a[5] & next(a[6]) = a[6] &
+               next(a[7]) = a[7] & next(a[8]) = 0 & next(a[9]) = a[9])
+    ) &
+    (i = 9 -> (next(a[0]) = a[0] & next(a[1]) = a[1] & next(a[2]) = a[2] & next(a[3]) = a[3] &
+               next(a[4]) = a[4] & next(a[5]) = a[5] & next(a[6]) = a[6] &
+               next(a[7]) = a[7] & next(a[8]) = a[8] & next(a[9]) = 0)
+    );
+  TRANS pc = end -> same;
+
+  LTLSPEC NAME TERMINATION := F pc = end;

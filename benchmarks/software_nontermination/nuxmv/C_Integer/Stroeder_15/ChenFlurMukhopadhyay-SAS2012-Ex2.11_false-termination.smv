@@ -1,0 +1,45 @@
+-- int main() {
+--     int x, y, oldx;
+--     x = __VERIFIER_nondet_int();
+--     y = __VERIFIER_nondet_int();
+--     while (4*x - 5*y > 0) { // l0
+--         oldx = x; // l1
+--         x = 2*oldx + 4*y; // l2
+--         y = 4*oldx; // l3
+--     }
+--     return 0; // end
+-- }
+
+MODULE main
+  VAR
+    pc : {l0, l1, l2, l3, end};
+    x : integer;
+    y : integer;
+    oldx : integer;
+
+  --control flow graph
+  ASSIGN
+    init(pc) := l0;
+    next(pc) :=
+      case
+        pc = l0 & (4 * x - 5 * y > 0) : l1;
+        pc = l0 & !(4 * x - 5 * y > 0) : end;
+        pc = l1 : l2;
+        pc = l2 : l3;
+        pc = l3 : l0;
+        TRUE : end;
+      esac;
+
+  DEFINE
+    same_x := next(x) = x;
+    same_y := next(y) = y;
+    same_oldx := next(oldx) = oldx;
+    same := same_x & same_y & same_oldx;
+
+  TRANS pc = l0 -> same;
+  TRANS pc = l1 -> same_x & same_y & next(oldx) = x;
+  TRANS pc = l2 -> next(x) = 2 * oldx + 4 * y & same_y & same_oldx;
+  TRANS pc = l3 -> same_x & next(y) = 4 * oldx & same_oldx;
+  TRANS pc = end -> same;
+
+  LTLSPEC NAME TERMINATION := F pc = end;

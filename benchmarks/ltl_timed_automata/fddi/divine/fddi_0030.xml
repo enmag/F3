@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE nta PUBLIC '-//Uppaal Team//DTD Flat System 1.1//EN' 'http://www.it.uu.se/research/group/darts/uppaal/flat-1_2.dtd'>
+<nta>
+    <declaration>
+    const int SA = 20;
+    const int td = 0;
+    const int TRTT = 1520;
+
+    const int N = 30;
+    typedef int[0, N - 1] id_t;
+    chan tt[N];
+    chan rt[N];
+
+</declaration>
+<template>
+    <name>RING</name>
+    <declaration>clock x; id_t counter;</declaration>
+    <location id="id0">
+        <name>ring_to_counter</name>
+        <label kind="invariant">x &lt;= td</label>
+    </location>
+    <location id="id1">
+        <name>ring_counter</name>
+    </location>
+    <init ref="id0"/>
+    <transition>
+        <source ref="id1"/>
+        <target ref="id0"/>
+        <label kind="guard">counter == N - 1</label>
+        <label kind="synchronisation">rt[counter]?</label>
+        <label kind="assignment">x := 0, counter := 0</label>
+    </transition>
+    <transition>
+        <source ref="id1"/>
+        <target ref="id0"/>
+        <label kind="guard">counter &lt; N - 1</label>
+        <label kind="synchronisation">rt[counter]?</label>
+        <label kind="assignment">x := 0, counter := counter + 1</label>
+    </transition>
+    <transition>
+        <source ref="id0"/>
+        <target ref="id1"/>
+        <label kind="guard">x &lt;= td</label>
+        <label kind="synchronisation">tt[counter]!</label>
+    </transition>
+</template>
+<template>
+    <name>ST</name>
+    <parameter>id_t id</parameter>
+    <declaration>clock x, y, z;</declaration>
+    <location id="id2">
+        <name>station_z_idle</name>
+    </location>
+    <location id="id3">
+        <name>station_z_sync</name>
+        <label kind="invariant">x&lt;=SA</label>
+    </location>
+    <location id="id4">
+        <name>station_z_async</name>
+        <label kind="invariant">z&lt;=TRTT</label>
+    </location>
+    <location id="id5">
+        <name>station_y_idle</name>
+    </location>
+    <location id="id6">
+        <name>station_y_sync</name>
+    </location>
+    <location id="id7">
+        <name>station_y_async</name>
+        <label kind="invariant">y&lt;=TRTT</label>
+    </location>
+    <init ref="id2"/>
+    <transition>
+        <source ref="id2"/>
+        <target ref="id3"/>
+        <label kind="synchronisation">tt[id] ?</label>
+        <label kind="assignment">y := 0, x:= 0</label>
+    </transition>
+    <transition>
+        <source ref="id3"/>
+        <target ref="id5"/>
+        <label kind="guard">x &gt;= SA &amp;&amp; z &gt;= TRTT</label>
+        <label kind="synchronisation">rt[id] !</label>
+    </transition>
+    <transition>
+        <source ref="id3"/>
+        <target ref="id4"/>
+        <label kind="guard">x &gt;= SA &amp;&amp; z &lt; TRTT</label>
+    </transition>
+    <transition>
+        <source ref="id4"/>
+        <target ref="id5"/>
+        <label kind="synchronisation">rt[id] !</label>
+    </transition>
+    <transition>
+        <source ref="id5"/>
+        <target ref="id6"/>
+        <label kind="synchronisation">tt[id] ?</label>
+        <label kind="assignment">z := 0, x:= 0</label>
+    </transition>
+    <transition>
+        <source ref="id6"/>
+        <target ref="id2"/>
+        <label kind="guard">x &gt;= SA &amp;&amp; y &gt;= TRTT</label>
+        <label kind="synchronisation">rt[id] !</label>
+    </transition>
+    <transition>
+        <source ref="id6"/>
+        <target ref="id7"/>
+        <label kind="guard">x &gt;= SA &amp;&amp; y &lt; TRTT</label>
+    </transition>
+    <transition>
+        <source ref="id7"/>
+        <target ref="id2"/>
+        <label kind="synchronisation">rt[id] !</label>
+    </transition>
+</template>
+<system>
+  ST0 = ST(0);
+  ST1 = ST(1);
+  ST2 = ST(2);
+  ST3 = ST(3);
+  ST4 = ST(4);
+  ST5 = ST(5);
+  ST6 = ST(6);
+  ST7 = ST(7);
+  ST8 = ST(8);
+  ST9 = ST(9);
+  ST10 = ST(10);
+  ST11 = ST(11);
+  ST12 = ST(12);
+  ST13 = ST(13);
+  ST14 = ST(14);
+  ST15 = ST(15);
+  ST16 = ST(16);
+  ST17 = ST(17);
+  ST18 = ST(18);
+  ST19 = ST(19);
+  ST20 = ST(20);
+  ST21 = ST(21);
+  ST22 = ST(22);
+  ST23 = ST(23);
+  ST24 = ST(24);
+  ST25 = ST(25);
+  ST26 = ST(26);
+  ST27 = ST(27);
+  ST28 = ST(28);
+  ST29 = ST(29);
+
+  system RING, ST0, ST1, ST2, ST3, ST4, ST5, ST6, ST7, ST8, ST9, ST10, ST11, ST12, ST13, ST14, ST15, ST16, ST17, ST18, ST19, ST20, ST21, ST22, ST23, ST24, ST25, ST26, ST27, ST28, ST29;
+</system>
+</nta>

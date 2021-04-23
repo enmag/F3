@@ -1,0 +1,58 @@
+///*** 1_gcd ***///
+START: gcd_bb0;
+
+FROM: gcd_bb0;
+var__temp_v.01 := vy2;
+var__temp_v.0 := vy1;
+v.01 := var__temp_v.01;
+v.0 := var__temp_v.0;
+TO: gcd_bb1;
+
+FROM: gcd_bb1;
+TO: gcd_bb1_end;
+
+FROM: gcd_bb1_end;
+assume(v.0 != v.01);
+TO: gcd_bb2;
+
+FROM: gcd_bb1_end;
+assume(v.0 == v.01);
+TO: gcd_bb3;
+
+FROM: gcd_bb2;
+v2 := v.0 - v.01;
+v3 := v.01 - v.0;
+TO: gcd_bb2_v.12;
+FROM: gcd_bb2_v.12;
+assume(v.0 > v.01);
+v.12 := v.01;
+TO: gcd_bb2_sv.12;
+
+FROM: gcd_bb2_v.12;
+assume(v.0 <= v.01);
+v.12 := v3;
+TO: gcd_bb2_sv.12;
+
+FROM: gcd_bb2_sv.12;
+TO: gcd_bb2_v.1;
+FROM: gcd_bb2_v.1;
+assume(v.0 > v.01);
+v.1 := v2;
+TO: gcd_bb2_sv.1;
+
+FROM: gcd_bb2_v.1;
+assume(v.0 <= v.01);
+v.1 := v.0;
+TO: gcd_bb2_sv.1;
+
+FROM: gcd_bb2_sv.1;
+var__temp_v.01 := v.12;
+var__temp_v.0 := v.1;
+v.01 := var__temp_v.01;
+v.0 := var__temp_v.0;
+TO: gcd_bb1;
+
+FROM: gcd_bb3;
+TO: gcd_bb3_ret;
+
+///*** 2_main ***///

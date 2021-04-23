@@ -1,0 +1,6 @@
+#define g0 (gate.gate0)
+#define g1 (gate.gate1)
+#define g2 (gate.gate2)
+#define g3 (gate.gate3)
+
+#property G ((g0 && X g1) -> F (g2 && X g3))

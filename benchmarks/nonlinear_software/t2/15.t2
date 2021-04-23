@@ -1,0 +1,21 @@
+START: 0; //lasso_3
+
+FROM: 0;
+assume(x >= -1);
+assume(y <= -10);
+TO: 1;
+
+FROM: 1;
+assume(x >= 1);
+assume(y <= -20);
+TO: 2;
+
+FROM: 2;
+z := x * y;
+x := x - 2*y;
+y := y - 1;
+TO: 1;
+
+FROM: 1;
+assume(x < 0);
+TO: 3;

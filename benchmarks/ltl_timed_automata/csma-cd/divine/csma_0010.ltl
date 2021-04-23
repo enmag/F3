@@ -1,0 +1,4 @@
+#define s0_transm (S0.transm)
+#define s0_wait (S0.wait)
+
+#property G (s0_transm -> F s0_wait)

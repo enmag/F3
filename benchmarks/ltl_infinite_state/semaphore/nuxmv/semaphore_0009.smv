@@ -1,0 +1,45 @@
+MODULE main
+  DEFINE
+    proc_num := 9;
+    signal := semaphore = proc_num & next(semaphore) = 0;
+  VAR
+    run : 0..proc_num;
+    semaphore : integer;
+      sm0 : Semaphore(run = 0, semaphore, signal);
+  sm1 : Semaphore(run = 1, semaphore, signal);
+  sm2 : Semaphore(run = 2, semaphore, signal);
+  sm3 : Semaphore(run = 3, semaphore, signal);
+  sm4 : Semaphore(run = 4, semaphore, signal);
+  sm5 : Semaphore(run = 5, semaphore, signal);
+  sm6 : Semaphore(run = 6, semaphore, signal);
+  sm7 : Semaphore(run = 7, semaphore, signal);
+  sm8 : Semaphore(run = 8, semaphore, signal);
+
+
+  INIT semaphore = 0;
+
+  TRANS semaphore = proc_num -> next(semaphore) = 0;
+
+  LTLSPEC ((G F run = 0) & (G F run = 1) & (G F run = 2) & (G F run = 3) & (G F run = 4) & (G F run = 5) & (G F run = 6) & (G F run = 7) & (G F run = 8)) -> !(G F semaphore = 0);
+
+MODULE Semaphore(run, sem, cont)
+  VAR
+    state : {work, wait};
+    loop_len : integer;
+    l : integer;
+
+  INIT state = work & loop_len > 0 & l = 0;
+
+  TRANS (state = wait & next(state) = work) -> next(loop_len) > loop_len;
+  TRANS !(state = wait & next(state) = work) -> next(loop_len) = loop_len;
+
+  TRANS (state = wait & next(state) = work) -> next(l) = 0;
+  TRANS state = work -> next(l) = l - 1;
+
+  TRANS state = work & l < loop_len -> next(state) = work;
+
+  TRANS cont & state = wait -> next(state) = work;
+  TRANS !run & !(cont & state = wait) -> next(state) = state;
+
+  TRANS run & next(state) = state -> next(sem) = sem;
+  TRANS run & state = work & next(state) = wait -> next(sem) = sem + 1;

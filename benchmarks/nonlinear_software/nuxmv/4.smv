@@ -1,0 +1,82 @@
+-- SMV encondig of P4.java from benchmarks of paper "Disproving termination with overapproximation".
+MODULE main
+  VAR
+    w : integer;
+    x : integer;
+    y : integer;
+    z : integer;
+    pc : -1..20;
+
+  -- cfg
+  ASSIGN
+  init(pc) := 0;
+  next(pc) :=
+    case
+      pc = -1 : -1;
+      pc = 0 & !(z >= 4) : -1;
+      pc = 0 & z >= 4 : 1;
+      pc = 1 : 2;
+      pc = 2 & x >= 0 : 3;
+      pc = 2 & !(x >= 0) : 5;
+      pc = 3 & !(w <= -5) : -1;
+      pc = 3 & w <= -5 : 4;
+      pc = 4 : 6;
+      pc = 5 : 6;
+      pc = 6 : {7, 9};
+      pc = 7 & !(x < 0) : -1;
+      pc = 7 & x < 0 : 8;
+      pc = 8 : -1;
+      pc = 9 & !(x >= w) : 18;
+      pc = 9 & x >= w : 10;
+      pc = 10 : {11, 13};
+      pc = 11 & !(x < 0) : -1;
+      pc = 11 & x < 0 : 12;
+      pc = 12 : -1;
+      pc = 13 & z <= 8 : 14;
+      pc = 13 & !(z <= 8): 15;
+      pc = 14 : 16;
+      pc = 15 : 16;
+      pc = 16 : 17;
+      pc = 17 : 9;
+      pc = 18 : {-1, 19};
+      pc = 19 & !(x < 0) : -1;
+      pc = 19 & x < 0 : 20;
+      pc = 20 : -1;
+    esac;
+
+  -- constraints
+  TRANS (pc = -1 & next(pc) = -1) -> (next(w) = w & next(x) = x & next(y) = y & next(z) = z);
+  TRANS (pc = 0 & next(pc) = -1)  -> (next(w) = w & next(x) = x & next(y) = y & next(z) = z);
+  TRANS (pc = 0 & next(pc) = 1)   -> (next(w) = w & next(x) = x & next(y) = y & next(z) = z);
+  TRANS (pc = 1 & next(pc) = 2)   -> (next(w) = w & next(x) = x & next(y) = y & next(z) = z + 1);
+  TRANS (pc = 2 & next(pc) = 3)   -> (next(w) = w & next(x) = x & next(y) = y & next(z) = z);
+  TRANS (pc = 2 & next(pc) = 5)   -> (next(w) = w & next(x) = x & next(y) = y & next(z) = z);
+  TRANS (pc = 3 & next(pc) = -1)  -> (next(w) = w & next(x) = x & next(y) = y & next(z) = z);
+  TRANS (pc = 3 & next(pc) = 4)   -> (next(w) = w & next(x) = x & next(y) = y & next(z) = z);
+  TRANS (pc = 4 & next(pc) = 6)   -> (next(w) = w & next(x) = x & next(y) = y & next(z) = z + 1);
+  TRANS (pc = 5 & next(pc) = 6)   -> (next(w) = w & next(x) = x & next(y) = y & next(z) = z - 1);
+  TRANS (pc = 6 & next(pc) = 7)   -> (next(w) = w & next(x) = x & next(y) = y & next(z) = z);
+  TRANS (pc = 6 & next(pc) = 9)   -> (next(w) = w & next(x) = x & next(y) = y & next(z) = z);
+  TRANS (pc = 7 & next(pc) = -1)  -> (next(w) = w & next(x) = x & next(y) = y & next(z) = z);
+  TRANS (pc = 7 & next(pc) = 8)   -> (next(w) = w & next(x) = x & next(y) = y & next(z) = z);
+  TRANS (pc = 8 & next(pc) = -1)  -> (next(w) = w & next(x) = x & next(y) = y & next(z) = z - 1);
+  TRANS (pc = 9 & next(pc) = 18)  -> (next(w) = w & next(x) = x & next(y) = y & next(z) = z);
+  TRANS (pc = 9 & next(pc) = 10)  -> (next(w) = w & next(x) = x & next(y) = y & next(z) = z);
+  TRANS (pc = 10 & next(pc) = 11) -> (next(w) = w & next(x) = x & next(y) = y & next(z) = z);
+  TRANS (pc = 10 & next(pc) = 13) -> (next(w) = w & next(x) = x & next(y) = y & next(z) = z);
+  TRANS (pc = 11 & next(pc) = -1) -> (next(w) = w & next(x) = x & next(y) = y & next(z) = z);
+  TRANS (pc = 11 & next(pc) = 12) -> (next(w) = w & next(x) = x & next(y) = y & next(z) = z);
+  TRANS (pc = 12 & next(pc) = -1) -> (next(w) = w & next(x) = x & next(y) = y & next(z) = z - 1);
+  TRANS (pc = 13 & next(pc) = 14) -> (next(w) = w & next(x) = x & next(y) = y & next(z) = z);
+  TRANS (pc = 13 & next(pc) = 15) -> (next(w) = w & next(x) = x & next(y) = y & next(z) = z);
+  TRANS (pc = 14 & next(pc) = 16) -> (next(w) = w & next(x) = x & next(y) = y & next(z) = z);
+  TRANS (pc = 15 & next(pc) = 16) -> (next(w) = w & next(x) = x & next(y) = y & next(z) = z);
+  TRANS (pc = 16 & next(pc) = 17) -> (next(w) = w & next(x) = z*z & next(y) = y & next(z) = z);
+  TRANS (pc = 17 & next(pc) = 9)  -> (next(w) = w - 1 & next(x) = x & next(y) = y & next(z) = z);
+  TRANS (pc = 18 & next(pc) = -1) -> (next(w) = w & next(x) = x & next(y) = y & next(z) = z);
+  TRANS (pc = 18 & next(pc) = 19) -> (next(w) = w & next(x) = x & next(y) = y & next(z) = z);
+  TRANS (pc = 19 & next(pc) = -1) -> (next(w) = w & next(x) = x & next(y) = y & next(z) = z);
+  TRANS (pc = 19 & next(pc) = 20) -> (next(w) = w & next(x) = x & next(y) = y & next(z) = z);
+  TRANS (pc = 20 & next(pc) = -1) -> (next(w) = w & next(x) = x & next(y) = y & next(z) = z - 1);
+
+  LTLSPEC NAME BENCH := F pc = -1;

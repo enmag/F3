@@ -1,0 +1,31 @@
+-- int main() {
+--  int a[1048];
+--  while (a[2] >= 0) { // l0
+--    a[2] = a[2] - 1; // l1
+--    a[1+1] = __VERIFIER_nondet_int(); //l2
+--  }
+--  return 0; // end
+-- }
+
+MODULE main
+  VAR
+    pc : {l0, l1, l2, end};
+    a : array 0..1047 of integer;
+
+  -- control flow graph
+  ASSIGN
+    init(pc) := l0;
+    next(pc) :=
+      case
+        pc = l0 & a[2] >= 0: l1;
+        pc = l0 & !(a[2] >= 0) : end;
+        pc = l1 : l2;
+        pc = l2 : l0;
+        TRUE: end;
+      esac;
+
+  TRANS pc = l0 -> next(a) = a;
+  TRANS pc = l1 -> next(a[2]) = a[2] - 1;
+  TRANS pc = end -> next(a) = a;
+
+  LTLSPEC NAME TERMINATION := F pc = end;

@@ -1,0 +1,16 @@
+START: 0;
+
+FROM: 0;
+assume(j >= 2);
+assume(k >= 3);
+TO: 1;
+
+FROM: 1;
+assume(i >= 0);
+assume(m >= 0);
+TO: 2;
+
+FROM: 2;
+i := j * k;
+m := nondet();
+TO: 1;

@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE nta PUBLIC '-//Uppaal Team//DTD Flat System 1.1//EN' 'http://www.it.uu.se/research/group/darts/uppaal/flat-1_2.dtd'>
+<nta>
+    <declaration>const int N = 10;
+    const int A = 25;
+    const int B = 50;
+    typedef int[1, N] id_t;
+    int id;
+    chan cellenter[N + 1], cellexit[N + 1];</declaration>
+    <template>
+        <name>Counter</name>
+        <location id="id0">
+            <name>initCount</name>
+        </location>
+        <location id="id1">
+            <name>initial</name>
+        </location>
+        <init ref="id1"/>
+        <transition>
+            <source ref="id0"/>
+            <target ref="id0"/>
+            <label kind="guard">id &gt;= N</label>
+            <label kind="assignment">id := 1</label>
+        </transition>
+        <transition>
+            <source ref="id0"/>
+            <target ref="id0"/>
+            <label kind="guard">id &lt; N</label>
+            <label kind="assignment">id := id + 1</label>
+        </transition>
+        <transition>
+            <source ref="id1"/>
+            <target ref="id0"/>
+            <label kind="guard">id == 0</label>
+            <label kind="assignment">id := 1</label>
+        </transition>
+    </template>
+    <template>
+        <name>Arbiter</name>
+        <parameter>const id_t i</parameter>
+        <location id="id2">
+            <name>S0</name>
+        </location>
+        <location id="id3">
+            <name>S1</name>
+        </location>
+        <init ref="id3"/>
+        <transition>
+            <source ref="id2"/>
+            <target ref="id3"/>
+            <label kind="synchronisation">cellexit[i]!</label>
+            <label kind="assignment">id := i</label>
+        </transition>
+        <transition>
+            <source ref="id3"/>
+            <target ref="id2"/>
+            <label kind="guard">id == i</label>
+            <label kind="synchronisation">cellenter[i]!</label>
+            <label kind="assignment">id := 0</label>
+        </transition>
+    </template>
+    <template>
+        <name>ProdCell</name>
+        <parameter>const id_t i</parameter>
+        <declaration>clock x;</declaration>
+        <location id="id4">
+            <name>safe</name>
+        </location>
+        <location id="id5">
+            <name>testing2</name>
+            <label kind="invariant">x &lt;= A</label>
+        </location>
+        <location id="id6">
+            <name>error</name>
+        </location>
+        <location id="id7">
+            <name>critical</name>
+            <label kind="invariant">x &lt;= B</label>
+        </location>
+        <location id="id8">
+            <name>requesting</name>
+        </location>
+        <location id="id9">
+            <name>testing</name>
+            <label kind="invariant">x &lt;= A</label>
+        </location>
+        <location id="id10">
+            <name>notready</name>
+        </location>
+        <init ref="id10"/>
+        <transition>
+            <source ref="id5"/>
+            <target ref="id4"/>
+            <label kind="guard">x &lt;= A - 1</label>
+        </transition>
+        <transition>
+            <source ref="id5"/>
+            <target ref="id6"/>
+            <label kind="guard">x &gt;= A</label>
+        </transition>
+        <transition>
+            <source ref="id7"/>
+            <target ref="id6"/>
+            <label kind="guard">x &gt;= B</label>
+        </transition>
+        <transition>
+            <source ref="id7"/>
+            <target ref="id5"/>
+            <label kind="guard">x &lt;= A - 1</label>
+            <label kind="synchronisation">cellexit[i]?</label>
+            <label kind="assignment">x := 0</label>
+        </transition>
+        <transition>
+            <source ref="id8"/>
+            <target ref="id7"/>
+            <label kind="synchronisation">cellenter[i]?</label>
+            <label kind="assignment">x := 0</label>
+        </transition>
+        <transition>
+            <source ref="id9"/>
+            <target ref="id8"/>
+            <label kind="guard">x &lt;= A - 1</label>
+        </transition>
+        <transition>
+            <source ref="id9"/>
+            <target ref="id10"/>
+            <label kind="guard">x &gt;= A</label>
+            <label kind="assignment">x := 0</label>
+        </transition>
+        <transition>
+            <source ref="id10"/>
+            <target ref="id9"/>
+            <label kind="guard">x &lt;= B</label>
+            <label kind="assignment">x := 0</label>
+        </transition>
+        <transition>
+            <source ref="id6"/>
+            <target ref="id6"/>
+        </transition>
+        <transition>
+            <source ref="id4"/>
+            <target ref="id10"/>
+        </transition>
+        <transition>
+            <source ref="id6"/>
+            <target ref="id6"/>
+        </transition>
+        <transition>
+            <source ref="id4"/>
+            <target ref="id10"/>
+        </transition>
+    </template>
+    <system>
+      A0 = Arbiter(1);
+      A1 = Arbiter(2);
+      A2 = Arbiter(3);
+      A3 = Arbiter(4);
+      A4 = Arbiter(5);
+      A5 = Arbiter(6);
+      A6 = Arbiter(7);
+      A7 = Arbiter(8);
+      A8 = Arbiter(9);
+      A9 = Arbiter(10);
+
+      PC0 = ProdCell(1);
+      PC1 = ProdCell(2);
+      PC2 = ProdCell(3);
+      PC3 = ProdCell(4);
+      PC4 = ProdCell(5);
+      PC5 = ProdCell(6);
+      PC6 = ProdCell(7);
+      PC7 = ProdCell(8);
+      PC8 = ProdCell(9);
+      PC9 = ProdCell(10);
+
+    system Counter, A0, A1, A2, A3, A4, A5, A6, A7, A8, A9, PC0, PC1, PC2, PC3, PC4, PC5, PC6, PC7, PC8, PC9;</system>
+    <queries>
+    </queries>
+</nta>

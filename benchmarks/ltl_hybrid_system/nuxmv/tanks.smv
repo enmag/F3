@@ -1,0 +1,64 @@
+MODULE main
+  VAR
+    delta : real;
+    time : real;
+    pipe_source : Pipe(delta, 10, 1);
+    source : Tank(delta, 100, pipe_source.flow - pipe_s0.flow, pipe_source.d_flow - pipe_s0.d_flow);
+    pipe_s0 : Pipe(delta, 1, 1);
+    tank0 : Tank(delta, 10, pipe_s0.flow - pipe_sink.flow, pipe_s0.d_flow - pipe_sink.d_flow);
+    pipe_sink : Pipe(delta, 1, 1);
+
+  INIT source.vol = 100 & pipe_s0.close & tank0.vol = 0 & time = 0;
+  INVAR delta >= 0;
+  TRANS next(time) = time + delta;
+
+  LTLSPEC (G (pipe_source.close & pipe_sink.close)) -> G source.vol + tank0.vol = 100;
+  LTLSPEC !(G F (pipe_s0.open | pipe_s0.opening));
+  LTLSPEC G source.vol + tank0.vol <= 110;
+  LTLSPEC G source.vol + tank0.vol <= 100;
+  LTLSPEC G source.vol + tank0.vol > 0;
+  LTLSPEC !F G pipe_sink.flow > f'1/2;
+
+  LTLSPEC NAME BENCH := ! (G F pipe_sink.flow > 0);
+
+
+MODULE Pipe(delta, max_flow, speed)
+  VAR
+    mode : {_open, _close, _opening, _closing};
+    flow : real;
+
+  DEFINE
+    open := mode = _open;
+    close := mode = _close;
+    opening := mode = _opening;
+    closing := mode = _closing;
+    d_flow :=
+      case
+        opening : speed;
+        closing : -speed;
+        TRUE : 0;
+      esac;
+
+  INVAR close -> flow = 0;
+  INVAR open -> flow = max_flow;
+  INVAR 0 <= flow & flow <= max_flow;
+
+  -- TRANS open -> next(flow) = max_flow;
+  -- TRANS close -> next(flow) = 0;
+  TRANS opening -> next(flow) = flow + speed * delta;
+  TRANS closing -> next(flow) = flow - speed * delta;
+
+  TRANS (opening & flow + speed * delta = max_flow) -> (next(open) | next(closing));
+  TRANS (opening & flow + speed * delta < max_flow) -> (next(opening) | next(closing));
+
+  TRANS (closing & flow - speed * delta = 0) -> (next(close) | next(opening));
+  TRANS (closing & flow - speed * delta > 0) -> (next(closing) | next(opening));
+
+
+MODULE Tank(delta, max_vol, flow, d_flow)
+  VAR
+    vol : real;
+
+  INVAR vol >= 0 & vol <= max_vol;
+
+  TRANS next(vol) = vol + flow * delta + f'1/2 * d_flow * pow(delta, 2);

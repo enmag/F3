@@ -1,0 +1,33 @@
+START: 0; // header: 3, loop_exit: 5
+
+FROM: 0;
+assume(n>=1);
+assume(d>=0);
+TO: 1;
+
+FROM: 1;
+assume(d < 2);
+TO: 2;
+
+FROM: 1;
+assume(d >= 2);
+TO: 5;
+
+FROM: 2;
+log := 0;
+firstMultiply := d;
+TO: 3;
+
+FROM: 3;
+assume(d <= n);
+log := log + 1;
+d := d * firstMultiply;
+TO: 4;
+
+FROM: 4;
+assume(0 <= 0);
+TO: 3;
+
+FROM: 3;
+assume(d > n);
+TO: 5;

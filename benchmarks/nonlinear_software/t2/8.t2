@@ -1,0 +1,13 @@
+START: 0;
+
+FROM: 0;
+assume(z >= 3);
+TO: 1;
+
+FROM: 1;
+assume(z >= 3);
+TO: 2;
+
+FROM: 2;
+z := nondet();
+TO: 1;

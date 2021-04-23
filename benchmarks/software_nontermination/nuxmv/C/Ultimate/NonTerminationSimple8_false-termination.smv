@@ -1,0 +1,54 @@
+-- int main()
+-- {
+--  int x = __VERIFIER_nondet_int();
+--  while (x >= 0) { // l0
+--    if (__VERIFIER_nondet_int()) { // l1
+--      x += 1; // l2
+--    } else if (__VERIFIER_nondet_int()) { // l3
+--      x += 2; // l4
+--    } else if (__VERIFIER_nondet_int()) { // l5
+--      x += 3; // l6
+--    } else if (__VERIFIER_nondet_int()) { // l7
+--      x += 4; // l8
+--    } else {
+--      break; // end
+--    }
+--  }
+--  return 0; // end
+-- }
+
+MODULE main
+  VAR
+    pc : {l0, l1, l2, l3, l4, l5, l6, l7, l8, end};
+    x : integer;
+
+  -- control flow graph
+  ASSIGN
+    init(pc) := l0;
+    next(pc) :=
+      case
+        pc = l0 & x >= 0: l1;
+        pc = l0 & !(x >= 0): end;
+        pc = l1 : {l2, l3};
+        pc = l2 : l0;
+        pc = l3 : {l4, l5};
+        pc = l4 : l0;
+        pc = l5 : {l6, l7};
+        pc = l6 : l0;
+        pc = l7 : {l8, end};
+        pc = l8 : l0;
+        TRUE: end;
+      esac;
+
+  TRANS pc = l0 -> next(x) = x;
+  TRANS pc = l1 -> next(x) = x;
+  TRANS pc = l2 -> next(x) = x + 1;
+  TRANS pc = l3 -> next(x) = x;
+  TRANS pc = l4 -> next(x) = x + 2;
+  TRANS pc = l5 -> next(x) = x;
+  TRANS pc = l6 -> next(x) = x + 3;
+  TRANS pc = l7 -> next(x) = x;
+  TRANS pc = l8 -> next(x) = x + 4;
+  TRANS pc = end -> next(x) = x;
+
+  LTLSPEC NAME TERMINATION := F pc = end;

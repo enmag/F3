@@ -1,0 +1,37 @@
+-- SMV encondig of Plasso_example2.java from benchmarks of paper "Disproving termination with overapproximation".
+MODULE main
+  VAR
+    i : integer;
+    j : integer;
+    k : integer;
+    m : integer;
+    pc : -1..4;
+
+  -- cfg
+  ASSIGN
+  init(pc) := 0;
+  next(pc) :=
+    case
+      pc = -1 : -1;
+      pc = 0 & !(j >= 2) : -1;
+      pc = 0 & j >= 2 : 1;
+      pc = 1 & !(k >= 3) : -1;
+      pc = 1 & k >= 3 : 2;
+      pc = 2 & !(i >= 0 & m >= 0) : -1;
+      pc = 2 & i >= 0 & m >= 0: 3;
+      pc = 3 : 4;
+      pc = 4 : 2;
+    esac;
+
+  -- constraints
+  TRANS (pc = -1 & next(pc) = -1) -> (next(i) = i & next(j) = j & next(k) = k & next(m) = m);
+  TRANS (pc = 0 & next(pc) = -1) -> (next(i) = i & next(j) = j & next(k) = k & next(m) = m);
+  TRANS (pc = 0 & next(pc) = 1)  -> (next(i) = i & next(j) = j & next(k) = k & next(m) = m);
+  TRANS (pc = 1 & next(pc) = -1) -> (next(i) = i & next(j) = j & next(k) = k & next(m) = m);
+  TRANS (pc = 1 & next(pc) = 2)  -> (next(i) = i & next(j) = j & next(k) = k & next(m) = m);
+  TRANS (pc = 2 & next(pc) = -1) -> (next(i) = i & next(j) = j & next(k) = k & next(m) = m);
+  TRANS (pc = 2 & next(pc) = 3)  -> (next(i) = i & next(j) = j & next(k) = k & next(m) = m);
+  TRANS (pc = 3 & next(pc) = 4)  -> (next(i) = j*k & next(j) = j & next(k) = k & next(m) = m);
+  TRANS (pc = 4 & next(pc) = 2)  -> (next(i) = i & next(j) = j & next(k) = k          );
+
+  LTLSPEC NAME BENCH := F pc = -1;

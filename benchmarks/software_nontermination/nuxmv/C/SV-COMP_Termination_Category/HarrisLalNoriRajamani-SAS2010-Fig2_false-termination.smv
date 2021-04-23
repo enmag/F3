@@ -1,0 +1,168 @@
+-- int foo(void) {
+--      int y = __VERIFIER_nondet_int();
+--      if (__VERIFIER_nondet_int()) { // l0
+--              if (__VERIFIER_nondet_int()) { // l1
+--                      if (__VERIFIER_nondet_int()) { // l2
+--                              y = 0; // l3
+--                      } else {
+--                              y = 1; // l4
+--                      }
+--              } else {
+--                      if (__VERIFIER_nondet_int()) { // l5
+--                              y = 2; // l6
+--                      } else {
+--                              y = 3; // l7
+--                      }
+--              }
+--      } else {
+--              if (__VERIFIER_nondet_int()) { // l8
+--                      if (__VERIFIER_nondet_int()) { // l9
+--                              y = 4; // l10
+--                      } else {
+--                              y = 5; // l11
+--                      }
+--              } else {
+--                      if (__VERIFIER_nondet_int()) { // l12
+--                              y = 6; // l13
+--                      } else {
+--                              y = 7; // l14
+--                      }
+--              }
+--      }
+--      return y; // end
+-- }
+
+
+-- int main() {
+--      int d = 1;
+--      int x = __VERIFIER_nondet_int();
+
+--      if (__VERIFIER_nondet_int()) { // l0
+--              d = d - 1; // l1
+--      }
+
+
+--      if (__VERIFIER_nondet_int()) { // l2
+--              foo(); // l3
+--      }
+--      if (__VERIFIER_nondet_int()) { // l4
+--              foo(); // l5
+--      }
+--      if (__VERIFIER_nondet_int()) { // l6
+--              foo(); // l7
+--      }
+--      if (__VERIFIER_nondet_int()) { // l8
+--              foo(); // l9
+--      }
+
+--      if (__VERIFIER_nondet_int()) { // l10
+--              d = d - 1; // l11
+--      }
+
+--      while (x > 0) { // l12
+--              x = x - d; // l13
+--      }
+--      return 0; // end
+-- }
+
+
+MODULE main
+  VAR
+    pc : {l0, l1, l2, l3, l4, l5, l6, l7, l8, l9, l10, l11, l12, l13, end};
+    fpc : {l0, l1, l2, l3, l4, l5, l6, l7, l8, l9, l10, l11, l12, l13, l14, end};
+    x : integer;
+    d : integer;
+    y : integer;
+
+ -- control flow graph
+  ASSIGN
+    init(pc) := l0;
+    next(pc) :=
+      case
+        pc = l0 : {l1, l2};
+        pc = l1 : l2;
+        pc = l2 : {l3, l4};
+        pc = l3 & fpc != end : l3;
+        pc = l3 & fpc = end : l4;
+        pc = l4 : {l5, l6};
+        pc = l5 & fpc != end : l5;
+        pc = l5 & fpc = end : l6;
+        pc = l6 : {l7, l8};
+        pc = l7 & fpc != end : l7;
+        pc = l7 & fpc = end : l8;
+        pc = l8 : {l9, l10};
+        pc = l9 & fpc != end : l9;
+        pc = l9 & fpc = end : l10;
+        pc = l10 : {l11, l12};
+        pc = l11 : l12;
+        pc = l12 & x > 0 : l13;
+        pc = l12 & !(x > 0) : end;
+        pc = l13 : l12;
+        TRUE: end;
+      esac;
+
+    init(fpc) := end;
+    next(fpc) :=
+      case
+        pc = l2 & next(pc) = l3 : l0;
+        pc = l4 & next(pc) = l5 : l0;
+        pc = l6 & next(pc) = l7 : l0;
+        pc = l8 & next(pc) = l9 : l0;
+        fpc = l0 : {l1, l8};
+        fpc = l1 : {l2, l5};
+        fpc = l2 : {l3, l4};
+        fpc = l3 : end;
+        fpc = l4 : end;
+        fpc = l5 : {l6, l7};
+        fpc = l6 : end;
+        fpc = l7 : end;
+        fpc = l8 : {l9, l12};
+        fpc = l9 : {l10, l11};
+        fpc = l10 : end;
+        fpc = l11 : end;
+        fpc = l12 : {l13, l14};
+        fpc = l13 : end;
+        fpc = l14 : end;
+        TRUE : end;
+      esac;
+
+  DEFINE
+    same_x := next(x) = x;
+    same_y := next(y) = y;
+    same_d := next(d) = d;
+    same := same_x & same_y & same_d;
+
+  TRANS pc = l0 -> same_x & same_d;
+  TRANS pc = l1 -> same_x & next(d) = d - 1;
+  TRANS pc = l2 -> same_x & same_d;
+  TRANS pc = l3 -> same_x & same_d;
+  TRANS pc = l4 -> same_x & same_d;
+  TRANS pc = l5 -> same_x & same_d;
+  TRANS pc = l6 -> same_x & same_d;
+  TRANS pc = l7 -> same_x & same_d;
+  TRANS pc = l8 -> same_x & same_d;
+  TRANS pc = l9 -> same_x & same_d;
+  TRANS pc = l10 -> same_x & same_d;
+  TRANS pc = l11 -> same_x & next(d) = d - 1;
+  TRANS pc = l12 -> same_x & same_d;
+  TRANS pc = l13 -> next(x) = x - d & same_d;
+  TRANS pc = end -> same_x & same_d;
+
+  TRANS fpc = l0 -> same_y;
+  TRANS fpc = l1 -> same_y;
+  TRANS fpc = l2 -> same_y;
+  TRANS fpc = l3 -> next(y) = 0;
+  TRANS fpc = l4 -> next(y) = 1;
+  TRANS fpc = l5 -> same_y;
+  TRANS fpc = l6 -> next(y) = 2;
+  TRANS fpc = l7 -> next(y) = 3;
+  TRANS fpc = l8 -> same_y;
+  TRANS fpc = l9 -> same_y;
+  TRANS fpc = l10 -> next(y) = 4;
+  TRANS fpc = l11 -> next(y) = 5;
+  TRANS fpc = l12 -> same_y;
+  TRANS fpc = l13 -> next(y) = 6;
+  TRANS fpc = l14 -> next(y) = 7;
+  TRANS fpc = end -> same_y;
+
+  LTLSPEC NAME TERMINATION := F pc = end;

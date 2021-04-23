@@ -1,0 +1,148 @@
+-- CSMA-CD
+-- In a broadcast network with a multi-access bus, the problem of assigning the bus to only one of many competing stations arises.
+-- The CSMA/CD protocol (Carrier Sense, Multiple-Access with Collision Detection) describes one solution.
+-- Roughly, whenever a station has data to send, if first listens to the bus.
+-- If the bus is idle (i.e., no other station is transmitting), the station begins to send a message.
+-- If it detects a busy bus in this process, it waits a random amount of time and then repeats the operation.
+MODULE main
+DEFINE
+  LAMBDA := 404;
+  SIGMA := 13;
+  SIGMA2 := 26;
+
+VAR
+  bus : Bus(SIGMA);
+  s0 : Station(LAMBDA, SIGMA2);
+  s1 : Station(LAMBDA, SIGMA2);
+  s2 : Station(LAMBDA, SIGMA2);
+  s3 : Station(LAMBDA, SIGMA2);
+  s4 : Station(LAMBDA, SIGMA2);
+  s5 : Station(LAMBDA, SIGMA2);
+  s6 : Station(LAMBDA, SIGMA2);
+  s7 : Station(LAMBDA, SIGMA2);
+  s8 : Station(LAMBDA, SIGMA2);
+  s9 : Station(LAMBDA, SIGMA2);
+  s10 : Station(LAMBDA, SIGMA2);
+  s11 : Station(LAMBDA, SIGMA2);
+  s12 : Station(LAMBDA, SIGMA2);
+  s13 : Station(LAMBDA, SIGMA2);
+  s14 : Station(LAMBDA, SIGMA2);
+  s15 : Station(LAMBDA, SIGMA2);
+  s16 : Station(LAMBDA, SIGMA2);
+  s17 : Station(LAMBDA, SIGMA2);
+  s18 : Station(LAMBDA, SIGMA2);
+  s19 : Station(LAMBDA, SIGMA2);
+  s20 : Station(LAMBDA, SIGMA2);
+  s21 : Station(LAMBDA, SIGMA2);
+  s22 : Station(LAMBDA, SIGMA2);
+  s23 : Station(LAMBDA, SIGMA2);
+  s24 : Station(LAMBDA, SIGMA2);
+  s25 : Station(LAMBDA, SIGMA2);
+  s26 : Station(LAMBDA, SIGMA2);
+  s27 : Station(LAMBDA, SIGMA2);
+
+
+  -- stations can not move together.
+TRANS ((s0.evt = stutter) | (s1.evt = stutter)) & ((s0.evt = stutter) | (s2.evt = stutter)) & ((s0.evt = stutter) | (s3.evt = stutter)) & ((s0.evt = stutter) | (s4.evt = stutter)) & ((s0.evt = stutter) | (s5.evt = stutter)) & ((s0.evt = stutter) | (s6.evt = stutter)) & ((s0.evt = stutter) | (s7.evt = stutter)) & ((s0.evt = stutter) | (s8.evt = stutter)) & ((s0.evt = stutter) | (s9.evt = stutter)) & ((s0.evt = stutter) | (s10.evt = stutter)) & ((s0.evt = stutter) | (s11.evt = stutter)) & ((s0.evt = stutter) | (s12.evt = stutter)) & ((s0.evt = stutter) | (s13.evt = stutter)) & ((s0.evt = stutter) | (s14.evt = stutter)) & ((s0.evt = stutter) | (s15.evt = stutter)) & ((s0.evt = stutter) | (s16.evt = stutter)) & ((s0.evt = stutter) | (s17.evt = stutter)) & ((s0.evt = stutter) | (s18.evt = stutter)) & ((s0.evt = stutter) | (s19.evt = stutter)) & ((s0.evt = stutter) | (s20.evt = stutter)) & ((s0.evt = stutter) | (s21.evt = stutter)) & ((s0.evt = stutter) | (s22.evt = stutter)) & ((s0.evt = stutter) | (s23.evt = stutter)) & ((s0.evt = stutter) | (s24.evt = stutter)) & ((s0.evt = stutter) | (s25.evt = stutter)) & ((s0.evt = stutter) | (s26.evt = stutter)) & ((s0.evt = stutter) | (s27.evt = stutter)) & ((s1.evt = stutter) | (s2.evt = stutter)) & ((s1.evt = stutter) | (s3.evt = stutter)) & ((s1.evt = stutter) | (s4.evt = stutter)) & ((s1.evt = stutter) | (s5.evt = stutter)) & ((s1.evt = stutter) | (s6.evt = stutter)) & ((s1.evt = stutter) | (s7.evt = stutter)) & ((s1.evt = stutter) | (s8.evt = stutter)) & ((s1.evt = stutter) | (s9.evt = stutter)) & ((s1.evt = stutter) | (s10.evt = stutter)) & ((s1.evt = stutter) | (s11.evt = stutter)) & ((s1.evt = stutter) | (s12.evt = stutter)) & ((s1.evt = stutter) | (s13.evt = stutter)) & ((s1.evt = stutter) | (s14.evt = stutter)) & ((s1.evt = stutter) | (s15.evt = stutter)) & ((s1.evt = stutter) | (s16.evt = stutter)) & ((s1.evt = stutter) | (s17.evt = stutter)) & ((s1.evt = stutter) | (s18.evt = stutter)) & ((s1.evt = stutter) | (s19.evt = stutter)) & ((s1.evt = stutter) | (s20.evt = stutter)) & ((s1.evt = stutter) | (s21.evt = stutter)) & ((s1.evt = stutter) | (s22.evt = stutter)) & ((s1.evt = stutter) | (s23.evt = stutter)) & ((s1.evt = stutter) | (s24.evt = stutter)) & ((s1.evt = stutter) | (s25.evt = stutter)) & ((s1.evt = stutter) | (s26.evt = stutter)) & ((s1.evt = stutter) | (s27.evt = stutter)) & ((s2.evt = stutter) | (s3.evt = stutter)) & ((s2.evt = stutter) | (s4.evt = stutter)) & ((s2.evt = stutter) | (s5.evt = stutter)) & ((s2.evt = stutter) | (s6.evt = stutter)) & ((s2.evt = stutter) | (s7.evt = stutter)) & ((s2.evt = stutter) | (s8.evt = stutter)) & ((s2.evt = stutter) | (s9.evt = stutter)) & ((s2.evt = stutter) | (s10.evt = stutter)) & ((s2.evt = stutter) | (s11.evt = stutter)) & ((s2.evt = stutter) | (s12.evt = stutter)) & ((s2.evt = stutter) | (s13.evt = stutter)) & ((s2.evt = stutter) | (s14.evt = stutter)) & ((s2.evt = stutter) | (s15.evt = stutter)) & ((s2.evt = stutter) | (s16.evt = stutter)) & ((s2.evt = stutter) | (s17.evt = stutter)) & ((s2.evt = stutter) | (s18.evt = stutter)) & ((s2.evt = stutter) | (s19.evt = stutter)) & ((s2.evt = stutter) | (s20.evt = stutter)) & ((s2.evt = stutter) | (s21.evt = stutter)) & ((s2.evt = stutter) | (s22.evt = stutter)) & ((s2.evt = stutter) | (s23.evt = stutter)) & ((s2.evt = stutter) | (s24.evt = stutter)) & ((s2.evt = stutter) | (s25.evt = stutter)) & ((s2.evt = stutter) | (s26.evt = stutter)) & ((s2.evt = stutter) | (s27.evt = stutter)) & ((s3.evt = stutter) | (s4.evt = stutter)) & ((s3.evt = stutter) | (s5.evt = stutter)) & ((s3.evt = stutter) | (s6.evt = stutter)) & ((s3.evt = stutter) | (s7.evt = stutter)) & ((s3.evt = stutter) | (s8.evt = stutter)) & ((s3.evt = stutter) | (s9.evt = stutter)) & ((s3.evt = stutter) | (s10.evt = stutter)) & ((s3.evt = stutter) | (s11.evt = stutter)) & ((s3.evt = stutter) | (s12.evt = stutter)) & ((s3.evt = stutter) | (s13.evt = stutter)) & ((s3.evt = stutter) | (s14.evt = stutter)) & ((s3.evt = stutter) | (s15.evt = stutter)) & ((s3.evt = stutter) | (s16.evt = stutter)) & ((s3.evt = stutter) | (s17.evt = stutter)) & ((s3.evt = stutter) | (s18.evt = stutter)) & ((s3.evt = stutter) | (s19.evt = stutter)) & ((s3.evt = stutter) | (s20.evt = stutter)) & ((s3.evt = stutter) | (s21.evt = stutter)) & ((s3.evt = stutter) | (s22.evt = stutter)) & ((s3.evt = stutter) | (s23.evt = stutter)) & ((s3.evt = stutter) | (s24.evt = stutter)) & ((s3.evt = stutter) | (s25.evt = stutter)) & ((s3.evt = stutter) | (s26.evt = stutter)) & ((s3.evt = stutter) | (s27.evt = stutter)) & ((s4.evt = stutter) | (s5.evt = stutter)) & ((s4.evt = stutter) | (s6.evt = stutter)) & ((s4.evt = stutter) | (s7.evt = stutter)) & ((s4.evt = stutter) | (s8.evt = stutter)) & ((s4.evt = stutter) | (s9.evt = stutter)) & ((s4.evt = stutter) | (s10.evt = stutter)) & ((s4.evt = stutter) | (s11.evt = stutter)) & ((s4.evt = stutter) | (s12.evt = stutter)) & ((s4.evt = stutter) | (s13.evt = stutter)) & ((s4.evt = stutter) | (s14.evt = stutter)) & ((s4.evt = stutter) | (s15.evt = stutter)) & ((s4.evt = stutter) | (s16.evt = stutter)) & ((s4.evt = stutter) | (s17.evt = stutter)) & ((s4.evt = stutter) | (s18.evt = stutter)) & ((s4.evt = stutter) | (s19.evt = stutter)) & ((s4.evt = stutter) | (s20.evt = stutter)) & ((s4.evt = stutter) | (s21.evt = stutter)) & ((s4.evt = stutter) | (s22.evt = stutter)) & ((s4.evt = stutter) | (s23.evt = stutter)) & ((s4.evt = stutter) | (s24.evt = stutter)) & ((s4.evt = stutter) | (s25.evt = stutter)) & ((s4.evt = stutter) | (s26.evt = stutter)) & ((s4.evt = stutter) | (s27.evt = stutter)) & ((s5.evt = stutter) | (s6.evt = stutter)) & ((s5.evt = stutter) | (s7.evt = stutter)) & ((s5.evt = stutter) | (s8.evt = stutter)) & ((s5.evt = stutter) | (s9.evt = stutter)) & ((s5.evt = stutter) | (s10.evt = stutter)) & ((s5.evt = stutter) | (s11.evt = stutter)) & ((s5.evt = stutter) | (s12.evt = stutter)) & ((s5.evt = stutter) | (s13.evt = stutter)) & ((s5.evt = stutter) | (s14.evt = stutter)) & ((s5.evt = stutter) | (s15.evt = stutter)) & ((s5.evt = stutter) | (s16.evt = stutter)) & ((s5.evt = stutter) | (s17.evt = stutter)) & ((s5.evt = stutter) | (s18.evt = stutter)) & ((s5.evt = stutter) | (s19.evt = stutter)) & ((s5.evt = stutter) | (s20.evt = stutter)) & ((s5.evt = stutter) | (s21.evt = stutter)) & ((s5.evt = stutter) | (s22.evt = stutter)) & ((s5.evt = stutter) | (s23.evt = stutter)) & ((s5.evt = stutter) | (s24.evt = stutter)) & ((s5.evt = stutter) | (s25.evt = stutter)) & ((s5.evt = stutter) | (s26.evt = stutter)) & ((s5.evt = stutter) | (s27.evt = stutter)) & ((s6.evt = stutter) | (s7.evt = stutter)) & ((s6.evt = stutter) | (s8.evt = stutter)) & ((s6.evt = stutter) | (s9.evt = stutter)) & ((s6.evt = stutter) | (s10.evt = stutter)) & ((s6.evt = stutter) | (s11.evt = stutter)) & ((s6.evt = stutter) | (s12.evt = stutter)) & ((s6.evt = stutter) | (s13.evt = stutter)) & ((s6.evt = stutter) | (s14.evt = stutter)) & ((s6.evt = stutter) | (s15.evt = stutter)) & ((s6.evt = stutter) | (s16.evt = stutter)) & ((s6.evt = stutter) | (s17.evt = stutter)) & ((s6.evt = stutter) | (s18.evt = stutter)) & ((s6.evt = stutter) | (s19.evt = stutter)) & ((s6.evt = stutter) | (s20.evt = stutter)) & ((s6.evt = stutter) | (s21.evt = stutter)) & ((s6.evt = stutter) | (s22.evt = stutter)) & ((s6.evt = stutter) | (s23.evt = stutter)) & ((s6.evt = stutter) | (s24.evt = stutter)) & ((s6.evt = stutter) | (s25.evt = stutter)) & ((s6.evt = stutter) | (s26.evt = stutter)) & ((s6.evt = stutter) | (s27.evt = stutter)) & ((s7.evt = stutter) | (s8.evt = stutter)) & ((s7.evt = stutter) | (s9.evt = stutter)) & ((s7.evt = stutter) | (s10.evt = stutter)) & ((s7.evt = stutter) | (s11.evt = stutter)) & ((s7.evt = stutter) | (s12.evt = stutter)) & ((s7.evt = stutter) | (s13.evt = stutter)) & ((s7.evt = stutter) | (s14.evt = stutter)) & ((s7.evt = stutter) | (s15.evt = stutter)) & ((s7.evt = stutter) | (s16.evt = stutter)) & ((s7.evt = stutter) | (s17.evt = stutter)) & ((s7.evt = stutter) | (s18.evt = stutter)) & ((s7.evt = stutter) | (s19.evt = stutter)) & ((s7.evt = stutter) | (s20.evt = stutter)) & ((s7.evt = stutter) | (s21.evt = stutter)) & ((s7.evt = stutter) | (s22.evt = stutter)) & ((s7.evt = stutter) | (s23.evt = stutter)) & ((s7.evt = stutter) | (s24.evt = stutter)) & ((s7.evt = stutter) | (s25.evt = stutter)) & ((s7.evt = stutter) | (s26.evt = stutter)) & ((s7.evt = stutter) | (s27.evt = stutter)) & ((s8.evt = stutter) | (s9.evt = stutter)) & ((s8.evt = stutter) | (s10.evt = stutter)) & ((s8.evt = stutter) | (s11.evt = stutter)) & ((s8.evt = stutter) | (s12.evt = stutter)) & ((s8.evt = stutter) | (s13.evt = stutter)) & ((s8.evt = stutter) | (s14.evt = stutter)) & ((s8.evt = stutter) | (s15.evt = stutter)) & ((s8.evt = stutter) | (s16.evt = stutter)) & ((s8.evt = stutter) | (s17.evt = stutter)) & ((s8.evt = stutter) | (s18.evt = stutter)) & ((s8.evt = stutter) | (s19.evt = stutter)) & ((s8.evt = stutter) | (s20.evt = stutter)) & ((s8.evt = stutter) | (s21.evt = stutter)) & ((s8.evt = stutter) | (s22.evt = stutter)) & ((s8.evt = stutter) | (s23.evt = stutter)) & ((s8.evt = stutter) | (s24.evt = stutter)) & ((s8.evt = stutter) | (s25.evt = stutter)) & ((s8.evt = stutter) | (s26.evt = stutter)) & ((s8.evt = stutter) | (s27.evt = stutter)) & ((s9.evt = stutter) | (s10.evt = stutter)) & ((s9.evt = stutter) | (s11.evt = stutter)) & ((s9.evt = stutter) | (s12.evt = stutter)) & ((s9.evt = stutter) | (s13.evt = stutter)) & ((s9.evt = stutter) | (s14.evt = stutter)) & ((s9.evt = stutter) | (s15.evt = stutter)) & ((s9.evt = stutter) | (s16.evt = stutter)) & ((s9.evt = stutter) | (s17.evt = stutter)) & ((s9.evt = stutter) | (s18.evt = stutter)) & ((s9.evt = stutter) | (s19.evt = stutter)) & ((s9.evt = stutter) | (s20.evt = stutter)) & ((s9.evt = stutter) | (s21.evt = stutter)) & ((s9.evt = stutter) | (s22.evt = stutter)) & ((s9.evt = stutter) | (s23.evt = stutter)) & ((s9.evt = stutter) | (s24.evt = stutter)) & ((s9.evt = stutter) | (s25.evt = stutter)) & ((s9.evt = stutter) | (s26.evt = stutter)) & ((s9.evt = stutter) | (s27.evt = stutter)) & ((s10.evt = stutter) | (s11.evt = stutter)) & ((s10.evt = stutter) | (s12.evt = stutter)) & ((s10.evt = stutter) | (s13.evt = stutter)) & ((s10.evt = stutter) | (s14.evt = stutter)) & ((s10.evt = stutter) | (s15.evt = stutter)) & ((s10.evt = stutter) | (s16.evt = stutter)) & ((s10.evt = stutter) | (s17.evt = stutter)) & ((s10.evt = stutter) | (s18.evt = stutter)) & ((s10.evt = stutter) | (s19.evt = stutter)) & ((s10.evt = stutter) | (s20.evt = stutter)) & ((s10.evt = stutter) | (s21.evt = stutter)) & ((s10.evt = stutter) | (s22.evt = stutter)) & ((s10.evt = stutter) | (s23.evt = stutter)) & ((s10.evt = stutter) | (s24.evt = stutter)) & ((s10.evt = stutter) | (s25.evt = stutter)) & ((s10.evt = stutter) | (s26.evt = stutter)) & ((s10.evt = stutter) | (s27.evt = stutter)) & ((s11.evt = stutter) | (s12.evt = stutter)) & ((s11.evt = stutter) | (s13.evt = stutter)) & ((s11.evt = stutter) | (s14.evt = stutter)) & ((s11.evt = stutter) | (s15.evt = stutter)) & ((s11.evt = stutter) | (s16.evt = stutter)) & ((s11.evt = stutter) | (s17.evt = stutter)) & ((s11.evt = stutter) | (s18.evt = stutter)) & ((s11.evt = stutter) | (s19.evt = stutter)) & ((s11.evt = stutter) | (s20.evt = stutter)) & ((s11.evt = stutter) | (s21.evt = stutter)) & ((s11.evt = stutter) | (s22.evt = stutter)) & ((s11.evt = stutter) | (s23.evt = stutter)) & ((s11.evt = stutter) | (s24.evt = stutter)) & ((s11.evt = stutter) | (s25.evt = stutter)) & ((s11.evt = stutter) | (s26.evt = stutter)) & ((s11.evt = stutter) | (s27.evt = stutter)) & ((s12.evt = stutter) | (s13.evt = stutter)) & ((s12.evt = stutter) | (s14.evt = stutter)) & ((s12.evt = stutter) | (s15.evt = stutter)) & ((s12.evt = stutter) | (s16.evt = stutter)) & ((s12.evt = stutter) | (s17.evt = stutter)) & ((s12.evt = stutter) | (s18.evt = stutter)) & ((s12.evt = stutter) | (s19.evt = stutter)) & ((s12.evt = stutter) | (s20.evt = stutter)) & ((s12.evt = stutter) | (s21.evt = stutter)) & ((s12.evt = stutter) | (s22.evt = stutter)) & ((s12.evt = stutter) | (s23.evt = stutter)) & ((s12.evt = stutter) | (s24.evt = stutter)) & ((s12.evt = stutter) | (s25.evt = stutter)) & ((s12.evt = stutter) | (s26.evt = stutter)) & ((s12.evt = stutter) | (s27.evt = stutter)) & ((s13.evt = stutter) | (s14.evt = stutter)) & ((s13.evt = stutter) | (s15.evt = stutter)) & ((s13.evt = stutter) | (s16.evt = stutter)) & ((s13.evt = stutter) | (s17.evt = stutter)) & ((s13.evt = stutter) | (s18.evt = stutter)) & ((s13.evt = stutter) | (s19.evt = stutter)) & ((s13.evt = stutter) | (s20.evt = stutter)) & ((s13.evt = stutter) | (s21.evt = stutter)) & ((s13.evt = stutter) | (s22.evt = stutter)) & ((s13.evt = stutter) | (s23.evt = stutter)) & ((s13.evt = stutter) | (s24.evt = stutter)) & ((s13.evt = stutter) | (s25.evt = stutter)) & ((s13.evt = stutter) | (s26.evt = stutter)) & ((s13.evt = stutter) | (s27.evt = stutter)) & ((s14.evt = stutter) | (s15.evt = stutter)) & ((s14.evt = stutter) | (s16.evt = stutter)) & ((s14.evt = stutter) | (s17.evt = stutter)) & ((s14.evt = stutter) | (s18.evt = stutter)) & ((s14.evt = stutter) | (s19.evt = stutter)) & ((s14.evt = stutter) | (s20.evt = stutter)) & ((s14.evt = stutter) | (s21.evt = stutter)) & ((s14.evt = stutter) | (s22.evt = stutter)) & ((s14.evt = stutter) | (s23.evt = stutter)) & ((s14.evt = stutter) | (s24.evt = stutter)) & ((s14.evt = stutter) | (s25.evt = stutter)) & ((s14.evt = stutter) | (s26.evt = stutter)) & ((s14.evt = stutter) | (s27.evt = stutter)) & ((s15.evt = stutter) | (s16.evt = stutter)) & ((s15.evt = stutter) | (s17.evt = stutter)) & ((s15.evt = stutter) | (s18.evt = stutter)) & ((s15.evt = stutter) | (s19.evt = stutter)) & ((s15.evt = stutter) | (s20.evt = stutter)) & ((s15.evt = stutter) | (s21.evt = stutter)) & ((s15.evt = stutter) | (s22.evt = stutter)) & ((s15.evt = stutter) | (s23.evt = stutter)) & ((s15.evt = stutter) | (s24.evt = stutter)) & ((s15.evt = stutter) | (s25.evt = stutter)) & ((s15.evt = stutter) | (s26.evt = stutter)) & ((s15.evt = stutter) | (s27.evt = stutter)) & ((s16.evt = stutter) | (s17.evt = stutter)) & ((s16.evt = stutter) | (s18.evt = stutter)) & ((s16.evt = stutter) | (s19.evt = stutter)) & ((s16.evt = stutter) | (s20.evt = stutter)) & ((s16.evt = stutter) | (s21.evt = stutter)) & ((s16.evt = stutter) | (s22.evt = stutter)) & ((s16.evt = stutter) | (s23.evt = stutter)) & ((s16.evt = stutter) | (s24.evt = stutter)) & ((s16.evt = stutter) | (s25.evt = stutter)) & ((s16.evt = stutter) | (s26.evt = stutter)) & ((s16.evt = stutter) | (s27.evt = stutter)) & ((s17.evt = stutter) | (s18.evt = stutter)) & ((s17.evt = stutter) | (s19.evt = stutter)) & ((s17.evt = stutter) | (s20.evt = stutter)) & ((s17.evt = stutter) | (s21.evt = stutter)) & ((s17.evt = stutter) | (s22.evt = stutter)) & ((s17.evt = stutter) | (s23.evt = stutter)) & ((s17.evt = stutter) | (s24.evt = stutter)) & ((s17.evt = stutter) | (s25.evt = stutter)) & ((s17.evt = stutter) | (s26.evt = stutter)) & ((s17.evt = stutter) | (s27.evt = stutter)) & ((s18.evt = stutter) | (s19.evt = stutter)) & ((s18.evt = stutter) | (s20.evt = stutter)) & ((s18.evt = stutter) | (s21.evt = stutter)) & ((s18.evt = stutter) | (s22.evt = stutter)) & ((s18.evt = stutter) | (s23.evt = stutter)) & ((s18.evt = stutter) | (s24.evt = stutter)) & ((s18.evt = stutter) | (s25.evt = stutter)) & ((s18.evt = stutter) | (s26.evt = stutter)) & ((s18.evt = stutter) | (s27.evt = stutter)) & ((s19.evt = stutter) | (s20.evt = stutter)) & ((s19.evt = stutter) | (s21.evt = stutter)) & ((s19.evt = stutter) | (s22.evt = stutter)) & ((s19.evt = stutter) | (s23.evt = stutter)) & ((s19.evt = stutter) | (s24.evt = stutter)) & ((s19.evt = stutter) | (s25.evt = stutter)) & ((s19.evt = stutter) | (s26.evt = stutter)) & ((s19.evt = stutter) | (s27.evt = stutter)) & ((s20.evt = stutter) | (s21.evt = stutter)) & ((s20.evt = stutter) | (s22.evt = stutter)) & ((s20.evt = stutter) | (s23.evt = stutter)) & ((s20.evt = stutter) | (s24.evt = stutter)) & ((s20.evt = stutter) | (s25.evt = stutter)) & ((s20.evt = stutter) | (s26.evt = stutter)) & ((s20.evt = stutter) | (s27.evt = stutter)) & ((s21.evt = stutter) | (s22.evt = stutter)) & ((s21.evt = stutter) | (s23.evt = stutter)) & ((s21.evt = stutter) | (s24.evt = stutter)) & ((s21.evt = stutter) | (s25.evt = stutter)) & ((s21.evt = stutter) | (s26.evt = stutter)) & ((s21.evt = stutter) | (s27.evt = stutter)) & ((s22.evt = stutter) | (s23.evt = stutter)) & ((s22.evt = stutter) | (s24.evt = stutter)) & ((s22.evt = stutter) | (s25.evt = stutter)) & ((s22.evt = stutter) | (s26.evt = stutter)) & ((s22.evt = stutter) | (s27.evt = stutter)) & ((s23.evt = stutter) | (s24.evt = stutter)) & ((s23.evt = stutter) | (s25.evt = stutter)) & ((s23.evt = stutter) | (s26.evt = stutter)) & ((s23.evt = stutter) | (s27.evt = stutter)) & ((s24.evt = stutter) | (s25.evt = stutter)) & ((s24.evt = stutter) | (s26.evt = stutter)) & ((s24.evt = stutter) | (s27.evt = stutter)) & ((s25.evt = stutter) | (s26.evt = stutter)) & ((s25.evt = stutter) | (s27.evt = stutter)) & ((s26.evt = stutter) | (s27.evt = stutter));
+-- not all stutter
+TRANS (bus.evt != stutter) | (s0.evt != stutter) | (s1.evt != stutter) | (s2.evt != stutter) | (s3.evt != stutter) | (s4.evt != stutter) | (s5.evt != stutter) | (s6.evt != stutter) | (s7.evt != stutter) | (s8.evt != stutter) | (s9.evt != stutter) | (s10.evt != stutter) | (s11.evt != stutter) | (s12.evt != stutter) | (s13.evt != stutter) | (s14.evt != stutter) | (s15.evt != stutter) | (s16.evt != stutter) | (s17.evt != stutter) | (s18.evt != stutter) | (s19.evt != stutter) | (s20.evt != stutter) | (s21.evt != stutter) | (s22.evt != stutter) | (s23.evt != stutter) | (s24.evt != stutter) | (s25.evt != stutter) | (s26.evt != stutter) | (s27.evt != stutter);
+
+-- sync bus and stations
+TRANS (bus.evt = begin) <-> ((s0.evt = begin) | (s1.evt = begin) | (s2.evt = begin) | (s3.evt = begin) | (s4.evt = begin) | (s5.evt = begin) | (s6.evt = begin) | (s7.evt = begin) | (s8.evt = begin) | (s9.evt = begin) | (s10.evt = begin) | (s11.evt = begin) | (s12.evt = begin) | (s13.evt = begin) | (s14.evt = begin) | (s15.evt = begin) | (s16.evt = begin) | (s17.evt = begin) | (s18.evt = begin) | (s19.evt = begin) | (s20.evt = begin) | (s21.evt = begin) | (s22.evt = begin) | (s23.evt = begin) | (s24.evt = begin) | (s25.evt = begin) | (s26.evt = begin) | (s27.evt = begin));
+TRANS (bus.evt = end) <-> ((s0.evt = end) | (s1.evt = end) | (s2.evt = end) | (s3.evt = end) | (s4.evt = end) | (s5.evt = end) | (s6.evt = end) | (s7.evt = end) | (s8.evt = end) | (s9.evt = end) | (s10.evt = end) | (s11.evt = end) | (s12.evt = end) | (s13.evt = end) | (s14.evt = end) | (s15.evt = end) | (s16.evt = end) | (s17.evt = end) | (s18.evt = end) | (s19.evt = end) | (s20.evt = end) | (s21.evt = end) | (s22.evt = end) | (s23.evt = end) | (s24.evt = end) | (s25.evt = end) | (s26.evt = end) | (s27.evt = end));
+TRANS (bus.evt = busy) <-> ((s0.evt = busy) | (s1.evt = busy) | (s2.evt = busy) | (s3.evt = busy) | (s4.evt = busy) | (s5.evt = busy) | (s6.evt = busy) | (s7.evt = busy) | (s8.evt = busy) | (s9.evt = busy) | (s10.evt = busy) | (s11.evt = busy) | (s12.evt = busy) | (s13.evt = busy) | (s14.evt = busy) | (s15.evt = busy) | (s16.evt = busy) | (s17.evt = busy) | (s18.evt = busy) | (s19.evt = busy) | (s20.evt = busy) | (s21.evt = busy) | (s22.evt = busy) | (s23.evt = busy) | (s24.evt = busy) | (s25.evt = busy) | (s26.evt = busy) | (s27.evt = busy));
+TRANS (bus.evt = cd) <-> ((s0.evt = cd) | (s1.evt = cd) | (s2.evt = cd) | (s3.evt = cd) | (s4.evt = cd) | (s5.evt = cd) | (s6.evt = cd) | (s7.evt = cd) | (s8.evt = cd) | (s9.evt = cd) | (s10.evt = cd) | (s11.evt = cd) | (s12.evt = cd) | (s13.evt = cd) | (s14.evt = cd) | (s15.evt = cd) | (s16.evt = cd) | (s17.evt = cd) | (s18.evt = cd) | (s19.evt = cd) | (s20.evt = cd) | (s21.evt = cd) | (s22.evt = cd) | (s23.evt = cd) | (s24.evt = cd) | (s25.evt = cd) | (s26.evt = cd) | (s27.evt = cd));
+TRANS (((bus.evt = cd) & bus.cd_id = 0) <-> (s0.evt = cd)) & (((bus.evt = cd) & bus.cd_id = 1) <-> (s1.evt = cd)) & (((bus.evt = cd) & bus.cd_id = 2) <-> (s2.evt = cd)) & (((bus.evt = cd) & bus.cd_id = 3) <-> (s3.evt = cd)) & (((bus.evt = cd) & bus.cd_id = 4) <-> (s4.evt = cd)) & (((bus.evt = cd) & bus.cd_id = 5) <-> (s5.evt = cd)) & (((bus.evt = cd) & bus.cd_id = 6) <-> (s6.evt = cd)) & (((bus.evt = cd) & bus.cd_id = 7) <-> (s7.evt = cd)) & (((bus.evt = cd) & bus.cd_id = 8) <-> (s8.evt = cd)) & (((bus.evt = cd) & bus.cd_id = 9) <-> (s9.evt = cd)) & (((bus.evt = cd) & bus.cd_id = 10) <-> (s10.evt = cd)) & (((bus.evt = cd) & bus.cd_id = 11) <-> (s11.evt = cd)) & (((bus.evt = cd) & bus.cd_id = 12) <-> (s12.evt = cd)) & (((bus.evt = cd) & bus.cd_id = 13) <-> (s13.evt = cd)) & (((bus.evt = cd) & bus.cd_id = 14) <-> (s14.evt = cd)) & (((bus.evt = cd) & bus.cd_id = 15) <-> (s15.evt = cd)) & (((bus.evt = cd) & bus.cd_id = 16) <-> (s16.evt = cd)) & (((bus.evt = cd) & bus.cd_id = 17) <-> (s17.evt = cd)) & (((bus.evt = cd) & bus.cd_id = 18) <-> (s18.evt = cd)) & (((bus.evt = cd) & bus.cd_id = 19) <-> (s19.evt = cd)) & (((bus.evt = cd) & bus.cd_id = 20) <-> (s20.evt = cd)) & (((bus.evt = cd) & bus.cd_id = 21) <-> (s21.evt = cd)) & (((bus.evt = cd) & bus.cd_id = 22) <-> (s22.evt = cd)) & (((bus.evt = cd) & bus.cd_id = 23) <-> (s23.evt = cd)) & (((bus.evt = cd) & bus.cd_id = 24) <-> (s24.evt = cd)) & (((bus.evt = cd) & bus.cd_id = 25) <-> (s25.evt = cd)) & (((bus.evt = cd) & bus.cd_id = 26) <-> (s26.evt = cd)) & (((bus.evt = cd) & bus.cd_id = 27) <-> (s27.evt = cd));
+
+MITLSPEC FALSE SR (s0.l = transm -> (TRUE SU (s0.l = wait)));
+
+MODULE Station(LAMBDA, SIGMA2)
+VAR
+  evt : {stutter, begin, end, busy, cd};
+  l : {wait, transm, retry};
+  x : clock((l = wait & next(l) = wait) |
+            (l = wait & next(l) = transm) |
+            (l = wait & next(l) = retry) |
+            (l = transm & next(l) = wait) |
+            (l = transm & next(l) = retry) |
+            (l = retry & next(l) = retry) |
+            (l = retry & next(l) = transm));
+
+TRANS (evt = stutter) -> (next(l) = l);
+
+INIT l = wait;
+
+INVAR l = transm -> x <= LAMBDA;
+INVAR l = retry -> x <= SIGMA2;
+
+-- wait -> (wait | transm | retry1 | retry2)
+TRANS ((evt != stutter) & l = wait) -> (next(l) = wait | next(l) = transm | next(l) = retry);
+-- wait -> wait
+TRANS (evt != stutter & l = wait & next(l) = wait) -> (evt = cd);
+-- wait -> transm
+TRANS (evt != stutter & l = wait & next(l) = transm) -> (evt = begin);
+-- wait -> retry1 | retry2
+TRANS (evt != stutter & l = wait & next(l) = retry) -> (evt = cd | evt = busy);
+
+-- transm -> (wait | retry)
+TRANS (evt != stutter & l = transm) -> (next(l) = wait | next(l) = retry);
+-- transm -> wait
+TRANS (evt != stutter & l = transm & next(l) = wait) -> (evt = end & x >= LAMBDA);
+-- transm -> retry
+TRANS (evt != stutter & l = transm & next(l) = retry) -> (evt = cd & x <= SIGMA2);
+
+-- retry -> (retry | transm)
+TRANS (evt != stutter & l = retry) -> (next(l) = retry | next(l) = transm);
+-- retry -> retry
+TRANS (evt != stutter & l = retry & next(l) = retry) -> (evt = cd & x <= SIGMA2);
+-- retry -> transm
+TRANS (evt != stutter & l = retry & next(l) = transm) -> (evt = begin & x <= SIGMA2);
+
+
+
+MODULE Bus(SIGMA)
+DEFINE
+  N := 27;
+VAR
+  evt : {stutter, begin, end, busy, cd};
+  cd_id : 0..27;
+  j : 0..27;
+  l : {idle, active, collision, transmit}; -- location of the timed automata
+  x : clock((l = idle & next(l) = active) |
+            (l = active & next(l) = idle) |
+            (l = active & next(l) = collision) |
+            (l = collision & next(l) = transmit) |
+            (l = transmit & next(l) = transmit) |
+            (l = transmit & next(l) = idle));
+
+TRANS evt = stutter -> (next(l) = l & next(j) = j);
+
+INIT j = 0 & l = idle;
+
+-- no time elapse in location transmit
+URGENT l = transmit;
+
+-- location invariant.
+INVAR l = collision -> x < SIGMA;
+
+-- idle -> active
+TRANS (evt != stutter & l = idle) -> (next(l) = active & evt = begin & next(j) = j);
+
+-- active -> (idle | active | collision)
+TRANS (evt != stutter & l = active) -> (next(j) = j & (next(l) = idle | next(l) = active | next(l) = collision));
+-- active -> idle
+TRANS (evt != stutter & l = active & next(l) = idle) -> (evt = end);
+-- active -> active
+TRANS (evt != stutter & l = active & next(l) = active) -> (evt = busy & x >= SIGMA);
+-- active -> collision
+TRANS (evt != stutter & l = active & next(l) = collision) -> (evt = begin & x < SIGMA);
+
+-- collision -> transmit
+TRANS (evt != stutter & l = collision) -> (next(l) = transmit & x < SIGMA & evt = cd & cd_id = j & next(j) = j + 1);
+
+-- transmit -> (transmit | idle)
+TRANS (evt != stutter & l = transmit) -> (next(l) = transmit | next(l) = idle);
+-- transmit -> transmit
+TRANS (evt != stutter & l = transmit & next(l) = transmit) -> (j < N & next(j) = j + 1 & evt = cd & cd_id = j);
+-- transmit -> idle
+TRANS (evt != stutter & l = transmit & next(l) = idle) -> (j = N & evt = cd & cd_id = j & next(j) = 0);
