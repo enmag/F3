@@ -1,0 +1,167 @@
+This document contains the instruction to install F3.
+The repository contains a Dockerfile, if this option is viable for you please consider following the instructions reported in README.md.
+
+The following instructions should work on any linux-based operating system and have been tested on Ubuntu20.04.
+
+
+## Install the dependencies
+
+Please use your system packet manager to install (swig version >= 3):
+  `python3`, `python3-pip`, `python3-venv`, `flex`, `bison`,
+  `libpcre3`, `libgmp`, `git`, `autoconf` and `swig` on your system.
+
+The following command installs the required packages on Ubuntu20.04:
+  $> apt -y install python3 python3-pip python3-venv git autoconf flex bison libpcre3 libpcre3-dev libgmp-dev swig
+
+
+## Download Pysmt
+
+Let PYSMT_HOME be the directory in which to download Pysmt.
+For example run:
+  $> export PYSMT_HOME=/home/my_user/pysmt
+Then, download the Pysmt source code from GitHub:
+  $> git clone https://github.com/EnricoMagnago/pysmt.git $PYSMT_HOME
+
+
+## Download F3
+
+Let F3_HOME be the directory in which to download F3.
+For example run:
+  $> export F3_HOME=/home/my_user/F3
+Then, download the F3 source code from GitHub:
+  $> git clone https://github.com/EnricoMagnago/F3.git
+
+
+## Patch and install Pysmt.
+
+Change Pysmt branch to the nonlinear branch.
+  $> cd $PYSMT_HOME; git checkout nonlinear
+Update the version of the z3 and mathsat solver downloaded by Pysmt.
+  $> cd $PYSMT_HOME; git apply $F3_HOME/pysmt.patch
+
+Install Pysmt, might require sudo.
+  $> cd $PYSMT_HOME; python3 ./setup.py install;
+Install the SMT-solvers mathsat and z3, this command will ask to accept their licences.
+  $> pysmt-install --z3 --msat
+
+
+## Install F3
+You can either install F3 globally or create a python virtual env.
+
+### Install globally (requires sudo)
+Install the python package `timeout-decorator`. Run as sudo:
+  $> pip3 install timeout-decorator
+
+By default pysmt downloads the SMT-solvers in $HOME/.smt_solvers.
+F3 requires the header and library of mathsat to be in the system path.
+Copy the header and library file in the system path by running the following two commands as sudo:
+  $> cp $HOME/.smt_solvers/msat/mathsat-5.6.6-linux-x86_64/include/mathsat.h /usr/include/mathsat.h
+  $> cp $HOME/.smt_solvers/msat/mathsat-5.6.6-linux-x86_64/lib/libmathsat.a /usr/lib/libmathsat.a
+
+The module used by F3 to perform the LTL tableau construction requires to include the mathsat header.
+  $> patch $F3_HOME/src/ltl/ltl.i $F3_HOME/f3_ltl_i.patch
+
+### Install in virtual env
+Create a python virtualenv in $F3_HOME:
+  $> python3 -m venv $F3_HOME/venv
+
+Add the virtual env `include` and `lib` to your environment paths.
+This can be achieved by changing the environment variables CPATH, C_INCLUDE_PATH, CPLUS_INCLUDE_PATH, LIBRARY_PATH and LD_LIBRARY_PATH.
+On possibility is to change the $F3_HOME/venv/bin/active script as follows.
+Add the following
+```
+_OLD_CPATH="$CPATH"
+CPATH="$VIRTUAL_ENV/include:$CPATH"
+export CPATH
+
+_OLD_C_INCLUDE_PATH="$C_INCLUDE_PATH"
+C_INCLUDE_PATH="$VIRTUAL_ENV/include:$C_INCLUDE_PATH"
+export C_INCLUDE_PATH
+
+_OLD_CPLUS_INCLUDE_PATH="$CPLUS_INCLUDE_PATH"
+CPLUS_INCLUDE_PATH="$VIRTUAL_ENV/include:$CPLUS_INCLUDE_PATH"
+export CPLUS_INCLUDE_PATH
+
+_OLD_LIBRARY_PATH="$LIBRARY_PATH"
+LIBRARY_PATH="$VIRTUAL_ENV/lib:$LIBRARY_PATH"
+export LIBRARY_PATH
+
+_OLD_LD_LIBRARY_PATH="$LD_LIBRARY_PATH"
+LD_LIBRARY_PATH="$VIRTUAL_ENV/lib:$LD_LIBRARY_PATH"
+export LD_LIBRARY_PATH
+```
+
+after
+```
+_OLD_VIRTUAL_PATH="$PATH"
+PATH="$VIRTUAL_ENV/bin:$PATH"
+export PATH
+```
+
+and modify the `deactivate()` function by adding the reverse operations:
+```
+    if [ -n "${_OLD_CPATH:-}" ] ; then
+        CPATH="${_OLD_CPATH:-}"
+        export CPATH
+        unset _OLD_CPATH
+    fi
+    if [ -n "${_OLD_C_INCLUDE_PATH:-}" ] ; then
+        C_INCLUDE_PATH="${_OLD_C_INCLUDE_PATH:-}"
+        export C_INCLUDE_PATH
+        unset _OLD_C_INCLUDE_PATH
+    fi
+    if [ -n "${_OLD_CPLUS_INCLUDE_PATH:-}" ] ; then
+        CPLUS_INCLUDE_PATH="${_OLD_CPLUS_INCLUDE_PATH:-}"
+        export CPLUS_INCLUDE_PATH
+        unset _OLD_CPLUS_INCLUDE_PATH
+    fi
+    if [ -n "${_OLD_LIBRARY_PATH:-}" ] ; then
+        LIBRARY_PATH="${_OLD_LIBRARY_PATH:-}"
+        export LIBRARY_PATH
+        unset _OLD_LIBRARY_PATH
+    fi
+    if [ -n "${_OLD_LD_LIBRARY_PATH:-}" ] ; then
+        LD_LIBRARY_PATH="${_OLD_LD_LIBRARY_PATH:-}"
+        export LD_LIBRARY_PATH
+        unset _OLD_LD_LIBRARY_PATH
+    fi
+```
+after
+```
+    if [ -n "${_OLD_VIRTUAL_PYTHONHOME:-}" ] ; then
+        PYTHONHOME="${_OLD_VIRTUAL_PYTHONHOME:-}"
+        export PYTHONHOME
+        unset _OLD_VIRTUAL_PYTHONHOME
+    fi
+```
+
+Then activate the virtual environment:
+  $> source $F3_HOME/venv/bin/activate
+Install the python package timeout-decorator:
+  $> pip install timeout-decorator
+By default pysmt downloads the SMT-solvers in $HOME/.smt_solvers.
+F3 requires the header and library of mathsat to be in the system path,
+copy them into the virtual env directories:
+  $> cp $HOME/.smt_solvers/msat/mathsat-5.6.6-linux-x86_64/include/mathsat.h $F3_HOME/venv/include/mathsat.h
+  $> cp $HOME/.smt_solvers/msat/mathsat-5.6.6-linux-x86_64/lib/libmathsat.a $F3_HOME/venv/libmathsat.a
+Ensure that the file $F3_HOME/src/ltl/ltl.i contains the correct path to the mathsat.h file in the virtual environment.
+
+
+## Build LTL module of F3
+
+$F3_HOME/src/ltl, contains 2 scripts that build the LTL module and swig interface.
+These scripts require the libmathsat.a to be available in the system paths and the include path of mathsat.h in ltl.i should be correct.
+Build the LTL module in release mode by running the following command:
+  $> cd $F3_HOME/src/ltl; ./swig_release_build.sh
+Instead, to build in debug mode run:
+  $> $> cd $F3_HOME/src/ltl; ./swig_debug_build.sh
+
+
+
+## Run F3
+For a set of command line options $OPTS for F3 and benchmark file $BENCHMARK, the following command allows to run F3 with the given options on such benchmark.
+  $> python3 -O $F3_HOME/src/run_benchmarks.py $OPTS $BENCHMARK
+e.g.
+  $> python3 -O $F3_HOME/src/run_benchmarks.py -v 1 $F3_HOME/benchmarks/software_nontermination/f3/C/Ultimate/NonTerminationSimple2_false-termination.py
+
+We use the -O option for the python interpreter because the source code of F3 contains many assertions that perform additional checks that significatly slow down its performance.
