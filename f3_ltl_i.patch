@@ -1,0 +1,4 @@
+7c7
+< %import(module="mathsat") "../../venv/include/mathsat.h"
+---
+> %import(module="mathsat") "/usr/include/mathsat.h"
