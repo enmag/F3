@@ -3,47 +3,12 @@ F3 searches for fair paths in transition systems.
 F3 is capable of searching for counterexamples to LTL specification.    
 F3 can discard all paths in which the sum of the assignments to some symbol does not diverge to infinity. This can be used to remove all zeno-paths in timed systems.
 
-Upon success F3 will write on stdout the sequence of abstract regions and transition of the funnel-loop in a human readable format. For every loop the associated ranking function is provided. 
+Upon success F3 will write on stdout the sequence of abstract regions and transition of the funnel-loop in a human readable format. For every loop the associated ranking function is provided.
+
 
 ## Install in Docker image
-Using docker and the `Dockerfile` it is possible to create a docker image with F3 installed from your local copy of this repository.   
-Please be aware that the installation process downloads the SMT-solvers `mathsat` and `z3` and accepts their respective licences on your behalf. Do not proceed if you do not accept them.
-
-Depending on your system-setup you might need to run the following commands as `sudo`.
-
-From the root directory of the project run (the directory containing the file `Dockerfile`)
-```shell
-docker build --tag f3 ./
-```
-This creates a new docker image with tag `f3` based on the Ubuntu:20.04 image.    
-The following command lists the docker images on your system. There should be one named `f3`.
-```shell
-docker images
-```
-
-The docker image contains all the benchmarks of this repository.   
-To run F3 on the software nontermination benchmark `NonTerminationSimple2_false-termination` execute:
-```shell
-docker run f3 /home/F3/benchmarks/benchmarks/software_nontermination/f3/C/Ultimate/NonTerminationSimple2_false-termination.py
-```
-
-To run F3 on some benchmark not included in this repository using the docker image, create a shared directory between the docker container and your host system and place the benchmark in this directory.
-For example to share the `/tmp` directory and execute a benchmark `/tmp/bench.py` run:
-```shell
-docker run -v /tmp:/tmp f3 /tmp/bench.py
-```
-
-Command line options for F3 can be appended after the image tag.
-For example to run F3 with verbosity 1 on some benchmark `BENCHMARK` add the option `-v 1` as follows:
-```shell
-docker run f3 -v 1 $BENCHMARK
-```
-
-In general to tun F3 with options OPTS on benchmark BENCH run:
-```shell
-docker run f3 $OPTS $BENCH
-```
-If $BENCH is a directory instead of a single file, F3 will visit recursively all the subdirectories and try to load and execute every *.py file it finds.
+Using docker and the `Dockerfile` it is possible to create a docker image with F3 installed from your local copy of this repository.    
+The file `INSTALL_DOCKER` details the commands that can be used to build the Docker image and to execute it.
 
 
 ## Manual install on host system
@@ -52,7 +17,7 @@ If $BENCH is a directory instead of a single file, F3 will visit recursively all
 
 ## Benchmarks
 The directory benchmarks contains a collection of software (non)termination and LTL model checking problems.    
-More details on the benchmarks are provided in `benchmarks/README`.   
+More details on the benchmarks are provided in `benchmarks/README`.    
 The benchmarks are organised in the following categories:
 * LS : linear software programs (directory `software_nontermination`),
 * NS : non-linear software programs (directory `nonlinear_software`),
@@ -67,12 +32,12 @@ Each directory contains the benchmarks in the input language of a number of tool
 ## F3 input files
 F3 loads a Python source files as input.    
 Such file should declare either a function `transition_system` or a function `check_ltl`.    
-The first method is used to provide a fair transition system for which we want to find a fair path, the second one is used to provide a transition system and a LTL specification for which we want to find a counterexample.
+The first method is used to provide a fair transition system for which we want to find a fair path, the second one is used to provide a transition system and a LTL specification for which we want to find a counterexample.    
 Inputs that declare the `check_ltl` function can optionally define another function called `diverging_symbs`. Such function can be used to tell F3 which symbols of the system must diverge to infinity in the counterexample: the sum of all their assignments diverges to infinity.
 
 
 ## F3 command line options
-Every command line option supported by F3 comes with a default value, hence you can "just run it" without specifying anything special.
+Every command line option supported by F3 comes with a default value, hence you can "just run it" without specifying anything special.    
 Here we briefly describe the main command line options supported by F3.
 * `-h, --help`: writes on stdout the list of available options and a description for each of them.
 * `-v, --verbose`: control the amount of messages that F3 writes on stdout.
@@ -98,3 +63,35 @@ Here we briefly describe the main command line options supported by F3.
 * `-propagate, --constr-propagate`: set mode of propagation of state inequalities through transition equalities.
 * `-generalised-lasso, --generalised-lasso`: enable/disable detection of generalised lassos.
 * `-smv-out, --smv-out`: write SMV model representing the funnel-loop in the given directory.
+
+
+## F3 output
+On success F3 prints on stdout a description of the counterexample it found.
+The counterexample is a sequence of states and transitions between them.
+The following example describes a path that starts from a state in which pc = 0 and x = 0 in State 0.
+Then it loops over the first two states while `x + 3/4 < 0` executing transitions 0 -- 1 and 1 -- 0.
+Finally, it reaches the destination `State 1`, reported after the `End do-while`.
+From such state it follows transition 1 -- 2, where with 2 means State 0 at the next iteration.
+Hence, the path reaches State 0 again (possibly with a different assignment) and executes the same steps.
+```
+Do states 0..1 while ((ToReal(x) + 3/4) < 0.0)
+	State 0
+		pc = 0
+		((-1 * x) <= 0)
+	Trans 0 -- 1
+		_x_x : x
+	State 1
+		pc = 1
+	Trans 1 -- 0
+		_x_x : (x + 1)
+	End do-while
+	State 1
+		pc = 1
+		(((-1.0 * ToReal(x)) + -3/4) <= 0.0)
+		((-1 * x) <= 1)
+	Trans 1 -- 2
+		_x_x = (x + 1)
+	starting from: {pc: 0, x: 0}
+```
+By default F3 does not print any information about the search and simply print the end results when it find one.
+By increasing the verbosity (option -v) it is possible to obtain more information about the funnel-loop templates, the solver that are being used etc.

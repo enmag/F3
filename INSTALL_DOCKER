@@ -1,0 +1,47 @@
+# F3 IN DOCKER IMAGE
+
+This document describes the commands required to build a docker image with F3 installed and the commands to execute F3.
+Please be aware that the installation process downloads the SMT-solvers `mathsat` and `z3` and accepts their respective licences on your behalf.
+Do not proceed if you do not accept them.
+Depending on your system-setup you might need to run the "docker" commands as `sudo`.
+
+
+## CREATE DOCKER IMAGE
+
+From the root directory of the project (the directory containing the file `Dockerfile`) run:
+  $> docker build --tag f3 ./
+
+This creates a new docker image with tag `f3` based on the Ubuntu:20.04 image.
+The following command lists the docker images on your system. There should be one named `f3`.
+  $> docker images
+
+
+## RUN F3 IN DOCKER CONTAINER
+
+The docker image contains all the benchmarks of this repository.
+To run F3 on the software nontermination benchmark `NonTerminationSimple2_false-termination` execute:
+  $> docker run f3 /home/F3/benchmarks/software_nontermination/f3/C/Ultimate/NonTerminationSimple2_false-termination.py
+
+
+To run F3 on some benchmark not included in this repository using the docker image, create a shared directory between the docker container and your host system and place the benchmark in this directory.
+For example to share the `/tmp` directory and execute a benchmark `/tmp/bench.py` run:
+  $> docker run -v /tmp:/tmp f3 /tmp/bench.py
+
+
+Command line options for F3 can be appended after the image tag.
+For example to run F3 with verbosity 1 on some benchmark `BENCHMARK` add the option `-v 1` as follows:
+  $> docker run f3 -v 1 $BENCHMARK
+
+In general to tun F3 with options OPTS on benchmark BENCH run:
+  $> docker run f3 $OPTS $BENCH
+If $BENCH is a directory, F3 will visit recursively all the subdirectories and try to load and execute every *.py file it finds.
+
+
+## REMOVE DOCKER CONTAINER AND IMAGE
+To remove the Docker containers on your machine run:
+  $> docker container prune
+Then, you can remove the Docker image of F3 using:
+  $> docker rmi f3
+
+The following command lists the Docker images on your machine.
+  $> docker images
