@@ -75,23 +75,23 @@ From such state it follows transition 1 -- 2, where with 2 means State 0 at the 
 Hence, the path reaches State 0 again (possibly with a different assignment) and executes the same steps.
 ```
 Do states 0..1 while ((ToReal(x) + 3/4) < 0.0)
-	State 0
-		pc = 0
-		((-1 * x) <= 0)
-	Trans 0 -- 1
-		_x_x : x
-	State 1
-		pc = 1
-	Trans 1 -- 0
-		_x_x : (x + 1)
-	End do-while
-	State 1
-		pc = 1
-		(((-1.0 * ToReal(x)) + -3/4) <= 0.0)
-		((-1 * x) <= 1)
-	Trans 1 -- 2
-		_x_x = (x + 1)
-	starting from: {pc: 0, x: 0}
+State 0
+	pc = 0
+	((-1 * x) <= 0)
+Trans 0 -- 1
+	_x_x : x
+State 1
+	pc = 1
+Trans 1 -- 0
+	_x_x : (x + 1)
+End do-while
+State 1
+	pc = 1
+	(((-1.0 * ToReal(x)) + -3/4) <= 0.0)
+	((-1 * x) <= 1)
+Trans 1 -- 2
+	_x_x = (x + 1)
+starting from: {pc: 0, x: 0}
 ```
 By default F3 does not print any information about the search and simply print the end results when it find one.
 By increasing the verbosity (option -v) it is possible to obtain more information about the funnel-loop templates, the solver that are being used etc.
