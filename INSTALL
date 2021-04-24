@@ -6,9 +6,10 @@ The following instructions should work on any linux-based operating system and h
 
 ## Install the dependencies
 
-Please use your system packet manager to install (swig version >= 4):
+Please use your system packet manager to install (swig version >= 4, python version >= 3.5):
   `python3`, `python3-pip`, `flex`, `bison`,
   `libpcre3`, `libgmp`, `git`, `autoconf` and `swig` on your system.
+F3 has been tested using python3.8 and should run using python3.5 or above.
 
 The following commands install the required packages on Ubuntu20.04 (might require sudo):
   $> apt -y update
