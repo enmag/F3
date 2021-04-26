@@ -1,1 +1,1 @@
-Station(0).transm --> Station(0).wait
+S0.transm --> S0.wait
