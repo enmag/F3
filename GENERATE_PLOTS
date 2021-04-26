@@ -1,0 +1,17 @@
+# GENERATE EXPERIMENTAL EVALUATION PLOTS
+
+## Install matplotlib
+The following command installs matplotlib via the pip package manager.
+  $> pip3 install --user matplotlib
+On Ubuntu20, it seems that it is required to install the package via apt.
+Otherwise, matplotlib fails to open the windows in which the plots are shown.
+Run the following command as sudo:
+  $> apt -y install python3-matplotlib
+
+## Generate the plots.
+The python script "scripts/plot_scatter.py" generates the plots.
+Each plot compares F3 with one other tool on the benchmarks of one category.
+The following command generates the plots for all categories.
+  $> python3 ./scripts/plot_scatter.py -software -inf-ts -ta -tts -hs -in ./expeval_output/
+
+The script prints on stdout the name of the category being shown, the number of instances solved by each tool and the single data points.
