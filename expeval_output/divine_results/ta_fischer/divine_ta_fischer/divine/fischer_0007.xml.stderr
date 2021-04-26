@@ -1,0 +1,190 @@
+ input: /home/magnago/benchmarks/ltl_timed_automata/fischer/divine/fischer_0007.xml
+ property { 0 }: (G F proc_wait) -> (G F proc_cs)
+ ------------------- OWCTY -------------------
+ initialise...		    MAP/ET
+ ============================================= 
+           The property DOES NOT hold      
+ ============================================= 
+ generating counterexample...      
+===== Trace from initial =====
+
+P0 = idle, P1 = idle, P2 = idle, P3 = idle, P4 = idle, P5 = idle, P6 = idle, prop = 0
+.id = 0
+
+URA state: <=0	<=0	<=0	<=0	<=0	<=0	<=0	<=0	<=0	\
+<INF	<=0	<INF	<INF	<INF	<INF	<INF	<INF	<INF	\
+<INF	<INF	<=0	<INF	<INF	<INF	<INF	<INF	<INF	\
+<INF	<INF	<INF	<=0	<INF	<INF	<INF	<INF	<INF	\
+<INF	<INF	<INF	<INF	<=0	<INF	<INF	<INF	<INF	\
+<INF	<INF	<INF	<INF	<INF	<=0	<INF	<INF	<INF	\
+<INF	<INF	<INF	<INF	<INF	<INF	<=0	<INF	<INF	\
+<INF	<INF	<INF	<INF	<INF	<INF	<INF	<=0	<INF	\
+<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<=0	\
+
+
+P0 = req, P1 = idle, P2 = idle, P3 = idle, P4 = idle, P5 = idle, P6 = idle, prop = 0
+.id = 0
+
+URA state: <=0	<=0	<=0	<=0	<=0	<=0	<=0	<=0	<=0	\
+<INF	<=0	<INF	<INF	<INF	<INF	<INF	<INF	<INF	\
+<INF	<INF	<=0	<INF	<INF	<INF	<INF	<INF	<INF	\
+<INF	<INF	<INF	<=0	<INF	<INF	<INF	<INF	<INF	\
+<INF	<INF	<INF	<INF	<=0	<INF	<INF	<INF	<INF	\
+<INF	<INF	<INF	<INF	<INF	<=0	<INF	<INF	<INF	\
+<INF	<INF	<INF	<INF	<INF	<INF	<=0	<INF	<INF	\
+<INF	<INF	<INF	<INF	<INF	<INF	<INF	<=0	<INF	\
+<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<=0	\
+
+
+P0 = req, P1 = idle, P2 = idle, P3 = idle, P4 = idle, P5 = idle, P6 = req, prop = 0
+.id = 0
+
+URA state: <=0	<=0	<=0	<=0	<=0	<=0	<=0	<=0	<=0	\
+<INF	<=0	<INF	<INF	<INF	<INF	<INF	<INF	<INF	\
+<INF	<INF	<=0	<INF	<INF	<INF	<INF	<INF	<INF	\
+<INF	<INF	<INF	<=0	<INF	<INF	<INF	<INF	<INF	\
+<INF	<INF	<INF	<INF	<=0	<INF	<INF	<INF	<INF	\
+<INF	<INF	<INF	<INF	<INF	<=0	<INF	<INF	<INF	\
+<INF	<INF	<INF	<INF	<INF	<INF	<=0	<INF	<INF	\
+<INF	<INF	<INF	<INF	<INF	<INF	<INF	<=0	<INF	\
+<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<=0	\
+
+
+P0 = wait, P1 = idle, P2 = idle, P3 = idle, P4 = idle, P5 = idle, P6 = req, prop = 3
+.id = 0
+P0.x ≤ 2	_aux ≤ 0
+P0.x-P1.x ≤ 2	P0.x-P2.x ≤ 2
+P0.x-P3.x ≤ 2	P0.x-P4.x ≤ 2
+P0.x-P5.x ≤ 2	P0.x-P6.x ≤ 0
+0 ≤ P0.x-_aux ≤ 2	0 ≤ P1.x-_aux
+0 ≤ P2.x-_aux	0 ≤ P3.x-_aux
+0 ≤ P4.x-_aux	0 ≤ P5.x-_aux
+0 ≤ P6.x-_aux	
+URA state: <=0	<=0	<=0	<=0	<=0	<=0	<=0	<=0	<=0	\
+<INF	<=0	<INF	<INF	<INF	<INF	<INF	<INF	<INF	\
+<INF	<INF	<=0	<INF	<INF	<INF	<INF	<INF	<INF	\
+<INF	<INF	<INF	<=0	<INF	<INF	<INF	<INF	<INF	\
+<INF	<INF	<INF	<INF	<=0	<INF	<INF	<INF	<INF	\
+<INF	<INF	<INF	<INF	<INF	<=0	<INF	<INF	<INF	\
+<INF	<INF	<INF	<INF	<INF	<INF	<=0	<INF	<INF	\
+<INF	<INF	<INF	<INF	<INF	<INF	<INF	<=0	<INF	\
+<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<=0	\
+
+
+
+===== The cycle =====
+
+P0 = wait, P1 = idle, P2 = idle, P3 = idle, P4 = idle, P5 = idle, P6 = wait, prop = 1
+.id = 6
+P0.x < 3	P6.x < 1
+_aux < 1	P0.x-P1.x < 3
+P0.x-P2.x < 3	P0.x-P3.x < 3
+P0.x-P4.x < 3	P0.x-P5.x < 3
+-1 < P0.x-P6.x < 3	-1 < P0.x-_aux ≤ 2
+-1 < P1.x-P6.x	-1 < P1.x-_aux
+-1 < P2.x-P6.x	-1 < P2.x-_aux
+-1 < P3.x-P6.x	-1 < P3.x-_aux
+-1 < P4.x-P6.x	-1 < P4.x-_aux
+-1 < P5.x-P6.x	-1 < P5.x-_aux
+-1 < P6.x-_aux ≤ 0	
+URA state: <=0	<=0	<=0	<=0	<=0	<=0	<=0	<=0	<=0	\
+<INF	<=0	<INF	<INF	<INF	<INF	<INF	<INF	<INF	\
+<INF	<INF	<=0	<INF	<INF	<INF	<INF	<INF	<INF	\
+<INF	<INF	<INF	<=0	<INF	<INF	<INF	<INF	<INF	\
+<INF	<INF	<INF	<INF	<=0	<INF	<INF	<INF	<INF	\
+<INF	<INF	<INF	<INF	<INF	<=0	<INF	<INF	<INF	\
+<INF	<INF	<INF	<INF	<INF	<INF	<=0	<INF	<INF	\
+<INF	<INF	<INF	<INF	<INF	<INF	<INF	<=0	<INF	\
+<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<=0	\
+
+
+P0 = idle, P1 = idle, P2 = idle, P3 = idle, P4 = idle, P5 = idle, P6 = wait, prop = 2
+.id = 6
+0 < _aux	P6.x-_aux ≤ 0
+
+URA state: <=0	<=0	<=0	<=0	<=0	<=0	<=0	<=0	<=0	\
+<INF	<=0	<INF	<INF	<INF	<INF	<INF	<INF	<INF	\
+<INF	<INF	<=0	<INF	<INF	<INF	<INF	<INF	<INF	\
+<INF	<INF	<INF	<=0	<INF	<INF	<INF	<INF	<INF	\
+<INF	<INF	<INF	<INF	<=0	<INF	<INF	<INF	<INF	\
+<INF	<INF	<INF	<INF	<INF	<=0	<INF	<INF	<INF	\
+<INF	<INF	<INF	<INF	<INF	<INF	<=0	<INF	<INF	\
+<INF	<INF	<INF	<INF	<INF	<INF	<INF	<=0	<INF	\
+<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<=0	\
+
+
+P0 = idle, P1 = idle, P2 = idle, P3 = idle, P4 = idle, P5 = idle, P6 = cs, prop = 2
+.id = 6
+1 < _aux	
+URA state: <=0	<=0	<=0	<=0	<=0	<=0	<=0	<=0	<=0	\
+<INF	<=0	<INF	<INF	<INF	<INF	<INF	<INF	<INF	\
+<INF	<INF	<=0	<INF	<INF	<INF	<INF	<INF	<INF	\
+<INF	<INF	<INF	<=0	<INF	<INF	<INF	<INF	<INF	\
+<INF	<INF	<INF	<INF	<=0	<INF	<INF	<INF	<INF	\
+<INF	<INF	<INF	<INF	<INF	<=0	<INF	<INF	<INF	\
+<INF	<INF	<INF	<INF	<INF	<INF	<=0	<INF	<INF	\
+<INF	<INF	<INF	<INF	<INF	<INF	<INF	<=0	<INF	\
+<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<=0	\
+
+
+P0 = idle, P1 = idle, P2 = idle, P3 = idle, P4 = idle, P5 = idle, P6 = idle, prop = 2
+.id = 0
+1 < _aux	
+URA state: <=0	<=0	<=0	<=0	<=0	<=0	<=0	<=0	<=0	\
+<INF	<=0	<INF	<INF	<INF	<INF	<INF	<INF	<INF	\
+<INF	<INF	<=0	<INF	<INF	<INF	<INF	<INF	<INF	\
+<INF	<INF	<INF	<=0	<INF	<INF	<INF	<INF	<INF	\
+<INF	<INF	<INF	<INF	<=0	<INF	<INF	<INF	<INF	\
+<INF	<INF	<INF	<INF	<INF	<=0	<INF	<INF	<INF	\
+<INF	<INF	<INF	<INF	<INF	<INF	<=0	<INF	<INF	\
+<INF	<INF	<INF	<INF	<INF	<INF	<INF	<=0	<INF	\
+<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<=0	\
+
+
+P0 = req, P1 = idle, P2 = idle, P3 = idle, P4 = idle, P5 = idle, P6 = idle, prop = 2
+.id = 0
+1 < _aux	
+URA state: <=0	<=0	<=0	<=0	<=0	<=0	<=0	<=0	<=0	\
+<INF	<=0	<INF	<INF	<INF	<INF	<INF	<INF	<INF	\
+<INF	<INF	<=0	<INF	<INF	<INF	<INF	<INF	<INF	\
+<INF	<INF	<INF	<=0	<INF	<INF	<INF	<INF	<INF	\
+<INF	<INF	<INF	<INF	<=0	<INF	<INF	<INF	<INF	\
+<INF	<INF	<INF	<INF	<INF	<=0	<INF	<INF	<INF	\
+<INF	<INF	<INF	<INF	<INF	<INF	<=0	<INF	<INF	\
+<INF	<INF	<INF	<INF	<INF	<INF	<INF	<=0	<INF	\
+<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<=0	\
+
+
+P0 = req, P1 = idle, P2 = idle, P3 = idle, P4 = idle, P5 = idle, P6 = req, prop = 2
+.id = 0
+1 < _aux	
+URA state: <=0	<=0	<=0	<=0	<=0	<=0	<=0	<=0	<=0	\
+<INF	<=0	<INF	<INF	<INF	<INF	<INF	<INF	<INF	\
+<INF	<INF	<=0	<INF	<INF	<INF	<INF	<INF	<INF	\
+<INF	<INF	<INF	<=0	<INF	<INF	<INF	<INF	<INF	\
+<INF	<INF	<INF	<INF	<=0	<INF	<INF	<INF	<INF	\
+<INF	<INF	<INF	<INF	<INF	<=0	<INF	<INF	<INF	\
+<INF	<INF	<INF	<INF	<INF	<INF	<=0	<INF	<INF	\
+<INF	<INF	<INF	<INF	<INF	<INF	<INF	<=0	<INF	\
+<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<=0	\
+
+
+P0 = wait, P1 = idle, P2 = idle, P3 = idle, P4 = idle, P5 = idle, P6 = req, prop = 3
+.id = 0
+P0.x ≤ 2	_aux ≤ 0
+P0.x-P1.x ≤ 2	P0.x-P2.x ≤ 2
+P0.x-P3.x ≤ 2	P0.x-P4.x ≤ 2
+P0.x-P5.x ≤ 2	P0.x-P6.x ≤ 0
+0 ≤ P0.x-_aux ≤ 2	0 ≤ P1.x-_aux
+0 ≤ P2.x-_aux	0 ≤ P3.x-_aux
+0 ≤ P4.x-_aux	0 ≤ P5.x-_aux
+0 ≤ P6.x-_aux	
+URA state: <=0	<=0	<=0	<=0	<=0	<=0	<=0	<=0	<=0	\
+<INF	<=0	<INF	<INF	<INF	<INF	<INF	<INF	<INF	\
+<INF	<INF	<=0	<INF	<INF	<INF	<INF	<INF	<INF	\
+<INF	<INF	<INF	<=0	<INF	<INF	<INF	<INF	<INF	\
+<INF	<INF	<INF	<INF	<=0	<INF	<INF	<INF	<INF	\
+<INF	<INF	<INF	<INF	<INF	<=0	<INF	<INF	<INF	\
+<INF	<INF	<INF	<INF	<INF	<INF	<=0	<INF	<INF	\
+<INF	<INF	<INF	<INF	<INF	<INF	<INF	<=0	<INF	\
+<INF	<INF	<INF

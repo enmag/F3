@@ -1,0 +1,8 @@
+group: anant_nonlinear_software
+platform: Linux node1 5.4.0-56-generic #62-Ubuntu SMP Mon Nov 23 19:20:19 UTC 2020 x86_64 x86_64
+timestamp: 1616098262
+time: 2021-03-18 21:11:02
+exitcode: 0
+real: 2.05
+user: 0.49
+sys: 0.56

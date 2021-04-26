@@ -1,0 +1,164 @@
+*** This is nuXmv 2.0.0 (compiled on Sun Mar 14 22:37:19 2021)
+*** Copyright (c) 2014-2021, Fondazione Bruno Kessler
+*** For more information on nuXmv see https://nuxmv.fbk.eu
+*** or email to <nuxmv@list.fbk.eu>.
+*** Please report bugs at https://nuxmv.fbk.eu/bugs
+*** (click on "Login Anonymously" to access)
+*** Alternatively write to <nuxmv@list.fbk.eu>.
+
+*** This version of nuXmv is linked to NuSMV 2.6.0.
+*** For more information on NuSMV see <http://nusmv.fbk.eu>
+*** or email to <nusmv-users@list.fbk.eu>.
+*** Copyright (C) 2010-2021, Fondazione Bruno Kessler
+
+*** This version of nuXmv is linked to the CUDD library version 2.4.1
+*** Copyright (c) 1995-2004, Regents of the University of Colorado
+
+*** This version of nuXmv is linked to the MiniSat SAT solver. 
+*** See http://minisat.se/MiniSat.html
+*** Copyright (c) 2003-2006, Niklas Een, Niklas Sorensson
+*** Copyright (c) 2007-2010, Niklas Sorensson
+
+*** This version of nuXmv is linked to MathSAT
+*** Copyright (C) 2009-2019 by Fondazione Bruno Kessler
+*** Copyright (C) 2009-2019 by University of Trento and others
+*** See http://mathsat.fbk.eu
+
+-- no proof or counterexample found with bound 0
+-- no proof or counterexample found with bound 1
+-- no proof or counterexample found with bound 2
+-- no proof or counterexample found with bound 3
+-- no proof or counterexample found with bound 4
+-- LTL specification ( G (pc0.l != error | pc1.l != error) ->  G ( F id = 0))  is false
+-- as demonstrated by the following execution sequence
+Trace Description: IC3 smt counterexample 
+Trace Type: Counterexample 
+Infinite Trace diverging symbols: pc0.x, pc1.x, pc2.x, pc3.x, pc4.x, pc5.x, pc6.x, pc7.x, pc8.x, pc9.x, pc10.x, pc11.x, pc12.x, pc13.x, pc14.x, pc15.x
+  -> State: 1.1 <-
+    pc0.x = 0.0
+    pc1.x = 0.0
+    pc2.x = 0.0
+    pc3.x = 0.0
+    pc4.x = 0.0
+    pc5.x = 0.0
+    pc6.x = 0.0
+    pc7.x = 0.0
+    pc8.x = 0.0
+    pc9.x = 0.0
+    pc10.x = 0.0
+    pc11.x = 0.0
+    pc12.x = 0.0
+    pc13.x = 0.0
+    pc14.x = 0.0
+    pc15.x = 0.0
+    id = 1
+    c.l = initial
+    a0.l = s1
+    a1.l = s1
+    a2.l = s1
+    a3.l = s1
+    a4.l = s1
+    a5.l = s1
+    a6.l = s1
+    a7.l = s1
+    a8.l = s1
+    a9.l = s1
+    a10.l = s1
+    a11.l = s1
+    a12.l = s1
+    a13.l = s1
+    a14.l = s1
+    a15.l = s1
+    pc0.l = not_ready
+    pc1.l = not_ready
+    pc2.l = not_ready
+    pc3.l = not_ready
+    pc4.l = not_ready
+    pc5.l = not_ready
+    pc6.l = not_ready
+    pc7.l = not_ready
+    pc8.l = not_ready
+    pc9.l = not_ready
+    pc10.l = not_ready
+    pc11.l = not_ready
+    pc12.l = not_ready
+    pc13.l = not_ready
+    pc14.l = not_ready
+    pc15.l = not_ready
+    B = 50
+    A_ = 25
+    N = 16
+  -- [ time elapse: time = 0.0; delta = f'125/4 ] --
+  -> State: 1.2 <-
+    pc0.x = f'125/4
+    pc1.x = f'125/4
+    pc2.x = f'125/4
+    pc3.x = f'125/4
+    pc4.x = f'125/4
+    pc5.x = f'125/4
+    pc6.x = f'125/4
+    pc7.x = f'125/4
+    pc8.x = f'125/4
+    pc9.x = f'125/4
+    pc10.x = f'125/4
+    pc11.x = f'125/4
+    pc12.x = f'125/4
+    pc13.x = f'125/4
+    pc14.x = f'125/4
+    pc15.x = f'125/4
+  -- Loop starts here
+  -- [ time elapse: time = diverging; delta = 25.0 ] --
+  -> State: 1.3 <-
+    pc0.x = pc0.x + 25.0
+    pc1.x = pc1.x + 25.0
+    pc2.x = pc2.x + 25.0
+    pc3.x = pc3.x + 25.0
+    pc4.x = pc4.x + 25.0
+    pc5.x = pc5.x + 25.0
+    pc6.x = pc6.x + 25.0
+    pc7.x = pc7.x + 25.0
+    pc8.x = pc8.x + 25.0
+    pc9.x = pc9.x + 25.0
+    pc10.x = pc10.x + 25.0
+    pc11.x = pc11.x + 25.0
+    pc12.x = pc12.x + 25.0
+    pc13.x = pc13.x + 25.0
+    pc14.x = pc14.x + 25.0
+    pc15.x = pc15.x + 25.0
+  -- [ time elapse: time = diverging; delta = f'89/4 ] --
+  -> State: 1.4 <-
+    pc0.x = pc0.x + f'89/4
+    pc1.x = pc1.x + f'89/4
+    pc2.x = pc2.x + f'89/4
+    pc3.x = pc3.x + f'89/4
+    pc4.x = pc4.x + f'89/4
+    pc5.x = pc5.x + f'89/4
+    pc6.x = pc6.x + f'89/4
+    pc7.x = pc7.x + f'89/4
+    pc8.x = pc8.x + f'89/4
+    pc9.x = pc9.x + f'89/4
+    pc10.x = pc10.x + f'89/4
+    pc11.x = pc11.x + f'89/4
+    pc12.x = pc12.x + f'89/4
+    pc13.x = pc13.x + f'89/4
+    pc14.x = pc14.x + f'89/4
+    pc15.x = pc15.x + f'89/4
+  -- [ time elapse: time = diverging; delta = f'25/4 ] --
+  -> State: 1.5 <-
+    pc0.x = pc0.x + f'25/4
+    pc1.x = pc1.x + f'25/4
+    pc2.x = pc2.x + f'25/4
+    pc3.x = pc3.x + f'25/4
+    pc4.x = pc4.x + f'25/4
+    pc5.x = pc5.x + f'25/4
+    pc6.x = pc6.x + f'25/4
+    pc7.x = pc7.x + f'25/4
+    pc8.x = pc8.x + f'25/4
+    pc9.x = pc9.x + f'25/4
+    pc10.x = pc10.x + f'25/4
+    pc11.x = pc11.x + f'25/4
+    pc12.x = pc12.x + f'25/4
+    pc13.x = pc13.x + f'25/4
+    pc14.x = pc14.x + f'25/4
+    pc15.x = pc15.x + f'25/4
+SUCCESS 

@@ -1,0 +1,248 @@
+
+
+run 1/1: `critical_region_0010`
+
+	Found non-termination argument:
+	State 1
+		pc9_l1 = False
+		pc9_l0 = False
+		pc8_l1 = False
+		pc8_l0 = False
+		pc8_evt1 = False
+		pc8_evt0 = True
+		pc7_l1 = False
+		pc7_l0 = False
+		pc7_evt1 = True
+		pc7_evt0 = True
+		pc6_l1 = False
+		pc9_l2 = False
+		pc6_l0 = False
+		pc6_evt1 = True
+		pc6_evt0 = True
+		pc5_l1 = False
+		pc5_evt0 = True
+		pc4_l1 = False
+		pc7_l2 = False
+		pc4_l0 = False
+		pc4_evt1 = False
+		a6_l = False
+		a5_evt1 = False
+		pc4_l2 = False
+		pc1_l0 = False
+		a5_evt0 = True
+		a4_evt0 = False
+		pc0_l2 = False
+		a4_l = False
+		pc3_evt0 = True
+		a3_evt1 = False
+		a3_evt0 = True
+		pc4_evt0 = True
+		a5_l = False
+		a4_evt1 = True
+		id = 8
+		a0_l = False
+		pc8_l2 = False
+		pc5_l0 = False
+		a9_l = False
+		a1_l = False
+		pc5_evt1 = True
+		a9_evt0 = True
+		c_move = False
+		c_initial = True
+		a6_evt0 = False
+		pc9_evt1 = True
+		a7_evt1 = False
+		pc9_evt0 = True
+		a7_evt0 = True
+		a0_evt1 = False
+		a3_l = False
+		a7_l = False
+		pc1_evt1 = True
+		a6_evt1 = True
+		a1_evt0 = True
+		pc5_l2 = False
+		pc2_l0 = False
+		a2_l = False
+		a1_evt1 = False
+		pc0_evt1 = False
+		pc2_l1 = False
+		a8_evt0 = False
+		a8_evt1 = True
+		a0_evt0 = True
+		a8_l = False
+		pc6_l2 = False
+		a2_evt0 = False
+		pc3_l0 = False
+		pc3_l2 = False
+		pc0_l1 = False
+		a9_evt1 = False
+		pc2_evt0 = True
+		pc1_evt0 = True
+		pc0_l0 = False
+		a2_evt1 = True
+		pc3_l1 = False
+		pc1_l1 = False
+		pc1_l2 = False
+		pc2_evt1 = True
+		pc2_l2 = False
+		pc0_evt0 = True
+		pc3_evt1 = True
+		_J2409 = True
+		_J2415 = True
+		_J2424 = True
+		_J2431 = True
+		_J2437 = True
+		_EL_U_2376 = True
+		_EL_U_2378 = False
+		_EL_U_2381 = False
+		_EL_U_2383 = False
+		_EL_U_2385 = True
+		((-1.0 * pc5_x) < -50.0)
+		((-1.0 * pc7_x) < -50.0)
+		((-1.0 * pc3_x) < -50.0)
+		((-1.0 * pc9_x) < -50.0)
+		((-1.0 * pc8_x) < 0.0)
+		((-1.0 * pc2_x) < -50.0)
+		((-1.0 * pc4_x) < -50.0)
+		((-1.0 * pc0_x) < -50.0)
+		((-1.0 * delta) < 0.0)
+		((-1.0 * pc1_x) < -50.0)
+		((-1.0 * delta) <= -1.0)
+		((-1.0 * _diverge_delta) <= -1.0)
+		((-1.0 * pc8_x) < -50.0)
+		((-1.0 * pc6_x) < -50.0)
+	Trans 1 -- 2
+		_x_pc3_x = (pc3_x + delta)
+		_x_delta = (pc3_x + delta + pc9_x + pc8_x + pc5_x + pc0_x + pc1_x + pc2_x + pc6_x + _diverge_delta + pc7_x + pc4_x + 1.0)
+		_x_pc9_x = (pc9_x + delta)
+		_x_pc8_x = (pc8_x + delta)
+		_x_pc5_x = (pc5_x + delta)
+		_x_pc0_x = (pc0_x + delta)
+		_x_pc1_x = (pc1_x + delta)
+		_x_pc2_x = (pc2_x + delta)
+		_x_pc6_x = (pc6_x + delta)
+		_x__diverge_delta = delta
+		_x_pc7_x = (pc7_x + delta)
+		_x_pc4_x = (pc4_x + delta)
+	State 2
+		pc9_l1 = False
+		pc9_l0 = False
+		pc8_l1 = False
+		pc8_l0 = False
+		pc8_evt1 = False
+		pc8_evt0 = False
+		pc7_l1 = False
+		pc7_l0 = False
+		pc7_evt1 = False
+		pc7_evt0 = False
+		pc6_l1 = False
+		pc9_l2 = False
+		pc6_l0 = False
+		pc6_evt1 = False
+		pc6_evt0 = False
+		pc5_l1 = False
+		pc5_evt0 = False
+		pc4_l1 = False
+		pc7_l2 = False
+		pc4_l0 = False
+		pc4_evt1 = False
+		a6_l = False
+		a5_evt1 = False
+		pc4_l2 = False
+		pc1_l0 = False
+		a5_evt0 = False
+		a4_evt0 = False
+		pc0_l2 = False
+		a4_l = False
+		pc3_evt0 = False
+		a3_evt1 = False
+		a3_evt0 = False
+		pc4_evt0 = False
+		a5_l = False
+		a4_evt1 = False
+		id = 0
+		a0_l = False
+		pc8_l2 = False
+		pc5_l0 = False
+		a9_l = False
+		a1_l = False
+		pc5_evt1 = False
+		a9_evt0 = True
+		c_move = False
+		c_initial = True
+		a6_evt0 = False
+		pc9_evt1 = False
+		a7_evt1 = True
+		pc9_evt0 = False
+		a7_evt0 = False
+		a0_evt1 = True
+		a3_l = False
+		a7_l = False
+		pc1_evt1 = False
+		a6_evt1 = False
+		a1_evt0 = False
+		pc5_l2 = False
+		pc2_l0 = False
+		a2_l = False
+		a1_evt1 = False
+		pc0_evt1 = False
+		pc2_l1 = False
+		a8_evt0 = False
+		a8_evt1 = True
+		a0_evt0 = False
+		a8_l = False
+		pc6_l2 = False
+		a2_evt0 = False
+		pc3_l0 = False
+		pc3_l2 = False
+		pc0_l1 = False
+		a9_evt1 = False
+		pc2_evt0 = False
+		pc1_evt0 = False
+		pc0_l0 = False
+		a2_evt1 = False
+		pc3_l1 = False
+		pc1_l1 = False
+		pc1_l2 = False
+		pc2_evt1 = False
+		pc2_l2 = False
+		pc0_evt0 = False
+		pc3_evt1 = False
+		_J2409 = False
+		_J2415 = False
+		_J2424 = False
+		_J2431 = False
+		_J2437 = False
+		_EL_U_2376 = True
+		_EL_U_2378 = False
+		_EL_U_2381 = False
+		_EL_U_2383 = False
+		_EL_U_2385 = True
+		(((-1.0 * delta) + (-1.0 * pc5_x)) < -50.0)
+		(((-1.0 * delta) + (-1.0 * pc6_x)) < -50.0)
+		(((-1.0 * delta) + (-1.0 * pc0_x)) < -50.0)
+		(((-1.0 * delta) + (-1.0 * pc8_x)) < 0.0)
+		(((-1.0 * delta) + (-1.0 * pc7_x)) < -50.0)
+		(((-1.0 * pc1_x) + (-1.0 * delta)) < -50.0)
+		(((-1.0 * delta) + (-1.0 * pc2_x)) < -50.0)
+		(((-1.0 * delta) + (-1.0 * pc3_x)) < -50.0)
+		((-1.0 * delta) <= -1.0)
+		(((-1.0 * delta) + (-1.0 * pc8_x)) < -50.0)
+		(((-1.0 * delta) + (-1.0 * pc4_x)) < -50.0)
+		(((-1.0 * delta) + (-1.0 * pc9_x)) < -50.0)
+	Trans 2 -- 3
+		_x_pc3_x = (pc3_x + delta)
+		_x_delta = (((pc3_x * 13/14) + (delta * 15/14) + (pc8_x * 13/14) + -1/14) - ((pc9_x * 1/14) + (pc5_x * 1/14) + (pc0_x * 1/14) + (pc1_x * 1/14) + (pc2_x * 4/7) + (pc6_x * 13/14) + (_diverge_delta * 1/14) + (pc7_x * 13/14) + (pc4_x * 1/14)))
+		_x_pc9_x = (pc9_x + delta)
+		_x_pc8_x = (pc8_x + delta)
+		_x_pc5_x = (pc5_x + delta)
+		_x_pc0_x = (pc0_x + delta)
+		_x_pc1_x = (pc1_x + delta)
+		_x_pc2_x = (pc2_x + delta)
+		_x_pc6_x = (pc6_x + delta)
+		_x__diverge_delta = delta
+		_x_pc7_x = (pc7_x + delta)
+		_x_pc4_x = (pc4_x + delta)
+	starting from: {delta: 1.0, pc9_l1: False, pc9_l0: False, pc9_x: 101/2, pc8_l1: False, pc8_l0: False, pc8_evt1: False, pc8_evt0: True, pc8_x: 101/2, pc7_l1: False, pc7_l0: False, pc7_evt1: True, pc7_evt0: True, pc6_l1: False, pc9_l2: False, pc6_l0: False, pc6_evt1: True, pc6_evt0: True, pc6_x: 101/2, pc5_l1: False, pc5_evt0: True, pc4_l1: False, pc7_l2: False, pc4_l0: False, pc4_evt1: False, pc7_x: 101/2, a6_l: False, a5_evt1: False, pc4_l2: False, pc1_l0: False, a5_evt0: True, a4_evt0: False, pc0_l2: False, a4_l: False, pc3_evt0: True, a3_evt1: False, a3_evt0: True, pc4_evt0: True, a5_l: False, a4_evt1: True, pc5_x: 101/2, id: 8, a0_l: False, pc8_l2: False, pc5_l0: False, a9_l: False, a1_l: False, pc5_evt1: True, a9_evt0: True, pc2_x: 101/2, c_move: False, c_initial: True, a6_evt0: False, pc9_evt1: True, a7_evt1: False, pc9_evt0: True, a7_evt0: True, a0_evt1: False, pc4_x: 101/2, a3_l: False, a7_l: False, pc1_evt1: True, a6_evt1: True, a1_evt0: True, pc5_l2: False, pc2_l0: False, a2_l: False, a1_evt1: False, pc0_evt1: False, pc2_l1: False, a8_evt0: False, a8_evt1: True, a0_evt0: True, a8_l: False, pc0_x: 101/2, pc6_l2: False, a2_evt0: False, pc3_l0: False, pc3_l2: False, pc0_l1: False, pc1_x: 101/2, a9_evt1: False, pc2_evt0: True, pc1_evt0: True, pc0_l0: False, a2_evt1: True, pc3_l1: False, _diverge_delta: 101/2, pc1_l1: False, pc1_l2: False, pc2_evt1: True, pc2_l2: False, pc3_x: 101/2, pc0_evt0: True, pc3_evt1: True, _J2409: True, _J2415: True, _J2424: True, _J2431: True, _J2437: True, _EL_U_2376: True, _EL_U_2378: False, _EL_U_2381: False, _EL_U_2383: False, _EL_U_2385: True}
+
+end of `critical_region_0010`: SUCCESS in 4.278946161270142s

@@ -1,0 +1,7 @@
+
+
+run 1/1: `WhileTrue_false-termination`
+
+	Found non-termination argument:
+	[{pc: 0}, {pc: 0}]
+end of `WhileTrue_false-termination`: SUCCESS in 0.012801647186279297s

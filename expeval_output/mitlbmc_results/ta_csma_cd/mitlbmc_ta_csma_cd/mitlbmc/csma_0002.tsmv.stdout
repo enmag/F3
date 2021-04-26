@@ -1,0 +1,37 @@
+Property 0 [36;1mFALSE SR ((s0.l = transm) -> (TRUE SU (s0.l = wait)))[0m ......... [31;1mdoes not hold[0m 
+>>> Index:         0        1        loop  2          3         4        5        6        7        8        
+>>> Type:          |        |        loop  |          |         |        (-)      |        |        |        
+-----------------------------------> loop <------------------------------------------------------------------
++0-subexp-0        T        F        loop  F          F         F        F        F        F        F        
++1-subexp-0        T        T        loop  T          T         T        T        T        T        T        
++2-subexp-0        F        T        loop  F          F         F        F        F        F        F        
++3-obligation-0    F        F        loop  T          T         T        T        T        T        T        
+-----------------------------------> loop <------------------------------------------------------------------
++3-subexp-0        F        T        loop  F          F         F        F        F        F        F        
++4-subexp-0        F        F        loop  F          F         F        F        F        F        F        
++5-subexp-0        F        T        loop  T          T         T        T        T        T        T        
+-fair-0-0          T        T        loop  T          T         T        T        T        T        F        
+-----------------------------------> loop <------------------------------------------------------------------
+-loop-0            F        F        loop  T          F         F        F        F        F        F        
+-loop-elapse-0     T        T        loop  T          T         T        T        F        F        F        
+-ok-bus.x-0        T        T        loop  T          T         T        T        T        T        F        
+-ok-s0.x-0         T        T        loop  T          T         T        T        T        T        F        
+-----------------------------------> loop <------------------------------------------------------------------
+-ok-s1.x-0         T        T        loop  T          T         T        T        T        T        F        
+-smaller-exists-0  F        F        loop  F          T         T        T        T        T        T        
+@delta-0           0        0        loop  0          0         0        3/2      0        0        0        
+@open-0            F        F        loop  F          F         F        T        F        F        F        
+-----------------------------------> loop <------------------------------------------------------------------
+bus.cd_id-0        0        1        loop  0          1         1        1        1        1        0        
+bus.evt-0          begin    begin    loop  cd         cd        begin    begin    begin    begin    cd       
+bus.j-0            0        0        loop  0          1         0        0        0        0        0        
+bus.l-0            idle     active   loop  collision  transmit  idle     idle     idle     active   collision
+-----------------------------------> loop <------------------------------------------------------------------
+bus.x-0            0        0        loop  0          0         0        0        3/2      0        0        
+s0.evt-0           begin    stutter  loop  cd         stutter   begin    begin    begin    stutter  cd       
+s0.l-0             wait     transm   loop  transm     retry     retry    retry    retry    transm   transm   
+s0.x-0             0        0        loop  0          0         0        0        3/2      0        0        
+-----------------------------------> loop <------------------------------------------------------------------
+s1.evt-0           stutter  begin    loop  stutter    cd        stutter  stutter  stutter  begin    stutter  
+s1.l-0             wait     wait     loop  transm     transm    retry    retry    retry    retry    transm   
+s1.x-0             0        0        loop  0          0         0        0        3/2      0        0        

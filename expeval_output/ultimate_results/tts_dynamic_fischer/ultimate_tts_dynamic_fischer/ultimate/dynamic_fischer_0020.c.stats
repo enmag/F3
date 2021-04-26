@@ -1,0 +1,8 @@
+group: ultimate_tts_dynamic_fischer
+platform: Linux node1 5.4.0-56-generic #62-Ubuntu SMP Mon Nov 23 19:20:19 UTC 2020 x86_64 x86_64
+timestamp: 1619283818
+time: 2021-04-24 19:03:38
+exitcode: 0
+real: 1129.4
+user: 0.15
+sys: 0.61

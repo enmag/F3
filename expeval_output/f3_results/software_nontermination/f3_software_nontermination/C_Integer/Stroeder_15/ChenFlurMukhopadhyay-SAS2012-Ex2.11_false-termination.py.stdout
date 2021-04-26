@@ -1,0 +1,35 @@
+
+
+run 1/1: `ChenFlurMukhopadhyay-SAS2012-Ex2.11_false-termination`
+
+	Found non-termination argument:
+	State 0
+		pc = 0
+		(((y * 5) - (x * 4)) < 0)
+		(((x * 12) - (y * 16)) < 0)
+		(((-1 * y) + (-1 * oldx) + (-1 * x) + 16) <= 0)
+	Trans 0 -- 1
+		_x_y = y
+		_x_oldx = oldx
+		_x_x = x
+	State 1
+		pc = 1
+	Trans 1 -- 2
+		_x_y = y
+		_x_oldx = x
+		_x_x = x
+	State 2
+		pc = 2
+	Trans 2 -- 3
+		_x_y = y
+		_x_oldx = oldx
+		_x_x = ((oldx * 2) + (y * 4))
+	State 3
+		pc = 3
+	Trans 3 -- 4
+		_x_y = (oldx * 4)
+		_x_oldx = oldx
+		_x_x = x
+	starting from: {oldx: 0, pc: 0, x: 9, y: 7}
+
+end of `ChenFlurMukhopadhyay-SAS2012-Ex2.11_false-termination`: SUCCESS in 76.83768582344055s

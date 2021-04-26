@@ -1,0 +1,137 @@
+
+
+run 1/1: `token_ring_0002`
+
+	Found non-termination argument:
+	Do states 4..6 while (((tot_transm_time * 1/8) + -1/4) < 0.0)
+	State 4
+		_EL_U_262 = False
+		delta = 0.0
+		st1_evt1 = False
+		st1_evt0 = False
+		st1_l = True
+		st0_req_time = 1.0
+		mgr_l = True
+		mgr_c = 0.0
+		mgr_timeout = 0.0
+		mgr_evt0 = False
+		mgr_evt1 = False
+		st0_l = True
+		st0_evt0 = False
+		_diverge_delta = 0.0
+		st0_evt1 = True
+		st1_req_time = 1.0
+		_J295 = True
+		_J301 = True
+		_J309 = True
+		_J315 = True
+		_J322 = True
+		_J328 = True
+		_EL_U_264 = True
+		_EL_U_254 = True
+		_EL_U_256 = False
+		_EL_X_221 = False
+		_EL_U_258 = True
+		_EL_U_260 = False
+		((-1.0 * tot_transm_time) <= -10.0)
+	Trans 4 -- 5
+		_x_tot_transm_time : tot_transm_time
+	State 5
+		_EL_U_262 = False
+		delta = 1.0
+		st1_evt1 = True
+		st1_evt0 = False
+		st1_l = False
+		st0_req_time = 1.0
+		mgr_l = False
+		mgr_c = 0.0
+		mgr_timeout = 1.0
+		mgr_evt0 = False
+		mgr_evt1 = False
+		st0_l = True
+		st0_evt0 = False
+		_diverge_delta = 0.0
+		st0_evt1 = False
+		st1_req_time = 1.0
+		_J295 = False
+		_J301 = False
+		_J309 = False
+		_J315 = False
+		_J322 = False
+		_J328 = False
+		_EL_U_264 = True
+		_EL_U_254 = True
+		_EL_U_256 = False
+		_EL_X_221 = False
+		_EL_U_258 = True
+		_EL_U_260 = False
+	Trans 5 -- 6
+		_x_tot_transm_time : tot_transm_time
+	State 6
+		_EL_U_262 = False
+		delta = 0.0
+		st1_evt1 = False
+		st1_evt0 = True
+		st1_l = False
+		st0_req_time = 1.0
+		mgr_l = False
+		mgr_c = 1.0
+		mgr_timeout = 1.0
+		mgr_evt0 = True
+		mgr_evt1 = False
+		st0_l = True
+		st0_evt0 = False
+		_diverge_delta = 1.0
+		st0_evt1 = True
+		st1_req_time = 1.0
+		_J295 = True
+		_J301 = True
+		_J309 = False
+		_J315 = True
+		_J322 = False
+		_J328 = True
+		_EL_U_264 = True
+		_EL_U_254 = True
+		_EL_U_256 = False
+		_EL_X_221 = True
+		_EL_U_258 = True
+		_EL_U_260 = False
+	Trans 6 -- 4
+		_x_tot_transm_time : (tot_transm_time + 1.0)
+	End do-while
+	State 6
+		_EL_U_262 = False
+		delta = 0.0
+		st1_evt1 = False
+		st1_evt0 = True
+		st1_l = False
+		st0_req_time = 1.0
+		mgr_l = False
+		mgr_c = 1.0
+		mgr_timeout = 1.0
+		mgr_evt0 = True
+		mgr_evt1 = False
+		st0_l = True
+		st0_evt0 = False
+		_diverge_delta = 1.0
+		st0_evt1 = True
+		st1_req_time = 1.0
+		_J295 = True
+		_J301 = True
+		_J309 = False
+		_J315 = True
+		_J322 = False
+		_J328 = True
+		_EL_U_264 = True
+		_EL_U_254 = True
+		_EL_U_256 = False
+		_EL_X_221 = True
+		_EL_U_258 = True
+		_EL_U_260 = False
+		((1/4 - (tot_transm_time * 1/8)) <= 0.0)
+		((-1.0 * tot_transm_time) <= -9.0)
+	Trans 6 -- 7
+		_x_tot_transm_time = (tot_transm_time + 1.0)
+	starting from: {_EL_U_262: False, delta: 0.0, st1_evt1: False, st1_evt0: False, st1_l: True, tot_transm_time: 10.0, st0_req_time: 1.0, mgr_l: True, mgr_c: 0.0, mgr_timeout: 0.0, mgr_evt0: False, mgr_evt1: False, st0_l: True, st0_evt0: False, _diverge_delta: 0.0, st0_evt1: True, st1_req_time: 1.0, _J295: True, _J301: True, _J309: True, _J315: True, _J322: True, _J328: True, _EL_U_264: True, _EL_U_254: True, _EL_U_256: False, _EL_X_221: False, _EL_U_258: True, _EL_U_260: False}
+
+end of `token_ring_0002`: SUCCESS in 0.7288129329681396s

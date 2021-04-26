@@ -1,0 +1,8 @@
+group: nuxmv_ta_fischer
+platform: Linux node1 5.4.0-56-generic #62-Ubuntu SMP Mon Nov 23 19:20:19 UTC 2020 x86_64 x86_64
+timestamp: 1616134121
+time: 2021-03-19 07:08:41
+exitcode: 0
+real: 3603.03
+user: 3590.52
+sys: 11.44

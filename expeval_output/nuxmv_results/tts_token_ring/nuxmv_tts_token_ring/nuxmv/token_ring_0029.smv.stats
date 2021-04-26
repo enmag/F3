@@ -1,0 +1,8 @@
+group: nuxmv_tts_token_ring
+platform: Linux node2 5.4.0-56-generic #62-Ubuntu SMP Mon Nov 23 19:20:19 UTC 2020 x86_64 x86_64
+timestamp: 1616290540
+time: 2021-03-21 02:35:40
+exitcode: 0
+real: 3602.41
+user: 3599.54
+sys: 1.88

@@ -1,0 +1,123 @@
+ERROR:root:
+Traceback (most recent call last):
+  File "/home/anant/tool/build/t2parser.py", line 97, in nontermCheck
+    t2lassoParser.main_func(lassoStr, extractInv)
+  File "/home/anant/tool/build/t2lassoParser.py", line 558, in main_func
+    getGuardsAssignments(cycleRelation, quantifiedVarsCycle, True)
+  File "/home/anant/tool/build/t2lassoParser.py", line 311, in getGuardsAssignments
+    cstrList = fParser.parse(fStr)
+  File "/home/anant/tool/ply/yacc.py", line 265, in parse
+    return self.parseopt_notrack(input,lexer,debug,tracking,tokenfunc)
+  File "/home/anant/tool/ply/yacc.py", line 971, in parseopt_notrack
+    p.callable(pslice)
+  File "/home/anant/tool/build/parserFormula.py", line 165, in p_constraint_false
+    assert (rhsConstantFound is False)
+AssertionError
+ERROR:root:
+Traceback (most recent call last):
+  File "/home/anant/tool/build/t2parser.py", line 97, in nontermCheck
+    t2lassoParser.main_func(lassoStr, extractInv)
+  File "/home/anant/tool/build/t2lassoParser.py", line 558, in main_func
+    getGuardsAssignments(cycleRelation, quantifiedVarsCycle, True)
+  File "/home/anant/tool/build/t2lassoParser.py", line 311, in getGuardsAssignments
+    cstrList = fParser.parse(fStr)
+  File "/home/anant/tool/ply/yacc.py", line 265, in parse
+    return self.parseopt_notrack(input,lexer,debug,tracking,tokenfunc)
+  File "/home/anant/tool/ply/yacc.py", line 971, in parseopt_notrack
+    p.callable(pslice)
+  File "/home/anant/tool/build/parserFormula.py", line 165, in p_constraint_false
+    assert (rhsConstantFound is False)
+AssertionError
+ERROR:root:
+Traceback (most recent call last):
+  File "/home/anant/tool/build/t2parser.py", line 97, in nontermCheck
+    t2lassoParser.main_func(lassoStr, extractInv)
+  File "/home/anant/tool/build/t2lassoParser.py", line 558, in main_func
+    getGuardsAssignments(cycleRelation, quantifiedVarsCycle, True)
+  File "/home/anant/tool/build/t2lassoParser.py", line 311, in getGuardsAssignments
+    cstrList = fParser.parse(fStr)
+  File "/home/anant/tool/ply/yacc.py", line 265, in parse
+    return self.parseopt_notrack(input,lexer,debug,tracking,tokenfunc)
+  File "/home/anant/tool/ply/yacc.py", line 971, in parseopt_notrack
+    p.callable(pslice)
+  File "/home/anant/tool/build/parserFormula.py", line 165, in p_constraint_false
+    assert (rhsConstantFound is False)
+AssertionError
+ERROR:root:
+Traceback (most recent call last):
+  File "/home/anant/tool/build/t2parser.py", line 97, in nontermCheck
+    t2lassoParser.main_func(lassoStr, extractInv)
+  File "/home/anant/tool/build/t2lassoParser.py", line 558, in main_func
+    getGuardsAssignments(cycleRelation, quantifiedVarsCycle, True)
+  File "/home/anant/tool/build/t2lassoParser.py", line 311, in getGuardsAssignments
+    cstrList = fParser.parse(fStr)
+  File "/home/anant/tool/ply/yacc.py", line 265, in parse
+    return self.parseopt_notrack(input,lexer,debug,tracking,tokenfunc)
+  File "/home/anant/tool/ply/yacc.py", line 971, in parseopt_notrack
+    p.callable(pslice)
+  File "/home/anant/tool/build/parserFormula.py", line 165, in p_constraint_false
+    assert (rhsConstantFound is False)
+AssertionError
+ERROR:root:
+Traceback (most recent call last):
+  File "/home/anant/tool/build/t2parser.py", line 97, in nontermCheck
+    t2lassoParser.main_func(lassoStr, extractInv)
+  File "/home/anant/tool/build/t2lassoParser.py", line 558, in main_func
+    getGuardsAssignments(cycleRelation, quantifiedVarsCycle, True)
+  File "/home/anant/tool/build/t2lassoParser.py", line 311, in getGuardsAssignments
+    cstrList = fParser.parse(fStr)
+  File "/home/anant/tool/ply/yacc.py", line 265, in parse
+    return self.parseopt_notrack(input,lexer,debug,tracking,tokenfunc)
+  File "/home/anant/tool/ply/yacc.py", line 971, in parseopt_notrack
+    p.callable(pslice)
+  File "/home/anant/tool/build/parserFormula.py", line 165, in p_constraint_false
+    assert (rhsConstantFound is False)
+AssertionError
+ERROR:root:
+Traceback (most recent call last):
+  File "/home/anant/tool/build/t2parser.py", line 97, in nontermCheck
+    t2lassoParser.main_func(lassoStr, extractInv)
+  File "/home/anant/tool/build/t2lassoParser.py", line 558, in main_func
+    getGuardsAssignments(cycleRelation, quantifiedVarsCycle, True)
+  File "/home/anant/tool/build/t2lassoParser.py", line 311, in getGuardsAssignments
+    cstrList = fParser.parse(fStr)
+  File "/home/anant/tool/ply/yacc.py", line 265, in parse
+    return self.parseopt_notrack(input,lexer,debug,tracking,tokenfunc)
+  File "/home/anant/tool/ply/yacc.py", line 971, in parseopt_notrack
+    p.callable(pslice)
+  File "/home/anant/tool/build/parserFormula.py", line 165, in p_constraint_false
+    assert (rhsConstantFound is False)
+AssertionError
+ERROR:root:
+Traceback (most recent call last):
+  File "/home/anant/tool/build/t2parser.py", line 97, in nontermCheck
+    t2lassoParser.main_func(lassoStr, extractInv)
+  File "/home/anant/tool/build/t2lassoParser.py", line 558, in main_func
+    getGuardsAssignments(cycleRelation, quantifiedVarsCycle, True)
+  File "/home/anant/tool/build/t2lassoParser.py", line 311, in getGuardsAssignments
+    cstrList = fParser.parse(fStr)
+  File "/home/anant/tool/ply/yacc.py", line 265, in parse
+    return self.parseopt_notrack(input,lexer,debug,tracking,tokenfunc)
+  File "/home/anant/tool/ply/yacc.py", line 971, in parseopt_notrack
+    p.callable(pslice)
+  File "/home/anant/tool/build/parserFormula.py", line 165, in p_constraint_false
+    assert (rhsConstantFound is False)
+AssertionError
+ERROR:root:
+Traceback (most recent call last):
+  File "/home/anant/tool/build/t2parser.py", line 97, in nontermCheck
+    t2lassoParser.main_func(lassoStr, extractInv)
+  File "/home/anant/tool/build/t2lassoParser.py", line 558, in main_func
+    getGuardsAssignments(cycleRelation, quantifiedVarsCycle, True)
+  File "/home/anant/tool/build/t2lassoParser.py", line 311, in getGuardsAssignments
+    cstrList = fParser.parse(fStr)
+  File "/home/anant/tool/ply/yacc.py", line 265, in parse
+    return self.parseopt_notrack(input,lexer,debug,tracking,tokenfunc)
+  File "/home/anant/tool/ply/yacc.py", line 971, in parseopt_notrack
+    p.callable(pslice)
+  File "/home/anant/tool/build/parserFormula.py", line 165, in p_constraint_false
+    assert (rhsConstantFound is False)
+AssertionError
+real 103.43
+user 101.77
+sys 0.66

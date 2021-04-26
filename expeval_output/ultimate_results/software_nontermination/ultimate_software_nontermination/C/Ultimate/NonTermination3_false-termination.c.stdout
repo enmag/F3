@@ -1,0 +1,259 @@
+Creating empty 100MiB image file: /home/magnago/overlay/NonTermination3_false-termination.c.ext3
+Formatting image with ext3 file system
+Image is done: /home/magnago/overlay/NonTermination3_false-termination.c.ext3
+This is Ultimate 0.2.1-54a68f4
+[2021-04-24 13:09:54,740 INFO  L177        SettingsManager]: Resetting all preferences to default values...
+[2021-04-24 13:09:54,743 INFO  L181        SettingsManager]: Resetting UltimateCore preferences to default values
+[2021-04-24 13:09:54,785 INFO  L184        SettingsManager]: Ultimate Commandline Interface provides no preferences, ignoring...
+[2021-04-24 13:09:54,786 INFO  L181        SettingsManager]: Resetting Boogie Preprocessor preferences to default values
+[2021-04-24 13:09:54,786 INFO  L181        SettingsManager]: Resetting Boogie Procedure Inliner preferences to default values
+[2021-04-24 13:09:54,787 INFO  L181        SettingsManager]: Resetting Abstract Interpretation preferences to default values
+[2021-04-24 13:09:54,788 INFO  L181        SettingsManager]: Resetting LassoRanker preferences to default values
+[2021-04-24 13:09:54,789 INFO  L181        SettingsManager]: Resetting Reaching Definitions preferences to default values
+[2021-04-24 13:09:54,790 INFO  L181        SettingsManager]: Resetting SyntaxChecker preferences to default values
+[2021-04-24 13:09:54,790 INFO  L181        SettingsManager]: Resetting Sifa preferences to default values
+[2021-04-24 13:09:54,791 INFO  L184        SettingsManager]: B?chi Program Product provides no preferences, ignoring...
+[2021-04-24 13:09:54,791 INFO  L181        SettingsManager]: Resetting LTL2Aut preferences to default values
+[2021-04-24 13:09:54,792 INFO  L181        SettingsManager]: Resetting PEA to Boogie preferences to default values
+[2021-04-24 13:09:54,793 INFO  L181        SettingsManager]: Resetting BlockEncodingV2 preferences to default values
+[2021-04-24 13:09:54,793 INFO  L181        SettingsManager]: Resetting ChcToBoogie preferences to default values
+[2021-04-24 13:09:54,794 INFO  L181        SettingsManager]: Resetting AutomataScriptInterpreter preferences to default values
+[2021-04-24 13:09:54,794 INFO  L181        SettingsManager]: Resetting BuchiAutomizer preferences to default values
+[2021-04-24 13:09:54,795 INFO  L181        SettingsManager]: Resetting CACSL2BoogieTranslator preferences to default values
+[2021-04-24 13:09:54,797 INFO  L181        SettingsManager]: Resetting CodeCheck preferences to default values
+[2021-04-24 13:09:54,797 INFO  L181        SettingsManager]: Resetting InvariantSynthesis preferences to default values
+[2021-04-24 13:09:54,798 INFO  L181        SettingsManager]: Resetting RCFGBuilder preferences to default values
+[2021-04-24 13:09:54,799 INFO  L181        SettingsManager]: Resetting Referee preferences to default values
+[2021-04-24 13:09:54,799 INFO  L181        SettingsManager]: Resetting TraceAbstraction preferences to default values
+[2021-04-24 13:09:54,801 INFO  L184        SettingsManager]: TraceAbstractionConcurrent provides no preferences, ignoring...
+[2021-04-24 13:09:54,801 INFO  L184        SettingsManager]: TraceAbstractionWithAFAs provides no preferences, ignoring...
+[2021-04-24 13:09:54,801 INFO  L181        SettingsManager]: Resetting TreeAutomizer preferences to default values
+[2021-04-24 13:09:54,802 INFO  L181        SettingsManager]: Resetting IcfgToChc preferences to default values
+[2021-04-24 13:09:54,802 INFO  L181        SettingsManager]: Resetting IcfgTransformer preferences to default values
+[2021-04-24 13:09:54,802 INFO  L184        SettingsManager]: ReqToTest provides no preferences, ignoring...
+[2021-04-24 13:09:54,803 INFO  L181        SettingsManager]: Resetting Boogie Printer preferences to default values
+[2021-04-24 13:09:54,803 INFO  L181        SettingsManager]: Resetting ChcSmtPrinter preferences to default values
+[2021-04-24 13:09:54,804 INFO  L181        SettingsManager]: Resetting ReqPrinter preferences to default values
+[2021-04-24 13:09:54,804 INFO  L181        SettingsManager]: Resetting Witness Printer preferences to default values
+[2021-04-24 13:09:54,805 INFO  L184        SettingsManager]: Boogie PL CUP Parser provides no preferences, ignoring...
+[2021-04-24 13:09:54,805 INFO  L181        SettingsManager]: Resetting CDTParser preferences to default values
+[2021-04-24 13:09:54,805 INFO  L184        SettingsManager]: AutomataScriptParser provides no preferences, ignoring...
+[2021-04-24 13:09:54,806 INFO  L184        SettingsManager]: ReqParser provides no preferences, ignoring...
+[2021-04-24 13:09:54,806 INFO  L181        SettingsManager]: Resetting SmtParser preferences to default values
+[2021-04-24 13:09:54,806 INFO  L181        SettingsManager]: Resetting Witness Parser preferences to default values
+[2021-04-24 13:09:54,806 INFO  L188        SettingsManager]: Finished resetting all preferences to default values...
+[2021-04-24 13:09:54,807 INFO  L101        SettingsManager]: Beginning loading settings from /home/singularity/UAutomizer-linux/config/svcomp-Termination-64bit-Automizer_Default.epf
+[2021-04-24 13:09:54,821 INFO  L113        SettingsManager]: Loading preferences was successful
+[2021-04-24 13:09:54,821 INFO  L115        SettingsManager]: Preferences different from defaults after loading the file:
+[2021-04-24 13:09:54,822 INFO  L136        SettingsManager]: Preferences of BlockEncodingV2 differ from their defaults:
+[2021-04-24 13:09:54,822 INFO  L138        SettingsManager]:  * Create parallel compositions if possible=false
+[2021-04-24 13:09:54,822 INFO  L138        SettingsManager]:  * Use SBE=true
+[2021-04-24 13:09:54,822 INFO  L136        SettingsManager]: Preferences of BuchiAutomizer differ from their defaults:
+[2021-04-24 13:09:54,822 INFO  L138        SettingsManager]:  * NCSB implementation=INTSET_LAZY3
+[2021-04-24 13:09:54,822 INFO  L138        SettingsManager]:  * Use old map elimination=false
+[2021-04-24 13:09:54,822 INFO  L138        SettingsManager]:  * Use external solver (rank synthesis)=false
+[2021-04-24 13:09:54,822 INFO  L138        SettingsManager]:  * Use only trivial implications for array writes=true
+[2021-04-24 13:09:54,822 INFO  L138        SettingsManager]:  * Rank analysis=LINEAR_WITH_GUESSES
+[2021-04-24 13:09:54,822 INFO  L136        SettingsManager]: Preferences of CACSL2BoogieTranslator differ from their defaults:
+[2021-04-24 13:09:54,822 INFO  L138        SettingsManager]:  * Check unreachability of error function in SV-COMP mode=false
+[2021-04-24 13:09:54,823 INFO  L138        SettingsManager]:  * Overapproximate operations on floating types=true
+[2021-04-24 13:09:54,823 INFO  L138        SettingsManager]:  * Check division by zero=IGNORE
+[2021-04-24 13:09:54,823 INFO  L138        SettingsManager]:  * Pointer to allocated memory at dereference=ASSUME
+[2021-04-24 13:09:54,823 INFO  L138        SettingsManager]:  * If two pointers are subtracted or compared they have the same base address=ASSUME
+[2021-04-24 13:09:54,823 INFO  L138        SettingsManager]:  * Check array bounds for arrays that are off heap=ASSUME
+[2021-04-24 13:09:54,823 INFO  L138        SettingsManager]:  * Check if freed pointer was valid=false
+[2021-04-24 13:09:54,823 INFO  L138        SettingsManager]:  * Assume nondeterminstic values are in range=false
+[2021-04-24 13:09:54,823 INFO  L138        SettingsManager]:  * Use constant arrays=true
+[2021-04-24 13:09:54,823 INFO  L138        SettingsManager]:  * Pointer base address is valid at dereference=ASSUME
+[2021-04-24 13:09:54,823 INFO  L136        SettingsManager]: Preferences of RCFGBuilder differ from their defaults:
+[2021-04-24 13:09:54,823 INFO  L138        SettingsManager]:  * Size of a code block=SequenceOfStatements
+[2021-04-24 13:09:54,824 INFO  L136        SettingsManager]: Preferences of TraceAbstraction differ from their defaults:
+[2021-04-24 13:09:54,824 INFO  L138        SettingsManager]:  * Trace refinement strategy=CAMEL
+[2021-04-24 13:09:54,824 INFO  L138        SettingsManager]:  * Trace refinement exception blacklist=NONE
+[2021-04-24 13:09:54,824 INFO  L136        SettingsManager]: Preferences of IcfgTransformer differ from their defaults:
+[2021-04-24 13:09:54,824 INFO  L138        SettingsManager]:  * TransformationType=MODULO_NEIGHBOR
+[2021-04-24 13:09:55,009 INFO  L75    nceAwareModelManager]: Repository-Root is: /tmp
+[2021-04-24 13:09:55,035 INFO  L261   ainManager$Toolchain]: [Toolchain 1]: Applicable parser(s) successfully (re)initialized
+[2021-04-24 13:09:55,037 INFO  L217   ainManager$Toolchain]: [Toolchain 1]: Toolchain selected.
+[2021-04-24 13:09:55,038 INFO  L271        PluginConnector]: Initializing CDTParser...
+[2021-04-24 13:09:55,039 INFO  L275        PluginConnector]: CDTParser initialized
+[2021-04-24 13:09:55,040 INFO  L432   ainManager$Toolchain]: [Toolchain 1]: Parsing single file: /home/magnago/benchmarks/software_nontermination/C/C/Ultimate/NonTermination3_false-termination.c
+[2021-04-24 13:09:55,088 INFO  L220              CDTParser]: Created temporary CDT project at /home/singularity/6b713a608c0d4551bae321a3e1e63fed/FLAG9e9f2e9cb
+[2021-04-24 13:09:55,449 INFO  L306              CDTParser]: Found 1 translation units.
+[2021-04-24 13:09:55,449 INFO  L160              CDTParser]: Scanning /home/magnago/benchmarks/software_nontermination/C/C/Ultimate/NonTermination3_false-termination.c
+[2021-04-24 13:09:55,454 INFO  L349              CDTParser]: About to delete temporary CDT project at /home/singularity/6b713a608c0d4551bae321a3e1e63fed/FLAG9e9f2e9cb
+[2021-04-24 13:09:55,862 INFO  L357              CDTParser]: Successfully deleted /home/singularity/6b713a608c0d4551bae321a3e1e63fed
+[2021-04-24 13:09:55,863 INFO  L299   ainManager$Toolchain]: ####################### [Toolchain 1] #######################
+[2021-04-24 13:09:55,865 INFO  L131        ToolchainWalker]: Walking toolchain with 6 elements.
+[2021-04-24 13:09:55,867 INFO  L113        PluginConnector]: ------------------------CACSL2BoogieTranslator----------------------------
+[2021-04-24 13:09:55,867 INFO  L271        PluginConnector]: Initializing CACSL2BoogieTranslator...
+[2021-04-24 13:09:55,869 INFO  L275        PluginConnector]: CACSL2BoogieTranslator initialized
+[2021-04-24 13:09:55,869 INFO  L185        PluginConnector]: Executing the observer ACSLObjectContainerObserver from plugin CACSL2BoogieTranslator for "CDTParser AST 24.04 01:09:55" (1/1) ...
+[2021-04-24 13:09:55,870 INFO  L205        PluginConnector]: Invalid model from CACSL2BoogieTranslator for observer de.uni_freiburg.informatik.ultimate.plugins.generator.cacsl2boogietranslator.ACSLObjectContainerObserver@f86ab92 and model type de.uni_freiburg.informatik.ultimate.plugins.generator.cacsl2boogietranslator AST 24.04 01:09:55, skipping insertion in model container
+[2021-04-24 13:09:55,871 INFO  L185        PluginConnector]: Executing the observer CACSL2BoogieTranslatorObserver from plugin CACSL2BoogieTranslator for "CDTParser AST 24.04 01:09:55" (1/1) ...
+[2021-04-24 13:09:55,876 INFO  L145         MainTranslator]: Starting translation in SV-COMP mode 
+[2021-04-24 13:09:55,883 INFO  L178         MainTranslator]: Built tables and reachable declarations
+[2021-04-24 13:09:55,982 INFO  L206          PostProcessor]: Analyzing one entry point: main
+[2021-04-24 13:09:55,987 INFO  L203         MainTranslator]: Completed pre-run
+[2021-04-24 13:09:56,006 INFO  L206          PostProcessor]: Analyzing one entry point: main
+[2021-04-24 13:09:56,017 INFO  L208         MainTranslator]: Completed translation
+[2021-04-24 13:09:56,017 INFO  L202        PluginConnector]: Adding new model de.uni_freiburg.informatik.ultimate.plugins.generator.cacsl2boogietranslator AST 24.04 01:09:56 WrapperNode
+[2021-04-24 13:09:56,017 INFO  L132        PluginConnector]: ------------------------ END CACSL2BoogieTranslator----------------------------
+[2021-04-24 13:09:56,018 INFO  L113        PluginConnector]: ------------------------Boogie Procedure Inliner----------------------------
+[2021-04-24 13:09:56,018 INFO  L271        PluginConnector]: Initializing Boogie Procedure Inliner...
+[2021-04-24 13:09:56,018 INFO  L275        PluginConnector]: Boogie Procedure Inliner initialized
+[2021-04-24 13:09:56,023 INFO  L185        PluginConnector]: Executing the observer TypeChecker from plugin Boogie Procedure Inliner for "de.uni_freiburg.informatik.ultimate.plugins.generator.cacsl2boogietranslator AST 24.04 01:09:56" (1/1) ...
+[2021-04-24 13:09:56,027 INFO  L185        PluginConnector]: Executing the observer Inliner from plugin Boogie Procedure Inliner for "de.uni_freiburg.informatik.ultimate.plugins.generator.cacsl2boogietranslator AST 24.04 01:09:56" (1/1) ...
+[2021-04-24 13:09:56,037 INFO  L132        PluginConnector]: ------------------------ END Boogie Procedure Inliner----------------------------
+[2021-04-24 13:09:56,037 INFO  L113        PluginConnector]: ------------------------Boogie Preprocessor----------------------------
+[2021-04-24 13:09:56,038 INFO  L271        PluginConnector]: Initializing Boogie Preprocessor...
+[2021-04-24 13:09:56,038 INFO  L275        PluginConnector]: Boogie Preprocessor initialized
+[2021-04-24 13:09:56,043 INFO  L185        PluginConnector]: Executing the observer EnsureBoogieModelObserver from plugin Boogie Preprocessor for "de.uni_freiburg.informatik.ultimate.plugins.generator.cacsl2boogietranslator AST 24.04 01:09:56" (1/1) ...
+[2021-04-24 13:09:56,043 INFO  L185        PluginConnector]: Executing the observer TypeChecker from plugin Boogie Preprocessor for "de.uni_freiburg.informatik.ultimate.plugins.generator.cacsl2boogietranslator AST 24.04 01:09:56" (1/1) ...
+[2021-04-24 13:09:56,044 INFO  L185        PluginConnector]: Executing the observer ConstExpander from plugin Boogie Preprocessor for "de.uni_freiburg.informatik.ultimate.plugins.generator.cacsl2boogietranslator AST 24.04 01:09:56" (1/1) ...
+[2021-04-24 13:09:56,044 INFO  L185        PluginConnector]: Executing the observer StructExpander from plugin Boogie Preprocessor for "de.uni_freiburg.informatik.ultimate.plugins.generator.cacsl2boogietranslator AST 24.04 01:09:56" (1/1) ...
+[2021-04-24 13:09:56,046 INFO  L185        PluginConnector]: Executing the observer UnstructureCode from plugin Boogie Preprocessor for "de.uni_freiburg.informatik.ultimate.plugins.generator.cacsl2boogietranslator AST 24.04 01:09:56" (1/1) ...
+[2021-04-24 13:09:56,048 INFO  L185        PluginConnector]: Executing the observer FunctionInliner from plugin Boogie Preprocessor for "de.uni_freiburg.informatik.ultimate.plugins.generator.cacsl2boogietranslator AST 24.04 01:09:56" (1/1) ...
+[2021-04-24 13:09:56,049 INFO  L185        PluginConnector]: Executing the observer BoogieSymbolTableConstructor from plugin Boogie Preprocessor for "de.uni_freiburg.informatik.ultimate.plugins.generator.cacsl2boogietranslator AST 24.04 01:09:56" (1/1) ...
+[2021-04-24 13:09:56,050 INFO  L132        PluginConnector]: ------------------------ END Boogie Preprocessor----------------------------
+[2021-04-24 13:09:56,050 INFO  L113        PluginConnector]: ------------------------RCFGBuilder----------------------------
+[2021-04-24 13:09:56,050 INFO  L271        PluginConnector]: Initializing RCFGBuilder...
+[2021-04-24 13:09:56,050 INFO  L275        PluginConnector]: RCFGBuilder initialized
+[2021-04-24 13:09:56,051 INFO  L185        PluginConnector]: Executing the observer RCFGBuilderObserver from plugin RCFGBuilder for "de.uni_freiburg.informatik.ultimate.plugins.generator.cacsl2boogietranslator AST 24.04 01:09:56" (1/1) ...
+No working directory specified, using /home/singularity/UAutomizer-linux/z3
+Starting monitored process 1 with z3 SMTLIB2_COMPLIANT=true -memory:1024 -smt2 -in -t:12000 (exit command is (exit), workingDir is null)
+Waiting until toolchain timeout for monitored process 1 with z3 SMTLIB2_COMPLIANT=true -memory:1024 -smt2 -in -t:12000
+[2021-04-24 13:09:56,141 INFO  L130     BoogieDeclarations]: Found specification of procedure write~int
+[2021-04-24 13:09:56,141 INFO  L130     BoogieDeclarations]: Found specification of procedure ULTIMATE.start
+[2021-04-24 13:09:56,142 INFO  L138     BoogieDeclarations]: Found implementation of procedure ULTIMATE.start
+[2021-04-24 13:09:56,142 INFO  L130     BoogieDeclarations]: Found specification of procedure read~int
+[2021-04-24 13:09:56,142 INFO  L130     BoogieDeclarations]: Found specification of procedure #Ultimate.allocOnStack
+[2021-04-24 13:09:56,142 INFO  L130     BoogieDeclarations]: Found specification of procedure ULTIMATE.dealloc
+[2021-04-24 13:09:56,418 INFO  L294             CfgBuilder]: Using the 1 location(s) as analysis (start of procedure ULTIMATE.start)
+[2021-04-24 13:09:56,419 INFO  L299             CfgBuilder]: Removed 5 assume(true) statements.
+[2021-04-24 13:09:56,420 INFO  L202        PluginConnector]: Adding new model de.uni_freiburg.informatik.ultimate.plugins.generator.rcfgbuilder CFG 24.04 01:09:56 BoogieIcfgContainer
+[2021-04-24 13:09:56,420 INFO  L132        PluginConnector]: ------------------------ END RCFGBuilder----------------------------
+[2021-04-24 13:09:56,422 INFO  L113        PluginConnector]: ------------------------BuchiAutomizer----------------------------
+[2021-04-24 13:09:56,422 INFO  L271        PluginConnector]: Initializing BuchiAutomizer...
+[2021-04-24 13:09:56,427 INFO  L275        PluginConnector]: BuchiAutomizer initialized
+[2021-04-24 13:09:56,428 INFO  L99          BuchiAutomizer]: Safety of program was proven or not checked, starting termination analysis
+[2021-04-24 13:09:56,428 INFO  L185        PluginConnector]: Executing the observer BuchiAutomizerObserver from plugin BuchiAutomizer for "CDTParser AST 24.04 01:09:55" (1/3) ...
+[2021-04-24 13:09:56,430 INFO  L205        PluginConnector]: Invalid model from BuchiAutomizer for observer de.uni_freiburg.informatik.ultimate.plugins.generator.buchiautomizer.BuchiAutomizerObserver@6cd3271e and model type de.uni_freiburg.informatik.ultimate.plugins.generator.buchiautomizer AST 24.04 01:09:56, skipping insertion in model container
+[2021-04-24 13:09:56,430 INFO  L99          BuchiAutomizer]: Safety of program was proven or not checked, starting termination analysis
+[2021-04-24 13:09:56,430 INFO  L185        PluginConnector]: Executing the observer BuchiAutomizerObserver from plugin BuchiAutomizer for "de.uni_freiburg.informatik.ultimate.plugins.generator.cacsl2boogietranslator AST 24.04 01:09:56" (2/3) ...
+[2021-04-24 13:09:56,430 INFO  L205        PluginConnector]: Invalid model from BuchiAutomizer for observer de.uni_freiburg.informatik.ultimate.plugins.generator.buchiautomizer.BuchiAutomizerObserver@6cd3271e and model type de.uni_freiburg.informatik.ultimate.plugins.generator.buchiautomizer AST 24.04 01:09:56, skipping insertion in model container
+[2021-04-24 13:09:56,430 INFO  L99          BuchiAutomizer]: Safety of program was proven or not checked, starting termination analysis
+[2021-04-24 13:09:56,430 INFO  L185        PluginConnector]: Executing the observer BuchiAutomizerObserver from plugin BuchiAutomizer for "de.uni_freiburg.informatik.ultimate.plugins.generator.rcfgbuilder CFG 24.04 01:09:56" (3/3) ...
+[2021-04-24 13:09:56,432 INFO  L389   chiAutomizerObserver]: Analyzing ICFG NonTermination3_false-termination.c
+[2021-04-24 13:09:56,478 INFO  L359         BuchiCegarLoop]: Interprodecural is true
+[2021-04-24 13:09:56,479 INFO  L360         BuchiCegarLoop]: Hoare is false
+[2021-04-24 13:09:56,479 INFO  L361         BuchiCegarLoop]: Compute interpolants for ForwardPredicates
+[2021-04-24 13:09:56,479 INFO  L362         BuchiCegarLoop]: Backedges is STRAIGHT_LINE
+[2021-04-24 13:09:56,479 INFO  L363         BuchiCegarLoop]: Determinization is PREDICATE_ABSTRACTION
+[2021-04-24 13:09:56,479 INFO  L364         BuchiCegarLoop]: Difference is false
+[2021-04-24 13:09:56,479 INFO  L365         BuchiCegarLoop]: Minimize is MINIMIZE_SEVPA
+[2021-04-24 13:09:56,479 INFO  L368         BuchiCegarLoop]: ======== Iteration 0==of CEGAR loop == BuchiCegarLoop========
+[2021-04-24 13:09:56,489 INFO  L72            BuchiIsEmpty]: Start buchiIsEmpty. Operand 9 states.
+[2021-04-24 13:09:56,500 INFO  L131   ngComponentsAnalysis]: Automaton has 1 accepting balls. 3
+[2021-04-24 13:09:56,500 INFO  L87            BuchiIsEmpty]: Finished buchiIsEmpty Result is false
+[2021-04-24 13:09:56,500 INFO  L119           BuchiIsEmpty]: Starting construction of run
+[2021-04-24 13:09:56,504 INFO  L853         BuchiCegarLoop]: Counterexample stem histogram [1, 1]
+[2021-04-24 13:09:56,504 INFO  L854         BuchiCegarLoop]: Counterexample loop histogram [1, 1, 1]
+[2021-04-24 13:09:56,504 INFO  L427         BuchiCegarLoop]: ======== Iteration 1============
+[2021-04-24 13:09:56,504 INFO  L72            BuchiIsEmpty]: Start buchiIsEmpty. Operand 9 states.
+[2021-04-24 13:09:56,505 INFO  L131   ngComponentsAnalysis]: Automaton has 1 accepting balls. 3
+[2021-04-24 13:09:56,505 INFO  L87            BuchiIsEmpty]: Finished buchiIsEmpty Result is false
+[2021-04-24 13:09:56,505 INFO  L119           BuchiIsEmpty]: Starting construction of run
+[2021-04-24 13:09:56,505 INFO  L853         BuchiCegarLoop]: Counterexample stem histogram [1, 1]
+[2021-04-24 13:09:56,505 INFO  L854         BuchiCegarLoop]: Counterexample loop histogram [1, 1, 1]
+[2021-04-24 13:09:56,509 INFO  L794   eck$LassoCheckResult]: Stem: 4#ULTIMATE.startENTRYtrue #NULL.base, #NULL.offset := 0, 0;#valid := #valid[0 := 0];assume 0 < #StackHeapBarrier; 3#L-1true havoc main_#res;havoc main_#t~nondet0, main_#t~nondet3, main_#t~mem1, main_#t~short2, main_~i~0, main_~#a~0.base, main_~#a~0.offset;main_~i~0 := main_#t~nondet0;havoc main_#t~nondet0;call main_~#a~0.base, main_~#a~0.offset := #Ultimate.allocOnStack(40); 8#L12-5true 
+[2021-04-24 13:09:56,510 INFO  L796   eck$LassoCheckResult]: Loop: 8#L12-5true main_#t~short2 := 0 <= main_~i~0 && main_~i~0 < 10; 6#L12-1true assume main_#t~short2;call main_#t~mem1 := read~int(main_~#a~0.base, main_~#a~0.offset + 4 * main_~i~0, 4);main_#t~short2 := main_#t~mem1 >= 0; 11#L12-3true assume !!main_#t~short2;havoc main_#t~short2;havoc main_#t~mem1;main_~i~0 := main_#t~nondet3;havoc main_#t~nondet3;call write~int(0, main_~#a~0.base, main_~#a~0.offset + 4 * main_~i~0, 4); 8#L12-5true 
+[2021-04-24 13:09:56,513 INFO  L144       PredicateUnifier]: Initialized classic predicate unifier
+[2021-04-24 13:09:56,514 INFO  L82        PathProgramCache]: Analyzing trace with hash 963, now seen corresponding path program 1 times
+[2021-04-24 13:09:56,519 INFO  L162   FreeRefinementEngine]: Executing refinement strategy CAMEL
+[2021-04-24 13:09:56,519 INFO  L353   FreeRefinementEngine]: Using trace check IpTcStrategyModuleSmtInterpolCraig [467559078]
+[2021-04-24 13:09:56,520 INFO  L95    rtionOrderModulation]: Keeping assertion order NOT_INCREMENTALLY
+[2021-04-24 13:09:56,582 INFO  L136    AnnotateAndAsserter]: Conjunction of SSA is sat
+[2021-04-24 13:09:56,583 INFO  L221             TraceCheck]: Trace is feasible, we will do another trace check, this time with branch encoders.
+[2021-04-24 13:09:56,588 INFO  L136    AnnotateAndAsserter]: Conjunction of SSA is sat
+[2021-04-24 13:09:56,588 INFO  L221             TraceCheck]: Trace is feasible, we will do another trace check, this time with branch encoders.
+[2021-04-24 13:09:56,599 INFO  L173   FreeRefinementEngine]: Strategy CAMEL found a feasible trace
+[2021-04-24 13:09:56,601 INFO  L144       PredicateUnifier]: Initialized classic predicate unifier
+[2021-04-24 13:09:56,601 INFO  L82        PathProgramCache]: Analyzing trace with hash 36846, now seen corresponding path program 1 times
+[2021-04-24 13:09:56,601 INFO  L162   FreeRefinementEngine]: Executing refinement strategy CAMEL
+[2021-04-24 13:09:56,601 INFO  L353   FreeRefinementEngine]: Using trace check IpTcStrategyModuleSmtInterpolCraig [1933047360]
+[2021-04-24 13:09:56,601 INFO  L95    rtionOrderModulation]: Keeping assertion order NOT_INCREMENTALLY
+[2021-04-24 13:09:56,610 INFO  L136    AnnotateAndAsserter]: Conjunction of SSA is sat
+[2021-04-24 13:09:56,610 INFO  L221             TraceCheck]: Trace is feasible, we will do another trace check, this time with branch encoders.
+[2021-04-24 13:09:56,616 INFO  L136    AnnotateAndAsserter]: Conjunction of SSA is sat
+[2021-04-24 13:09:56,617 INFO  L221             TraceCheck]: Trace is feasible, we will do another trace check, this time with branch encoders.
+[2021-04-24 13:09:56,619 INFO  L173   FreeRefinementEngine]: Strategy CAMEL found a feasible trace
+[2021-04-24 13:09:56,620 INFO  L144       PredicateUnifier]: Initialized classic predicate unifier
+[2021-04-24 13:09:56,620 INFO  L82        PathProgramCache]: Analyzing trace with hash 28695788, now seen corresponding path program 1 times
+[2021-04-24 13:09:56,620 INFO  L162   FreeRefinementEngine]: Executing refinement strategy CAMEL
+[2021-04-24 13:09:56,620 INFO  L353   FreeRefinementEngine]: Using trace check IpTcStrategyModuleSmtInterpolCraig [1853426067]
+[2021-04-24 13:09:56,621 INFO  L95    rtionOrderModulation]: Keeping assertion order NOT_INCREMENTALLY
+[2021-04-24 13:09:56,631 INFO  L136    AnnotateAndAsserter]: Conjunction of SSA is sat
+[2021-04-24 13:09:56,631 INFO  L221             TraceCheck]: Trace is feasible, we will do another trace check, this time with branch encoders.
+[2021-04-24 13:09:56,639 INFO  L136    AnnotateAndAsserter]: Conjunction of SSA is sat
+[2021-04-24 13:09:56,639 INFO  L221             TraceCheck]: Trace is feasible, we will do another trace check, this time with branch encoders.
+[2021-04-24 13:09:56,642 INFO  L173   FreeRefinementEngine]: Strategy CAMEL found a feasible trace
+[2021-04-24 13:09:56,830 INFO  L202        PluginConnector]: Adding new model de.uni_freiburg.informatik.ultimate.plugins.generator.buchiautomizer CFG 24.04 01:09:56 BoogieIcfgContainer
+[2021-04-24 13:09:56,831 INFO  L132        PluginConnector]: ------------------------ END BuchiAutomizer----------------------------
+[2021-04-24 13:09:56,831 INFO  L113        PluginConnector]: ------------------------Witness Printer----------------------------
+[2021-04-24 13:09:56,831 INFO  L271        PluginConnector]: Initializing Witness Printer...
+[2021-04-24 13:09:56,831 INFO  L275        PluginConnector]: Witness Printer initialized
+[2021-04-24 13:09:56,832 INFO  L185        PluginConnector]: Executing the observer RCFGCatcher from plugin Witness Printer for "de.uni_freiburg.informatik.ultimate.plugins.generator.rcfgbuilder CFG 24.04 01:09:56" (3/4) ...
+[2021-04-24 13:09:56,834 INFO  L134         WitnessPrinter]: Generating witness for non-termination counterexample
+[2021-04-24 13:09:56,860 INFO  L141         WitnessManager]: Wrote witness to /home/magnago/benchmarks/software_nontermination/C/C/Ultimate/NonTermination3_false-termination.c-witness.graphml
+[2021-04-24 13:09:56,860 INFO  L132        PluginConnector]: ------------------------ END Witness Printer----------------------------
+[2021-04-24 13:09:56,861 INFO  L168              Benchmark]: Toolchain (without parser) took 996.30 ms. Allocated memory is still 545.3 MB. Free memory was 492.0 MB in the beginning and 460.8 MB in the end (delta: 31.3 MB). Peak memory consumption was 28.4 MB. Max. memory is 21.5 GB.
+[2021-04-24 13:09:56,862 INFO  L168              Benchmark]: CDTParser took 0.12 ms. Allocated memory is still 545.3 MB. Free memory is still 508.9 MB. There was no memory consumed. Max. memory is 21.5 GB.
+[2021-04-24 13:09:56,862 INFO  L168              Benchmark]: CACSL2BoogieTranslator took 150.92 ms. Allocated memory is still 545.3 MB. Free memory was 491.7 MB in the beginning and 521.1 MB in the end (delta: -29.4 MB). Peak memory consumption was 20.0 MB. Max. memory is 21.5 GB.
+[2021-04-24 13:09:56,862 INFO  L168              Benchmark]: Boogie Procedure Inliner took 19.07 ms. Allocated memory is still 545.3 MB. Free memory was 521.1 MB in the beginning and 519.8 MB in the end (delta: 1.3 MB). There was no memory consumed. Max. memory is 21.5 GB.
+[2021-04-24 13:09:56,863 INFO  L168              Benchmark]: Boogie Preprocessor took 12.29 ms. Allocated memory is still 545.3 MB. Free memory was 519.8 MB in the beginning and 518.6 MB in the end (delta: 1.2 MB). There was no memory consumed. Max. memory is 21.5 GB.
+[2021-04-24 13:09:56,863 INFO  L168              Benchmark]: RCFGBuilder took 370.39 ms. Allocated memory is still 545.3 MB. Free memory was 518.6 MB in the beginning and 507.3 MB in the end (delta: 11.3 MB). Peak memory consumption was 12.6 MB. Max. memory is 21.5 GB.
+[2021-04-24 13:09:56,864 INFO  L168              Benchmark]: BuchiAutomizer took 408.94 ms. Allocated memory is still 545.3 MB. Free memory was 507.3 MB in the beginning and 462.3 MB in the end (delta: 44.9 MB). Peak memory consumption was 41.9 MB. Max. memory is 21.5 GB.
+[2021-04-24 13:09:56,864 INFO  L168              Benchmark]: Witness Printer took 29.08 ms. Allocated memory is still 545.3 MB. Free memory was 462.3 MB in the beginning and 460.8 MB in the end (delta: 1.6 MB). Peak memory consumption was 4.2 MB. Max. memory is 21.5 GB.
+[2021-04-24 13:09:56,866 INFO  L339   ainManager$Toolchain]: #######################  End [Toolchain 1] #######################
+ --- Results ---
+ * Results from de.uni_freiburg.informatik.ultimate.core:
+  - StatisticsResult: Toolchain Benchmarks
+    Benchmark results are:
+ * CDTParser took 0.12 ms. Allocated memory is still 545.3 MB. Free memory is still 508.9 MB. There was no memory consumed. Max. memory is 21.5 GB.
+ * CACSL2BoogieTranslator took 150.92 ms. Allocated memory is still 545.3 MB. Free memory was 491.7 MB in the beginning and 521.1 MB in the end (delta: -29.4 MB). Peak memory consumption was 20.0 MB. Max. memory is 21.5 GB.
+ * Boogie Procedure Inliner took 19.07 ms. Allocated memory is still 545.3 MB. Free memory was 521.1 MB in the beginning and 519.8 MB in the end (delta: 1.3 MB). There was no memory consumed. Max. memory is 21.5 GB.
+ * Boogie Preprocessor took 12.29 ms. Allocated memory is still 545.3 MB. Free memory was 519.8 MB in the beginning and 518.6 MB in the end (delta: 1.2 MB). There was no memory consumed. Max. memory is 21.5 GB.
+ * RCFGBuilder took 370.39 ms. Allocated memory is still 545.3 MB. Free memory was 518.6 MB in the beginning and 507.3 MB in the end (delta: 11.3 MB). Peak memory consumption was 12.6 MB. Max. memory is 21.5 GB.
+ * BuchiAutomizer took 408.94 ms. Allocated memory is still 545.3 MB. Free memory was 507.3 MB in the beginning and 462.3 MB in the end (delta: 44.9 MB). Peak memory consumption was 41.9 MB. Max. memory is 21.5 GB.
+ * Witness Printer took 29.08 ms. Allocated memory is still 545.3 MB. Free memory was 462.3 MB in the beginning and 460.8 MB in the end (delta: 1.6 MB). Peak memory consumption was 4.2 MB. Max. memory is 21.5 GB.
+ * Results from de.uni_freiburg.informatik.ultimate.plugins.generator.traceabstraction:
+  - StatisticsResult: Constructed decomposition of program
+    Trivial decomposition into one nonterminating module.
+  - StatisticsResult: Timing statistics
+    B?chiAutomizer plugin needed 0.3s and 1 iterations.  TraceHistogramMax:1. Analysis of lassos took 0.3s. Construction of modules took 0.0s. B?chi inclusion checks took 0.0s. Highest rank in rank-based complementation 0. Minimization of det autom 0. Minimization of nondet autom 0. Automata minimization No data available. Non-live state removal took 0.0s Buchi closure took 0.0s. Biggest automaton had -1 states and ocurred in iteration -1.	Nontrivial modules had stage [0, 0, 0, 0, 0].	InterpolantCoveringCapabilityFinite: 0/0	InterpolantCoveringCapabilityBuchi: 0/0	HoareTripleCheckerStatistics: No data available	LassoAnalysisResults: nont1 unkn0 SFLI0 SFLT0 conc0 concLT0 SILN0 SILU0 SILI0 SILT0 lasso0 LassoPreprocessingBenchmarks: LassoTerminationAnalysisBenchmarks: not availableLassoTerminationAnalysisBenchmarks: LassoNonterminationAnalysisSatFixpoint: 0	LassoNonterminationAnalysisSatUnbounded: 0	LassoNonterminationAnalysisUnsat: 0	LassoNonterminationAnalysisUnknown: 0	LassoNonterminationAnalysisTime: 0.0s	
+  - TerminationAnalysisResult: Nontermination possible
+    Buchi Automizer proved that your program is nonterminating for some inputs
+  - FixpointNonTerminationResult [Line: 12]: Nontermination argument in form of an infinite program execution.
+    Nontermination argument in form of an infinite execution
+State at position 0 is
+{NULL=1}
+State at position 1 is
+{org.eclipse.cdt.internal.core.dom.parser.c.CASTFunctionCallExpression@7dc0bda8=9, org.eclipse.cdt.internal.core.dom.parser.c.CASTBinaryExpression@2c8819f1=0, org.eclipse.cdt.internal.core.dom.parser.c.CASTArraySubscriptExpression@698417ac=0, NULL=0, NULL=0, org.eclipse.cdt.internal.core.dom.parser.c.CASTFunctionCallExpression@45e459f2=0, \result=0, a=0, NULL=1, i=9, a=2}
+  - StatisticsResult: NonterminationArgumentStatistics
+    Fixpoint
+  - NonterminatingLassoResult [Line: 12]: Nonterminating execution
+    Found a nonterminating execution for the following lasso shaped sequence of statements.
+Stem:
+[L10]        int i = __VERIFIER_nondet_int();
+[L11]        int a[10];
+Loop:
+[L12]             0 <= i && i < 10 && a[i] >= 0
+[L12]  EXPR       a[i]
+[L12]             0 <= i && i < 10 && a[i] >= 0
+[L12]  COND TRUE  0 <= i && i < 10 && a[i] >= 0
+[L13]             i = __VERIFIER_nondet_int()
+[L14]             a[i] = 0
+End of lasso representation.
+RESULT: Ultimate proved your program to be incorrect!
+Received shutdown request...

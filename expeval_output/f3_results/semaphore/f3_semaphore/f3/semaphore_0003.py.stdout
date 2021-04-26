@@ -1,0 +1,168 @@
+
+
+run 1/1: `semaphore_0003`
+
+	Found non-termination argument:
+	Do states 3..6 while (((ToReal(sm0_l) + ToReal(sm2_l) + -1/3) - (ToReal(sm1_l) * 25/12)) < 0.0)
+	State 3
+		sm2_loop_len = 1
+		sm2_state = True
+		sm0_loop_len = 1
+		sm1_loop_len = 1
+		sm0_state = True
+		semaphore = 0
+		sm1_state = True
+		run = 3
+		_J259 = True
+		_J265 = True
+		_J271 = True
+		_J277 = True
+		_J283 = True
+		_J289 = True
+		_J296 = True
+		_J302 = True
+		_EL_U_210 = True
+		_EL_U_212 = False
+		_EL_U_214 = True
+		_EL_U_216 = False
+		_EL_U_218 = True
+		_EL_U_220 = False
+		_EL_U_225 = True
+		_EL_U_227 = False
+		(sm2_l < 1)
+		(sm1_l < 0)
+		(sm2_l < 0)
+		(sm0_l < 0)
+		(sm1_l < 1)
+		(sm0_l < 1)
+	Trans 3 -- 4
+		_x_sm1_l : (sm1_l + -1)
+		_x_sm0_l : (sm0_l + -1)
+		_x_sm2_l : (sm2_l + -1)
+	State 4
+		sm2_loop_len = 1
+		sm2_state = True
+		sm0_loop_len = 1
+		sm1_loop_len = 1
+		sm0_state = True
+		semaphore = 0
+		sm1_state = True
+		run = 2
+		_J259 = False
+		_J265 = False
+		_J271 = False
+		_J277 = False
+		_J283 = False
+		_J289 = False
+		_J296 = False
+		_J302 = False
+		_EL_U_210 = True
+		_EL_U_212 = False
+		_EL_U_214 = True
+		_EL_U_216 = False
+		_EL_U_218 = True
+		_EL_U_220 = False
+		_EL_U_225 = True
+		_EL_U_227 = False
+	Trans 4 -- 5
+		_x_sm1_l : (sm1_l + -1)
+		_x_sm0_l : (sm0_l + -1)
+		_x_sm2_l : (sm2_l + -1)
+	State 5
+		sm2_loop_len = 1
+		sm2_state = True
+		sm0_loop_len = 1
+		sm1_loop_len = 1
+		sm0_state = True
+		semaphore = 0
+		sm1_state = True
+		run = 1
+		_J259 = True
+		_J265 = True
+		_J271 = False
+		_J277 = True
+		_J283 = False
+		_J289 = True
+		_J296 = True
+		_J302 = True
+		_EL_U_210 = True
+		_EL_U_212 = False
+		_EL_U_214 = True
+		_EL_U_216 = False
+		_EL_U_218 = True
+		_EL_U_220 = False
+		_EL_U_225 = True
+		_EL_U_227 = False
+	Trans 5 -- 6
+		_x_sm1_l : (sm1_l + -1)
+		_x_sm0_l : (sm0_l + -1)
+		_x_sm2_l : (sm2_l + -1)
+	State 6
+		sm2_loop_len = 1
+		sm2_state = True
+		sm0_loop_len = 1
+		sm1_loop_len = 1
+		sm0_state = True
+		semaphore = 0
+		sm1_state = True
+		run = 0
+		_J259 = True
+		_J265 = True
+		_J271 = False
+		_J277 = True
+		_J283 = True
+		_J289 = True
+		_J296 = True
+		_J302 = True
+		_EL_U_210 = True
+		_EL_U_212 = False
+		_EL_U_214 = True
+		_EL_U_216 = False
+		_EL_U_218 = True
+		_EL_U_220 = False
+		_EL_U_225 = True
+		_EL_U_227 = False
+	Trans 6 -- 3
+		_x_sm1_l : (sm1_l + -1)
+		_x_sm0_l : (sm0_l + -1)
+		_x_sm2_l : (sm2_l + -1)
+	End do-while
+	State 6
+		sm2_loop_len = 1
+		sm2_state = True
+		sm0_loop_len = 1
+		sm1_loop_len = 1
+		sm0_state = True
+		semaphore = 0
+		sm1_state = True
+		run = 0
+		_J259 = True
+		_J265 = True
+		_J271 = False
+		_J277 = True
+		_J283 = True
+		_J289 = True
+		_J296 = True
+		_J302 = True
+		_EL_U_210 = True
+		_EL_U_212 = False
+		_EL_U_214 = True
+		_EL_U_216 = False
+		_EL_U_218 = True
+		_EL_U_220 = False
+		_EL_U_225 = True
+		_EL_U_227 = False
+		(sm2_l < 1)
+		(sm1_l < 2)
+		(sm0_l < 2)
+		(sm2_l < 2)
+		(((ToReal(sm1_l) * 25/12) + (-1.0 * ToReal(sm2_l)) + (-1.0 * ToReal(sm0_l)) + 1/3) <= 0.0)
+		(sm1_l < 1)
+		(sm0_l < 1)
+	Trans 6 -- 7
+		_x_sm1_l = (sm1_l + -1)
+		_x_sm0_l = (sm0_l + -1)
+		_x_sm2_l = (sm2_l + -1)
+	starting from: {sm2_l: -3, sm2_loop_len: 1, sm2_state: True, sm1_l: -3, sm0_l: -3, sm0_loop_len: 1, sm1_loop_len: 1, sm0_state: True, semaphore: 0, sm1_state: True, run: 3, _J259: True, _J265: True, _J271: True, _J277: True, _J283: True, _J289: True, _J296: True, _J302: True, _EL_U_210: True, _EL_U_212: False, _EL_U_214: True, _EL_U_216: False, _EL_U_218: True, _EL_U_220: False, _EL_U_225: True, _EL_U_227: False}
+
+end of `semaphore_0003`: SUCCESS in 1.2998919486999512s

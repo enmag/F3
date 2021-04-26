@@ -1,0 +1,197 @@
+
+
+run 1/1: `bakery_simple_bug_0006`
+
+	Found non-termination argument:
+	Do states 5..8 while (((ToReal(min_num) * 1/3) + (ToReal(max_num) * 1/7) + -1/14) < 0.0)
+	State 5
+		p3_l1 = False
+		p3_l0 = False
+		p2_l1 = False
+		p2_l0 = False
+		p1_l1 = False
+		p1_l0 = False
+		p5_l0 = False
+		p5_l1 = False
+		run0 = False
+		run1 = False
+		run2 = False
+		num1 = 0
+		num2 = 0
+		p4_l0 = False
+		num3 = 0
+		p4_l1 = False
+		num4 = 0
+		num5 = 0
+		p0_l0 = True
+		p0_l1 = False
+		_J653 = True
+		_J659 = True
+		_J664 = True
+		_J670 = True
+		_J679 = True
+		_EL_U_622 = True
+		_EL_U_623 = True
+		_EL_U_626 = False
+		_EL_U_628 = False
+		_EL_U_630 = True
+		(((-1 * num0) + max_num) = 0)
+		((-1 * num0) < 0)
+		((-1 * min_num) < 0)
+		((-1 * max_num) < 0)
+		((-1 * num0) <= 0)
+		((-1 * max_num) <= 0)
+		(((-1 * num0) + min_num) = 0)
+	Trans 5 -- 6
+		_x_num0 : num0
+		_x_min_num : num0
+		_x_max_num : num0
+	State 6
+		p3_l1 = False
+		p3_l0 = False
+		p2_l1 = False
+		p2_l0 = False
+		p1_l1 = False
+		p1_l0 = False
+		p5_l0 = False
+		p5_l1 = False
+		run0 = False
+		run1 = False
+		run2 = False
+		num1 = 0
+		num2 = 0
+		p4_l0 = False
+		num3 = 0
+		p4_l1 = False
+		num4 = 0
+		num5 = 0
+		p0_l0 = False
+		p0_l1 = True
+		_J653 = False
+		_J659 = False
+		_J664 = False
+		_J670 = False
+		_J679 = False
+		_EL_U_622 = True
+		_EL_U_623 = True
+		_EL_U_626 = False
+		_EL_U_628 = False
+		_EL_U_630 = True
+	Trans 6 -- 7
+		_x_num0 : num0
+		_x_min_num : num0
+		_x_max_num : num0
+	State 7
+		p3_l1 = False
+		p3_l0 = False
+		p2_l1 = False
+		p2_l0 = False
+		p1_l1 = False
+		p1_l0 = False
+		p5_l0 = False
+		p5_l1 = False
+		run0 = False
+		run1 = False
+		run2 = False
+		num1 = 0
+		num2 = 0
+		p4_l0 = False
+		num3 = 0
+		p4_l1 = False
+		num4 = 0
+		num5 = 0
+		p0_l0 = True
+		p0_l1 = True
+		_J653 = True
+		_J659 = True
+		_J664 = False
+		_J670 = True
+		_J679 = True
+		_EL_U_622 = True
+		_EL_U_623 = True
+		_EL_U_626 = False
+		_EL_U_628 = False
+		_EL_U_630 = True
+	Trans 7 -- 8
+		_x_num0 : num0
+		_x_min_num : num0
+		_x_max_num : num0
+	State 8
+		p3_l1 = False
+		p3_l0 = False
+		p2_l1 = False
+		p2_l0 = False
+		p1_l1 = False
+		p1_l0 = False
+		p5_l0 = False
+		p5_l1 = False
+		run0 = False
+		run1 = False
+		run2 = False
+		num1 = 0
+		num2 = 0
+		p4_l0 = False
+		num3 = 0
+		p4_l1 = False
+		num4 = 0
+		num5 = 0
+		p0_l0 = False
+		p0_l1 = False
+		_J653 = True
+		_J659 = True
+		_J664 = False
+		_J670 = True
+		_J679 = True
+		_EL_U_622 = True
+		_EL_U_623 = True
+		_EL_U_626 = False
+		_EL_U_628 = False
+		_EL_U_630 = True
+	Trans 8 -- 5
+		_x_num0 : (max_num + 1)
+		_x_min_num : (max_num + 1)
+		_x_max_num : (max_num + 1)
+	End do-while
+	State 8
+		p3_l1 = False
+		p3_l0 = False
+		p2_l1 = False
+		p2_l0 = False
+		p1_l1 = False
+		p1_l0 = False
+		p5_l0 = False
+		p5_l1 = False
+		run0 = False
+		run1 = False
+		run2 = False
+		num1 = 0
+		num2 = 0
+		p4_l0 = False
+		num3 = 0
+		p4_l1 = False
+		num4 = 0
+		num5 = 0
+		p0_l0 = False
+		p0_l1 = False
+		_J653 = True
+		_J659 = True
+		_J664 = False
+		_J670 = True
+		_J679 = True
+		_EL_U_622 = True
+		_EL_U_623 = True
+		_EL_U_626 = False
+		_EL_U_628 = False
+		_EL_U_630 = True
+		((-1 * num0) < 0)
+		((1/14 - ((ToReal(max_num) * 1/7) + (ToReal(min_num) * 1/3))) <= 0.0)
+		((-1 * max_num) <= 1)
+		((-1 * max_num) <= 0)
+		((-1 * max_num) < 1)
+	Trans 8 -- 9
+		_x_num0 = (max_num + 1)
+		_x_min_num = (max_num + 1)
+		_x_max_num = (max_num + 1)
+	starting from: {p3_l1: False, p3_l0: False, p2_l1: False, p2_l0: False, p1_l1: False, p1_l0: False, p5_l0: False, min_num: 2, p5_l1: False, max_num: 2, run0: False, run1: False, run2: False, num0: 2, num1: 0, num2: 0, p4_l0: False, num3: 0, p4_l1: False, num4: 0, num5: 0, p0_l0: True, p0_l1: False, _J653: True, _J659: True, _J664: True, _J670: True, _J679: True, _EL_U_622: True, _EL_U_623: True, _EL_U_626: False, _EL_U_628: False, _EL_U_630: True}
+
+end of `bakery_simple_bug_0006`: SUCCESS in 54.558226585388184s

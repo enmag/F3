@@ -1,0 +1,1321 @@
+*** This is nuXmv 2.0.0 (compiled on Sun Mar 14 22:37:19 2021)
+*** Copyright (c) 2014-2021, Fondazione Bruno Kessler
+*** For more information on nuXmv see https://nuxmv.fbk.eu
+*** or email to <nuxmv@list.fbk.eu>.
+*** Please report bugs at https://nuxmv.fbk.eu/bugs
+*** (click on "Login Anonymously" to access)
+*** Alternatively write to <nuxmv@list.fbk.eu>.
+
+*** This version of nuXmv is linked to NuSMV 2.6.0.
+*** For more information on NuSMV see <http://nusmv.fbk.eu>
+*** or email to <nusmv-users@list.fbk.eu>.
+*** Copyright (C) 2010-2021, Fondazione Bruno Kessler
+
+*** This version of nuXmv is linked to the CUDD library version 2.4.1
+*** Copyright (c) 1995-2004, Regents of the University of Colorado
+
+*** This version of nuXmv is linked to the MiniSat SAT solver. 
+*** See http://minisat.se/MiniSat.html
+*** Copyright (c) 2003-2006, Niklas Een, Niklas Sorensson
+*** Copyright (c) 2007-2010, Niklas Sorensson
+
+*** This version of nuXmv is linked to MathSAT
+*** Copyright (C) 2009-2019 by Fondazione Bruno Kessler
+*** Copyright (C) 2009-2019 by University of Trento and others
+*** See http://mathsat.fbk.eu
+
+-- no proof or counterexample found with bound 0
+-- no proof or counterexample found with bound 1
+-- no proof or counterexample found with bound 2
+-- no proof or counterexample found with bound 3
+-- no proof or counterexample found with bound 4
+-- no proof or counterexample found with bound 5
+-- no proof or counterexample found with bound 6
+-- no proof or counterexample found with bound 7
+-- no proof or counterexample found with bound 8
+-- no proof or counterexample found with bound 9
+-- no proof or counterexample found with bound 10
+-- no proof or counterexample found with bound 11
+-- no proof or counterexample found with bound 12
+-- no proof or counterexample found with bound 13
+-- no proof or counterexample found with bound 14
+-- no proof or counterexample found with bound 15
+-- no proof or counterexample found with bound 16
+-- no proof or counterexample found with bound 17
+-- no proof or counterexample found with bound 18
+-- no proof or counterexample found with bound 19
+-- no proof or counterexample found with bound 20
+-- no proof or counterexample found with bound 21
+-- no proof or counterexample found with bound 22
+-- no proof or counterexample found with bound 23
+-- no proof or counterexample found with bound 24
+-- no proof or counterexample found with bound 25
+-- no proof or counterexample found with bound 26
+-- no proof or counterexample found with bound 27
+-- no proof or counterexample found with bound 28
+-- no proof or counterexample found with bound 29
+-- no proof or counterexample found with bound 30
+-- no proof or counterexample found with bound 31
+-- no proof or counterexample found with bound 32
+-- no proof or counterexample found with bound 33
+-- no proof or counterexample found with bound 34
+-- no proof or counterexample found with bound 35
+-- no proof or counterexample found with bound 36
+-- no proof or counterexample found with bound 37
+-- no proof or counterexample found with bound 38
+-- no proof or counterexample found with bound 39
+-- no proof or counterexample found with bound 40
+-- no proof or counterexample found with bound 41
+-- no proof or counterexample found with bound 42
+-- no proof or counterexample found with bound 43
+-- no proof or counterexample found with bound 44
+-- LTL specification  G ( F st0.l = y_async)  is false
+-- as demonstrated by the following execution sequence
+Trace Description: IC3 smt counterexample 
+Trace Type: Counterexample 
+Infinite Trace diverging symbols: r.x, st0.x, st0.y, st0.z, st1.x, st1.y, st1.z, st2.x, st2.y, st2.z, st3.x, st3.y, st3.z, st4.x, st4.y, st4.z, st5.x, st5.y, st5.z, st6.x, st6.y, st6.z, st7.x, st7.y, st7.z, st8.x, st8.y, st8.z, st9.x, st9.y, st9.z
+  -> State: 1.1 <-
+    r.x = 0.0
+    st0.x = 0.0
+    st0.y = 0.0
+    st0.z = 0.0
+    st1.x = 0.0
+    st1.y = 0.0
+    st1.z = 0.0
+    st2.x = 0.0
+    st2.y = 0.0
+    st2.z = 0.0
+    st3.x = 0.0
+    st3.y = 0.0
+    st3.z = 0.0
+    st4.x = 0.0
+    st4.y = 0.0
+    st4.z = 0.0
+    st5.x = 0.0
+    st5.y = 0.0
+    st5.z = 0.0
+    st6.x = 0.0
+    st6.y = 0.0
+    st6.z = 0.0
+    st7.x = 0.0
+    st7.y = 0.0
+    st7.z = 0.0
+    st8.x = 0.0
+    st8.y = 0.0
+    st8.z = 0.0
+    st9.x = 0.0
+    st9.y = 0.0
+    st9.z = 0.0
+    r.l = ring_to_counter
+    r.counter = 0
+    st0.l = z_idle
+    st1.l = z_idle
+    st2.l = z_idle
+    st3.l = z_idle
+    st4.l = z_idle
+    st5.l = z_idle
+    st6.l = z_idle
+    st7.l = z_idle
+    st8.l = z_idle
+    st9.l = z_idle
+    TRTT = 520
+    TD = 0
+    SA = 20
+    N = 9
+  -> Input: 1.2 <-
+    r.event = tt
+    r.evt_id = 0
+    st0.event = tt
+    st1.event = stutter
+    st2.event = stutter
+    st3.event = stutter
+    st4.event = stutter
+    st5.event = stutter
+    st6.event = stutter
+    st7.event = stutter
+    st8.event = stutter
+    st9.event = stutter
+    r.evt_tt = TRUE
+    r.evt_rt = FALSE
+    r.evt_stutter = FALSE
+    st0.evt_tt = TRUE
+    st0.evt_rt = FALSE
+    st0.evt_move = FALSE
+    st0.evt_stutter = FALSE
+    st1.evt_tt = FALSE
+    st1.evt_rt = FALSE
+    st1.evt_move = FALSE
+    st1.evt_stutter = TRUE
+    st2.evt_tt = FALSE
+    st2.evt_rt = FALSE
+    st2.evt_move = FALSE
+    st2.evt_stutter = TRUE
+    st3.evt_tt = FALSE
+    st3.evt_rt = FALSE
+    st3.evt_move = FALSE
+    st3.evt_stutter = TRUE
+    st4.evt_tt = FALSE
+    st4.evt_rt = FALSE
+    st4.evt_move = FALSE
+    st4.evt_stutter = TRUE
+    st5.evt_tt = FALSE
+    st5.evt_rt = FALSE
+    st5.evt_move = FALSE
+    st5.evt_stutter = TRUE
+    st6.evt_tt = FALSE
+    st6.evt_rt = FALSE
+    st6.evt_move = FALSE
+    st6.evt_stutter = TRUE
+    st7.evt_tt = FALSE
+    st7.evt_rt = FALSE
+    st7.evt_move = FALSE
+    st7.evt_stutter = TRUE
+    st8.evt_tt = FALSE
+    st8.evt_rt = FALSE
+    st8.evt_move = FALSE
+    st8.evt_stutter = TRUE
+    st9.evt_tt = FALSE
+    st9.evt_rt = FALSE
+    st9.evt_move = FALSE
+    st9.evt_stutter = TRUE
+  -- [ discrete transition ] --
+  -> State: 1.2 <-
+    r.l = ring_counter
+    st0.l = z_sync
+  -- [ time elapse: time = 0.0; delta = f'155/8 ] --
+  -> State: 1.3 <-
+    r.x = f'155/8
+    st0.x = f'155/8
+    st0.y = f'155/8
+    st0.z = f'155/8
+    st1.x = f'155/8
+    st1.y = f'155/8
+    st1.z = f'155/8
+    st2.x = f'155/8
+    st2.y = f'155/8
+    st2.z = f'155/8
+    st3.x = f'155/8
+    st3.y = f'155/8
+    st3.z = f'155/8
+    st4.x = f'155/8
+    st4.y = f'155/8
+    st4.z = f'155/8
+    st5.x = f'155/8
+    st5.y = f'155/8
+    st5.z = f'155/8
+    st6.x = f'155/8
+    st6.y = f'155/8
+    st6.z = f'155/8
+    st7.x = f'155/8
+    st7.y = f'155/8
+    st7.z = f'155/8
+    st8.x = f'155/8
+    st8.y = f'155/8
+    st8.z = f'155/8
+    st9.x = f'155/8
+    st9.y = f'155/8
+    st9.z = f'155/8
+  -- [ time elapse: time = f'155/8; delta = f'5/8 ] --
+  -> State: 1.4 <-
+    r.x = 20.0
+    st0.x = 20.0
+    st0.y = 20.0
+    st0.z = 20.0
+    st1.x = 20.0
+    st1.y = 20.0
+    st1.z = 20.0
+    st2.x = 20.0
+    st2.y = 20.0
+    st2.z = 20.0
+    st3.x = 20.0
+    st3.y = 20.0
+    st3.z = 20.0
+    st4.x = 20.0
+    st4.y = 20.0
+    st4.z = 20.0
+    st5.x = 20.0
+    st5.y = 20.0
+    st5.z = 20.0
+    st6.x = 20.0
+    st6.y = 20.0
+    st6.z = 20.0
+    st7.x = 20.0
+    st7.y = 20.0
+    st7.z = 20.0
+    st8.x = 20.0
+    st8.y = 20.0
+    st8.z = 20.0
+    st9.x = 20.0
+    st9.y = 20.0
+    st9.z = 20.0
+  -> Input: 1.5 <-
+    r.event = stutter
+    st0.event = move
+    r.evt_tt = FALSE
+    r.evt_stutter = TRUE
+    st0.evt_tt = FALSE
+    st0.evt_move = TRUE
+  -- [ discrete transition ] --
+  -> State: 1.5 <-
+    st0.l = z_async
+  -- [ time elapse: time = 20.0; delta = f'5/8 ] --
+  -> State: 1.6 <-
+    r.x = f'165/8
+    st0.x = f'165/8
+    st0.y = f'165/8
+    st0.z = f'165/8
+    st1.x = f'165/8
+    st1.y = f'165/8
+    st1.z = f'165/8
+    st2.x = f'165/8
+    st2.y = f'165/8
+    st2.z = f'165/8
+    st3.x = f'165/8
+    st3.y = f'165/8
+    st3.z = f'165/8
+    st4.x = f'165/8
+    st4.y = f'165/8
+    st4.z = f'165/8
+    st5.x = f'165/8
+    st5.y = f'165/8
+    st5.z = f'165/8
+    st6.x = f'165/8
+    st6.y = f'165/8
+    st6.z = f'165/8
+    st7.x = f'165/8
+    st7.y = f'165/8
+    st7.z = f'165/8
+    st8.x = f'165/8
+    st8.y = f'165/8
+    st8.z = f'165/8
+    st9.x = f'165/8
+    st9.y = f'165/8
+    st9.z = f'165/8
+  -- [ time elapse: time = f'165/8; delta = f'3995/8 ] --
+  -> State: 1.7 <-
+    r.x = 520.0
+    st0.x = 520.0
+    st0.y = 520.0
+    st0.z = 520.0
+    st1.x = 520.0
+    st1.y = 520.0
+    st1.z = 520.0
+    st2.x = 520.0
+    st2.y = 520.0
+    st2.z = 520.0
+    st3.x = 520.0
+    st3.y = 520.0
+    st3.z = 520.0
+    st4.x = 520.0
+    st4.y = 520.0
+    st4.z = 520.0
+    st5.x = 520.0
+    st5.y = 520.0
+    st5.z = 520.0
+    st6.x = 520.0
+    st6.y = 520.0
+    st6.z = 520.0
+    st7.x = 520.0
+    st7.y = 520.0
+    st7.z = 520.0
+    st8.x = 520.0
+    st8.y = 520.0
+    st8.z = 520.0
+    st9.x = 520.0
+    st9.y = 520.0
+    st9.z = 520.0
+  -> Input: 1.8 <-
+    r.event = rt
+    st0.event = rt
+    r.evt_rt = TRUE
+    r.evt_stutter = FALSE
+    st0.evt_rt = TRUE
+    st0.evt_move = FALSE
+  -- [ discrete transition ] --
+  -> State: 1.8 <-
+    r.x = 0.0
+    r.l = ring_to_counter
+    r.counter = 1
+    st0.l = y_idle
+  -> Input: 1.9 <-
+    r.event = tt
+    r.evt_id = 1
+    st0.event = stutter
+    st1.event = tt
+    r.evt_tt = TRUE
+    r.evt_rt = FALSE
+    st0.evt_rt = FALSE
+    st0.evt_stutter = TRUE
+    st1.evt_tt = TRUE
+    st1.evt_stutter = FALSE
+  -- [ discrete transition ] --
+  -> State: 1.9 <-
+    st1.x = 0.0
+    st1.y = 0.0
+    r.l = ring_counter
+    st1.l = z_sync
+  -- [ time elapse: time = 520.0; delta = f'5/8 ] --
+  -> State: 1.10 <-
+    r.x = f'5/8
+    st0.x = f'4165/8
+    st0.y = f'4165/8
+    st0.z = f'4165/8
+    st1.x = f'5/8
+    st1.y = f'5/8
+    st1.z = f'4165/8
+    st2.x = f'4165/8
+    st2.y = f'4165/8
+    st2.z = f'4165/8
+    st3.x = f'4165/8
+    st3.y = f'4165/8
+    st3.z = f'4165/8
+    st4.x = f'4165/8
+    st4.y = f'4165/8
+    st4.z = f'4165/8
+    st5.x = f'4165/8
+    st5.y = f'4165/8
+    st5.z = f'4165/8
+    st6.x = f'4165/8
+    st6.y = f'4165/8
+    st6.z = f'4165/8
+    st7.x = f'4165/8
+    st7.y = f'4165/8
+    st7.z = f'4165/8
+    st8.x = f'4165/8
+    st8.y = f'4165/8
+    st8.z = f'4165/8
+    st9.x = f'4165/8
+    st9.y = f'4165/8
+    st9.z = f'4165/8
+  -- [ time elapse: time = f'4165/8; delta = f'155/8 ] --
+  -> State: 1.11 <-
+    r.x = 20.0
+    st0.x = 540.0
+    st0.y = 540.0
+    st0.z = 540.0
+    st1.x = 20.0
+    st1.y = 20.0
+    st1.z = 540.0
+    st2.x = 540.0
+    st2.y = 540.0
+    st2.z = 540.0
+    st3.x = 540.0
+    st3.y = 540.0
+    st3.z = 540.0
+    st4.x = 540.0
+    st4.y = 540.0
+    st4.z = 540.0
+    st5.x = 540.0
+    st5.y = 540.0
+    st5.z = 540.0
+    st6.x = 540.0
+    st6.y = 540.0
+    st6.z = 540.0
+    st7.x = 540.0
+    st7.y = 540.0
+    st7.z = 540.0
+    st8.x = 540.0
+    st8.y = 540.0
+    st8.z = 540.0
+    st9.x = 540.0
+    st9.y = 540.0
+    st9.z = 540.0
+  -> Input: 1.12 <-
+    r.event = rt
+    st1.event = rt
+    r.evt_tt = FALSE
+    r.evt_rt = TRUE
+    st1.evt_tt = FALSE
+    st1.evt_rt = TRUE
+  -- [ discrete transition ] --
+  -> State: 1.12 <-
+    r.x = 0.0
+    r.l = ring_to_counter
+    r.counter = 2
+    st1.l = y_idle
+  -> Input: 1.13 <-
+    r.event = tt
+    r.evt_id = 2
+    st1.event = stutter
+    st2.event = tt
+    r.evt_tt = TRUE
+    r.evt_rt = FALSE
+    st1.evt_rt = FALSE
+    st1.evt_stutter = TRUE
+    st2.evt_tt = TRUE
+    st2.evt_stutter = FALSE
+  -- [ discrete transition ] --
+  -> State: 1.13 <-
+    st2.x = 0.0
+    st2.y = 0.0
+    r.l = ring_counter
+    st2.l = z_sync
+  -- [ time elapse: time = 540.0; delta = f'5/8 ] --
+  -> State: 1.14 <-
+    r.x = f'5/8
+    st0.x = f'4325/8
+    st0.y = f'4325/8
+    st0.z = f'4325/8
+    st1.x = f'165/8
+    st1.y = f'165/8
+    st1.z = f'4325/8
+    st2.x = f'5/8
+    st2.y = f'5/8
+    st2.z = f'4325/8
+    st3.x = f'4325/8
+    st3.y = f'4325/8
+    st3.z = f'4325/8
+    st4.x = f'4325/8
+    st4.y = f'4325/8
+    st4.z = f'4325/8
+    st5.x = f'4325/8
+    st5.y = f'4325/8
+    st5.z = f'4325/8
+    st6.x = f'4325/8
+    st6.y = f'4325/8
+    st6.z = f'4325/8
+    st7.x = f'4325/8
+    st7.y = f'4325/8
+    st7.z = f'4325/8
+    st8.x = f'4325/8
+    st8.y = f'4325/8
+    st8.z = f'4325/8
+    st9.x = f'4325/8
+    st9.y = f'4325/8
+    st9.z = f'4325/8
+  -- [ time elapse: time = f'4325/8; delta = f'155/8 ] --
+  -> State: 1.15 <-
+    r.x = 20.0
+    st0.x = 560.0
+    st0.y = 560.0
+    st0.z = 560.0
+    st1.x = 40.0
+    st1.y = 40.0
+    st1.z = 560.0
+    st2.x = 20.0
+    st2.y = 20.0
+    st2.z = 560.0
+    st3.x = 560.0
+    st3.y = 560.0
+    st3.z = 560.0
+    st4.x = 560.0
+    st4.y = 560.0
+    st4.z = 560.0
+    st5.x = 560.0
+    st5.y = 560.0
+    st5.z = 560.0
+    st6.x = 560.0
+    st6.y = 560.0
+    st6.z = 560.0
+    st7.x = 560.0
+    st7.y = 560.0
+    st7.z = 560.0
+    st8.x = 560.0
+    st8.y = 560.0
+    st8.z = 560.0
+    st9.x = 560.0
+    st9.y = 560.0
+    st9.z = 560.0
+  -> Input: 1.16 <-
+    r.event = rt
+    st2.event = rt
+    r.evt_tt = FALSE
+    r.evt_rt = TRUE
+    st2.evt_tt = FALSE
+    st2.evt_rt = TRUE
+  -- [ discrete transition ] --
+  -> State: 1.16 <-
+    r.x = 0.0
+    r.l = ring_to_counter
+    r.counter = 3
+    st2.l = y_idle
+  -> Input: 1.17 <-
+    r.event = tt
+    r.evt_id = 3
+    st2.event = stutter
+    st3.event = tt
+    r.evt_tt = TRUE
+    r.evt_rt = FALSE
+    st2.evt_rt = FALSE
+    st2.evt_stutter = TRUE
+    st3.evt_tt = TRUE
+    st3.evt_stutter = FALSE
+  -- [ discrete transition ] --
+  -> State: 1.17 <-
+    st3.x = 0.0
+    st3.y = 0.0
+    r.l = ring_counter
+    st3.l = z_sync
+  -- [ time elapse: time = 560.0; delta = f'5/8 ] --
+  -> State: 1.18 <-
+    r.x = f'5/8
+    st0.x = f'4485/8
+    st0.y = f'4485/8
+    st0.z = f'4485/8
+    st1.x = f'325/8
+    st1.y = f'325/8
+    st1.z = f'4485/8
+    st2.x = f'165/8
+    st2.y = f'165/8
+    st2.z = f'4485/8
+    st3.x = f'5/8
+    st3.y = f'5/8
+    st3.z = f'4485/8
+    st4.x = f'4485/8
+    st4.y = f'4485/8
+    st4.z = f'4485/8
+    st5.x = f'4485/8
+    st5.y = f'4485/8
+    st5.z = f'4485/8
+    st6.x = f'4485/8
+    st6.y = f'4485/8
+    st6.z = f'4485/8
+    st7.x = f'4485/8
+    st7.y = f'4485/8
+    st7.z = f'4485/8
+    st8.x = f'4485/8
+    st8.y = f'4485/8
+    st8.z = f'4485/8
+    st9.x = f'4485/8
+    st9.y = f'4485/8
+    st9.z = f'4485/8
+  -- [ time elapse: time = f'4485/8; delta = f'155/8 ] --
+  -> State: 1.19 <-
+    r.x = 20.0
+    st0.x = 580.0
+    st0.y = 580.0
+    st0.z = 580.0
+    st1.x = 60.0
+    st1.y = 60.0
+    st1.z = 580.0
+    st2.x = 40.0
+    st2.y = 40.0
+    st2.z = 580.0
+    st3.x = 20.0
+    st3.y = 20.0
+    st3.z = 580.0
+    st4.x = 580.0
+    st4.y = 580.0
+    st4.z = 580.0
+    st5.x = 580.0
+    st5.y = 580.0
+    st5.z = 580.0
+    st6.x = 580.0
+    st6.y = 580.0
+    st6.z = 580.0
+    st7.x = 580.0
+    st7.y = 580.0
+    st7.z = 580.0
+    st8.x = 580.0
+    st8.y = 580.0
+    st8.z = 580.0
+    st9.x = 580.0
+    st9.y = 580.0
+    st9.z = 580.0
+  -> Input: 1.20 <-
+    r.event = rt
+    st3.event = rt
+    r.evt_tt = FALSE
+    r.evt_rt = TRUE
+    st3.evt_tt = FALSE
+    st3.evt_rt = TRUE
+  -- [ discrete transition ] --
+  -> State: 1.20 <-
+    r.x = 0.0
+    r.l = ring_to_counter
+    r.counter = 4
+    st3.l = y_idle
+  -> Input: 1.21 <-
+    r.event = tt
+    r.evt_id = 4
+    st3.event = stutter
+    st4.event = tt
+    r.evt_tt = TRUE
+    r.evt_rt = FALSE
+    st3.evt_rt = FALSE
+    st3.evt_stutter = TRUE
+    st4.evt_tt = TRUE
+    st4.evt_stutter = FALSE
+  -- [ discrete transition ] --
+  -> State: 1.21 <-
+    st4.x = 0.0
+    st4.y = 0.0
+    r.l = ring_counter
+    st4.l = z_sync
+  -- [ time elapse: time = 580.0; delta = f'5/8 ] --
+  -> State: 1.22 <-
+    r.x = f'5/8
+    st0.x = f'4645/8
+    st0.y = f'4645/8
+    st0.z = f'4645/8
+    st1.x = f'485/8
+    st1.y = f'485/8
+    st1.z = f'4645/8
+    st2.x = f'325/8
+    st2.y = f'325/8
+    st2.z = f'4645/8
+    st3.x = f'165/8
+    st3.y = f'165/8
+    st3.z = f'4645/8
+    st4.x = f'5/8
+    st4.y = f'5/8
+    st4.z = f'4645/8
+    st5.x = f'4645/8
+    st5.y = f'4645/8
+    st5.z = f'4645/8
+    st6.x = f'4645/8
+    st6.y = f'4645/8
+    st6.z = f'4645/8
+    st7.x = f'4645/8
+    st7.y = f'4645/8
+    st7.z = f'4645/8
+    st8.x = f'4645/8
+    st8.y = f'4645/8
+    st8.z = f'4645/8
+    st9.x = f'4645/8
+    st9.y = f'4645/8
+    st9.z = f'4645/8
+  -- [ time elapse: time = f'4645/8; delta = f'155/8 ] --
+  -> State: 1.23 <-
+    r.x = 20.0
+    st0.x = 600.0
+    st0.y = 600.0
+    st0.z = 600.0
+    st1.x = 80.0
+    st1.y = 80.0
+    st1.z = 600.0
+    st2.x = 60.0
+    st2.y = 60.0
+    st2.z = 600.0
+    st3.x = 40.0
+    st3.y = 40.0
+    st3.z = 600.0
+    st4.x = 20.0
+    st4.y = 20.0
+    st4.z = 600.0
+    st5.x = 600.0
+    st5.y = 600.0
+    st5.z = 600.0
+    st6.x = 600.0
+    st6.y = 600.0
+    st6.z = 600.0
+    st7.x = 600.0
+    st7.y = 600.0
+    st7.z = 600.0
+    st8.x = 600.0
+    st8.y = 600.0
+    st8.z = 600.0
+    st9.x = 600.0
+    st9.y = 600.0
+    st9.z = 600.0
+  -> Input: 1.24 <-
+    r.event = rt
+    st4.event = rt
+    r.evt_tt = FALSE
+    r.evt_rt = TRUE
+    st4.evt_tt = FALSE
+    st4.evt_rt = TRUE
+  -- [ discrete transition ] --
+  -> State: 1.24 <-
+    r.x = 0.0
+    r.l = ring_to_counter
+    r.counter = 5
+    st4.l = y_idle
+  -> Input: 1.25 <-
+    r.event = tt
+    r.evt_id = 5
+    st4.event = stutter
+    st5.event = tt
+    r.evt_tt = TRUE
+    r.evt_rt = FALSE
+    st4.evt_rt = FALSE
+    st4.evt_stutter = TRUE
+    st5.evt_tt = TRUE
+    st5.evt_stutter = FALSE
+  -- [ discrete transition ] --
+  -> State: 1.25 <-
+    st5.x = 0.0
+    st5.y = 0.0
+    r.l = ring_counter
+    st5.l = z_sync
+  -- [ time elapse: time = 600.0; delta = f'5/8 ] --
+  -> State: 1.26 <-
+    r.x = f'5/8
+    st0.x = f'4805/8
+    st0.y = f'4805/8
+    st0.z = f'4805/8
+    st1.x = f'645/8
+    st1.y = f'645/8
+    st1.z = f'4805/8
+    st2.x = f'485/8
+    st2.y = f'485/8
+    st2.z = f'4805/8
+    st3.x = f'325/8
+    st3.y = f'325/8
+    st3.z = f'4805/8
+    st4.x = f'165/8
+    st4.y = f'165/8
+    st4.z = f'4805/8
+    st5.x = f'5/8
+    st5.y = f'5/8
+    st5.z = f'4805/8
+    st6.x = f'4805/8
+    st6.y = f'4805/8
+    st6.z = f'4805/8
+    st7.x = f'4805/8
+    st7.y = f'4805/8
+    st7.z = f'4805/8
+    st8.x = f'4805/8
+    st8.y = f'4805/8
+    st8.z = f'4805/8
+    st9.x = f'4805/8
+    st9.y = f'4805/8
+    st9.z = f'4805/8
+  -- [ time elapse: time = f'4805/8; delta = f'155/8 ] --
+  -> State: 1.27 <-
+    r.x = 20.0
+    st0.x = 620.0
+    st0.y = 620.0
+    st0.z = 620.0
+    st1.x = 100.0
+    st1.y = 100.0
+    st1.z = 620.0
+    st2.x = 80.0
+    st2.y = 80.0
+    st2.z = 620.0
+    st3.x = 60.0
+    st3.y = 60.0
+    st3.z = 620.0
+    st4.x = 40.0
+    st4.y = 40.0
+    st4.z = 620.0
+    st5.x = 20.0
+    st5.y = 20.0
+    st5.z = 620.0
+    st6.x = 620.0
+    st6.y = 620.0
+    st6.z = 620.0
+    st7.x = 620.0
+    st7.y = 620.0
+    st7.z = 620.0
+    st8.x = 620.0
+    st8.y = 620.0
+    st8.z = 620.0
+    st9.x = 620.0
+    st9.y = 620.0
+    st9.z = 620.0
+  -> Input: 1.28 <-
+    r.event = rt
+    st5.event = rt
+    r.evt_tt = FALSE
+    r.evt_rt = TRUE
+    st5.evt_tt = FALSE
+    st5.evt_rt = TRUE
+  -- [ discrete transition ] --
+  -> State: 1.28 <-
+    r.x = 0.0
+    r.l = ring_to_counter
+    r.counter = 6
+    st5.l = y_idle
+  -> Input: 1.29 <-
+    r.event = tt
+    r.evt_id = 6
+    st5.event = stutter
+    st6.event = tt
+    r.evt_tt = TRUE
+    r.evt_rt = FALSE
+    st5.evt_rt = FALSE
+    st5.evt_stutter = TRUE
+    st6.evt_tt = TRUE
+    st6.evt_stutter = FALSE
+  -- [ discrete transition ] --
+  -> State: 1.29 <-
+    st6.x = 0.0
+    st6.y = 0.0
+    r.l = ring_counter
+    st6.l = z_sync
+  -- [ time elapse: time = 620.0; delta = f'5/8 ] --
+  -> State: 1.30 <-
+    r.x = f'5/8
+    st0.x = f'4965/8
+    st0.y = f'4965/8
+    st0.z = f'4965/8
+    st1.x = f'805/8
+    st1.y = f'805/8
+    st1.z = f'4965/8
+    st2.x = f'645/8
+    st2.y = f'645/8
+    st2.z = f'4965/8
+    st3.x = f'485/8
+    st3.y = f'485/8
+    st3.z = f'4965/8
+    st4.x = f'325/8
+    st4.y = f'325/8
+    st4.z = f'4965/8
+    st5.x = f'165/8
+    st5.y = f'165/8
+    st5.z = f'4965/8
+    st6.x = f'5/8
+    st6.y = f'5/8
+    st6.z = f'4965/8
+    st7.x = f'4965/8
+    st7.y = f'4965/8
+    st7.z = f'4965/8
+    st8.x = f'4965/8
+    st8.y = f'4965/8
+    st8.z = f'4965/8
+    st9.x = f'4965/8
+    st9.y = f'4965/8
+    st9.z = f'4965/8
+  -- [ time elapse: time = f'4965/8; delta = f'155/8 ] --
+  -> State: 1.31 <-
+    r.x = 20.0
+    st0.x = 640.0
+    st0.y = 640.0
+    st0.z = 640.0
+    st1.x = 120.0
+    st1.y = 120.0
+    st1.z = 640.0
+    st2.x = 100.0
+    st2.y = 100.0
+    st2.z = 640.0
+    st3.x = 80.0
+    st3.y = 80.0
+    st3.z = 640.0
+    st4.x = 60.0
+    st4.y = 60.0
+    st4.z = 640.0
+    st5.x = 40.0
+    st5.y = 40.0
+    st5.z = 640.0
+    st6.x = 20.0
+    st6.y = 20.0
+    st6.z = 640.0
+    st7.x = 640.0
+    st7.y = 640.0
+    st7.z = 640.0
+    st8.x = 640.0
+    st8.y = 640.0
+    st8.z = 640.0
+    st9.x = 640.0
+    st9.y = 640.0
+    st9.z = 640.0
+  -> Input: 1.32 <-
+    r.event = rt
+    st6.event = rt
+    r.evt_tt = FALSE
+    r.evt_rt = TRUE
+    st6.evt_tt = FALSE
+    st6.evt_rt = TRUE
+  -- [ discrete transition ] --
+  -> State: 1.32 <-
+    r.x = 0.0
+    r.l = ring_to_counter
+    r.counter = 7
+    st6.l = y_idle
+  -> Input: 1.33 <-
+    r.event = tt
+    r.evt_id = 7
+    st6.event = stutter
+    st7.event = tt
+    r.evt_tt = TRUE
+    r.evt_rt = FALSE
+    st6.evt_rt = FALSE
+    st6.evt_stutter = TRUE
+    st7.evt_tt = TRUE
+    st7.evt_stutter = FALSE
+  -- [ discrete transition ] --
+  -> State: 1.33 <-
+    st7.x = 0.0
+    st7.y = 0.0
+    r.l = ring_counter
+    st7.l = z_sync
+  -- [ time elapse: time = 640.0; delta = f'5/8 ] --
+  -> State: 1.34 <-
+    r.x = f'5/8
+    st0.x = f'5125/8
+    st0.y = f'5125/8
+    st0.z = f'5125/8
+    st1.x = f'965/8
+    st1.y = f'965/8
+    st1.z = f'5125/8
+    st2.x = f'805/8
+    st2.y = f'805/8
+    st2.z = f'5125/8
+    st3.x = f'645/8
+    st3.y = f'645/8
+    st3.z = f'5125/8
+    st4.x = f'485/8
+    st4.y = f'485/8
+    st4.z = f'5125/8
+    st5.x = f'325/8
+    st5.y = f'325/8
+    st5.z = f'5125/8
+    st6.x = f'165/8
+    st6.y = f'165/8
+    st6.z = f'5125/8
+    st7.x = f'5/8
+    st7.y = f'5/8
+    st7.z = f'5125/8
+    st8.x = f'5125/8
+    st8.y = f'5125/8
+    st8.z = f'5125/8
+    st9.x = f'5125/8
+    st9.y = f'5125/8
+    st9.z = f'5125/8
+  -- [ time elapse: time = f'5125/8; delta = f'155/8 ] --
+  -> State: 1.35 <-
+    r.x = 20.0
+    st0.x = 660.0
+    st0.y = 660.0
+    st0.z = 660.0
+    st1.x = 140.0
+    st1.y = 140.0
+    st1.z = 660.0
+    st2.x = 120.0
+    st2.y = 120.0
+    st2.z = 660.0
+    st3.x = 100.0
+    st3.y = 100.0
+    st3.z = 660.0
+    st4.x = 80.0
+    st4.y = 80.0
+    st4.z = 660.0
+    st5.x = 60.0
+    st5.y = 60.0
+    st5.z = 660.0
+    st6.x = 40.0
+    st6.y = 40.0
+    st6.z = 660.0
+    st7.x = 20.0
+    st7.y = 20.0
+    st7.z = 660.0
+    st8.x = 660.0
+    st8.y = 660.0
+    st8.z = 660.0
+    st9.x = 660.0
+    st9.y = 660.0
+    st9.z = 660.0
+  -> Input: 1.36 <-
+    r.event = rt
+    st7.event = rt
+    r.evt_tt = FALSE
+    r.evt_rt = TRUE
+    st7.evt_tt = FALSE
+    st7.evt_rt = TRUE
+  -- [ discrete transition ] --
+  -> State: 1.36 <-
+    r.x = 0.0
+    r.l = ring_to_counter
+    r.counter = 8
+    st7.l = y_idle
+  -> Input: 1.37 <-
+    r.event = tt
+    r.evt_id = 8
+    st7.event = stutter
+    st8.event = tt
+    r.evt_tt = TRUE
+    r.evt_rt = FALSE
+    st7.evt_rt = FALSE
+    st7.evt_stutter = TRUE
+    st8.evt_tt = TRUE
+    st8.evt_stutter = FALSE
+  -- [ discrete transition ] --
+  -> State: 1.37 <-
+    st8.x = 0.0
+    st8.y = 0.0
+    r.l = ring_counter
+    st8.l = z_sync
+  -- [ time elapse: time = 660.0; delta = f'5/8 ] --
+  -> State: 1.38 <-
+    r.x = f'5/8
+    st0.x = f'5285/8
+    st0.y = f'5285/8
+    st0.z = f'5285/8
+    st1.x = f'1125/8
+    st1.y = f'1125/8
+    st1.z = f'5285/8
+    st2.x = f'965/8
+    st2.y = f'965/8
+    st2.z = f'5285/8
+    st3.x = f'805/8
+    st3.y = f'805/8
+    st3.z = f'5285/8
+    st4.x = f'645/8
+    st4.y = f'645/8
+    st4.z = f'5285/8
+    st5.x = f'485/8
+    st5.y = f'485/8
+    st5.z = f'5285/8
+    st6.x = f'325/8
+    st6.y = f'325/8
+    st6.z = f'5285/8
+    st7.x = f'165/8
+    st7.y = f'165/8
+    st7.z = f'5285/8
+    st8.x = f'5/8
+    st8.y = f'5/8
+    st8.z = f'5285/8
+    st9.x = f'5285/8
+    st9.y = f'5285/8
+    st9.z = f'5285/8
+  -- [ time elapse: time = f'5285/8; delta = f'155/8 ] --
+  -> State: 1.39 <-
+    r.x = 20.0
+    st0.x = 680.0
+    st0.y = 680.0
+    st0.z = 680.0
+    st1.x = 160.0
+    st1.y = 160.0
+    st1.z = 680.0
+    st2.x = 140.0
+    st2.y = 140.0
+    st2.z = 680.0
+    st3.x = 120.0
+    st3.y = 120.0
+    st3.z = 680.0
+    st4.x = 100.0
+    st4.y = 100.0
+    st4.z = 680.0
+    st5.x = 80.0
+    st5.y = 80.0
+    st5.z = 680.0
+    st6.x = 60.0
+    st6.y = 60.0
+    st6.z = 680.0
+    st7.x = 40.0
+    st7.y = 40.0
+    st7.z = 680.0
+    st8.x = 20.0
+    st8.y = 20.0
+    st8.z = 680.0
+    st9.x = 680.0
+    st9.y = 680.0
+    st9.z = 680.0
+  -> Input: 1.40 <-
+    r.event = rt
+    st8.event = rt
+    r.evt_tt = FALSE
+    r.evt_rt = TRUE
+    st8.evt_tt = FALSE
+    st8.evt_rt = TRUE
+  -- [ discrete transition ] --
+  -> State: 1.40 <-
+    r.x = 0.0
+    r.l = ring_to_counter
+    r.counter = 9
+    st8.l = y_idle
+  -> Input: 1.41 <-
+    r.event = tt
+    r.evt_id = 9
+    st8.event = stutter
+    st9.event = tt
+    r.evt_tt = TRUE
+    r.evt_rt = FALSE
+    st8.evt_rt = FALSE
+    st8.evt_stutter = TRUE
+    st9.evt_tt = TRUE
+    st9.evt_stutter = FALSE
+  -- [ discrete transition ] --
+  -> State: 1.41 <-
+    st9.x = 0.0
+    st9.y = 0.0
+    r.l = ring_counter
+    st9.l = z_sync
+  -- [ time elapse: time = 680.0; delta = f'5/8 ] --
+  -> State: 1.42 <-
+    r.x = f'5/8
+    st0.x = f'5445/8
+    st0.y = f'5445/8
+    st0.z = f'5445/8
+    st1.x = f'1285/8
+    st1.y = f'1285/8
+    st1.z = f'5445/8
+    st2.x = f'1125/8
+    st2.y = f'1125/8
+    st2.z = f'5445/8
+    st3.x = f'965/8
+    st3.y = f'965/8
+    st3.z = f'5445/8
+    st4.x = f'805/8
+    st4.y = f'805/8
+    st4.z = f'5445/8
+    st5.x = f'645/8
+    st5.y = f'645/8
+    st5.z = f'5445/8
+    st6.x = f'485/8
+    st6.y = f'485/8
+    st6.z = f'5445/8
+    st7.x = f'325/8
+    st7.y = f'325/8
+    st7.z = f'5445/8
+    st8.x = f'165/8
+    st8.y = f'165/8
+    st8.z = f'5445/8
+    st9.x = f'5/8
+    st9.y = f'5/8
+    st9.z = f'5445/8
+  -- [ time elapse: time = f'5445/8; delta = f'155/8 ] --
+  -> State: 1.43 <-
+    r.x = 20.0
+    st0.x = 700.0
+    st0.y = 700.0
+    st0.z = 700.0
+    st1.x = 180.0
+    st1.y = 180.0
+    st1.z = 700.0
+    st2.x = 160.0
+    st2.y = 160.0
+    st2.z = 700.0
+    st3.x = 140.0
+    st3.y = 140.0
+    st3.z = 700.0
+    st4.x = 120.0
+    st4.y = 120.0
+    st4.z = 700.0
+    st5.x = 100.0
+    st5.y = 100.0
+    st5.z = 700.0
+    st6.x = 80.0
+    st6.y = 80.0
+    st6.z = 700.0
+    st7.x = 60.0
+    st7.y = 60.0
+    st7.z = 700.0
+    st8.x = 40.0
+    st8.y = 40.0
+    st8.z = 700.0
+    st9.x = 20.0
+    st9.y = 20.0
+    st9.z = 700.0
+  -> Input: 1.44 <-
+    r.event = rt
+    st9.event = rt
+    r.evt_tt = FALSE
+    r.evt_rt = TRUE
+    st9.evt_tt = FALSE
+    st9.evt_rt = TRUE
+  -- [ discrete transition ] --
+  -> State: 1.44 <-
+    r.x = 0.0
+    r.l = ring_to_counter
+    r.counter = 0
+    st9.l = y_idle
+  -> Input: 1.45 <-
+    r.event = tt
+    r.evt_id = 0
+    st0.event = tt
+    st9.event = stutter
+    r.evt_tt = TRUE
+    r.evt_rt = FALSE
+    st0.evt_tt = TRUE
+    st0.evt_stutter = FALSE
+    st9.evt_rt = FALSE
+    st9.evt_stutter = TRUE
+  -- [ discrete transition ] --
+  -> State: 1.45 <-
+    st0.x = 0.0
+    st0.z = 0.0
+    r.l = ring_counter
+    st0.l = y_sync
+  -- Loop starts here
+  -- [ time elapse: time = diverging; delta = f'4165/8 ] --
+  -> State: 1.46 <-
+    r.x = r.x + f'4165/8
+    st0.x = st0.x + f'4165/8
+    st0.y = st0.y + f'4165/8
+    st0.z = st0.z + f'4165/8
+    st1.x = st1.x + f'4165/8
+    st1.y = st1.y + f'4165/8
+    st1.z = st1.z + f'4165/8
+    st2.x = st2.x + f'4165/8
+    st2.y = st2.y + f'4165/8
+    st2.z = st2.z + f'4165/8
+    st3.x = st3.x + f'4165/8
+    st3.y = st3.y + f'4165/8
+    st3.z = st3.z + f'4165/8
+    st4.x = st4.x + f'4165/8
+    st4.y = st4.y + f'4165/8
+    st4.z = st4.z + f'4165/8
+    st5.x = st5.x + f'4165/8
+    st5.y = st5.y + f'4165/8
+    st5.z = st5.z + f'4165/8
+    st6.x = st6.x + f'4165/8
+    st6.y = st6.y + f'4165/8
+    st6.z = st6.z + f'4165/8
+    st7.x = st7.x + f'4165/8
+    st7.y = st7.y + f'4165/8
+    st7.z = st7.z + f'4165/8
+    st8.x = st8.x + f'4165/8
+    st8.y = st8.y + f'4165/8
+    st8.z = st8.z + f'4165/8
+    st9.x = st9.x + f'4165/8
+    st9.y = st9.y + f'4165/8
+    st9.z = st9.z + f'4165/8
+  -- [ time elapse: time = diverging; delta = f'77/8 ] --
+  -> State: 1.47 <-
+    r.x = r.x + f'77/8
+    st0.x = st0.x + f'77/8
+    st0.y = st0.y + f'77/8
+    st0.z = st0.z + f'77/8
+    st1.x = st1.x + f'77/8
+    st1.y = st1.y + f'77/8
+    st1.z = st1.z + f'77/8
+    st2.x = st2.x + f'77/8
+    st2.y = st2.y + f'77/8
+    st2.z = st2.z + f'77/8
+    st3.x = st3.x + f'77/8
+    st3.y = st3.y + f'77/8
+    st3.z = st3.z + f'77/8
+    st4.x = st4.x + f'77/8
+    st4.y = st4.y + f'77/8
+    st4.z = st4.z + f'77/8
+    st5.x = st5.x + f'77/8
+    st5.y = st5.y + f'77/8
+    st5.z = st5.z + f'77/8
+    st6.x = st6.x + f'77/8
+    st6.y = st6.y + f'77/8
+    st6.z = st6.z + f'77/8
+    st7.x = st7.x + f'77/8
+    st7.y = st7.y + f'77/8
+    st7.z = st7.z + f'77/8
+    st8.x = st8.x + f'77/8
+    st8.y = st8.y + f'77/8
+    st8.z = st8.z + f'77/8
+    st9.x = st9.x + f'77/8
+    st9.y = st9.y + f'77/8
+    st9.z = st9.z + f'77/8
+  -- [ time elapse: time = diverging; delta = f'5/8 ] --
+  -> State: 1.48 <-
+    r.x = r.x + f'5/8
+    st0.x = st0.x + f'5/8
+    st0.y = st0.y + f'5/8
+    st0.z = st0.z + f'5/8
+    st1.x = st1.x + f'5/8
+    st1.y = st1.y + f'5/8
+    st1.z = st1.z + f'5/8
+    st2.x = st2.x + f'5/8
+    st2.y = st2.y + f'5/8
+    st2.z = st2.z + f'5/8
+    st3.x = st3.x + f'5/8
+    st3.y = st3.y + f'5/8
+    st3.z = st3.z + f'5/8
+    st4.x = st4.x + f'5/8
+    st4.y = st4.y + f'5/8
+    st4.z = st4.z + f'5/8
+    st5.x = st5.x + f'5/8
+    st5.y = st5.y + f'5/8
+    st5.z = st5.z + f'5/8
+    st6.x = st6.x + f'5/8
+    st6.y = st6.y + f'5/8
+    st6.z = st6.z + f'5/8
+    st7.x = st7.x + f'5/8
+    st7.y = st7.y + f'5/8
+    st7.z = st7.z + f'5/8
+    st8.x = st8.x + f'5/8
+    st8.y = st8.y + f'5/8
+    st8.z = st8.z + f'5/8
+    st9.x = st9.x + f'5/8
+    st9.y = st9.y + f'5/8
+    st9.z = st9.z + f'5/8
+SUCCESS 

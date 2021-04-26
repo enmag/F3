@@ -1,0 +1,43 @@
+
+
+run 1/1: `13`
+
+	Found non-termination argument:
+	Do states 4..6 while (((-1.0 * ToReal(w)) + 1/2) < 0.0)
+	State 4
+		pc = 5
+		x = 0
+		y = 9
+		z = 0
+		(w <= 5)
+		(w <= 0)
+	Trans 4 -- 5
+		_x_w : w
+	State 5
+		pc = 6
+		x = 0
+		y = 9
+		z = 0
+	Trans 5 -- 6
+		_x_w : w
+	State 6
+		pc = 7
+		x = 0
+		y = 9
+		z = 0
+	Trans 6 -- 4
+		_x_w : (w + -1)
+	End do-while
+	State 6
+		pc = 7
+		x = 0
+		y = 9
+		z = 0
+		(w <= 6)
+		((ToReal(w) + -1/2) <= 0.0)
+		(w <= 1)
+	Trans 6 -- 7
+		_x_w = (w + -1)
+	starting from: {pc: 5, w: 0, x: 0, y: 9, z: 0}
+
+end of `13`: SUCCESS in 0.8103499412536621s

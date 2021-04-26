@@ -1,0 +1,42 @@
+Property 0 [36;1m(FALSE SR (TRUE SU (v1 = 1))) -> (FALSE SR (TRUE SU (p0.l = CS7)))[0m ..... [31;1mdoes not hold[0m 
+>>> Index:         0     1     loop  2     3     4   
+>>> Type:          |     (-)   loop  |     (-)   |   
+-----------------------------> loop <----------------
++0-obligation-0    F     T     loop  T     T     T   
++0-subexp-0        T     T     loop  F     F     F   
++1-subexp-0        F     F     loop  F     F     F   
++10-subexp-0       F     F     loop  F     F     F   
+-----------------------------> loop <----------------
++11-subexp-0       T     T     loop  T     T     T   
++2-subexp-0        F     T     loop  T     T     T   
++3-subexp-0        F     T     loop  T     T     T   
++4-subexp-0        T     T     loop  T     T     T   
+-----------------------------> loop <----------------
++5-subexp-0        T     T     loop  T     T     T   
++6-subexp-0        T     T     loop  F     F     F   
++7-subexp-0        T     T     loop  T     T     T   
++8-subexp-0        T     T     loop  F     F     F   
+-----------------------------> loop <----------------
++9-obligation-0    F     T     loop  T     T     T   
++9-subexp-0        T     T     loop  F     F     F   
+-fair-0-0          T     T     loop  T     T     F   
+-fair-1-0          T     T     loop  T     T     F   
+-----------------------------> loop <----------------
+-loop-0            F     F     loop  T     F     F   
+-loop-elapse-0     T     T     loop  T     T     F   
+-ok-p0.c-0         T     T     loop  T     T     F   
+-ok-p1.c-0         T     T     loop  T     T     F   
+-----------------------------> loop <----------------
+-smaller-exists-0  F     F     loop  F     T     T   
+@delta-0           0     52/3  loop  0     4/3   0   
+@open-0            F     T     loop  F     T     F   
+p0.c-0             0     0     loop  52/3  52/3  56/3
+-----------------------------> loop <----------------
+p0.evt-0           move  move  loop  move  move  move
+p0.l-0             L1    L1    loop  L1    L1    L1  
+p1.c-0             0     0     loop  52/3  52/3  56/3
+p1.evt-0           move  move  loop  move  move  move
+-----------------------------> loop <----------------
+p1.l-0             L1    L1    loop  L1    L1    L1  
+v1-0               1     1     loop  1     1     1   
+v2-0               F     F     loop  F     F     F   

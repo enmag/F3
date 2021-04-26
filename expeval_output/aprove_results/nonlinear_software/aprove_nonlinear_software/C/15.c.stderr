@@ -1,0 +1,640 @@
+Graph finished, checking  consistency
+Graph finished, checked consistency, took 0.0s
+Running Thread.stop() against 1616266575Exec. 356, RankingReductionPairProcessor[GenerateFollowingInequalities=False]
+Stack trace:
+    java.util.HashMap.putVal(HashMap.java:629)
+    java.util.HashMap.put(HashMap.java:612)
+    aprove.Framework.Algebra.Polynomials.SimplePolynomial.times(SimplePolynomial.java:485)
+    aprove.Framework.Algebra.Polynomials.VarPolynomial.times(VarPolynomial.java:606)
+    aprove.Framework.Algebra.Polynomials.VarPolynomial.times(VarPolynomial.java:586)
+    aprove.Framework.IntTRS.Ranking.PCS.eliminateVariable(PCS.java:148)
+    aprove.Framework.IntTRS.Ranking.PCS.eliminateOtherVariables(PCS.java:85)
+    aprove.Framework.IntTRS.Ranking.TransitionRelation.<init>(TransitionRelation.java:113)
+    aprove.Framework.IntTRS.Ranking.TransitionRelation.<init>(TransitionRelation.java:65)
+    aprove.Framework.IntTRS.Ranking.RuleToTransitionRelation.ruleToTransitionRelation(RuleToTransitionRelation.java:112)
+    aprove.Framework.IntTRS.RankingRedPair.RankingRedPairWorker.translateRules(RankingRedPairWorker.java:239)
+    aprove.Framework.IntTRS.RankingRedPair.RankingRedPairWorker.work(RankingRedPairWorker.java:182)
+    aprove.Framework.IntTRS.RankingRedPair.RankingRedPairProcessor.process(RankingRedPairProcessor.java:127)
+    aprove.Strategies.ExecutableStrategies.Executor.execute(Executor.java:326)
+    aprove.Strategies.ExecutableStrategies.Executor$Runner.wrappedRun(Executor.java:377)
+    aprove.Strategies.Abortions.PooledJob.run(PooledJob.java:99)
+    aprove.Strategies.Util.PrioritizableThreadPool$Worker.run(PrioritizableThreadPool.java:274)
+    java.lang.Thread.run(Thread.java:748)
+Aborted 1616266575Exec. 356, RankingReductionPairProcessor[GenerateFollowingInequalities=False] with a hard timeout.
+Threadpool thread died by not catching an exception
+java.lang.ThreadDeath
+	at aprove.Strategies.Abortions.PooledJob.finish(PooledJob.java:157)
+	at aprove.Strategies.Abortions.PooledJob.run(PooledJob.java:125)
+	at aprove.Strategies.Util.PrioritizableThreadPool$Worker.run(PrioritizableThreadPool.java:274)
+	at java.lang.Thread.run(Thread.java:748)
+Running Thread.stop() against 1616266579Exec. 438, RankingReductionPairProcessor[GenerateFollowingInequalities=False]
+Stack trace:
+    immutables.Immutable.ImmutableIterator.hasNext(Unknown Source)
+    aprove.Framework.Algebra.Polynomials.VarPolynomial.times(VarPolynomial.java:603)
+    aprove.Framework.Algebra.Polynomials.VarPolynomial.times(VarPolynomial.java:586)
+    aprove.Framework.IntTRS.Ranking.PCS.eliminateVariable(PCS.java:147)
+    aprove.Framework.IntTRS.Ranking.PCS.eliminateOtherVariables(PCS.java:85)
+    aprove.Framework.IntTRS.Ranking.TransitionRelation.<init>(TransitionRelation.java:113)
+    aprove.Framework.IntTRS.Ranking.TransitionRelation.<init>(TransitionRelation.java:65)
+    aprove.Framework.IntTRS.Ranking.RuleToTransitionRelation.ruleToTransitionRelation(RuleToTransitionRelation.java:112)
+    aprove.Framework.IntTRS.RankingRedPair.RankingRedPairWorker.translateRules(RankingRedPairWorker.java:239)
+    aprove.Framework.IntTRS.RankingRedPair.RankingRedPairWorker.work(RankingRedPairWorker.java:182)
+    aprove.Framework.IntTRS.RankingRedPair.RankingRedPairProcessor.process(RankingRedPairProcessor.java:127)
+    aprove.Strategies.ExecutableStrategies.Executor.execute(Executor.java:326)
+    aprove.Strategies.ExecutableStrategies.Executor$Runner.wrappedRun(Executor.java:377)
+    aprove.Strategies.Abortions.PooledJob.run(PooledJob.java:99)
+    aprove.Strategies.Util.PrioritizableThreadPool$Worker.run(PrioritizableThreadPool.java:274)
+    java.lang.Thread.run(Thread.java:748)
+Aborted 1616266579Exec. 438, RankingReductionPairProcessor[GenerateFollowingInequalities=False] with a hard timeout.
+Threadpool thread died by not catching an exception
+java.lang.ThreadDeath
+	at aprove.Strategies.Abortions.PooledJob.finish(PooledJob.java:157)
+	at aprove.Strategies.Abortions.PooledJob.run(PooledJob.java:125)
+	at aprove.Strategies.Util.PrioritizableThreadPool$Worker.run(PrioritizableThreadPool.java:274)
+	at java.lang.Thread.run(Thread.java:748)
+Running Thread.stop() against 1616266575Exec. 358, RankingReductionPairProcessor[GenerateFollowingInequalities=True]
+Stack trace:
+    immutables.Immutable.DefaultImmutableSet.iterator(Unknown Source)
+    aprove.Framework.Algebra.Polynomials.SimplePolynomial.times(SimplePolynomial.java:475)
+    aprove.Framework.Algebra.Polynomials.VarPolynomial.times(VarPolynomial.java:606)
+    aprove.Framework.Algebra.Polynomials.VarPolynomial.times(VarPolynomial.java:586)
+    aprove.Framework.IntTRS.Ranking.PCS.eliminateVariable(PCS.java:148)
+    aprove.Framework.IntTRS.Ranking.PCS.eliminateOtherVariables(PCS.java:85)
+    aprove.Framework.IntTRS.Ranking.TransitionRelation.<init>(TransitionRelation.java:113)
+    aprove.Framework.IntTRS.Ranking.TransitionRelation.<init>(TransitionRelation.java:65)
+    aprove.Framework.IntTRS.Ranking.RuleToTransitionRelation.ruleToTransitionRelation(RuleToTransitionRelation.java:112)
+    aprove.Framework.IntTRS.RankingRedPair.RankingRedPairWorker.translateRules(RankingRedPairWorker.java:239)
+    aprove.Framework.IntTRS.RankingRedPair.RankingRedPairWorker.work(RankingRedPairWorker.java:182)
+    aprove.Framework.IntTRS.RankingRedPair.RankingRedPairProcessor.process(RankingRedPairProcessor.java:127)
+    aprove.Strategies.ExecutableStrategies.Executor.execute(Executor.java:326)
+    aprove.Strategies.ExecutableStrategies.Executor$Runner.wrappedRun(Executor.java:377)
+    aprove.Strategies.Abortions.PooledJob.run(PooledJob.java:99)
+    aprove.Strategies.Util.PrioritizableThreadPool$Worker.run(PrioritizableThreadPool.java:274)
+    java.lang.Thread.run(Thread.java:748)
+Running Thread.stop() against 1616266581Exec. 465, RankingReductionPairProcessor[GenerateFollowingInequalities=False]
+Stack trace:
+    aprove.Framework.Algebra.Polynomials.VarPolynomial.times(VarPolynomial.java:626)
+    aprove.Framework.Algebra.Polynomials.VarPolynomial.times(VarPolynomial.java:586)
+    aprove.Framework.IntTRS.Ranking.PCS.eliminateVariable(PCS.java:148)
+    aprove.Framework.IntTRS.Ranking.PCS.eliminateOtherVariables(PCS.java:85)
+    aprove.Framework.IntTRS.Ranking.TransitionRelation.<init>(TransitionRelation.java:113)
+    aprove.Framework.IntTRS.Ranking.TransitionRelation.<init>(TransitionRelation.java:65)
+    aprove.Framework.IntTRS.Ranking.RuleToTransitionRelation.ruleToTransitionRelation(RuleToTransitionRelation.java:112)
+    aprove.Framework.IntTRS.RankingRedPair.RankingRedPairWorker.translateRules(RankingRedPairWorker.java:239)
+    aprove.Framework.IntTRS.RankingRedPair.RankingRedPairWorker.work(RankingRedPairWorker.java:182)
+    aprove.Framework.IntTRS.RankingRedPair.RankingRedPairProcessor.process(RankingRedPairProcessor.java:127)
+    aprove.Strategies.ExecutableStrategies.Executor.execute(Executor.java:326)
+    aprove.Strategies.ExecutableStrategies.Executor$Runner.wrappedRun(Executor.java:377)
+    aprove.Strategies.Abortions.PooledJob.run(PooledJob.java:99)
+    aprove.Strategies.Util.PrioritizableThreadPool$Worker.run(PrioritizableThreadPool.java:274)
+    java.lang.Thread.run(Thread.java:748)
+Aborted 1616266575Exec. 358, RankingReductionPairProcessor[GenerateFollowingInequalities=True] with a hard timeout.
+Threadpool thread died by not catching an exception
+java.lang.ThreadDeath
+	at aprove.Strategies.Abortions.PooledJob.finish(PooledJob.java:157)
+	at aprove.Strategies.Abortions.PooledJob.run(PooledJob.java:125)
+	at aprove.Strategies.Util.PrioritizableThreadPool$Worker.run(PrioritizableThreadPool.java:274)
+	at java.lang.Thread.run(Thread.java:748)
+Aborted 1616266581Exec. 465, RankingReductionPairProcessor[GenerateFollowingInequalities=False] with a hard timeout.
+Threadpool thread died by not catching an exception
+java.lang.ThreadDeath
+	at aprove.Strategies.Abortions.PooledJob.finish(PooledJob.java:157)
+	at aprove.Strategies.Abortions.PooledJob.run(PooledJob.java:125)
+	at aprove.Strategies.Util.PrioritizableThreadPool$Worker.run(PrioritizableThreadPool.java:274)
+	at java.lang.Thread.run(Thread.java:748)
+Running Thread.stop() against 1616266583Exec. 478, RankingReductionPairProcessor[GenerateFollowingInequalities=False]
+Stack trace:
+    immutables.Immutable.DefaultImmutableSet.create(Unknown Source)
+    immutables.Immutable.ImmutableCreator.create(Unknown Source)
+    immutables.Immutable.ImmutableLinkedHashMap.entrySet(Unknown Source)
+    aprove.Framework.Algebra.Polynomials.SimplePolynomial.plus(SimplePolynomial.java:283)
+    aprove.Framework.Algebra.Polynomials.VarPolynomial.plus(VarPolynomial.java:516)
+    aprove.Framework.IntTRS.Ranking.PCS.eliminateVariable(PCS.java:147)
+    aprove.Framework.IntTRS.Ranking.PCS.eliminateOtherVariables(PCS.java:85)
+    aprove.Framework.IntTRS.Ranking.TransitionRelation.<init>(TransitionRelation.java:113)
+    aprove.Framework.IntTRS.Ranking.TransitionRelation.<init>(TransitionRelation.java:65)
+    aprove.Framework.IntTRS.Ranking.RuleToTransitionRelation.ruleToTransitionRelation(RuleToTransitionRelation.java:112)
+    aprove.Framework.IntTRS.RankingRedPair.RankingRedPairWorker.translateRules(RankingRedPairWorker.java:239)
+    aprove.Framework.IntTRS.RankingRedPair.RankingRedPairWorker.work(RankingRedPairWorker.java:182)
+    aprove.Framework.IntTRS.RankingRedPair.RankingRedPairProcessor.process(RankingRedPairProcessor.java:127)
+    aprove.Strategies.ExecutableStrategies.Executor.execute(Executor.java:326)
+    aprove.Strategies.ExecutableStrategies.Executor$Runner.wrappedRun(Executor.java:377)
+    aprove.Strategies.Abortions.PooledJob.run(PooledJob.java:99)
+    aprove.Strategies.Util.PrioritizableThreadPool$Worker.run(PrioritizableThreadPool.java:274)
+    java.lang.Thread.run(Thread.java:748)
+Aborted 1616266583Exec. 478, RankingReductionPairProcessor[GenerateFollowingInequalities=False] with a hard timeout.
+Threadpool thread died by not catching an exception
+java.lang.ThreadDeath
+	at aprove.Strategies.Abortions.PooledJob.finish(PooledJob.java:157)
+	at aprove.Strategies.Abortions.PooledJob.run(PooledJob.java:125)
+	at aprove.Strategies.Util.PrioritizableThreadPool$Worker.run(PrioritizableThreadPool.java:274)
+	at java.lang.Thread.run(Thread.java:748)
+Running Thread.stop() against 1616266587Exec. 520, RankingReductionPairProcessor[GenerateFollowingInequalities=False]
+Stack trace:
+    immutables.Immutable.ImmutableIterator.next(Unknown Source)
+    aprove.Framework.Algebra.Polynomials.VarPolynomial.isConcrete(VarPolynomial.java:979)
+    aprove.Framework.IntTRS.Ranking.GEConstraint.create(GEConstraint.java:53)
+    aprove.Framework.IntTRS.Ranking.PCS.eliminateVariable(PCS.java:149)
+    aprove.Framework.IntTRS.Ranking.PCS.eliminateOtherVariables(PCS.java:85)
+    aprove.Framework.IntTRS.Ranking.TransitionRelation.<init>(TransitionRelation.java:113)
+    aprove.Framework.IntTRS.Ranking.TransitionRelation.<init>(TransitionRelation.java:65)
+    aprove.Framework.IntTRS.Ranking.RuleToTransitionRelation.ruleToTransitionRelation(RuleToTransitionRelation.java:112)
+    aprove.Framework.IntTRS.RankingRedPair.RankingRedPairWorker.translateRules(RankingRedPairWorker.java:239)
+    aprove.Framework.IntTRS.RankingRedPair.RankingRedPairWorker.work(RankingRedPairWorker.java:182)
+    aprove.Framework.IntTRS.RankingRedPair.RankingRedPairProcessor.process(RankingRedPairProcessor.java:127)
+    aprove.Strategies.ExecutableStrategies.Executor.execute(Executor.java:326)
+    aprove.Strategies.ExecutableStrategies.Executor$Runner.wrappedRun(Executor.java:377)
+    aprove.Strategies.Abortions.PooledJob.run(PooledJob.java:99)
+    aprove.Strategies.Util.PrioritizableThreadPool$Worker.run(PrioritizableThreadPool.java:274)
+    java.lang.Thread.run(Thread.java:748)
+Aborted 1616266587Exec. 520, RankingReductionPairProcessor[GenerateFollowingInequalities=False] with a hard timeout.
+Threadpool thread died by not catching an exception
+java.lang.ThreadDeath
+	at aprove.Strategies.Abortions.PooledJob.finish(PooledJob.java:157)
+	at aprove.Strategies.Abortions.PooledJob.run(PooledJob.java:125)
+	at aprove.Strategies.Util.PrioritizableThreadPool$Worker.run(PrioritizableThreadPool.java:274)
+	at java.lang.Thread.run(Thread.java:748)
+Running Thread.stop() against 1616266588Exec. 548, RankingReductionPairProcessor[GenerateFollowingInequalities=False]
+Stack trace:
+    immutables.Immutable.DefaultImmutableSet.iterator(Unknown Source)
+    aprove.Framework.Algebra.Polynomials.VarPolynomial.plus(VarPolynomial.java:526)
+    aprove.Framework.IntTRS.Ranking.PCS.eliminateVariable(PCS.java:147)
+    aprove.Framework.IntTRS.Ranking.PCS.eliminateOtherVariables(PCS.java:85)
+    aprove.Framework.IntTRS.Ranking.TransitionRelation.<init>(TransitionRelation.java:113)
+    aprove.Framework.IntTRS.Ranking.TransitionRelation.<init>(TransitionRelation.java:65)
+    aprove.Framework.IntTRS.Ranking.RuleToTransitionRelation.ruleToTransitionRelation(RuleToTransitionRelation.java:112)
+    aprove.Framework.IntTRS.RankingRedPair.RankingRedPairWorker.translateRules(RankingRedPairWorker.java:239)
+    aprove.Framework.IntTRS.RankingRedPair.RankingRedPairWorker.work(RankingRedPairWorker.java:182)
+    aprove.Framework.IntTRS.RankingRedPair.RankingRedPairProcessor.process(RankingRedPairProcessor.java:127)
+    aprove.Strategies.ExecutableStrategies.Executor.execute(Executor.java:326)
+    aprove.Strategies.ExecutableStrategies.Executor$Runner.wrappedRun(Executor.java:377)
+    aprove.Strategies.Abortions.PooledJob.run(PooledJob.java:99)
+    aprove.Strategies.Util.PrioritizableThreadPool$Worker.run(PrioritizableThreadPool.java:274)
+    java.lang.Thread.run(Thread.java:748)
+Aborted 1616266588Exec. 548, RankingReductionPairProcessor[GenerateFollowingInequalities=False] with a hard timeout.
+Threadpool thread died by not catching an exception
+java.lang.ThreadDeath
+	at aprove.Strategies.Abortions.PooledJob.finish(PooledJob.java:157)
+	at aprove.Strategies.Abortions.PooledJob.run(PooledJob.java:125)
+	at aprove.Strategies.Util.PrioritizableThreadPool$Worker.run(PrioritizableThreadPool.java:274)
+	at java.lang.Thread.run(Thread.java:748)
+Running Thread.stop() against 1616266591Exec. 569, RankingReductionPairProcessor[GenerateFollowingInequalities=False]
+Stack trace:
+    immutables.Immutable.ImmutableLinkedHashMap.create(Unknown Source)
+    immutables.Immutable.ImmutableCreator.create(Unknown Source)
+    immutables.Immutable.ImmutableCreator.create(Unknown Source)
+    aprove.Framework.Algebra.Polynomials.IndefinitePart.<init>(IndefinitePart.java:72)
+    aprove.Framework.Algebra.Polynomials.IndefinitePart.times(IndefinitePart.java:222)
+    aprove.Framework.Algebra.Polynomials.SimplePolynomial.times(SimplePolynomial.java:481)
+    aprove.Framework.Algebra.Polynomials.VarPolynomial.times(VarPolynomial.java:606)
+    aprove.Framework.Algebra.Polynomials.VarPolynomial.times(VarPolynomial.java:586)
+    aprove.Framework.IntTRS.Ranking.PCS.eliminateVariable(PCS.java:148)
+    aprove.Framework.IntTRS.Ranking.PCS.eliminateOtherVariables(PCS.java:85)
+    aprove.Framework.IntTRS.Ranking.TransitionRelation.<init>(TransitionRelation.java:113)
+    aprove.Framework.IntTRS.Ranking.TransitionRelation.<init>(TransitionRelation.java:65)
+    aprove.Framework.IntTRS.Ranking.RuleToTransitionRelation.ruleToTransitionRelation(RuleToTransitionRelation.java:112)
+    aprove.Framework.IntTRS.RankingRedPair.RankingRedPairWorker.translateRules(RankingRedPairWorker.java:239)
+    aprove.Framework.IntTRS.RankingRedPair.RankingRedPairWorker.work(RankingRedPairWorker.java:182)
+    aprove.Framework.IntTRS.RankingRedPair.RankingRedPairProcessor.process(RankingRedPairProcessor.java:127)
+    aprove.Strategies.ExecutableStrategies.Executor.execute(Executor.java:326)
+    aprove.Strategies.ExecutableStrategies.Executor$Runner.wrappedRun(Executor.java:377)
+    aprove.Strategies.Abortions.PooledJob.run(PooledJob.java:99)
+    aprove.Strategies.Util.PrioritizableThreadPool$Worker.run(PrioritizableThreadPool.java:274)
+    java.lang.Thread.run(Thread.java:748)
+Aborted 1616266591Exec. 569, RankingReductionPairProcessor[GenerateFollowingInequalities=False] with a hard timeout.
+Threadpool thread died by not catching an exception
+java.lang.ThreadDeath
+	at aprove.Strategies.Abortions.PooledJob.finish(PooledJob.java:157)
+	at aprove.Strategies.Abortions.PooledJob.run(PooledJob.java:125)
+	at aprove.Strategies.Util.PrioritizableThreadPool$Worker.run(PrioritizableThreadPool.java:274)
+	at java.lang.Thread.run(Thread.java:748)
+Running Thread.stop() against 1616266579Exec. 440, RankingReductionPairProcessor[GenerateFollowingInequalities=True]
+Stack trace:
+    immutables.Immutable.DefaultImmutableSet.iterator(Unknown Source)
+    aprove.Framework.Algebra.Polynomials.VarPolynomial.times(VarPolynomial.java:600)
+    aprove.Framework.Algebra.Polynomials.VarPolynomial.times(VarPolynomial.java:586)
+    aprove.Framework.IntTRS.Ranking.PCS.eliminateVariable(PCS.java:148)
+    aprove.Framework.IntTRS.Ranking.PCS.eliminateOtherVariables(PCS.java:85)
+    aprove.Framework.IntTRS.Ranking.TransitionRelation.<init>(TransitionRelation.java:113)
+    aprove.Framework.IntTRS.Ranking.TransitionRelation.<init>(TransitionRelation.java:65)
+    aprove.Framework.IntTRS.Ranking.RuleToTransitionRelation.ruleToTransitionRelation(RuleToTransitionRelation.java:112)
+    aprove.Framework.IntTRS.RankingRedPair.RankingRedPairWorker.translateRules(RankingRedPairWorker.java:239)
+    aprove.Framework.IntTRS.RankingRedPair.RankingRedPairWorker.work(RankingRedPairWorker.java:182)
+    aprove.Framework.IntTRS.RankingRedPair.RankingRedPairProcessor.process(RankingRedPairProcessor.java:127)
+    aprove.Strategies.ExecutableStrategies.Executor.execute(Executor.java:326)
+    aprove.Strategies.ExecutableStrategies.Executor$Runner.wrappedRun(Executor.java:377)
+    aprove.Strategies.Abortions.PooledJob.run(PooledJob.java:99)
+    aprove.Strategies.Util.PrioritizableThreadPool$Worker.run(PrioritizableThreadPool.java:274)
+    java.lang.Thread.run(Thread.java:748)
+Aborted 1616266579Exec. 440, RankingReductionPairProcessor[GenerateFollowingInequalities=True] with a hard timeout.
+Threadpool thread died by not catching an exception
+java.lang.ThreadDeath
+	at aprove.Strategies.Abortions.PooledJob.finish(PooledJob.java:157)
+	at aprove.Strategies.Abortions.PooledJob.run(PooledJob.java:125)
+	at aprove.Strategies.Util.PrioritizableThreadPool$Worker.run(PrioritizableThreadPool.java:274)
+	at java.lang.Thread.run(Thread.java:748)
+Running Thread.stop() against 1616266598Exec. 614, RankingReductionPairProcessor[GenerateFollowingInequalities=False]
+Stack trace:
+    java.util.Collections.singletonMap(Collections.java:4856)
+    aprove.Framework.Algebra.Polynomials.VarPolynomial.<init>(VarPolynomial.java:160)
+    aprove.Framework.Algebra.Polynomials.VarPolynomial.create(VarPolynomial.java:179)
+    aprove.Framework.IntTRS.Ranking.GEConstraint.create(GEConstraint.java:80)
+    aprove.Framework.IntTRS.Ranking.PCS.eliminateVariable(PCS.java:149)
+    aprove.Framework.IntTRS.Ranking.PCS.eliminateOtherVariables(PCS.java:85)
+    aprove.Framework.IntTRS.Ranking.TransitionRelation.<init>(TransitionRelation.java:113)
+    aprove.Framework.IntTRS.Ranking.TransitionRelation.<init>(TransitionRelation.java:65)
+    aprove.Framework.IntTRS.Ranking.RuleToTransitionRelation.ruleToTransitionRelation(RuleToTransitionRelation.java:112)
+    aprove.Framework.IntTRS.RankingRedPair.RankingRedPairWorker.translateRules(RankingRedPairWorker.java:239)
+    aprove.Framework.IntTRS.RankingRedPair.RankingRedPairWorker.work(RankingRedPairWorker.java:182)
+    aprove.Framework.IntTRS.RankingRedPair.RankingRedPairProcessor.process(RankingRedPairProcessor.java:127)
+    aprove.Strategies.ExecutableStrategies.Executor.execute(Executor.java:326)
+    aprove.Strategies.ExecutableStrategies.Executor$Runner.wrappedRun(Executor.java:377)
+    aprove.Strategies.Abortions.PooledJob.run(PooledJob.java:99)
+    aprove.Strategies.Util.PrioritizableThreadPool$Worker.run(PrioritizableThreadPool.java:274)
+    java.lang.Thread.run(Thread.java:748)
+Aborted 1616266598Exec. 614, RankingReductionPairProcessor[GenerateFollowingInequalities=False] with a hard timeout.
+Threadpool thread died by not catching an exception
+java.lang.ThreadDeath
+	at aprove.Strategies.Abortions.PooledJob.finish(PooledJob.java:157)
+	at aprove.Strategies.Abortions.PooledJob.run(PooledJob.java:125)
+	at aprove.Strategies.Util.PrioritizableThreadPool$Worker.run(PrioritizableThreadPool.java:274)
+	at java.lang.Thread.run(Thread.java:748)
+Running Thread.stop() against 1616266583Exec. 480, RankingReductionPairProcessor[GenerateFollowingInequalities=True]
+Stack trace:
+    java.util.Arrays.copyOf(Arrays.java:3284)
+    java.math.MutableBigInteger.<init>(MutableBigInteger.java:132)
+    java.math.BigInteger.gcd(BigInteger.java:2439)
+    aprove.Framework.IntTRS.Ranking.GEConstraint.create(GEConstraint.java:58)
+    aprove.Framework.IntTRS.Ranking.PCS.eliminateVariable(PCS.java:149)
+    aprove.Framework.IntTRS.Ranking.PCS.eliminateOtherVariables(PCS.java:85)
+    aprove.Framework.IntTRS.Ranking.TransitionRelation.<init>(TransitionRelation.java:113)
+    aprove.Framework.IntTRS.Ranking.TransitionRelation.<init>(TransitionRelation.java:65)
+    aprove.Framework.IntTRS.Ranking.RuleToTransitionRelation.ruleToTransitionRelation(RuleToTransitionRelation.java:112)
+    aprove.Framework.IntTRS.RankingRedPair.RankingRedPairWorker.translateRules(RankingRedPairWorker.java:239)
+    aprove.Framework.IntTRS.RankingRedPair.RankingRedPairWorker.work(RankingRedPairWorker.java:182)
+    aprove.Framework.IntTRS.RankingRedPair.RankingRedPairProcessor.process(RankingRedPairProcessor.java:127)
+    aprove.Strategies.ExecutableStrategies.Executor.execute(Executor.java:326)
+    aprove.Strategies.ExecutableStrategies.Executor$Runner.wrappedRun(Executor.java:377)
+    aprove.Strategies.Abortions.PooledJob.run(PooledJob.java:99)
+    aprove.Strategies.Util.PrioritizableThreadPool$Worker.run(PrioritizableThreadPool.java:274)
+    java.lang.Thread.run(Thread.java:748)
+Running Thread.stop() against 1616266598Exec. 618, RankingReductionPairProcessor[GenerateFollowingInequalities=False]
+Stack trace:
+    immutables.Immutable.DefaultImmutableSet.iterator(Unknown Source)
+    aprove.Framework.Algebra.Polynomials.VarPolynomial.plus(VarPolynomial.java:510)
+    aprove.Framework.IntTRS.Ranking.PCS.eliminateVariable(PCS.java:147)
+    aprove.Framework.IntTRS.Ranking.PCS.eliminateOtherVariables(PCS.java:85)
+    aprove.Framework.IntTRS.Ranking.TransitionRelation.<init>(TransitionRelation.java:113)
+    aprove.Framework.IntTRS.Ranking.TransitionRelation.<init>(TransitionRelation.java:65)
+    aprove.Framework.IntTRS.Ranking.RuleToTransitionRelation.ruleToTransitionRelation(RuleToTransitionRelation.java:112)
+    aprove.Framework.IntTRS.RankingRedPair.RankingRedPairWorker.translateRules(RankingRedPairWorker.java:239)
+    aprove.Framework.IntTRS.RankingRedPair.RankingRedPairWorker.work(RankingRedPairWorker.java:182)
+    aprove.Framework.IntTRS.RankingRedPair.RankingRedPairProcessor.process(RankingRedPairProcessor.java:127)
+    aprove.Strategies.ExecutableStrategies.Executor.execute(Executor.java:326)
+    aprove.Strategies.ExecutableStrategies.Executor$Runner.wrappedRun(Executor.java:377)
+    aprove.Strategies.Abortions.PooledJob.run(PooledJob.java:99)
+    aprove.Strategies.Util.PrioritizableThreadPool$Worker.run(PrioritizableThreadPool.java:274)
+    java.lang.Thread.run(Thread.java:748)
+Aborted 1616266583Exec. 480, RankingReductionPairProcessor[GenerateFollowingInequalities=True] with a hard timeout.
+Aborted 1616266598Exec. 618, RankingReductionPairProcessor[GenerateFollowingInequalities=False] with a hard timeout.
+Threadpool thread died by not catching an exception
+java.lang.ThreadDeath
+	at aprove.Strategies.Abortions.PooledJob.finish(PooledJob.java:157)
+	at aprove.Strategies.Abortions.PooledJob.run(PooledJob.java:125)
+	at aprove.Strategies.Util.PrioritizableThreadPool$Worker.run(PrioritizableThreadPool.java:274)
+	at java.lang.Thread.run(Thread.java:748)
+Threadpool thread died by not catching an exception
+java.lang.ThreadDeath
+	at aprove.Strategies.Abortions.PooledJob.finish(PooledJob.java:157)
+	at aprove.Strategies.Abortions.PooledJob.run(PooledJob.java:125)
+	at aprove.Strategies.Util.PrioritizableThreadPool$Worker.run(PrioritizableThreadPool.java:274)
+	at java.lang.Thread.run(Thread.java:748)
+Running Thread.stop() against 1616266616Exec. 658, RankingReductionPairProcessor[GenerateFollowingInequalities=False]
+Stack trace:
+    immutables.Immutable.DefaultImmutableSet.create(Unknown Source)
+    immutables.Immutable.ImmutableCreator.create(Unknown Source)
+    immutables.Immutable.DefaultImmutableMap.entrySet(Unknown Source)
+    aprove.Framework.Algebra.Polynomials.VarPolynomial.times(VarPolynomial.java:603)
+    aprove.Framework.Algebra.Polynomials.VarPolynomial.times(VarPolynomial.java:586)
+    aprove.Framework.IntTRS.Ranking.PCS.eliminateVariable(PCS.java:148)
+    aprove.Framework.IntTRS.Ranking.PCS.eliminateOtherVariables(PCS.java:85)
+    aprove.Framework.IntTRS.Ranking.TransitionRelation.<init>(TransitionRelation.java:113)
+    aprove.Framework.IntTRS.Ranking.TransitionRelation.<init>(TransitionRelation.java:65)
+    aprove.Framework.IntTRS.Ranking.RuleToTransitionRelation.ruleToTransitionRelation(RuleToTransitionRelation.java:112)
+    aprove.Framework.IntTRS.RankingRedPair.RankingRedPairWorker.translateRules(RankingRedPairWorker.java:239)
+    aprove.Framework.IntTRS.RankingRedPair.RankingRedPairWorker.work(RankingRedPairWorker.java:182)
+    aprove.Framework.IntTRS.RankingRedPair.RankingRedPairProcessor.process(RankingRedPairProcessor.java:127)
+    aprove.Strategies.ExecutableStrategies.Executor.execute(Executor.java:326)
+    aprove.Strategies.ExecutableStrategies.Executor$Runner.wrappedRun(Executor.java:377)
+    aprove.Strategies.Abortions.PooledJob.run(PooledJob.java:99)
+    aprove.Strategies.Util.PrioritizableThreadPool$Worker.run(PrioritizableThreadPool.java:274)
+    java.lang.Thread.run(Thread.java:748)
+Aborted 1616266616Exec. 658, RankingReductionPairProcessor[GenerateFollowingInequalities=False] with a hard timeout.
+Threadpool thread died by not catching an exception
+java.lang.ThreadDeath
+	at aprove.Strategies.Abortions.PooledJob.finish(PooledJob.java:157)
+	at aprove.Strategies.Abortions.PooledJob.run(PooledJob.java:125)
+	at aprove.Strategies.Util.PrioritizableThreadPool$Worker.run(PrioritizableThreadPool.java:274)
+	at java.lang.Thread.run(Thread.java:748)
+Running Thread.stop() against 1616266581Exec. 467, RankingReductionPairProcessor[GenerateFollowingInequalities=True]
+Stack trace:
+    immutables.Immutable.ImmutableIterator.next(Unknown Source)
+    aprove.Framework.Algebra.Polynomials.SimplePolynomial.times(SimplePolynomial.java:475)
+    aprove.Framework.Algebra.Polynomials.VarPolynomial.times(VarPolynomial.java:606)
+    aprove.Framework.Algebra.Polynomials.VarPolynomial.times(VarPolynomial.java:586)
+    aprove.Framework.IntTRS.Ranking.PCS.eliminateVariable(PCS.java:147)
+    aprove.Framework.IntTRS.Ranking.PCS.eliminateOtherVariables(PCS.java:85)
+    aprove.Framework.IntTRS.Ranking.TransitionRelation.<init>(TransitionRelation.java:113)
+    aprove.Framework.IntTRS.Ranking.TransitionRelation.<init>(TransitionRelation.java:65)
+    aprove.Framework.IntTRS.Ranking.RuleToTransitionRelation.ruleToTransitionRelation(RuleToTransitionRelation.java:112)
+    aprove.Framework.IntTRS.RankingRedPair.RankingRedPairWorker.translateRules(RankingRedPairWorker.java:239)
+    aprove.Framework.IntTRS.RankingRedPair.RankingRedPairWorker.work(RankingRedPairWorker.java:182)
+    aprove.Framework.IntTRS.RankingRedPair.RankingRedPairProcessor.process(RankingRedPairProcessor.java:127)
+    aprove.Strategies.ExecutableStrategies.Executor.execute(Executor.java:326)
+    aprove.Strategies.ExecutableStrategies.Executor$Runner.wrappedRun(Executor.java:377)
+    aprove.Strategies.Abortions.PooledJob.run(PooledJob.java:99)
+    aprove.Strategies.Util.PrioritizableThreadPool$Worker.run(PrioritizableThreadPool.java:274)
+    java.lang.Thread.run(Thread.java:748)
+Aborted 1616266581Exec. 467, RankingReductionPairProcessor[GenerateFollowingInequalities=True] with a hard timeout.
+Threadpool thread died by not catching an exception
+java.lang.ThreadDeath
+	at aprove.Strategies.Abortions.PooledJob.finish(PooledJob.java:157)
+	at aprove.Strategies.Abortions.PooledJob.run(PooledJob.java:125)
+	at aprove.Strategies.Util.PrioritizableThreadPool$Worker.run(PrioritizableThreadPool.java:274)
+	at java.lang.Thread.run(Thread.java:748)
+Running Thread.stop() against 1616266587Exec. 522, RankingReductionPairProcessor[GenerateFollowingInequalities=True]
+Stack trace:
+    java.math.BigInteger.add(BigInteger.java:1332)
+    java.math.BigInteger.add(BigInteger.java:1238)
+    aprove.Framework.Algebra.Polynomials.SimplePolynomial.plus(SimplePolynomial.java:275)
+    aprove.Framework.Algebra.Polynomials.VarPolynomial.plus(VarPolynomial.java:516)
+    aprove.Framework.IntTRS.Ranking.PCS.eliminateVariable(PCS.java:147)
+    aprove.Framework.IntTRS.Ranking.PCS.eliminateOtherVariables(PCS.java:85)
+    aprove.Framework.IntTRS.Ranking.TransitionRelation.<init>(TransitionRelation.java:113)
+    aprove.Framework.IntTRS.Ranking.TransitionRelation.<init>(TransitionRelation.java:65)
+    aprove.Framework.IntTRS.Ranking.RuleToTransitionRelation.ruleToTransitionRelation(RuleToTransitionRelation.java:112)
+    aprove.Framework.IntTRS.RankingRedPair.RankingRedPairWorker.translateRules(RankingRedPairWorker.java:239)
+    aprove.Framework.IntTRS.RankingRedPair.RankingRedPairWorker.work(RankingRedPairWorker.java:182)
+    aprove.Framework.IntTRS.RankingRedPair.RankingRedPairProcessor.process(RankingRedPairProcessor.java:127)
+    aprove.Strategies.ExecutableStrategies.Executor.execute(Executor.java:326)
+    aprove.Strategies.ExecutableStrategies.Executor$Runner.wrappedRun(Executor.java:377)
+    aprove.Strategies.Abortions.PooledJob.run(PooledJob.java:99)
+    aprove.Strategies.Util.PrioritizableThreadPool$Worker.run(PrioritizableThreadPool.java:274)
+    java.lang.Thread.run(Thread.java:748)
+Running Thread.stop() against 1616266588Exec. 550, RankingReductionPairProcessor[GenerateFollowingInequalities=True]
+Stack trace:
+    java.util.HashSet.<init>(HashSet.java:162)
+Aborted 1616266587Exec. 522, RankingReductionPairProcessor[GenerateFollowingInequalities=True] with a hard timeout.
+    java.util.LinkedHashSet.<init>(LinkedHashSet.java:154)
+    aprove.Strategies.Abortions.Abortion.<init>(Abortion.java:30)
+    aprove.Strategies.Abortions.AbortionFactory.create(AbortionFactory.java:14)
+    aprove.Framework.Algebra.Polynomials.VarPolynomial.times(VarPolynomial.java:586)
+    aprove.Framework.IntTRS.Ranking.PCS.eliminateVariable(PCS.java:147)
+    aprove.Framework.IntTRS.Ranking.PCS.eliminateOtherVariables(PCS.java:85)
+    aprove.Framework.IntTRS.Ranking.TransitionRelation.<init>(TransitionRelation.java:113)
+    aprove.Framework.IntTRS.Ranking.TransitionRelation.<init>(TransitionRelation.java:65)
+    aprove.Framework.IntTRS.Ranking.RuleToTransitionRelation.ruleToTransitionRelation(RuleToTransitionRelation.java:112)
+    aprove.Framework.IntTRS.RankingRedPair.RankingRedPairWorker.translateRules(RankingRedPairWorker.java:239)
+    aprove.Framework.IntTRS.RankingRedPair.RankingRedPairWorker.work(RankingRedPairWorker.java:182)
+    aprove.Framework.IntTRS.RankingRedPair.RankingRedPairProcessor.process(RankingRedPairProcessor.java:127)
+    aprove.Strategies.ExecutableStrategies.Executor.execute(Executor.java:326)
+    aprove.Strategies.ExecutableStrategies.Executor$Runner.wrappedRun(Executor.java:377)
+    aprove.Strategies.Abortions.PooledJob.run(PooledJob.java:99)
+    aprove.Strategies.Util.PrioritizableThreadPool$Worker.run(PrioritizableThreadPool.java:274)
+    java.lang.Thread.run(Thread.java:748)
+Threadpool thread died by not catching an exception
+java.lang.ThreadDeath
+	at aprove.Strategies.Abortions.PooledJob.finish(PooledJob.java:157)
+	at aprove.Strategies.Abortions.PooledJob.run(PooledJob.java:125)
+	at aprove.Strategies.Util.PrioritizableThreadPool$Worker.run(PrioritizableThreadPool.java:274)
+	at java.lang.Thread.run(Thread.java:748)
+Aborted 1616266588Exec. 550, RankingReductionPairProcessor[GenerateFollowingInequalities=True] with a hard timeout.
+Threadpool thread died by not catching an exception
+java.lang.ThreadDeath
+	at aprove.Strategies.Abortions.PooledJob.finish(PooledJob.java:157)
+	at aprove.Strategies.Abortions.PooledJob.run(PooledJob.java:125)
+	at aprove.Strategies.Util.PrioritizableThreadPool$Worker.run(PrioritizableThreadPool.java:274)
+	at java.lang.Thread.run(Thread.java:748)
+Running Thread.stop() against 1616266592Exec. 571, RankingReductionPairProcessor[GenerateFollowingInequalities=True]
+Stack trace:
+    aprove.Framework.Algebra.Polynomials.IndefinitePart.times(IndefinitePart.java:222)
+    aprove.Framework.Algebra.Polynomials.SimplePolynomial.times(SimplePolynomial.java:481)
+    aprove.Framework.Algebra.Polynomials.VarPolynomial.times(VarPolynomial.java:606)
+    aprove.Framework.Algebra.Polynomials.VarPolynomial.times(VarPolynomial.java:586)
+    aprove.Framework.IntTRS.Ranking.PCS.eliminateVariable(PCS.java:147)
+    aprove.Framework.IntTRS.Ranking.PCS.eliminateOtherVariables(PCS.java:85)
+    aprove.Framework.IntTRS.Ranking.TransitionRelation.<init>(TransitionRelation.java:113)
+    aprove.Framework.IntTRS.Ranking.TransitionRelation.<init>(TransitionRelation.java:65)
+    aprove.Framework.IntTRS.Ranking.RuleToTransitionRelation.ruleToTransitionRelation(RuleToTransitionRelation.java:112)
+    aprove.Framework.IntTRS.RankingRedPair.RankingRedPairWorker.translateRules(RankingRedPairWorker.java:239)
+    aprove.Framework.IntTRS.RankingRedPair.RankingRedPairWorker.work(RankingRedPairWorker.java:182)
+    aprove.Framework.IntTRS.RankingRedPair.RankingRedPairProcessor.process(RankingRedPairProcessor.java:127)
+    aprove.Strategies.ExecutableStrategies.Executor.execute(Executor.java:326)
+    aprove.Strategies.ExecutableStrategies.Executor$Runner.wrappedRun(Executor.java:377)
+    aprove.Strategies.Abortions.PooledJob.run(PooledJob.java:99)
+    aprove.Strategies.Util.PrioritizableThreadPool$Worker.run(PrioritizableThreadPool.java:274)
+    java.lang.Thread.run(Thread.java:748)
+Running Thread.stop() against 1616266629Exec. 703, RankingReductionPairProcessor[GenerateFollowingInequalities=False]
+Stack trace:
+    immutables.Immutable.DefaultImmutableSet.iterator(Unknown Source)
+    aprove.Framework.Algebra.Polynomials.SimplePolynomial.times(SimplePolynomial.java:475)
+    aprove.Framework.Algebra.Polynomials.VarPolynomial.times(VarPolynomial.java:606)
+    aprove.Framework.Algebra.Polynomials.VarPolynomial.times(VarPolynomial.java:586)
+    aprove.Framework.IntTRS.Ranking.PCS.eliminateVariable(PCS.java:147)
+    aprove.Framework.IntTRS.Ranking.PCS.eliminateOtherVariables(PCS.java:85)
+    aprove.Framework.IntTRS.Ranking.TransitionRelation.<init>(TransitionRelation.java:113)
+    aprove.Framework.IntTRS.Ranking.TransitionRelation.<init>(TransitionRelation.java:65)
+    aprove.Framework.IntTRS.Ranking.RuleToTransitionRelation.ruleToTransitionRelation(RuleToTransitionRelation.java:112)
+    aprove.Framework.IntTRS.RankingRedPair.RankingRedPairWorker.translateRules(RankingRedPairWorker.java:239)
+    aprove.Framework.IntTRS.RankingRedPair.RankingRedPairWorker.work(RankingRedPairWorker.java:182)
+    aprove.Framework.IntTRS.RankingRedPair.RankingRedPairProcessor.process(RankingRedPairProcessor.java:127)
+    aprove.Strategies.ExecutableStrategies.Executor.execute(Executor.java:326)
+    aprove.Strategies.ExecutableStrategies.Executor$Runner.wrappedRun(Executor.java:377)
+    aprove.Strategies.Abortions.PooledJob.run(PooledJob.java:99)
+    aprove.Strategies.Util.PrioritizableThreadPool$Worker.run(PrioritizableThreadPool.java:274)
+    java.lang.Thread.run(Thread.java:748)
+Aborted 1616266629Exec. 703, RankingReductionPairProcessor[GenerateFollowingInequalities=False] with a hard timeout.
+Threadpool thread died by not catching an exception
+java.lang.ThreadDeath
+	at aprove.Strategies.Abortions.PooledJob.finish(PooledJob.java:157)
+	at aprove.Strategies.Abortions.PooledJob.run(PooledJob.java:125)
+	at aprove.Strategies.Util.PrioritizableThreadPool$Worker.run(PrioritizableThreadPool.java:274)
+	at java.lang.Thread.run(Thread.java:748)
+Aborted 1616266592Exec. 571, RankingReductionPairProcessor[GenerateFollowingInequalities=True] with a hard timeout.
+Threadpool thread died by not catching an exception
+java.lang.ThreadDeath
+	at aprove.Strategies.Abortions.PooledJob.finish(PooledJob.java:157)
+	at aprove.Strategies.Abortions.PooledJob.run(PooledJob.java:125)
+	at aprove.Strategies.Util.PrioritizableThreadPool$Worker.run(PrioritizableThreadPool.java:274)
+	at java.lang.Thread.run(Thread.java:748)
+Running Thread.stop() against 1616266598Exec. 616, RankingReductionPairProcessor[GenerateFollowingInequalities=True]
+Stack trace:
+    immutables.Immutable.DefaultImmutableSet.iterator(Unknown Source)
+    aprove.Framework.Algebra.Polynomials.SimplePolynomial.times(SimplePolynomial.java:475)
+    aprove.Framework.Algebra.Polynomials.VarPolynomial.times(VarPolynomial.java:606)
+    aprove.Framework.Algebra.Polynomials.VarPolynomial.times(VarPolynomial.java:586)
+    aprove.Framework.IntTRS.Ranking.PCS.eliminateVariable(PCS.java:148)
+    aprove.Framework.IntTRS.Ranking.PCS.eliminateOtherVariables(PCS.java:85)
+    aprove.Framework.IntTRS.Ranking.TransitionRelation.<init>(TransitionRelation.java:113)
+    aprove.Framework.IntTRS.Ranking.TransitionRelation.<init>(TransitionRelation.java:65)
+    aprove.Framework.IntTRS.Ranking.RuleToTransitionRelation.ruleToTransitionRelation(RuleToTransitionRelation.java:112)
+    aprove.Framework.IntTRS.RankingRedPair.RankingRedPairWorker.translateRules(RankingRedPairWorker.java:239)
+    aprove.Framework.IntTRS.RankingRedPair.RankingRedPairWorker.work(RankingRedPairWorker.java:182)
+    aprove.Framework.IntTRS.RankingRedPair.RankingRedPairProcessor.process(RankingRedPairProcessor.java:127)
+    aprove.Strategies.ExecutableStrategies.Executor.execute(Executor.java:326)
+    aprove.Strategies.ExecutableStrategies.Executor$Runner.wrappedRun(Executor.java:377)
+    aprove.Strategies.Abortions.PooledJob.run(PooledJob.java:99)
+    aprove.Strategies.Util.PrioritizableThreadPool$Worker.run(PrioritizableThreadPool.java:274)
+    java.lang.Thread.run(Thread.java:748)
+Aborted 1616266598Exec. 616, RankingReductionPairProcessor[GenerateFollowingInequalities=True] with a hard timeout.
+Running Thread.stop() against 1616266598Exec. 620, RankingReductionPairProcessor[GenerateFollowingInequalities=True]
+Stack trace:
+    immutables.Immutable.DefaultImmutableSet.iterator(Unknown Source)
+    aprove.Framework.Algebra.Polynomials.IndefinitePart.times(IndefinitePart.java:216)
+    aprove.Framework.Algebra.Polynomials.VarPolynomial.times(VarPolynomial.java:605)
+    aprove.Framework.Algebra.Polynomials.VarPolynomial.times(VarPolynomial.java:586)
+    aprove.Framework.IntTRS.Ranking.PCS.eliminateVariable(PCS.java:147)
+    aprove.Framework.IntTRS.Ranking.PCS.eliminateOtherVariables(PCS.java:85)
+    aprove.Framework.IntTRS.Ranking.TransitionRelation.<init>(TransitionRelation.java:113)
+    aprove.Framework.IntTRS.Ranking.TransitionRelation.<init>(TransitionRelation.java:65)
+    aprove.Framework.IntTRS.Ranking.RuleToTransitionRelation.ruleToTransitionRelation(RuleToTransitionRelation.java:112)
+    aprove.Framework.IntTRS.RankingRedPair.RankingRedPairWorker.translateRules(RankingRedPairWorker.java:239)
+    aprove.Framework.IntTRS.RankingRedPair.RankingRedPairWorker.work(RankingRedPairWorker.java:182)
+    aprove.Framework.IntTRS.RankingRedPair.RankingRedPairProcessor.process(RankingRedPairProcessor.java:127)
+    aprove.Strategies.ExecutableStrategies.Executor.execute(Executor.java:326)
+    aprove.Strategies.ExecutableStrategies.Executor$Runner.wrappedRun(Executor.java:377)
+    aprove.Strategies.Abortions.PooledJob.run(PooledJob.java:99)
+    aprove.Strategies.Util.PrioritizableThreadPool$Worker.run(PrioritizableThreadPool.java:274)
+    java.lang.Thread.run(Thread.java:748)
+Running Thread.stop() against 1616266664Exec. 767, RankingReductionPairProcessor[GenerateFollowingInequalities=False]
+Stack trace:
+Threadpool thread died by not catching an exception
+java.lang.ThreadDeath
+	at aprove.Strategies.Abortions.PooledJob.finish(PooledJob.java:157)
+	at aprove.Strategies.Abortions.PooledJob.run(PooledJob.java:125)
+	at aprove.Strategies.Util.PrioritizableThreadPool$Worker.run(PrioritizableThreadPool.java:274)
+	at java.lang.Thread.run(Thread.java:748)
+    java.math.BigInteger.add(BigInteger.java:1247)
+    aprove.Framework.Algebra.Polynomials.SimplePolynomial.plus(SimplePolynomial.java:275)
+    aprove.Framework.Algebra.Polynomials.VarPolynomial.plus(VarPolynomial.java:516)
+    aprove.Framework.IntTRS.Ranking.PCS.eliminateVariable(PCS.java:147)
+    aprove.Framework.IntTRS.Ranking.PCS.eliminateOtherVariables(PCS.java:85)
+    aprove.Framework.IntTRS.Ranking.TransitionRelation.<init>(TransitionRelation.java:113)
+    aprove.Framework.IntTRS.Ranking.TransitionRelation.<init>(TransitionRelation.java:65)
+    aprove.Framework.IntTRS.Ranking.RuleToTransitionRelation.ruleToTransitionRelation(RuleToTransitionRelation.java:112)
+    aprove.Framework.IntTRS.RankingRedPair.RankingRedPairWorker.translateRules(RankingRedPairWorker.java:239)
+    aprove.Framework.IntTRS.RankingRedPair.RankingRedPairWorker.work(RankingRedPairWorker.java:182)
+    aprove.Framework.IntTRS.RankingRedPair.RankingRedPairProcessor.process(RankingRedPairProcessor.java:127)
+    aprove.Strategies.ExecutableStrategies.Executor.execute(Executor.java:326)
+    aprove.Strategies.ExecutableStrategies.Executor$Runner.wrappedRun(Executor.java:377)
+    aprove.Strategies.Abortions.PooledJob.run(PooledJob.java:99)
+    aprove.Strategies.Util.PrioritizableThreadPool$Worker.run(PrioritizableThreadPool.java:274)
+    java.lang.Thread.run(Thread.java:748)
+Aborted 1616266598Exec. 620, RankingReductionPairProcessor[GenerateFollowingInequalities=True] with a hard timeout.
+Aborted 1616266664Exec. 767, RankingReductionPairProcessor[GenerateFollowingInequalities=False] with a hard timeout.
+Threadpool thread died by not catching an exception
+java.lang.ThreadDeath
+	at aprove.Strategies.Abortions.PooledJob.finish(PooledJob.java:157)
+	at aprove.Strategies.Abortions.PooledJob.run(PooledJob.java:125)
+	at aprove.Strategies.Util.PrioritizableThreadPool$Worker.run(PrioritizableThreadPool.java:274)
+	at java.lang.Thread.run(Thread.java:748)
+Threadpool thread died by not catching an exception
+java.lang.ThreadDeath
+	at aprove.Strategies.Abortions.PooledJob.finish(PooledJob.java:157)
+	at aprove.Strategies.Abortions.PooledJob.run(PooledJob.java:125)
+	at aprove.Strategies.Util.PrioritizableThreadPool$Worker.run(PrioritizableThreadPool.java:274)
+	at java.lang.Thread.run(Thread.java:748)
+Running Thread.stop() against 1616266674Exec. 792, RankingReductionPairProcessor[GenerateFollowingInequalities=False]
+Stack trace:
+    immutables.Immutable.DefaultImmutableSet.iterator(Unknown Source)
+    aprove.Framework.Algebra.Polynomials.VarPolynomial.times(VarPolynomial.java:603)
+    aprove.Framework.Algebra.Polynomials.VarPolynomial.times(VarPolynomial.java:586)
+    aprove.Framework.IntTRS.Ranking.PCS.eliminateVariable(PCS.java:148)
+    aprove.Framework.IntTRS.Ranking.PCS.eliminateOtherVariables(PCS.java:85)
+    aprove.Framework.IntTRS.Ranking.TransitionRelation.<init>(TransitionRelation.java:113)
+    aprove.Framework.IntTRS.Ranking.TransitionRelation.<init>(TransitionRelation.java:65)
+    aprove.Framework.IntTRS.Ranking.RuleToTransitionRelation.ruleToTransitionRelation(RuleToTransitionRelation.java:112)
+    aprove.Framework.IntTRS.RankingRedPair.RankingRedPairWorker.translateRules(RankingRedPairWorker.java:239)
+    aprove.Framework.IntTRS.RankingRedPair.RankingRedPairWorker.work(RankingRedPairWorker.java:182)
+    aprove.Framework.IntTRS.RankingRedPair.RankingRedPairProcessor.process(RankingRedPairProcessor.java:127)
+    aprove.Strategies.ExecutableStrategies.Executor.execute(Executor.java:326)
+    aprove.Strategies.ExecutableStrategies.Executor$Runner.wrappedRun(Executor.java:377)
+    aprove.Strategies.Abortions.PooledJob.run(PooledJob.java:99)
+    aprove.Strategies.Util.PrioritizableThreadPool$Worker.run(PrioritizableThreadPool.java:274)
+    java.lang.Thread.run(Thread.java:748)
+Running Thread.stop() against 1616266675Exec. 802, RankingReductionPairProcessor[GenerateFollowingInequalities=False]
+Stack trace:
+    immutables.Immutable.DefaultImmutableSet.iterator(Unknown Source)
+    aprove.Framework.Algebra.Polynomials.SimplePolynomial.times(SimplePolynomial.java:475)
+    aprove.Framework.Algebra.Polynomials.VarPolynomial.times(VarPolynomial.java:606)
+    aprove.Framework.Algebra.Polynomials.VarPolynomial.times(VarPolynomial.java:586)
+    aprove.Framework.IntTRS.Ranking.PCS.eliminateVariable(PCS.java:148)
+    aprove.Framework.IntTRS.Ranking.PCS.eliminateOtherVariables(PCS.java:85)
+    aprove.Framework.IntTRS.Ranking.TransitionRelation.<init>(TransitionRelation.java:113)
+    aprove.Framework.IntTRS.Ranking.TransitionRelation.<init>(TransitionRelation.java:65)
+    aprove.Framework.IntTRS.Ranking.RuleToTransitionRelation.ruleToTransitionRelation(RuleToTransitionRelation.java:112)
+    aprove.Framework.IntTRS.RankingRedPair.RankingRedPairWorker.translateRules(RankingRedPairWorker.java:239)
+    aprove.Framework.IntTRS.RankingRedPair.RankingRedPairWorker.work(RankingRedPairWorker.java:182)
+    aprove.Framework.IntTRS.RankingRedPair.RankingRedPairProcessor.process(RankingRedPairProcessor.java:127)
+    aprove.Strategies.ExecutableStrategies.Executor.execute(Executor.java:326)
+    aprove.Strategies.ExecutableStrategies.Executor$Runner.wrappedRun(Executor.java:377)
+    aprove.Strategies.Abortions.PooledJob.run(PooledJob.java:99)
+    aprove.Strategies.Util.PrioritizableThreadPool$Worker.run(PrioritizableThreadPool.java:274)
+    java.lang.Thread.run(Thread.java:748)
+Aborted 1616266675Exec. 802, RankingReductionPairProcessor[GenerateFollowingInequalities=False] with a hard timeout.
+Threadpool thread died by not catching an exception
+java.lang.ThreadDeath
+	at aprove.Strategies.Abortions.PooledJob.finish(PooledJob.java:157)
+	at aprove.Strategies.Abortions.PooledJob.run(PooledJob.java:125)
+	at aprove.Strategies.Util.PrioritizableThreadPool$Worker.run(PrioritizableThreadPool.java:274)
+	at java.lang.Thread.run(Thread.java:748)
+Aborted 1616266674Exec. 792, RankingReductionPairProcessor[GenerateFollowingInequalities=False] with a hard timeout.
+Threadpool thread died by not catching an exception
+java.lang.ThreadDeath
+	at aprove.Strategies.Abortions.PooledJob.finish(PooledJob.java:157)
+	at aprove.Strategies.Abortions.PooledJob.run(PooledJob.java:125)
+	at aprove.Strategies.Util.PrioritizableThreadPool$Worker.run(PrioritizableThreadPool.java:274)
+	at java.lang.Thread.run(Thread.java:748)
+Running Thread.stop() against 1616266616Exec. 660, RankingReductionPairProcessor[GenerateFollowingInequalities=True]
+Stack trace:
+    immutables.Immutable.DefaultImmutableSet.iterator(Unknown Source)
+    aprove.Framework.Algebra.Polynomials.VarPolynomial.times(VarPolynomial.java:600)
+    aprove.Framework.Algebra.Polynomials.VarPolynomial.times(VarPolynomial.java:586)
+    aprove.Framework.IntTRS.Ranking.PCS.eliminateVariable(PCS.java:147)
+    aprove.Framework.IntTRS.Ranking.PCS.eliminateOtherVariables(PCS.java:85)
+    aprove.Framework.IntTRS.Ranking.TransitionRelation.<init>(TransitionRelation.java:113)
+    aprove.Framework.IntTRS.Ranking.TransitionRelation.<init>(TransitionRelation.java:65)
+    aprove.Framework.IntTRS.Ranking.RuleToTransitionRelation.ruleToTransitionRelation(RuleToTransitionRelation.java:112)
+    aprove.Framework.IntTRS.RankingRedPair.RankingRedPairWorker.translateRules(RankingRedPairWorker.java:239)
+    aprove.Framework.IntTRS.RankingRedPair.RankingRedPairWorker.work(RankingRedPairWorker.java:182)
+    aprove.Framework.IntTRS.RankingRedPair.RankingRedPairProcessor.process(RankingRedPairProcessor.java:127)
+    aprove.Strategies.ExecutableStrategies.Executor.execute(Executor.java:326)
+    aprove.Strategies.ExecutableStrategies.Executor$Runner.wrappedRun(Executor.java:377)
+    aprove.Strategies.Abortions.PooledJob.run(PooledJob.java:99)
+    aprove.Strategies.Util.PrioritizableThreadPool$Worker.run(PrioritizableThreadPool.java:274)
+    java.lang.Thread.run(Thread.java:748)
+Aborted 1616266616Exec. 660, RankingReductionPairProcessor[GenerateFollowingInequalities=True] with a hard timeout.
+Threadpool thread died by not catching an exception
+java.lang.ThreadDeath
+	at aprove.Strategies.Abortions.PooledJob.finish(PooledJob.java:157)
+	at aprove.Strategies.Abortions.PooledJob.run(PooledJob.java:125)
+	at aprove.Strategies.Util.PrioritizableThreadPool$Worker.run(PrioritizableThreadPool.java:274)
+	at java.lang.Thread.run(Thread.java:748)
+Running Thread.stop() against 1616266865Exec. 1219, IntTRSTerminationGraphProcessor[UseChaining=True]
+Stack trace:
+    aprove.Strategies.Abortions.PooledJob.finish(PooledJob.java:147)
+    aprove.Strategies.Abortions.PooledJob.run(PooledJob.java:125)
+    aprove.Strategies.Util.PrioritizableThreadPool$Worker.run(PrioritizableThreadPool.java:274)
+    java.lang.Thread.run(Thread.java:748)
+Threadpool thread died by not catching an exception
+java.lang.ThreadDeath
+	at java.lang.Thread.stop(Thread.java:853)
+	at aprove.Strategies.Abortions.PooledJob.kill(PooledJob.java:174)
+	at aprove.Strategies.Abortions.TrackThreadPool.kill(TrackThreadPool.java:42)
+	at aprove.Strategies.Abortions.TrackThread.checkKill(TrackThread.java:173)
+	at aprove.Strategies.Abortions.TrackThread.checkTime(TrackThread.java:110)
+	at aprove.Strategies.Abortions.TimeRefresher$TimeRefresherThread.doPoll(TimeRefresher.java:65)
+	at aprove.Strategies.Abortions.TimeRefresher$TimeRefresherThread.run(TimeRefresher.java:54)
+real 402.94
+user 0.00
+sys 0.00

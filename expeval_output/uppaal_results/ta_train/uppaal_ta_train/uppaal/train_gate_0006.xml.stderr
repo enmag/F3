@@ -1,0 +1,589 @@
+
+State
+
+( ltl._id0 gate.gate0 controller.controller0 train0.train0 train1.train0 train2.train0 train3.train0 train4.train0 train5.train0 )
+gate.y-controller.z<=0, gate.y-train0.x<=0, gate.y-train1.x<=0, gate.y-train2.x<=0, gate.y-train3.x<=0, gate.y-train4.x<=0, gate.y-train5.x<=0, controller.z-gate.y<=0, controller.z-train0.x<=0, controller.z-train1.x<=0, controller.z-train2.x<=0, controller.z-train3.x<=0, controller.z-train4.x<=0, controller.z-train5.x<=0, train0.x-gate.y<=0, train0.x-controller.z<=0, train0.x-train1.x<=0, train0.x-train2.x<=0, train0.x-train3.x<=0, train0.x-train4.x<=0, train0.x-train5.x<=0, train1.x-gate.y<=0, train1.x-controller.z<=0, train1.x-train0.x<=0, train1.x-train2.x<=0, train1.x-train3.x<=0, train1.x-train4.x<=0, train1.x-train5.x<=0, train2.x-gate.y<=0, train2.x-controller.z<=0, train2.x-train0.x<=0, train2.x-train1.x<=0, train2.x-train3.x<=0, train2.x-train4.x<=0, train2.x-train5.x<=0, train3.x-gate.y<=0, train3.x-controller.z<=0, train3.x-train0.x<=0, train3.x-train1.x<=0, train3.x-train2.x<=0, train3.x-train4.x<=0, train3.x-train5.x<=0, train4.x-gate.y<=0, train4.x-controller.z<=0, train4.x-train0.x<=0, train4.x-train1.x<=0, train4.x-train2.x<=0, train4.x-train3.x<=0, train4.x-train5.x<=0, train5.x-gate.y<=0, train5.x-controller.z<=0, train5.x-train0.x<=0, train5.x-train1.x<=0, train5.x-train2.x<=0, train5.x-train3.x<=0, train5.x-train4.x<=0 controller.cnt=0 
+
+Transitions:
+  controller.controller0->controller.controller1 { 1, approach!, z := 0, cnt := 1 }
+  train0.train0->train0.train1 { 1, approach?, x := 0 }
+
+State
+
+( ltl._id0 gate.gate0 controller.controller1 train0.train1 train1.train0 train2.train0 train3.train0 train4.train0 train5.train0 )
+gate.y-train1.x<=0, gate.y-train2.x<=0, gate.y-train3.x<=0, gate.y-train4.x<=0, gate.y-train5.x<=0, controller.z<=1, controller.z-gate.y<=0, controller.z-train0.x<=0, controller.z-train1.x<=0, controller.z-train2.x<=0, controller.z-train3.x<=0, controller.z-train4.x<=0, controller.z-train5.x<=0, train0.x<=1, train0.x-gate.y<=0, train0.x-controller.z<=0, train0.x-train1.x<=0, train0.x-train2.x<=0, train0.x-train3.x<=0, train0.x-train4.x<=0, train0.x-train5.x<=0, train1.x-gate.y<=0, train1.x-train2.x<=0, train1.x-train3.x<=0, train1.x-train4.x<=0, train1.x-train5.x<=0, train2.x-gate.y<=0, train2.x-train1.x<=0, train2.x-train3.x<=0, train2.x-train4.x<=0, train2.x-train5.x<=0, train3.x-gate.y<=0, train3.x-train1.x<=0, train3.x-train2.x<=0, train3.x-train4.x<=0, train3.x-train5.x<=0, train4.x-gate.y<=0, train4.x-train1.x<=0, train4.x-train2.x<=0, train4.x-train3.x<=0, train4.x-train5.x<=0, train5.x-gate.y<=0, train5.x-train1.x<=0, train5.x-train2.x<=0, train5.x-train3.x<=0, train5.x-train4.x<=0 controller.cnt=1 
+
+Transitions:
+  controller.controller1->controller.controller2 { z == e, lower!, 1 }
+  gate.gate0->gate._id7 { 1, lower?, y := 0 }
+
+State
+
+( ltl._id0 gate._id7 controller.controller2 train0.train1 train1.train0 train2.train0 train3.train0 train4.train0 train5.train0 )
+controller.z>=1, train0.x>=1, train1.x>=1, train2.x>=1, train3.x>=1, train4.x>=1, train5.x>=1, gate.y<=0, gate.y-controller.z<=-1, gate.y-train0.x<=-1, gate.y-train1.x<=-1, gate.y-train2.x<=-1, gate.y-train3.x<=-1, gate.y-train4.x<=-1, gate.y-train5.x<=-1, controller.z<=1, controller.z-gate.y<=1, controller.z-train0.x<=0, controller.z-train1.x<=0, controller.z-train2.x<=0, controller.z-train3.x<=0, controller.z-train4.x<=0, controller.z-train5.x<=0, train0.x<=1, train0.x-gate.y<=1, train0.x-controller.z<=0, train0.x-train1.x<=0, train0.x-train2.x<=0, train0.x-train3.x<=0, train0.x-train4.x<=0, train0.x-train5.x<=0, train1.x-train2.x<=0, train1.x-train3.x<=0, train1.x-train4.x<=0, train1.x-train5.x<=0, train2.x-train1.x<=0, train2.x-train3.x<=0, train2.x-train4.x<=0, train2.x-train5.x<=0, train3.x-train1.x<=0, train3.x-train2.x<=0, train3.x-train4.x<=0, train3.x-train5.x<=0, train4.x-train1.x<=0, train4.x-train2.x<=0, train4.x-train3.x<=0, train4.x-train5.x<=0, train5.x-train1.x<=0, train5.x-train2.x<=0, train5.x-train3.x<=0, train5.x-train4.x<=0 controller.cnt=1 
+
+Transitions:
+  gate._id7->gate.gate1 { 1, g0_to_g1!, 1 }
+  ltl._id0->ltl.f0 { 1, g0_to_g1?, 1 }
+
+State
+
+( ltl.f0 gate.gate1 controller.controller2 train0.train1 train1.train0 train2.train0 train3.train0 train4.train0 train5.train0 )
+controller.z>=1, train0.x>=1, train1.x>=1, train2.x>=1, train3.x>=1, train4.x>=1, train5.x>=1, gate.y<=1, gate.y-controller.z<=-1, gate.y-train0.x<=-1, gate.y-train1.x<=-1, gate.y-train2.x<=-1, gate.y-train3.x<=-1, gate.y-train4.x<=-1, gate.y-train5.x<=-1, controller.z<=2, controller.z-gate.y<=1, controller.z-train0.x<=0, controller.z-train1.x<=0, controller.z-train2.x<=0, controller.z-train3.x<=0, controller.z-train4.x<=0, controller.z-train5.x<=0, train0.x<=2, train0.x-gate.y<=1, train0.x-controller.z<=0, train0.x-train1.x<=0, train0.x-train2.x<=0, train0.x-train3.x<=0, train0.x-train4.x<=0, train0.x-train5.x<=0, train1.x-train2.x<=0, train1.x-train3.x<=0, train1.x-train4.x<=0, train1.x-train5.x<=0, train2.x-train1.x<=0, train2.x-train3.x<=0, train2.x-train4.x<=0, train2.x-train5.x<=0, train3.x-train1.x<=0, train3.x-train2.x<=0, train3.x-train4.x<=0, train3.x-train5.x<=0, train4.x-train1.x<=0, train4.x-train2.x<=0, train4.x-train3.x<=0, train4.x-train5.x<=0, train5.x-train1.x<=0, train5.x-train2.x<=0, train5.x-train3.x<=0, train5.x-train4.x<=0 controller.cnt=1 
+
+Transitions:
+  controller.controller2->controller.controller2 { 1, approach!, cnt := cnt + 1 }
+  train5.train0->train5.train1 { 1, approach?, x := 0 }
+
+State
+
+( ltl.f0 gate.gate1 controller.controller2 train0.train1 train1.train0 train2.train0 train3.train0 train4.train0 train5.train1 )
+controller.z>=1, train0.x>=1, train1.x>=1, train2.x>=1, train3.x>=1, train4.x>=1, gate.y<=1, gate.y-controller.z<=-1, gate.y-train0.x<=-1, gate.y-train1.x<=-1, gate.y-train2.x<=-1, gate.y-train3.x<=-1, gate.y-train4.x<=-1, gate.y-train5.x<=1, controller.z<=2, controller.z-gate.y<=1, controller.z-train0.x<=0, controller.z-train1.x<=0, controller.z-train2.x<=0, controller.z-train3.x<=0, controller.z-train4.x<=0, controller.z-train5.x<=2, train0.x<=2, train0.x-gate.y<=1, train0.x-controller.z<=0, train0.x-train1.x<=0, train0.x-train2.x<=0, train0.x-train3.x<=0, train0.x-train4.x<=0, train0.x-train5.x<=2, train1.x-train2.x<=0, train1.x-train3.x<=0, train1.x-train4.x<=0, train2.x-train1.x<=0, train2.x-train3.x<=0, train2.x-train4.x<=0, train3.x-train1.x<=0, train3.x-train2.x<=0, train3.x-train4.x<=0, train4.x-train1.x<=0, train4.x-train2.x<=0, train4.x-train3.x<=0, train5.x<=1, train5.x-gate.y<=0, train5.x-controller.z<=-1, train5.x-train0.x<=-1, train5.x-train1.x<=-1, train5.x-train2.x<=-1, train5.x-train3.x<=-1, train5.x-train4.x<=-1 controller.cnt=2 
+
+Transitions:
+  controller.controller2->controller.controller2 { 1, approach!, cnt := cnt + 1 }
+  train4.train0->train4.train1 { 1, approach?, x := 0 }
+
+State
+
+( ltl.f0 gate.gate1 controller.controller2 train0.train1 train1.train0 train2.train0 train3.train0 train4.train1 train5.train1 )
+controller.z>=1, train0.x>=1, train1.x>=1, train2.x>=1, train3.x>=1, gate.y<=1, gate.y-controller.z<=-1, gate.y-train0.x<=-1, gate.y-train1.x<=-1, gate.y-train2.x<=-1, gate.y-train3.x<=-1, gate.y-train4.x<=1, gate.y-train5.x<=1, controller.z<=2, controller.z-gate.y<=1, controller.z-train0.x<=0, controller.z-train1.x<=0, controller.z-train2.x<=0, controller.z-train3.x<=0, controller.z-train4.x<=2, controller.z-train5.x<=2, train0.x<=2, train0.x-gate.y<=1, train0.x-controller.z<=0, train0.x-train1.x<=0, train0.x-train2.x<=0, train0.x-train3.x<=0, train0.x-train4.x<=2, train0.x-train5.x<=2, train1.x-train2.x<=0, train1.x-train3.x<=0, train2.x-train1.x<=0, train2.x-train3.x<=0, train3.x-train1.x<=0, train3.x-train2.x<=0, train4.x<=1, train4.x-gate.y<=0, train4.x-controller.z<=-1, train4.x-train0.x<=-1, train4.x-train1.x<=-1, train4.x-train2.x<=-1, train4.x-train3.x<=-1, train4.x-train5.x<=0, train5.x<=1, train5.x-gate.y<=0, train5.x-controller.z<=-1, train5.x-train0.x<=-1, train5.x-train1.x<=-1, train5.x-train2.x<=-1, train5.x-train3.x<=-1, train5.x-train4.x<=1 controller.cnt=3 
+
+Transitions:
+  controller.controller2->controller.controller2 { 1, approach!, cnt := cnt + 1 }
+  train3.train0->train3.train1 { 1, approach?, x := 0 }
+
+State
+
+( ltl.f0 gate.gate1 controller.controller2 train0.train1 train1.train0 train2.train0 train3.train1 train4.train1 train5.train1 )
+controller.z>=1, train0.x>=1, train1.x>=1, train2.x>=1, gate.y<=1, gate.y-controller.z<=-1, gate.y-train0.x<=-1, gate.y-train1.x<=-1, gate.y-train2.x<=-1, gate.y-train3.x<=1, gate.y-train4.x<=1, gate.y-train5.x<=1, controller.z<=2, controller.z-gate.y<=1, controller.z-train0.x<=0, controller.z-train1.x<=0, controller.z-train2.x<=0, controller.z-train3.x<=2, controller.z-train4.x<=2, controller.z-train5.x<=2, train0.x<=2, train0.x-gate.y<=1, train0.x-controller.z<=0, train0.x-train1.x<=0, train0.x-train2.x<=0, train0.x-train3.x<=2, train0.x-train4.x<=2, train0.x-train5.x<=2, train1.x-train2.x<=0, train2.x-train1.x<=0, train3.x<=1, train3.x-gate.y<=0, train3.x-controller.z<=-1, train3.x-train0.x<=-1, train3.x-train1.x<=-1, train3.x-train2.x<=-1, train3.x-train4.x<=0, train3.x-train5.x<=0, train4.x<=1, train4.x-gate.y<=0, train4.x-controller.z<=-1, train4.x-train0.x<=-1, train4.x-train1.x<=-1, train4.x-train2.x<=-1, train4.x-train3.x<=1, train4.x-train5.x<=0, train5.x<=1, train5.x-gate.y<=0, train5.x-controller.z<=-1, train5.x-train0.x<=-1, train5.x-train1.x<=-1, train5.x-train2.x<=-1, train5.x-train3.x<=1, train5.x-train4.x<=1 controller.cnt=4 
+
+Transitions:
+  controller.controller2->controller.controller2 { 1, approach!, cnt := cnt + 1 }
+  train2.train0->train2.train1 { 1, approach?, x := 0 }
+
+State
+
+( ltl.f0 gate.gate1 controller.controller2 train0.train1 train1.train0 train2.train1 train3.train1 train4.train1 train5.train1 )
+controller.z>=1, train0.x>=1, train1.x>=1, gate.y<=1, gate.y-controller.z<=-1, gate.y-train0.x<=-1, gate.y-train1.x<=-1, gate.y-train2.x<=1, gate.y-train3.x<=1, gate.y-train4.x<=1, gate.y-train5.x<=1, controller.z<=2, controller.z-gate.y<=1, controller.z-train0.x<=0, controller.z-train1.x<=0, controller.z-train2.x<=2, controller.z-train3.x<=2, controller.z-train4.x<=2, controller.z-train5.x<=2, train0.x<=2, train0.x-gate.y<=1, train0.x-controller.z<=0, train0.x-train1.x<=0, train0.x-train2.x<=2, train0.x-train3.x<=2, train0.x-train4.x<=2, train0.x-train5.x<=2, train2.x<=1, train2.x-gate.y<=0, train2.x-controller.z<=-1, train2.x-train0.x<=-1, train2.x-train1.x<=-1, train2.x-train3.x<=0, train2.x-train4.x<=0, train2.x-train5.x<=0, train3.x<=1, train3.x-gate.y<=0, train3.x-controller.z<=-1, train3.x-train0.x<=-1, train3.x-train1.x<=-1, train3.x-train2.x<=1, train3.x-train4.x<=0, train3.x-train5.x<=0, train4.x<=1, train4.x-gate.y<=0, train4.x-controller.z<=-1, train4.x-train0.x<=-1, train4.x-train1.x<=-1, train4.x-train2.x<=1, train4.x-train3.x<=1, train4.x-train5.x<=0, train5.x<=1, train5.x-gate.y<=0, train5.x-controller.z<=-1, train5.x-train0.x<=-1, train5.x-train1.x<=-1, train5.x-train2.x<=1, train5.x-train3.x<=1, train5.x-train4.x<=1 controller.cnt=5 
+
+Transitions:
+  controller.controller2->controller.controller2 { 1, approach!, cnt := cnt + 1 }
+  train1.train0->train1.train1 { 1, approach?, x := 0 }
+
+State
+
+( ltl.f0 gate.gate1 controller.controller2 train0.train1 train1.train1 train2.train1 train3.train1 train4.train1 train5.train1 )
+controller.z>=1, train0.x>=1, gate.y<=1, gate.y-controller.z<=-1, gate.y-train0.x<=-1, gate.y-train1.x<=1, gate.y-train2.x<=1, gate.y-train3.x<=1, gate.y-train4.x<=1, gate.y-train5.x<=1, controller.z<=2, controller.z-gate.y<=1, controller.z-train0.x<=0, controller.z-train1.x<=2, controller.z-train2.x<=2, controller.z-train3.x<=2, controller.z-train4.x<=2, controller.z-train5.x<=2, train0.x<=2, train0.x-gate.y<=1, train0.x-controller.z<=0, train0.x-train1.x<=2, train0.x-train2.x<=2, train0.x-train3.x<=2, train0.x-train4.x<=2, train0.x-train5.x<=2, train1.x<=1, train1.x-gate.y<=0, train1.x-controller.z<=-1, train1.x-train0.x<=-1, train1.x-train2.x<=0, train1.x-train3.x<=0, train1.x-train4.x<=0, train1.x-train5.x<=0, train2.x<=1, train2.x-gate.y<=0, train2.x-controller.z<=-1, train2.x-train0.x<=-1, train2.x-train1.x<=1, train2.x-train3.x<=0, train2.x-train4.x<=0, train2.x-train5.x<=0, train3.x<=1, train3.x-gate.y<=0, train3.x-controller.z<=-1, train3.x-train0.x<=-1, train3.x-train1.x<=1, train3.x-train2.x<=1, train3.x-train4.x<=0, train3.x-train5.x<=0, train4.x<=1, train4.x-gate.y<=0, train4.x-controller.z<=-1, train4.x-train0.x<=-1, train4.x-train1.x<=1, train4.x-train2.x<=1, train4.x-train3.x<=1, train4.x-train5.x<=0, train5.x<=1, train5.x-gate.y<=0, train5.x-controller.z<=-1, train5.x-train0.x<=-1, train5.x-train1.x<=1, train5.x-train2.x<=1, train5.x-train3.x<=1, train5.x-train4.x<=1 controller.cnt=6 
+
+Transitions:
+  gate.gate1->gate.gate2 { y <= c, tau, 1 }
+
+State
+
+( ltl.f0 gate.gate2 controller.controller2 train0.train1 train1.train1 train2.train1 train3.train1 train4.train1 train5.train1 )
+controller.z>=1, train0.x>=1, gate.y<=4, gate.y-controller.z<=-1, gate.y-train0.x<=-1, gate.y-train1.x<=1, gate.y-train2.x<=1, gate.y-train3.x<=1, gate.y-train4.x<=1, gate.y-train5.x<=1, controller.z<=5, controller.z-gate.y<=1, controller.z-train0.x<=0, controller.z-train1.x<=2, controller.z-train2.x<=2, controller.z-train3.x<=2, controller.z-train4.x<=2, controller.z-train5.x<=2, train0.x<=5, train0.x-gate.y<=1, train0.x-controller.z<=0, train0.x-train1.x<=2, train0.x-train2.x<=2, train0.x-train3.x<=2, train0.x-train4.x<=2, train0.x-train5.x<=2, train1.x<=4, train1.x-gate.y<=0, train1.x-controller.z<=-1, train1.x-train0.x<=-1, train1.x-train2.x<=0, train1.x-train3.x<=0, train1.x-train4.x<=0, train1.x-train5.x<=0, train2.x<=4, train2.x-gate.y<=0, train2.x-controller.z<=-1, train2.x-train0.x<=-1, train2.x-train1.x<=1, train2.x-train3.x<=0, train2.x-train4.x<=0, train2.x-train5.x<=0, train3.x<=4, train3.x-gate.y<=0, train3.x-controller.z<=-1, train3.x-train0.x<=-1, train3.x-train1.x<=1, train3.x-train2.x<=1, train3.x-train4.x<=0, train3.x-train5.x<=0, train4.x<=4, train4.x-gate.y<=0, train4.x-controller.z<=-1, train4.x-train0.x<=-1, train4.x-train1.x<=1, train4.x-train2.x<=1, train4.x-train3.x<=1, train4.x-train5.x<=0, train5.x<=4, train5.x-gate.y<=0, train5.x-controller.z<=-1, train5.x-train0.x<=-1, train5.x-train1.x<=1, train5.x-train2.x<=1, train5.x-train3.x<=1, train5.x-train4.x<=1 controller.cnt=6 
+
+Transitions:
+  train5.train1->train5.train2 { x > a, tau, 1 }
+
+State
+
+( ltl.f0 gate.gate2 controller.controller2 train0.train1 train1.train1 train2.train1 train3.train1 train4.train1 train5.train2 )
+gate.y>2, controller.z>3, train0.x>3, train1.x>1, train2.x>1, train3.x>1, train4.x>1, train5.x>2, gate.y<=4, gate.y-controller.z<=-1, gate.y-train0.x<=-1, gate.y-train1.x<=1, gate.y-train2.x<=1, gate.y-train3.x<=1, gate.y-train4.x<=1, gate.y-train5.x<=1, controller.z<=5, controller.z-gate.y<=1, controller.z-train0.x<=0, controller.z-train1.x<=2, controller.z-train2.x<=2, controller.z-train3.x<=2, controller.z-train4.x<=2, controller.z-train5.x<=2, train0.x<=5, train0.x-gate.y<=1, train0.x-controller.z<=0, train0.x-train1.x<=2, train0.x-train2.x<=2, train0.x-train3.x<=2, train0.x-train4.x<=2, train0.x-train5.x<=2, train1.x<=4, train1.x-gate.y<=0, train1.x-controller.z<=-1, train1.x-train0.x<=-1, train1.x-train2.x<=0, train1.x-train3.x<=0, train1.x-train4.x<=0, train1.x-train5.x<=0, train2.x<=4, train2.x-gate.y<=0, train2.x-controller.z<=-1, train2.x-train0.x<=-1, train2.x-train1.x<=1, train2.x-train3.x<=0, train2.x-train4.x<=0, train2.x-train5.x<=0, train3.x<=4, train3.x-gate.y<=0, train3.x-controller.z<=-1, train3.x-train0.x<=-1, train3.x-train1.x<=1, train3.x-train2.x<=1, train3.x-train4.x<=0, train3.x-train5.x<=0, train4.x<=4, train4.x-gate.y<=0, train4.x-controller.z<=-1, train4.x-train0.x<=-1, train4.x-train1.x<=1, train4.x-train2.x<=1, train4.x-train3.x<=1, train4.x-train5.x<=0, train5.x<=4, train5.x-gate.y<=0, train5.x-controller.z<=-1, train5.x-train0.x<=-1, train5.x-train1.x<=1, train5.x-train2.x<=1, train5.x-train3.x<=1, train5.x-train4.x<=1 controller.cnt=6 
+
+Transitions:
+  train5.train2->train5.train3 { 1, tau, 1 }
+
+State
+
+( ltl.f0 gate.gate2 controller.controller2 train0.train1 train1.train1 train2.train1 train3.train1 train4.train1 train5.train3 )
+gate.y>2, controller.z>3, train0.x>3, train1.x>1, train2.x>1, train3.x>1, train4.x>1, train5.x>2, gate.y<=4, gate.y-controller.z<=-1, gate.y-train0.x<=-1, gate.y-train1.x<=1, gate.y-train2.x<=1, gate.y-train3.x<=1, gate.y-train4.x<=1, gate.y-train5.x<=1, controller.z<=5, controller.z-gate.y<=1, controller.z-train0.x<=0, controller.z-train1.x<=2, controller.z-train2.x<=2, controller.z-train3.x<=2, controller.z-train4.x<=2, controller.z-train5.x<=2, train0.x<=5, train0.x-gate.y<=1, train0.x-controller.z<=0, train0.x-train1.x<=2, train0.x-train2.x<=2, train0.x-train3.x<=2, train0.x-train4.x<=2, train0.x-train5.x<=2, train1.x<=4, train1.x-gate.y<=0, train1.x-controller.z<=-1, train1.x-train0.x<=-1, train1.x-train2.x<=0, train1.x-train3.x<=0, train1.x-train4.x<=0, train1.x-train5.x<=0, train2.x<=4, train2.x-gate.y<=0, train2.x-controller.z<=-1, train2.x-train0.x<=-1, train2.x-train1.x<=1, train2.x-train3.x<=0, train2.x-train4.x<=0, train2.x-train5.x<=0, train3.x<=4, train3.x-gate.y<=0, train3.x-controller.z<=-1, train3.x-train0.x<=-1, train3.x-train1.x<=1, train3.x-train2.x<=1, train3.x-train4.x<=0, train3.x-train5.x<=0, train4.x<=4, train4.x-gate.y<=0, train4.x-controller.z<=-1, train4.x-train0.x<=-1, train4.x-train1.x<=1, train4.x-train2.x<=1, train4.x-train3.x<=1, train4.x-train5.x<=0, train5.x<=4, train5.x-gate.y<=0, train5.x-controller.z<=-1, train5.x-train0.x<=-1, train5.x-train1.x<=1, train5.x-train2.x<=1, train5.x-train3.x<=1, train5.x-train4.x<=1 controller.cnt=6 
+
+Transitions:
+  controller.controller2->controller.controller2 { cnt > 1, exit_c!, cnt := cnt - 1 }
+  train5.train3->train5.train0 { x <= b, exit_c?, 1 }
+
+State
+
+( ltl.f0 gate.gate2 controller.controller2 train0.train1 train1.train1 train2.train1 train3.train1 train4.train1 train5.train0 )
+gate.y>2, controller.z>3, train0.x>3, train1.x>1, train2.x>1, train3.x>1, train4.x>1, train5.x>2, gate.y<=4, gate.y-controller.z<=-1, gate.y-train0.x<=-1, gate.y-train1.x<=1, gate.y-train2.x<=1, gate.y-train3.x<=1, gate.y-train4.x<=1, gate.y-train5.x<=1, controller.z<=5, controller.z-gate.y<=1, controller.z-train0.x<=0, controller.z-train1.x<=2, controller.z-train2.x<=2, controller.z-train3.x<=2, controller.z-train4.x<=2, controller.z-train5.x<=2, train0.x<=5, train0.x-gate.y<=1, train0.x-controller.z<=0, train0.x-train1.x<=2, train0.x-train2.x<=2, train0.x-train3.x<=2, train0.x-train4.x<=2, train0.x-train5.x<=2, train1.x<=4, train1.x-gate.y<=0, train1.x-controller.z<=-1, train1.x-train0.x<=-1, train1.x-train2.x<=0, train1.x-train3.x<=0, train1.x-train4.x<=0, train1.x-train5.x<=0, train2.x<=4, train2.x-gate.y<=0, train2.x-controller.z<=-1, train2.x-train0.x<=-1, train2.x-train1.x<=1, train2.x-train3.x<=0, train2.x-train4.x<=0, train2.x-train5.x<=0, train3.x<=4, train3.x-gate.y<=0, train3.x-controller.z<=-1, train3.x-train0.x<=-1, train3.x-train1.x<=1, train3.x-train2.x<=1, train3.x-train4.x<=0, train3.x-train5.x<=0, train4.x<=4, train4.x-gate.y<=0, train4.x-controller.z<=-1, train4.x-train0.x<=-1, train4.x-train1.x<=1, train4.x-train2.x<=1, train4.x-train3.x<=1, train4.x-train5.x<=0, train5.x<=4, train5.x-gate.y<=0, train5.x-controller.z<=-1, train5.x-train0.x<=-1, train5.x-train1.x<=1, train5.x-train2.x<=1, train5.x-train3.x<=1, train5.x-train4.x<=1 controller.cnt=5 
+
+Transitions:
+  controller.controller2->controller.controller2 { 1, approach!, cnt := cnt + 1 }
+  train5.train0->train5.train1 { 1, approach?, x := 0 }
+
+State
+
+( ltl.f0 gate.gate2 controller.controller2 train0.train1 train1.train1 train2.train1 train3.train1 train4.train1 train5.train1 )
+gate.y>2, controller.z>3, train0.x>3, train1.x>1, train2.x>1, train3.x>1, train4.x>1, gate.y<=4, gate.y-controller.z<=-1, gate.y-train0.x<=-1, gate.y-train1.x<=1, gate.y-train2.x<=1, gate.y-train3.x<=1, gate.y-train4.x<=1, gate.y-train5.x<=4, controller.z<=5, controller.z-gate.y<=1, controller.z-train0.x<=0, controller.z-train1.x<=2, controller.z-train2.x<=2, controller.z-train3.x<=2, controller.z-train4.x<=2, controller.z-train5.x<=5, train0.x<=5, train0.x-gate.y<=1, train0.x-controller.z<=0, train0.x-train1.x<=2, train0.x-train2.x<=2, train0.x-train3.x<=2, train0.x-train4.x<=2, train0.x-train5.x<=5, train1.x<=4, train1.x-gate.y<=0, train1.x-controller.z<=-1, train1.x-train0.x<=-1, train1.x-train2.x<=0, train1.x-train3.x<=0, train1.x-train4.x<=0, train1.x-train5.x<=4, train2.x<=4, train2.x-gate.y<=0, train2.x-controller.z<=-1, train2.x-train0.x<=-1, train2.x-train1.x<=1, train2.x-train3.x<=0, train2.x-train4.x<=0, train2.x-train5.x<=4, train3.x<=4, train3.x-gate.y<=0, train3.x-controller.z<=-1, train3.x-train0.x<=-1, train3.x-train1.x<=1, train3.x-train2.x<=1, train3.x-train4.x<=0, train3.x-train5.x<=4, train4.x<=4, train4.x-gate.y<=0, train4.x-controller.z<=-1, train4.x-train0.x<=-1, train4.x-train1.x<=1, train4.x-train2.x<=1, train4.x-train3.x<=1, train4.x-train5.x<=4, train5.x<2, train5.x-gate.y<-2, train5.x-controller.z<-3, train5.x-train0.x<-3, train5.x-train1.x<-1, train5.x-train2.x<-1, train5.x-train3.x<-1, train5.x-train4.x<-1 controller.cnt=6 
+
+Transitions:
+  train4.train1->train4.train2 { x > a, tau, 1 }
+
+State
+
+( ltl.f0 gate.gate2 controller.controller2 train0.train1 train1.train1 train2.train1 train3.train1 train4.train2 train5.train1 )
+gate.y>2, controller.z>3, train0.x>3, train1.x>1, train2.x>1, train3.x>1, train4.x>2, gate.y<=4, gate.y-controller.z<=-1, gate.y-train0.x<=-1, gate.y-train1.x<=1, gate.y-train2.x<=1, gate.y-train3.x<=1, gate.y-train4.x<=1, gate.y-train5.x<=4, controller.z<=5, controller.z-gate.y<=1, controller.z-train0.x<=0, controller.z-train1.x<=2, controller.z-train2.x<=2, controller.z-train3.x<=2, controller.z-train4.x<=2, controller.z-train5.x<=5, train0.x<=5, train0.x-gate.y<=1, train0.x-controller.z<=0, train0.x-train1.x<=2, train0.x-train2.x<=2, train0.x-train3.x<=2, train0.x-train4.x<=2, train0.x-train5.x<=5, train1.x<=4, train1.x-gate.y<=0, train1.x-controller.z<=-1, train1.x-train0.x<=-1, train1.x-train2.x<=0, train1.x-train3.x<=0, train1.x-train4.x<=0, train1.x-train5.x<=4, train2.x<=4, train2.x-gate.y<=0, train2.x-controller.z<=-1, train2.x-train0.x<=-1, train2.x-train1.x<=1, train2.x-train3.x<=0, train2.x-train4.x<=0, train2.x-train5.x<=4, train3.x<=4, train3.x-gate.y<=0, train3.x-controller.z<=-1, train3.x-train0.x<=-1, train3.x-train1.x<=1, train3.x-train2.x<=1, train3.x-train4.x<=0, train3.x-train5.x<=4, train4.x<=4, train4.x-gate.y<=0, train4.x-controller.z<=-1, train4.x-train0.x<=-1, train4.x-train1.x<=1, train4.x-train2.x<=1, train4.x-train3.x<=1, train4.x-train5.x<=4, train5.x<2, train5.x-gate.y<-2, train5.x-controller.z<-3, train5.x-train0.x<-3, train5.x-train1.x<-1, train5.x-train2.x<-1, train5.x-train3.x<-1, train5.x-train4.x<-1 controller.cnt=6 
+
+Transitions:
+  train4.train2->train4.train3 { 1, tau, 1 }
+
+State
+
+( ltl.f0 gate.gate2 controller.controller2 train0.train1 train1.train1 train2.train1 train3.train1 train4.train3 train5.train1 )
+gate.y>2, controller.z>3, train0.x>3, train1.x>1, train2.x>1, train3.x>1, train4.x>2, gate.y<=4, gate.y-controller.z<=-1, gate.y-train0.x<=-1, gate.y-train1.x<=1, gate.y-train2.x<=1, gate.y-train3.x<=1, gate.y-train4.x<=1, gate.y-train5.x<=4, controller.z<=5, controller.z-gate.y<=1, controller.z-train0.x<=0, controller.z-train1.x<=2, controller.z-train2.x<=2, controller.z-train3.x<=2, controller.z-train4.x<=2, controller.z-train5.x<=5, train0.x<=5, train0.x-gate.y<=1, train0.x-controller.z<=0, train0.x-train1.x<=2, train0.x-train2.x<=2, train0.x-train3.x<=2, train0.x-train4.x<=2, train0.x-train5.x<=5, train1.x<=4, train1.x-gate.y<=0, train1.x-controller.z<=-1, train1.x-train0.x<=-1, train1.x-train2.x<=0, train1.x-train3.x<=0, train1.x-train4.x<=0, train1.x-train5.x<=4, train2.x<=4, train2.x-gate.y<=0, train2.x-controller.z<=-1, train2.x-train0.x<=-1, train2.x-train1.x<=1, train2.x-train3.x<=0, train2.x-train4.x<=0, train2.x-train5.x<=4, train3.x<=4, train3.x-gate.y<=0, train3.x-controller.z<=-1, train3.x-train0.x<=-1, train3.x-train1.x<=1, train3.x-train2.x<=1, train3.x-train4.x<=0, train3.x-train5.x<=4, train4.x<=4, train4.x-gate.y<=0, train4.x-controller.z<=-1, train4.x-train0.x<=-1, train4.x-train1.x<=1, train4.x-train2.x<=1, train4.x-train3.x<=1, train4.x-train5.x<=4, train5.x<2, train5.x-gate.y<-2, train5.x-controller.z<-3, train5.x-train0.x<-3, train5.x-train1.x<-1, train5.x-train2.x<-1, train5.x-train3.x<-1, train5.x-train4.x<-1 controller.cnt=6 
+
+Transitions:
+  controller.controller2->controller.controller2 { cnt > 1, exit_c!, cnt := cnt - 1 }
+  train4.train3->train4.train0 { x <= b, exit_c?, 1 }
+
+State
+
+( ltl.f0 gate.gate2 controller.controller2 train0.train1 train1.train1 train2.train1 train3.train1 train4.train0 train5.train1 )
+gate.y>2, controller.z>3, train0.x>3, train1.x>1, train2.x>1, train3.x>1, train4.x>2, gate.y<=4, gate.y-controller.z<=-1, gate.y-train0.x<=-1, gate.y-train1.x<=1, gate.y-train2.x<=1, gate.y-train3.x<=1, gate.y-train4.x<=1, gate.y-train5.x<=4, controller.z<=5, controller.z-gate.y<=1, controller.z-train0.x<=0, controller.z-train1.x<=2, controller.z-train2.x<=2, controller.z-train3.x<=2, controller.z-train4.x<=2, controller.z-train5.x<=5, train0.x<=5, train0.x-gate.y<=1, train0.x-controller.z<=0, train0.x-train1.x<=2, train0.x-train2.x<=2, train0.x-train3.x<=2, train0.x-train4.x<=2, train0.x-train5.x<=5, train1.x<=4, train1.x-gate.y<=0, train1.x-controller.z<=-1, train1.x-train0.x<=-1, train1.x-train2.x<=0, train1.x-train3.x<=0, train1.x-train4.x<=0, train1.x-train5.x<=4, train2.x<=4, train2.x-gate.y<=0, train2.x-controller.z<=-1, train2.x-train0.x<=-1, train2.x-train1.x<=1, train2.x-train3.x<=0, train2.x-train4.x<=0, train2.x-train5.x<=4, train3.x<=4, train3.x-gate.y<=0, train3.x-controller.z<=-1, train3.x-train0.x<=-1, train3.x-train1.x<=1, train3.x-train2.x<=1, train3.x-train4.x<=0, train3.x-train5.x<=4, train4.x<=4, train4.x-gate.y<=0, train4.x-controller.z<=-1, train4.x-train0.x<=-1, train4.x-train1.x<=1, train4.x-train2.x<=1, train4.x-train3.x<=1, train4.x-train5.x<=4, train5.x<2, train5.x-gate.y<-2, train5.x-controller.z<-3, train5.x-train0.x<-3, train5.x-train1.x<-1, train5.x-train2.x<-1, train5.x-train3.x<-1, train5.x-train4.x<-1 controller.cnt=5 
+
+Transitions:
+  controller.controller2->controller.controller2 { 1, approach!, cnt := cnt + 1 }
+  train4.train0->train4.train1 { 1, approach?, x := 0 }
+
+State
+
+( ltl.f0 gate.gate2 controller.controller2 train0.train1 train1.train1 train2.train1 train3.train1 train4.train1 train5.train1 )
+gate.y>2, controller.z>3, train0.x>3, train1.x>1, train2.x>1, train3.x>1, gate.y<=4, gate.y-controller.z<=-1, gate.y-train0.x<=-1, gate.y-train1.x<=1, gate.y-train2.x<=1, gate.y-train3.x<=1, gate.y-train4.x<=4, gate.y-train5.x<=4, controller.z<=5, controller.z-gate.y<=1, controller.z-train0.x<=0, controller.z-train1.x<=2, controller.z-train2.x<=2, controller.z-train3.x<=2, controller.z-train4.x<=5, controller.z-train5.x<=5, train0.x<=5, train0.x-gate.y<=1, train0.x-controller.z<=0, train0.x-train1.x<=2, train0.x-train2.x<=2, train0.x-train3.x<=2, train0.x-train4.x<=5, train0.x-train5.x<=5, train1.x<=4, train1.x-gate.y<=0, train1.x-controller.z<=-1, train1.x-train0.x<=-1, train1.x-train2.x<=0, train1.x-train3.x<=0, train1.x-train4.x<=4, train1.x-train5.x<=4, train2.x<=4, train2.x-gate.y<=0, train2.x-controller.z<=-1, train2.x-train0.x<=-1, train2.x-train1.x<=1, train2.x-train3.x<=0, train2.x-train4.x<=4, train2.x-train5.x<=4, train3.x<=4, train3.x-gate.y<=0, train3.x-controller.z<=-1, train3.x-train0.x<=-1, train3.x-train1.x<=1, train3.x-train2.x<=1, train3.x-train4.x<=4, train3.x-train5.x<=4, train4.x<2, train4.x-gate.y<-2, train4.x-controller.z<-3, train4.x-train0.x<-3, train4.x-train1.x<-1, train4.x-train2.x<-1, train4.x-train3.x<-1, train4.x-train5.x<=0, train5.x<2, train5.x-gate.y<-2, train5.x-controller.z<-3, train5.x-train0.x<-3, train5.x-train1.x<-1, train5.x-train2.x<-1, train5.x-train3.x<-1, train5.x-train4.x<2 controller.cnt=6 
+
+Transitions:
+  train3.train1->train3.train2 { x > a, tau, 1 }
+
+State
+
+( ltl.f0 gate.gate2 controller.controller2 train0.train1 train1.train1 train2.train1 train3.train2 train4.train1 train5.train1 )
+gate.y>2, controller.z>3, train0.x>3, train1.x>1, train2.x>1, train3.x>2, gate.y<=4, gate.y-controller.z<=-1, gate.y-train0.x<=-1, gate.y-train1.x<=1, gate.y-train2.x<=1, gate.y-train3.x<=1, gate.y-train4.x<=4, gate.y-train5.x<=4, controller.z<=5, controller.z-gate.y<=1, controller.z-train0.x<=0, controller.z-train1.x<=2, controller.z-train2.x<=2, controller.z-train3.x<=2, controller.z-train4.x<=5, controller.z-train5.x<=5, train0.x<=5, train0.x-gate.y<=1, train0.x-controller.z<=0, train0.x-train1.x<=2, train0.x-train2.x<=2, train0.x-train3.x<=2, train0.x-train4.x<=5, train0.x-train5.x<=5, train1.x<=4, train1.x-gate.y<=0, train1.x-controller.z<=-1, train1.x-train0.x<=-1, train1.x-train2.x<=0, train1.x-train3.x<=0, train1.x-train4.x<=4, train1.x-train5.x<=4, train2.x<=4, train2.x-gate.y<=0, train2.x-controller.z<=-1, train2.x-train0.x<=-1, train2.x-train1.x<=1, train2.x-train3.x<=0, train2.x-train4.x<=4, train2.x-train5.x<=4, train3.x<=4, train3.x-gate.y<=0, train3.x-controller.z<=-1, train3.x-train0.x<=-1, train3.x-train1.x<=1, train3.x-train2.x<=1, train3.x-train4.x<=4, train3.x-train5.x<=4, train4.x<2, train4.x-gate.y<-2, train4.x-controller.z<-3, train4.x-train0.x<-3, train4.x-train1.x<-1, train4.x-train2.x<-1, train4.x-train3.x<-1, train4.x-train5.x<=0, train5.x<2, train5.x-gate.y<-2, train5.x-controller.z<-3, train5.x-train0.x<-3, train5.x-train1.x<-1, train5.x-train2.x<-1, train5.x-train3.x<-1, train5.x-train4.x<2 controller.cnt=6 
+
+Transitions:
+  train3.train2->train3.train3 { 1, tau, 1 }
+
+State
+
+( ltl.f0 gate.gate2 controller.controller2 train0.train1 train1.train1 train2.train1 train3.train3 train4.train1 train5.train1 )
+gate.y>2, controller.z>3, train0.x>3, train1.x>1, train2.x>1, train3.x>2, gate.y<=4, gate.y-controller.z<=-1, gate.y-train0.x<=-1, gate.y-train1.x<=1, gate.y-train2.x<=1, gate.y-train3.x<=1, gate.y-train4.x<=4, gate.y-train5.x<=4, controller.z<=5, controller.z-gate.y<=1, controller.z-train0.x<=0, controller.z-train1.x<=2, controller.z-train2.x<=2, controller.z-train3.x<=2, controller.z-train4.x<=5, controller.z-train5.x<=5, train0.x<=5, train0.x-gate.y<=1, train0.x-controller.z<=0, train0.x-train1.x<=2, train0.x-train2.x<=2, train0.x-train3.x<=2, train0.x-train4.x<=5, train0.x-train5.x<=5, train1.x<=4, train1.x-gate.y<=0, train1.x-controller.z<=-1, train1.x-train0.x<=-1, train1.x-train2.x<=0, train1.x-train3.x<=0, train1.x-train4.x<=4, train1.x-train5.x<=4, train2.x<=4, train2.x-gate.y<=0, train2.x-controller.z<=-1, train2.x-train0.x<=-1, train2.x-train1.x<=1, train2.x-train3.x<=0, train2.x-train4.x<=4, train2.x-train5.x<=4, train3.x<=4, train3.x-gate.y<=0, train3.x-controller.z<=-1, train3.x-train0.x<=-1, train3.x-train1.x<=1, train3.x-train2.x<=1, train3.x-train4.x<=4, train3.x-train5.x<=4, train4.x<2, train4.x-gate.y<-2, train4.x-controller.z<-3, train4.x-train0.x<-3, train4.x-train1.x<-1, train4.x-train2.x<-1, train4.x-train3.x<-1, train4.x-train5.x<=0, train5.x<2, train5.x-gate.y<-2, train5.x-controller.z<-3, train5.x-train0.x<-3, train5.x-train1.x<-1, train5.x-train2.x<-1, train5.x-train3.x<-1, train5.x-train4.x<2 controller.cnt=6 
+
+Transitions:
+  controller.controller2->controller.controller2 { cnt > 1, exit_c!, cnt := cnt - 1 }
+  train3.train3->train3.train0 { x <= b, exit_c?, 1 }
+
+State
+
+( ltl.f0 gate.gate2 controller.controller2 train0.train1 train1.train1 train2.train1 train3.train0 train4.train1 train5.train1 )
+gate.y>2, controller.z>3, train0.x>3, train1.x>1, train2.x>1, train3.x>2, gate.y<=4, gate.y-controller.z<=-1, gate.y-train0.x<=-1, gate.y-train1.x<=1, gate.y-train2.x<=1, gate.y-train3.x<=1, gate.y-train4.x<=4, gate.y-train5.x<=4, controller.z<=5, controller.z-gate.y<=1, controller.z-train0.x<=0, controller.z-train1.x<=2, controller.z-train2.x<=2, controller.z-train3.x<=2, controller.z-train4.x<=5, controller.z-train5.x<=5, train0.x<=5, train0.x-gate.y<=1, train0.x-controller.z<=0, train0.x-train1.x<=2, train0.x-train2.x<=2, train0.x-train3.x<=2, train0.x-train4.x<=5, train0.x-train5.x<=5, train1.x<=4, train1.x-gate.y<=0, train1.x-controller.z<=-1, train1.x-train0.x<=-1, train1.x-train2.x<=0, train1.x-train3.x<=0, train1.x-train4.x<=4, train1.x-train5.x<=4, train2.x<=4, train2.x-gate.y<=0, train2.x-controller.z<=-1, train2.x-train0.x<=-1, train2.x-train1.x<=1, train2.x-train3.x<=0, train2.x-train4.x<=4, train2.x-train5.x<=4, train3.x<=4, train3.x-gate.y<=0, train3.x-controller.z<=-1, train3.x-train0.x<=-1, train3.x-train1.x<=1, train3.x-train2.x<=1, train3.x-train4.x<=4, train3.x-train5.x<=4, train4.x<2, train4.x-gate.y<-2, train4.x-controller.z<-3, train4.x-train0.x<-3, train4.x-train1.x<-1, train4.x-train2.x<-1, train4.x-train3.x<-1, train4.x-train5.x<=0, train5.x<2, train5.x-gate.y<-2, train5.x-controller.z<-3, train5.x-train0.x<-3, train5.x-train1.x<-1, train5.x-train2.x<-1, train5.x-train3.x<-1, train5.x-train4.x<2 controller.cnt=5 
+
+Transitions:
+  controller.controller2->controller.controller2 { 1, approach!, cnt := cnt + 1 }
+  train3.train0->train3.train1 { 1, approach?, x := 0 }
+
+State
+
+( ltl.f0 gate.gate2 controller.controller2 train0.train1 train1.train1 train2.train1 train3.train1 train4.train1 train5.train1 )
+gate.y>2, controller.z>3, train0.x>3, train1.x>1, train2.x>1, gate.y<=4, gate.y-controller.z<=-1, gate.y-train0.x<=-1, gate.y-train1.x<=1, gate.y-train2.x<=1, gate.y-train3.x<=4, gate.y-train4.x<=4, gate.y-train5.x<=4, controller.z<=5, controller.z-gate.y<=1, controller.z-train0.x<=0, controller.z-train1.x<=2, controller.z-train2.x<=2, controller.z-train3.x<=5, controller.z-train4.x<=5, controller.z-train5.x<=5, train0.x<=5, train0.x-gate.y<=1, train0.x-controller.z<=0, train0.x-train1.x<=2, train0.x-train2.x<=2, train0.x-train3.x<=5, train0.x-train4.x<=5, train0.x-train5.x<=5, train1.x<=4, train1.x-gate.y<=0, train1.x-controller.z<=-1, train1.x-train0.x<=-1, train1.x-train2.x<=0, train1.x-train3.x<=4, train1.x-train4.x<=4, train1.x-train5.x<=4, train2.x<=4, train2.x-gate.y<=0, train2.x-controller.z<=-1, train2.x-train0.x<=-1, train2.x-train1.x<=1, train2.x-train3.x<=4, train2.x-train4.x<=4, train2.x-train5.x<=4, train3.x<2, train3.x-gate.y<-2, train3.x-controller.z<-3, train3.x-train0.x<-3, train3.x-train1.x<-1, train3.x-train2.x<-1, train3.x-train4.x<=0, train3.x-train5.x<=0, train4.x<2, train4.x-gate.y<-2, train4.x-controller.z<-3, train4.x-train0.x<-3, train4.x-train1.x<-1, train4.x-train2.x<-1, train4.x-train3.x<2, train4.x-train5.x<=0, train5.x<2, train5.x-gate.y<-2, train5.x-controller.z<-3, train5.x-train0.x<-3, train5.x-train1.x<-1, train5.x-train2.x<-1, train5.x-train3.x<2, train5.x-train4.x<2 controller.cnt=6 
+
+Transitions:
+  train2.train1->train2.train2 { x > a, tau, 1 }
+
+State
+
+( ltl.f0 gate.gate2 controller.controller2 train0.train1 train1.train1 train2.train2 train3.train1 train4.train1 train5.train1 )
+gate.y>2, controller.z>3, train0.x>3, train1.x>1, train2.x>2, gate.y<=4, gate.y-controller.z<=-1, gate.y-train0.x<=-1, gate.y-train1.x<=1, gate.y-train2.x<=1, gate.y-train3.x<=4, gate.y-train4.x<=4, gate.y-train5.x<=4, controller.z<=5, controller.z-gate.y<=1, controller.z-train0.x<=0, controller.z-train1.x<=2, controller.z-train2.x<=2, controller.z-train3.x<=5, controller.z-train4.x<=5, controller.z-train5.x<=5, train0.x<=5, train0.x-gate.y<=1, train0.x-controller.z<=0, train0.x-train1.x<=2, train0.x-train2.x<=2, train0.x-train3.x<=5, train0.x-train4.x<=5, train0.x-train5.x<=5, train1.x<=4, train1.x-gate.y<=0, train1.x-controller.z<=-1, train1.x-train0.x<=-1, train1.x-train2.x<=0, train1.x-train3.x<=4, train1.x-train4.x<=4, train1.x-train5.x<=4, train2.x<=4, train2.x-gate.y<=0, train2.x-controller.z<=-1, train2.x-train0.x<=-1, train2.x-train1.x<=1, train2.x-train3.x<=4, train2.x-train4.x<=4, train2.x-train5.x<=4, train3.x<2, train3.x-gate.y<-2, train3.x-controller.z<-3, train3.x-train0.x<-3, train3.x-train1.x<-1, train3.x-train2.x<-1, train3.x-train4.x<=0, train3.x-train5.x<=0, train4.x<2, train4.x-gate.y<-2, train4.x-controller.z<-3, train4.x-train0.x<-3, train4.x-train1.x<-1, train4.x-train2.x<-1, train4.x-train3.x<2, train4.x-train5.x<=0, train5.x<2, train5.x-gate.y<-2, train5.x-controller.z<-3, train5.x-train0.x<-3, train5.x-train1.x<-1, train5.x-train2.x<-1, train5.x-train3.x<2, train5.x-train4.x<2 controller.cnt=6 
+
+Transitions:
+  train2.train2->train2.train3 { 1, tau, 1 }
+
+State
+
+( ltl.f0 gate.gate2 controller.controller2 train0.train1 train1.train1 train2.train3 train3.train1 train4.train1 train5.train1 )
+gate.y>2, controller.z>3, train0.x>3, train1.x>1, train2.x>2, gate.y<=4, gate.y-controller.z<=-1, gate.y-train0.x<=-1, gate.y-train1.x<=1, gate.y-train2.x<=1, gate.y-train3.x<=4, gate.y-train4.x<=4, gate.y-train5.x<=4, controller.z<=5, controller.z-gate.y<=1, controller.z-train0.x<=0, controller.z-train1.x<=2, controller.z-train2.x<=2, controller.z-train3.x<=5, controller.z-train4.x<=5, controller.z-train5.x<=5, train0.x<=5, train0.x-gate.y<=1, train0.x-controller.z<=0, train0.x-train1.x<=2, train0.x-train2.x<=2, train0.x-train3.x<=5, train0.x-train4.x<=5, train0.x-train5.x<=5, train1.x<=4, train1.x-gate.y<=0, train1.x-controller.z<=-1, train1.x-train0.x<=-1, train1.x-train2.x<=0, train1.x-train3.x<=4, train1.x-train4.x<=4, train1.x-train5.x<=4, train2.x<=4, train2.x-gate.y<=0, train2.x-controller.z<=-1, train2.x-train0.x<=-1, train2.x-train1.x<=1, train2.x-train3.x<=4, train2.x-train4.x<=4, train2.x-train5.x<=4, train3.x<2, train3.x-gate.y<-2, train3.x-controller.z<-3, train3.x-train0.x<-3, train3.x-train1.x<-1, train3.x-train2.x<-1, train3.x-train4.x<=0, train3.x-train5.x<=0, train4.x<2, train4.x-gate.y<-2, train4.x-controller.z<-3, train4.x-train0.x<-3, train4.x-train1.x<-1, train4.x-train2.x<-1, train4.x-train3.x<2, train4.x-train5.x<=0, train5.x<2, train5.x-gate.y<-2, train5.x-controller.z<-3, train5.x-train0.x<-3, train5.x-train1.x<-1, train5.x-train2.x<-1, train5.x-train3.x<2, train5.x-train4.x<2 controller.cnt=6 
+
+Transitions:
+  controller.controller2->controller.controller2 { cnt > 1, exit_c!, cnt := cnt - 1 }
+  train2.train3->train2.train0 { x <= b, exit_c?, 1 }
+
+State
+
+( ltl.f0 gate.gate2 controller.controller2 train0.train1 train1.train1 train2.train0 train3.train1 train4.train1 train5.train1 )
+gate.y>2, controller.z>3, train0.x>3, train1.x>1, train2.x>2, gate.y<=4, gate.y-controller.z<=-1, gate.y-train0.x<=-1, gate.y-train1.x<=1, gate.y-train2.x<=1, gate.y-train3.x<=4, gate.y-train4.x<=4, gate.y-train5.x<=4, controller.z<=5, controller.z-gate.y<=1, controller.z-train0.x<=0, controller.z-train1.x<=2, controller.z-train2.x<=2, controller.z-train3.x<=5, controller.z-train4.x<=5, controller.z-train5.x<=5, train0.x<=5, train0.x-gate.y<=1, train0.x-controller.z<=0, train0.x-train1.x<=2, train0.x-train2.x<=2, train0.x-train3.x<=5, train0.x-train4.x<=5, train0.x-train5.x<=5, train1.x<=4, train1.x-gate.y<=0, train1.x-controller.z<=-1, train1.x-train0.x<=-1, train1.x-train2.x<=0, train1.x-train3.x<=4, train1.x-train4.x<=4, train1.x-train5.x<=4, train2.x<=4, train2.x-gate.y<=0, train2.x-controller.z<=-1, train2.x-train0.x<=-1, train2.x-train1.x<=1, train2.x-train3.x<=4, train2.x-train4.x<=4, train2.x-train5.x<=4, train3.x<2, train3.x-gate.y<-2, train3.x-controller.z<-3, train3.x-train0.x<-3, train3.x-train1.x<-1, train3.x-train2.x<-1, train3.x-train4.x<=0, train3.x-train5.x<=0, train4.x<2, train4.x-gate.y<-2, train4.x-controller.z<-3, train4.x-train0.x<-3, train4.x-train1.x<-1, train4.x-train2.x<-1, train4.x-train3.x<2, train4.x-train5.x<=0, train5.x<2, train5.x-gate.y<-2, train5.x-controller.z<-3, train5.x-train0.x<-3, train5.x-train1.x<-1, train5.x-train2.x<-1, train5.x-train3.x<2, train5.x-train4.x<2 controller.cnt=5 
+
+Transitions:
+  controller.controller2->controller.controller2 { 1, approach!, cnt := cnt + 1 }
+  train2.train0->train2.train1 { 1, approach?, x := 0 }
+
+State
+
+( ltl.f0 gate.gate2 controller.controller2 train0.train1 train1.train1 train2.train1 train3.train1 train4.train1 train5.train1 )
+gate.y>2, controller.z>3, train0.x>3, train1.x>1, gate.y<=4, gate.y-controller.z<=-1, gate.y-train0.x<=-1, gate.y-train1.x<=1, gate.y-train2.x<=4, gate.y-train3.x<=4, gate.y-train4.x<=4, gate.y-train5.x<=4, controller.z<=5, controller.z-gate.y<=1, controller.z-train0.x<=0, controller.z-train1.x<=2, controller.z-train2.x<=5, controller.z-train3.x<=5, controller.z-train4.x<=5, controller.z-train5.x<=5, train0.x<=5, train0.x-gate.y<=1, train0.x-controller.z<=0, train0.x-train1.x<=2, train0.x-train2.x<=5, train0.x-train3.x<=5, train0.x-train4.x<=5, train0.x-train5.x<=5, train1.x<=4, train1.x-gate.y<=0, train1.x-controller.z<=-1, train1.x-train0.x<=-1, train1.x-train2.x<=4, train1.x-train3.x<=4, train1.x-train4.x<=4, train1.x-train5.x<=4, train2.x<2, train2.x-gate.y<-2, train2.x-controller.z<-3, train2.x-train0.x<-3, train2.x-train1.x<-1, train2.x-train3.x<=0, train2.x-train4.x<=0, train2.x-train5.x<=0, train3.x<2, train3.x-gate.y<-2, train3.x-controller.z<-3, train3.x-train0.x<-3, train3.x-train1.x<-1, train3.x-train2.x<2, train3.x-train4.x<=0, train3.x-train5.x<=0, train4.x<2, train4.x-gate.y<-2, train4.x-controller.z<-3, train4.x-train0.x<-3, train4.x-train1.x<-1, train4.x-train2.x<2, train4.x-train3.x<2, train4.x-train5.x<=0, train5.x<2, train5.x-gate.y<-2, train5.x-controller.z<-3, train5.x-train0.x<-3, train5.x-train1.x<-1, train5.x-train2.x<2, train5.x-train3.x<2, train5.x-train4.x<2 controller.cnt=6 
+
+Transitions:
+  train1.train1->train1.train2 { x > a, tau, 1 }
+
+State
+
+( ltl.f0 gate.gate2 controller.controller2 train0.train1 train1.train2 train2.train1 train3.train1 train4.train1 train5.train1 )
+gate.y>2, controller.z>3, train0.x>3, train1.x>2, gate.y<=4, gate.y-controller.z<=-1, gate.y-train0.x<=-1, gate.y-train1.x<=1, gate.y-train2.x<=4, gate.y-train3.x<=4, gate.y-train4.x<=4, gate.y-train5.x<=4, controller.z<=5, controller.z-gate.y<=1, controller.z-train0.x<=0, controller.z-train1.x<=2, controller.z-train2.x<=5, controller.z-train3.x<=5, controller.z-train4.x<=5, controller.z-train5.x<=5, train0.x<=5, train0.x-gate.y<=1, train0.x-controller.z<=0, train0.x-train1.x<=2, train0.x-train2.x<=5, train0.x-train3.x<=5, train0.x-train4.x<=5, train0.x-train5.x<=5, train1.x<=4, train1.x-gate.y<=0, train1.x-controller.z<=-1, train1.x-train0.x<=-1, train1.x-train2.x<=4, train1.x-train3.x<=4, train1.x-train4.x<=4, train1.x-train5.x<=4, train2.x<2, train2.x-gate.y<-2, train2.x-controller.z<-3, train2.x-train0.x<-3, train2.x-train1.x<-1, train2.x-train3.x<=0, train2.x-train4.x<=0, train2.x-train5.x<=0, train3.x<2, train3.x-gate.y<-2, train3.x-controller.z<-3, train3.x-train0.x<-3, train3.x-train1.x<-1, train3.x-train2.x<2, train3.x-train4.x<=0, train3.x-train5.x<=0, train4.x<2, train4.x-gate.y<-2, train4.x-controller.z<-3, train4.x-train0.x<-3, train4.x-train1.x<-1, train4.x-train2.x<2, train4.x-train3.x<2, train4.x-train5.x<=0, train5.x<2, train5.x-gate.y<-2, train5.x-controller.z<-3, train5.x-train0.x<-3, train5.x-train1.x<-1, train5.x-train2.x<2, train5.x-train3.x<2, train5.x-train4.x<2 controller.cnt=6 
+
+Transitions:
+  train1.train2->train1.train3 { 1, tau, 1 }
+
+State
+
+( ltl.f0 gate.gate2 controller.controller2 train0.train1 train1.train3 train2.train1 train3.train1 train4.train1 train5.train1 )
+gate.y>2, controller.z>3, train0.x>3, train1.x>2, gate.y<=4, gate.y-controller.z<=-1, gate.y-train0.x<=-1, gate.y-train1.x<=1, gate.y-train2.x<=4, gate.y-train3.x<=4, gate.y-train4.x<=4, gate.y-train5.x<=4, controller.z<=5, controller.z-gate.y<=1, controller.z-train0.x<=0, controller.z-train1.x<=2, controller.z-train2.x<=5, controller.z-train3.x<=5, controller.z-train4.x<=5, controller.z-train5.x<=5, train0.x<=5, train0.x-gate.y<=1, train0.x-controller.z<=0, train0.x-train1.x<=2, train0.x-train2.x<=5, train0.x-train3.x<=5, train0.x-train4.x<=5, train0.x-train5.x<=5, train1.x<=4, train1.x-gate.y<=0, train1.x-controller.z<=-1, train1.x-train0.x<=-1, train1.x-train2.x<=4, train1.x-train3.x<=4, train1.x-train4.x<=4, train1.x-train5.x<=4, train2.x<2, train2.x-gate.y<-2, train2.x-controller.z<-3, train2.x-train0.x<-3, train2.x-train1.x<-1, train2.x-train3.x<=0, train2.x-train4.x<=0, train2.x-train5.x<=0, train3.x<2, train3.x-gate.y<-2, train3.x-controller.z<-3, train3.x-train0.x<-3, train3.x-train1.x<-1, train3.x-train2.x<2, train3.x-train4.x<=0, train3.x-train5.x<=0, train4.x<2, train4.x-gate.y<-2, train4.x-controller.z<-3, train4.x-train0.x<-3, train4.x-train1.x<-1, train4.x-train2.x<2, train4.x-train3.x<2, train4.x-train5.x<=0, train5.x<2, train5.x-gate.y<-2, train5.x-controller.z<-3, train5.x-train0.x<-3, train5.x-train1.x<-1, train5.x-train2.x<2, train5.x-train3.x<2, train5.x-train4.x<2 controller.cnt=6 
+
+Transitions:
+  controller.controller2->controller.controller2 { cnt > 1, exit_c!, cnt := cnt - 1 }
+  train1.train3->train1.train0 { x <= b, exit_c?, 1 }
+
+State
+
+( ltl.f0 gate.gate2 controller.controller2 train0.train1 train1.train0 train2.train1 train3.train1 train4.train1 train5.train1 )
+gate.y>2, controller.z>3, train0.x>3, train1.x>2, gate.y<=4, gate.y-controller.z<=-1, gate.y-train0.x<=-1, gate.y-train1.x<=1, gate.y-train2.x<=4, gate.y-train3.x<=4, gate.y-train4.x<=4, gate.y-train5.x<=4, controller.z<=5, controller.z-gate.y<=1, controller.z-train0.x<=0, controller.z-train1.x<=2, controller.z-train2.x<=5, controller.z-train3.x<=5, controller.z-train4.x<=5, controller.z-train5.x<=5, train0.x<=5, train0.x-gate.y<=1, train0.x-controller.z<=0, train0.x-train1.x<=2, train0.x-train2.x<=5, train0.x-train3.x<=5, train0.x-train4.x<=5, train0.x-train5.x<=5, train1.x<=4, train1.x-gate.y<=0, train1.x-controller.z<=-1, train1.x-train0.x<=-1, train1.x-train2.x<=4, train1.x-train3.x<=4, train1.x-train4.x<=4, train1.x-train5.x<=4, train2.x<2, train2.x-gate.y<-2, train2.x-controller.z<-3, train2.x-train0.x<-3, train2.x-train1.x<-1, train2.x-train3.x<=0, train2.x-train4.x<=0, train2.x-train5.x<=0, train3.x<2, train3.x-gate.y<-2, train3.x-controller.z<-3, train3.x-train0.x<-3, train3.x-train1.x<-1, train3.x-train2.x<2, train3.x-train4.x<=0, train3.x-train5.x<=0, train4.x<2, train4.x-gate.y<-2, train4.x-controller.z<-3, train4.x-train0.x<-3, train4.x-train1.x<-1, train4.x-train2.x<2, train4.x-train3.x<2, train4.x-train5.x<=0, train5.x<2, train5.x-gate.y<-2, train5.x-controller.z<-3, train5.x-train0.x<-3, train5.x-train1.x<-1, train5.x-train2.x<2, train5.x-train3.x<2, train5.x-train4.x<2 controller.cnt=5 
+
+Transitions:
+  controller.controller2->controller.controller2 { 1, approach!, cnt := cnt + 1 }
+  train1.train0->train1.train1 { 1, approach?, x := 0 }
+
+State
+
+( ltl.f0 gate.gate2 controller.controller2 train0.train1 train1.train1 train2.train1 train3.train1 train4.train1 train5.train1 )
+gate.y>2, controller.z>3, train0.x>3, gate.y<=4, gate.y-controller.z<=-1, gate.y-train0.x<=-1, gate.y-train1.x<=4, gate.y-train2.x<=4, gate.y-train3.x<=4, gate.y-train4.x<=4, gate.y-train5.x<=4, controller.z<=5, controller.z-gate.y<=1, controller.z-train0.x<=0, controller.z-train1.x<=5, controller.z-train2.x<=5, controller.z-train3.x<=5, controller.z-train4.x<=5, controller.z-train5.x<=5, train0.x<=5, train0.x-gate.y<=1, train0.x-controller.z<=0, train0.x-train1.x<=5, train0.x-train2.x<=5, train0.x-train3.x<=5, train0.x-train4.x<=5, train0.x-train5.x<=5, train1.x<2, train1.x-gate.y<-2, train1.x-controller.z<-3, train1.x-train0.x<-3, train1.x-train2.x<=0, train1.x-train3.x<=0, train1.x-train4.x<=0, train1.x-train5.x<=0, train2.x<2, train2.x-gate.y<-2, train2.x-controller.z<-3, train2.x-train0.x<-3, train2.x-train1.x<2, train2.x-train3.x<=0, train2.x-train4.x<=0, train2.x-train5.x<=0, train3.x<2, train3.x-gate.y<-2, train3.x-controller.z<-3, train3.x-train0.x<-3, train3.x-train1.x<2, train3.x-train2.x<2, train3.x-train4.x<=0, train3.x-train5.x<=0, train4.x<2, train4.x-gate.y<-2, train4.x-controller.z<-3, train4.x-train0.x<-3, train4.x-train1.x<2, train4.x-train2.x<2, train4.x-train3.x<2, train4.x-train5.x<=0, train5.x<2, train5.x-gate.y<-2, train5.x-controller.z<-3, train5.x-train0.x<-3, train5.x-train1.x<2, train5.x-train2.x<2, train5.x-train3.x<2, train5.x-train4.x<2 controller.cnt=6 
+
+Transitions:
+  train0.train1->train0.train2 { x > a, tau, 1 }
+
+State
+
+( ltl.f0 gate.gate2 controller.controller2 train0.train2 train1.train1 train2.train1 train3.train1 train4.train1 train5.train1 )
+gate.y>2, controller.z>3, train0.x>3, gate.y<=4, gate.y-controller.z<=-1, gate.y-train0.x<=-1, gate.y-train1.x<=4, gate.y-train2.x<=4, gate.y-train3.x<=4, gate.y-train4.x<=4, gate.y-train5.x<=4, controller.z<=5, controller.z-gate.y<=1, controller.z-train0.x<=0, controller.z-train1.x<=5, controller.z-train2.x<=5, controller.z-train3.x<=5, controller.z-train4.x<=5, controller.z-train5.x<=5, train0.x<=5, train0.x-gate.y<=1, train0.x-controller.z<=0, train0.x-train1.x<=5, train0.x-train2.x<=5, train0.x-train3.x<=5, train0.x-train4.x<=5, train0.x-train5.x<=5, train1.x<2, train1.x-gate.y<-2, train1.x-controller.z<-3, train1.x-train0.x<-3, train1.x-train2.x<=0, train1.x-train3.x<=0, train1.x-train4.x<=0, train1.x-train5.x<=0, train2.x<2, train2.x-gate.y<-2, train2.x-controller.z<-3, train2.x-train0.x<-3, train2.x-train1.x<2, train2.x-train3.x<=0, train2.x-train4.x<=0, train2.x-train5.x<=0, train3.x<2, train3.x-gate.y<-2, train3.x-controller.z<-3, train3.x-train0.x<-3, train3.x-train1.x<2, train3.x-train2.x<2, train3.x-train4.x<=0, train3.x-train5.x<=0, train4.x<2, train4.x-gate.y<-2, train4.x-controller.z<-3, train4.x-train0.x<-3, train4.x-train1.x<2, train4.x-train2.x<2, train4.x-train3.x<2, train4.x-train5.x<=0, train5.x<2, train5.x-gate.y<-2, train5.x-controller.z<-3, train5.x-train0.x<-3, train5.x-train1.x<2, train5.x-train2.x<2, train5.x-train3.x<2, train5.x-train4.x<2 controller.cnt=6 
+
+Transitions:
+  train0.train2->train0.train3 { 1, tau, 1 }
+
+State
+
+( ltl.f0 gate.gate2 controller.controller2 train0.train3 train1.train1 train2.train1 train3.train1 train4.train1 train5.train1 )
+gate.y>2, controller.z>3, train0.x>3, gate.y<=4, gate.y-controller.z<=-1, gate.y-train0.x<=-1, gate.y-train1.x<=4, gate.y-train2.x<=4, gate.y-train3.x<=4, gate.y-train4.x<=4, gate.y-train5.x<=4, controller.z<=5, controller.z-gate.y<=1, controller.z-train0.x<=0, controller.z-train1.x<=5, controller.z-train2.x<=5, controller.z-train3.x<=5, controller.z-train4.x<=5, controller.z-train5.x<=5, train0.x<=5, train0.x-gate.y<=1, train0.x-controller.z<=0, train0.x-train1.x<=5, train0.x-train2.x<=5, train0.x-train3.x<=5, train0.x-train4.x<=5, train0.x-train5.x<=5, train1.x<2, train1.x-gate.y<-2, train1.x-controller.z<-3, train1.x-train0.x<-3, train1.x-train2.x<=0, train1.x-train3.x<=0, train1.x-train4.x<=0, train1.x-train5.x<=0, train2.x<2, train2.x-gate.y<-2, train2.x-controller.z<-3, train2.x-train0.x<-3, train2.x-train1.x<2, train2.x-train3.x<=0, train2.x-train4.x<=0, train2.x-train5.x<=0, train3.x<2, train3.x-gate.y<-2, train3.x-controller.z<-3, train3.x-train0.x<-3, train3.x-train1.x<2, train3.x-train2.x<2, train3.x-train4.x<=0, train3.x-train5.x<=0, train4.x<2, train4.x-gate.y<-2, train4.x-controller.z<-3, train4.x-train0.x<-3, train4.x-train1.x<2, train4.x-train2.x<2, train4.x-train3.x<2, train4.x-train5.x<=0, train5.x<2, train5.x-gate.y<-2, train5.x-controller.z<-3, train5.x-train0.x<-3, train5.x-train1.x<2, train5.x-train2.x<2, train5.x-train3.x<2, train5.x-train4.x<2 controller.cnt=6 
+
+Transitions:
+  controller.controller2->controller.controller2 { cnt > 1, exit_c!, cnt := cnt - 1 }
+  train0.train3->train0.train0 { x <= b, exit_c?, 1 }
+
+State
+
+( ltl.f0 gate.gate2 controller.controller2 train0.train0 train1.train1 train2.train1 train3.train1 train4.train1 train5.train1 )
+gate.y>2, controller.z>3, train0.x>3, gate.y<=9, gate.y-controller.z<=-1, gate.y-train0.x<=-1, gate.y-train1.x<=4, gate.y-train2.x<=4, gate.y-train3.x<=4, gate.y-train4.x<=4, gate.y-train5.x<=4, controller.z<=10, controller.z-gate.y<=1, controller.z-train0.x<=0, controller.z-train1.x<=5, controller.z-train2.x<=5, controller.z-train3.x<=5, controller.z-train4.x<=5, controller.z-train5.x<=5, train0.x<=10, train0.x-gate.y<=1, train0.x-controller.z<=0, train0.x-train1.x<=5, train0.x-train2.x<=5, train0.x-train3.x<=5, train0.x-train4.x<=5, train0.x-train5.x<=5, train1.x<=5, train1.x-gate.y<-2, train1.x-controller.z<-3, train1.x-train0.x<-3, train1.x-train2.x<=0, train1.x-train3.x<=0, train1.x-train4.x<=0, train1.x-train5.x<=0, train2.x<=5, train2.x-gate.y<-2, train2.x-controller.z<-3, train2.x-train0.x<-3, train2.x-train1.x<2, train2.x-train3.x<=0, train2.x-train4.x<=0, train2.x-train5.x<=0, train3.x<=5, train3.x-gate.y<-2, train3.x-controller.z<-3, train3.x-train0.x<-3, train3.x-train1.x<2, train3.x-train2.x<2, train3.x-train4.x<=0, train3.x-train5.x<=0, train4.x<=5, train4.x-gate.y<-2, train4.x-controller.z<-3, train4.x-train0.x<-3, train4.x-train1.x<2, train4.x-train2.x<2, train4.x-train3.x<2, train4.x-train5.x<=0, train5.x<=5, train5.x-gate.y<-2, train5.x-controller.z<-3, train5.x-train0.x<-3, train5.x-train1.x<2, train5.x-train2.x<2, train5.x-train3.x<2, train5.x-train4.x<2 controller.cnt=5 
+
+Transitions:
+  controller.controller2->controller.controller2 { 1, approach!, cnt := cnt + 1 }
+  train0.train0->train0.train1 { 1, approach?, x := 0 }
+
+State
+
+( ltl.f0 gate.gate2 controller.controller2 train0.train1 train1.train1 train2.train1 train3.train1 train4.train1 train5.train1 )
+gate.y>2, controller.z>3, gate.y<=9, gate.y-controller.z<=-1, gate.y-train0.x<=9, gate.y-train1.x<=4, gate.y-train2.x<=4, gate.y-train3.x<=4, gate.y-train4.x<=4, gate.y-train5.x<=4, controller.z<=10, controller.z-gate.y<=1, controller.z-train0.x<=10, controller.z-train1.x<=5, controller.z-train2.x<=5, controller.z-train3.x<=5, controller.z-train4.x<=5, controller.z-train5.x<=5, train0.x<=5, train0.x-gate.y<-2, train0.x-controller.z<-3, train0.x-train1.x<=0, train0.x-train2.x<=0, train0.x-train3.x<=0, train0.x-train4.x<=0, train0.x-train5.x<=0, train1.x<=5, train1.x-gate.y<-2, train1.x-controller.z<-3, train1.x-train0.x<=5, train1.x-train2.x<=0, train1.x-train3.x<=0, train1.x-train4.x<=0, train1.x-train5.x<=0, train2.x<=5, train2.x-gate.y<-2, train2.x-controller.z<-3, train2.x-train0.x<=5, train2.x-train1.x<2, train2.x-train3.x<=0, train2.x-train4.x<=0, train2.x-train5.x<=0, train3.x<=5, train3.x-gate.y<-2, train3.x-controller.z<-3, train3.x-train0.x<=5, train3.x-train1.x<2, train3.x-train2.x<2, train3.x-train4.x<=0, train3.x-train5.x<=0, train4.x<=5, train4.x-gate.y<-2, train4.x-controller.z<-3, train4.x-train0.x<=5, train4.x-train1.x<2, train4.x-train2.x<2, train4.x-train3.x<2, train4.x-train5.x<=0, train5.x<=5, train5.x-gate.y<-2, train5.x-controller.z<-3, train5.x-train0.x<=5, train5.x-train1.x<2, train5.x-train2.x<2, train5.x-train3.x<2, train5.x-train4.x<2 controller.cnt=6 
+
+Transitions:
+  train5.train1->train5.train2 { x > a, tau, 1 }
+
+State
+
+( ltl.f0 gate.gate2 controller.controller2 train0.train1 train1.train1 train2.train1 train3.train1 train4.train1 train5.train2 )
+gate.y>4, controller.z>5, train1.x>0, train2.x>0, train3.x>0, train4.x>0, train5.x>2, gate.y<=9, gate.y-controller.z<=-1, gate.y-train0.x<=9, gate.y-train1.x<=4, gate.y-train2.x<=4, gate.y-train3.x<=4, gate.y-train4.x<=4, gate.y-train5.x<=4, controller.z<=10, controller.z-gate.y<=1, controller.z-train0.x<=10, controller.z-train1.x<=5, controller.z-train2.x<=5, controller.z-train3.x<=5, controller.z-train4.x<=5, controller.z-train5.x<=5, train0.x<=5, train0.x-gate.y<-2, train0.x-controller.z<-3, train0.x-train1.x<=0, train0.x-train2.x<=0, train0.x-train3.x<=0, train0.x-train4.x<=0, train0.x-train5.x<=0, train1.x<=5, train1.x-gate.y<-2, train1.x-controller.z<-3, train1.x-train0.x<=5, train1.x-train2.x<=0, train1.x-train3.x<=0, train1.x-train4.x<=0, train1.x-train5.x<=0, train2.x<=5, train2.x-gate.y<-2, train2.x-controller.z<-3, train2.x-train0.x<=5, train2.x-train1.x<2, train2.x-train3.x<=0, train2.x-train4.x<=0, train2.x-train5.x<=0, train3.x<=5, train3.x-gate.y<-2, train3.x-controller.z<-3, train3.x-train0.x<=5, train3.x-train1.x<2, train3.x-train2.x<2, train3.x-train4.x<=0, train3.x-train5.x<=0, train4.x<=5, train4.x-gate.y<-2, train4.x-controller.z<-3, train4.x-train0.x<=5, train4.x-train1.x<2, train4.x-train2.x<2, train4.x-train3.x<2, train4.x-train5.x<=0, train5.x<=5, train5.x-gate.y<-2, train5.x-controller.z<-3, train5.x-train0.x<=5, train5.x-train1.x<2, train5.x-train2.x<2, train5.x-train3.x<2, train5.x-train4.x<2 controller.cnt=6 
+
+Transitions:
+  train5.train2->train5.train3 { 1, tau, 1 }
+
+State
+
+( ltl.f0 gate.gate2 controller.controller2 train0.train1 train1.train1 train2.train1 train3.train1 train4.train1 train5.train3 )
+gate.y>4, controller.z>5, train1.x>0, train2.x>0, train3.x>0, train4.x>0, train5.x>2, gate.y<=9, gate.y-controller.z<=-1, gate.y-train0.x<=9, gate.y-train1.x<=4, gate.y-train2.x<=4, gate.y-train3.x<=4, gate.y-train4.x<=4, gate.y-train5.x<=4, controller.z<=10, controller.z-gate.y<=1, controller.z-train0.x<=10, controller.z-train1.x<=5, controller.z-train2.x<=5, controller.z-train3.x<=5, controller.z-train4.x<=5, controller.z-train5.x<=5, train0.x<=5, train0.x-gate.y<-2, train0.x-controller.z<-3, train0.x-train1.x<=0, train0.x-train2.x<=0, train0.x-train3.x<=0, train0.x-train4.x<=0, train0.x-train5.x<=0, train1.x<=5, train1.x-gate.y<-2, train1.x-controller.z<-3, train1.x-train0.x<=5, train1.x-train2.x<=0, train1.x-train3.x<=0, train1.x-train4.x<=0, train1.x-train5.x<=0, train2.x<=5, train2.x-gate.y<-2, train2.x-controller.z<-3, train2.x-train0.x<=5, train2.x-train1.x<2, train2.x-train3.x<=0, train2.x-train4.x<=0, train2.x-train5.x<=0, train3.x<=5, train3.x-gate.y<-2, train3.x-controller.z<-3, train3.x-train0.x<=5, train3.x-train1.x<2, train3.x-train2.x<2, train3.x-train4.x<=0, train3.x-train5.x<=0, train4.x<=5, train4.x-gate.y<-2, train4.x-controller.z<-3, train4.x-train0.x<=5, train4.x-train1.x<2, train4.x-train2.x<2, train4.x-train3.x<2, train4.x-train5.x<=0, train5.x<=5, train5.x-gate.y<-2, train5.x-controller.z<-3, train5.x-train0.x<=5, train5.x-train1.x<2, train5.x-train2.x<2, train5.x-train3.x<2, train5.x-train4.x<2 controller.cnt=6 
+
+Transitions:
+  controller.controller2->controller.controller2 { cnt > 1, exit_c!, cnt := cnt - 1 }
+  train5.train3->train5.train0 { x <= b, exit_c?, 1 }
+
+State
+
+( ltl.f0 gate.gate2 controller.controller2 train0.train1 train1.train1 train2.train1 train3.train1 train4.train1 train5.train0 )
+gate.y>4, controller.z>5, train1.x>0, train2.x>0, train3.x>0, train4.x>0, train5.x>2, gate.y<=9, gate.y-controller.z<=-1, gate.y-train0.x<=9, gate.y-train1.x<=4, gate.y-train2.x<=4, gate.y-train3.x<=4, gate.y-train4.x<=4, gate.y-train5.x<=4, controller.z<=10, controller.z-gate.y<=1, controller.z-train0.x<=10, controller.z-train1.x<=5, controller.z-train2.x<=5, controller.z-train3.x<=5, controller.z-train4.x<=5, controller.z-train5.x<=5, train0.x<=5, train0.x-gate.y<-2, train0.x-controller.z<-3, train0.x-train1.x<=0, train0.x-train2.x<=0, train0.x-train3.x<=0, train0.x-train4.x<=0, train0.x-train5.x<=0, train1.x<=5, train1.x-gate.y<-2, train1.x-controller.z<-3, train1.x-train0.x<=5, train1.x-train2.x<=0, train1.x-train3.x<=0, train1.x-train4.x<=0, train1.x-train5.x<=0, train2.x<=5, train2.x-gate.y<-2, train2.x-controller.z<-3, train2.x-train0.x<=5, train2.x-train1.x<2, train2.x-train3.x<=0, train2.x-train4.x<=0, train2.x-train5.x<=0, train3.x<=5, train3.x-gate.y<-2, train3.x-controller.z<-3, train3.x-train0.x<=5, train3.x-train1.x<2, train3.x-train2.x<2, train3.x-train4.x<=0, train3.x-train5.x<=0, train4.x<=5, train4.x-gate.y<-2, train4.x-controller.z<-3, train4.x-train0.x<=5, train4.x-train1.x<2, train4.x-train2.x<2, train4.x-train3.x<2, train4.x-train5.x<=0, train5.x<7, train5.x-gate.y<-2, train5.x-controller.z<-3, train5.x-train0.x<=5, train5.x-train1.x<2, train5.x-train2.x<2, train5.x-train3.x<2, train5.x-train4.x<2 controller.cnt=5 
+
+Transitions:
+  controller.controller2->controller.controller2 { 1, approach!, cnt := cnt + 1 }
+  train5.train0->train5.train1 { 1, approach?, x := 0 }
+
+State
+
+( ltl.f0 gate.gate2 controller.controller2 train0.train1 train1.train1 train2.train1 train3.train1 train4.train1 train5.train1 )
+gate.y>4, controller.z>5, train1.x>0, train2.x>0, train3.x>0, train4.x>0, gate.y<=9, gate.y-controller.z<=-1, gate.y-train0.x<=9, gate.y-train1.x<=4, gate.y-train2.x<=4, gate.y-train3.x<=4, gate.y-train4.x<=4, gate.y-train5.x<=9, controller.z<=10, controller.z-gate.y<=1, controller.z-train0.x<=10, controller.z-train1.x<=5, controller.z-train2.x<=5, controller.z-train3.x<=5, controller.z-train4.x<=5, controller.z-train5.x<=10, train0.x<=5, train0.x-gate.y<-2, train0.x-controller.z<-3, train0.x-train1.x<=0, train0.x-train2.x<=0, train0.x-train3.x<=0, train0.x-train4.x<=0, train0.x-train5.x<=5, train1.x<=5, train1.x-gate.y<-2, train1.x-controller.z<-3, train1.x-train0.x<=5, train1.x-train2.x<=0, train1.x-train3.x<=0, train1.x-train4.x<=0, train1.x-train5.x<=5, train2.x<=5, train2.x-gate.y<-2, train2.x-controller.z<-3, train2.x-train0.x<=5, train2.x-train1.x<2, train2.x-train3.x<=0, train2.x-train4.x<=0, train2.x-train5.x<=5, train3.x<=5, train3.x-gate.y<-2, train3.x-controller.z<-3, train3.x-train0.x<=5, train3.x-train1.x<2, train3.x-train2.x<2, train3.x-train4.x<=0, train3.x-train5.x<=5, train4.x<=5, train4.x-gate.y<-2, train4.x-controller.z<-3, train4.x-train0.x<=5, train4.x-train1.x<2, train4.x-train2.x<2, train4.x-train3.x<2, train4.x-train5.x<=5, train5.x<5, train5.x-gate.y<-4, train5.x-controller.z<-5, train5.x-train0.x<=0, train5.x-train1.x<0, train5.x-train2.x<0, train5.x-train3.x<0, train5.x-train4.x<0 controller.cnt=6 
+
+Transitions:
+  train5.train1->train5.train2 { x > a, tau, 1 }
+
+State
+
+( ltl.f0 gate.gate2 controller.controller2 train0.train1 train1.train1 train2.train1 train3.train1 train4.train1 train5.train2 )
+gate.y>6, controller.z>7, train0.x>2, train1.x>2, train2.x>2, train3.x>2, train4.x>2, train5.x>2, gate.y<=9, gate.y-controller.z<=-1, gate.y-train0.x<7, gate.y-train1.x<=4, gate.y-train2.x<=4, gate.y-train3.x<=4, gate.y-train4.x<=4, gate.y-train5.x<7, controller.z<=10, controller.z-gate.y<=1, controller.z-train0.x<8, controller.z-train1.x<=5, controller.z-train2.x<=5, controller.z-train3.x<=5, controller.z-train4.x<=5, controller.z-train5.x<8, train0.x<=5, train0.x-gate.y<-2, train0.x-controller.z<-3, train0.x-train1.x<=0, train0.x-train2.x<=0, train0.x-train3.x<=0, train0.x-train4.x<=0, train0.x-train5.x<3, train1.x<=5, train1.x-gate.y<-2, train1.x-controller.z<-3, train1.x-train0.x<3, train1.x-train2.x<=0, train1.x-train3.x<=0, train1.x-train4.x<=0, train1.x-train5.x<3, train2.x<=5, train2.x-gate.y<-2, train2.x-controller.z<-3, train2.x-train0.x<3, train2.x-train1.x<2, train2.x-train3.x<=0, train2.x-train4.x<=0, train2.x-train5.x<3, train3.x<=5, train3.x-gate.y<-2, train3.x-controller.z<-3, train3.x-train0.x<3, train3.x-train1.x<2, train3.x-train2.x<2, train3.x-train4.x<=0, train3.x-train5.x<3, train4.x<=5, train4.x-gate.y<-2, train4.x-controller.z<-3, train4.x-train0.x<3, train4.x-train1.x<2, train4.x-train2.x<2, train4.x-train3.x<2, train4.x-train5.x<3, train5.x<5, train5.x-gate.y<-4, train5.x-controller.z<-5, train5.x-train0.x<=0, train5.x-train1.x<0, train5.x-train2.x<0, train5.x-train3.x<0, train5.x-train4.x<0 controller.cnt=6 
+
+Transitions:
+  train5.train2->train5.train3 { 1, tau, 1 }
+
+State
+
+( ltl.f0 gate.gate2 controller.controller2 train0.train1 train1.train1 train2.train1 train3.train1 train4.train1 train5.train3 )
+gate.y>6, controller.z>7, train0.x>2, train1.x>2, train2.x>2, train3.x>2, train4.x>2, train5.x>2, gate.y<=9, gate.y-controller.z<=-1, gate.y-train0.x<7, gate.y-train1.x<=4, gate.y-train2.x<=4, gate.y-train3.x<=4, gate.y-train4.x<=4, gate.y-train5.x<7, controller.z<=10, controller.z-gate.y<=1, controller.z-train0.x<8, controller.z-train1.x<=5, controller.z-train2.x<=5, controller.z-train3.x<=5, controller.z-train4.x<=5, controller.z-train5.x<8, train0.x<=5, train0.x-gate.y<-2, train0.x-controller.z<-3, train0.x-train1.x<=0, train0.x-train2.x<=0, train0.x-train3.x<=0, train0.x-train4.x<=0, train0.x-train5.x<3, train1.x<=5, train1.x-gate.y<-2, train1.x-controller.z<-3, train1.x-train0.x<3, train1.x-train2.x<=0, train1.x-train3.x<=0, train1.x-train4.x<=0, train1.x-train5.x<3, train2.x<=5, train2.x-gate.y<-2, train2.x-controller.z<-3, train2.x-train0.x<3, train2.x-train1.x<2, train2.x-train3.x<=0, train2.x-train4.x<=0, train2.x-train5.x<3, train3.x<=5, train3.x-gate.y<-2, train3.x-controller.z<-3, train3.x-train0.x<3, train3.x-train1.x<2, train3.x-train2.x<2, train3.x-train4.x<=0, train3.x-train5.x<3, train4.x<=5, train4.x-gate.y<-2, train4.x-controller.z<-3, train4.x-train0.x<3, train4.x-train1.x<2, train4.x-train2.x<2, train4.x-train3.x<2, train4.x-train5.x<3, train5.x<5, train5.x-gate.y<-4, train5.x-controller.z<-5, train5.x-train0.x<=0, train5.x-train1.x<0, train5.x-train2.x<0, train5.x-train3.x<0, train5.x-train4.x<0 controller.cnt=6 
+
+Transitions:
+  controller.controller2->controller.controller2 { cnt > 1, exit_c!, cnt := cnt - 1 }
+  train5.train3->train5.train0 { x <= b, exit_c?, 1 }
+
+State
+
+( ltl.f0 gate.gate2 controller.controller2 train0.train1 train1.train1 train2.train1 train3.train1 train4.train1 train5.train0 )
+gate.y>6, controller.z>7, train0.x>2, train1.x>2, train2.x>2, train3.x>2, train4.x>2, train5.x>2, gate.y<=9, gate.y-controller.z<=-1, gate.y-train0.x<7, gate.y-train1.x<=4, gate.y-train2.x<=4, gate.y-train3.x<=4, gate.y-train4.x<=4, gate.y-train5.x<7, controller.z<=10, controller.z-gate.y<=1, controller.z-train0.x<8, controller.z-train1.x<=5, controller.z-train2.x<=5, controller.z-train3.x<=5, controller.z-train4.x<=5, controller.z-train5.x<8, train0.x<=5, train0.x-gate.y<-2, train0.x-controller.z<-3, train0.x-train1.x<=0, train0.x-train2.x<=0, train0.x-train3.x<=0, train0.x-train4.x<=0, train0.x-train5.x<3, train1.x<=5, train1.x-gate.y<-2, train1.x-controller.z<-3, train1.x-train0.x<3, train1.x-train2.x<=0, train1.x-train3.x<=0, train1.x-train4.x<=0, train1.x-train5.x<3, train2.x<=5, train2.x-gate.y<-2, train2.x-controller.z<-3, train2.x-train0.x<3, train2.x-train1.x<2, train2.x-train3.x<=0, train2.x-train4.x<=0, train2.x-train5.x<3, train3.x<=5, train3.x-gate.y<-2, train3.x-controller.z<-3, train3.x-train0.x<3, train3.x-train1.x<2, train3.x-train2.x<2, train3.x-train4.x<=0, train3.x-train5.x<3, train4.x<=5, train4.x-gate.y<-2, train4.x-controller.z<-3, train4.x-train0.x<3, train4.x-train1.x<2, train4.x-train2.x<2, train4.x-train3.x<2, train4.x-train5.x<3, train5.x<5, train5.x-gate.y<-4, train5.x-controller.z<-5, train5.x-train0.x<=0, train5.x-train1.x<0, train5.x-train2.x<0, train5.x-train3.x<0, train5.x-train4.x<0 controller.cnt=5 
+
+Transitions:
+  controller.controller2->controller.controller2 { 1, approach!, cnt := cnt + 1 }
+  train5.train0->train5.train1 { 1, approach?, x := 0 }
+
+State
+
+( ltl.f0 gate.gate2 controller.controller2 train0.train1 train1.train1 train2.train1 train3.train1 train4.train1 train5.train1 )
+gate.y>6, controller.z>7, train0.x>2, train1.x>2, train2.x>2, train3.x>2, train4.x>2, gate.y<=9, gate.y-controller.z<=-1, gate.y-train0.x<7, gate.y-train1.x<=4, gate.y-train2.x<=4, gate.y-train3.x<=4, gate.y-train4.x<=4, gate.y-train5.x<=9, controller.z<=10, controller.z-gate.y<=1, controller.z-train0.x<8, controller.z-train1.x<=5, controller.z-train2.x<=5, controller.z-train3.x<=5, controller.z-train4.x<=5, controller.z-train5.x<=10, train0.x<=5, train0.x-gate.y<-2, train0.x-controller.z<-3, train0.x-train1.x<=0, train0.x-train2.x<=0, train0.x-train3.x<=0, train0.x-train4.x<=0, train0.x-train5.x<=5, train1.x<=5, train1.x-gate.y<-2, train1.x-controller.z<-3, train1.x-train0.x<3, train1.x-train2.x<=0, train1.x-train3.x<=0, train1.x-train4.x<=0, train1.x-train5.x<=5, train2.x<=5, train2.x-gate.y<-2, train2.x-controller.z<-3, train2.x-train0.x<3, train2.x-train1.x<2, train2.x-train3.x<=0, train2.x-train4.x<=0, train2.x-train5.x<=5, train3.x<=5, train3.x-gate.y<-2, train3.x-controller.z<-3, train3.x-train0.x<3, train3.x-train1.x<2, train3.x-train2.x<2, train3.x-train4.x<=0, train3.x-train5.x<=5, train4.x<=5, train4.x-gate.y<-2, train4.x-controller.z<-3, train4.x-train0.x<3, train4.x-train1.x<2, train4.x-train2.x<2, train4.x-train3.x<2, train4.x-train5.x<=5, train5.x<3, train5.x-gate.y<-6, train5.x-controller.z<-7, train5.x-train0.x<-2, train5.x-train1.x<-2, train5.x-train2.x<-2, train5.x-train3.x<-2, train5.x-train4.x<-2 controller.cnt=6 
+
+Transitions:
+  train5.train1->train5.train2 { x > a, tau, 1 }
+
+State
+
+( ltl.f0 gate.gate2 controller.controller2 train0.train1 train1.train1 train2.train1 train3.train1 train4.train1 train5.train2 )
+gate.y>8, controller.z>9, train0.x>4, train1.x>4, train2.x>4, train3.x>4, train4.x>4, train5.x>2, gate.y<=9, gate.y-controller.z<=-1, gate.y-train0.x<5, gate.y-train1.x<=4, gate.y-train2.x<=4, gate.y-train3.x<=4, gate.y-train4.x<=4, gate.y-train5.x<7, controller.z<=10, controller.z-gate.y<=1, controller.z-train0.x<6, controller.z-train1.x<=5, controller.z-train2.x<=5, controller.z-train3.x<=5, controller.z-train4.x<=5, controller.z-train5.x<8, train0.x<=5, train0.x-gate.y<-3, train0.x-controller.z<-4, train0.x-train1.x<=0, train0.x-train2.x<=0, train0.x-train3.x<=0, train0.x-train4.x<=0, train0.x-train5.x<3, train1.x<=5, train1.x-gate.y<-3, train1.x-controller.z<-4, train1.x-train0.x<1, train1.x-train2.x<=0, train1.x-train3.x<=0, train1.x-train4.x<=0, train1.x-train5.x<3, train2.x<=5, train2.x-gate.y<-3, train2.x-controller.z<-4, train2.x-train0.x<1, train2.x-train1.x<1, train2.x-train3.x<=0, train2.x-train4.x<=0, train2.x-train5.x<3, train3.x<=5, train3.x-gate.y<-3, train3.x-controller.z<-4, train3.x-train0.x<1, train3.x-train1.x<1, train3.x-train2.x<1, train3.x-train4.x<=0, train3.x-train5.x<3, train4.x<=5, train4.x-gate.y<-3, train4.x-controller.z<-4, train4.x-train0.x<1, train4.x-train1.x<1, train4.x-train2.x<1, train4.x-train3.x<1, train4.x-train5.x<3, train5.x<3, train5.x-gate.y<-6, train5.x-controller.z<-7, train5.x-train0.x<-2, train5.x-train1.x<-2, train5.x-train2.x<-2, train5.x-train3.x<-2, train5.x-train4.x<-2 controller.cnt=6 
+
+Transitions:
+  train5.train2->train5.train3 { 1, tau, 1 }
+
+State
+
+( ltl.f0 gate.gate2 controller.controller2 train0.train1 train1.train1 train2.train1 train3.train1 train4.train1 train5.train3 )
+gate.y>8, controller.z>9, train0.x>4, train1.x>4, train2.x>4, train3.x>4, train4.x>4, train5.x>2, gate.y<=9, gate.y-controller.z<=-1, gate.y-train0.x<5, gate.y-train1.x<=4, gate.y-train2.x<=4, gate.y-train3.x<=4, gate.y-train4.x<=4, gate.y-train5.x<7, controller.z<=10, controller.z-gate.y<=1, controller.z-train0.x<6, controller.z-train1.x<=5, controller.z-train2.x<=5, controller.z-train3.x<=5, controller.z-train4.x<=5, controller.z-train5.x<8, train0.x<=5, train0.x-gate.y<-3, train0.x-controller.z<-4, train0.x-train1.x<=0, train0.x-train2.x<=0, train0.x-train3.x<=0, train0.x-train4.x<=0, train0.x-train5.x<3, train1.x<=5, train1.x-gate.y<-3, train1.x-controller.z<-4, train1.x-train0.x<1, train1.x-train2.x<=0, train1.x-train3.x<=0, train1.x-train4.x<=0, train1.x-train5.x<3, train2.x<=5, train2.x-gate.y<-3, train2.x-controller.z<-4, train2.x-train0.x<1, train2.x-train1.x<1, train2.x-train3.x<=0, train2.x-train4.x<=0, train2.x-train5.x<3, train3.x<=5, train3.x-gate.y<-3, train3.x-controller.z<-4, train3.x-train0.x<1, train3.x-train1.x<1, train3.x-train2.x<1, train3.x-train4.x<=0, train3.x-train5.x<3, train4.x<=5, train4.x-gate.y<-3, train4.x-controller.z<-4, train4.x-train0.x<1, train4.x-train1.x<1, train4.x-train2.x<1, train4.x-train3.x<1, train4.x-train5.x<3, train5.x<3, train5.x-gate.y<-6, train5.x-controller.z<-7, train5.x-train0.x<-2, train5.x-train1.x<-2, train5.x-train2.x<-2, train5.x-train3.x<-2, train5.x-train4.x<-2 controller.cnt=6 
+
+Transitions:
+  controller.controller2->controller.controller2 { cnt > 1, exit_c!, cnt := cnt - 1 }
+  train5.train3->train5.train0 { x <= b, exit_c?, 1 }
+
+State
+
+( ltl.f0 gate.gate2 controller.controller2 train0.train1 train1.train1 train2.train1 train3.train1 train4.train1 train5.train0 )
+gate.y>8, controller.z>9, train0.x>4, train1.x>4, train2.x>4, train3.x>4, train4.x>4, train5.x>2, gate.y<=9, gate.y-controller.z<=-1, gate.y-train0.x<5, gate.y-train1.x<=4, gate.y-train2.x<=4, gate.y-train3.x<=4, gate.y-train4.x<=4, gate.y-train5.x<7, controller.z<=10, controller.z-gate.y<=1, controller.z-train0.x<6, controller.z-train1.x<=5, controller.z-train2.x<=5, controller.z-train3.x<=5, controller.z-train4.x<=5, controller.z-train5.x<8, train0.x<=5, train0.x-gate.y<-3, train0.x-controller.z<-4, train0.x-train1.x<=0, train0.x-train2.x<=0, train0.x-train3.x<=0, train0.x-train4.x<=0, train0.x-train5.x<3, train1.x<=5, train1.x-gate.y<-3, train1.x-controller.z<-4, train1.x-train0.x<1, train1.x-train2.x<=0, train1.x-train3.x<=0, train1.x-train4.x<=0, train1.x-train5.x<3, train2.x<=5, train2.x-gate.y<-3, train2.x-controller.z<-4, train2.x-train0.x<1, train2.x-train1.x<1, train2.x-train3.x<=0, train2.x-train4.x<=0, train2.x-train5.x<3, train3.x<=5, train3.x-gate.y<-3, train3.x-controller.z<-4, train3.x-train0.x<1, train3.x-train1.x<1, train3.x-train2.x<1, train3.x-train4.x<=0, train3.x-train5.x<3, train4.x<=5, train4.x-gate.y<-3, train4.x-controller.z<-4, train4.x-train0.x<1, train4.x-train1.x<1, train4.x-train2.x<1, train4.x-train3.x<1, train4.x-train5.x<3, train5.x<3, train5.x-gate.y<-6, train5.x-controller.z<-7, train5.x-train0.x<-2, train5.x-train1.x<-2, train5.x-train2.x<-2, train5.x-train3.x<-2, train5.x-train4.x<-2 controller.cnt=5 
+
+Transitions:
+  controller.controller2->controller.controller2 { 1, approach!, cnt := cnt + 1 }
+  train5.train0->train5.train1 { 1, approach?, x := 0 }
+
+State
+
+( ltl.f0 gate.gate2 controller.controller2 train0.train1 train1.train1 train2.train1 train3.train1 train4.train1 train5.train1 )
+gate.y>8, controller.z>9, train0.x>4, train1.x>4, train2.x>4, train3.x>4, train4.x>4, gate.y<=9, gate.y-controller.z<=-1, gate.y-train0.x<5, gate.y-train1.x<=4, gate.y-train2.x<=4, gate.y-train3.x<=4, gate.y-train4.x<=4, gate.y-train5.x<=9, controller.z<=10, controller.z-gate.y<=1, controller.z-train0.x<6, controller.z-train1.x<=5, controller.z-train2.x<=5, controller.z-train3.x<=5, controller.z-train4.x<=5, controller.z-train5.x<=10, train0.x<=5, train0.x-gate.y<-3, train0.x-controller.z<-4, train0.x-train1.x<=0, train0.x-train2.x<=0, train0.x-train3.x<=0, train0.x-train4.x<=0, train0.x-train5.x<=5, train1.x<=5, train1.x-gate.y<-3, train1.x-controller.z<-4, train1.x-train0.x<1, train1.x-train2.x<=0, train1.x-train3.x<=0, train1.x-train4.x<=0, train1.x-train5.x<=5, train2.x<=5, train2.x-gate.y<-3, train2.x-controller.z<-4, train2.x-train0.x<1, train2.x-train1.x<1, train2.x-train3.x<=0, train2.x-train4.x<=0, train2.x-train5.x<=5, train3.x<=5, train3.x-gate.y<-3, train3.x-controller.z<-4, train3.x-train0.x<1, train3.x-train1.x<1, train3.x-train2.x<1, train3.x-train4.x<=0, train3.x-train5.x<=5, train4.x<=5, train4.x-gate.y<-3, train4.x-controller.z<-4, train4.x-train0.x<1, train4.x-train1.x<1, train4.x-train2.x<1, train4.x-train3.x<1, train4.x-train5.x<=5, train5.x<1, train5.x-gate.y<-8, train5.x-controller.z<-9, train5.x-train0.x<-4, train5.x-train1.x<-4, train5.x-train2.x<-4, train5.x-train3.x<-4, train5.x-train4.x<-4 controller.cnt=6 
+
+Transitions:
+  train4.train1->train4.train2 { x > a, tau, 1 }
+
+State
+
+( ltl.f0 gate.gate2 controller.controller2 train0.train1 train1.train1 train2.train1 train3.train1 train4.train2 train5.train1 )
+gate.y>8, controller.z>9, train0.x>4, train1.x>4, train2.x>4, train3.x>4, train4.x>4, gate.y<=9, gate.y-controller.z<=-1, gate.y-train0.x<5, gate.y-train1.x<=4, gate.y-train2.x<=4, gate.y-train3.x<=4, gate.y-train4.x<=4, gate.y-train5.x<=9, controller.z<=10, controller.z-gate.y<=1, controller.z-train0.x<6, controller.z-train1.x<=5, controller.z-train2.x<=5, controller.z-train3.x<=5, controller.z-train4.x<=5, controller.z-train5.x<=10, train0.x<=5, train0.x-gate.y<-3, train0.x-controller.z<-4, train0.x-train1.x<=0, train0.x-train2.x<=0, train0.x-train3.x<=0, train0.x-train4.x<=0, train0.x-train5.x<=5, train1.x<=5, train1.x-gate.y<-3, train1.x-controller.z<-4, train1.x-train0.x<1, train1.x-train2.x<=0, train1.x-train3.x<=0, train1.x-train4.x<=0, train1.x-train5.x<=5, train2.x<=5, train2.x-gate.y<-3, train2.x-controller.z<-4, train2.x-train0.x<1, train2.x-train1.x<1, train2.x-train3.x<=0, train2.x-train4.x<=0, train2.x-train5.x<=5, train3.x<=5, train3.x-gate.y<-3, train3.x-controller.z<-4, train3.x-train0.x<1, train3.x-train1.x<1, train3.x-train2.x<1, train3.x-train4.x<=0, train3.x-train5.x<=5, train4.x<=5, train4.x-gate.y<-3, train4.x-controller.z<-4, train4.x-train0.x<1, train4.x-train1.x<1, train4.x-train2.x<1, train4.x-train3.x<1, train4.x-train5.x<=5, train5.x<1, train5.x-gate.y<-8, train5.x-controller.z<-9, train5.x-train0.x<-4, train5.x-train1.x<-4, train5.x-train2.x<-4, train5.x-train3.x<-4, train5.x-train4.x<-4 controller.cnt=6 
+
+Transitions:
+  train4.train2->train4.train3 { 1, tau, 1 }
+
+State
+
+( ltl.f0 gate.gate2 controller.controller2 train0.train1 train1.train1 train2.train1 train3.train1 train4.train3 train5.train1 )
+gate.y>8, controller.z>9, train0.x>4, train1.x>4, train2.x>4, train3.x>4, train4.x>4, gate.y<=9, gate.y-controller.z<=-1, gate.y-train0.x<5, gate.y-train1.x<=4, gate.y-train2.x<=4, gate.y-train3.x<=4, gate.y-train4.x<=4, gate.y-train5.x<=9, controller.z<=10, controller.z-gate.y<=1, controller.z-train0.x<6, controller.z-train1.x<=5, controller.z-train2.x<=5, controller.z-train3.x<=5, controller.z-train4.x<=5, controller.z-train5.x<=10, train0.x<=5, train0.x-gate.y<-3, train0.x-controller.z<-4, train0.x-train1.x<=0, train0.x-train2.x<=0, train0.x-train3.x<=0, train0.x-train4.x<=0, train0.x-train5.x<=5, train1.x<=5, train1.x-gate.y<-3, train1.x-controller.z<-4, train1.x-train0.x<1, train1.x-train2.x<=0, train1.x-train3.x<=0, train1.x-train4.x<=0, train1.x-train5.x<=5, train2.x<=5, train2.x-gate.y<-3, train2.x-controller.z<-4, train2.x-train0.x<1, train2.x-train1.x<1, train2.x-train3.x<=0, train2.x-train4.x<=0, train2.x-train5.x<=5, train3.x<=5, train3.x-gate.y<-3, train3.x-controller.z<-4, train3.x-train0.x<1, train3.x-train1.x<1, train3.x-train2.x<1, train3.x-train4.x<=0, train3.x-train5.x<=5, train4.x<=5, train4.x-gate.y<-3, train4.x-controller.z<-4, train4.x-train0.x<1, train4.x-train1.x<1, train4.x-train2.x<1, train4.x-train3.x<1, train4.x-train5.x<=5, train5.x<1, train5.x-gate.y<-8, train5.x-controller.z<-9, train5.x-train0.x<-4, train5.x-train1.x<-4, train5.x-train2.x<-4, train5.x-train3.x<-4, train5.x-train4.x<-4 controller.cnt=6 
+
+Transitions:
+  controller.controller2->controller.controller2 { cnt > 1, exit_c!, cnt := cnt - 1 }
+  train4.train3->train4.train0 { x <= b, exit_c?, 1 }
+
+State
+
+( ltl.f0 gate.gate2 controller.controller2 train0.train1 train1.train1 train2.train1 train3.train1 train4.train0 train5.train1 )
+gate.y>8, controller.z>9, train0.x>4, train1.x>4, train2.x>4, train3.x>4, train4.x>4, gate.y<=9, gate.y-controller.z<=-1, gate.y-train0.x<5, gate.y-train1.x<=4, gate.y-train2.x<=4, gate.y-train3.x<=4, gate.y-train4.x<=4, gate.y-train5.x<=9, controller.z<=10, controller.z-gate.y<=1, controller.z-train0.x<6, controller.z-train1.x<=5, controller.z-train2.x<=5, controller.z-train3.x<=5, controller.z-train4.x<=5, controller.z-train5.x<=10, train0.x<=5, train0.x-gate.y<-3, train0.x-controller.z<-4, train0.x-train1.x<=0, train0.x-train2.x<=0, train0.x-train3.x<=0, train0.x-train4.x<=0, train0.x-train5.x<=5, train1.x<=5, train1.x-gate.y<-3, train1.x-controller.z<-4, train1.x-train0.x<1, train1.x-train2.x<=0, train1.x-train3.x<=0, train1.x-train4.x<=0, train1.x-train5.x<=5, train2.x<=5, train2.x-gate.y<-3, train2.x-controller.z<-4, train2.x-train0.x<1, train2.x-train1.x<1, train2.x-train3.x<=0, train2.x-train4.x<=0, train2.x-train5.x<=5, train3.x<=5, train3.x-gate.y<-3, train3.x-controller.z<-4, train3.x-train0.x<1, train3.x-train1.x<1, train3.x-train2.x<1, train3.x-train4.x<=0, train3.x-train5.x<=5, train4.x<6, train4.x-gate.y<-3, train4.x-controller.z<-4, train4.x-train0.x<1, train4.x-train1.x<1, train4.x-train2.x<1, train4.x-train3.x<1, train4.x-train5.x<=5, train5.x<1, train5.x-gate.y<-8, train5.x-controller.z<-9, train5.x-train0.x<-4, train5.x-train1.x<-4, train5.x-train2.x<-4, train5.x-train3.x<-4, train5.x-train4.x<-4 controller.cnt=5 
+
+Transitions:
+  controller.controller2->controller.controller2 { 1, approach!, cnt := cnt + 1 }
+  train4.train0->train4.train1 { 1, approach?, x := 0 }
+
+State
+
+( ltl.f0 gate.gate2 controller.controller2 train0.train1 train1.train1 train2.train1 train3.train1 train4.train1 train5.train1 )
+gate.y>8, controller.z>9, train0.x>4, train1.x>4, train2.x>4, train3.x>4, gate.y<=9, gate.y-controller.z<=-1, gate.y-train0.x<5, gate.y-train1.x<=4, gate.y-train2.x<=4, gate.y-train3.x<=4, gate.y-train4.x<=9, gate.y-train5.x<=9, controller.z<=10, controller.z-gate.y<=1, controller.z-train0.x<6, controller.z-train1.x<=5, controller.z-train2.x<=5, controller.z-train3.x<=5, controller.z-train4.x<=10, controller.z-train5.x<=10, train0.x<=5, train0.x-gate.y<-3, train0.x-controller.z<-4, train0.x-train1.x<=0, train0.x-train2.x<=0, train0.x-train3.x<=0, train0.x-train4.x<=5, train0.x-train5.x<=5, train1.x<=5, train1.x-gate.y<-3, train1.x-controller.z<-4, train1.x-train0.x<1, train1.x-train2.x<=0, train1.x-train3.x<=0, train1.x-train4.x<=5, train1.x-train5.x<=5, train2.x<=5, train2.x-gate.y<-3, train2.x-controller.z<-4, train2.x-train0.x<1, train2.x-train1.x<1, train2.x-train3.x<=0, train2.x-train4.x<=5, train2.x-train5.x<=5, train3.x<=5, train3.x-gate.y<-3, train3.x-controller.z<-4, train3.x-train0.x<1, train3.x-train1.x<1, train3.x-train2.x<1, train3.x-train4.x<=5, train3.x-train5.x<=5, train4.x<1, train4.x-gate.y<-8, train4.x-controller.z<-9, train4.x-train0.x<-4, train4.x-train1.x<-4, train4.x-train2.x<-4, train4.x-train3.x<-4, train4.x-train5.x<=0, train5.x<1, train5.x-gate.y<-8, train5.x-controller.z<-9, train5.x-train0.x<-4, train5.x-train1.x<-4, train5.x-train2.x<-4, train5.x-train3.x<-4, train5.x-train4.x<1 controller.cnt=6 
+
+Transitions:
+  train3.train1->train3.train2 { x > a, tau, 1 }
+
+State
+
+( ltl.f0 gate.gate2 controller.controller2 train0.train1 train1.train1 train2.train1 train3.train2 train4.train1 train5.train1 )
+gate.y>8, controller.z>9, train0.x>4, train1.x>4, train2.x>4, train3.x>4, gate.y<=9, gate.y-controller.z<=-1, gate.y-train0.x<5, gate.y-train1.x<=4, gate.y-train2.x<=4, gate.y-train3.x<=4, gate.y-train4.x<=9, gate.y-train5.x<=9, controller.z<=10, controller.z-gate.y<=1, controller.z-train0.x<6, controller.z-train1.x<=5, controller.z-train2.x<=5, controller.z-train3.x<=5, controller.z-train4.x<=10, controller.z-train5.x<=10, train0.x<=5, train0.x-gate.y<-3, train0.x-controller.z<-4, train0.x-train1.x<=0, train0.x-train2.x<=0, train0.x-train3.x<=0, train0.x-train4.x<=5, train0.x-train5.x<=5, train1.x<=5, train1.x-gate.y<-3, train1.x-controller.z<-4, train1.x-train0.x<1, train1.x-train2.x<=0, train1.x-train3.x<=0, train1.x-train4.x<=5, train1.x-train5.x<=5, train2.x<=5, train2.x-gate.y<-3, train2.x-controller.z<-4, train2.x-train0.x<1, train2.x-train1.x<1, train2.x-train3.x<=0, train2.x-train4.x<=5, train2.x-train5.x<=5, train3.x<=5, train3.x-gate.y<-3, train3.x-controller.z<-4, train3.x-train0.x<1, train3.x-train1.x<1, train3.x-train2.x<1, train3.x-train4.x<=5, train3.x-train5.x<=5, train4.x<1, train4.x-gate.y<-8, train4.x-controller.z<-9, train4.x-train0.x<-4, train4.x-train1.x<-4, train4.x-train2.x<-4, train4.x-train3.x<-4, train4.x-train5.x<=0, train5.x<1, train5.x-gate.y<-8, train5.x-controller.z<-9, train5.x-train0.x<-4, train5.x-train1.x<-4, train5.x-train2.x<-4, train5.x-train3.x<-4, train5.x-train4.x<1 controller.cnt=6 
+
+Transitions:
+  train3.train2->train3.train3 { 1, tau, 1 }
+
+State
+
+( ltl.f0 gate.gate2 controller.controller2 train0.train1 train1.train1 train2.train1 train3.train3 train4.train1 train5.train1 )
+gate.y>8, controller.z>9, train0.x>4, train1.x>4, train2.x>4, train3.x>4, gate.y<=9, gate.y-controller.z<=-1, gate.y-train0.x<5, gate.y-train1.x<=4, gate.y-train2.x<=4, gate.y-train3.x<=4, gate.y-train4.x<=9, gate.y-train5.x<=9, controller.z<=10, controller.z-gate.y<=1, controller.z-train0.x<6, controller.z-train1.x<=5, controller.z-train2.x<=5, controller.z-train3.x<=5, controller.z-train4.x<=10, controller.z-train5.x<=10, train0.x<=5, train0.x-gate.y<-3, train0.x-controller.z<-4, train0.x-train1.x<=0, train0.x-train2.x<=0, train0.x-train3.x<=0, train0.x-train4.x<=5, train0.x-train5.x<=5, train1.x<=5, train1.x-gate.y<-3, train1.x-controller.z<-4, train1.x-train0.x<1, train1.x-train2.x<=0, train1.x-train3.x<=0, train1.x-train4.x<=5, train1.x-train5.x<=5, train2.x<=5, train2.x-gate.y<-3, train2.x-controller.z<-4, train2.x-train0.x<1, train2.x-train1.x<1, train2.x-train3.x<=0, train2.x-train4.x<=5, train2.x-train5.x<=5, train3.x<=5, train3.x-gate.y<-3, train3.x-controller.z<-4, train3.x-train0.x<1, train3.x-train1.x<1, train3.x-train2.x<1, train3.x-train4.x<=5, train3.x-train5.x<=5, train4.x<1, train4.x-gate.y<-8, train4.x-controller.z<-9, train4.x-train0.x<-4, train4.x-train1.x<-4, train4.x-train2.x<-4, train4.x-train3.x<-4, train4.x-train5.x<=0, train5.x<1, train5.x-gate.y<-8, train5.x-controller.z<-9, train5.x-train0.x<-4, train5.x-train1.x<-4, train5.x-train2.x<-4, train5.x-train3.x<-4, train5.x-train4.x<1 controller.cnt=6 
+
+Transitions:
+  controller.controller2->controller.controller2 { cnt > 1, exit_c!, cnt := cnt - 1 }
+  train3.train3->train3.train0 { x <= b, exit_c?, 1 }
+
+State
+
+( ltl.f0 gate.gate2 controller.controller2 train0.train1 train1.train1 train2.train1 train3.train0 train4.train1 train5.train1 )
+gate.y>8, controller.z>9, train0.x>4, train1.x>4, train2.x>4, train3.x>4, gate.y<=9, gate.y-controller.z<=-1, gate.y-train0.x<5, gate.y-train1.x<=4, gate.y-train2.x<=4, gate.y-train3.x<=4, gate.y-train4.x<=9, gate.y-train5.x<=9, controller.z<=10, controller.z-gate.y<=1, controller.z-train0.x<6, controller.z-train1.x<=5, controller.z-train2.x<=5, controller.z-train3.x<=5, controller.z-train4.x<=10, controller.z-train5.x<=10, train0.x<=5, train0.x-gate.y<-3, train0.x-controller.z<-4, train0.x-train1.x<=0, train0.x-train2.x<=0, train0.x-train3.x<=0, train0.x-train4.x<=5, train0.x-train5.x<=5, train1.x<=5, train1.x-gate.y<-3, train1.x-controller.z<-4, train1.x-train0.x<1, train1.x-train2.x<=0, train1.x-train3.x<=0, train1.x-train4.x<=5, train1.x-train5.x<=5, train2.x<=5, train2.x-gate.y<-3, train2.x-controller.z<-4, train2.x-train0.x<1, train2.x-train1.x<1, train2.x-train3.x<=0, train2.x-train4.x<=5, train2.x-train5.x<=5, train3.x<6, train3.x-gate.y<-3, train3.x-controller.z<-4, train3.x-train0.x<1, train3.x-train1.x<1, train3.x-train2.x<1, train3.x-train4.x<=5, train3.x-train5.x<=5, train4.x<1, train4.x-gate.y<-8, train4.x-controller.z<-9, train4.x-train0.x<-4, train4.x-train1.x<-4, train4.x-train2.x<-4, train4.x-train3.x<-4, train4.x-train5.x<=0, train5.x<1, train5.x-gate.y<-8, train5.x-controller.z<-9, train5.x-train0.x<-4, train5.x-train1.x<-4, train5.x-train2.x<-4, train5.x-train3.x<-4, train5.x-train4.x<1 controller.cnt=5 
+
+Transitions:
+  controller.controller2->controller.controller2 { 1, approach!, cnt := cnt + 1 }
+  train3.train0->train3.train1 { 1, approach?, x := 0 }
+
+State
+
+( ltl.f0 gate.gate2 controller.controller2 train0.train1 train1.train1 train2.train1 train3.train1 train4.train1 train5.train1 )
+gate.y>8, controller.z>9, train0.x>4, train1.x>4, train2.x>4, gate.y<=9, gate.y-controller.z<=-1, gate.y-train0.x<5, gate.y-train1.x<=4, gate.y-train2.x<=4, gate.y-train3.x<=9, gate.y-train4.x<=9, gate.y-train5.x<=9, controller.z<=10, controller.z-gate.y<=1, controller.z-train0.x<6, controller.z-train1.x<=5, controller.z-train2.x<=5, controller.z-train3.x<=10, controller.z-train4.x<=10, controller.z-train5.x<=10, train0.x<=5, train0.x-gate.y<-3, train0.x-controller.z<-4, train0.x-train1.x<=0, train0.x-train2.x<=0, train0.x-train3.x<=5, train0.x-train4.x<=5, train0.x-train5.x<=5, train1.x<=5, train1.x-gate.y<-3, train1.x-controller.z<-4, train1.x-train0.x<1, train1.x-train2.x<=0, train1.x-train3.x<=5, train1.x-train4.x<=5, train1.x-train5.x<=5, train2.x<=5, train2.x-gate.y<-3, train2.x-controller.z<-4, train2.x-train0.x<1, train2.x-train1.x<1, train2.x-train3.x<=5, train2.x-train4.x<=5, train2.x-train5.x<=5, train3.x<1, train3.x-gate.y<-8, train3.x-controller.z<-9, train3.x-train0.x<-4, train3.x-train1.x<-4, train3.x-train2.x<-4, train3.x-train4.x<=0, train3.x-train5.x<=0, train4.x<1, train4.x-gate.y<-8, train4.x-controller.z<-9, train4.x-train0.x<-4, train4.x-train1.x<-4, train4.x-train2.x<-4, train4.x-train3.x<1, train4.x-train5.x<=0, train5.x<1, train5.x-gate.y<-8, train5.x-controller.z<-9, train5.x-train0.x<-4, train5.x-train1.x<-4, train5.x-train2.x<-4, train5.x-train3.x<1, train5.x-train4.x<1 controller.cnt=6 
+
+Transitions:
+  train2.train1->train2.train2 { x > a, tau, 1 }
+
+State
+
+( ltl.f0 gate.gate2 controller.controller2 train0.train1 train1.train1 train2.train2 train3.train1 train4.train1 train5.train1 )
+gate.y>8, controller.z>9, train0.x>4, train1.x>4, train2.x>4, gate.y<=9, gate.y-controller.z<=-1, gate.y-train0.x<5, gate.y-train1.x<=4, gate.y-train2.x<=4, gate.y-train3.x<=9, gate.y-train4.x<=9, gate.y-train5.x<=9, controller.z<=10, controller.z-gate.y<=1, controller.z-train0.x<6, controller.z-train1.x<=5, controller.z-train2.x<=5, controller.z-train3.x<=10, controller.z-train4.x<=10, controller.z-train5.x<=10, train0.x<=5, train0.x-gate.y<-3, train0.x-controller.z<-4, train0.x-train1.x<=0, train0.x-train2.x<=0, train0.x-train3.x<=5, train0.x-train4.x<=5, train0.x-train5.x<=5, train1.x<=5, train1.x-gate.y<-3, train1.x-controller.z<-4, train1.x-train0.x<1, train1.x-train2.x<=0, train1.x-train3.x<=5, train1.x-train4.x<=5, train1.x-train5.x<=5, train2.x<=5, train2.x-gate.y<-3, train2.x-controller.z<-4, train2.x-train0.x<1, train2.x-train1.x<1, train2.x-train3.x<=5, train2.x-train4.x<=5, train2.x-train5.x<=5, train3.x<1, train3.x-gate.y<-8, train3.x-controller.z<-9, train3.x-train0.x<-4, train3.x-train1.x<-4, train3.x-train2.x<-4, train3.x-train4.x<=0, train3.x-train5.x<=0, train4.x<1, train4.x-gate.y<-8, train4.x-controller.z<-9, train4.x-train0.x<-4, train4.x-train1.x<-4, train4.x-train2.x<-4, train4.x-train3.x<1, train4.x-train5.x<=0, train5.x<1, train5.x-gate.y<-8, train5.x-controller.z<-9, train5.x-train0.x<-4, train5.x-train1.x<-4, train5.x-train2.x<-4, train5.x-train3.x<1, train5.x-train4.x<1 controller.cnt=6 
+
+Transitions:
+  train2.train2->train2.train3 { 1, tau, 1 }
+
+State
+
+( ltl.f0 gate.gate2 controller.controller2 train0.train1 train1.train1 train2.train3 train3.train1 train4.train1 train5.train1 )
+gate.y>8, controller.z>9, train0.x>4, train1.x>4, train2.x>4, gate.y<=9, gate.y-controller.z<=-1, gate.y-train0.x<5, gate.y-train1.x<=4, gate.y-train2.x<=4, gate.y-train3.x<=9, gate.y-train4.x<=9, gate.y-train5.x<=9, controller.z<=10, controller.z-gate.y<=1, controller.z-train0.x<6, controller.z-train1.x<=5, controller.z-train2.x<=5, controller.z-train3.x<=10, controller.z-train4.x<=10, controller.z-train5.x<=10, train0.x<=5, train0.x-gate.y<-3, train0.x-controller.z<-4, train0.x-train1.x<=0, train0.x-train2.x<=0, train0.x-train3.x<=5, train0.x-train4.x<=5, train0.x-train5.x<=5, train1.x<=5, train1.x-gate.y<-3, train1.x-controller.z<-4, train1.x-train0.x<1, train1.x-train2.x<=0, train1.x-train3.x<=5, train1.x-train4.x<=5, train1.x-train5.x<=5, train2.x<=5, train2.x-gate.y<-3, train2.x-controller.z<-4, train2.x-train0.x<1, train2.x-train1.x<1, train2.x-train3.x<=5, train2.x-train4.x<=5, train2.x-train5.x<=5, train3.x<1, train3.x-gate.y<-8, train3.x-controller.z<-9, train3.x-train0.x<-4, train3.x-train1.x<-4, train3.x-train2.x<-4, train3.x-train4.x<=0, train3.x-train5.x<=0, train4.x<1, train4.x-gate.y<-8, train4.x-controller.z<-9, train4.x-train0.x<-4, train4.x-train1.x<-4, train4.x-train2.x<-4, train4.x-train3.x<1, train4.x-train5.x<=0, train5.x<1, train5.x-gate.y<-8, train5.x-controller.z<-9, train5.x-train0.x<-4, train5.x-train1.x<-4, train5.x-train2.x<-4, train5.x-train3.x<1, train5.x-train4.x<1 controller.cnt=6 
+
+Transitions:
+  controller.controller2->controller.controller2 { cnt > 1, exit_c!, cnt := cnt - 1 }
+  train2.train3->train2.train0 { x <= b, exit_c?, 1 }
+
+State
+
+( ltl.f0 gate.gate2 controller.controller2 train0.train1 train1.train1 train2.train0 train3.train1 train4.train1 train5.train1 )
+gate.y>8, controller.z>9, train0.x>4, train1.x>4, train2.x>4, gate.y<=9, gate.y-controller.z<=-1, gate.y-train0.x<5, gate.y-train1.x<=4, gate.y-train2.x<=4, gate.y-train3.x<=9, gate.y-train4.x<=9, gate.y-train5.x<=9, controller.z<=10, controller.z-gate.y<=1, controller.z-train0.x<6, controller.z-train1.x<=5, controller.z-train2.x<=5, controller.z-train3.x<=10, controller.z-train4.x<=10, controller.z-train5.x<=10, train0.x<=5, train0.x-gate.y<-3, train0.x-controller.z<-4, train0.x-train1.x<=0, train0.x-train2.x<=0, train0.x-train3.x<=5, train0.x-train4.x<=5, train0.x-train5.x<=5, train1.x<=5, train1.x-gate.y<-3, train1.x-controller.z<-4, train1.x-train0.x<1, train1.x-train2.x<=0, train1.x-train3.x<=5, train1.x-train4.x<=5, train1.x-train5.x<=5, train2.x<6, train2.x-gate.y<-3, train2.x-controller.z<-4, train2.x-train0.x<1, train2.x-train1.x<1, train2.x-train3.x<=5, train2.x-train4.x<=5, train2.x-train5.x<=5, train3.x<1, train3.x-gate.y<-8, train3.x-controller.z<-9, train3.x-train0.x<-4, train3.x-train1.x<-4, train3.x-train2.x<-4, train3.x-train4.x<=0, train3.x-train5.x<=0, train4.x<1, train4.x-gate.y<-8, train4.x-controller.z<-9, train4.x-train0.x<-4, train4.x-train1.x<-4, train4.x-train2.x<-4, train4.x-train3.x<1, train4.x-train5.x<=0, train5.x<1, train5.x-gate.y<-8, train5.x-controller.z<-9, train5.x-train0.x<-4, train5.x-train1.x<-4, train5.x-train2.x<-4, train5.x-train3.x<1, train5.x-train4.x<1 controller.cnt=5 
+
+Transitions:
+  controller.controller2->controller.controller2 { 1, approach!, cnt := cnt + 1 }
+  train2.train0->train2.train1 { 1, approach?, x := 0 }
+
+State
+
+( ltl.f0 gate.gate2 controller.controller2 train0.train1 train1.train1 train2.train1 train3.train1 train4.train1 train5.train1 )
+gate.y>8, controller.z>9, train0.x>4, train1.x>4, gate.y<=9, gate.y-controller.z<=-1, gate.y-train0.x<5, gate.y-train1.x<=4, gate.y-train2.x<=9, gate.y-train3.x<=9, gate.y-train4.x<=9, gate.y-train5.x<=9, controller.z<=10, controller.z-gate.y<=1, controller.z-train0.x<6, controller.z-train1.x<=5, controller.z-train2.x<=10, controller.z-train3.x<=10, controller.z-train4.x<=10, controller.z-train5.x<=10, train0.x<=5, train0.x-gate.y<-3, train0.x-controller.z<-4, train0.x-train1.x<=0, train0.x-train2.x<=5, train0.x-train3.x<=5, train0.x-train4.x<=5, train0.x-train5.x<=5, train1.x<=5, train1.x-gate.y<-3, train1.x-controller.z<-4, train1.x-train0.x<1, train1.x-train2.x<=5, train1.x-train3.x<=5, train1.x-train4.x<=5, train1.x-train5.x<=5, train2.x<1, train2.x-gate.y<-8, train2.x-controller.z<-9, train2.x-train0.x<-4, train2.x-train1.x<-4, train2.x-train3.x<=0, train2.x-train4.x<=0, train2.x-train5.x<=0, train3.x<1, train3.x-gate.y<-8, train3.x-controller.z<-9, train3.x-train0.x<-4, train3.x-train1.x<-4, train3.x-train2.x<1, train3.x-train4.x<=0, train3.x-train5.x<=0, train4.x<1, train4.x-gate.y<-8, train4.x-controller.z<-9, train4.x-train0.x<-4, train4.x-train1.x<-4, train4.x-train2.x<1, train4.x-train3.x<1, train4.x-train5.x<=0, train5.x<1, train5.x-gate.y<-8, train5.x-controller.z<-9, train5.x-train0.x<-4, train5.x-train1.x<-4, train5.x-train2.x<1, train5.x-train3.x<1, train5.x-train4.x<1 controller.cnt=6 
+
+Transitions:
+  train1.train1->train1.train2 { x > a, tau, 1 }
+
+State
+
+( ltl.f0 gate.gate2 controller.controller2 train0.train1 train1.train2 train2.train1 train3.train1 train4.train1 train5.train1 )
+gate.y>8, controller.z>9, train0.x>4, train1.x>4, gate.y<=9, gate.y-controller.z<=-1, gate.y-train0.x<5, gate.y-train1.x<=4, gate.y-train2.x<=9, gate.y-train3.x<=9, gate.y-train4.x<=9, gate.y-train5.x<=9, controller.z<=10, controller.z-gate.y<=1, controller.z-train0.x<6, controller.z-train1.x<=5, controller.z-train2.x<=10, controller.z-train3.x<=10, controller.z-train4.x<=10, controller.z-train5.x<=10, train0.x<=5, train0.x-gate.y<-3, train0.x-controller.z<-4, train0.x-train1.x<=0, train0.x-train2.x<=5, train0.x-train3.x<=5, train0.x-train4.x<=5, train0.x-train5.x<=5, train1.x<=5, train1.x-gate.y<-3, train1.x-controller.z<-4, train1.x-train0.x<1, train1.x-train2.x<=5, train1.x-train3.x<=5, train1.x-train4.x<=5, train1.x-train5.x<=5, train2.x<1, train2.x-gate.y<-8, train2.x-controller.z<-9, train2.x-train0.x<-4, train2.x-train1.x<-4, train2.x-train3.x<=0, train2.x-train4.x<=0, train2.x-train5.x<=0, train3.x<1, train3.x-gate.y<-8, train3.x-controller.z<-9, train3.x-train0.x<-4, train3.x-train1.x<-4, train3.x-train2.x<1, train3.x-train4.x<=0, train3.x-train5.x<=0, train4.x<1, train4.x-gate.y<-8, train4.x-controller.z<-9, train4.x-train0.x<-4, train4.x-train1.x<-4, train4.x-train2.x<1, train4.x-train3.x<1, train4.x-train5.x<=0, train5.x<1, train5.x-gate.y<-8, train5.x-controller.z<-9, train5.x-train0.x<-4, train5.x-train1.x<-4, train5.x-train2.x<1, train5.x-train3.x<1, train5.x-train4.x<1 controller.cnt=6 
+
+Transitions:
+  train1.train2->train1.train3 { 1, tau, 1 }
+
+State
+
+( ltl.f0 gate.gate2 controller.controller2 train0.train1 train1.train3 train2.train1 train3.train1 train4.train1 train5.train1 )
+gate.y>8, controller.z>9, train0.x>4, train1.x>4, gate.y<=9, gate.y-controller.z<=-1, gate.y-train0.x<5, gate.y-train1.x<=4, gate.y-train2.x<=9, gate.y-train3.x<=9, gate.y-train4.x<=9, gate.y-train5.x<=9, controller.z<=10, controller.z-gate.y<=1, controller.z-train0.x<6, controller.z-train1.x<=5, controller.z-train2.x<=10, controller.z-train3.x<=10, controller.z-train4.x<=10, controller.z-train5.x<=10, train0.x<=5, train0.x-gate.y<-3, train0.x-controller.z<-4, train0.x-train1.x<=0, train0.x-train2.x<=5, train0.x-train3.x<=5, train0.x-train4.x<=5, train0.x-train5.x<=5, train1.x<=5, train1.x-gate.y<-3, train1.x-controller.z<-4, train1.x-train0.x<1, train1.x-train2.x<=5, train1.x-train3.x<=5, train1.x-train4.x<=5, train1.x-train5.x<=5, train2.x<1, train2.x-gate.y<-8, train2.x-controller.z<-9, train2.x-train0.x<-4, train2.x-train1.x<-4, train2.x-train3.x<=0, train2.x-train4.x<=0, train2.x-train5.x<=0, train3.x<1, train3.x-gate.y<-8, train3.x-controller.z<-9, train3.x-train0.x<-4, train3.x-train1.x<-4, train3.x-train2.x<1, train3.x-train4.x<=0, train3.x-train5.x<=0, train4.x<1, train4.x-gate.y<-8, train4.x-controller.z<-9, train4.x-train0.x<-4, train4.x-train1.x<-4, train4.x-train2.x<1, train4.x-train3.x<1, train4.x-train5.x<=0, train5.x<1, train5.x-gate.y<-8, train5.x-controller.z<-9, train5.x-train0.x<-4, train5.x-train1.x<-4, train5.x-train2.x<1, train5.x-train3.x<1, train5.x-train4.x<1 controller.cnt=6 
+
+Transitions:
+  controller.controller2->controller.controller2 { cnt > 1, exit_c!, cnt := cnt - 1 }
+  train1.train3->train1.train0 { x <= b, exit_c?, 1 }
+
+State
+
+( ltl.f0 gate.gate2 controller.controller2 train0.train1 train1.train0 train2.train1 train3.train1 train4.train1 train5.train1 )
+gate.y>8, controller.z>9, train0.x>4, train1.x>4, gate.y<10, gate.y-controller.z<=-1, gate.y-train0.x<5, gate.y-train1.x<=4, gate.y-train2.x<=9, gate.y-train3.x<=9, gate.y-train4.x<=9, gate.y-train5.x<=9, controller.z<11, controller.z-gate.y<=1, controller.z-train0.x<6, controller.z-train1.x<=5, controller.z-train2.x<=10, controller.z-train3.x<=10, controller.z-train4.x<=10, controller.z-train5.x<=10, train0.x<=5, train0.x-gate.y<-3, train0.x-controller.z<-4, train0.x-train1.x<=0, train0.x-train2.x<=5, train0.x-train3.x<=5, train0.x-train4.x<=5, train0.x-train5.x<=5, train1.x<6, train1.x-gate.y<-3, train1.x-controller.z<-4, train1.x-train0.x<1, train1.x-train2.x<=5, train1.x-train3.x<=5, train1.x-train4.x<=5, train1.x-train5.x<=5, train2.x<1, train2.x-gate.y<-8, train2.x-controller.z<-9, train2.x-train0.x<-4, train2.x-train1.x<-4, train2.x-train3.x<=0, train2.x-train4.x<=0, train2.x-train5.x<=0, train3.x<1, train3.x-gate.y<-8, train3.x-controller.z<-9, train3.x-train0.x<-4, train3.x-train1.x<-4, train3.x-train2.x<1, train3.x-train4.x<=0, train3.x-train5.x<=0, train4.x<1, train4.x-gate.y<-8, train4.x-controller.z<-9, train4.x-train0.x<-4, train4.x-train1.x<-4, train4.x-train2.x<1, train4.x-train3.x<1, train4.x-train5.x<=0, train5.x<1, train5.x-gate.y<-8, train5.x-controller.z<-9, train5.x-train0.x<-4, train5.x-train1.x<-4, train5.x-train2.x<1, train5.x-train3.x<1, train5.x-train4.x<1 controller.cnt=5 
+
+Transitions:
+  controller.controller2->controller.controller2 { 1, approach!, cnt := cnt + 1 }
+  train1.train0->train1.train1 { 1, approach?, x := 0 }
+
+State
+
+( ltl.f0 gate.gate2 controller.controller2 train0.train1 train1.train1 train2.train1 train3.train1 train4.train1 train5.train1 )
+gate.y>8, controller.z>9, train0.x>4, gate.y<10, gate.y-controller.z<=-1, gate.y-train0.x<5, gate.y-train1.x<10, gate.y-train2.x<=9, gate.y-train3.x<=9, gate.y-train4.x<=9, gate.y-train5.x<=9, controller.z<11, controller.z-gate.y<=1, controller.z-train0.x<6, controller.z-train1.x<11, controller.z-train2.x<=10, controller.z-train3.x<=10, controller.z-train4.x<=10, controller.z-train5.x<=10, train0.x<=5, train0.x-gate.y<-3, train0.x-controller.z<-4, train0.x-train1.x<=5, train0.x-train2.x<=5, train0.x-train3.x<=5, train0.x-train4.x<=5, train0.x-train5.x<=5, train1.x<1, train1.x-gate.y<-8, train1.x-controller.z<-9, train1.x-train0.x<-4, train1.x-train2.x<=0, train1.x-train3.x<=0, train1.x-train4.x<=0, train1.x-train5.x<=0, train2.x<1, train2.x-gate.y<-8, train2.x-controller.z<-9, train2.x-train0.x<-4, train2.x-train1.x<1, train2.x-train3.x<=0, train2.x-train4.x<=0, train2.x-train5.x<=0, train3.x<1, train3.x-gate.y<-8, train3.x-controller.z<-9, train3.x-train0.x<-4, train3.x-train1.x<1, train3.x-train2.x<1, train3.x-train4.x<=0, train3.x-train5.x<=0, train4.x<1, train4.x-gate.y<-8, train4.x-controller.z<-9, train4.x-train0.x<-4, train4.x-train1.x<1, train4.x-train2.x<1, train4.x-train3.x<1, train4.x-train5.x<=0, train5.x<1, train5.x-gate.y<-8, train5.x-controller.z<-9, train5.x-train0.x<-4, train5.x-train1.x<1, train5.x-train2.x<1, train5.x-train3.x<1, train5.x-train4.x<1 controller.cnt=6 
+
+Transitions:
+  train0.train1->train0.train2 { x > a, tau, 1 }
+
+State
+
+( ltl.f0 gate.gate2 controller.controller2 train0.train2 train1.train1 train2.train1 train3.train1 train4.train1 train5.train1 )
+gate.y>8, controller.z>9, train0.x>4, gate.y<10, gate.y-controller.z<=-1, gate.y-train0.x<5, gate.y-train1.x<10, gate.y-train2.x<=9, gate.y-train3.x<=9, gate.y-train4.x<=9, gate.y-train5.x<=9, controller.z<11, controller.z-gate.y<=1, controller.z-train0.x<6, controller.z-train1.x<11, controller.z-train2.x<=10, controller.z-train3.x<=10, controller.z-train4.x<=10, controller.z-train5.x<=10, train0.x<=5, train0.x-gate.y<-3, train0.x-controller.z<-4, train0.x-train1.x<=5, train0.x-train2.x<=5, train0.x-train3.x<=5, train0.x-train4.x<=5, train0.x-train5.x<=5, train1.x<1, train1.x-gate.y<-8, train1.x-controller.z<-9, train1.x-train0.x<-4, train1.x-train2.x<=0, train1.x-train3.x<=0, train1.x-train4.x<=0, train1.x-train5.x<=0, train2.x<1, train2.x-gate.y<-8, train2.x-controller.z<-9, train2.x-train0.x<-4, train2.x-train1.x<1, train2.x-train3.x<=0, train2.x-train4.x<=0, train2.x-train5.x<=0, train3.x<1, train3.x-gate.y<-8, train3.x-controller.z<-9, train3.x-train0.x<-4, train3.x-train1.x<1, train3.x-train2.x<1, train3.x-train4.x<=0, train3.x-train5.x<=0, train4.x<1, train4.x-gate.y<-8, train4.x-controller.z<-9, train4.x-train0.x<-4, train4.x-train1.x<1, train4.x-train2.x<1, train4.x-train3.x<1, train4.x-train5.x<=0, train5.x<1, train5.x-gate.y<-8, train5.x-controller.z<-9, train5.x-train0.x<-4, train5.x-train1.x<1, train5.x-train2.x<1, train5.x-train3.x<1, train5.x-train4.x<1 controller.cnt=6 
+
+Transitions:
+  train0.train2->train0.train3 { 1, tau, 1 }
+
+State
+
+( ltl.f0 gate.gate2 controller.controller2 train0.train3 train1.train1 train2.train1 train3.train1 train4.train1 train5.train1 )
+gate.y>8, controller.z>9, train0.x>4, gate.y<10, gate.y-controller.z<=-1, gate.y-train0.x<5, gate.y-train1.x<10, gate.y-train2.x<=9, gate.y-train3.x<=9, gate.y-train4.x<=9, gate.y-train5.x<=9, controller.z<11, controller.z-gate.y<=1, controller.z-train0.x<6, controller.z-train1.x<11, controller.z-train2.x<=10, controller.z-train3.x<=10, controller.z-train4.x<=10, controller.z-train5.x<=10, train0.x<=5, train0.x-gate.y<-3, train0.x-controller.z<-4, train0.x-train1.x<=5, train0.x-train2.x<=5, train0.x-train3.x<=5, train0.x-train4.x<=5, train0.x-train5.x<=5, train1.x<1, train1.x-gate.y<-8, train1.x-controller.z<-9, train1.x-train0.x<-4, train1.x-train2.x<=0, train1.x-train3.x<=0, train1.x-train4.x<=0, train1.x-train5.x<=0, train2.x<1, train2.x-gate.y<-8, train2.x-controller.z<-9, train2.x-train0.x<-4, train2.x-train1.x<1, train2.x-train3.x<=0, train2.x-train4.x<=0, train2.x-train5.x<=0, train3.x<1, train3.x-gate.y<-8, train3.x-controller.z<-9, train3.x-train0.x<-4, train3.x-train1.x<1, train3.x-train2.x<1, train3.x-train4.x<=0, train3.x-train5.x<=0, train4.x<1, train4.x-gate.y<-8, train4.x-controller.z<-9, train4.x-train0.x<-4, train4.x-train1.x<1, train4.x-train2.x<1, train4.x-train3.x<1, train4.x-train5.x<=0, train5.x<1, train5.x-gate.y<-8, train5.x-controller.z<-9, train5.x-train0.x<-4, train5.x-train1.x<1, train5.x-train2.x<1, train5.x-train3.x<1, train5.x-train4.x<1 controller.cnt=6 
+
+Transitions:
+  controller.controller2->controller.controller2 { cnt > 1, exit_c!, cnt := cnt - 1 }
+  train0.train3->train0.train0 { x <= b, exit_c?, 1 }
+
+State
+
+( ltl.f0 gate.gate2 controller.controller2 train0.train0 train1.train1 train2.train1 train3.train1 train4.train1 train5.train1 )
+gate.y>8, controller.z>9, train0.x>4, gate.y<=14, gate.y-controller.z<=-1, gate.y-train0.x<5, gate.y-train1.x<10, gate.y-train2.x<=9, gate.y-train3.x<=9, gate.y-train4.x<=9, gate.y-train5.x<=9, controller.z<=15, controller.z-gate.y<=1, controller.z-train0.x<6, controller.z-train1.x<11, controller.z-train2.x<=10, controller.z-train3.x<=10, controller.z-train4.x<=10, controller.z-train5.x<=10, train0.x<=10, train0.x-gate.y<-3, train0.x-controller.z<-4, train0.x-train1.x<=5, train0.x-train2.x<=5, train0.x-train3.x<=5, train0.x-train4.x<=5, train0.x-train5.x<=5, train1.x<=5, train1.x-gate.y<-8, train1.x-controller.z<-9, train1.x-train0.x<-4, train1.x-train2.x<=0, train1.x-train3.x<=0, train1.x-train4.x<=0, train1.x-train5.x<=0, train2.x<=5, train2.x-gate.y<-8, train2.x-controller.z<-9, train2.x-train0.x<-4, train2.x-train1.x<1, train2.x-train3.x<=0, train2.x-train4.x<=0, train2.x-train5.x<=0, train3.x<=5, train3.x-gate.y<-8, train3.x-controller.z<-9, train3.x-train0.x<-4, train3.x-train1.x<1, train3.x-train2.x<1, train3.x-train4.x<=0, train3.x-train5.x<=0, train4.x<=5, train4.x-gate.y<-8, train4.x-controller.z<-9, train4.x-train0.x<-4, train4.x-train1.x<1, train4.x-train2.x<1, train4.x-train3.x<1, train4.x-train5.x<=0, train5.x<=5, train5.x-gate.y<-8, train5.x-controller.z<-9, train5.x-train0.x<-4, train5.x-train1.x<1, train5.x-train2.x<1, train5.x-train3.x<1, train5.x-train4.x<1 controller.cnt=5 
+
+Transitions:
+  controller.controller2->controller.controller2 { 1, approach!, cnt := cnt + 1 }
+  train0.train0->train0.train1 { 1, approach?, x := 0 }
+
+State
+
+( ltl.f0 gate.gate2 controller.controller2 train0.train1 train1.train1 train2.train1 train3.train1 train4.train1 train5.train1 )
+gate.y>8, controller.z>9, gate.y<=14, gate.y-controller.z<=-1, gate.y-train0.x<=14, gate.y-train1.x<10, gate.y-train2.x<=9, gate.y-train3.x<=9, gate.y-train4.x<=9, gate.y-train5.x<=9, controller.z<=15, controller.z-gate.y<=1, controller.z-train0.x<=15, controller.z-train1.x<11, controller.z-train2.x<=10, controller.z-train3.x<=10, controller.z-train4.x<=10, controller.z-train5.x<=10, train0.x<=5, train0.x-gate.y<-8, train0.x-controller.z<-9, train0.x-train1.x<=0, train0.x-train2.x<=0, train0.x-train3.x<=0, train0.x-train4.x<=0, train0.x-train5.x<=0, train1.x<=5, train1.x-gate.y<-8, train1.x-controller.z<-9, train1.x-train0.x<=5, train1.x-train2.x<=0, train1.x-train3.x<=0, train1.x-train4.x<=0, train1.x-train5.x<=0, train2.x<=5, train2.x-gate.y<-8, train2.x-controller.z<-9, train2.x-train0.x<=5, train2.x-train1.x<1, train2.x-train3.x<=0, train2.x-train4.x<=0, train2.x-train5.x<=0, train3.x<=5, train3.x-gate.y<-8, train3.x-controller.z<-9, train3.x-train0.x<=5, train3.x-train1.x<1, train3.x-train2.x<1, train3.x-train4.x<=0, train3.x-train5.x<=0, train4.x<=5, train4.x-gate.y<-8, train4.x-controller.z<-9, train4.x-train0.x<=5, train4.x-train1.x<1, train4.x-train2.x<1, train4.x-train3.x<1, train4.x-train5.x<=0, train5.x<=5, train5.x-gate.y<-8, train5.x-controller.z<-9, train5.x-train0.x<=5, train5.x-train1.x<1, train5.x-train2.x<1, train5.x-train3.x<1, train5.x-train4.x<1 controller.cnt=6 
+
+Transitions:
+  train5.train1->train5.train2 { x > a, tau, 1 }
+
+State
+
+( ltl.f0 gate.gate2 controller.controller2 train0.train1 train1.train1 train2.train1 train3.train1 train4.train1 train5.train2 )
+gate.y>10, controller.z>11, train1.x>1, train2.x>1, train3.x>1, train4.x>1, train5.x>2, gate.y<=14, gate.y-controller.z<=-1, gate.y-train0.x<=14, gate.y-train1.x<10, gate.y-train2.x<=9, gate.y-train3.x<=9, gate.y-train4.x<=9, gate.y-train5.x<=9, controller.z<=15, controller.z-gate.y<=1, controller.z-train0.x<=15, controller.z-train1.x<11, controller.z-train2.x<=10, controller.z-train3.x<=10, controller.z-train4.x<=10, controller.z-train5.x<=10, train0.x<=5, train0.x-gate.y<-8, train0.x-controller.z<-9, train0.x-train1.x<=0, train0.x-train2.x<=0, train0.x-train3.x<=0, train0.x-train4.x<=0, train0.x-train5.x<=0, train1.x<=5, train1.x-gate.y<-8, train1.x-controller.z<-9, train1.x-train0.x<=5, train1.x-train2.x<=0, train1.x-train3.x<=0, train1.x-train4.x<=0, train1.x-train5.x<=0, train2.x<=5, train2.x-gate.y<-8, train2.x-controller.z<-9, train2.x-train0.x<=5, train2.x-train1.x<1, train2.x-train3.x<=0, train2.x-train4.x<=0, train2.x-train5.x<=0, train3.x<=5, train3.x-gate.y<-8, train3.x-controller.z<-9, train3.x-train0.x<=5, train3.x-train1.x<1, train3.x-train2.x<1, train3.x-train4.x<=0, train3.x-train5.x<=0, train4.x<=5, train4.x-gate.y<-8, train4.x-controller.z<-9, train4.x-train0.x<=5, train4.x-train1.x<1, train4.x-train2.x<1, train4.x-train3.x<1, train4.x-train5.x<=0, train5.x<=5, train5.x-gate.y<-8, train5.x-controller.z<-9, train5.x-train0.x<=5, train5.x-train1.x<1, train5.x-train2.x<1, train5.x-train3.x<1, train5.x-train4.x<1 controller.cnt=6 
+
+Transitions:
+  train5.train2->train5.train3 { 1, tau, 1 }
+
+State
+
+( ltl.f0 gate.gate2 controller.controller2 train0.train1 train1.train1 train2.train1 train3.train1 train4.train1 train5.train3 )
+gate.y>10, controller.z>11, train1.x>1, train2.x>1, train3.x>1, train4.x>1, train5.x>2, gate.y<=14, gate.y-controller.z<=-1, gate.y-train0.x<=14, gate.y-train1.x<10, gate.y-train2.x<=9, gate.y-train3.x<=9, gate.y-train4.x<=9, gate.y-train5.x<=9, controller.z<=15, controller.z-gate.y<=1, controller.z-train0.x<=15, controller.z-train1.x<11, controller.z-train2.x<=10, controller.z-train3.x<=10, controller.z-train4.x<=10, controller.z-train5.x<=10, train0.x<=5, train0.x-gate.y<-8, train0.x-controller.z<-9, train0.x-train1.x<=0, train0.x-train2.x<=0, train0.x-train3.x<=0, train0.x-train4.x<=0, train0.x-train5.x<=0, train1.x<=5, train1.x-gate.y<-8, train1.x-controller.z<-9, train1.x-train0.x<=5, train1.x-train2.x<=0, train1.x-train3.x<=0, train1.x-train4.x<=0, train1.x-train5.x<=0, train2.x<=5, train2.x-gate.y<-8, train2.x-controller.z<-9, train2.x-train0.x<=5, train2.x-train1.x<1, train2.x-train3.x<=0, train2.x-train4.x<=0, train2.x-train5.x<=0, train3.x<=5, train3.x-gate.y<-8, train3.x-controller.z<-9, train3.x-train0.x<=5, train3.x-train1.x<1, train3.x-train2.x<1, train3.x-train4.x<=0, train3.x-train5.x<=0, train4.x<=5, train4.x-gate.y<-8, train4.x-controller.z<-9, train4.x-train0.x<=5, train4.x-train1.x<1, train4.x-train2.x<1, train4.x-train3.x<1, train4.x-train5.x<=0, train5.x<=5, train5.x-gate.y<-8, train5.x-controller.z<-9, train5.x-train0.x<=5, train5.x-train1.x<1, train5.x-train2.x<1, train5.x-train3.x<1, train5.x-train4.x<1 controller.cnt=6 
+
+Transitions:
+  controller.controller2->controller.controller2 { cnt > 1, exit_c!, cnt := cnt - 1 }
+  train5.train3->train5.train0 { x <= b, exit_c?, 1 }
+
+State
+
+( ltl.f0 gate.gate2 controller.controller2 train0.train1 train1.train1 train2.train1 train3.train1 train4.train1 train5.train0 )
+gate.y>10, controller.z>11, train1.x>1, train2.x>1, train3.x>1, train4.x>1, train5.x>2, gate.y<=14, gate.y-controller.z<=-1, gate.y-train0.x<=14, gate.y-train1.x<10, gate.y-train2.x<=9, gate.y-train3.x<=9, gate.y-train4.x<=9, gate.y-train5.x<=9, controller.z<=15, controller.z-gate.y<=1, controller.z-train0.x<=15, controller.z-train1.x<11, controller.z-train2.x<=10, controller.z-train3.x<=10, controller.z-train4.x<=10, controller.z-train5.x<=10, train0.x<=5, train0.x-gate.y<-8, train0.x-controller.z<-9, train0.x-train1.x<=0, train0.x-train2.x<=0, train0.x-train3.x<=0, train0.x-train4.x<=0, train0.x-train5.x<=0, train1.x<=5, train1.x-gate.y<-8, train1.x-controller.z<-9, train1.x-train0.x<=5, train1.x-train2.x<=0, train1.x-train3.x<=0, train1.x-train4.x<=0, train1.x-train5.x<=0, train2.x<=5, train2.x-gate.y<-8, train2.x-controller.z<-9, train2.x-train0.x<=5, train2.x-train1.x<1, train2.x-train3.x<=0, train2.x-train4.x<=0, train2.x-train5.x<=0, train3.x<=5, train3.x-gate.y<-8, train3.x-controller.z<-9, train3.x-train0.x<=5, train3.x-train1.x<1, train3.x-train2.x<1, train3.x-train4.x<=0, train3.x-train5.x<=0, train4.x<=5, train4.x-gate.y<-8, train4.x-controller.z<-9, train4.x-train0.x<=5, train4.x-train1.x<1, train4.x-train2.x<1, train4.x-train3.x<1, train4.x-train5.x<=0, train5.x<6, train5.x-gate.y<-8, train5.x-controller.z<-9, train5.x-train0.x<=5, train5.x-train1.x<1, train5.x-train2.x<1, train5.x-train3.x<1, train5.x-train4.x<1 controller.cnt=5 
+real 1.02
+user 0.08
+sys 0.16

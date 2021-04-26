@@ -1,0 +1,99 @@
+ input: /home/magnago/benchmarks/ltl_timed_automata/critical_region/divine/critical_region_0002.xml
+ property { 0 }: (G !( pc0_error && pc1_error)) -> (G F id0)
+ ------------------- OWCTY -------------------
+ initialise...		    MAP/ET
+ ============================================= 
+           The property DOES NOT hold      
+ ============================================= 
+ generating counterexample...      
+===== Trace from initial =====
+
+Counter = initial, A0 = S1, A1 = S1, PC0 = notready, PC1 = notready, prop = 0
+.id = 0
+0 ≤ PC0.x-_aux	0 ≤ PC1.x-_aux
+
+URA state: <=0	<=0	<=0	<=0	\
+<INF	<=0	<INF	<INF	\
+<INF	<INF	<=0	<INF	\
+<INF	<INF	<INF	<=0	\
+
+
+Counter = initCount, A0 = S1, A1 = S1, PC0 = notready, PC1 = notready, prop = 1
+.id = 1
+_aux < 1	0 ≤ PC0.x-_aux
+0 ≤ PC1.x-_aux	
+URA state: <=0	<=0	<=0	<=0	\
+<INF	<=0	<INF	<INF	\
+<INF	<INF	<=0	<INF	\
+<INF	<INF	<INF	<=0	\
+
+
+Counter = initCount, A0 = S1, A1 = S1, PC0 = testing, PC1 = notready, prop = 2
+.id = 1
+0 < PC0.x ≤ 25	1 ≤ PC1.x
+_aux ≤ 0	PC0.x-PC1.x ≤ 0
+0 < PC0.x-_aux ≤ 25	1 ≤ PC1.x-_aux
+
+URA state: <=0	<=0	<=0	<=0	\
+<INF	<=0	<INF	<INF	\
+<INF	<INF	<=0	<INF	\
+<INF	<INF	<INF	<=0	\
+
+
+Counter = initCount, A0 = S1, A1 = S1, PC0 = notready, PC1 = notready, prop = 2
+.id = 1
+1 ≤ PC0.x	26 ≤ PC1.x
+_aux ≤ 0	1 ≤ PC0.x-_aux
+26 ≤ PC1.x-_aux	
+URA state: <=0	<=0	<=0	<=0	\
+<INF	<=0	<INF	<INF	\
+<INF	<INF	<=0	<INF	\
+<INF	<INF	<INF	<=0	\
+
+
+Counter = initCount, A0 = S1, A1 = S1, PC0 = testing, PC1 = notready, prop = 2
+.id = 1
+1 ≤ PC0.x ≤ 25	27 ≤ PC1.x
+_aux ≤ 0	PC0.x-PC1.x ≤ -26
+1 ≤ PC0.x-_aux ≤ 25	27 ≤ PC1.x-_aux
+
+URA state: <=0	<=0	<=0	<=0	\
+<INF	<=0	<INF	<INF	\
+<INF	<INF	<=0	<INF	\
+<INF	<INF	<INF	<=0	\
+
+
+Counter = initCount, A0 = S1, A1 = S1, PC0 = notready, PC1 = notready, prop = 2
+.id = 1
+1 ≤ PC0.x	50 < PC1.x
+_aux ≤ 0	1 ≤ PC0.x-_aux
+50 < PC1.x-_aux	
+URA state: <=0	<=0	<=0	<=0	\
+<INF	<=0	<INF	<INF	\
+<INF	<INF	<=0	<INF	\
+<INF	<INF	<INF	<=0	\
+
+
+
+===== The cycle =====
+
+Counter = initCount, A0 = S1, A1 = S1, PC0 = testing, PC1 = notready, prop = 2
+.id = 1
+1 ≤ PC0.x ≤ 25	51 < PC1.x
+_aux ≤ 0	PC0.x-PC1.x < -50
+1 ≤ PC0.x-_aux ≤ 25	51 < PC1.x-_aux
+
+URA state: <=0	<=0	<=0	<=0	\
+<INF	<=0	<INF	<INF	\
+<INF	<INF	<=0	<INF	\
+<INF	<INF	<INF	<=0	\
+
+
+Counter = initCount, A0 = S1, A1 = S1, PC0 = notready, PC1 = notready, prop = 2
+.id = 1
+1 ≤ PC0.x	50 < PC1.x
+_aux ≤ 0	1 ≤ PC0.x-_aux
+50 < PC1.x-_aux	
+URA state: <=0	<=0	<=0	<=0	\
+<INF	<=0	<INF	<INF	\
+<INF	<INF	

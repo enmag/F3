@@ -1,0 +1,8 @@
+group: ultimate_ta_train
+platform: Linux node1 5.4.0-56-generic #62-Ubuntu SMP Mon Nov 23 19:20:19 UTC 2020 x86_64 x86_64
+timestamp: 1619280575
+time: 2021-04-24 18:09:35
+exitcode: 0
+real: 872.64
+user: 0.16
+sys: 0.7

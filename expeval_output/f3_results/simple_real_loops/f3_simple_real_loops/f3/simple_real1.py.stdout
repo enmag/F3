@@ -1,0 +1,7 @@
+
+
+run 1/1: `simple_real1`
+
+	Found non-termination argument:
+	[{b: False, x: 1.0}, {b: False, x: 1.0}]
+end of `simple_real1`: SUCCESS in 0.011632204055786133s

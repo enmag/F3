@@ -1,0 +1,8 @@
+group: divine_ta_train
+platform: Linux node1 5.4.0-56-generic #62-Ubuntu SMP Mon Nov 23 19:20:19 UTC 2020 x86_64 x86_64
+timestamp: 1616106389
+time: 2021-03-18 23:26:29
+exitcode: 0
+real: 1023.98
+user: 1005.85
+sys: 17.06

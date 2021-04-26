@@ -1,0 +1,8 @@
+group: anant_software_nontermination
+platform: Linux node3 5.4.0-56-generic #62-Ubuntu SMP Mon Nov 23 19:20:19 UTC 2020 x86_64 x86_64
+timestamp: 1616183446
+time: 2021-03-19 20:50:46
+exitcode: 0
+real: 1.02
+user: 0.28
+sys: 0.31

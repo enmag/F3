@@ -1,0 +1,332 @@
+
+
+run 1/1: `semaphore_0005`
+
+	Found non-termination argument:
+	Do states 5..6 while (((ToReal(sm4_l) + ToReal(sm3_l) + ToReal(sm0_l) + ToReal(sm2_l)) - (ToReal(sm1_l) * 65/16)) < 0.0)
+	State 5
+		sm4_loop_len = 1
+		sm4_state = True
+		run = 4
+		semaphore = 0
+		sm2_state = True
+		sm0_state = True
+		sm1_loop_len = 1
+		sm3_loop_len = 1
+		sm1_state = True
+		sm3_state = True
+		sm0_loop_len = 1
+		sm2_loop_len = 1
+		_J401 = True
+		_J407 = True
+		_J413 = True
+		_J419 = True
+		_J425 = True
+		_J431 = True
+		_J438 = True
+		_J444 = True
+		_J451 = True
+		_J457 = True
+		_J464 = True
+		_J470 = True
+		_EL_U_330 = True
+		_EL_U_332 = False
+		_EL_U_334 = True
+		_EL_U_336 = False
+		_EL_U_338 = True
+		_EL_U_340 = False
+		_EL_U_342 = True
+		_EL_U_344 = False
+		_EL_U_346 = True
+		_EL_U_348 = False
+		_EL_U_355 = True
+		_EL_U_357 = False
+		(sm2_l < 1)
+		(sm3_l < 1)
+		(sm4_l < 1)
+		(sm0_l < 1)
+		(sm1_l < 1)
+		(sm1_l < 0)
+		(sm4_l < 0)
+		(sm2_l < 0)
+		(sm0_l < 0)
+		(sm3_l < 0)
+	Trans 5 -- 6
+		_x_sm1_l : (sm1_l + -1)
+		_x_sm0_l : (sm0_l + -1)
+		_x_sm2_l : (sm2_l + -1)
+		_x_sm4_l : (sm4_l + -1)
+		_x_sm3_l : (sm3_l + -1)
+	State 6
+		sm4_loop_len = 1
+		sm4_state = True
+		run = 0
+		semaphore = 0
+		sm2_state = True
+		sm0_state = True
+		sm1_loop_len = 1
+		sm3_loop_len = 1
+		sm1_state = True
+		sm3_state = True
+		sm0_loop_len = 1
+		sm2_loop_len = 1
+		_J401 = False
+		_J407 = False
+		_J413 = False
+		_J419 = False
+		_J425 = False
+		_J431 = False
+		_J438 = False
+		_J444 = False
+		_J451 = False
+		_J457 = False
+		_J464 = False
+		_J470 = False
+		_EL_U_330 = True
+		_EL_U_332 = False
+		_EL_U_334 = True
+		_EL_U_336 = False
+		_EL_U_338 = True
+		_EL_U_340 = False
+		_EL_U_342 = True
+		_EL_U_344 = False
+		_EL_U_346 = True
+		_EL_U_348 = False
+		_EL_U_355 = True
+		_EL_U_357 = False
+	Trans 6 -- 5
+		_x_sm1_l : (sm1_l + -1)
+		_x_sm0_l : (sm0_l + -1)
+		_x_sm2_l : (sm2_l + -1)
+		_x_sm4_l : (sm4_l + -1)
+		_x_sm3_l : (sm3_l + -1)
+	End do-while
+	State 6
+		sm4_loop_len = 1
+		sm4_state = True
+		run = 0
+		semaphore = 0
+		sm2_state = True
+		sm0_state = True
+		sm1_loop_len = 1
+		sm3_loop_len = 1
+		sm1_state = True
+		sm3_state = True
+		sm0_loop_len = 1
+		sm2_loop_len = 1
+		_J401 = False
+		_J407 = False
+		_J413 = False
+		_J419 = False
+		_J425 = False
+		_J431 = False
+		_J438 = False
+		_J444 = False
+		_J451 = False
+		_J457 = False
+		_J464 = False
+		_J470 = False
+		_EL_U_330 = True
+		_EL_U_332 = False
+		_EL_U_334 = True
+		_EL_U_336 = False
+		_EL_U_338 = True
+		_EL_U_340 = False
+		_EL_U_342 = True
+		_EL_U_344 = False
+		_EL_U_346 = True
+		_EL_U_348 = False
+		_EL_U_355 = True
+		_EL_U_357 = False
+		(sm2_l < 6)
+		(((-1.0 * ToReal(sm2_l)) + (-1.0 * ToReal(sm0_l)) + (ToReal(sm1_l) * 65/16) + (-1.0 * ToReal(sm3_l)) + (-1.0 * ToReal(sm4_l))) <= 0.0)
+		(sm3_l < 6)
+		(sm4_l < 6)
+		(sm0_l < 6)
+		(sm1_l < 6)
+		(sm2_l < 5)
+		(sm3_l < 5)
+		(sm4_l < 5)
+		(sm0_l < 5)
+		(sm1_l < 5)
+	Trans 6 -- 7
+		_x_sm1_l = (sm1_l + -1)
+		_x_sm0_l = (sm0_l + -1)
+		_x_sm2_l = (sm2_l + -1)
+		_x_sm4_l = (sm4_l + -1)
+		_x_sm3_l = (sm3_l + -1)
+	State 7
+		sm4_loop_len = 1
+		sm4_state = True
+		run = 4
+		semaphore = 0
+		sm2_state = True
+		sm0_state = True
+		sm1_loop_len = 1
+		sm3_loop_len = 1
+		sm1_state = True
+		sm3_state = True
+		sm0_loop_len = 1
+		sm2_loop_len = 1
+		_J401 = True
+		_J407 = True
+		_J413 = True
+		_J419 = True
+		_J425 = False
+		_J431 = True
+		_J438 = False
+		_J444 = True
+		_J451 = False
+		_J457 = True
+		_J464 = False
+		_J470 = True
+		_EL_U_330 = True
+		_EL_U_332 = False
+		_EL_U_334 = True
+		_EL_U_336 = False
+		_EL_U_338 = True
+		_EL_U_340 = False
+		_EL_U_342 = True
+		_EL_U_344 = False
+		_EL_U_346 = True
+		_EL_U_348 = False
+		_EL_U_355 = True
+		_EL_U_357 = False
+	Trans 7 -- 8
+		_x_sm1_l = (sm1_l + -1)
+		_x_sm0_l = (sm0_l + -1)
+		_x_sm2_l = (sm2_l + -1)
+		_x_sm4_l = (sm4_l + -1)
+		_x_sm3_l = (sm3_l + -1)
+	State 8
+		sm4_loop_len = 1
+		sm4_state = True
+		run = 2
+		semaphore = 0
+		sm2_state = True
+		sm0_state = True
+		sm1_loop_len = 1
+		sm3_loop_len = 1
+		sm1_state = True
+		sm3_state = True
+		sm0_loop_len = 1
+		sm2_loop_len = 1
+		_J401 = True
+		_J407 = True
+		_J413 = True
+		_J419 = True
+		_J425 = False
+		_J431 = True
+		_J438 = False
+		_J444 = True
+		_J451 = False
+		_J457 = True
+		_J464 = True
+		_J470 = True
+		_EL_U_330 = True
+		_EL_U_332 = False
+		_EL_U_334 = True
+		_EL_U_336 = False
+		_EL_U_338 = True
+		_EL_U_340 = False
+		_EL_U_342 = True
+		_EL_U_344 = False
+		_EL_U_346 = True
+		_EL_U_348 = False
+		_EL_U_355 = True
+		_EL_U_357 = False
+	Trans 8 -- 9
+		_x_sm1_l = (sm1_l + -1)
+		_x_sm0_l = (sm0_l + -1)
+		_x_sm2_l = (sm2_l + -1)
+		_x_sm4_l = (sm4_l + -1)
+		_x_sm3_l = (sm3_l + -1)
+	State 9
+		sm4_loop_len = 1
+		sm4_state = True
+		run = 3
+		semaphore = 0
+		sm2_state = True
+		sm0_state = True
+		sm1_loop_len = 1
+		sm3_loop_len = 1
+		sm1_state = True
+		sm3_state = True
+		sm0_loop_len = 1
+		sm2_loop_len = 1
+		_J401 = True
+		_J407 = True
+		_J413 = True
+		_J419 = True
+		_J425 = False
+		_J431 = True
+		_J438 = True
+		_J444 = True
+		_J451 = False
+		_J457 = True
+		_J464 = True
+		_J470 = True
+		_EL_U_330 = True
+		_EL_U_332 = False
+		_EL_U_334 = True
+		_EL_U_336 = False
+		_EL_U_338 = True
+		_EL_U_340 = False
+		_EL_U_342 = True
+		_EL_U_344 = False
+		_EL_U_346 = True
+		_EL_U_348 = False
+		_EL_U_355 = True
+		_EL_U_357 = False
+	Trans 9 -- 10
+		_x_sm1_l = (sm1_l + -1)
+		_x_sm0_l = (sm0_l + -1)
+		_x_sm2_l = (sm2_l + -1)
+		_x_sm4_l = (sm4_l + -1)
+		_x_sm3_l = (sm3_l + -1)
+	State 10
+		sm4_loop_len = 1
+		sm4_state = True
+		run = 1
+		semaphore = 0
+		sm2_state = True
+		sm0_state = True
+		sm1_loop_len = 1
+		sm3_loop_len = 1
+		sm1_state = True
+		sm3_state = True
+		sm0_loop_len = 1
+		sm2_loop_len = 1
+		_J401 = True
+		_J407 = True
+		_J413 = True
+		_J419 = True
+		_J425 = False
+		_J431 = True
+		_J438 = True
+		_J444 = True
+		_J451 = True
+		_J457 = True
+		_J464 = True
+		_J470 = True
+		_EL_U_330 = True
+		_EL_U_332 = False
+		_EL_U_334 = True
+		_EL_U_336 = False
+		_EL_U_338 = True
+		_EL_U_340 = False
+		_EL_U_342 = True
+		_EL_U_344 = False
+		_EL_U_346 = True
+		_EL_U_348 = False
+		_EL_U_355 = True
+		_EL_U_357 = False
+	Trans 10 -- 11
+		_x_sm1_l = (sm1_l + -1)
+		_x_sm0_l = (sm0_l + -1)
+		_x_sm2_l = (sm2_l + -1)
+		_x_sm4_l = (sm4_l + -1)
+		_x_sm3_l = (sm3_l + -1)
+	starting from: {sm4_loop_len: 1, sm4_state: True, run: 4, semaphore: 0, sm4_l: -5, sm2_state: True, sm0_state: True, sm1_loop_len: 1, sm3_loop_len: 1, sm3_l: -5, sm1_state: True, sm1_l: -5, sm3_state: True, sm0_loop_len: 1, sm2_loop_len: 1, sm0_l: -5, sm2_l: -5, _J401: True, _J407: True, _J413: True, _J419: True, _J425: True, _J431: True, _J438: True, _J444: True, _J451: True, _J457: True, _J464: True, _J470: True, _EL_U_330: True, _EL_U_332: False, _EL_U_334: True, _EL_U_336: False, _EL_U_338: True, _EL_U_340: False, _EL_U_342: True, _EL_U_344: False, _EL_U_346: True, _EL_U_348: False, _EL_U_355: True, _EL_U_357: False}
+
+end of `semaphore_0005`: SUCCESS in 2.4505927562713623s

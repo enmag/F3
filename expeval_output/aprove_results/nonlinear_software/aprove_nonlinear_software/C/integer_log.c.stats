@@ -1,0 +1,8 @@
+group: aprove_nonlinear_software
+platform: Linux node4 5.4.0-54-generic #60-Ubuntu SMP Fri Nov 6 10:37:59 UTC 2020 x86_64 x86_64
+timestamp: 1619422976
+time: 2021-04-26 09:42:56
+exitcode: 0
+real: 503.93
+user: 3598.33
+sys: 14.12

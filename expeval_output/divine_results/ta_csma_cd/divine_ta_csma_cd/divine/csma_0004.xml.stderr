@@ -1,0 +1,233 @@
+ input: /home/magnago/benchmarks/ltl_timed_automata/csma-cd/divine/csma_0004.xml
+ property { 0 }: G (s0_transm -> F s0_wait)
+ ------------------- OWCTY -------------------
+ initialise...		    MAP/ET
+ ============================================= 
+           The property DOES NOT hold      
+ ============================================= 
+ generating counterexample...      
+===== Trace from initial =====
+
+Bus = idle, S0 = wait, S1 = wait, S2 = wait, S3 = wait, prop = 0
+.j = 0
+
+URA state: <=0	<=0	<=0	<=0	<=0	<=0	<=0	\
+<INF	<=0	<INF	<INF	<INF	<INF	<INF	\
+<INF	<INF	<=0	<INF	<INF	<INF	<INF	\
+<INF	<INF	<INF	<=0	<INF	<INF	<INF	\
+<INF	<INF	<INF	<INF	<=0	<INF	<INF	\
+<INF	<INF	<INF	<INF	<INF	<=0	<INF	\
+<INF	<INF	<INF	<INF	<INF	<INF	<=0	\
+
+
+Bus = active, S0 = transm, S1 = wait, S2 = wait, S3 = wait, prop = 1
+.j = 0
+Bus.x < 1	S0.x < 1
+_aux < 1	0 ≤ Bus.x-S0.x ≤ 0
+Bus.x-S1.x < 1	Bus.x-S2.x < 1
+Bus.x-S3.x < 1	-1 < Bus.x-_aux ≤ 0
+S0.x-S1.x < 1	S0.x-S2.x < 1
+S0.x-S3.x < 1	-1 < S0.x-_aux ≤ 0
+-1 < S1.x-_aux	-1 < S2.x-_aux
+-1 < S3.x-_aux	
+URA state: <=0	<=0	<=0	<=0	<=0	<=0	<=0	\
+<INF	<=0	<INF	<INF	<INF	<INF	<INF	\
+<INF	<INF	<=0	<INF	<INF	<INF	<INF	\
+<INF	<INF	<INF	<=0	<INF	<INF	<INF	\
+<INF	<INF	<INF	<INF	<=0	<INF	<INF	\
+<INF	<INF	<INF	<INF	<INF	<=0	<INF	\
+<INF	<INF	<INF	<INF	<INF	<INF	<=0	\
+
+
+Bus = collision, S0 = transm, S1 = wait, S2 = wait, S3 = transm, prop = 2
+.j = 0
+0 < Bus.x	0 < S0.x < 14
+0 < S3.x < 13	_aux ≤ 0
+-1 < Bus.x-S0.x	0 ≤ Bus.x-S3.x
+0 < Bus.x-_aux	S0.x-S1.x < 14
+S0.x-S2.x < 14	0 ≤ S0.x-S3.x < 1
+0 < S0.x-_aux < 14	-13 < S1.x-S3.x
+0 ≤ S1.x-_aux	-13 < S2.x-S3.x
+0 ≤ S2.x-_aux	0 < S3.x-_aux < 13
+
+URA state: <=0	<=0	<=0	<=0	<=0	<=0	<=0	\
+<INF	<=0	<INF	<INF	<INF	<INF	<INF	\
+<INF	<INF	<=0	<INF	<INF	<INF	<INF	\
+<INF	<INF	<INF	<=0	<INF	<INF	<INF	\
+<INF	<INF	<INF	<INF	<=0	<INF	<INF	\
+<INF	<INF	<INF	<INF	<INF	<=0	<INF	\
+<INF	<INF	<INF	<INF	<INF	<INF	<=0	\
+
+
+Bus = transmit, S0 = retry, S1 = wait, S2 = wait, S3 = transm, prop = 1
+.j = 1
+0 < S3.x < 13	_aux ≤ 0
+-13 < Bus.x-S3.x	0 ≤ Bus.x-_aux
+-13 < S0.x-S3.x	0 ≤ S0.x-_aux
+-13 < S1.x-S3.x	0 ≤ S1.x-_aux
+-13 < S2.x-S3.x	0 ≤ S2.x-_aux
+0 < S3.x-_aux < 13	
+URA state: <=0	<=0	<=0	<=0	<=0	<=0	<=0	\
+<INF	<=0	<INF	<INF	<INF	<INF	<INF	\
+<INF	<INF	<=0	<INF	<INF	<INF	<INF	\
+<INF	<INF	<INF	<=0	<INF	<INF	<INF	\
+<INF	<INF	<INF	<INF	<=0	<INF	<INF	\
+<INF	<INF	<INF	<INF	<INF	<=0	<INF	\
+<INF	<INF	<INF	<INF	<INF	<INF	<=0	\
+
+
+Bus = transmit, S0 = retry, S1 = wait, S2 = wait, S3 = transm, prop = 1
+.j = 2
+0 < S3.x < 13	_aux ≤ 0
+-13 < Bus.x-S3.x	0 ≤ Bus.x-_aux
+-13 < S0.x-S3.x	0 ≤ S0.x-_aux
+-13 < S1.x-S3.x	0 ≤ S1.x-_aux
+-13 < S2.x-S3.x	0 ≤ S2.x-_aux
+0 < S3.x-_aux < 13	
+URA state: <=0	<=0	<=0	<=0	<=0	<=0	<=0	\
+<INF	<=0	<INF	<INF	<INF	<INF	<INF	\
+<INF	<INF	<=0	<INF	<INF	<INF	<INF	\
+<INF	<INF	<INF	<=0	<INF	<INF	<INF	\
+<INF	<INF	<INF	<INF	<=0	<INF	<INF	\
+<INF	<INF	<INF	<INF	<INF	<=0	<INF	\
+<INF	<INF	<INF	<INF	<INF	<INF	<=0	\
+
+
+Bus = transmit, S0 = retry, S1 = wait, S2 = wait, S3 = transm, prop = 1
+.j = 3
+0 < S3.x < 13	_aux ≤ 0
+-13 < Bus.x-S3.x	0 ≤ Bus.x-_aux
+-13 < S0.x-S3.x	0 ≤ S0.x-_aux
+-13 < S1.x-S3.x	0 ≤ S1.x-_aux
+-13 < S2.x-S3.x	0 ≤ S2.x-_aux
+0 < S3.x-_aux < 13	
+URA state: <=0	<=0	<=0	<=0	<=0	<=0	<=0	\
+<INF	<=0	<INF	<INF	<INF	<INF	<INF	\
+<INF	<INF	<=0	<INF	<INF	<INF	<INF	\
+<INF	<INF	<INF	<=0	<INF	<INF	<INF	\
+<INF	<INF	<INF	<INF	<=0	<INF	<INF	\
+<INF	<INF	<INF	<INF	<INF	<=0	<INF	\
+<INF	<INF	<INF	<INF	<INF	<INF	<=0	\
+
+
+Bus = idle, S0 = retry, S1 = wait, S2 = wait, S3 = retry, prop = 2
+.j = 0
+1 ≤ S0.x	1 ≤ S3.x
+_aux ≤ 0	0 ≤ Bus.x-_aux
+1 ≤ S0.x-_aux	0 ≤ S1.x-_aux
+0 ≤ S2.x-_aux	1 ≤ S3.x-_aux
+
+URA state: <=0	<=0	<=0	<=0	<=0	<=0	<=0	\
+<INF	<=0	<INF	<INF	<INF	<INF	<INF	\
+<INF	<INF	<=0	<INF	<INF	<INF	<INF	\
+<INF	<INF	<INF	<=0	<INF	<INF	<INF	\
+<INF	<INF	<INF	<INF	<=0	<INF	<INF	\
+<INF	<INF	<INF	<INF	<INF	<=0	<INF	\
+<INF	<INF	<INF	<INF	<INF	<INF	<=0	\
+
+
+
+===== The cycle =====
+
+Bus = active, S0 = transm, S1 = wait, S2 = wait, S3 = retry, prop = 1
+.j = 0
+Bus.x < 1	S0.x < 1
+1 ≤ S3.x	_aux < 1
+0 ≤ Bus.x-S0.x ≤ 0	Bus.x-S1.x < 1
+Bus.x-S2.x < 1	Bus.x-S3.x ≤ -1
+0 ≤ Bus.x-_aux ≤ 0	S0.x-S1.x < 1
+S0.x-S2.x < 1	S0.x-S3.x ≤ -1
+0 ≤ S0.x-_aux ≤ 0	-1 < S1.x-_aux
+-1 < S2.x-_aux	1 ≤ S3.x-_aux
+
+URA state: <=0	<=0	<=0	<=0	<=0	<=0	<=0	\
+<INF	<=0	<INF	<INF	<INF	<INF	<INF	\
+<INF	<INF	<=0	<INF	<INF	<INF	<INF	\
+<INF	<INF	<INF	<=0	<INF	<INF	<INF	\
+<INF	<INF	<INF	<INF	<=0	<INF	<INF	\
+<INF	<INF	<INF	<INF	<INF	<=0	<INF	\
+<INF	<INF	<INF	<INF	<INF	<INF	<=0	\
+
+
+Bus = collision, S0 = transm, S1 = wait, S2 = wait, S3 = transm, prop = 2
+.j = 0
+0 < Bus.x	1 ≤ S0.x < 14
+0 < S3.x < 13	_aux ≤ 0
+-1 < Bus.x-S0.x	0 ≤ Bus.x-S3.x
+0 < Bus.x-_aux	S0.x-S1.x < 14
+S0.x-S2.x < 14	0 ≤ S0.x-S3.x < 1
+1 ≤ S0.x-_aux < 14	-13 < S1.x-S3.x
+0 ≤ S1.x-_aux	-13 < S2.x-S3.x
+0 ≤ S2.x-_aux	0 < S3.x-_aux < 13
+
+URA state: <=0	<=0	<=0	<=0	<=0	<=0	<=0	\
+<INF	<=0	<INF	<INF	<INF	<INF	<INF	\
+<INF	<INF	<=0	<INF	<INF	<INF	<INF	\
+<INF	<INF	<INF	<=0	<INF	<INF	<INF	\
+<INF	<INF	<INF	<INF	<=0	<INF	<INF	\
+<INF	<INF	<INF	<INF	<INF	<=0	<INF	\
+<INF	<INF	<INF	<INF	<INF	<INF	<=0	\
+
+
+Bus = transmit, S0 = retry, S1 = wait, S2 = wait, S3 = transm, prop = 1
+.j = 1
+0 < S3.x < 13	_aux ≤ 0
+-13 < Bus.x-S3.x	0 ≤ Bus.x-_aux
+-13 < S0.x-S3.x	0 ≤ S0.x-_aux
+-13 < S1.x-S3.x	0 ≤ S1.x-_aux
+-13 < S2.x-S3.x	0 ≤ S2.x-_aux
+0 < S3.x-_aux < 13	
+URA state: <=0	<=0	<=0	<=0	<=0	<=0	<=0	\
+<INF	<=0	<INF	<INF	<INF	<INF	<INF	\
+<INF	<INF	<=0	<INF	<INF	<INF	<INF	\
+<INF	<INF	<INF	<=0	<INF	<INF	<INF	\
+<INF	<INF	<INF	<INF	<=0	<INF	<INF	\
+<INF	<INF	<INF	<INF	<INF	<=0	<INF	\
+<INF	<INF	<INF	<INF	<INF	<INF	<=0	\
+
+
+Bus = transmit, S0 = retry, S1 = wait, S2 = wait, S3 = transm, prop = 1
+.j = 2
+0 < S3.x < 13	_aux ≤ 0
+-13 < Bus.x-S3.x	0 ≤ Bus.x-_aux
+-13 < S0.x-S3.x	0 ≤ S0.x-_aux
+-13 < S1.x-S3.x	0 ≤ S1.x-_aux
+-13 < S2.x-S3.x	0 ≤ S2.x-_aux
+0 < S3.x-_aux < 13	
+URA state: <=0	<=0	<=0	<=0	<=0	<=0	<=0	\
+<INF	<=0	<INF	<INF	<INF	<INF	<INF	\
+<INF	<INF	<=0	<INF	<INF	<INF	<INF	\
+<INF	<INF	<INF	<=0	<INF	<INF	<INF	\
+<INF	<INF	<INF	<INF	<=0	<INF	<INF	\
+<INF	<INF	<INF	<INF	<INF	<=0	<INF	\
+<INF	<INF	<INF	<INF	<INF	<INF	<=0	\
+
+
+Bus = transmit, S0 = retry, S1 = wait, S2 = wait, S3 = transm, prop = 1
+.j = 3
+0 < S3.x < 13	_aux ≤ 0
+-13 < Bus.x-S3.x	0 ≤ Bus.x-_aux
+-13 < S0.x-S3.x	0 ≤ S0.x-_aux
+-13 < S1.x-S3.x	0 ≤ S1.x-_aux
+-13 < S2.x-S3.x	0 ≤ S2.x-_aux
+0 < S3.x-_aux < 13	
+URA state: <=0	<=0	<=0	<=0	<=0	<=0	<=0	\
+<INF	<=0	<INF	<INF	<INF	<INF	<INF	\
+<INF	<INF	<=0	<INF	<INF	<INF	<INF	\
+<INF	<INF	<INF	<=0	<INF	<INF	<INF	\
+<INF	<INF	<INF	<INF	<=0	<INF	<INF	\
+<INF	<INF	<INF	<INF	<INF	<=0	<INF	\
+<INF	<INF	<INF	<INF	<INF	<INF	<=0	\
+
+
+Bus = idle, S0 = retry, S1 = wait, S2 = wait, S3 = retry, prop = 2
+.j = 0
+1 ≤ S0.x	1 ≤ S3.x
+_aux ≤ 0	0 ≤ Bus.x-_aux
+1 ≤ S0.x-_aux	0 ≤ S1.x-_aux
+0 ≤ S2.x-_aux	1 ≤ S3.x-_aux
+
+URA state: <=0	<=0	<=0	<=0	<=0	<=0	<=0	\
+<INF	<=0	<INF	<INF	<INF	<INF	<INF	\
+<INF	<INF	<=0	<INF	<INF	<INF	<INF	\
+<INF	<INF	<INF	<=0	<INF	<INF	<INF	\

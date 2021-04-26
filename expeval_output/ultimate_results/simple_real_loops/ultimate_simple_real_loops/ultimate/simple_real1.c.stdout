@@ -1,0 +1,647 @@
+Creating empty 100MiB image file: /home/magnago/overlay/simple_real1.c.ext3
+Formatting image with ext3 file system
+Image is done: /home/magnago/overlay/simple_real1.c.ext3
+This is Ultimate 0.2.1-origin.dev-f91880a
+[2021-04-24 13:58:08,989 INFO  L177        SettingsManager]: Resetting all preferences to default values...
+[2021-04-24 13:58:08,992 INFO  L181        SettingsManager]: Resetting UltimateCore preferences to default values
+[2021-04-24 13:58:09,048 INFO  L184        SettingsManager]: Ultimate Commandline Interface provides no preferences, ignoring...
+[2021-04-24 13:58:09,049 INFO  L181        SettingsManager]: Resetting Boogie Preprocessor preferences to default values
+[2021-04-24 13:58:09,050 INFO  L181        SettingsManager]: Resetting Boogie Procedure Inliner preferences to default values
+[2021-04-24 13:58:09,052 INFO  L181        SettingsManager]: Resetting Abstract Interpretation preferences to default values
+[2021-04-24 13:58:09,054 INFO  L181        SettingsManager]: Resetting LassoRanker preferences to default values
+[2021-04-24 13:58:09,055 INFO  L181        SettingsManager]: Resetting Reaching Definitions preferences to default values
+[2021-04-24 13:58:09,056 INFO  L181        SettingsManager]: Resetting SyntaxChecker preferences to default values
+[2021-04-24 13:58:09,057 INFO  L181        SettingsManager]: Resetting Sifa preferences to default values
+[2021-04-24 13:58:09,058 INFO  L184        SettingsManager]: B?chi Program Product provides no preferences, ignoring...
+[2021-04-24 13:58:09,059 INFO  L181        SettingsManager]: Resetting LTL2Aut preferences to default values
+[2021-04-24 13:58:09,060 INFO  L181        SettingsManager]: Resetting PEA to Boogie preferences to default values
+[2021-04-24 13:58:09,061 INFO  L181        SettingsManager]: Resetting BlockEncodingV2 preferences to default values
+[2021-04-24 13:58:09,062 INFO  L181        SettingsManager]: Resetting ChcToBoogie preferences to default values
+[2021-04-24 13:58:09,063 INFO  L181        SettingsManager]: Resetting AutomataScriptInterpreter preferences to default values
+[2021-04-24 13:58:09,064 INFO  L181        SettingsManager]: Resetting BuchiAutomizer preferences to default values
+[2021-04-24 13:58:09,066 INFO  L181        SettingsManager]: Resetting CACSL2BoogieTranslator preferences to default values
+[2021-04-24 13:58:09,068 INFO  L181        SettingsManager]: Resetting CodeCheck preferences to default values
+[2021-04-24 13:58:09,069 INFO  L181        SettingsManager]: Resetting InvariantSynthesis preferences to default values
+[2021-04-24 13:58:09,071 INFO  L181        SettingsManager]: Resetting RCFGBuilder preferences to default values
+[2021-04-24 13:58:09,072 INFO  L181        SettingsManager]: Resetting Referee preferences to default values
+[2021-04-24 13:58:09,073 INFO  L181        SettingsManager]: Resetting TraceAbstraction preferences to default values
+[2021-04-24 13:58:09,075 INFO  L184        SettingsManager]: TraceAbstractionConcurrent provides no preferences, ignoring...
+[2021-04-24 13:58:09,076 INFO  L184        SettingsManager]: TraceAbstractionWithAFAs provides no preferences, ignoring...
+[2021-04-24 13:58:09,076 INFO  L181        SettingsManager]: Resetting TreeAutomizer preferences to default values
+[2021-04-24 13:58:09,077 INFO  L181        SettingsManager]: Resetting IcfgToChc preferences to default values
+[2021-04-24 13:58:09,077 INFO  L181        SettingsManager]: Resetting IcfgTransformer preferences to default values
+[2021-04-24 13:58:09,078 INFO  L184        SettingsManager]: ReqToTest provides no preferences, ignoring...
+[2021-04-24 13:58:09,079 INFO  L181        SettingsManager]: Resetting Boogie Printer preferences to default values
+[2021-04-24 13:58:09,079 INFO  L181        SettingsManager]: Resetting ChcSmtPrinter preferences to default values
+[2021-04-24 13:58:09,080 INFO  L181        SettingsManager]: Resetting ReqPrinter preferences to default values
+[2021-04-24 13:58:09,081 INFO  L181        SettingsManager]: Resetting Witness Printer preferences to default values
+[2021-04-24 13:58:09,082 INFO  L184        SettingsManager]: Boogie PL CUP Parser provides no preferences, ignoring...
+[2021-04-24 13:58:09,082 INFO  L181        SettingsManager]: Resetting CDTParser preferences to default values
+[2021-04-24 13:58:09,082 INFO  L184        SettingsManager]: AutomataScriptParser provides no preferences, ignoring...
+[2021-04-24 13:58:09,082 INFO  L184        SettingsManager]: ReqParser provides no preferences, ignoring...
+[2021-04-24 13:58:09,082 INFO  L181        SettingsManager]: Resetting SmtParser preferences to default values
+[2021-04-24 13:58:09,083 INFO  L181        SettingsManager]: Resetting Witness Parser preferences to default values
+[2021-04-24 13:58:09,083 INFO  L188        SettingsManager]: Finished resetting all preferences to default values...
+[2021-04-24 13:58:09,084 INFO  L101        SettingsManager]: Beginning loading settings from /home/singularity/UAutomizer-linux/config/svcomp-LTL-64bit-Automizer_Default.epf
+[2021-04-24 13:58:09,104 INFO  L113        SettingsManager]: Loading preferences was successful
+[2021-04-24 13:58:09,104 INFO  L115        SettingsManager]: Preferences different from defaults after loading the file:
+[2021-04-24 13:58:09,105 INFO  L136        SettingsManager]: Preferences of BlockEncodingV2 differ from their defaults:
+[2021-04-24 13:58:09,105 INFO  L138        SettingsManager]:  * Minimize states even if more edges are added than removed.=true
+[2021-04-24 13:58:09,105 INFO  L138        SettingsManager]:  * Rewrite not-equals=true
+[2021-04-24 13:58:09,105 INFO  L138        SettingsManager]:  * Create parallel compositions if possible=false
+[2021-04-24 13:58:09,106 INFO  L138        SettingsManager]:  * Minimize states using LBE with the strategy=NONE
+[2021-04-24 13:58:09,106 INFO  L138        SettingsManager]:  * Use SBE=true
+[2021-04-24 13:58:09,106 INFO  L136        SettingsManager]: Preferences of BuchiAutomizer differ from their defaults:
+[2021-04-24 13:58:09,106 INFO  L138        SettingsManager]:  * Compute Interpolants along a Counterexample=Craig_TreeInterpolation
+[2021-04-24 13:58:09,106 INFO  L138        SettingsManager]:  * Use old map elimination=false
+[2021-04-24 13:58:09,106 INFO  L138        SettingsManager]:  * Try twofold refinement=false
+[2021-04-24 13:58:09,106 INFO  L136        SettingsManager]: Preferences of CACSL2BoogieTranslator differ from their defaults:
+[2021-04-24 13:58:09,107 INFO  L138        SettingsManager]:  * Check unreachability of error function in SV-COMP mode=false
+[2021-04-24 13:58:09,107 INFO  L138        SettingsManager]:  * Overapproximate operations on floating types=true
+[2021-04-24 13:58:09,107 INFO  L138        SettingsManager]:  * Check division by zero=IGNORE
+[2021-04-24 13:58:09,107 INFO  L138        SettingsManager]:  * Pointer to allocated memory at dereference=ASSUME
+[2021-04-24 13:58:09,107 INFO  L138        SettingsManager]:  * If two pointers are subtracted or compared they have the same base address=ASSUME
+[2021-04-24 13:58:09,107 INFO  L138        SettingsManager]:  * Check array bounds for arrays that are off heap=ASSUME
+[2021-04-24 13:58:09,107 INFO  L138        SettingsManager]:  * Check if freed pointer was valid=false
+[2021-04-24 13:58:09,108 INFO  L138        SettingsManager]:  * Use constant arrays=true
+[2021-04-24 13:58:09,108 INFO  L138        SettingsManager]:  * Pointer base address is valid at dereference=ASSUME
+[2021-04-24 13:58:09,108 INFO  L136        SettingsManager]: Preferences of RCFGBuilder differ from their defaults:
+[2021-04-24 13:58:09,108 INFO  L138        SettingsManager]:  * Size of a code block=SingleStatement
+[2021-04-24 13:58:09,108 INFO  L138        SettingsManager]:  * SMT solver=Internal_SMTInterpol
+Applying setting for plugin de.uni_freiburg.informatik.ultimate.plugins.generator.cacsl2boogietranslator: Overapproximate operations on floating types -> false
+Applying setting for plugin de.uni_freiburg.informatik.ultimate.plugins.generator.cacsl2boogietranslator: Assume nondeterminstic values are in range -> false
+[2021-04-24 13:58:09,312 INFO  L75    nceAwareModelManager]: Repository-Root is: /tmp
+[2021-04-24 13:58:09,340 INFO  L261   ainManager$Toolchain]: [Toolchain 1]: Applicable parser(s) successfully (re)initialized
+[2021-04-24 13:58:09,343 INFO  L217   ainManager$Toolchain]: [Toolchain 1]: Toolchain selected.
+[2021-04-24 13:58:09,344 INFO  L271        PluginConnector]: Initializing CDTParser...
+[2021-04-24 13:58:09,345 INFO  L275        PluginConnector]: CDTParser initialized
+[2021-04-24 13:58:09,345 INFO  L432   ainManager$Toolchain]: [Toolchain 1]: Parsing single file: /home/magnago/benchmarks/ltl_infinite_state/simple_real_loops/ultimate/simple_real1.c
+[2021-04-24 13:58:09,395 INFO  L220              CDTParser]: Created temporary CDT project at /home/singularity/8961401e191e4de887bc8c8a0bc16e46/FLAGd3d1ac51b
+[2021-04-24 13:58:09,697 INFO  L306              CDTParser]: Found 1 translation units.
+[2021-04-24 13:58:09,697 INFO  L160              CDTParser]: Scanning /home/magnago/benchmarks/ltl_infinite_state/simple_real_loops/ultimate/simple_real1.c
+[2021-04-24 13:58:09,720 INFO  L349              CDTParser]: About to delete temporary CDT project at /home/singularity/8961401e191e4de887bc8c8a0bc16e46/FLAGd3d1ac51b
+[2021-04-24 13:58:10,133 INFO  L357              CDTParser]: Successfully deleted /home/singularity/8961401e191e4de887bc8c8a0bc16e46
+[2021-04-24 13:58:10,134 INFO  L299   ainManager$Toolchain]: ####################### [Toolchain 1] #######################
+[2021-04-24 13:58:10,136 INFO  L131        ToolchainWalker]: Walking toolchain with 7 elements.
+[2021-04-24 13:58:10,137 INFO  L113        PluginConnector]: ------------------------CACSL2BoogieTranslator----------------------------
+[2021-04-24 13:58:10,137 INFO  L271        PluginConnector]: Initializing CACSL2BoogieTranslator...
+[2021-04-24 13:58:10,139 INFO  L275        PluginConnector]: CACSL2BoogieTranslator initialized
+[2021-04-24 13:58:10,140 INFO  L185        PluginConnector]: Executing the observer ACSLObjectContainerObserver from plugin CACSL2BoogieTranslator for "CDTParser AST 24.04 01:58:10" (1/1) ...
+[2021-04-24 13:58:10,140 INFO  L205        PluginConnector]: Invalid model from CACSL2BoogieTranslator for observer de.uni_freiburg.informatik.ultimate.plugins.generator.cacsl2boogietranslator.ACSLObjectContainerObserver@5169bfc and model type de.uni_freiburg.informatik.ultimate.plugins.generator.cacsl2boogietranslator AST 24.04 01:58:10, skipping insertion in model container
+[2021-04-24 13:58:10,140 INFO  L185        PluginConnector]: Executing the observer CACSL2BoogieTranslatorObserver from plugin CACSL2BoogieTranslator for "CDTParser AST 24.04 01:58:10" (1/1) ...
+[2021-04-24 13:58:10,146 INFO  L145         MainTranslator]: Starting translation in SV-COMP mode 
+[2021-04-24 13:58:10,153 INFO  L178         MainTranslator]: Built tables and reachable declarations
+[2021-04-24 13:58:10,258 INFO  L206          PostProcessor]: Analyzing one entry point: main
+[2021-04-24 13:58:10,261 INFO  L203         MainTranslator]: Completed pre-run
+[2021-04-24 13:58:10,269 INFO  L206          PostProcessor]: Analyzing one entry point: main
+[2021-04-24 13:58:10,280 INFO  L208         MainTranslator]: Completed translation
+[2021-04-24 13:58:10,280 INFO  L202        PluginConnector]: Adding new model de.uni_freiburg.informatik.ultimate.plugins.generator.cacsl2boogietranslator AST 24.04 01:58:10 WrapperNode
+[2021-04-24 13:58:10,280 INFO  L132        PluginConnector]: ------------------------ END CACSL2BoogieTranslator----------------------------
+[2021-04-24 13:58:10,281 INFO  L113        PluginConnector]: ------------------------Boogie Preprocessor----------------------------
+[2021-04-24 13:58:10,281 INFO  L271        PluginConnector]: Initializing Boogie Preprocessor...
+[2021-04-24 13:58:10,281 INFO  L275        PluginConnector]: Boogie Preprocessor initialized
+[2021-04-24 13:58:10,292 INFO  L185        PluginConnector]: Executing the observer EnsureBoogieModelObserver from plugin Boogie Preprocessor for "de.uni_freiburg.informatik.ultimate.plugins.generator.cacsl2boogietranslator AST 24.04 01:58:10" (1/1) ...
+[2021-04-24 13:58:10,292 INFO  L185        PluginConnector]: Executing the observer TypeChecker from plugin Boogie Preprocessor for "de.uni_freiburg.informatik.ultimate.plugins.generator.cacsl2boogietranslator AST 24.04 01:58:10" (1/1) ...
+[2021-04-24 13:58:10,296 INFO  L185        PluginConnector]: Executing the observer ConstExpander from plugin Boogie Preprocessor for "de.uni_freiburg.informatik.ultimate.plugins.generator.cacsl2boogietranslator AST 24.04 01:58:10" (1/1) ...
+[2021-04-24 13:58:10,297 INFO  L185        PluginConnector]: Executing the observer StructExpander from plugin Boogie Preprocessor for "de.uni_freiburg.informatik.ultimate.plugins.generator.cacsl2boogietranslator AST 24.04 01:58:10" (1/1) ...
+[2021-04-24 13:58:10,299 INFO  L185        PluginConnector]: Executing the observer UnstructureCode from plugin Boogie Preprocessor for "de.uni_freiburg.informatik.ultimate.plugins.generator.cacsl2boogietranslator AST 24.04 01:58:10" (1/1) ...
+[2021-04-24 13:58:10,302 INFO  L185        PluginConnector]: Executing the observer FunctionInliner from plugin Boogie Preprocessor for "de.uni_freiburg.informatik.ultimate.plugins.generator.cacsl2boogietranslator AST 24.04 01:58:10" (1/1) ...
+[2021-04-24 13:58:10,302 INFO  L185        PluginConnector]: Executing the observer BoogieSymbolTableConstructor from plugin Boogie Preprocessor for "de.uni_freiburg.informatik.ultimate.plugins.generator.cacsl2boogietranslator AST 24.04 01:58:10" (1/1) ...
+[2021-04-24 13:58:10,303 INFO  L132        PluginConnector]: ------------------------ END Boogie Preprocessor----------------------------
+[2021-04-24 13:58:10,304 INFO  L113        PluginConnector]: ------------------------RCFGBuilder----------------------------
+[2021-04-24 13:58:10,304 INFO  L271        PluginConnector]: Initializing RCFGBuilder...
+[2021-04-24 13:58:10,304 INFO  L275        PluginConnector]: RCFGBuilder initialized
+[2021-04-24 13:58:10,305 INFO  L185        PluginConnector]: Executing the observer RCFGBuilderObserver from plugin RCFGBuilder for "de.uni_freiburg.informatik.ultimate.plugins.generator.cacsl2boogietranslator AST 24.04 01:58:10" (1/1) ...
+[2021-04-24 13:58:10,370 INFO  L138     BoogieDeclarations]: Found implementation of procedure ULTIMATE.init
+[2021-04-24 13:58:10,370 INFO  L138     BoogieDeclarations]: Found implementation of procedure ULTIMATE.start
+[2021-04-24 13:58:10,371 INFO  L138     BoogieDeclarations]: Found implementation of procedure __VERIFIER_nondet_bool
+[2021-04-24 13:58:10,371 INFO  L138     BoogieDeclarations]: Found implementation of procedure main
+[2021-04-24 13:58:10,371 INFO  L130     BoogieDeclarations]: Found specification of procedure __VERIFIER_nondet_float
+[2021-04-24 13:58:10,371 INFO  L130     BoogieDeclarations]: Found specification of procedure __VERIFIER_nondet_int
+[2021-04-24 13:58:10,371 INFO  L130     BoogieDeclarations]: Found specification of procedure __VERIFIER_nondet_bool
+[2021-04-24 13:58:10,371 INFO  L130     BoogieDeclarations]: Found specification of procedure main
+[2021-04-24 13:58:10,371 INFO  L130     BoogieDeclarations]: Found specification of procedure ULTIMATE.init
+[2021-04-24 13:58:10,371 INFO  L130     BoogieDeclarations]: Found specification of procedure ULTIMATE.start
+[2021-04-24 13:58:10,473 INFO  L294             CfgBuilder]: Using the 1 location(s) as analysis (start of procedure ULTIMATE.start)
+[2021-04-24 13:58:10,473 INFO  L299             CfgBuilder]: Removed 1 assume(true) statements.
+[2021-04-24 13:58:10,474 INFO  L202        PluginConnector]: Adding new model de.uni_freiburg.informatik.ultimate.plugins.generator.rcfgbuilder CFG 24.04 01:58:10 BoogieIcfgContainer
+[2021-04-24 13:58:10,474 INFO  L132        PluginConnector]: ------------------------ END RCFGBuilder----------------------------
+[2021-04-24 13:58:10,475 INFO  L113        PluginConnector]: ------------------------LTL2Aut----------------------------
+[2021-04-24 13:58:10,475 INFO  L271        PluginConnector]: Initializing LTL2Aut...
+[2021-04-24 13:58:10,477 INFO  L275        PluginConnector]: LTL2Aut initialized
+[2021-04-24 13:58:10,478 INFO  L185        PluginConnector]: Executing the observer LTL2autObserver from plugin LTL2Aut for "de.uni_freiburg.informatik.ultimate.plugins.generator.cacsl2boogietranslator AST 24.04 01:58:10" (2/3) ...
+No working directory specified, using /usr/bin/ltl2ba
+Starting monitored process 1 with ltl2ba -f ! ( <> ( [] ( a ) ) )  (exit command is null, workingDir is null)
+[2021-04-24 13:58:10,524 INFO  L125        LTL2autObserver]: LTL Property is: F(G((0.0 < ~x~0)))
+[2021-04-24 13:58:10,525 INFO  L202        PluginConnector]: Adding new model Hardcoded de.uni_freiburg.informatik.ultimate.ltl2aut AST 24.04 01:58:10 NWAContainer
+[2021-04-24 13:58:10,525 INFO  L132        PluginConnector]: ------------------------ END LTL2Aut----------------------------
+[2021-04-24 13:58:10,526 INFO  L113        PluginConnector]: ------------------------B?chi Program Product----------------------------
+[2021-04-24 13:58:10,526 INFO  L271        PluginConnector]: Initializing B?chi Program Product...
+[2021-04-24 13:58:10,527 INFO  L275        PluginConnector]: B?chi Program Product initialized
+[2021-04-24 13:58:10,528 INFO  L185        PluginConnector]: Executing the observer BuchiProductObserver from plugin B?chi Program Product for "de.uni_freiburg.informatik.ultimate.plugins.generator.rcfgbuilder CFG 24.04 01:58:10" (3/4) ...
+[2021-04-24 13:58:10,529 INFO  L205        PluginConnector]: Invalid model from B?chi Program Product for observer de.uni_freiburg.informatik.ultimate.buchiprogramproduct.BuchiProductObserver@2d4f3bf7 and model type LTL+Program Product de.uni_freiburg.informatik.ultimate.buchiprogramproduct OTHER 24.04 01:58:10, skipping insertion in model container
+[2021-04-24 13:58:10,529 INFO  L185        PluginConnector]: Executing the observer BuchiProductObserver from plugin B?chi Program Product for "Hardcoded de.uni_freiburg.informatik.ultimate.ltl2aut AST 24.04 01:58:10" (4/4) ...
+[2021-04-24 13:58:10,531 INFO  L104   BuchiProductObserver]: Initial property automaton 2 locations, 4 edges
+[2021-04-24 13:58:10,533 INFO  L110   BuchiProductObserver]: Initial RCFG 31 locations, 37 edges
+[2021-04-24 13:58:10,533 INFO  L93    BuchiProductObserver]: Beginning generation of product automaton
+[2021-04-24 13:58:10,537 INFO  L132       ProductGenerator]: The program has no step specification, so we assume maximum atomicity
+[2021-04-24 13:58:10,610 INFO  L97    BuchiProductObserver]: Finished generation of product automaton successfully
+[2021-04-24 13:58:10,610 INFO  L110   BuchiProductObserver]: BuchiProgram size 58 locations, 109 edges
+[2021-04-24 13:58:10,611 INFO  L202        PluginConnector]: Adding new model LTL+Program Product de.uni_freiburg.informatik.ultimate.buchiprogramproduct OTHER 24.04 01:58:10 BoogieIcfgContainer
+[2021-04-24 13:58:10,611 INFO  L132        PluginConnector]: ------------------------ END B?chi Program Product----------------------------
+[2021-04-24 13:58:10,611 INFO  L113        PluginConnector]: ------------------------BlockEncodingV2----------------------------
+[2021-04-24 13:58:10,611 INFO  L271        PluginConnector]: Initializing BlockEncodingV2...
+[2021-04-24 13:58:10,613 INFO  L275        PluginConnector]: BlockEncodingV2 initialized
+[2021-04-24 13:58:10,614 INFO  L185        PluginConnector]: Executing the observer BlockEncodingObserver from plugin BlockEncodingV2 for "LTL+Program Product de.uni_freiburg.informatik.ultimate.buchiprogramproduct OTHER 24.04 01:58:10" (1/1) ...
+[2021-04-24 13:58:10,627 INFO  L313           BlockEncoder]: Initial Icfg 58 locations, 109 edges
+[2021-04-24 13:58:10,628 INFO  L258           BlockEncoder]: Using Remove infeasible edges
+[2021-04-24 13:58:10,628 INFO  L263           BlockEncoder]: Using Maximize final states
+[2021-04-24 13:58:10,628 INFO  L270           BlockEncoder]: Using Minimize states even if more edges are added than removed.=true
+[2021-04-24 13:58:10,629 INFO  L296           BlockEncoder]: Using Remove sink states
+[2021-04-24 13:58:10,629 INFO  L171           BlockEncoder]: Using Apply optimizations until nothing changes=true
+[2021-04-24 13:58:10,629 INFO  L179           BlockEncoder]: Using Rewrite not-equals
+[2021-04-24 13:58:10,653 INFO  L185           BlockEncoder]: Using Use SBE
+[2021-04-24 13:58:10,672 INFO  L200           BlockEncoder]: SBE split 16 edges
+[2021-04-24 13:58:10,676 INFO  L70    emoveInfeasibleEdges]: Removed 4 edges and 0 locations because of local infeasibility
+[2021-04-24 13:58:10,677 INFO  L71     MaximizeFinalStates]: 2 new accepting states
+[2021-04-24 13:58:10,679 INFO  L70        RemoveSinkStates]: Removed 0 edges and 0 locations by removing sink states
+[2021-04-24 13:58:10,680 INFO  L70    emoveInfeasibleEdges]: Removed 0 edges and 0 locations because of local infeasibility
+[2021-04-24 13:58:10,681 INFO  L71     MaximizeFinalStates]: 0 new accepting states
+[2021-04-24 13:58:10,681 INFO  L70        RemoveSinkStates]: Removed 0 edges and 0 locations by removing sink states
+[2021-04-24 13:58:10,682 INFO  L313           BlockEncoder]: Encoded RCFG 58 locations, 153 edges
+[2021-04-24 13:58:10,682 INFO  L202        PluginConnector]: Adding new model LTL+Program Product de.uni_freiburg.informatik.ultimate.plugins.blockencoding CFG 24.04 01:58:10 BasicIcfg
+[2021-04-24 13:58:10,682 INFO  L132        PluginConnector]: ------------------------ END BlockEncodingV2----------------------------
+[2021-04-24 13:58:10,683 INFO  L113        PluginConnector]: ------------------------BuchiAutomizer----------------------------
+[2021-04-24 13:58:10,683 INFO  L271        PluginConnector]: Initializing BuchiAutomizer...
+[2021-04-24 13:58:10,685 INFO  L275        PluginConnector]: BuchiAutomizer initialized
+[2021-04-24 13:58:10,685 INFO  L99          BuchiAutomizer]: Safety of program was proven or not checked, starting termination analysis
+[2021-04-24 13:58:10,685 INFO  L185        PluginConnector]: Executing the observer BuchiAutomizerObserver from plugin BuchiAutomizer for "CDTParser AST 24.04 01:58:10" (1/6) ...
+[2021-04-24 13:58:10,686 INFO  L205        PluginConnector]: Invalid model from BuchiAutomizer for observer de.uni_freiburg.informatik.ultimate.plugins.generator.buchiautomizer.BuchiAutomizerObserver@32d3d9d9 and model type de.uni_freiburg.informatik.ultimate.plugins.generator.buchiautomizer AST 24.04 01:58:10, skipping insertion in model container
+[2021-04-24 13:58:10,686 INFO  L99          BuchiAutomizer]: Safety of program was proven or not checked, starting termination analysis
+[2021-04-24 13:58:10,686 INFO  L185        PluginConnector]: Executing the observer BuchiAutomizerObserver from plugin BuchiAutomizer for "de.uni_freiburg.informatik.ultimate.plugins.generator.cacsl2boogietranslator AST 24.04 01:58:10" (2/6) ...
+[2021-04-24 13:58:10,687 INFO  L205        PluginConnector]: Invalid model from BuchiAutomizer for observer de.uni_freiburg.informatik.ultimate.plugins.generator.buchiautomizer.BuchiAutomizerObserver@32d3d9d9 and model type de.uni_freiburg.informatik.ultimate.plugins.generator.buchiautomizer AST 24.04 01:58:10, skipping insertion in model container
+[2021-04-24 13:58:10,687 INFO  L99          BuchiAutomizer]: Safety of program was proven or not checked, starting termination analysis
+[2021-04-24 13:58:10,687 INFO  L185        PluginConnector]: Executing the observer BuchiAutomizerObserver from plugin BuchiAutomizer for "de.uni_freiburg.informatik.ultimate.plugins.generator.rcfgbuilder CFG 24.04 01:58:10" (3/6) ...
+[2021-04-24 13:58:10,687 INFO  L205        PluginConnector]: Invalid model from BuchiAutomizer for observer de.uni_freiburg.informatik.ultimate.plugins.generator.buchiautomizer.BuchiAutomizerObserver@32d3d9d9 and model type de.uni_freiburg.informatik.ultimate.plugins.generator.buchiautomizer CFG 24.04 01:58:10, skipping insertion in model container
+[2021-04-24 13:58:10,687 INFO  L99          BuchiAutomizer]: Safety of program was proven or not checked, starting termination analysis
+[2021-04-24 13:58:10,687 INFO  L185        PluginConnector]: Executing the observer BuchiAutomizerObserver from plugin BuchiAutomizer for "Hardcoded de.uni_freiburg.informatik.ultimate.ltl2aut AST 24.04 01:58:10" (4/6) ...
+[2021-04-24 13:58:10,687 INFO  L205        PluginConnector]: Invalid model from BuchiAutomizer for observer de.uni_freiburg.informatik.ultimate.plugins.generator.buchiautomizer.BuchiAutomizerObserver@32d3d9d9 and model type Hardcoded de.uni_freiburg.informatik.ultimate.plugins.generator.buchiautomizer AST 24.04 01:58:10, skipping insertion in model container
+[2021-04-24 13:58:10,688 INFO  L99          BuchiAutomizer]: Safety of program was proven or not checked, starting termination analysis
+[2021-04-24 13:58:10,688 INFO  L185        PluginConnector]: Executing the observer BuchiAutomizerObserver from plugin BuchiAutomizer for "LTL+Program Product de.uni_freiburg.informatik.ultimate.buchiprogramproduct OTHER 24.04 01:58:10" (5/6) ...
+[2021-04-24 13:58:10,688 INFO  L205        PluginConnector]: Invalid model from BuchiAutomizer for observer de.uni_freiburg.informatik.ultimate.plugins.generator.buchiautomizer.BuchiAutomizerObserver@32d3d9d9 and model type LTL+Program Product de.uni_freiburg.informatik.ultimate.plugins.generator.buchiautomizer OTHER 24.04 01:58:10, skipping insertion in model container
+[2021-04-24 13:58:10,688 INFO  L99          BuchiAutomizer]: Safety of program was proven or not checked, starting termination analysis
+[2021-04-24 13:58:10,688 INFO  L185        PluginConnector]: Executing the observer BuchiAutomizerObserver from plugin BuchiAutomizer for "LTL+Program Product de.uni_freiburg.informatik.ultimate.plugins.blockencoding CFG 24.04 01:58:10" (6/6) ...
+[2021-04-24 13:58:10,689 INFO  L389   chiAutomizerObserver]: Analyzing ICFG simple_real1.c_BEv2
+[2021-04-24 13:58:10,727 INFO  L359         BuchiCegarLoop]: Interprodecural is true
+[2021-04-24 13:58:10,727 INFO  L360         BuchiCegarLoop]: Hoare is false
+[2021-04-24 13:58:10,727 INFO  L361         BuchiCegarLoop]: Compute interpolants for Craig_TreeInterpolation
+[2021-04-24 13:58:10,727 INFO  L362         BuchiCegarLoop]: Backedges is STRAIGHT_LINE
+[2021-04-24 13:58:10,727 INFO  L363         BuchiCegarLoop]: Determinization is PREDICATE_ABSTRACTION
+[2021-04-24 13:58:10,727 INFO  L364         BuchiCegarLoop]: Difference is false
+[2021-04-24 13:58:10,727 INFO  L365         BuchiCegarLoop]: Minimize is MINIMIZE_SEVPA
+[2021-04-24 13:58:10,727 INFO  L368         BuchiCegarLoop]: ======== Iteration 0==of CEGAR loop == BuchiCegarLoop========
+[2021-04-24 13:58:10,737 INFO  L72            BuchiIsEmpty]: Start buchiIsEmpty. Operand  has 58 states, 48 states have (on average 2.8541666666666665) internal successors, (137), 47 states have internal predecessors, (137), 5 states have call successors, (5), 5 states have call predecessors, (5), 5 states have return successors, (9), 7 states have call predecessors, (9), 5 states have call successors, (9)
+[2021-04-24 13:58:10,754 INFO  L131   ngComponentsAnalysis]: Automaton has 2 accepting balls. 21
+[2021-04-24 13:58:10,754 INFO  L87            BuchiIsEmpty]: Finished buchiIsEmpty Result is false
+[2021-04-24 13:58:10,754 INFO  L119           BuchiIsEmpty]: Starting construction of run
+[2021-04-24 13:58:10,761 INFO  L853         BuchiCegarLoop]: Counterexample stem histogram [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+[2021-04-24 13:58:10,762 INFO  L854         BuchiCegarLoop]: Counterexample loop histogram [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+[2021-04-24 13:58:10,762 INFO  L427         BuchiCegarLoop]: ======== Iteration 1============
+[2021-04-24 13:58:10,762 INFO  L72            BuchiIsEmpty]: Start buchiIsEmpty. Operand  has 58 states, 48 states have (on average 2.8541666666666665) internal successors, (137), 47 states have internal predecessors, (137), 5 states have call successors, (5), 5 states have call predecessors, (5), 5 states have return successors, (9), 7 states have call predecessors, (9), 5 states have call successors, (9)
+[2021-04-24 13:58:10,766 INFO  L131   ngComponentsAnalysis]: Automaton has 2 accepting balls. 21
+[2021-04-24 13:58:10,766 INFO  L87            BuchiIsEmpty]: Finished buchiIsEmpty Result is false
+[2021-04-24 13:58:10,766 INFO  L119           BuchiIsEmpty]: Starting construction of run
+[2021-04-24 13:58:10,767 INFO  L853         BuchiCegarLoop]: Counterexample stem histogram [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+[2021-04-24 13:58:10,767 INFO  L854         BuchiCegarLoop]: Counterexample loop histogram [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+[2021-04-24 13:58:10,772 INFO  L794   eck$LassoCheckResult]: Stem: 8#ULTIMATE.startENTRY_NONWAtrue [181] ULTIMATE.startENTRY_NONWA-->ULTIMATE.initENTRY_NONWA: Formula: true  InVars {}  OutVars{}  AuxVars[]  AssignedVars[]< 44#ULTIMATE.initENTRY_NONWAtrue [247] ULTIMATE.initENTRY_NONWA-->L11_NONWA: Formula: (= v_~b~0_9 0)  InVars {}  OutVars{~b~0=v_~b~0_9}  AuxVars[]  AssignedVars[~b~0] 60#L11_NONWAtrue [273] L11_NONWA-->L12_NONWA: Formula: (= v_~_x_b~0_8 0)  InVars {}  OutVars{~_x_b~0=v_~_x_b~0_8}  AuxVars[]  AssignedVars[~_x_b~0] 23#L12_NONWAtrue [216] L12_NONWA-->L12-1_NONWA: Formula: (= v_~x~0_10 0.0)  InVars {}  OutVars{~x~0=v_~x~0_10}  AuxVars[]  AssignedVars[~x~0] 12#L12-1_NONWAtrue [194] L12-1_NONWA-->ULTIMATE.initFINAL_NONWA: Formula: (= v_~_x_x~0_9 0.0)  InVars {}  OutVars{~_x_x~0=v_~_x_x~0_9}  AuxVars[]  AssignedVars[~_x_x~0] 31#ULTIMATE.initFINAL_NONWAtrue [229] ULTIMATE.initFINAL_NONWA-->ULTIMATE.initEXIT_NONWA: Formula: true  InVars {}  OutVars{}  AuxVars[]  AssignedVars[] 40#ULTIMATE.initEXIT_NONWAtrue >[278] ULTIMATE.initEXIT_NONWA-->L-1_NONWA: AOR: Formula: true  InVars {}  OutVars{}  AuxVars[]  AssignedVars[] LVA: Formula: true  InVars {}  OutVars{}  AuxVars[]  AssignedVars[] 54#L-1_NONWAtrue [264] L-1_NONWA-->mainENTRY_T0_init: Formula: true  InVars {}  OutVars{}  AuxVars[]  AssignedVars[]< 38#mainENTRY_T0_inittrue [239] mainENTRY_T0_init-->mainENTRY_T0_init-D2: Formula: true  InVars {}  OutVars{}  AuxVars[]  AssignedVars[]< 35#mainENTRY_T0_init-D2true [236] mainENTRY_T0_init-D2-->__VERIFIER_nondet_boolENTRY_T0_init: Formula: true  InVars {}  OutVars{}  AuxVars[]  AssignedVars[] 51#__VERIFIER_nondet_boolENTRY_T0_inittrue [335] __VERIFIER_nondet_boolENTRY_T0_init-->L7_T0_init: Formula: (and (= |v___VERIFIER_nondet_bool_#res_5| 1) (> |v___VERIFIER_nondet_bool_#t~nondet0_8| 0))  InVars {__VERIFIER_nondet_bool_#t~nondet0=|v___VERIFIER_nondet_bool_#t~nondet0_8|}  OutVars{__VERIFIER_nondet_bool_#t~nondet0=|v___VERIFIER_nondet_bool_#t~nondet0_8|, __VERIFIER_nondet_bool_#res=|v___VERIFIER_nondet_bool_#res_5|}  AuxVars[]  AssignedVars[__VERIFIER_nondet_bool_#res] 10#L7_T0_inittrue [291] L7_T0_init-->__VERIFIER_nondet_boolFINAL_accept_S1: Formula: (>= 0.0 v_~x~0_18)  InVars {~x~0=v_~x~0_18}  OutVars{__VERIFIER_nondet_bool_#t~nondet0=|v___VERIFIER_nondet_bool_#t~nondet0_9|, ~x~0=v_~x~0_18}  AuxVars[]  AssignedVars[__VERIFIER_nondet_bool_#t~nondet0] 36#__VERIFIER_nondet_boolFINAL_accept_S1true [292] __VERIFIER_nondet_boolFINAL_accept_S1-->__VERIFIER_nondet_boolEXIT_accept_S1: Formula: (>= 0.0 v_~x~0_12)  InVars {~x~0=v_~x~0_12}  OutVars{~x~0=v_~x~0_12}  AuxVars[]  AssignedVars[] 18#__VERIFIER_nondet_boolEXIT_accept_S1true >[281] __VERIFIER_nondet_boolEXIT_accept_S1-->L16-D7: AOR: Formula: (= |v_main_#t~ret1_4| |v___VERIFIER_nondet_bool_#resOutParam_1|)  InVars {__VERIFIER_nondet_bool_#res=|v___VERIFIER_nondet_bool_#resOutParam_1|}  OutVars{main_#t~ret1=|v_main_#t~ret1_4|}  AuxVars[]  AssignedVars[main_#t~ret1] LVA: Formula: true  InVars {}  OutVars{}  AuxVars[]  AssignedVars[] 33#L16-D7true [231] L16-D7-->L16_accept_S1: Formula: true  InVars {}  OutVars{}  AuxVars[]  AssignedVars[] 37#L16_accept_S1true [295] L16_accept_S1-->L16-1_accept_S1: Formula: (and (>= 0.0 v_~x~0_34) (= v_~b~0_10 |v_main_#t~ret1_7|))  InVars {main_#t~ret1=|v_main_#t~ret1_7|, ~x~0=v_~x~0_34}  OutVars{~b~0=v_~b~0_10, main_#t~ret1=|v_main_#t~ret1_7|, ~x~0=v_~x~0_34}  AuxVars[]  AssignedVars[~b~0] 48#L16-1_accept_S1true [300] L16-1_accept_S1-->L17_accept_S1: Formula: (>= 0.0 v_~x~0_44)  InVars {~x~0=v_~x~0_44}  OutVars{main_#t~ret1=|v_main_#t~ret1_11|, ~x~0=v_~x~0_44}  AuxVars[]  AssignedVars[main_#t~ret1] 13#L17_accept_S1true [304] L17_accept_S1-->L17-1_accept_S1: Formula: (and (>= 0.0 v_~x~0_23) (= v_~x~0_23 |v_main_#t~nondet2_5|))  InVars {main_#t~nondet2=|v_main_#t~nondet2_5|}  OutVars{~x~0=v_~x~0_23, main_#t~nondet2=|v_main_#t~nondet2_5|}  AuxVars[]  AssignedVars[~x~0] 22#L17-1_accept_S1true [308] L17-1_accept_S1-->L19_accept_S1: Formula: (>= 0.0 v_~x~0_54)  InVars {~x~0=v_~x~0_54}  OutVars{~x~0=v_~x~0_54, main_#t~nondet2=|v_main_#t~nondet2_9|}  AuxVars[]  AssignedVars[main_#t~nondet2] 19#L19_accept_S1true [385] L19_accept_S1-->L20-2_accept_S1: Formula: (and (> 0.0 v_~x~0_26) (>= 0.0 v_~x~0_26) (= v_main_~__ok~0_5 0))  InVars {~x~0=v_~x~0_26}  OutVars{main_~__ok~0=v_main_~__ok~0_5, ~x~0=v_~x~0_26}  AuxVars[]  AssignedVars[main_~__ok~0] 16#L20-2_accept_S1true 
+[2021-04-24 13:58:10,773 INFO  L796   eck$LassoCheckResult]: Loop: 16#L20-2_accept_S1true [388] L20-2_accept_S1-->L21_accept_S1: Formula: (and (< v_main_~__ok~0_9 0) (>= 0.0 v_~x~0_33))  InVars {main_~__ok~0=v_main_~__ok~0_9, ~x~0=v_~x~0_33}  OutVars{main_~__ok~0=v_main_~__ok~0_9, ~x~0=v_~x~0_33}  AuxVars[]  AssignedVars[] 32#L21_accept_S1true [230] L21_accept_S1-->L21_accept_S1-D3: Formula: true  InVars {}  OutVars{}  AuxVars[]  AssignedVars[]< 49#L21_accept_S1-D3true [255] L21_accept_S1-D3-->__VERIFIER_nondet_boolENTRY_T0_init: Formula: true  InVars {}  OutVars{}  AuxVars[]  AssignedVars[] 51#__VERIFIER_nondet_boolENTRY_T0_inittrue [335] __VERIFIER_nondet_boolENTRY_T0_init-->L7_T0_init: Formula: (and (= |v___VERIFIER_nondet_bool_#res_5| 1) (> |v___VERIFIER_nondet_bool_#t~nondet0_8| 0))  InVars {__VERIFIER_nondet_bool_#t~nondet0=|v___VERIFIER_nondet_bool_#t~nondet0_8|}  OutVars{__VERIFIER_nondet_bool_#t~nondet0=|v___VERIFIER_nondet_bool_#t~nondet0_8|, __VERIFIER_nondet_bool_#res=|v___VERIFIER_nondet_bool_#res_5|}  AuxVars[]  AssignedVars[__VERIFIER_nondet_bool_#res] 10#L7_T0_inittrue [291] L7_T0_init-->__VERIFIER_nondet_boolFINAL_accept_S1: Formula: (>= 0.0 v_~x~0_18)  InVars {~x~0=v_~x~0_18}  OutVars{__VERIFIER_nondet_bool_#t~nondet0=|v___VERIFIER_nondet_bool_#t~nondet0_9|, ~x~0=v_~x~0_18}  AuxVars[]  AssignedVars[__VERIFIER_nondet_bool_#t~nondet0] 36#__VERIFIER_nondet_boolFINAL_accept_S1true [292] __VERIFIER_nondet_boolFINAL_accept_S1-->__VERIFIER_nondet_boolEXIT_accept_S1: Formula: (>= 0.0 v_~x~0_12)  InVars {~x~0=v_~x~0_12}  OutVars{~x~0=v_~x~0_12}  AuxVars[]  AssignedVars[] 18#__VERIFIER_nondet_boolEXIT_accept_S1true >[275] __VERIFIER_nondet_boolEXIT_accept_S1-->L21-1-D9: AOR: Formula: (= |v_main_#t~ret3_4| |v___VERIFIER_nondet_bool_#resOutParam_2|)  InVars {__VERIFIER_nondet_bool_#res=|v___VERIFIER_nondet_bool_#resOutParam_2|}  OutVars{main_#t~ret3=|v_main_#t~ret3_4|}  AuxVars[]  AssignedVars[main_#t~ret3] LVA: Formula: true  InVars {}  OutVars{}  AuxVars[]  AssignedVars[] 57#L21-1-D9true [269] L21-1-D9-->L21-1_accept_S1: Formula: true  InVars {}  OutVars{}  AuxVars[]  AssignedVars[] 41#L21-1_accept_S1true [294] L21-1_accept_S1-->L21-2_accept_S1: Formula: (and (>= 0.0 v_~x~0_60) (= v_~_x_b~0_15 |v_main_#t~ret3_11|))  InVars {~x~0=v_~x~0_60, main_#t~ret3=|v_main_#t~ret3_11|}  OutVars{~x~0=v_~x~0_60, ~_x_b~0=v_~_x_b~0_15, main_#t~ret3=|v_main_#t~ret3_11|}  AuxVars[]  AssignedVars[~_x_b~0] 52#L21-2_accept_S1true [261] L21-2_accept_S1-->L22_T0_init: Formula: true  InVars {}  OutVars{main_#t~ret3=|v_main_#t~ret3_6|}  AuxVars[]  AssignedVars[main_#t~ret3] 53#L22_T0_inittrue [263] L22_T0_init-->L22-1_T0_init: Formula: (= v_~_x_x~0_19 |v_main_#t~nondet4_8|)  InVars {main_#t~nondet4=|v_main_#t~nondet4_8|}  OutVars{main_#t~nondet4=|v_main_#t~nondet4_8|, ~_x_x~0=v_~_x_x~0_19}  AuxVars[]  AssignedVars[~_x_x~0] 4#L22-1_T0_inittrue [176] L22-1_T0_init-->L24_T0_init: Formula: true  InVars {}  OutVars{main_#t~nondet4=|v_main_#t~nondet4_6|}  AuxVars[]  AssignedVars[main_#t~nondet4] 6#L24_T0_inittrue [353] L24_T0_init-->L25_T0_init: Formula: (and (>= (+ v_~_x_x~0_21 v_~x~0_59 1.0) 0.0) (= v_main_~__ok~0_20 0) (> v_~b~0_21 0))  InVars {~_x_x~0=v_~_x_x~0_21, ~b~0=v_~b~0_21, ~x~0=v_~x~0_59}  OutVars{~_x_x~0=v_~_x_x~0_21, main_~__ok~0=v_main_~__ok~0_20, ~b~0=v_~b~0_21, ~x~0=v_~x~0_59}  AuxVars[]  AssignedVars[main_~__ok~0] 39#L25_T0_inittrue [319] L25_T0_init-->L26_accept_S1: Formula: (and (= v_~b~0_18 v_~_x_b~0_13) (>= 0.0 v_~x~0_56))  InVars {~x~0=v_~x~0_56, ~_x_b~0=v_~_x_b~0_13}  OutVars{~b~0=v_~b~0_18, ~x~0=v_~x~0_56, ~_x_b~0=v_~_x_b~0_13}  AuxVars[]  AssignedVars[~b~0] 20#L26_accept_S1true [326] L26_accept_S1-->L20-2_accept_S1: Formula: (and (>= 0.0 v_~x~0_45) (= v_~x~0_45 v_~_x_x~0_16))  InVars {~_x_x~0=v_~_x_x~0_16}  OutVars{~x~0=v_~x~0_45, ~_x_x~0=v_~_x_x~0_16}  AuxVars[]  AssignedVars[~x~0] 16#L20-2_accept_S1true 
+[2021-04-24 13:58:10,778 INFO  L144       PredicateUnifier]: Initialized classic predicate unifier
+[2021-04-24 13:58:10,778 INFO  L82        PathProgramCache]: Analyzing trace with hash 1345472278, now seen corresponding path program 1 times
+[2021-04-24 13:58:10,785 INFO  L162   FreeRefinementEngine]: Executing refinement strategy FIXED_PREFERENCES
+[2021-04-24 13:58:10,785 INFO  L353   FreeRefinementEngine]: Using trace check IpTcStrategyModulePreferences [1898352865]
+[2021-04-24 13:58:10,785 INFO  L95    rtionOrderModulation]: Keeping assertion order NOT_INCREMENTALLY
+[2021-04-24 13:58:10,809 INFO  L136    AnnotateAndAsserter]: Conjunction of SSA is sat
+[2021-04-24 13:58:10,809 INFO  L223             TraceCheck]: Trace is feasible, we will do another trace check, this time with branch encoders.
+[2021-04-24 13:58:10,817 INFO  L136    AnnotateAndAsserter]: Conjunction of SSA is sat
+[2021-04-24 13:58:10,818 INFO  L223             TraceCheck]: Trace is feasible, we will do another trace check, this time with branch encoders.
+[2021-04-24 13:58:10,831 INFO  L173   FreeRefinementEngine]: Strategy FIXED_PREFERENCES found a feasible trace
+[2021-04-24 13:58:10,833 INFO  L144       PredicateUnifier]: Initialized classic predicate unifier
+[2021-04-24 13:58:10,833 INFO  L82        PathProgramCache]: Analyzing trace with hash -2100236590, now seen corresponding path program 1 times
+[2021-04-24 13:58:10,833 INFO  L162   FreeRefinementEngine]: Executing refinement strategy FIXED_PREFERENCES
+[2021-04-24 13:58:10,833 INFO  L353   FreeRefinementEngine]: Using trace check IpTcStrategyModulePreferences [1637705248]
+[2021-04-24 13:58:10,833 INFO  L95    rtionOrderModulation]: Keeping assertion order NOT_INCREMENTALLY
+[2021-04-24 13:58:10,839 INFO  L136    AnnotateAndAsserter]: Conjunction of SSA is sat
+[2021-04-24 13:58:10,840 INFO  L223             TraceCheck]: Trace is feasible, we will do another trace check, this time with branch encoders.
+[2021-04-24 13:58:10,844 INFO  L136    AnnotateAndAsserter]: Conjunction of SSA is sat
+[2021-04-24 13:58:10,844 INFO  L223             TraceCheck]: Trace is feasible, we will do another trace check, this time with branch encoders.
+[2021-04-24 13:58:10,846 INFO  L173   FreeRefinementEngine]: Strategy FIXED_PREFERENCES found a feasible trace
+[2021-04-24 13:58:10,847 INFO  L144       PredicateUnifier]: Initialized classic predicate unifier
+[2021-04-24 13:58:10,848 INFO  L82        PathProgramCache]: Analyzing trace with hash 2111765277, now seen corresponding path program 1 times
+[2021-04-24 13:58:10,848 INFO  L162   FreeRefinementEngine]: Executing refinement strategy FIXED_PREFERENCES
+[2021-04-24 13:58:10,848 INFO  L353   FreeRefinementEngine]: Using trace check IpTcStrategyModulePreferences [732618243]
+[2021-04-24 13:58:10,848 INFO  L95    rtionOrderModulation]: Keeping assertion order NOT_INCREMENTALLY
+[2021-04-24 13:58:10,854 INFO  L136    AnnotateAndAsserter]: Conjunction of SSA is unsat
+[2021-04-24 13:58:10,880 INFO  L142       QuantifierPusher]: treesize reduction 0, result has 100.0 percent of original size
+[2021-04-24 13:58:10,881 INFO  L147       QuantifierPusher]: treesize reduction 0, result has 100.0 percent of original size 1
+[2021-04-24 13:58:10,882 INFO  L142       QuantifierPusher]: treesize reduction 0, result has 100.0 percent of original size
+[2021-04-24 13:58:10,882 INFO  L147       QuantifierPusher]: treesize reduction 0, result has 100.0 percent of original size 3
+[2021-04-24 13:58:10,887 INFO  L142       QuantifierPusher]: treesize reduction 0, result has 100.0 percent of original size
+[2021-04-24 13:58:10,888 INFO  L147       QuantifierPusher]: treesize reduction 0, result has 100.0 percent of original size 1
+[2021-04-24 13:58:10,889 INFO  L134       CoverageAnalysis]: Checked inductivity of 4 backedges. 0 proven. 0 refuted. 0 times theorem prover too weak. 4 trivial. 0 not checked.
+[2021-04-24 13:58:10,889 INFO  L353   FreeRefinementEngine]: Using interpolant generator IpTcStrategyModulePreferences [732618243]
+[2021-04-24 13:58:10,889 INFO  L219   FreeRefinementEngine]: Constructing automaton from 1 perfect and 0 imperfect interpolant sequences.
+[2021-04-24 13:58:10,890 INFO  L232   FreeRefinementEngine]: Number of different interpolants: perfect sequences [3] imperfect sequences [] total 3
+[2021-04-24 13:58:10,890 INFO  L155   tionRefinementEngine]: Using interpolant automaton builder IpAbStrategyModuleStraightlineAll [993632124]
+[2021-04-24 13:58:10,894 INFO  L142   FreeRefinementEngine]: Using predicate unifier PredicateUnifier provided by strategy FIXED_PREFERENCES
+[2021-04-24 13:58:10,903 INFO  L142   InterpolantAutomaton]: Constructing interpolant automaton starting with 3 interpolants.
+[2021-04-24 13:58:10,904 INFO  L144   InterpolantAutomaton]: CoverageRelationStatistics Valid=3, Invalid=3, Unknown=0, NotChecked=0, Total=6
+[2021-04-24 13:58:10,907 INFO  L87              Difference]: Start difference. First operand  has 58 states, 48 states have (on average 2.8541666666666665) internal successors, (137), 47 states have internal predecessors, (137), 5 states have call successors, (5), 5 states have call predecessors, (5), 5 states have return successors, (9), 7 states have call predecessors, (9), 5 states have call successors, (9) Second operand  has 3 states, 3 states have (on average 8.333333333333334) internal successors, (25), 3 states have internal predecessors, (25), 2 states have call successors, (4), 1 states have call predecessors, (4), 1 states have return successors, (3), 2 states have call predecessors, (3), 2 states have call successors, (3)
+[2021-04-24 13:58:10,985 INFO  L144             Difference]: Subtrahend was deterministic. Have not used determinization.
+[2021-04-24 13:58:10,985 INFO  L93              Difference]: Finished difference Result 58 states and 135 transitions.
+[2021-04-24 13:58:10,986 INFO  L141   InterpolantAutomaton]: Switched to read-only mode: deterministic interpolant automaton has 3 states. 
+[2021-04-24 13:58:10,987 INFO  L82        GeneralOperation]: Start removeNonLiveStates. Operand 58 states and 135 transitions.
+[2021-04-24 13:58:10,990 INFO  L131   ngComponentsAnalysis]: Automaton has 2 accepting balls. 21
+[2021-04-24 13:58:10,993 INFO  L88        GeneralOperation]: Finished removeNonLiveStates. Reduced from 58 states to 56 states and 131 transitions.
+[2021-04-24 13:58:10,994 INFO  L87         BuchiClosureNwa]: Accepting states before buchiClosure: 23
+[2021-04-24 13:58:10,994 INFO  L106        BuchiClosureNwa]: Accepting states after buchiClosure: 24
+[2021-04-24 13:58:10,995 INFO  L73         IsDeterministic]: Start isDeterministic. Operand 56 states and 131 transitions.
+[2021-04-24 13:58:10,996 INFO  L80         IsDeterministic]: Finished isDeterministic. Operand is deterministic.
+[2021-04-24 13:58:10,996 INFO  L692         BuchiCegarLoop]: Abstraction has 56 states and 131 transitions.
+[2021-04-24 13:58:11,009 INFO  L82        GeneralOperation]: Start minimizeSevpa. Operand 56 states and 131 transitions.
+[2021-04-24 13:58:11,017 INFO  L88        GeneralOperation]: Finished minimizeSevpa. Reduced states from 56 to 56.
+[2021-04-24 13:58:11,018 INFO  L82        GeneralOperation]: Start removeUnreachable. Operand  has 56 states, 47 states have (on average 2.5106382978723403) internal successors, (118), 45 states have internal predecessors, (118), 5 states have call successors, (5), 5 states have call predecessors, (5), 4 states have return successors, (8), 6 states have call predecessors, (8), 5 states have call successors, (8)
+[2021-04-24 13:58:11,019 INFO  L88        GeneralOperation]: Finished removeUnreachable. Reduced from 56 states to 56 states and 131 transitions.
+[2021-04-24 13:58:11,019 INFO  L715         BuchiCegarLoop]: Abstraction has 56 states and 131 transitions.
+[2021-04-24 13:58:11,019 INFO  L595         BuchiCegarLoop]: Abstraction has 56 states and 131 transitions.
+[2021-04-24 13:58:11,019 INFO  L427         BuchiCegarLoop]: ======== Iteration 2============
+[2021-04-24 13:58:11,020 INFO  L72            BuchiIsEmpty]: Start buchiIsEmpty. Operand 56 states and 131 transitions.
+[2021-04-24 13:58:11,021 INFO  L131   ngComponentsAnalysis]: Automaton has 2 accepting balls. 21
+[2021-04-24 13:58:11,021 INFO  L87            BuchiIsEmpty]: Finished buchiIsEmpty Result is false
+[2021-04-24 13:58:11,021 INFO  L119           BuchiIsEmpty]: Starting construction of run
+[2021-04-24 13:58:11,022 INFO  L853         BuchiCegarLoop]: Counterexample stem histogram [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+[2021-04-24 13:58:11,022 INFO  L854         BuchiCegarLoop]: Counterexample loop histogram [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+[2021-04-24 13:58:11,022 INFO  L794   eck$LassoCheckResult]: Stem: 144#ULTIMATE.startENTRY_NONWA [181] ULTIMATE.startENTRY_NONWA-->ULTIMATE.initENTRY_NONWA: Formula: true  InVars {}  OutVars{}  AuxVars[]  AssignedVars[]< 145#ULTIMATE.initENTRY_NONWA [247] ULTIMATE.initENTRY_NONWA-->L11_NONWA: Formula: (= v_~b~0_9 0)  InVars {}  OutVars{~b~0=v_~b~0_9}  AuxVars[]  AssignedVars[~b~0] 179#L11_NONWA [273] L11_NONWA-->L12_NONWA: Formula: (= v_~_x_b~0_8 0)  InVars {}  OutVars{~_x_b~0=v_~_x_b~0_8}  AuxVars[]  AssignedVars[~_x_b~0] 166#L12_NONWA [216] L12_NONWA-->L12-1_NONWA: Formula: (= v_~x~0_10 0.0)  InVars {}  OutVars{~x~0=v_~x~0_10}  AuxVars[]  AssignedVars[~x~0] 152#L12-1_NONWA [194] L12-1_NONWA-->ULTIMATE.initFINAL_NONWA: Formula: (= v_~_x_x~0_9 0.0)  InVars {}  OutVars{~_x_x~0=v_~_x_x~0_9}  AuxVars[]  AssignedVars[~_x_x~0] 153#ULTIMATE.initFINAL_NONWA [229] ULTIMATE.initFINAL_NONWA-->ULTIMATE.initEXIT_NONWA: Formula: true  InVars {}  OutVars{}  AuxVars[]  AssignedVars[] 169#ULTIMATE.initEXIT_NONWA >[278] ULTIMATE.initEXIT_NONWA-->L-1_NONWA: AOR: Formula: true  InVars {}  OutVars{}  AuxVars[]  AssignedVars[] LVA: Formula: true  InVars {}  OutVars{}  AuxVars[]  AssignedVars[] 128#L-1_NONWA [264] L-1_NONWA-->mainENTRY_T0_init: Formula: true  InVars {}  OutVars{}  AuxVars[]  AssignedVars[]< 135#mainENTRY_T0_init [239] mainENTRY_T0_init-->mainENTRY_T0_init-D2: Formula: true  InVars {}  OutVars{}  AuxVars[]  AssignedVars[]< 173#mainENTRY_T0_init-D2 [236] mainENTRY_T0_init-D2-->__VERIFIER_nondet_boolENTRY_T0_init: Formula: true  InVars {}  OutVars{}  AuxVars[]  AssignedVars[] 163#__VERIFIER_nondet_boolENTRY_T0_init [335] __VERIFIER_nondet_boolENTRY_T0_init-->L7_T0_init: Formula: (and (= |v___VERIFIER_nondet_bool_#res_5| 1) (> |v___VERIFIER_nondet_bool_#t~nondet0_8| 0))  InVars {__VERIFIER_nondet_bool_#t~nondet0=|v___VERIFIER_nondet_bool_#t~nondet0_8|}  OutVars{__VERIFIER_nondet_bool_#t~nondet0=|v___VERIFIER_nondet_bool_#t~nondet0_8|, __VERIFIER_nondet_bool_#res=|v___VERIFIER_nondet_bool_#res_5|}  AuxVars[]  AssignedVars[__VERIFIER_nondet_bool_#res] 149#L7_T0_init [291] L7_T0_init-->__VERIFIER_nondet_boolFINAL_accept_S1: Formula: (>= 0.0 v_~x~0_18)  InVars {~x~0=v_~x~0_18}  OutVars{__VERIFIER_nondet_bool_#t~nondet0=|v___VERIFIER_nondet_bool_#t~nondet0_9|, ~x~0=v_~x~0_18}  AuxVars[]  AssignedVars[__VERIFIER_nondet_bool_#t~nondet0] 150#__VERIFIER_nondet_boolFINAL_accept_S1 [292] __VERIFIER_nondet_boolFINAL_accept_S1-->__VERIFIER_nondet_boolEXIT_accept_S1: Formula: (>= 0.0 v_~x~0_12)  InVars {~x~0=v_~x~0_12}  OutVars{~x~0=v_~x~0_12}  AuxVars[]  AssignedVars[] 158#__VERIFIER_nondet_boolEXIT_accept_S1 >[281] __VERIFIER_nondet_boolEXIT_accept_S1-->L16-D7: AOR: Formula: (= |v_main_#t~ret1_4| |v___VERIFIER_nondet_bool_#resOutParam_1|)  InVars {__VERIFIER_nondet_bool_#res=|v___VERIFIER_nondet_bool_#resOutParam_1|}  OutVars{main_#t~ret1=|v_main_#t~ret1_4|}  AuxVars[]  AssignedVars[main_#t~ret1] LVA: Formula: true  InVars {}  OutVars{}  AuxVars[]  AssignedVars[] 160#L16-D7 [231] L16-D7-->L16_accept_S1: Formula: true  InVars {}  OutVars{}  AuxVars[]  AssignedVars[] 171#L16_accept_S1 [295] L16_accept_S1-->L16-1_accept_S1: Formula: (and (>= 0.0 v_~x~0_34) (= v_~b~0_10 |v_main_#t~ret1_7|))  InVars {main_#t~ret1=|v_main_#t~ret1_7|, ~x~0=v_~x~0_34}  OutVars{~b~0=v_~b~0_10, main_#t~ret1=|v_main_#t~ret1_7|, ~x~0=v_~x~0_34}  AuxVars[]  AssignedVars[~b~0] 174#L16-1_accept_S1 [300] L16-1_accept_S1-->L17_accept_S1: Formula: (>= 0.0 v_~x~0_44)  InVars {~x~0=v_~x~0_44}  OutVars{main_#t~ret1=|v_main_#t~ret1_11|, ~x~0=v_~x~0_44}  AuxVars[]  AssignedVars[main_#t~ret1] 154#L17_accept_S1 [304] L17_accept_S1-->L17-1_accept_S1: Formula: (and (>= 0.0 v_~x~0_23) (= v_~x~0_23 |v_main_#t~nondet2_5|))  InVars {main_#t~nondet2=|v_main_#t~nondet2_5|}  OutVars{~x~0=v_~x~0_23, main_#t~nondet2=|v_main_#t~nondet2_5|}  AuxVars[]  AssignedVars[~x~0] 129#L17-1_accept_S1 [308] L17-1_accept_S1-->L19_accept_S1: Formula: (>= 0.0 v_~x~0_54)  InVars {~x~0=v_~x~0_54}  OutVars{~x~0=v_~x~0_54, main_#t~nondet2=|v_main_#t~nondet2_9|}  AuxVars[]  AssignedVars[main_#t~nondet2] 161#L19_accept_S1 [385] L19_accept_S1-->L20-2_accept_S1: Formula: (and (> 0.0 v_~x~0_26) (>= 0.0 v_~x~0_26) (= v_main_~__ok~0_5 0))  InVars {~x~0=v_~x~0_26}  OutVars{main_~__ok~0=v_main_~__ok~0_5, ~x~0=v_~x~0_26}  AuxVars[]  AssignedVars[main_~__ok~0] 156#L20-2_accept_S1 
+[2021-04-24 13:58:11,023 INFO  L796   eck$LassoCheckResult]: Loop: 156#L20-2_accept_S1 [389] L20-2_accept_S1-->L21_accept_S1: Formula: (and (> v_main_~__ok~0_9 0) (>= 0.0 v_~x~0_33))  InVars {main_~__ok~0=v_main_~__ok~0_9, ~x~0=v_~x~0_33}  OutVars{main_~__ok~0=v_main_~__ok~0_9, ~x~0=v_~x~0_33}  AuxVars[]  AssignedVars[] 136#L21_accept_S1 [230] L21_accept_S1-->L21_accept_S1-D3: Formula: true  InVars {}  OutVars{}  AuxVars[]  AssignedVars[]< 170#L21_accept_S1-D3 [255] L21_accept_S1-D3-->__VERIFIER_nondet_boolENTRY_T0_init: Formula: true  InVars {}  OutVars{}  AuxVars[]  AssignedVars[] 163#__VERIFIER_nondet_boolENTRY_T0_init [335] __VERIFIER_nondet_boolENTRY_T0_init-->L7_T0_init: Formula: (and (= |v___VERIFIER_nondet_bool_#res_5| 1) (> |v___VERIFIER_nondet_bool_#t~nondet0_8| 0))  InVars {__VERIFIER_nondet_bool_#t~nondet0=|v___VERIFIER_nondet_bool_#t~nondet0_8|}  OutVars{__VERIFIER_nondet_bool_#t~nondet0=|v___VERIFIER_nondet_bool_#t~nondet0_8|, __VERIFIER_nondet_bool_#res=|v___VERIFIER_nondet_bool_#res_5|}  AuxVars[]  AssignedVars[__VERIFIER_nondet_bool_#res] 149#L7_T0_init [291] L7_T0_init-->__VERIFIER_nondet_boolFINAL_accept_S1: Formula: (>= 0.0 v_~x~0_18)  InVars {~x~0=v_~x~0_18}  OutVars{__VERIFIER_nondet_bool_#t~nondet0=|v___VERIFIER_nondet_bool_#t~nondet0_9|, ~x~0=v_~x~0_18}  AuxVars[]  AssignedVars[__VERIFIER_nondet_bool_#t~nondet0] 150#__VERIFIER_nondet_boolFINAL_accept_S1 [234] __VERIFIER_nondet_boolFINAL_accept_S1-->__VERIFIER_nondet_boolEXIT_T0_init: Formula: true  InVars {}  OutVars{}  AuxVars[]  AssignedVars[] 134#__VERIFIER_nondet_boolEXIT_T0_init >[274] __VERIFIER_nondet_boolEXIT_T0_init-->L21-1-D10: AOR: Formula: (= |v_main_#t~ret3_4| |v___VERIFIER_nondet_bool_#resOutParam_2|)  InVars {__VERIFIER_nondet_bool_#res=|v___VERIFIER_nondet_bool_#resOutParam_2|}  OutVars{main_#t~ret3=|v_main_#t~ret3_4|}  AuxVars[]  AssignedVars[main_#t~ret3] LVA: Formula: true  InVars {}  OutVars{}  AuxVars[]  AssignedVars[] 138#L21-1-D10 [270] L21-1-D10-->L21-1_T0_init: Formula: true  InVars {}  OutVars{}  AuxVars[]  AssignedVars[] 180#L21-1_T0_init [249] L21-1_T0_init-->L21-2_T0_init: Formula: (= v_~_x_b~0_10 |v_main_#t~ret3_8|)  InVars {main_#t~ret3=|v_main_#t~ret3_8|}  OutVars{~_x_b~0=v_~_x_b~0_10, main_#t~ret3=|v_main_#t~ret3_8|}  AuxVars[]  AssignedVars[~_x_b~0] 177#L21-2_T0_init [272] L21-2_T0_init-->L22_T0_init: Formula: true  InVars {}  OutVars{main_#t~ret3=|v_main_#t~ret3_10|}  AuxVars[]  AssignedVars[main_#t~ret3] 182#L22_T0_init [263] L22_T0_init-->L22-1_T0_init: Formula: (= v_~_x_x~0_19 |v_main_#t~nondet4_8|)  InVars {main_#t~nondet4=|v_main_#t~nondet4_8|}  OutVars{main_#t~nondet4=|v_main_#t~nondet4_8|, ~_x_x~0=v_~_x_x~0_19}  AuxVars[]  AssignedVars[~_x_x~0] 131#L22-1_T0_init [176] L22-1_T0_init-->L24_T0_init: Formula: true  InVars {}  OutVars{main_#t~nondet4=|v_main_#t~nondet4_6|}  AuxVars[]  AssignedVars[main_#t~nondet4] 132#L24_T0_init [352] L24_T0_init-->L25_accept_S1: Formula: (and (< (+ v_~_x_x~0_20 v_~x~0_58 1.0) 0.0) (>= 0.0 v_~x~0_58) (< v_~b~0_20 0) (= v_main_~__ok~0_19 1))  InVars {~_x_x~0=v_~_x_x~0_20, ~b~0=v_~b~0_20, ~x~0=v_~x~0_58}  OutVars{~_x_x~0=v_~_x_x~0_20, main_~__ok~0=v_main_~__ok~0_19, ~b~0=v_~b~0_20, ~x~0=v_~x~0_58}  AuxVars[]  AssignedVars[main_~__ok~0] 140#L25_accept_S1 [318] L25_accept_S1-->L26_accept_S1: Formula: (and (= v_~b~0_16 v_~_x_b~0_11) (>= 0.0 v_~x~0_53))  InVars {~x~0=v_~x~0_53, ~_x_b~0=v_~_x_b~0_11}  OutVars{~b~0=v_~b~0_16, ~x~0=v_~x~0_53, ~_x_b~0=v_~_x_b~0_11}  AuxVars[]  AssignedVars[~b~0] 162#L26_accept_S1 [326] L26_accept_S1-->L20-2_accept_S1: Formula: (and (>= 0.0 v_~x~0_45) (= v_~x~0_45 v_~_x_x~0_16))  InVars {~_x_x~0=v_~_x_x~0_16}  OutVars{~x~0=v_~x~0_45, ~_x_x~0=v_~_x_x~0_16}  AuxVars[]  AssignedVars[~x~0] 156#L20-2_accept_S1 
+[2021-04-24 13:58:11,023 INFO  L144       PredicateUnifier]: Initialized classic predicate unifier
+[2021-04-24 13:58:11,024 INFO  L82        PathProgramCache]: Analyzing trace with hash 1345472278, now seen corresponding path program 2 times
+[2021-04-24 13:58:11,024 INFO  L162   FreeRefinementEngine]: Executing refinement strategy FIXED_PREFERENCES
+[2021-04-24 13:58:11,024 INFO  L353   FreeRefinementEngine]: Using trace check IpTcStrategyModulePreferences [1686982214]
+[2021-04-24 13:58:11,024 INFO  L95    rtionOrderModulation]: Keeping assertion order NOT_INCREMENTALLY
+[2021-04-24 13:58:11,029 INFO  L136    AnnotateAndAsserter]: Conjunction of SSA is sat
+[2021-04-24 13:58:11,029 INFO  L223             TraceCheck]: Trace is feasible, we will do another trace check, this time with branch encoders.
+[2021-04-24 13:58:11,033 INFO  L136    AnnotateAndAsserter]: Conjunction of SSA is sat
+[2021-04-24 13:58:11,033 INFO  L223             TraceCheck]: Trace is feasible, we will do another trace check, this time with branch encoders.
+[2021-04-24 13:58:11,035 INFO  L173   FreeRefinementEngine]: Strategy FIXED_PREFERENCES found a feasible trace
+[2021-04-24 13:58:11,036 INFO  L144       PredicateUnifier]: Initialized classic predicate unifier
+[2021-04-24 13:58:11,036 INFO  L82        PathProgramCache]: Analyzing trace with hash 502421107, now seen corresponding path program 1 times
+[2021-04-24 13:58:11,036 INFO  L162   FreeRefinementEngine]: Executing refinement strategy FIXED_PREFERENCES
+[2021-04-24 13:58:11,036 INFO  L353   FreeRefinementEngine]: Using trace check IpTcStrategyModulePreferences [1705026549]
+[2021-04-24 13:58:11,036 INFO  L95    rtionOrderModulation]: Keeping assertion order NOT_INCREMENTALLY
+[2021-04-24 13:58:11,039 INFO  L136    AnnotateAndAsserter]: Conjunction of SSA is sat
+[2021-04-24 13:58:11,039 INFO  L223             TraceCheck]: Trace is feasible, we will do another trace check, this time with branch encoders.
+[2021-04-24 13:58:11,042 INFO  L136    AnnotateAndAsserter]: Conjunction of SSA is sat
+[2021-04-24 13:58:11,042 INFO  L223             TraceCheck]: Trace is feasible, we will do another trace check, this time with branch encoders.
+[2021-04-24 13:58:11,043 INFO  L173   FreeRefinementEngine]: Strategy FIXED_PREFERENCES found a feasible trace
+[2021-04-24 13:58:11,043 INFO  L144       PredicateUnifier]: Initialized classic predicate unifier
+[2021-04-24 13:58:11,043 INFO  L82        PathProgramCache]: Analyzing trace with hash 419455678, now seen corresponding path program 1 times
+[2021-04-24 13:58:11,044 INFO  L162   FreeRefinementEngine]: Executing refinement strategy FIXED_PREFERENCES
+[2021-04-24 13:58:11,044 INFO  L353   FreeRefinementEngine]: Using trace check IpTcStrategyModulePreferences [1615189100]
+[2021-04-24 13:58:11,044 INFO  L95    rtionOrderModulation]: Keeping assertion order NOT_INCREMENTALLY
+[2021-04-24 13:58:11,047 INFO  L136    AnnotateAndAsserter]: Conjunction of SSA is unsat
+[2021-04-24 13:58:11,053 INFO  L142       QuantifierPusher]: treesize reduction 0, result has 100.0 percent of original size
+[2021-04-24 13:58:11,053 INFO  L147       QuantifierPusher]: treesize reduction 0, result has 100.0 percent of original size 1
+[2021-04-24 13:58:11,053 INFO  L142       QuantifierPusher]: treesize reduction 0, result has 100.0 percent of original size
+[2021-04-24 13:58:11,054 INFO  L147       QuantifierPusher]: treesize reduction 0, result has 100.0 percent of original size 3
+[2021-04-24 13:58:11,055 INFO  L142       QuantifierPusher]: treesize reduction 0, result has 100.0 percent of original size
+[2021-04-24 13:58:11,055 INFO  L147       QuantifierPusher]: treesize reduction 0, result has 100.0 percent of original size 1
+[2021-04-24 13:58:11,055 INFO  L134       CoverageAnalysis]: Checked inductivity of 3 backedges. 0 proven. 0 refuted. 0 times theorem prover too weak. 3 trivial. 0 not checked.
+[2021-04-24 13:58:11,055 INFO  L353   FreeRefinementEngine]: Using interpolant generator IpTcStrategyModulePreferences [1615189100]
+[2021-04-24 13:58:11,055 INFO  L219   FreeRefinementEngine]: Constructing automaton from 1 perfect and 0 imperfect interpolant sequences.
+[2021-04-24 13:58:11,056 INFO  L232   FreeRefinementEngine]: Number of different interpolants: perfect sequences [3] imperfect sequences [] total 3
+[2021-04-24 13:58:11,056 INFO  L155   tionRefinementEngine]: Using interpolant automaton builder IpAbStrategyModuleStraightlineAll [1969859116]
+[2021-04-24 13:58:11,056 INFO  L142   FreeRefinementEngine]: Using predicate unifier PredicateUnifier provided by strategy FIXED_PREFERENCES
+[2021-04-24 13:58:11,056 INFO  L142   InterpolantAutomaton]: Constructing interpolant automaton starting with 3 interpolants.
+[2021-04-24 13:58:11,057 INFO  L144   InterpolantAutomaton]: CoverageRelationStatistics Valid=3, Invalid=3, Unknown=0, NotChecked=0, Total=6
+[2021-04-24 13:58:11,057 INFO  L87              Difference]: Start difference. First operand 56 states and 131 transitions. cyclomatic complexity: 77 Second operand  has 3 states, 3 states have (on average 8.666666666666666) internal successors, (26), 3 states have internal predecessors, (26), 2 states have call successors, (4), 1 states have call predecessors, (4), 1 states have return successors, (3), 2 states have call predecessors, (3), 2 states have call successors, (3)
+[2021-04-24 13:58:11,127 INFO  L144             Difference]: Subtrahend was deterministic. Have not used determinization.
+[2021-04-24 13:58:11,127 INFO  L93              Difference]: Finished difference Result 62 states and 143 transitions.
+[2021-04-24 13:58:11,127 INFO  L141   InterpolantAutomaton]: Switched to read-only mode: deterministic interpolant automaton has 3 states. 
+[2021-04-24 13:58:11,128 INFO  L82        GeneralOperation]: Start removeNonLiveStates. Operand 62 states and 143 transitions.
+[2021-04-24 13:58:11,130 INFO  L131   ngComponentsAnalysis]: Automaton has 2 accepting balls. 21
+[2021-04-24 13:58:11,132 INFO  L88        GeneralOperation]: Finished removeNonLiveStates. Reduced from 62 states to 62 states and 143 transitions.
+[2021-04-24 13:58:11,132 INFO  L87         BuchiClosureNwa]: Accepting states before buchiClosure: 27
+[2021-04-24 13:58:11,132 INFO  L106        BuchiClosureNwa]: Accepting states after buchiClosure: 30
+[2021-04-24 13:58:11,132 INFO  L73         IsDeterministic]: Start isDeterministic. Operand 62 states and 143 transitions.
+[2021-04-24 13:58:11,133 INFO  L80         IsDeterministic]: Finished isDeterministic. Operand is deterministic.
+[2021-04-24 13:58:11,133 INFO  L692         BuchiCegarLoop]: Abstraction has 62 states and 143 transitions.
+[2021-04-24 13:58:11,134 INFO  L82        GeneralOperation]: Start minimizeSevpa. Operand 62 states and 143 transitions.
+[2021-04-24 13:58:11,137 INFO  L88        GeneralOperation]: Finished minimizeSevpa. Reduced states from 62 to 62.
+[2021-04-24 13:58:11,138 INFO  L82        GeneralOperation]: Start removeUnreachable. Operand  has 62 states, 53 states have (on average 2.452830188679245) internal successors, (130), 51 states have internal predecessors, (130), 5 states have call successors, (5), 5 states have call predecessors, (5), 4 states have return successors, (8), 6 states have call predecessors, (8), 5 states have call successors, (8)
+[2021-04-24 13:58:11,138 INFO  L88        GeneralOperation]: Finished removeUnreachable. Reduced from 62 states to 62 states and 143 transitions.
+[2021-04-24 13:58:11,139 INFO  L715         BuchiCegarLoop]: Abstraction has 62 states and 143 transitions.
+[2021-04-24 13:58:11,139 INFO  L595         BuchiCegarLoop]: Abstraction has 62 states and 143 transitions.
+[2021-04-24 13:58:11,139 INFO  L427         BuchiCegarLoop]: ======== Iteration 3============
+[2021-04-24 13:58:11,139 INFO  L72            BuchiIsEmpty]: Start buchiIsEmpty. Operand 62 states and 143 transitions.
+[2021-04-24 13:58:11,140 INFO  L131   ngComponentsAnalysis]: Automaton has 2 accepting balls. 21
+[2021-04-24 13:58:11,141 INFO  L87            BuchiIsEmpty]: Finished buchiIsEmpty Result is false
+[2021-04-24 13:58:11,141 INFO  L119           BuchiIsEmpty]: Starting construction of run
+[2021-04-24 13:58:11,141 INFO  L853         BuchiCegarLoop]: Counterexample stem histogram [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+[2021-04-24 13:58:11,141 INFO  L854         BuchiCegarLoop]: Counterexample loop histogram [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+[2021-04-24 13:58:11,142 INFO  L794   eck$LassoCheckResult]: Stem: 272#ULTIMATE.startENTRY_NONWA [181] ULTIMATE.startENTRY_NONWA-->ULTIMATE.initENTRY_NONWA: Formula: true  InVars {}  OutVars{}  AuxVars[]  AssignedVars[]< 273#ULTIMATE.initENTRY_NONWA [247] ULTIMATE.initENTRY_NONWA-->L11_NONWA: Formula: (= v_~b~0_9 0)  InVars {}  OutVars{~b~0=v_~b~0_9}  AuxVars[]  AssignedVars[~b~0] 311#L11_NONWA [273] L11_NONWA-->L12_NONWA: Formula: (= v_~_x_b~0_8 0)  InVars {}  OutVars{~_x_b~0=v_~_x_b~0_8}  AuxVars[]  AssignedVars[~_x_b~0] 296#L12_NONWA [216] L12_NONWA-->L12-1_NONWA: Formula: (= v_~x~0_10 0.0)  InVars {}  OutVars{~x~0=v_~x~0_10}  AuxVars[]  AssignedVars[~x~0] 281#L12-1_NONWA [194] L12-1_NONWA-->ULTIMATE.initFINAL_NONWA: Formula: (= v_~_x_x~0_9 0.0)  InVars {}  OutVars{~_x_x~0=v_~_x_x~0_9}  AuxVars[]  AssignedVars[~_x_x~0] 282#ULTIMATE.initFINAL_NONWA [229] ULTIMATE.initFINAL_NONWA-->ULTIMATE.initEXIT_NONWA: Formula: true  InVars {}  OutVars{}  AuxVars[]  AssignedVars[] 300#ULTIMATE.initEXIT_NONWA >[278] ULTIMATE.initEXIT_NONWA-->L-1_NONWA: AOR: Formula: true  InVars {}  OutVars{}  AuxVars[]  AssignedVars[] LVA: Formula: true  InVars {}  OutVars{}  AuxVars[]  AssignedVars[] 254#L-1_NONWA [264] L-1_NONWA-->mainENTRY_T0_init: Formula: true  InVars {}  OutVars{}  AuxVars[]  AssignedVars[]< 262#mainENTRY_T0_init [239] mainENTRY_T0_init-->mainENTRY_T0_init-D2: Formula: true  InVars {}  OutVars{}  AuxVars[]  AssignedVars[]< 304#mainENTRY_T0_init-D2 [236] mainENTRY_T0_init-D2-->__VERIFIER_nondet_boolENTRY_T0_init: Formula: true  InVars {}  OutVars{}  AuxVars[]  AssignedVars[] 293#__VERIFIER_nondet_boolENTRY_T0_init [335] __VERIFIER_nondet_boolENTRY_T0_init-->L7_T0_init: Formula: (and (= |v___VERIFIER_nondet_bool_#res_5| 1) (> |v___VERIFIER_nondet_bool_#t~nondet0_8| 0))  InVars {__VERIFIER_nondet_bool_#t~nondet0=|v___VERIFIER_nondet_bool_#t~nondet0_8|}  OutVars{__VERIFIER_nondet_bool_#t~nondet0=|v___VERIFIER_nondet_bool_#t~nondet0_8|, __VERIFIER_nondet_bool_#res=|v___VERIFIER_nondet_bool_#res_5|}  AuxVars[]  AssignedVars[__VERIFIER_nondet_bool_#res] 278#L7_T0_init [291] L7_T0_init-->__VERIFIER_nondet_boolFINAL_accept_S1: Formula: (>= 0.0 v_~x~0_18)  InVars {~x~0=v_~x~0_18}  OutVars{__VERIFIER_nondet_bool_#t~nondet0=|v___VERIFIER_nondet_bool_#t~nondet0_9|, ~x~0=v_~x~0_18}  AuxVars[]  AssignedVars[__VERIFIER_nondet_bool_#t~nondet0] 279#__VERIFIER_nondet_boolFINAL_accept_S1 [292] __VERIFIER_nondet_boolFINAL_accept_S1-->__VERIFIER_nondet_boolEXIT_accept_S1: Formula: (>= 0.0 v_~x~0_12)  InVars {~x~0=v_~x~0_12}  OutVars{~x~0=v_~x~0_12}  AuxVars[]  AssignedVars[] 287#__VERIFIER_nondet_boolEXIT_accept_S1 >[281] __VERIFIER_nondet_boolEXIT_accept_S1-->L16-D7: AOR: Formula: (= |v_main_#t~ret1_4| |v___VERIFIER_nondet_bool_#resOutParam_1|)  InVars {__VERIFIER_nondet_bool_#res=|v___VERIFIER_nondet_bool_#resOutParam_1|}  OutVars{main_#t~ret1=|v_main_#t~ret1_4|}  AuxVars[]  AssignedVars[main_#t~ret1] LVA: Formula: true  InVars {}  OutVars{}  AuxVars[]  AssignedVars[] 289#L16-D7 [231] L16-D7-->L16_accept_S1: Formula: true  InVars {}  OutVars{}  AuxVars[]  AssignedVars[] 302#L16_accept_S1 [295] L16_accept_S1-->L16-1_accept_S1: Formula: (and (>= 0.0 v_~x~0_34) (= v_~b~0_10 |v_main_#t~ret1_7|))  InVars {main_#t~ret1=|v_main_#t~ret1_7|, ~x~0=v_~x~0_34}  OutVars{~b~0=v_~b~0_10, main_#t~ret1=|v_main_#t~ret1_7|, ~x~0=v_~x~0_34}  AuxVars[]  AssignedVars[~b~0] 305#L16-1_accept_S1 [300] L16-1_accept_S1-->L17_accept_S1: Formula: (>= 0.0 v_~x~0_44)  InVars {~x~0=v_~x~0_44}  OutVars{main_#t~ret1=|v_main_#t~ret1_11|, ~x~0=v_~x~0_44}  AuxVars[]  AssignedVars[main_#t~ret1] 283#L17_accept_S1 [304] L17_accept_S1-->L17-1_accept_S1: Formula: (and (>= 0.0 v_~x~0_23) (= v_~x~0_23 |v_main_#t~nondet2_5|))  InVars {main_#t~nondet2=|v_main_#t~nondet2_5|}  OutVars{~x~0=v_~x~0_23, main_#t~nondet2=|v_main_#t~nondet2_5|}  AuxVars[]  AssignedVars[~x~0] 255#L17-1_accept_S1 [308] L17-1_accept_S1-->L19_accept_S1: Formula: (>= 0.0 v_~x~0_54)  InVars {~x~0=v_~x~0_54}  OutVars{~x~0=v_~x~0_54, main_#t~nondet2=|v_main_#t~nondet2_9|}  AuxVars[]  AssignedVars[main_#t~nondet2] 290#L19_accept_S1 [384] L19_accept_S1-->L20-2_accept_S1: Formula: (and (>= 0.0 v_~x~0_26) (<= 0.0 v_~x~0_26) (= v_main_~__ok~0_5 1))  InVars {~x~0=v_~x~0_26}  OutVars{main_~__ok~0=v_main_~__ok~0_5, ~x~0=v_~x~0_26}  AuxVars[]  AssignedVars[main_~__ok~0] 291#L20-2_accept_S1 
+[2021-04-24 13:58:11,143 INFO  L796   eck$LassoCheckResult]: Loop: 291#L20-2_accept_S1 [389] L20-2_accept_S1-->L21_accept_S1: Formula: (and (> v_main_~__ok~0_9 0) (>= 0.0 v_~x~0_33))  InVars {main_~__ok~0=v_main_~__ok~0_9, ~x~0=v_~x~0_33}  OutVars{main_~__ok~0=v_main_~__ok~0_9, ~x~0=v_~x~0_33}  AuxVars[]  AssignedVars[] 261#L21_accept_S1 [230] L21_accept_S1-->L21_accept_S1-D3: Formula: true  InVars {}  OutVars{}  AuxVars[]  AssignedVars[]< 301#L21_accept_S1-D3 [255] L21_accept_S1-D3-->__VERIFIER_nondet_boolENTRY_T0_init: Formula: true  InVars {}  OutVars{}  AuxVars[]  AssignedVars[] 293#__VERIFIER_nondet_boolENTRY_T0_init [335] __VERIFIER_nondet_boolENTRY_T0_init-->L7_T0_init: Formula: (and (= |v___VERIFIER_nondet_bool_#res_5| 1) (> |v___VERIFIER_nondet_bool_#t~nondet0_8| 0))  InVars {__VERIFIER_nondet_bool_#t~nondet0=|v___VERIFIER_nondet_bool_#t~nondet0_8|}  OutVars{__VERIFIER_nondet_bool_#t~nondet0=|v___VERIFIER_nondet_bool_#t~nondet0_8|, __VERIFIER_nondet_bool_#res=|v___VERIFIER_nondet_bool_#res_5|}  AuxVars[]  AssignedVars[__VERIFIER_nondet_bool_#res] 278#L7_T0_init [291] L7_T0_init-->__VERIFIER_nondet_boolFINAL_accept_S1: Formula: (>= 0.0 v_~x~0_18)  InVars {~x~0=v_~x~0_18}  OutVars{__VERIFIER_nondet_bool_#t~nondet0=|v___VERIFIER_nondet_bool_#t~nondet0_9|, ~x~0=v_~x~0_18}  AuxVars[]  AssignedVars[__VERIFIER_nondet_bool_#t~nondet0] 279#__VERIFIER_nondet_boolFINAL_accept_S1 [292] __VERIFIER_nondet_boolFINAL_accept_S1-->__VERIFIER_nondet_boolEXIT_accept_S1: Formula: (>= 0.0 v_~x~0_12)  InVars {~x~0=v_~x~0_12}  OutVars{~x~0=v_~x~0_12}  AuxVars[]  AssignedVars[] 287#__VERIFIER_nondet_boolEXIT_accept_S1 >[275] __VERIFIER_nondet_boolEXIT_accept_S1-->L21-1-D9: AOR: Formula: (= |v_main_#t~ret3_4| |v___VERIFIER_nondet_bool_#resOutParam_2|)  InVars {__VERIFIER_nondet_bool_#res=|v___VERIFIER_nondet_bool_#resOutParam_2|}  OutVars{main_#t~ret3=|v_main_#t~ret3_4|}  AuxVars[]  AssignedVars[main_#t~ret3] LVA: Formula: true  InVars {}  OutVars{}  AuxVars[]  AssignedVars[] 288#L21-1-D9 [269] L21-1-D9-->L21-1_accept_S1: Formula: true  InVars {}  OutVars{}  AuxVars[]  AssignedVars[] 308#L21-1_accept_S1 [243] L21-1_accept_S1-->L21-2_T0_init: Formula: (= v_~_x_b~0_16 |v_main_#t~ret3_12|)  InVars {main_#t~ret3=|v_main_#t~ret3_12|}  OutVars{~_x_b~0=v_~_x_b~0_16, main_#t~ret3=|v_main_#t~ret3_12|}  AuxVars[]  AssignedVars[~_x_b~0] 309#L21-2_T0_init [272] L21-2_T0_init-->L22_T0_init: Formula: true  InVars {}  OutVars{main_#t~ret3=|v_main_#t~ret3_10|}  AuxVars[]  AssignedVars[main_#t~ret3] 314#L22_T0_init [263] L22_T0_init-->L22-1_T0_init: Formula: (= v_~_x_x~0_19 |v_main_#t~nondet4_8|)  InVars {main_#t~nondet4=|v_main_#t~nondet4_8|}  OutVars{main_#t~nondet4=|v_main_#t~nondet4_8|, ~_x_x~0=v_~_x_x~0_19}  AuxVars[]  AssignedVars[~_x_x~0] 257#L22-1_T0_init [176] L22-1_T0_init-->L24_T0_init: Formula: true  InVars {}  OutVars{main_#t~nondet4=|v_main_#t~nondet4_6|}  AuxVars[]  AssignedVars[main_#t~nondet4] 258#L24_T0_init [352] L24_T0_init-->L25_accept_S1: Formula: (and (< (+ v_~_x_x~0_20 v_~x~0_58 1.0) 0.0) (>= 0.0 v_~x~0_58) (< v_~b~0_20 0) (= v_main_~__ok~0_19 1))  InVars {~_x_x~0=v_~_x_x~0_20, ~b~0=v_~b~0_20, ~x~0=v_~x~0_58}  OutVars{~_x_x~0=v_~_x_x~0_20, main_~__ok~0=v_main_~__ok~0_19, ~b~0=v_~b~0_20, ~x~0=v_~x~0_58}  AuxVars[]  AssignedVars[main_~__ok~0] 266#L25_accept_S1 [318] L25_accept_S1-->L26_accept_S1: Formula: (and (= v_~b~0_16 v_~_x_b~0_11) (>= 0.0 v_~x~0_53))  InVars {~x~0=v_~x~0_53, ~_x_b~0=v_~_x_b~0_11}  OutVars{~b~0=v_~b~0_16, ~x~0=v_~x~0_53, ~_x_b~0=v_~_x_b~0_11}  AuxVars[]  AssignedVars[~b~0] 307#L26_accept_S1 [326] L26_accept_S1-->L20-2_accept_S1: Formula: (and (>= 0.0 v_~x~0_45) (= v_~x~0_45 v_~_x_x~0_16))  InVars {~_x_x~0=v_~_x_x~0_16}  OutVars{~x~0=v_~x~0_45, ~_x_x~0=v_~_x_x~0_16}  AuxVars[]  AssignedVars[~x~0] 291#L20-2_accept_S1 
+[2021-04-24 13:58:11,143 INFO  L144       PredicateUnifier]: Initialized classic predicate unifier
+[2021-04-24 13:58:11,143 INFO  L82        PathProgramCache]: Analyzing trace with hash 1345472277, now seen corresponding path program 1 times
+[2021-04-24 13:58:11,143 INFO  L162   FreeRefinementEngine]: Executing refinement strategy FIXED_PREFERENCES
+[2021-04-24 13:58:11,143 INFO  L353   FreeRefinementEngine]: Using trace check IpTcStrategyModulePreferences [200942284]
+[2021-04-24 13:58:11,144 INFO  L95    rtionOrderModulation]: Keeping assertion order NOT_INCREMENTALLY
+[2021-04-24 13:58:11,149 INFO  L136    AnnotateAndAsserter]: Conjunction of SSA is sat
+[2021-04-24 13:58:11,149 INFO  L223             TraceCheck]: Trace is feasible, we will do another trace check, this time with branch encoders.
+[2021-04-24 13:58:11,154 INFO  L136    AnnotateAndAsserter]: Conjunction of SSA is sat
+[2021-04-24 13:58:11,154 INFO  L223             TraceCheck]: Trace is feasible, we will do another trace check, this time with branch encoders.
+[2021-04-24 13:58:11,156 INFO  L173   FreeRefinementEngine]: Strategy FIXED_PREFERENCES found a feasible trace
+[2021-04-24 13:58:11,157 INFO  L144       PredicateUnifier]: Initialized classic predicate unifier
+[2021-04-24 13:58:11,157 INFO  L82        PathProgramCache]: Analyzing trace with hash 1704187413, now seen corresponding path program 1 times
+[2021-04-24 13:58:11,157 INFO  L162   FreeRefinementEngine]: Executing refinement strategy FIXED_PREFERENCES
+[2021-04-24 13:58:11,157 INFO  L353   FreeRefinementEngine]: Using trace check IpTcStrategyModulePreferences [1591457515]
+[2021-04-24 13:58:11,158 INFO  L95    rtionOrderModulation]: Keeping assertion order NOT_INCREMENTALLY
+[2021-04-24 13:58:11,161 INFO  L136    AnnotateAndAsserter]: Conjunction of SSA is sat
+[2021-04-24 13:58:11,161 INFO  L223             TraceCheck]: Trace is feasible, we will do another trace check, this time with branch encoders.
+[2021-04-24 13:58:11,163 INFO  L136    AnnotateAndAsserter]: Conjunction of SSA is sat
+[2021-04-24 13:58:11,164 INFO  L223             TraceCheck]: Trace is feasible, we will do another trace check, this time with branch encoders.
+[2021-04-24 13:58:11,165 INFO  L173   FreeRefinementEngine]: Strategy FIXED_PREFERENCES found a feasible trace
+[2021-04-24 13:58:11,166 INFO  L144       PredicateUnifier]: Initialized classic predicate unifier
+[2021-04-24 13:58:11,166 INFO  L82        PathProgramCache]: Analyzing trace with hash 2131756161, now seen corresponding path program 1 times
+[2021-04-24 13:58:11,166 INFO  L162   FreeRefinementEngine]: Executing refinement strategy FIXED_PREFERENCES
+[2021-04-24 13:58:11,166 INFO  L353   FreeRefinementEngine]: Using trace check IpTcStrategyModulePreferences [1106395213]
+[2021-04-24 13:58:11,167 INFO  L95    rtionOrderModulation]: Keeping assertion order NOT_INCREMENTALLY
+[2021-04-24 13:58:11,172 INFO  L136    AnnotateAndAsserter]: Conjunction of SSA is unsat
+[2021-04-24 13:58:11,182 INFO  L142       QuantifierPusher]: treesize reduction 0, result has 100.0 percent of original size
+[2021-04-24 13:58:11,183 INFO  L147       QuantifierPusher]: treesize reduction 0, result has 100.0 percent of original size 1
+[2021-04-24 13:58:11,183 INFO  L142       QuantifierPusher]: treesize reduction 0, result has 100.0 percent of original size
+[2021-04-24 13:58:11,184 INFO  L147       QuantifierPusher]: treesize reduction 0, result has 100.0 percent of original size 3
+[2021-04-24 13:58:11,185 INFO  L142       QuantifierPusher]: treesize reduction 0, result has 100.0 percent of original size
+[2021-04-24 13:58:11,185 INFO  L147       QuantifierPusher]: treesize reduction 0, result has 100.0 percent of original size 3
+[2021-04-24 13:58:11,187 INFO  L142       QuantifierPusher]: treesize reduction 0, result has 100.0 percent of original size
+[2021-04-24 13:58:11,187 INFO  L147       QuantifierPusher]: treesize reduction 0, result has 100.0 percent of original size 3
+[2021-04-24 13:58:11,189 INFO  L142       QuantifierPusher]: treesize reduction 0, result has 100.0 percent of original size
+[2021-04-24 13:58:11,189 INFO  L147       QuantifierPusher]: treesize reduction 0, result has 100.0 percent of original size 1
+[2021-04-24 13:58:11,190 INFO  L134       CoverageAnalysis]: Checked inductivity of 4 backedges. 0 proven. 3 refuted. 0 times theorem prover too weak. 1 trivial. 0 not checked.
+[2021-04-24 13:58:11,190 INFO  L353   FreeRefinementEngine]: Using interpolant generator IpTcStrategyModulePreferences [1106395213]
+[2021-04-24 13:58:11,190 INFO  L219   FreeRefinementEngine]: Constructing automaton from 0 perfect and 1 imperfect interpolant sequences.
+[2021-04-24 13:58:11,191 INFO  L232   FreeRefinementEngine]: Number of different interpolants: perfect sequences [] imperfect sequences [5] total 5
+[2021-04-24 13:58:11,191 INFO  L155   tionRefinementEngine]: Using interpolant automaton builder IpAbStrategyModuleStraightlineAll [876915688]
+[2021-04-24 13:58:11,191 INFO  L142   FreeRefinementEngine]: Using predicate unifier PredicateUnifier provided by strategy FIXED_PREFERENCES
+[2021-04-24 13:58:11,192 INFO  L142   InterpolantAutomaton]: Constructing interpolant automaton starting with 5 interpolants.
+[2021-04-24 13:58:11,192 INFO  L144   InterpolantAutomaton]: CoverageRelationStatistics Valid=7, Invalid=13, Unknown=0, NotChecked=0, Total=20
+[2021-04-24 13:58:11,192 INFO  L87              Difference]: Start difference. First operand 62 states and 143 transitions. cyclomatic complexity: 83 Second operand  has 5 states, 5 states have (on average 5.6) internal successors, (28), 5 states have internal predecessors, (28), 2 states have call successors, (4), 1 states have call predecessors, (4), 2 states have return successors, (3), 3 states have call predecessors, (3), 2 states have call successors, (3)
+[2021-04-24 13:58:11,283 INFO  L144             Difference]: Subtrahend was deterministic. Have not used determinization.
+[2021-04-24 13:58:11,283 INFO  L93              Difference]: Finished difference Result 122 states and 275 transitions.
+[2021-04-24 13:58:11,283 INFO  L141   InterpolantAutomaton]: Switched to read-only mode: deterministic interpolant automaton has 7 states. 
+[2021-04-24 13:58:11,283 INFO  L82        GeneralOperation]: Start removeNonLiveStates. Operand 122 states and 275 transitions.
+[2021-04-24 13:58:11,285 INFO  L131   ngComponentsAnalysis]: Automaton has 3 accepting balls. 24
+[2021-04-24 13:58:11,287 INFO  L88        GeneralOperation]: Finished removeNonLiveStates. Reduced from 122 states to 122 states and 275 transitions.
+[2021-04-24 13:58:11,287 INFO  L87         BuchiClosureNwa]: Accepting states before buchiClosure: 63
+[2021-04-24 13:58:11,287 INFO  L106        BuchiClosureNwa]: Accepting states after buchiClosure: 63
+[2021-04-24 13:58:11,287 INFO  L73         IsDeterministic]: Start isDeterministic. Operand 122 states and 275 transitions.
+[2021-04-24 13:58:11,288 INFO  L80         IsDeterministic]: Finished isDeterministic. Operand is deterministic.
+[2021-04-24 13:58:11,288 INFO  L692         BuchiCegarLoop]: Abstraction has 122 states and 275 transitions.
+[2021-04-24 13:58:11,288 INFO  L82        GeneralOperation]: Start minimizeSevpa. Operand 122 states and 275 transitions.
+[2021-04-24 13:58:11,293 INFO  L88        GeneralOperation]: Finished minimizeSevpa. Reduced states from 122 to 106.
+[2021-04-24 13:58:11,293 INFO  L82        GeneralOperation]: Start removeUnreachable. Operand  has 106 states, 91 states have (on average 2.4395604395604398) internal successors, (222), 89 states have internal predecessors, (222), 7 states have call successors, (7), 7 states have call predecessors, (7), 8 states have return successors, (18), 10 states have call predecessors, (18), 7 states have call successors, (18)
+[2021-04-24 13:58:11,294 INFO  L88        GeneralOperation]: Finished removeUnreachable. Reduced from 106 states to 106 states and 247 transitions.
+[2021-04-24 13:58:11,294 INFO  L715         BuchiCegarLoop]: Abstraction has 106 states and 247 transitions.
+[2021-04-24 13:58:11,294 INFO  L595         BuchiCegarLoop]: Abstraction has 106 states and 247 transitions.
+[2021-04-24 13:58:11,294 INFO  L427         BuchiCegarLoop]: ======== Iteration 4============
+[2021-04-24 13:58:11,294 INFO  L72            BuchiIsEmpty]: Start buchiIsEmpty. Operand 106 states and 247 transitions.
+[2021-04-24 13:58:11,295 INFO  L131   ngComponentsAnalysis]: Automaton has 2 accepting balls. 21
+[2021-04-24 13:58:11,295 INFO  L87            BuchiIsEmpty]: Finished buchiIsEmpty Result is false
+[2021-04-24 13:58:11,295 INFO  L119           BuchiIsEmpty]: Starting construction of run
+[2021-04-24 13:58:11,296 INFO  L853         BuchiCegarLoop]: Counterexample stem histogram [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+[2021-04-24 13:58:11,296 INFO  L854         BuchiCegarLoop]: Counterexample loop histogram [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+[2021-04-24 13:58:11,296 INFO  L794   eck$LassoCheckResult]: Stem: 472#ULTIMATE.startENTRY_NONWA [181] ULTIMATE.startENTRY_NONWA-->ULTIMATE.initENTRY_NONWA: Formula: true  InVars {}  OutVars{}  AuxVars[]  AssignedVars[]< 473#ULTIMATE.initENTRY_NONWA [247] ULTIMATE.initENTRY_NONWA-->L11_NONWA: Formula: (= v_~b~0_9 0)  InVars {}  OutVars{~b~0=v_~b~0_9}  AuxVars[]  AssignedVars[~b~0] 518#L11_NONWA [273] L11_NONWA-->L12_NONWA: Formula: (= v_~_x_b~0_8 0)  InVars {}  OutVars{~_x_b~0=v_~_x_b~0_8}  AuxVars[]  AssignedVars[~_x_b~0] 500#L12_NONWA [216] L12_NONWA-->L12-1_NONWA: Formula: (= v_~x~0_10 0.0)  InVars {}  OutVars{~x~0=v_~x~0_10}  AuxVars[]  AssignedVars[~x~0] 482#L12-1_NONWA [194] L12-1_NONWA-->ULTIMATE.initFINAL_NONWA: Formula: (= v_~_x_x~0_9 0.0)  InVars {}  OutVars{~_x_x~0=v_~_x_x~0_9}  AuxVars[]  AssignedVars[~_x_x~0] 483#ULTIMATE.initFINAL_NONWA [229] ULTIMATE.initFINAL_NONWA-->ULTIMATE.initEXIT_NONWA: Formula: true  InVars {}  OutVars{}  AuxVars[]  AssignedVars[] 505#ULTIMATE.initEXIT_NONWA >[278] ULTIMATE.initEXIT_NONWA-->L-1_NONWA: AOR: Formula: true  InVars {}  OutVars{}  AuxVars[]  AssignedVars[] LVA: Formula: true  InVars {}  OutVars{}  AuxVars[]  AssignedVars[] 453#L-1_NONWA [264] L-1_NONWA-->mainENTRY_T0_init: Formula: true  InVars {}  OutVars{}  AuxVars[]  AssignedVars[]< 461#mainENTRY_T0_init [239] mainENTRY_T0_init-->mainENTRY_T0_init-D2: Formula: true  InVars {}  OutVars{}  AuxVars[]  AssignedVars[]< 509#mainENTRY_T0_init-D2 [236] mainENTRY_T0_init-D2-->__VERIFIER_nondet_boolENTRY_T0_init: Formula: true  InVars {}  OutVars{}  AuxVars[]  AssignedVars[] 510#__VERIFIER_nondet_boolENTRY_T0_init [336] __VERIFIER_nondet_boolENTRY_T0_init-->L7_T0_init: Formula: (and (= |v___VERIFIER_nondet_bool_#res_5| 0) (= |v___VERIFIER_nondet_bool_#t~nondet0_8| 0))  InVars {__VERIFIER_nondet_bool_#t~nondet0=|v___VERIFIER_nondet_bool_#t~nondet0_8|}  OutVars{__VERIFIER_nondet_bool_#t~nondet0=|v___VERIFIER_nondet_bool_#t~nondet0_8|, __VERIFIER_nondet_bool_#res=|v___VERIFIER_nondet_bool_#res_5|}  AuxVars[]  AssignedVars[__VERIFIER_nondet_bool_#res] 523#L7_T0_init [291] L7_T0_init-->__VERIFIER_nondet_boolFINAL_accept_S1: Formula: (>= 0.0 v_~x~0_18)  InVars {~x~0=v_~x~0_18}  OutVars{__VERIFIER_nondet_bool_#t~nondet0=|v___VERIFIER_nondet_bool_#t~nondet0_9|, ~x~0=v_~x~0_18}  AuxVars[]  AssignedVars[__VERIFIER_nondet_bool_#t~nondet0] 556#__VERIFIER_nondet_boolFINAL_accept_S1 [292] __VERIFIER_nondet_boolFINAL_accept_S1-->__VERIFIER_nondet_boolEXIT_accept_S1: Formula: (>= 0.0 v_~x~0_12)  InVars {~x~0=v_~x~0_12}  OutVars{~x~0=v_~x~0_12}  AuxVars[]  AssignedVars[] 555#__VERIFIER_nondet_boolEXIT_accept_S1 >[281] __VERIFIER_nondet_boolEXIT_accept_S1-->L16-D7: AOR: Formula: (= |v_main_#t~ret1_4| |v___VERIFIER_nondet_bool_#resOutParam_1|)  InVars {__VERIFIER_nondet_bool_#res=|v___VERIFIER_nondet_bool_#resOutParam_1|}  OutVars{main_#t~ret1=|v_main_#t~ret1_4|}  AuxVars[]  AssignedVars[main_#t~ret1] LVA: Formula: true  InVars {}  OutVars{}  AuxVars[]  AssignedVars[] 553#L16-D7 [231] L16-D7-->L16_accept_S1: Formula: true  InVars {}  OutVars{}  AuxVars[]  AssignedVars[] 550#L16_accept_S1 [295] L16_accept_S1-->L16-1_accept_S1: Formula: (and (>= 0.0 v_~x~0_34) (= v_~b~0_10 |v_main_#t~ret1_7|))  InVars {main_#t~ret1=|v_main_#t~ret1_7|, ~x~0=v_~x~0_34}  OutVars{~b~0=v_~b~0_10, main_#t~ret1=|v_main_#t~ret1_7|, ~x~0=v_~x~0_34}  AuxVars[]  AssignedVars[~b~0] 549#L16-1_accept_S1 [300] L16-1_accept_S1-->L17_accept_S1: Formula: (>= 0.0 v_~x~0_44)  InVars {~x~0=v_~x~0_44}  OutVars{main_#t~ret1=|v_main_#t~ret1_11|, ~x~0=v_~x~0_44}  AuxVars[]  AssignedVars[main_#t~ret1] 546#L17_accept_S1 [304] L17_accept_S1-->L17-1_accept_S1: Formula: (and (>= 0.0 v_~x~0_23) (= v_~x~0_23 |v_main_#t~nondet2_5|))  InVars {main_#t~nondet2=|v_main_#t~nondet2_5|}  OutVars{~x~0=v_~x~0_23, main_#t~nondet2=|v_main_#t~nondet2_5|}  AuxVars[]  AssignedVars[~x~0] 545#L17-1_accept_S1 [308] L17-1_accept_S1-->L19_accept_S1: Formula: (>= 0.0 v_~x~0_54)  InVars {~x~0=v_~x~0_54}  OutVars{~x~0=v_~x~0_54, main_#t~nondet2=|v_main_#t~nondet2_9|}  AuxVars[]  AssignedVars[main_#t~nondet2] 491#L19_accept_S1 [384] L19_accept_S1-->L20-2_accept_S1: Formula: (and (>= 0.0 v_~x~0_26) (<= 0.0 v_~x~0_26) (= v_main_~__ok~0_5 1))  InVars {~x~0=v_~x~0_26}  OutVars{main_~__ok~0=v_main_~__ok~0_5, ~x~0=v_~x~0_26}  AuxVars[]  AssignedVars[main_~__ok~0] 492#L20-2_accept_S1 
+[2021-04-24 13:58:11,297 INFO  L796   eck$LassoCheckResult]: Loop: 492#L20-2_accept_S1 [389] L20-2_accept_S1-->L21_accept_S1: Formula: (and (> v_main_~__ok~0_9 0) (>= 0.0 v_~x~0_33))  InVars {main_~__ok~0=v_main_~__ok~0_9, ~x~0=v_~x~0_33}  OutVars{main_~__ok~0=v_main_~__ok~0_9, ~x~0=v_~x~0_33}  AuxVars[]  AssignedVars[] 460#L21_accept_S1 [230] L21_accept_S1-->L21_accept_S1-D3: Formula: true  InVars {}  OutVars{}  AuxVars[]  AssignedVars[]< 506#L21_accept_S1-D3 [255] L21_accept_S1-D3-->__VERIFIER_nondet_boolENTRY_T0_init: Formula: true  InVars {}  OutVars{}  AuxVars[]  AssignedVars[] 510#__VERIFIER_nondet_boolENTRY_T0_init [335] __VERIFIER_nondet_boolENTRY_T0_init-->L7_T0_init: Formula: (and (= |v___VERIFIER_nondet_bool_#res_5| 1) (> |v___VERIFIER_nondet_bool_#t~nondet0_8| 0))  InVars {__VERIFIER_nondet_bool_#t~nondet0=|v___VERIFIER_nondet_bool_#t~nondet0_8|}  OutVars{__VERIFIER_nondet_bool_#t~nondet0=|v___VERIFIER_nondet_bool_#t~nondet0_8|, __VERIFIER_nondet_bool_#res=|v___VERIFIER_nondet_bool_#res_5|}  AuxVars[]  AssignedVars[__VERIFIER_nondet_bool_#res] 478#L7_T0_init [291] L7_T0_init-->__VERIFIER_nondet_boolFINAL_accept_S1: Formula: (>= 0.0 v_~x~0_18)  InVars {~x~0=v_~x~0_18}  OutVars{__VERIFIER_nondet_bool_#t~nondet0=|v___VERIFIER_nondet_bool_#t~nondet0_9|, ~x~0=v_~x~0_18}  AuxVars[]  AssignedVars[__VERIFIER_nondet_bool_#t~nondet0] 479#__VERIFIER_nondet_boolFINAL_accept_S1 [292] __VERIFIER_nondet_boolFINAL_accept_S1-->__VERIFIER_nondet_boolEXIT_accept_S1: Formula: (>= 0.0 v_~x~0_12)  InVars {~x~0=v_~x~0_12}  OutVars{~x~0=v_~x~0_12}  AuxVars[]  AssignedVars[] 488#__VERIFIER_nondet_boolEXIT_accept_S1 >[275] __VERIFIER_nondet_boolEXIT_accept_S1-->L21-1-D9: AOR: Formula: (= |v_main_#t~ret3_4| |v___VERIFIER_nondet_bool_#resOutParam_2|)  InVars {__VERIFIER_nondet_bool_#res=|v___VERIFIER_nondet_bool_#resOutParam_2|}  OutVars{main_#t~ret3=|v_main_#t~ret3_4|}  AuxVars[]  AssignedVars[main_#t~ret3] LVA: Formula: true  InVars {}  OutVars{}  AuxVars[]  AssignedVars[] 489#L21-1-D9 [269] L21-1-D9-->L21-1_accept_S1: Formula: true  InVars {}  OutVars{}  AuxVars[]  AssignedVars[] 515#L21-1_accept_S1 [243] L21-1_accept_S1-->L21-2_T0_init: Formula: (= v_~_x_b~0_16 |v_main_#t~ret3_12|)  InVars {main_#t~ret3=|v_main_#t~ret3_12|}  OutVars{~_x_b~0=v_~_x_b~0_16, main_#t~ret3=|v_main_#t~ret3_12|}  AuxVars[]  AssignedVars[~_x_b~0] 516#L21-2_T0_init [299] L21-2_T0_init-->L22_accept_S1: Formula: (>= 0.0 v_~x~0_47)  InVars {~x~0=v_~x~0_47}  OutVars{~x~0=v_~x~0_47, main_#t~ret3=|v_main_#t~ret3_9|}  AuxVars[]  AssignedVars[main_#t~ret3] 470#L22_accept_S1 [302] L22_accept_S1-->L22-1_accept_S1: Formula: (and (>= 0.0 v_~x~0_37) (= v_~_x_x~0_14 |v_main_#t~nondet4_3|))  InVars {main_#t~nondet4=|v_main_#t~nondet4_3|, ~x~0=v_~x~0_37}  OutVars{main_#t~nondet4=|v_main_#t~nondet4_3|, ~_x_x~0=v_~_x_x~0_14, ~x~0=v_~x~0_37}  AuxVars[]  AssignedVars[~_x_x~0] 471#L22-1_accept_S1 [198] L22-1_accept_S1-->L24_T0_init: Formula: true  InVars {}  OutVars{main_#t~nondet4=|v_main_#t~nondet4_10|}  AuxVars[]  AssignedVars[main_#t~nondet4] 457#L24_T0_init [354] L24_T0_init-->L25_T0_init: Formula: (and (< (+ v_~_x_x~0_21 v_~x~0_59 1.0) 0.0) (> v_~b~0_21 0) (= v_main_~__ok~0_20 1))  InVars {~_x_x~0=v_~_x_x~0_21, ~b~0=v_~b~0_21, ~x~0=v_~x~0_59}  OutVars{~_x_x~0=v_~_x_x~0_21, main_~__ok~0=v_main_~__ok~0_20, ~b~0=v_~b~0_21, ~x~0=v_~x~0_59}  AuxVars[]  AssignedVars[main_~__ok~0] 467#L25_T0_init [319] L25_T0_init-->L26_accept_S1: Formula: (and (= v_~b~0_18 v_~_x_b~0_13) (>= 0.0 v_~x~0_56))  InVars {~x~0=v_~x~0_56, ~_x_b~0=v_~_x_b~0_13}  OutVars{~b~0=v_~b~0_18, ~x~0=v_~x~0_56, ~_x_b~0=v_~_x_b~0_13}  AuxVars[]  AssignedVars[~b~0] 514#L26_accept_S1 [326] L26_accept_S1-->L20-2_accept_S1: Formula: (and (>= 0.0 v_~x~0_45) (= v_~x~0_45 v_~_x_x~0_16))  InVars {~_x_x~0=v_~_x_x~0_16}  OutVars{~x~0=v_~x~0_45, ~_x_x~0=v_~_x_x~0_16}  AuxVars[]  AssignedVars[~x~0] 492#L20-2_accept_S1 
+[2021-04-24 13:58:11,297 INFO  L144       PredicateUnifier]: Initialized classic predicate unifier
+[2021-04-24 13:58:11,297 INFO  L82        PathProgramCache]: Analyzing trace with hash 1148958772, now seen corresponding path program 1 times
+[2021-04-24 13:58:11,297 INFO  L162   FreeRefinementEngine]: Executing refinement strategy FIXED_PREFERENCES
+[2021-04-24 13:58:11,298 INFO  L353   FreeRefinementEngine]: Using trace check IpTcStrategyModulePreferences [148205192]
+[2021-04-24 13:58:11,298 INFO  L95    rtionOrderModulation]: Keeping assertion order NOT_INCREMENTALLY
+[2021-04-24 13:58:11,301 INFO  L136    AnnotateAndAsserter]: Conjunction of SSA is sat
+[2021-04-24 13:58:11,301 INFO  L223             TraceCheck]: Trace is feasible, we will do another trace check, this time with branch encoders.
+[2021-04-24 13:58:11,303 INFO  L136    AnnotateAndAsserter]: Conjunction of SSA is sat
+[2021-04-24 13:58:11,303 INFO  L223             TraceCheck]: Trace is feasible, we will do another trace check, this time with branch encoders.
+[2021-04-24 13:58:11,304 INFO  L173   FreeRefinementEngine]: Strategy FIXED_PREFERENCES found a feasible trace
+[2021-04-24 13:58:11,305 INFO  L144       PredicateUnifier]: Initialized classic predicate unifier
+[2021-04-24 13:58:11,305 INFO  L82        PathProgramCache]: Analyzing trace with hash -1781118132, now seen corresponding path program 1 times
+[2021-04-24 13:58:11,305 INFO  L162   FreeRefinementEngine]: Executing refinement strategy FIXED_PREFERENCES
+[2021-04-24 13:58:11,305 INFO  L353   FreeRefinementEngine]: Using trace check IpTcStrategyModulePreferences [840994688]
+[2021-04-24 13:58:11,305 INFO  L95    rtionOrderModulation]: Keeping assertion order NOT_INCREMENTALLY
+[2021-04-24 13:58:11,307 INFO  L136    AnnotateAndAsserter]: Conjunction of SSA is sat
+[2021-04-24 13:58:11,307 INFO  L223             TraceCheck]: Trace is feasible, we will do another trace check, this time with branch encoders.
+[2021-04-24 13:58:11,309 INFO  L136    AnnotateAndAsserter]: Conjunction of SSA is sat
+[2021-04-24 13:58:11,309 INFO  L223             TraceCheck]: Trace is feasible, we will do another trace check, this time with branch encoders.
+[2021-04-24 13:58:11,310 INFO  L173   FreeRefinementEngine]: Strategy FIXED_PREFERENCES found a feasible trace
+[2021-04-24 13:58:11,310 INFO  L144       PredicateUnifier]: Initialized classic predicate unifier
+[2021-04-24 13:58:11,310 INFO  L82        PathProgramCache]: Analyzing trace with hash 864208569, now seen corresponding path program 1 times
+[2021-04-24 13:58:11,310 INFO  L162   FreeRefinementEngine]: Executing refinement strategy FIXED_PREFERENCES
+[2021-04-24 13:58:11,311 INFO  L353   FreeRefinementEngine]: Using trace check IpTcStrategyModulePreferences [310269314]
+[2021-04-24 13:58:11,311 INFO  L95    rtionOrderModulation]: Keeping assertion order NOT_INCREMENTALLY
+[2021-04-24 13:58:11,313 INFO  L136    AnnotateAndAsserter]: Conjunction of SSA is unsat
+[2021-04-24 13:58:11,318 INFO  L142       QuantifierPusher]: treesize reduction 0, result has 100.0 percent of original size
+[2021-04-24 13:58:11,319 INFO  L147       QuantifierPusher]: treesize reduction 0, result has 100.0 percent of original size 1
+[2021-04-24 13:58:11,319 INFO  L142       QuantifierPusher]: treesize reduction 0, result has 100.0 percent of original size
+[2021-04-24 13:58:11,319 INFO  L147       QuantifierPusher]: treesize reduction 0, result has 100.0 percent of original size 3
+[2021-04-24 13:58:11,320 INFO  L142       QuantifierPusher]: treesize reduction 0, result has 100.0 percent of original size
+[2021-04-24 13:58:11,320 INFO  L147       QuantifierPusher]: treesize reduction 0, result has 100.0 percent of original size 3
+[2021-04-24 13:58:11,321 INFO  L142       QuantifierPusher]: treesize reduction 0, result has 100.0 percent of original size
+[2021-04-24 13:58:11,321 INFO  L147       QuantifierPusher]: treesize reduction 0, result has 100.0 percent of original size 3
+[2021-04-24 13:58:11,322 INFO  L142       QuantifierPusher]: treesize reduction 0, result has 100.0 percent of original size
+[2021-04-24 13:58:11,322 INFO  L147       QuantifierPusher]: treesize reduction 0, result has 100.0 percent of original size 1
+[2021-04-24 13:58:11,322 INFO  L134       CoverageAnalysis]: Checked inductivity of 4 backedges. 0 proven. 3 refuted. 0 times theorem prover too weak. 1 trivial. 0 not checked.
+[2021-04-24 13:58:11,322 INFO  L353   FreeRefinementEngine]: Using interpolant generator IpTcStrategyModulePreferences [310269314]
+[2021-04-24 13:58:11,323 INFO  L219   FreeRefinementEngine]: Constructing automaton from 0 perfect and 1 imperfect interpolant sequences.
+[2021-04-24 13:58:11,323 INFO  L232   FreeRefinementEngine]: Number of different interpolants: perfect sequences [] imperfect sequences [5] total 5
+[2021-04-24 13:58:11,323 INFO  L155   tionRefinementEngine]: Using interpolant automaton builder IpAbStrategyModuleStraightlineAll [1728579177]
+[2021-04-24 13:58:11,323 INFO  L142   FreeRefinementEngine]: Using predicate unifier PredicateUnifier provided by strategy FIXED_PREFERENCES
+[2021-04-24 13:58:11,323 INFO  L142   InterpolantAutomaton]: Constructing interpolant automaton starting with 5 interpolants.
+[2021-04-24 13:58:11,323 INFO  L144   InterpolantAutomaton]: CoverageRelationStatistics Valid=7, Invalid=13, Unknown=0, NotChecked=0, Total=20
+[2021-04-24 13:58:11,324 INFO  L87              Difference]: Start difference. First operand 106 states and 247 transitions. cyclomatic complexity: 143 Second operand  has 5 states, 5 states have (on average 5.6) internal successors, (28), 5 states have internal predecessors, (28), 2 states have call successors, (4), 1 states have call predecessors, (4), 2 states have return successors, (3), 3 states have call predecessors, (3), 2 states have call successors, (3)
+[2021-04-24 13:58:11,383 INFO  L144             Difference]: Subtrahend was deterministic. Have not used determinization.
+[2021-04-24 13:58:11,383 INFO  L93              Difference]: Finished difference Result 154 states and 359 transitions.
+[2021-04-24 13:58:11,383 INFO  L141   InterpolantAutomaton]: Switched to read-only mode: deterministic interpolant automaton has 6 states. 
+[2021-04-24 13:58:11,383 INFO  L82        GeneralOperation]: Start removeNonLiveStates. Operand 154 states and 359 transitions.
+[2021-04-24 13:58:11,385 INFO  L131   ngComponentsAnalysis]: Automaton has 3 accepting balls. 24
+[2021-04-24 13:58:11,387 INFO  L88        GeneralOperation]: Finished removeNonLiveStates. Reduced from 154 states to 154 states and 359 transitions.
+[2021-04-24 13:58:11,387 INFO  L87         BuchiClosureNwa]: Accepting states before buchiClosure: 78
+[2021-04-24 13:58:11,388 INFO  L106        BuchiClosureNwa]: Accepting states after buchiClosure: 78
+[2021-04-24 13:58:11,388 INFO  L73         IsDeterministic]: Start isDeterministic. Operand 154 states and 359 transitions.
+[2021-04-24 13:58:11,389 INFO  L80         IsDeterministic]: Finished isDeterministic. Operand is deterministic.
+[2021-04-24 13:58:11,389 INFO  L692         BuchiCegarLoop]: Abstraction has 154 states and 359 transitions.
+[2021-04-24 13:58:11,389 INFO  L82        GeneralOperation]: Start minimizeSevpa. Operand 154 states and 359 transitions.
+[2021-04-24 13:58:11,394 INFO  L88        GeneralOperation]: Finished minimizeSevpa. Reduced states from 154 to 132.
+[2021-04-24 13:58:11,395 INFO  L82        GeneralOperation]: Start removeUnreachable. Operand  has 132 states, 113 states have (on average 2.5486725663716814) internal successors, (288), 111 states have internal predecessors, (288), 9 states have call successors, (9), 9 states have call predecessors, (9), 10 states have return successors, (22), 12 states have call predecessors, (22), 9 states have call successors, (22)
+[2021-04-24 13:58:11,396 INFO  L88        GeneralOperation]: Finished removeUnreachable. Reduced from 132 states to 132 states and 319 transitions.
+[2021-04-24 13:58:11,396 INFO  L715         BuchiCegarLoop]: Abstraction has 132 states and 319 transitions.
+[2021-04-24 13:58:11,396 INFO  L595         BuchiCegarLoop]: Abstraction has 132 states and 319 transitions.
+[2021-04-24 13:58:11,396 INFO  L427         BuchiCegarLoop]: ======== Iteration 5============
+[2021-04-24 13:58:11,396 INFO  L72            BuchiIsEmpty]: Start buchiIsEmpty. Operand 132 states and 319 transitions.
+[2021-04-24 13:58:11,397 INFO  L131   ngComponentsAnalysis]: Automaton has 2 accepting balls. 21
+[2021-04-24 13:58:11,397 INFO  L87            BuchiIsEmpty]: Finished buchiIsEmpty Result is false
+[2021-04-24 13:58:11,397 INFO  L119           BuchiIsEmpty]: Starting construction of run
+[2021-04-24 13:58:11,398 INFO  L853         BuchiCegarLoop]: Counterexample stem histogram [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+[2021-04-24 13:58:11,398 INFO  L854         BuchiCegarLoop]: Counterexample loop histogram [1]
+[2021-04-24 13:58:11,398 INFO  L794   eck$LassoCheckResult]: Stem: 744#ULTIMATE.startENTRY_NONWA [181] ULTIMATE.startENTRY_NONWA-->ULTIMATE.initENTRY_NONWA: Formula: true  InVars {}  OutVars{}  AuxVars[]  AssignedVars[]< 745#ULTIMATE.initENTRY_NONWA [247] ULTIMATE.initENTRY_NONWA-->L11_NONWA: Formula: (= v_~b~0_9 0)  InVars {}  OutVars{~b~0=v_~b~0_9}  AuxVars[]  AssignedVars[~b~0] 791#L11_NONWA [273] L11_NONWA-->L12_NONWA: Formula: (= v_~_x_b~0_8 0)  InVars {}  OutVars{~_x_b~0=v_~_x_b~0_8}  AuxVars[]  AssignedVars[~_x_b~0] 768#L12_NONWA [216] L12_NONWA-->L12-1_NONWA: Formula: (= v_~x~0_10 0.0)  InVars {}  OutVars{~x~0=v_~x~0_10}  AuxVars[]  AssignedVars[~x~0] 753#L12-1_NONWA [194] L12-1_NONWA-->ULTIMATE.initFINAL_NONWA: Formula: (= v_~_x_x~0_9 0.0)  InVars {}  OutVars{~_x_x~0=v_~_x_x~0_9}  AuxVars[]  AssignedVars[~_x_x~0] 754#ULTIMATE.initFINAL_NONWA [229] ULTIMATE.initFINAL_NONWA-->ULTIMATE.initEXIT_NONWA: Formula: true  InVars {}  OutVars{}  AuxVars[]  AssignedVars[] 775#ULTIMATE.initEXIT_NONWA >[278] ULTIMATE.initEXIT_NONWA-->L-1_NONWA: AOR: Formula: true  InVars {}  OutVars{}  AuxVars[]  AssignedVars[] LVA: Formula: true  InVars {}  OutVars{}  AuxVars[]  AssignedVars[] 728#L-1_NONWA [264] L-1_NONWA-->mainENTRY_T0_init: Formula: true  InVars {}  OutVars{}  AuxVars[]  AssignedVars[]< 782#mainENTRY_T0_init [239] mainENTRY_T0_init-->mainENTRY_T0_init-D2: Formula: true  InVars {}  OutVars{}  AuxVars[]  AssignedVars[]< 781#mainENTRY_T0_init-D2 [236] mainENTRY_T0_init-D2-->__VERIFIER_nondet_boolENTRY_T0_init: Formula: true  InVars {}  OutVars{}  AuxVars[]  AssignedVars[] 783#__VERIFIER_nondet_boolENTRY_T0_init [336] __VERIFIER_nondet_boolENTRY_T0_init-->L7_T0_init: Formula: (and (= |v___VERIFIER_nondet_bool_#res_5| 0) (= |v___VERIFIER_nondet_bool_#t~nondet0_8| 0))  InVars {__VERIFIER_nondet_bool_#t~nondet0=|v___VERIFIER_nondet_bool_#t~nondet0_8|}  OutVars{__VERIFIER_nondet_bool_#t~nondet0=|v___VERIFIER_nondet_bool_#t~nondet0_8|, __VERIFIER_nondet_bool_#res=|v___VERIFIER_nondet_bool_#res_5|}  AuxVars[]  AssignedVars[__VERIFIER_nondet_bool_#res] 850#L7_T0_init [291] L7_T0_init-->__VERIFIER_nondet_boolFINAL_accept_S1: Formula: (>= 0.0 v_~x~0_18)  InVars {~x~0=v_~x~0_18}  OutVars{__VERIFIER_nondet_bool_#t~nondet0=|v___VERIFIER_nondet_bool_#t~nondet0_9|, ~x~0=v_~x~0_18}  AuxVars[]  AssignedVars[__VERIFIER_nondet_bool_#t~nondet0] 845#__VERIFIER_nondet_boolFINAL_accept_S1 [292] __VERIFIER_nondet_boolFINAL_accept_S1-->__VERIFIER_nondet_boolEXIT_accept_S1: Formula: (>= 0.0 v_~x~0_12)  InVars {~x~0=v_~x~0_12}  OutVars{~x~0=v_~x~0_12}  AuxVars[]  AssignedVars[] 836#__VERIFIER_nondet_boolEXIT_accept_S1 >[281] __VERIFIER_nondet_boolEXIT_accept_S1-->L16-D7: AOR: Formula: (= |v_main_#t~ret1_4| |v___VERIFIER_nondet_bool_#resOutParam_1|)  InVars {__VERIFIER_nondet_bool_#res=|v___VERIFIER_nondet_bool_#resOutParam_1|}  OutVars{main_#t~ret1=|v_main_#t~ret1_4|}  AuxVars[]  AssignedVars[main_#t~ret1] LVA: Formula: true  InVars {}  OutVars{}  AuxVars[]  AssignedVars[] 777#L16-D7 [231] L16-D7-->L16_accept_S1: Formula: true  InVars {}  OutVars{}  AuxVars[]  AssignedVars[] 778#L16_accept_S1 [295] L16_accept_S1-->L16-1_accept_S1: Formula: (and (>= 0.0 v_~x~0_34) (= v_~b~0_10 |v_main_#t~ret1_7|))  InVars {main_#t~ret1=|v_main_#t~ret1_7|, ~x~0=v_~x~0_34}  OutVars{~b~0=v_~b~0_10, main_#t~ret1=|v_main_#t~ret1_7|, ~x~0=v_~x~0_34}  AuxVars[]  AssignedVars[~b~0] 785#L16-1_accept_S1 [300] L16-1_accept_S1-->L17_accept_S1: Formula: (>= 0.0 v_~x~0_44)  InVars {~x~0=v_~x~0_44}  OutVars{main_#t~ret1=|v_main_#t~ret1_11|, ~x~0=v_~x~0_44}  AuxVars[]  AssignedVars[main_#t~ret1] 755#L17_accept_S1 [304] L17_accept_S1-->L17-1_accept_S1: Formula: (and (>= 0.0 v_~x~0_23) (= v_~x~0_23 |v_main_#t~nondet2_5|))  InVars {main_#t~nondet2=|v_main_#t~nondet2_5|}  OutVars{~x~0=v_~x~0_23, main_#t~nondet2=|v_main_#t~nondet2_5|}  AuxVars[]  AssignedVars[~x~0] 729#L17-1_accept_S1 [308] L17-1_accept_S1-->L19_accept_S1: Formula: (>= 0.0 v_~x~0_54)  InVars {~x~0=v_~x~0_54}  OutVars{~x~0=v_~x~0_54, main_#t~nondet2=|v_main_#t~nondet2_9|}  AuxVars[]  AssignedVars[main_#t~nondet2] 766#L19_accept_S1 [384] L19_accept_S1-->L20-2_accept_S1: Formula: (and (>= 0.0 v_~x~0_26) (<= 0.0 v_~x~0_26) (= v_main_~__ok~0_5 1))  InVars {~x~0=v_~x~0_26}  OutVars{main_~__ok~0=v_main_~__ok~0_5, ~x~0=v_~x~0_26}  AuxVars[]  AssignedVars[main_~__ok~0] 837#L20-2_accept_S1 [320] L20-2_accept_S1-->L20-3_accept_S1: Formula: (and (>= 0.0 v_~x~0_32) (= v_main_~__ok~0_7 0))  InVars {main_~__ok~0=v_main_~__ok~0_7, ~x~0=v_~x~0_32}  OutVars{main_~__ok~0=v_main_~__ok~0_7, ~x~0=v_~x~0_32}  AuxVars[]  AssignedVars[] 747#L20-3_accept_S1 [328] L20-3_accept_S1-->mainEXIT_accept_S1: Formula: (>= 0.0 v_~x~0_43)  InVars {~x~0=v_~x~0_43}  OutVars{~x~0=v_~x~0_43}  AuxVars[]  AssignedVars[] 756#mainEXIT_accept_S1 >[283] mainEXIT_accept_S1-->ULTIMATE.startFINAL-D5: AOR: Formula: (= |v_ULTIMATE.start_#t~ret5_2| |v_main_#resOutParam_1|)  InVars {main_#res=|v_main_#resOutParam_1|}  OutVars{ULTIMATE.start_#t~ret5=|v_ULTIMATE.start_#t~ret5_2|}  AuxVars[]  AssignedVars[ULTIMATE.start_#t~ret5] LVA: Formula: true  InVars {}  OutVars{}  AuxVars[]  AssignedVars[] 774#ULTIMATE.startFINAL-D5 
+[2021-04-24 13:58:11,399 INFO  L796   eck$LassoCheckResult]: Loop: 774#ULTIMATE.startFINAL-D5 [228] ULTIMATE.startFINAL-D5-->ULTIMATE.startFINAL-D5: Formula: true  InVars {}  OutVars{}  AuxVars[]  AssignedVars[] 774#ULTIMATE.startFINAL-D5 
+[2021-04-24 13:58:11,399 INFO  L144       PredicateUnifier]: Initialized classic predicate unifier
+[2021-04-24 13:58:11,399 INFO  L82        PathProgramCache]: Analyzing trace with hash 2036712799, now seen corresponding path program 1 times
+[2021-04-24 13:58:11,399 INFO  L162   FreeRefinementEngine]: Executing refinement strategy FIXED_PREFERENCES
+[2021-04-24 13:58:11,399 INFO  L353   FreeRefinementEngine]: Using trace check IpTcStrategyModulePreferences [723797650]
+[2021-04-24 13:58:11,399 INFO  L95    rtionOrderModulation]: Keeping assertion order NOT_INCREMENTALLY
+[2021-04-24 13:58:11,402 INFO  L136    AnnotateAndAsserter]: Conjunction of SSA is unsat
+[2021-04-24 13:58:11,405 INFO  L142       QuantifierPusher]: treesize reduction 0, result has 100.0 percent of original size
+[2021-04-24 13:58:11,405 INFO  L147       QuantifierPusher]: treesize reduction 0, result has 100.0 percent of original size 1
+[2021-04-24 13:58:11,405 INFO  L142       QuantifierPusher]: treesize reduction 0, result has 100.0 percent of original size
+[2021-04-24 13:58:11,406 INFO  L147       QuantifierPusher]: treesize reduction 0, result has 100.0 percent of original size 3
+[2021-04-24 13:58:11,406 INFO  L142       QuantifierPusher]: treesize reduction 0, result has 100.0 percent of original size
+[2021-04-24 13:58:11,407 INFO  L147       QuantifierPusher]: treesize reduction 0, result has 100.0 percent of original size 1
+[2021-04-24 13:58:11,407 INFO  L134       CoverageAnalysis]: Checked inductivity of 0 backedges. 0 proven. 0 refuted. 0 times theorem prover too weak. 0 trivial. 0 not checked.
+[2021-04-24 13:58:11,407 INFO  L353   FreeRefinementEngine]: Using interpolant generator IpTcStrategyModulePreferences [723797650]
+[2021-04-24 13:58:11,407 INFO  L219   FreeRefinementEngine]: Constructing automaton from 1 perfect and 0 imperfect interpolant sequences.
+[2021-04-24 13:58:11,407 INFO  L232   FreeRefinementEngine]: Number of different interpolants: perfect sequences [3] imperfect sequences [] total 3
+[2021-04-24 13:58:11,407 INFO  L155   tionRefinementEngine]: Using interpolant automaton builder IpAbStrategyModuleStraightlineAll [2090572315]
+[2021-04-24 13:58:11,408 INFO  L799   eck$LassoCheckResult]: stem already infeasible
+[2021-04-24 13:58:11,408 INFO  L142   FreeRefinementEngine]: Using predicate unifier PredicateUnifier provided by strategy FIXED_PREFERENCES
+[2021-04-24 13:58:11,408 INFO  L142   InterpolantAutomaton]: Constructing interpolant automaton starting with 3 interpolants.
+[2021-04-24 13:58:11,408 INFO  L144   InterpolantAutomaton]: CoverageRelationStatistics Valid=3, Invalid=3, Unknown=0, NotChecked=0, Total=6
+[2021-04-24 13:58:11,408 INFO  L87              Difference]: Start difference. First operand 132 states and 319 transitions. cyclomatic complexity: 189 Second operand  has 3 states, 3 states have (on average 5.666666666666667) internal successors, (17), 3 states have internal predecessors, (17), 1 states have call successors, (3), 1 states have call predecessors, (3), 2 states have return successors, (3), 2 states have call predecessors, (3), 1 states have call successors, (3)
+[2021-04-24 13:58:11,432 INFO  L144             Difference]: Subtrahend was deterministic. Have not used determinization.
+[2021-04-24 13:58:11,432 INFO  L93              Difference]: Finished difference Result 132 states and 307 transitions.
+[2021-04-24 13:58:11,432 INFO  L141   InterpolantAutomaton]: Switched to read-only mode: deterministic interpolant automaton has 3 states. 
+[2021-04-24 13:58:11,433 INFO  L82        GeneralOperation]: Start removeNonLiveStates. Operand 132 states and 307 transitions.
+[2021-04-24 13:58:11,434 INFO  L131   ngComponentsAnalysis]: Automaton has 2 accepting balls. 21
+[2021-04-24 13:58:11,444 INFO  L88        GeneralOperation]: Finished removeNonLiveStates. Reduced from 132 states to 132 states and 307 transitions.
+[2021-04-24 13:58:11,444 INFO  L87         BuchiClosureNwa]: Accepting states before buchiClosure: 63
+[2021-04-24 13:58:11,445 INFO  L106        BuchiClosureNwa]: Accepting states after buchiClosure: 63
+[2021-04-24 13:58:11,445 INFO  L73         IsDeterministic]: Start isDeterministic. Operand 132 states and 307 transitions.
+[2021-04-24 13:58:11,445 INFO  L80         IsDeterministic]: Finished isDeterministic. Operand is deterministic.
+[2021-04-24 13:58:11,445 INFO  L692         BuchiCegarLoop]: Abstraction has 132 states and 307 transitions.
+[2021-04-24 13:58:11,446 INFO  L82        GeneralOperation]: Start minimizeSevpa. Operand 132 states and 307 transitions.
+[2021-04-24 13:58:11,449 INFO  L88        GeneralOperation]: Finished minimizeSevpa. Reduced states from 132 to 132.
+[2021-04-24 13:58:11,449 INFO  L82        GeneralOperation]: Start removeUnreachable. Operand  has 132 states, 113 states have (on average 2.4424778761061945) internal successors, (276), 111 states have internal predecessors, (276), 9 states have call successors, (9), 9 states have call predecessors, (9), 10 states have return successors, (22), 12 states have call predecessors, (22), 9 states have call successors, (22)
+[2021-04-24 13:58:11,450 INFO  L88        GeneralOperation]: Finished removeUnreachable. Reduced from 132 states to 132 states and 307 transitions.
+[2021-04-24 13:58:11,450 INFO  L715         BuchiCegarLoop]: Abstraction has 132 states and 307 transitions.
+[2021-04-24 13:58:11,450 INFO  L595         BuchiCegarLoop]: Abstraction has 132 states and 307 transitions.
+[2021-04-24 13:58:11,450 INFO  L427         BuchiCegarLoop]: ======== Iteration 6============
+[2021-04-24 13:58:11,450 INFO  L72            BuchiIsEmpty]: Start buchiIsEmpty. Operand 132 states and 307 transitions.
+[2021-04-24 13:58:11,451 INFO  L131   ngComponentsAnalysis]: Automaton has 2 accepting balls. 21
+[2021-04-24 13:58:11,451 INFO  L87            BuchiIsEmpty]: Finished buchiIsEmpty Result is false
+[2021-04-24 13:58:11,451 INFO  L119           BuchiIsEmpty]: Starting construction of run
+[2021-04-24 13:58:11,452 INFO  L853         BuchiCegarLoop]: Counterexample stem histogram [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+[2021-04-24 13:58:11,452 INFO  L854         BuchiCegarLoop]: Counterexample loop histogram [1]
+[2021-04-24 13:58:11,452 INFO  L794   eck$LassoCheckResult]: Stem: 1014#ULTIMATE.startENTRY_NONWA [181] ULTIMATE.startENTRY_NONWA-->ULTIMATE.initENTRY_NONWA: Formula: true  InVars {}  OutVars{}  AuxVars[]  AssignedVars[]< 1015#ULTIMATE.initENTRY_NONWA [247] ULTIMATE.initENTRY_NONWA-->L11_NONWA: Formula: (= v_~b~0_9 0)  InVars {}  OutVars{~b~0=v_~b~0_9}  AuxVars[]  AssignedVars[~b~0] 1059#L11_NONWA [273] L11_NONWA-->L12_NONWA: Formula: (= v_~_x_b~0_8 0)  InVars {}  OutVars{~_x_b~0=v_~_x_b~0_8}  AuxVars[]  AssignedVars[~_x_b~0] 1040#L12_NONWA [216] L12_NONWA-->L12-1_NONWA: Formula: (= v_~x~0_10 0.0)  InVars {}  OutVars{~x~0=v_~x~0_10}  AuxVars[]  AssignedVars[~x~0] 1023#L12-1_NONWA [194] L12-1_NONWA-->ULTIMATE.initFINAL_NONWA: Formula: (= v_~_x_x~0_9 0.0)  InVars {}  OutVars{~_x_x~0=v_~_x_x~0_9}  AuxVars[]  AssignedVars[~_x_x~0] 1024#ULTIMATE.initFINAL_NONWA [229] ULTIMATE.initFINAL_NONWA-->ULTIMATE.initEXIT_NONWA: Formula: true  InVars {}  OutVars{}  AuxVars[]  AssignedVars[] 1046#ULTIMATE.initEXIT_NONWA >[278] ULTIMATE.initEXIT_NONWA-->L-1_NONWA: AOR: Formula: true  InVars {}  OutVars{}  AuxVars[]  AssignedVars[] LVA: Formula: true  InVars {}  OutVars{}  AuxVars[]  AssignedVars[] 996#L-1_NONWA [264] L-1_NONWA-->mainENTRY_T0_init: Formula: true  InVars {}  OutVars{}  AuxVars[]  AssignedVars[]< 1005#mainENTRY_T0_init [239] mainENTRY_T0_init-->mainENTRY_T0_init-D2: Formula: true  InVars {}  OutVars{}  AuxVars[]  AssignedVars[]< 1050#mainENTRY_T0_init-D2 [236] mainENTRY_T0_init-D2-->__VERIFIER_nondet_boolENTRY_T0_init: Formula: true  InVars {}  OutVars{}  AuxVars[]  AssignedVars[] 1051#__VERIFIER_nondet_boolENTRY_T0_init [336] __VERIFIER_nondet_boolENTRY_T0_init-->L7_T0_init: Formula: (and (= |v___VERIFIER_nondet_bool_#res_5| 0) (= |v___VERIFIER_nondet_bool_#t~nondet0_8| 0))  InVars {__VERIFIER_nondet_bool_#t~nondet0=|v___VERIFIER_nondet_bool_#t~nondet0_8|}  OutVars{__VERIFIER_nondet_bool_#t~nondet0=|v___VERIFIER_nondet_bool_#t~nondet0_8|, __VERIFIER_nondet_bool_#res=|v___VERIFIER_nondet_bool_#res_5|}  AuxVars[]  AssignedVars[__VERIFIER_nondet_bool_#res] 1020#L7_T0_init [291] L7_T0_init-->__VERIFIER_nondet_boolFINAL_accept_S1: Formula: (>= 0.0 v_~x~0_18)  InVars {~x~0=v_~x~0_18}  OutVars{__VERIFIER_nondet_bool_#t~nondet0=|v___VERIFIER_nondet_bool_#t~nondet0_9|, ~x~0=v_~x~0_18}  AuxVars[]  AssignedVars[__VERIFIER_nondet_bool_#t~nondet0] 1021#__VERIFIER_nondet_boolFINAL_accept_S1 [292] __VERIFIER_nondet_boolFINAL_accept_S1-->__VERIFIER_nondet_boolEXIT_accept_S1: Formula: (>= 0.0 v_~x~0_12)  InVars {~x~0=v_~x~0_12}  OutVars{~x~0=v_~x~0_12}  AuxVars[]  AssignedVars[] 1029#__VERIFIER_nondet_boolEXIT_accept_S1 >[281] __VERIFIER_nondet_boolEXIT_accept_S1-->L16-D7: AOR: Formula: (= |v_main_#t~ret1_4| |v___VERIFIER_nondet_bool_#resOutParam_1|)  InVars {__VERIFIER_nondet_bool_#res=|v___VERIFIER_nondet_bool_#resOutParam_1|}  OutVars{main_#t~ret1=|v_main_#t~ret1_4|}  AuxVars[]  AssignedVars[main_#t~ret1] LVA: Formula: true  InVars {}  OutVars{}  AuxVars[]  AssignedVars[] 1031#L16-D7 [231] L16-D7-->L16_accept_S1: Formula: true  InVars {}  OutVars{}  AuxVars[]  AssignedVars[] 1048#L16_accept_S1 [295] L16_accept_S1-->L16-1_accept_S1: Formula: (and (>= 0.0 v_~x~0_34) (= v_~b~0_10 |v_main_#t~ret1_7|))  InVars {main_#t~ret1=|v_main_#t~ret1_7|, ~x~0=v_~x~0_34}  OutVars{~b~0=v_~b~0_10, main_#t~ret1=|v_main_#t~ret1_7|, ~x~0=v_~x~0_34}  AuxVars[]  AssignedVars[~b~0] 1053#L16-1_accept_S1 [300] L16-1_accept_S1-->L17_accept_S1: Formula: (>= 0.0 v_~x~0_44)  InVars {~x~0=v_~x~0_44}  OutVars{main_#t~ret1=|v_main_#t~ret1_11|, ~x~0=v_~x~0_44}  AuxVars[]  AssignedVars[main_#t~ret1] 1025#L17_accept_S1 [304] L17_accept_S1-->L17-1_accept_S1: Formula: (and (>= 0.0 v_~x~0_23) (= v_~x~0_23 |v_main_#t~nondet2_5|))  InVars {main_#t~nondet2=|v_main_#t~nondet2_5|}  OutVars{~x~0=v_~x~0_23, main_#t~nondet2=|v_main_#t~nondet2_5|}  AuxVars[]  AssignedVars[~x~0] 997#L17-1_accept_S1 [308] L17-1_accept_S1-->L19_accept_S1: Formula: (>= 0.0 v_~x~0_54)  InVars {~x~0=v_~x~0_54}  OutVars{~x~0=v_~x~0_54, main_#t~nondet2=|v_main_#t~nondet2_9|}  AuxVars[]  AssignedVars[main_#t~nondet2] 1032#L19_accept_S1 [385] L19_accept_S1-->L20-2_accept_S1: Formula: (and (> 0.0 v_~x~0_26) (>= 0.0 v_~x~0_26) (= v_main_~__ok~0_5 0))  InVars {~x~0=v_~x~0_26}  OutVars{main_~__ok~0=v_main_~__ok~0_5, ~x~0=v_~x~0_26}  AuxVars[]  AssignedVars[main_~__ok~0] 1027#L20-2_accept_S1 [320] L20-2_accept_S1-->L20-3_accept_S1: Formula: (and (>= 0.0 v_~x~0_32) (= v_main_~__ok~0_7 0))  InVars {main_~__ok~0=v_main_~__ok~0_7, ~x~0=v_~x~0_32}  OutVars{main_~__ok~0=v_main_~__ok~0_7, ~x~0=v_~x~0_32}  AuxVars[]  AssignedVars[] 1017#L20-3_accept_S1 [328] L20-3_accept_S1-->mainEXIT_accept_S1: Formula: (>= 0.0 v_~x~0_43)  InVars {~x~0=v_~x~0_43}  OutVars{~x~0=v_~x~0_43}  AuxVars[]  AssignedVars[] 1026#mainEXIT_accept_S1 >[283] mainEXIT_accept_S1-->ULTIMATE.startFINAL-D5: AOR: Formula: (= |v_ULTIMATE.start_#t~ret5_2| |v_main_#resOutParam_1|)  InVars {main_#res=|v_main_#resOutParam_1|}  OutVars{ULTIMATE.start_#t~ret5=|v_ULTIMATE.start_#t~ret5_2|}  AuxVars[]  AssignedVars[ULTIMATE.start_#t~ret5] LVA: Formula: true  InVars {}  OutVars{}  AuxVars[]  AssignedVars[] 1045#ULTIMATE.startFINAL-D5 
+[2021-04-24 13:58:11,452 INFO  L796   eck$LassoCheckResult]: Loop: 1045#ULTIMATE.startFINAL-D5 [228] ULTIMATE.startFINAL-D5-->ULTIMATE.startFINAL-D5: Formula: true  InVars {}  OutVars{}  AuxVars[]  AssignedVars[] 1045#ULTIMATE.startFINAL-D5 
+[2021-04-24 13:58:11,453 INFO  L144       PredicateUnifier]: Initialized classic predicate unifier
+[2021-04-24 13:58:11,453 INFO  L82        PathProgramCache]: Analyzing trace with hash 2036742590, now seen corresponding path program 1 times
+[2021-04-24 13:58:11,453 INFO  L162   FreeRefinementEngine]: Executing refinement strategy FIXED_PREFERENCES
+[2021-04-24 13:58:11,453 INFO  L353   FreeRefinementEngine]: Using trace check IpTcStrategyModulePreferences [177418016]
+[2021-04-24 13:58:11,453 INFO  L95    rtionOrderModulation]: Keeping assertion order NOT_INCREMENTALLY
+[2021-04-24 13:58:11,456 INFO  L136    AnnotateAndAsserter]: Conjunction of SSA is sat
+[2021-04-24 13:58:11,456 INFO  L223             TraceCheck]: Trace is feasible, we will do another trace check, this time with branch encoders.
+[2021-04-24 13:58:11,458 INFO  L136    AnnotateAndAsserter]: Conjunction of SSA is sat
+[2021-04-24 13:58:11,458 INFO  L223             TraceCheck]: Trace is feasible, we will do another trace check, this time with branch encoders.
+[2021-04-24 13:58:11,460 INFO  L173   FreeRefinementEngine]: Strategy FIXED_PREFERENCES found a feasible trace
+[2021-04-24 13:58:11,460 INFO  L144       PredicateUnifier]: Initialized classic predicate unifier
+[2021-04-24 13:58:11,460 INFO  L82        PathProgramCache]: Analyzing trace with hash 259, now seen corresponding path program 1 times
+[2021-04-24 13:58:11,460 INFO  L162   FreeRefinementEngine]: Executing refinement strategy FIXED_PREFERENCES
+[2021-04-24 13:58:11,460 INFO  L353   FreeRefinementEngine]: Using trace check IpTcStrategyModulePreferences [1178968041]
+[2021-04-24 13:58:11,460 INFO  L95    rtionOrderModulation]: Keeping assertion order NOT_INCREMENTALLY
+[2021-04-24 13:58:11,461 INFO  L136    AnnotateAndAsserter]: Conjunction of SSA is sat
+[2021-04-24 13:58:11,461 INFO  L223             TraceCheck]: Trace is feasible, we will do another trace check, this time with branch encoders.
+[2021-04-24 13:58:11,462 INFO  L136    AnnotateAndAsserter]: Conjunction of SSA is sat
+[2021-04-24 13:58:11,462 INFO  L223             TraceCheck]: Trace is feasible, we will do another trace check, this time with branch encoders.
+[2021-04-24 13:58:11,462 INFO  L173   FreeRefinementEngine]: Strategy FIXED_PREFERENCES found a feasible trace
+[2021-04-24 13:58:11,463 INFO  L144       PredicateUnifier]: Initialized classic predicate unifier
+[2021-04-24 13:58:11,463 INFO  L82        PathProgramCache]: Analyzing trace with hash -1285488922, now seen corresponding path program 1 times
+[2021-04-24 13:58:11,463 INFO  L162   FreeRefinementEngine]: Executing refinement strategy FIXED_PREFERENCES
+[2021-04-24 13:58:11,463 INFO  L353   FreeRefinementEngine]: Using trace check IpTcStrategyModulePreferences [455663864]
+[2021-04-24 13:58:11,463 INFO  L95    rtionOrderModulation]: Keeping assertion order NOT_INCREMENTALLY
+[2021-04-24 13:58:11,465 INFO  L136    AnnotateAndAsserter]: Conjunction of SSA is sat
+[2021-04-24 13:58:11,465 INFO  L223             TraceCheck]: Trace is feasible, we will do another trace check, this time with branch encoders.
+[2021-04-24 13:58:11,467 INFO  L136    AnnotateAndAsserter]: Conjunction of SSA is sat
+[2021-04-24 13:58:11,467 INFO  L223             TraceCheck]: Trace is feasible, we will do another trace check, this time with branch encoders.
+[2021-04-24 13:58:11,468 INFO  L173   FreeRefinementEngine]: Strategy FIXED_PREFERENCES found a feasible trace
+[2021-04-24 13:58:11,470 INFO  L142       QuantifierPusher]: treesize reduction 0, result has 100.0 percent of original size
+[2021-04-24 13:58:11,470 INFO  L147       QuantifierPusher]: treesize reduction 0, result has 100.0 percent of original size 1
+[2021-04-24 13:58:11,479 INFO  L142       QuantifierPusher]: treesize reduction 0, result has 100.0 percent of original size
+[2021-04-24 13:58:11,479 INFO  L147       QuantifierPusher]: treesize reduction 0, result has 100.0 percent of original size 13
+[2021-04-24 13:58:11,486 INFO  L142       QuantifierPusher]: treesize reduction 0, result has 100.0 percent of original size
+[2021-04-24 13:58:11,495 INFO  L147       QuantifierPusher]: treesize reduction 0, result has 100.0 percent of original size 25
+[2021-04-24 13:58:11,499 INFO  L142       QuantifierPusher]: treesize reduction 0, result has 100.0 percent of original size
+[2021-04-24 13:58:11,499 INFO  L147       QuantifierPusher]: treesize reduction 0, result has 100.0 percent of original size 10
+[2021-04-24 13:58:11,502 INFO  L142       QuantifierPusher]: treesize reduction 0, result has 100.0 percent of original size
+[2021-04-24 13:58:11,502 INFO  L147       QuantifierPusher]: treesize reduction 0, result has 100.0 percent of original size 13
+[2021-04-24 13:58:11,509 INFO  L142       QuantifierPusher]: treesize reduction 0, result has 100.0 percent of original size
+[2021-04-24 13:58:11,511 INFO  L147       QuantifierPusher]: treesize reduction 0, result has 100.0 percent of original size 16
+[2021-04-24 13:58:11,518 INFO  L142       QuantifierPusher]: treesize reduction 0, result has 100.0 percent of original size
+[2021-04-24 13:58:11,521 INFO  L147       QuantifierPusher]: treesize reduction 0, result has 100.0 percent of original size 37
+[2021-04-24 13:58:11,548 INFO  L142       QuantifierPusher]: treesize reduction 0, result has 100.0 percent of original size
+[2021-04-24 13:58:11,551 INFO  L147       QuantifierPusher]: treesize reduction 0, result has 100.0 percent of original size 13
+[2021-04-24 13:58:11,563 INFO  L202        PluginConnector]: Adding new model LTL+Program Product de.uni_freiburg.informatik.ultimate.plugins.generator.buchiautomizer CFG 24.04 01:58:11 BasicIcfg
+[2021-04-24 13:58:11,563 INFO  L132        PluginConnector]: ------------------------ END BuchiAutomizer----------------------------
+[2021-04-24 13:58:11,563 INFO  L168              Benchmark]: Toolchain (without parser) took 1428.20 ms. Allocated memory is still 541.1 MB. Free memory was 488.4 MB in the beginning and 491.4 MB in the end (delta: -3.1 MB). There was no memory consumed. Max. memory is 12.9 GB.
+[2021-04-24 13:58:11,564 INFO  L168              Benchmark]: CDTParser took 0.17 ms. Allocated memory is still 541.1 MB. Free memory is still 506.5 MB. There was no memory consumed. Max. memory is 12.9 GB.
+[2021-04-24 13:58:11,564 INFO  L168              Benchmark]: CACSL2BoogieTranslator took 143.24 ms. Allocated memory is still 541.1 MB. Free memory was 488.0 MB in the beginning and 517.5 MB in the end (delta: -29.5 MB). Peak memory consumption was 18.4 MB. Max. memory is 12.9 GB.
+[2021-04-24 13:58:11,564 INFO  L168              Benchmark]: Boogie Preprocessor took 22.38 ms. Allocated memory is still 541.1 MB. Free memory was 517.5 MB in the beginning and 516.3 MB in the end (delta: 1.1 MB). There was no memory consumed. Max. memory is 12.9 GB.
+[2021-04-24 13:58:11,564 INFO  L168              Benchmark]: RCFGBuilder took 170.71 ms. Allocated memory is still 541.1 MB. Free memory was 516.3 MB in the beginning and 506.7 MB in the end (delta: 9.6 MB). Peak memory consumption was 10.5 MB. Max. memory is 12.9 GB.
+[2021-04-24 13:58:11,565 INFO  L168              Benchmark]: LTL2Aut took 50.24 ms. Allocated memory is still 541.1 MB. Free memory was 506.7 MB in the beginning and 503.8 MB in the end (delta: 3.0 MB). Peak memory consumption was 2.1 MB. Max. memory is 12.9 GB.
+[2021-04-24 13:58:11,565 INFO  L168              Benchmark]: B?chi Program Product took 85.05 ms. Allocated memory is still 541.1 MB. Free memory was 503.8 MB in the beginning and 498.7 MB in the end (delta: 5.0 MB). Peak memory consumption was 6.3 MB. Max. memory is 12.9 GB.
+[2021-04-24 13:58:11,565 INFO  L168              Benchmark]: BlockEncodingV2 took 70.77 ms. Allocated memory is still 541.1 MB. Free memory was 498.7 MB in the beginning and 491.2 MB in the end (delta: 7.5 MB). Peak memory consumption was 6.3 MB. Max. memory is 12.9 GB.
+[2021-04-24 13:58:11,565 INFO  L168              Benchmark]: BuchiAutomizer took 880.19 ms. Allocated memory is still 541.1 MB. Free memory was 491.2 MB in the beginning and 491.4 MB in the end (delta: -203.1 kB). Peak memory consumption was 2.9 MB. Max. memory is 12.9 GB.
+[2021-04-24 13:58:11,567 INFO  L339   ainManager$Toolchain]: #######################  End [Toolchain 1] #######################
+ --- Results ---
+ * Results from de.uni_freiburg.informatik.ultimate.plugins.blockencoding:
+  - StatisticsResult: Initial Icfg
+    58 locations, 109 edges
+  - StatisticsResult: Encoded RCFG
+    58 locations, 153 edges
+ * Results from de.uni_freiburg.informatik.ultimate.core:
+  - StatisticsResult: Toolchain Benchmarks
+    Benchmark results are:
+ * CDTParser took 0.17 ms. Allocated memory is still 541.1 MB. Free memory is still 506.5 MB. There was no memory consumed. Max. memory is 12.9 GB.
+ * CACSL2BoogieTranslator took 143.24 ms. Allocated memory is still 541.1 MB. Free memory was 488.0 MB in the beginning and 517.5 MB in the end (delta: -29.5 MB). Peak memory consumption was 18.4 MB. Max. memory is 12.9 GB.
+ * Boogie Preprocessor took 22.38 ms. Allocated memory is still 541.1 MB. Free memory was 517.5 MB in the beginning and 516.3 MB in the end (delta: 1.1 MB). There was no memory consumed. Max. memory is 12.9 GB.
+ * RCFGBuilder took 170.71 ms. Allocated memory is still 541.1 MB. Free memory was 516.3 MB in the beginning and 506.7 MB in the end (delta: 9.6 MB). Peak memory consumption was 10.5 MB. Max. memory is 12.9 GB.
+ * LTL2Aut took 50.24 ms. Allocated memory is still 541.1 MB. Free memory was 506.7 MB in the beginning and 503.8 MB in the end (delta: 3.0 MB). Peak memory consumption was 2.1 MB. Max. memory is 12.9 GB.
+ * B?chi Program Product took 85.05 ms. Allocated memory is still 541.1 MB. Free memory was 503.8 MB in the beginning and 498.7 MB in the end (delta: 5.0 MB). Peak memory consumption was 6.3 MB. Max. memory is 12.9 GB.
+ * BlockEncodingV2 took 70.77 ms. Allocated memory is still 541.1 MB. Free memory was 498.7 MB in the beginning and 491.2 MB in the end (delta: 7.5 MB). Peak memory consumption was 6.3 MB. Max. memory is 12.9 GB.
+ * BuchiAutomizer took 880.19 ms. Allocated memory is still 541.1 MB. Free memory was 491.2 MB in the beginning and 491.4 MB in the end (delta: -203.1 kB). Peak memory consumption was 2.9 MB. Max. memory is 12.9 GB.
+ * Results from de.uni_freiburg.informatik.ultimate.buchiprogramproduct:
+  - StatisticsResult: Initial property automaton
+    2 locations, 4 edges
+  - StatisticsResult: Initial RCFG
+    31 locations, 37 edges
+  - StatisticsResult: BuchiProgram size
+    58 locations, 109 edges
+ * Results from de.uni_freiburg.informatik.ultimate.plugins.generator.cacsl2boogietranslator:
+  - GenericResult: Unfinished Backtranslation
+    The program execution was not completely translated back.
+ * Results from de.uni_freiburg.informatik.ultimate.plugins.generator.traceabstraction:
+  - StatisticsResult: Constructed decomposition of program
+    Your program was decomposed into 5 terminating modules (5 trivial, 0 deterministic, 0 nondeterministic) and one nonterminating remainder module.5 modules have a trivial ranking function, the largest among these consists of 5 locations. The remainder module has 132 locations.
+  - StatisticsResult: Timing statistics
+    B?chiAutomizer plugin needed 0.8s and 6 iterations.  TraceHistogramMax:1. Analysis of lassos took 0.3s. Construction of modules took 0.1s. B?chi inclusion checks took 0.1s. Highest rank in rank-based complementation 0. Minimization of det autom 5. Minimization of nondet autom 0. Automata minimization 33.6ms AutomataMinimizationTime, 5 MinimizatonAttempts, 38 StatesRemovedByMinimization, 2 NontrivialMinimizations. Non-live state removal took 0.0s Buchi closure took 0.0s. Biggest automaton had 132 states and ocurred in iteration 4.	Nontrivial modules had stage [0, 0, 0, 0, 0].	InterpolantCoveringCapabilityFinite: 0/0	InterpolantCoveringCapabilityBuchi: 0/0	HoareTripleCheckerStatistics: 321 SDtfs, 277 SDslu, 1076 SDs, 0 SdLazy, 1224 SolverSat, 158 SolverUnsat, 0 SolverUnknown, 0 SolverNotchecked, 198.4ms Time	LassoAnalysisResults: nont1 unkn0 SFLI0 SFLT0 conc4 concLT0 SILN0 SILU1 SILI0 SILT0 lasso0 LassoPreprocessingBenchmarks: LassoTerminationAnalysisBenchmarks: not availableLassoTerminationAnalysisBenchmarks: LassoNonterminationAnalysisSatFixpoint: 0	LassoNonterminationAnalysisSatUnbounded: 0	LassoNonterminationAnalysisUnsat: 0	LassoNonterminationAnalysisUnknown: 0	LassoNonterminationAnalysisTime: 0.0s	
+  - LTLInfiniteCounterExampleResult [Line: -1]: Violation of LTL property F(G((0.0 < ~x~0)))
+    Found an infinite, lasso-shaped execution that violates the LTL property F(G((0.0 < ~x~0))).
+Stem:
+[L11]              char b, _x_b;
+[L12]              float x, _x_x;
+[L16]  CALL, EXPR  __VERIFIER_nondet_bool()
+[L7]               return __VERIFIER_nondet_int() != 0;
+[L16]  RET, EXPR   __VERIFIER_nondet_bool()
+[L16]              b = __VERIFIER_nondet_bool()
+[L17]              x = __VERIFIER_nondet_float()
+[L19]              int __ok = (0.0 <= x);
+[L20]  COND FALSE  !(\read(__ok))
+Loop:
+End of lasso representation.
+RESULT: Ultimate proved your program to be incorrect!
+Received shutdown request...

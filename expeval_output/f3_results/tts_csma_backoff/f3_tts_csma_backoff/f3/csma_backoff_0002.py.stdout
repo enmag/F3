@@ -1,0 +1,238 @@
+
+
+run 1/1: `csma_backoff_0002`
+
+	Found non-termination argument:
+	State 3
+		s1_l1 = True
+		s1_l0 = False
+		s1_evt2 = False
+		s1_evt1 = False
+		_EL_U_594 = True
+		s0_l1 = True
+		_EL_U_596 = False
+		s0_l0 = False
+		s0_evt2 = False
+		s0_evt1 = False
+		_EL_U_598 = True
+		_EL_U_600 = False
+		_EL_U_602 = False
+		s1_lambda = 57/4
+		_EL_U_604 = True
+		s0_lambda = 57/4
+		bus_evt0 = True
+		bus_evt1 = False
+		bus_l0 = True
+		s1_evt0 = False
+		bus_evt2 = False
+		bus_l1 = False
+		s0_evt0 = True
+		_J631 = True
+		_J637 = True
+		_J642 = True
+		_J648 = True
+		_J655 = True
+		_J661 = True
+		(s0_x <= 57/4)
+		((-1.0 * s0_backoff) <= -13.0)
+		((-1.0 * s1_backoff) <= -13.0)
+		(bus_j < 1)
+		(bus_cd_id < 1)
+		(s0_x < 57/4)
+		(s1_x < 57/4)
+		((-1 * bus_j) <= 0)
+		(((-1.0 * s0_backoff) + s0_x) < 0.0)
+		((-1.0 * s0_x) <= 0.0)
+		((-1.0 * bus_x) <= 0.0)
+		((-1.0 * s1_x) <= 0.0)
+		((-1 * bus_cd_id) <= 0)
+		(((-1 * bus_j) + bus_cd_id) <= 0)
+		((_diverge_delta + delta) < 1.0)
+		((s1_x + delta) <= 57/4)
+		((-1.0 * delta) = 0.0)
+		(bus_x < 13.0)
+		(bus_j = 0)
+		(bus_x = 0.0)
+		(((-1 * bus_cd_id) + bus_j) = 0)
+		(s1_x = 0.0)
+		(_diverge_delta < 1.0)
+	Trans 3 -- 4
+		_x_delta = 0.0
+		_x_s1_backoff = s1_backoff
+		_x__diverge_delta = (_diverge_delta + delta)
+		_x_s1_x = (s1_x + delta)
+		_x_bus_j = (bus_j + 1)
+		_x_s0_x = 0.0
+		_x_bus_x = 0.0
+		_x_bus_cd_id = 1
+		_x_s0_backoff = ((delta + (s1_backoff * 170/171) + (-1.0 * _diverge_delta) + (s1_x * 170/171) + s0_backoff + 2/171) - (ToReal(bus_cd_id) * 172/171))
+	State 4
+		s1_l1 = True
+		s1_l0 = False
+		s1_evt2 = False
+		s1_evt1 = False
+		_EL_U_594 = True
+		s0_l1 = False
+		_EL_U_596 = False
+		s0_l0 = True
+		s0_evt2 = False
+		s0_evt1 = False
+		_EL_U_598 = True
+		_EL_U_600 = False
+		_EL_U_602 = False
+		s1_lambda = 57/4
+		_EL_U_604 = True
+		s0_lambda = 57/4
+		bus_evt0 = True
+		bus_evt1 = False
+		bus_l0 = True
+		s1_evt0 = True
+		bus_evt2 = False
+		bus_l1 = True
+		s0_evt0 = False
+		_J631 = False
+		_J637 = False
+		_J642 = False
+		_J648 = False
+		_J655 = False
+		_J661 = False
+		((-1.0 * s0_backoff) <= -13.0)
+		((-1.0 * s0_backoff) < 0.0)
+	Trans 4 -- 5
+		_x_delta = (((s1_backoff * 3058861/3496437) + (s1_x * 172/171) + (s0_backoff * 172/171) + (ToReal(bus_cd_id) * 1/171)) - ((delta * 235297/233928) + (s0_x * 173/171)))
+		_x_s1_backoff = (s1_backoff + (-1.0 * bus_x) + 1.0)
+		_x__diverge_delta = (_diverge_delta + delta)
+		_x_s1_x = 0.0
+		_x_bus_j = 0
+		_x_s0_x = (s0_x + delta)
+		_x_bus_x = 0.0
+		_x_bus_cd_id = (-1 * (bus_j * 3))
+		_x_s0_backoff = s0_backoff
+	State 5
+		s1_l1 = False
+		s1_l0 = True
+		s1_evt2 = False
+		s1_evt1 = False
+		_EL_U_594 = True
+		s0_l1 = False
+		_EL_U_596 = False
+		s0_l0 = True
+		s0_evt2 = False
+		s0_evt1 = False
+		_EL_U_598 = True
+		_EL_U_600 = False
+		_EL_U_602 = False
+		s1_lambda = 57/4
+		_EL_U_604 = True
+		s0_lambda = 57/4
+		bus_evt0 = True
+		bus_evt1 = False
+		bus_l0 = False
+		s1_evt0 = False
+		bus_evt2 = False
+		bus_l1 = False
+		s0_evt0 = True
+		_J631 = True
+		_J637 = True
+		_J642 = False
+		_J648 = True
+		_J655 = False
+		_J661 = True
+		(((-1.0 * s1_x) + (-1.0 * delta) + s1_backoff) <= 0.0)
+		(((-1.0 * _diverge_delta) + (-1.0 * delta)) <= -1.0)
+		(((-1.0 * s0_x) + (-1.0 * delta) + s0_backoff) <= 0.0)
+	Trans 5 -- 6
+		_x_delta = 0.0
+		_x_s1_backoff = s1_backoff
+		_x__diverge_delta = (_diverge_delta + delta)
+		_x_s1_x = (s1_x + delta)
+		_x_bus_j = bus_j
+		_x_s0_x = (s0_x + delta)
+		_x_bus_x = (bus_x + delta)
+		_x_bus_cd_id = ((-1 * bus_j) + (bus_cd_id * 2))
+		_x_s0_backoff = s0_backoff
+	State 6
+		s1_l1 = False
+		s1_l0 = True
+		s1_evt2 = False
+		s1_evt1 = False
+		_EL_U_594 = True
+		s0_l1 = False
+		_EL_U_596 = False
+		s0_l0 = True
+		s0_evt2 = True
+		s0_evt1 = False
+		_EL_U_598 = True
+		_EL_U_600 = False
+		_EL_U_602 = False
+		s1_lambda = 57/4
+		_EL_U_604 = True
+		s0_lambda = 57/4
+		bus_evt0 = False
+		bus_evt1 = False
+		bus_l0 = False
+		s1_evt0 = False
+		bus_evt2 = True
+		bus_l1 = False
+		s0_evt0 = False
+		_J631 = True
+		_J637 = True
+		_J642 = False
+		_J648 = True
+		_J655 = False
+		_J661 = True
+	Trans 6 -- 7
+		_x_delta = 0.0
+		_x_s1_backoff = s1_backoff
+		_x__diverge_delta = delta
+		_x_s1_x = (s1_x + delta)
+		_x_bus_j = (-1 * bus_j)
+		_x_s0_x = 0.0
+		_x_bus_x = 0.0
+		_x_bus_cd_id = ((bus_j * 5) + (bus_cd_id * 6) + 7)
+		_x_s0_backoff = s0_backoff
+	State 7
+		s1_l1 = False
+		s1_l0 = True
+		s1_evt2 = True
+		s1_evt1 = False
+		_EL_U_594 = True
+		s0_l1 = True
+		_EL_U_596 = False
+		s0_l0 = False
+		s0_evt2 = False
+		s0_evt1 = False
+		_EL_U_598 = True
+		_EL_U_600 = False
+		_EL_U_602 = False
+		s1_lambda = 57/4
+		_EL_U_604 = True
+		s0_lambda = 57/4
+		bus_evt0 = False
+		bus_evt1 = False
+		bus_l0 = False
+		s1_evt0 = False
+		bus_evt2 = True
+		bus_l1 = True
+		s0_evt0 = False
+		_J631 = True
+		_J637 = True
+		_J642 = False
+		_J648 = True
+		_J655 = True
+		_J661 = True
+		((-1 * bus_j) <= 0)
+		(bus_j < 1)
+	Trans 7 -- 8
+		_x_delta = 0.0
+		_x_s1_backoff = s1_backoff
+		_x__diverge_delta = (_diverge_delta + delta)
+		_x_s1_x = 0.0
+		_x_bus_j = bus_j
+		_x_s0_x = (s0_x + delta)
+		_x_bus_x = 0.0
+		_x_bus_cd_id = bus_j
+		_x_s0_backoff = s0_backoff
+	starting from: {delta: 0.0, s1_l1: True, s1_l0: False, s1_evt2: False, s1_evt1: False, s1_backoff: 13.0, s0_l1: True, _diverge_delta: 0.0, s0_l0: False, s0_evt2: False, s0_evt1: False, s1_x: 0.0, bus_j: 0, s0_x: 0.0, s1_lambda: 57/4, bus_x: 0.0, s0_lambda: 57/4, bus_cd_id: 0, s0_backoff: 13.0, bus_evt0: True, bus_evt1: False, bus_l0: True, s1_evt0: False, bus_evt2: False, bus_l1: False, s0_evt0: True, _J631: True, _J637: True, _J642: True, _J648: True, _J655: True, _J661: True, _EL_U_594: True, _EL_U_596: False, _EL_U_598: True, _EL_U_600: False, _EL_U_602: False, _EL_U_604: True}
+
+end of `csma_backoff_0002`: SUCCESS in 11.64894413948059s

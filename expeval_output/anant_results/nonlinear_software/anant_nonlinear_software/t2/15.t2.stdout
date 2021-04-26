@@ -1,0 +1,6 @@
+Result : Non-Terminating
+sat for numRecurrentSetEqs = 2
+Closed Recurrent Set is
+1 * y +  <= -24
+-1 * x +  <= -31
+

@@ -1,0 +1,8 @@
+group: uppaal_ta_fddi
+platform: Linux node3 5.4.0-56-generic #62-Ubuntu SMP Mon Nov 23 19:20:19 UTC 2020 x86_64 x86_64
+timestamp: 1616428668
+time: 2021-03-22 16:57:48
+exitcode: 0
+real: 1.02
+user: 0.14
+sys: 0.47

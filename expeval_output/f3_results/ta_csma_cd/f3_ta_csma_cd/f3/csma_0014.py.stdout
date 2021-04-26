@@ -1,0 +1,555 @@
+
+
+run 1/1: `csma_0014`
+
+	Found non-termination argument:
+	Do states 5..8 while ((s9_x + s10_x + s7_x + s5_x + s11_x + s12_x + s13_x + s4_x + s8_x + s1_x + s2_x + s3_x + -33981/7) < 0.0)
+	State 5
+		delta = 0.0
+		s13_l1 = False
+		s13_l0 = False
+		s13_evt1 = False
+		s13_evt0 = False
+		s12_l1 = False
+		s12_l0 = False
+		s12_evt2 = False
+		s12_evt1 = False
+		s12_evt0 = False
+		s11_l1 = False
+		s11_l0 = False
+		s11_evt2 = False
+		s11_evt1 = False
+		s10_l1 = False
+		s10_l0 = False
+		s10_evt2 = False
+		s10_evt1 = False
+		s10_evt0 = False
+		s9_l0 = False
+		s9_evt2 = False
+		s9_evt1 = False
+		s9_evt0 = False
+		s8_l1 = False
+		s8_l0 = False
+		s8_evt2 = False
+		s8_evt1 = False
+		s3_evt0 = False
+		s2_evt0 = False
+		s1_evt0 = False
+		s6_x = 1.0
+		s1_evt1 = False
+		s9_l1 = False
+		s5_l1 = False
+		s2_evt2 = False
+		s1_evt2 = False
+		bus_j = 1
+		s0_x = 0.0
+		bus_x = 0.0
+		s2_evt1 = False
+		s13_evt2 = False
+		bus_cd_id = 6
+		bus_evt0 = True
+		s4_evt0 = False
+		bus_evt1 = False
+		s4_evt1 = False
+		bus_l0 = True
+		s4_l0 = False
+		s11_evt0 = False
+		bus_evt2 = False
+		s4_evt2 = False
+		bus_l1 = True
+		s4_l1 = False
+		s2_l0 = False
+		s1_l0 = False
+		s2_l1 = False
+		s1_l1 = False
+		s3_evt1 = False
+		s3_evt2 = False
+		s3_l0 = False
+		_diverge_delta = 0.0
+		s3_l1 = False
+		s5_evt0 = False
+		s5_evt1 = False
+		s5_evt2 = False
+		s5_l0 = False
+		s6_evt0 = True
+		s6_evt1 = False
+		s6_evt2 = False
+		s6_l0 = False
+		s6_l1 = True
+		s0_evt0 = False
+		s7_evt0 = False
+		s0_evt1 = False
+		s7_evt1 = False
+		s0_evt2 = False
+		s7_evt2 = False
+		s0_l0 = True
+		s7_l0 = False
+		s0_l1 = False
+		s7_l1 = False
+		s8_evt0 = False
+		_J2744 = True
+		_J2753 = True
+		_J2759 = True
+		_J2765 = True
+		_EL_U_2717 = True
+		_EL_U_2719 = False
+		_EL_U_2721 = False
+		_EL_U_2724 = False
+		((-1.0 * s2_x) < -404.0)
+		((-1.0 * s9_x) < -404.0)
+		((-1.0 * s10_x) < -404.0)
+		((-1.0 * s3_x) < -404.0)
+		((-1.0 * s11_x) < -404.0)
+		((-1.0 * s4_x) < -404.0)
+		((-1.0 * s5_x) < -404.0)
+		((-1.0 * s12_x) < -404.0)
+		((-1.0 * s1_x) < -404.0)
+		((-1.0 * s7_x) < -404.0)
+		((-1.0 * s13_x) < -404.0)
+		((-1.0 * s8_x) < -404.0)
+	Trans 5 -- 6
+		_x_s3_x : s3_x
+		_x_s2_x : s2_x
+		_x_s1_x : s1_x
+		_x_s8_x : s8_x
+		_x_s4_x : s4_x
+		_x_s13_x : s13_x
+		_x_s12_x : s12_x
+		_x_s11_x : s11_x
+		_x_s5_x : s5_x
+		_x_s7_x : s7_x
+		_x_s10_x : s10_x
+		_x_s9_x : s9_x
+	State 6
+		delta = 0.0
+		s13_l1 = False
+		s13_l0 = False
+		s13_evt1 = False
+		s13_evt0 = False
+		s12_l1 = False
+		s12_l0 = False
+		s12_evt2 = False
+		s12_evt1 = False
+		s12_evt0 = False
+		s11_l1 = False
+		s11_l0 = False
+		s11_evt2 = False
+		s11_evt1 = False
+		s10_l1 = False
+		s10_l0 = False
+		s10_evt2 = False
+		s10_evt1 = False
+		s10_evt0 = False
+		s9_l0 = False
+		s9_evt2 = False
+		s9_evt1 = False
+		s9_evt0 = False
+		s8_l1 = False
+		s8_l0 = False
+		s8_evt2 = False
+		s8_evt1 = False
+		s3_evt0 = False
+		s2_evt0 = False
+		s1_evt0 = False
+		s6_x = 0.0
+		s1_evt1 = False
+		s9_l1 = False
+		s5_l1 = False
+		s2_evt2 = False
+		s1_evt2 = False
+		bus_j = 0
+		s0_x = 0.0
+		bus_x = 0.0
+		s2_evt1 = False
+		s13_evt2 = False
+		bus_cd_id = 9
+		bus_evt0 = False
+		s4_evt0 = False
+		bus_evt1 = False
+		s4_evt1 = False
+		bus_l0 = False
+		s4_l0 = False
+		s11_evt0 = False
+		bus_evt2 = True
+		s4_evt2 = False
+		bus_l1 = True
+		s4_l1 = False
+		s2_l0 = False
+		s1_l0 = False
+		s2_l1 = False
+		s1_l1 = False
+		s3_evt1 = False
+		s3_evt2 = False
+		s3_l0 = False
+		_diverge_delta = 0.0
+		s3_l1 = False
+		s5_evt0 = False
+		s5_evt1 = False
+		s5_evt2 = False
+		s5_l0 = False
+		s6_evt0 = False
+		s6_evt1 = False
+		s6_evt2 = True
+		s6_l0 = True
+		s6_l1 = False
+		s0_evt0 = False
+		s7_evt0 = False
+		s0_evt1 = False
+		s7_evt1 = False
+		s0_evt2 = False
+		s7_evt2 = False
+		s0_l0 = True
+		s7_l0 = False
+		s0_l1 = False
+		s7_l1 = False
+		s8_evt0 = False
+		_J2744 = False
+		_J2753 = False
+		_J2759 = False
+		_J2765 = False
+		_EL_U_2717 = True
+		_EL_U_2719 = False
+		_EL_U_2721 = False
+		_EL_U_2724 = False
+	Trans 6 -- 7
+		_x_s3_x : s3_x
+		_x_s2_x : s2_x
+		_x_s1_x : s1_x
+		_x_s8_x : s8_x
+		_x_s4_x : s4_x
+		_x_s13_x : s13_x
+		_x_s12_x : s12_x
+		_x_s11_x : s11_x
+		_x_s5_x : s5_x
+		_x_s7_x : s7_x
+		_x_s10_x : s10_x
+		_x_s9_x : s9_x
+	State 7
+		delta = 1.0
+		s13_l1 = False
+		s13_l0 = False
+		s13_evt1 = False
+		s13_evt0 = False
+		s12_l1 = False
+		s12_l0 = False
+		s12_evt2 = False
+		s12_evt1 = False
+		s12_evt0 = False
+		s11_l1 = False
+		s11_l0 = False
+		s11_evt2 = False
+		s11_evt1 = False
+		s10_l1 = False
+		s10_l0 = False
+		s10_evt2 = False
+		s10_evt1 = False
+		s10_evt0 = False
+		s9_l0 = False
+		s9_evt2 = False
+		s9_evt1 = False
+		s9_evt0 = False
+		s8_l1 = False
+		s8_l0 = False
+		s8_evt2 = False
+		s8_evt1 = False
+		s3_evt0 = False
+		s2_evt0 = False
+		s1_evt0 = False
+		s6_x = 0.0
+		s1_evt1 = False
+		s9_l1 = False
+		s5_l1 = False
+		s2_evt2 = False
+		s1_evt2 = False
+		bus_j = 0
+		s0_x = 0.0
+		bus_x = 0.0
+		s2_evt1 = False
+		s13_evt2 = False
+		bus_cd_id = 0
+		bus_evt0 = False
+		s4_evt0 = False
+		bus_evt1 = True
+		s4_evt1 = False
+		bus_l0 = True
+		s4_l0 = False
+		s11_evt0 = False
+		bus_evt2 = False
+		s4_evt2 = False
+		bus_l1 = False
+		s4_l1 = False
+		s2_l0 = False
+		s1_l0 = False
+		s2_l1 = False
+		s1_l1 = False
+		s3_evt1 = False
+		s3_evt2 = True
+		s3_l0 = False
+		_diverge_delta = 0.0
+		s3_l1 = False
+		s5_evt0 = False
+		s5_evt1 = False
+		s5_evt2 = False
+		s5_l0 = False
+		s6_evt0 = False
+		s6_evt1 = False
+		s6_evt2 = False
+		s6_l0 = False
+		s6_l1 = True
+		s0_evt0 = False
+		s7_evt0 = False
+		s0_evt1 = False
+		s7_evt1 = False
+		s0_evt2 = False
+		s7_evt2 = False
+		s0_l0 = True
+		s7_l0 = False
+		s0_l1 = False
+		s7_l1 = False
+		s8_evt0 = False
+		_J2744 = True
+		_J2753 = True
+		_J2759 = False
+		_J2765 = True
+		_EL_U_2717 = True
+		_EL_U_2719 = False
+		_EL_U_2721 = False
+		_EL_U_2724 = False
+	Trans 7 -- 8
+		_x_s3_x : (s3_x + 1.0)
+		_x_s2_x : (s2_x + 1.0)
+		_x_s1_x : (s1_x + 1.0)
+		_x_s8_x : (s8_x + 1.0)
+		_x_s4_x : (s4_x + 1.0)
+		_x_s13_x : (s13_x + 1.0)
+		_x_s12_x : (s12_x + 1.0)
+		_x_s11_x : (s11_x + 1.0)
+		_x_s5_x : (s5_x + 1.0)
+		_x_s7_x : (s7_x + 1.0)
+		_x_s10_x : (s10_x + 1.0)
+		_x_s9_x : (s9_x + 1.0)
+	State 8
+		delta = 0.0
+		s13_l1 = False
+		s13_l0 = False
+		s13_evt1 = False
+		s13_evt0 = False
+		s12_l1 = False
+		s12_l0 = False
+		s12_evt2 = False
+		s12_evt1 = False
+		s12_evt0 = False
+		s11_l1 = False
+		s11_l0 = False
+		s11_evt2 = False
+		s11_evt1 = False
+		s10_l1 = False
+		s10_l0 = False
+		s10_evt2 = False
+		s10_evt1 = False
+		s10_evt0 = False
+		s9_l0 = False
+		s9_evt2 = False
+		s9_evt1 = False
+		s9_evt0 = False
+		s8_l1 = False
+		s8_l0 = False
+		s8_evt2 = False
+		s8_evt1 = False
+		s3_evt0 = False
+		s2_evt0 = False
+		s1_evt0 = False
+		s6_x = 1.0
+		s1_evt1 = False
+		s9_l1 = False
+		s5_l1 = False
+		s2_evt2 = False
+		s1_evt2 = False
+		bus_j = 0
+		s0_x = 1.0
+		bus_x = 1.0
+		s2_evt1 = False
+		s13_evt2 = False
+		bus_cd_id = 0
+		bus_evt0 = True
+		s4_evt0 = False
+		bus_evt1 = False
+		s4_evt1 = False
+		bus_l0 = True
+		s4_l0 = False
+		s11_evt0 = False
+		bus_evt2 = False
+		s4_evt2 = False
+		bus_l1 = False
+		s4_l1 = False
+		s2_l0 = False
+		s1_l0 = False
+		s2_l1 = False
+		s1_l1 = False
+		s3_evt1 = False
+		s3_evt2 = False
+		s3_l0 = False
+		_diverge_delta = 1.0
+		s3_l1 = False
+		s5_evt0 = False
+		s5_evt1 = False
+		s5_evt2 = False
+		s5_l0 = False
+		s6_evt0 = False
+		s6_evt1 = False
+		s6_evt2 = False
+		s6_l0 = False
+		s6_l1 = True
+		s0_evt0 = True
+		s7_evt0 = False
+		s0_evt1 = False
+		s7_evt1 = False
+		s0_evt2 = False
+		s7_evt2 = False
+		s0_l0 = True
+		s7_l0 = False
+		s0_l1 = False
+		s7_l1 = False
+		s8_evt0 = False
+		_J2744 = True
+		_J2753 = True
+		_J2759 = False
+		_J2765 = True
+		_EL_U_2717 = True
+		_EL_U_2719 = False
+		_EL_U_2721 = False
+		_EL_U_2724 = False
+	Trans 8 -- 5
+		_x_s3_x : s3_x
+		_x_s2_x : s2_x
+		_x_s1_x : s1_x
+		_x_s8_x : s8_x
+		_x_s4_x : s4_x
+		_x_s13_x : s13_x
+		_x_s12_x : s12_x
+		_x_s11_x : s11_x
+		_x_s5_x : s5_x
+		_x_s7_x : s7_x
+		_x_s10_x : s10_x
+		_x_s9_x : s9_x
+	End do-while
+	State 8
+		delta = 0.0
+		s13_l1 = False
+		s13_l0 = False
+		s13_evt1 = False
+		s13_evt0 = False
+		s12_l1 = False
+		s12_l0 = False
+		s12_evt2 = False
+		s12_evt1 = False
+		s12_evt0 = False
+		s11_l1 = False
+		s11_l0 = False
+		s11_evt2 = False
+		s11_evt1 = False
+		s10_l1 = False
+		s10_l0 = False
+		s10_evt2 = False
+		s10_evt1 = False
+		s10_evt0 = False
+		s9_l0 = False
+		s9_evt2 = False
+		s9_evt1 = False
+		s9_evt0 = False
+		s8_l1 = False
+		s8_l0 = False
+		s8_evt2 = False
+		s8_evt1 = False
+		s3_evt0 = False
+		s2_evt0 = False
+		s1_evt0 = False
+		s6_x = 1.0
+		s1_evt1 = False
+		s9_l1 = False
+		s5_l1 = False
+		s2_evt2 = False
+		s1_evt2 = False
+		bus_j = 0
+		s0_x = 1.0
+		bus_x = 1.0
+		s2_evt1 = False
+		s13_evt2 = False
+		bus_cd_id = 0
+		bus_evt0 = True
+		s4_evt0 = False
+		bus_evt1 = False
+		s4_evt1 = False
+		bus_l0 = True
+		s4_l0 = False
+		s11_evt0 = False
+		bus_evt2 = False
+		s4_evt2 = False
+		bus_l1 = False
+		s4_l1 = False
+		s2_l0 = False
+		s1_l0 = False
+		s2_l1 = False
+		s1_l1 = False
+		s3_evt1 = False
+		s3_evt2 = False
+		s3_l0 = False
+		_diverge_delta = 1.0
+		s3_l1 = False
+		s5_evt0 = False
+		s5_evt1 = False
+		s5_evt2 = False
+		s5_l0 = False
+		s6_evt0 = False
+		s6_evt1 = False
+		s6_evt2 = False
+		s6_l0 = False
+		s6_l1 = True
+		s0_evt0 = True
+		s7_evt0 = False
+		s0_evt1 = False
+		s7_evt1 = False
+		s0_evt2 = False
+		s7_evt2 = False
+		s0_l0 = True
+		s7_l0 = False
+		s0_l1 = False
+		s7_l1 = False
+		s8_evt0 = False
+		_J2744 = True
+		_J2753 = True
+		_J2759 = False
+		_J2765 = True
+		_EL_U_2717 = True
+		_EL_U_2719 = False
+		_EL_U_2721 = False
+		_EL_U_2724 = False
+		((-1.0 * s2_x) < -404.0)
+		((-1.0 * s9_x) < -404.0)
+		((-1.0 * s10_x) < -404.0)
+		((-1.0 * s3_x) < -404.0)
+		(((-1.0 * s3_x) + (-1.0 * s2_x) + (-1.0 * s1_x) + (-1.0 * s8_x) + (-1.0 * s4_x) + (-1.0 * s13_x) + (-1.0 * s12_x) + (-1.0 * s11_x) + (-1.0 * s5_x) + (-1.0 * s7_x) + (-1.0 * s10_x) + (-1.0 * s9_x) + 33981/7) <= 0.0)
+		((-1.0 * s11_x) < -404.0)
+		((-1.0 * s4_x) < -404.0)
+		((-1.0 * s5_x) < -404.0)
+		((-1.0 * s12_x) < -404.0)
+		((-1.0 * s1_x) < -404.0)
+		((-1.0 * s7_x) < -404.0)
+		((-1.0 * s13_x) < -404.0)
+		((-1.0 * s8_x) < -404.0)
+	Trans 8 -- 9
+		_x_s3_x = s3_x
+		_x_s2_x = s2_x
+		_x_s1_x = s1_x
+		_x_s8_x = s8_x
+		_x_s4_x = s4_x
+		_x_s13_x = s13_x
+		_x_s12_x = s12_x
+		_x_s11_x = s11_x
+		_x_s5_x = s5_x
+		_x_s7_x = s7_x
+		_x_s10_x = s10_x
+		_x_s9_x = s9_x
+	starting from: {delta: 0.0, s13_l1: False, s13_l0: False, s13_evt1: False, s13_evt0: False, s12_l1: False, s12_l0: False, s12_evt2: False, s12_evt1: False, s12_evt0: False, s12_x: 124657973/307797, s11_l1: False, s11_l0: False, s11_evt2: False, s11_evt1: False, s10_l1: False, s10_l0: False, s10_evt2: False, s10_evt1: False, s10_evt0: False, s9_l0: False, s9_evt2: False, s9_evt1: False, s9_evt0: False, s9_x: 124657973/307797, s8_l1: False, s8_l0: False, s8_evt2: False, s8_evt1: False, s3_x: 124657973/307797, s2_x: 124657973/307797, s1_x: 124657973/307797, s3_evt0: False, s8_x: 124657973/307797, s2_evt0: False, s1_evt0: False, s6_x: 1.0, s1_evt1: False, s9_l1: False, s5_l1: False, s2_evt2: False, s13_x: 124657973/307797, s1_evt2: False, s11_x: 124657973/307797, bus_j: 1, s7_x: 124657973/307797, s0_x: 0.0, bus_x: 0.0, s2_evt1: False, s13_evt2: False, bus_cd_id: 6, bus_evt0: True, s4_evt0: False, bus_evt1: False, s4_evt1: False, s10_x: 124657973/307797, bus_l0: True, s4_l0: False, s11_evt0: False, bus_evt2: False, s4_evt2: False, bus_l1: True, s4_l1: False, s2_l0: False, s1_l0: False, s2_l1: False, s1_l1: False, s3_evt1: False, s3_evt2: False, s3_l0: False, _diverge_delta: 0.0, s3_l1: False, s4_x: 124657973/307797, s5_x: 124657973/307797, s5_evt0: False, s5_evt1: False, s5_evt2: False, s5_l0: False, s6_evt0: True, s6_evt1: False, s6_evt2: False, s6_l0: False, s6_l1: True, s0_evt0: False, s7_evt0: False, s0_evt1: False, s7_evt1: False, s0_evt2: False, s7_evt2: False, s0_l0: True, s7_l0: False, s0_l1: False, s7_l1: False, s8_evt0: False, _J2744: True, _J2753: True, _J2759: True, _J2765: True, _EL_U_2717: True, _EL_U_2719: False, _EL_U_2721: False, _EL_U_2724: False}
+
+end of `csma_0014`: SUCCESS in 165.66137623786926s

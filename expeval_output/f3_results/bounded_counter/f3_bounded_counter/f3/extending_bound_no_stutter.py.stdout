@@ -1,0 +1,75 @@
+
+
+run 1/1: `extending_bound_no_stutter`
+
+	Found non-termination argument:
+	Do states 3..3 while ((((i * 17/16) + 17/16) - (l * 17/16)) < 0.0)
+	State 3
+		_EL_U_69 = False
+		inc_i = True
+		r = 3/4
+		_J91 = True
+		_J97 = True
+		_J102 = True
+		_J108 = True
+		_EL_U_63 = True
+		_EL_U_65 = False
+		_EL_U_67 = True
+		(((-1.0 * l) + i) < 0.0)
+		((-1.0 * l) < 0.0)
+		((-1.0 * i) < 0.0)
+		((-1.0 * i) <= -3/4)
+	Trans 3 -- 3
+		_x_i : (i + 1.0)
+		_x_l : l
+	End do-while
+	State 3
+		_EL_U_69 = False
+		inc_i = True
+		r = 3/4
+		_J91 = True
+		_J97 = True
+		_J102 = True
+		_J108 = True
+		_EL_U_63 = True
+		_EL_U_65 = False
+		_EL_U_67 = True
+		((-1.0 * i) <= 1/4)
+		((-1.0 * l) < 0.0)
+		((((l * 17/16) + -17/16) - (i * 17/16)) <= 0.0)
+		(((-1.0 * l) + i) < 0.0)
+		(((-1.0 * i) + l) <= 1.0)
+	Trans 3 -- 4
+		_x_i = (i + 1.0)
+		_x_l = l
+	State 4
+		_EL_U_69 = False
+		inc_i = True
+		r = 3/4
+		_J91 = False
+		_J97 = False
+		_J102 = False
+		_J108 = False
+		_EL_U_63 = True
+		_EL_U_65 = False
+		_EL_U_67 = True
+	Trans 4 -- 5
+		_x_i = 0.0
+		_x_l = (l + 1.0)
+	State 5
+		_EL_U_69 = False
+		inc_i = False
+		r = 3/4
+		_J91 = False
+		_J97 = True
+		_J102 = True
+		_J108 = True
+		_EL_U_63 = True
+		_EL_U_65 = False
+		_EL_U_67 = True
+	Trans 5 -- 6
+		_x_i = (i + 1.0)
+		_x_l = l
+	starting from: {_EL_U_69: False, inc_i: True, l: 2.0, r: 3/4, i: 1.0, _J91: True, _J97: True, _J102: True, _J108: True, _EL_U_63: True, _EL_U_65: False, _EL_U_67: True}
+
+end of `extending_bound_no_stutter`: SUCCESS in 1.219341516494751s

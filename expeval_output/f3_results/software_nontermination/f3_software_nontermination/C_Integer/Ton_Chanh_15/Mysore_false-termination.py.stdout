@@ -1,0 +1,36 @@
+
+
+run 1/1: `Mysore_false-termination`
+
+	Found non-termination argument:
+	Do states 1..3 while ((ToReal(x) + ToReal(c) + 7/4) < 0.0)
+	State 1
+		pc = 1
+		(((-1 * x) + (-1 * c)) <= 0)
+		(c < 0)
+	Trans 1 -- 2
+		_x_x : x
+		_x_c : c
+	State 2
+		pc = 2
+	Trans 2 -- 3
+		_x_x : ((-1 * c) + x)
+		_x_c : c
+	State 3
+		pc = 3
+	Trans 3 -- 1
+		_x_x : x
+		_x_c : (c + -1)
+	End do-while
+	State 3
+		pc = 3
+		(((-1 * x) + (-1 * c)) <= -1)
+		(c < 0)
+		(c < 1)
+		(((-1.0 * ToReal(c)) + (-1.0 * ToReal(x)) + -7/4) <= 0.0)
+	Trans 3 -- 4
+		_x_x = x
+		_x_c = (c + -1)
+	starting from: {pc: 1, x: 1, c: -1}
+
+end of `Mysore_false-termination`: SUCCESS in 0.7207741737365723s

@@ -1,0 +1,7 @@
+
+
+run 1/1: `1`
+
+	Found non-termination argument:
+	[{z: -1, pc: 0, x: 0, y: 0}, {z: 2, pc: 1, x: 0, y: 0}, {z: -1, pc: 0, x: 0, y: 0}]
+end of `1`: SUCCESS in 0.04300856590270996s

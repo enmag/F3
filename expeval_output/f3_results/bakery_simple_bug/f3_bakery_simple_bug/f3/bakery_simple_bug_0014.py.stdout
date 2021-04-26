@@ -1,0 +1,321 @@
+
+
+run 1/1: `bakery_simple_bug_0014`
+
+	Found non-termination argument:
+	Do states 5..8 while ((((ToReal(max_num) * 1/9) + (ToReal(min_num) * 2/7) + -3/13) - (ToReal(num0) * 1/9)) < 0.0)
+	State 5
+		p12_l0 = False
+		p11_l1 = False
+		p11_l0 = False
+		p10_l0 = False
+		p9_l1 = False
+		p9_l0 = False
+		p6_l1 = False
+		p12_l1 = False
+		p6_l0 = False
+		p5_l1 = False
+		p5_l0 = False
+		p4_l1 = False
+		_EL_U_1462 = True
+		p4_l0 = False
+		p7_l0 = False
+		num6 = 0
+		run3 = False
+		num5 = 0
+		run2 = False
+		num4 = 0
+		run1 = False
+		num3 = 0
+		run0 = False
+		num2 = 0
+		_EL_U_1470 = True
+		num1 = 0
+		p7_l1 = False
+		num7 = 0
+		p13_l0 = False
+		num8 = 0
+		p13_l1 = False
+		num9 = 0
+		p8_l0 = False
+		num10 = 0
+		p8_l1 = False
+		num11 = 0
+		p2_l1 = False
+		num12 = 0
+		p3_l0 = False
+		num13 = 0
+		p3_l1 = False
+		p10_l1 = False
+		p0_l0 = True
+		p0_l1 = False
+		p1_l0 = False
+		p2_l0 = False
+		p1_l1 = False
+		_J1493 = True
+		_J1499 = True
+		_J1504 = True
+		_J1510 = True
+		_J1519 = True
+		_EL_U_1463 = True
+		_EL_U_1466 = False
+		_EL_U_1468 = False
+		(((-1 * max_num) + num0) = 0)
+		((-1 * num0) <= 0)
+		((-1 * max_num) <= 0)
+		(((-1 * min_num) + num0) = 0)
+		((-1 * num0) < 0)
+		((-1 * min_num) < 0)
+		((-1 * max_num) < 0)
+	Trans 5 -- 6
+		_x_num0 : num0
+		_x_max_num : num0
+		_x_min_num : num0
+	State 6
+		p12_l0 = False
+		p11_l1 = False
+		p11_l0 = False
+		p10_l0 = False
+		p9_l1 = False
+		p9_l0 = False
+		p6_l1 = False
+		p12_l1 = False
+		p6_l0 = False
+		p5_l1 = False
+		p5_l0 = False
+		p4_l1 = False
+		_EL_U_1462 = True
+		p4_l0 = False
+		p7_l0 = False
+		num6 = 0
+		run3 = False
+		num5 = 0
+		run2 = False
+		num4 = 0
+		run1 = False
+		num3 = 0
+		run0 = False
+		num2 = 0
+		_EL_U_1470 = True
+		num1 = 0
+		p7_l1 = False
+		num7 = 0
+		p13_l0 = False
+		num8 = 0
+		p13_l1 = False
+		num9 = 0
+		p8_l0 = False
+		num10 = 0
+		p8_l1 = False
+		num11 = 0
+		p2_l1 = False
+		num12 = 0
+		p3_l0 = False
+		num13 = 0
+		p3_l1 = False
+		p10_l1 = False
+		p0_l0 = False
+		p0_l1 = True
+		p1_l0 = False
+		p2_l0 = False
+		p1_l1 = False
+		_J1493 = False
+		_J1499 = False
+		_J1504 = False
+		_J1510 = False
+		_J1519 = False
+		_EL_U_1463 = True
+		_EL_U_1466 = False
+		_EL_U_1468 = False
+	Trans 6 -- 7
+		_x_num0 : num0
+		_x_max_num : num0
+		_x_min_num : num0
+	State 7
+		p12_l0 = False
+		p11_l1 = False
+		p11_l0 = False
+		p10_l0 = False
+		p9_l1 = False
+		p9_l0 = False
+		p6_l1 = False
+		p12_l1 = False
+		p6_l0 = False
+		p5_l1 = False
+		p5_l0 = False
+		p4_l1 = False
+		_EL_U_1462 = True
+		p4_l0 = False
+		p7_l0 = False
+		num6 = 0
+		run3 = False
+		num5 = 0
+		run2 = False
+		num4 = 0
+		run1 = False
+		num3 = 0
+		run0 = False
+		num2 = 0
+		_EL_U_1470 = True
+		num1 = 0
+		p7_l1 = False
+		num7 = 0
+		p13_l0 = False
+		num8 = 0
+		p13_l1 = False
+		num9 = 0
+		p8_l0 = False
+		num10 = 0
+		p8_l1 = False
+		num11 = 0
+		p2_l1 = False
+		num12 = 0
+		p3_l0 = False
+		num13 = 0
+		p3_l1 = False
+		p10_l1 = False
+		p0_l0 = True
+		p0_l1 = True
+		p1_l0 = False
+		p2_l0 = False
+		p1_l1 = False
+		_J1493 = True
+		_J1499 = True
+		_J1504 = False
+		_J1510 = True
+		_J1519 = True
+		_EL_U_1463 = True
+		_EL_U_1466 = False
+		_EL_U_1468 = False
+	Trans 7 -- 8
+		_x_num0 : num0
+		_x_max_num : num0
+		_x_min_num : num0
+	State 8
+		p12_l0 = False
+		p11_l1 = False
+		p11_l0 = False
+		p10_l0 = False
+		p9_l1 = False
+		p9_l0 = False
+		p6_l1 = False
+		p12_l1 = False
+		p6_l0 = False
+		p5_l1 = False
+		p5_l0 = False
+		p4_l1 = False
+		_EL_U_1462 = True
+		p4_l0 = False
+		p7_l0 = False
+		num6 = 0
+		run3 = False
+		num5 = 0
+		run2 = False
+		num4 = 0
+		run1 = False
+		num3 = 0
+		run0 = False
+		num2 = 0
+		_EL_U_1470 = True
+		num1 = 0
+		p7_l1 = False
+		num7 = 0
+		p13_l0 = False
+		num8 = 0
+		p13_l1 = False
+		num9 = 0
+		p8_l0 = False
+		num10 = 0
+		p8_l1 = False
+		num11 = 0
+		p2_l1 = False
+		num12 = 0
+		p3_l0 = False
+		num13 = 0
+		p3_l1 = False
+		p10_l1 = False
+		p0_l0 = False
+		p0_l1 = False
+		p1_l0 = False
+		p2_l0 = False
+		p1_l1 = False
+		_J1493 = True
+		_J1499 = True
+		_J1504 = False
+		_J1510 = True
+		_J1519 = True
+		_EL_U_1463 = True
+		_EL_U_1466 = False
+		_EL_U_1468 = False
+	Trans 8 -- 5
+		_x_num0 : (max_num + 1)
+		_x_max_num : (max_num + 1)
+		_x_min_num : (max_num + 1)
+	End do-while
+	State 8
+		p12_l0 = False
+		p11_l1 = False
+		p11_l0 = False
+		p10_l0 = False
+		p9_l1 = False
+		p9_l0 = False
+		p6_l1 = False
+		p12_l1 = False
+		p6_l0 = False
+		p5_l1 = False
+		p5_l0 = False
+		p4_l1 = False
+		_EL_U_1462 = True
+		p4_l0 = False
+		p7_l0 = False
+		num6 = 0
+		run3 = False
+		num5 = 0
+		run2 = False
+		num4 = 0
+		run1 = False
+		num3 = 0
+		run0 = False
+		num2 = 0
+		_EL_U_1470 = True
+		num1 = 0
+		p7_l1 = False
+		num7 = 0
+		p13_l0 = False
+		num8 = 0
+		p13_l1 = False
+		num9 = 0
+		p8_l0 = False
+		num10 = 0
+		p8_l1 = False
+		num11 = 0
+		p2_l1 = False
+		num12 = 0
+		p3_l0 = False
+		num13 = 0
+		p3_l1 = False
+		p10_l1 = False
+		p0_l0 = False
+		p0_l1 = False
+		p1_l0 = False
+		p2_l0 = False
+		p1_l1 = False
+		_J1493 = True
+		_J1499 = True
+		_J1504 = False
+		_J1510 = True
+		_J1519 = True
+		_EL_U_1463 = True
+		_EL_U_1466 = False
+		_EL_U_1468 = False
+		((-1 * max_num) <= 1)
+		((((ToReal(num0) * 1/9) + 3/13) - ((ToReal(min_num) * 2/7) + (ToReal(max_num) * 1/9))) <= 0.0)
+		((-1 * max_num) < 1)
+		((-1 * max_num) <= 0)
+	Trans 8 -- 9
+		_x_num0 = (max_num + 1)
+		_x_max_num = (max_num + 1)
+		_x_min_num = (max_num + 1)
+	starting from: {p12_l0: False, p11_l1: False, p11_l0: False, p10_l0: False, p9_l1: False, p9_l0: False, p6_l1: False, p12_l1: False, p6_l0: False, p5_l1: False, p5_l0: False, p4_l1: False, num0: 2, p4_l0: False, p7_l0: False, num6: 0, run3: False, num5: 0, run2: False, num4: 0, run1: False, num3: 0, run0: False, num2: 0, max_num: 2, num1: 0, min_num: 2, p7_l1: False, num7: 0, p13_l0: False, num8: 0, p13_l1: False, num9: 0, p8_l0: False, num10: 0, p8_l1: False, num11: 0, p2_l1: False, num12: 0, p3_l0: False, num13: 0, p3_l1: False, p10_l1: False, p0_l0: True, p0_l1: False, p1_l0: False, p2_l0: False, p1_l1: False, _J1493: True, _J1499: True, _J1504: True, _J1510: True, _J1519: True, _EL_U_1470: True, _EL_U_1462: True, _EL_U_1463: True, _EL_U_1466: False, _EL_U_1468: False}
+
+end of `bakery_simple_bug_0014`: SUCCESS in 56.04865646362305s

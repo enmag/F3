@@ -1,0 +1,8 @@
+group: ultimate_bakery_simple_bug
+platform: Linux node1 5.4.0-56-generic #62-Ubuntu SMP Mon Nov 23 19:20:19 UTC 2020 x86_64 x86_64
+timestamp: 1619272233
+time: 2021-04-24 15:50:33
+exitcode: 0
+real: 959.98
+user: 0.2
+sys: 0.62

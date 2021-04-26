@@ -1,0 +1,62 @@
+
+
+run 1/1: `10`
+
+	Found non-termination argument:
+	Do states 3..7 while (((ToReal(z) * 1/58) + ToReal(a) + 13/14) < 0.0)
+	State 3
+		b = -1
+		pc = 3
+		x = 1
+		y = 1
+		(z < 42)
+		((-1 * a) <= 0)
+	Trans 3 -- 4
+		_x_z : z
+		_x_a : a
+	State 4
+		b = -1
+		pc = 4
+		x = 1
+		y = 1
+	Trans 4 -- 5
+		_x_z : z
+		_x_a : a
+	State 5
+		b = -1
+		pc = 7
+		x = 1
+		y = 1
+	Trans 5 -- 6
+		_x_z : z
+		_x_a : a
+	State 6
+		b = -1
+		pc = 8
+		x = 1
+		y = 1
+	Trans 6 -- 7
+		_x_z : (-1 * a)
+		_x_a : a
+	State 7
+		b = -1
+		pc = 9
+		x = 1
+		y = 1
+	Trans 7 -- 3
+		_x_z : z
+		_x_a : (a + 1)
+	End do-while
+	State 7
+		b = -1
+		pc = 9
+		x = 1
+		y = 1
+		((((-1.0 * ToReal(a)) + -13/14) - (ToReal(z) * 1/58)) <= 0.0)
+		(z < 42)
+	Trans 7 -- 8
+		_x_z = z
+		_x_a = (a + 1)
+	starting from: {a: 0, b: -1, pc: 3, x: 1, y: 1, z: 0}
+
+end of `10`: SUCCESS in 1.48518967628479s

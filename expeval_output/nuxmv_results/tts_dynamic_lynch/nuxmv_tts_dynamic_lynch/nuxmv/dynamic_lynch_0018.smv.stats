@@ -1,0 +1,8 @@
+group: nuxmv_tts_dynamic_lynch
+platform: Linux node2 5.4.0-56-generic #62-Ubuntu SMP Mon Nov 23 19:20:19 UTC 2020 x86_64 x86_64
+timestamp: 1616285300
+time: 2021-03-21 01:08:20
+exitcode: 0
+real: 3602.11
+user: 3593.58
+sys: 7.52

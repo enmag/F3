@@ -1,0 +1,147 @@
+
+
+run 1/1: `critical_region_0005`
+
+	Found non-termination argument:
+	State 1
+		pc3_l0 = False
+		pc3_evt1 = True
+		pc2_l2 = False
+		pc2_l1 = False
+		pc2_l0 = False
+		pc4_l2 = False
+		pc2_evt1 = False
+		pc3_evt0 = True
+		pc1_l1 = False
+		a2_l = False
+		pc4_l0 = False
+		a2_evt1 = False
+		a3_l = False
+		a2_evt0 = True
+		pc0_l1 = False
+		pc4_l1 = False
+		pc2_evt0 = False
+		pc4_evt0 = True
+		c_initial = True
+		c_move = False
+		a0_evt0 = False
+		a1_l = False
+		a0_l = False
+		id = 0
+		pc0_l2 = False
+		a3_evt0 = False
+		a3_evt1 = True
+		pc4_evt1 = True
+		a4_l = False
+		pc1_l2 = False
+		a4_evt0 = False
+		a0_evt1 = True
+		pc1_l0 = False
+		pc0_evt0 = True
+		pc0_evt1 = True
+		a4_evt1 = True
+		pc0_l0 = False
+		pc3_l1 = False
+		a1_evt0 = False
+		pc1_evt0 = True
+		pc3_l2 = False
+		a1_evt1 = True
+		pc1_evt1 = True
+		_J1270 = True
+		_J1276 = True
+		_J1285 = True
+		_J1292 = True
+		_J1298 = True
+		_EL_U_1237 = True
+		_EL_U_1239 = False
+		_EL_U_1242 = False
+		_EL_U_1244 = False
+		_EL_U_1246 = True
+		((-1.0 * delta) < 0.0)
+		((-1.0 * _diverge_delta) <= -1.0)
+		((-1.0 * pc1_x) < -50.0)
+		((-1.0 * pc0_x) < -50.0)
+		((-1.0 * pc2_x) < -50.0)
+		((-1.0 * pc4_x) < -50.0)
+		((-1.0 * pc3_x) < -50.0)
+		((-1.0 * delta) <= -1.0)
+	Trans 1 -- 2
+		_x_pc2_x = (pc2_x + delta)
+		_x_delta = (pc2_x + delta + _diverge_delta + pc4_x + pc1_x + pc3_x + pc0_x + -1.0)
+		_x__diverge_delta = delta
+		_x_pc4_x = (pc4_x + delta)
+		_x_pc1_x = (pc1_x + delta)
+		_x_pc3_x = (pc3_x + delta)
+		_x_pc0_x = (pc0_x + delta)
+	State 2
+		pc3_l0 = False
+		pc3_evt1 = False
+		pc2_l2 = False
+		pc2_l1 = False
+		pc2_l0 = False
+		pc4_l2 = False
+		pc2_evt1 = False
+		pc3_evt0 = False
+		pc1_l1 = False
+		a2_l = False
+		pc4_l0 = False
+		a2_evt1 = True
+		a3_l = False
+		a2_evt0 = False
+		pc0_l1 = False
+		pc4_l1 = False
+		pc2_evt0 = False
+		pc4_evt0 = False
+		c_initial = True
+		c_move = False
+		a0_evt0 = False
+		a1_l = False
+		a0_l = False
+		id = 4
+		pc0_l2 = False
+		a3_evt0 = True
+		a3_evt1 = False
+		pc4_evt1 = False
+		a4_l = False
+		pc1_l2 = False
+		a4_evt0 = False
+		a0_evt1 = False
+		pc1_l0 = False
+		pc0_evt0 = False
+		pc0_evt1 = False
+		a4_evt1 = False
+		pc0_l0 = False
+		pc3_l1 = False
+		a1_evt0 = False
+		pc1_evt0 = False
+		pc3_l2 = False
+		a1_evt1 = False
+		pc1_evt1 = False
+		_J1270 = False
+		_J1276 = False
+		_J1285 = False
+		_J1292 = False
+		_J1298 = False
+		_EL_U_1237 = True
+		_EL_U_1239 = False
+		_EL_U_1242 = False
+		_EL_U_1244 = False
+		_EL_U_1246 = True
+		(((-1.0 * pc0_x) + (-1.0 * delta)) < -50.0)
+		(((-1.0 * pc4_x) + (-1.0 * delta)) < -50.0)
+		(((-1.0 * pc1_x) + (-1.0 * delta)) < -50.0)
+		(((-1.0 * pc2_x) + (-1.0 * delta)) < -50.0)
+		((-1.0 * delta) < 0.0)
+		(((-1.0 * pc3_x) + (-1.0 * delta)) < -50.0)
+		((-1.0 * delta) <= -1.0)
+	Trans 2 -- 3
+		_x_pc2_x = (pc2_x + delta)
+		_x_delta = (pc2_x + (-1.0 * _diverge_delta) + pc4_x + pc1_x + pc3_x + pc0_x + -1.0)
+		_x__diverge_delta = delta
+		_x_pc4_x = (pc4_x + delta)
+		_x_pc1_x = (pc1_x + delta)
+		_x_pc3_x = (pc3_x + delta)
+		_x_pc0_x = (pc0_x + delta)
+	starting from: {delta: 1.0, _diverge_delta: 262/5, pc4_x: 262/5, pc3_l0: False, pc3_evt1: True, pc2_l2: False, pc2_l1: False, pc2_l0: False, pc4_l2: False, pc2_evt1: False, pc3_evt0: True, pc2_x: 262/5, pc1_l1: False, a2_l: False, pc4_l0: False, a2_evt1: False, a3_l: False, a2_evt0: True, pc0_l1: False, pc4_l1: False, pc2_evt0: False, pc1_x: 262/5, pc4_evt0: True, pc3_x: 262/5, c_initial: True, pc0_x: 262/5, c_move: False, a0_evt0: False, a1_l: False, a0_l: False, id: 0, pc0_l2: False, a3_evt0: False, a3_evt1: True, pc4_evt1: True, a4_l: False, pc1_l2: False, a4_evt0: False, a0_evt1: True, pc1_l0: False, pc0_evt0: True, pc0_evt1: True, a4_evt1: True, pc0_l0: False, pc3_l1: False, a1_evt0: False, pc1_evt0: True, pc3_l2: False, a1_evt1: True, pc1_evt1: True, _J1270: True, _J1276: True, _J1285: True, _J1292: True, _J1298: True, _EL_U_1237: True, _EL_U_1239: False, _EL_U_1242: False, _EL_U_1244: False, _EL_U_1246: True}
+
+end of `critical_region_0005`: SUCCESS in 3.7906293869018555s

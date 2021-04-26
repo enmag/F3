@@ -1,0 +1,29 @@
+
+
+run 1/1: `NonTerminationSimple8_false-termination`
+
+	Found non-termination argument:
+	Do states 0..2 while ((ToReal(x) + -1/4) < 0.0)
+	State 0
+		pc = 0
+		((-1 * x) <= 0)
+	Trans 0 -- 1
+		_x_x : x
+	State 1
+		pc = 1
+	Trans 1 -- 2
+		_x_x : x
+	State 2
+		pc = 2
+	Trans 2 -- 0
+		_x_x : (x + 1)
+	End do-while
+	State 2
+		pc = 2
+		(((-1.0 * ToReal(x)) + 1/4) <= 0.0)
+		((-1 * x) <= 1)
+	Trans 2 -- 3
+		_x_x = (x + 1)
+	starting from: {pc: 0, x: 0}
+
+end of `NonTerminationSimple8_false-termination`: SUCCESS in 0.5114700794219971s

@@ -1,0 +1,8 @@
+group: divine_ta_csma_cd
+platform: Linux node4 5.4.0-54-generic #60-Ubuntu SMP Fri Nov 6 10:37:59 UTC 2020 x86_64 x86_64
+timestamp: 1616099217
+time: 2021-03-18 21:26:57
+exitcode: 0
+real: 3602.42
+user: 3599.67
+sys: 1.7

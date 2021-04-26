@@ -1,0 +1,7 @@
+
+
+run 1/1: `2a`
+
+	Found non-termination argument:
+	[{a: 36, b: 18, pc: 7, x: 18, y: 3, z: 6}, {a: 36, b: 18, pc: 8, x: 18, y: 3, z: 6}, {a: 36, b: 18, pc: 9, x: 18, y: 3, z: 6}, {a: 36, b: 18, pc: 10, x: 18, y: 3, z: 6}, {a: 36, b: 18, pc: 7, x: 18, y: 3, z: 6}]
+end of `2a`: SUCCESS in 0.2868666648864746s

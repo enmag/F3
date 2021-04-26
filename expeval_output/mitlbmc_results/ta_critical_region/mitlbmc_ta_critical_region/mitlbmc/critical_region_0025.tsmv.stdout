@@ -1,0 +1,216 @@
+Property 0 [36;1m(FALSE SR ((pc0.l != error) | (pc1.l != error))) -> (FALSE SR (TRUE SU (id = 0)))[0m ..... [31;1mdoes not hold[0m 
+>>> Index:         0          1          loop  2          3          4        
+>>> Type:          |          (-)        loop  |          (-)        |        
+---------------------------------------> loop <-------------------------------
++0-obligation-0    F          T          loop  T          T          T        
++0-subexp-0        T          T          loop  F          T          F        
++1-subexp-0        F          F          loop  F          F          F        
++2-subexp-0        T          T          loop  T          T          T        
+---------------------------------------> loop <-------------------------------
++3-subexp-0        T          T          loop  F          T          F        
++4-subexp-0        T          T          loop  T          T          T        
++5-subexp-0        F          F          loop  T          F          T        
++6-obligation-0    F          F          loop  T          T          T        
+---------------------------------------> loop <-------------------------------
++6-subexp-0        F          F          loop  T          F          T        
++7-subexp-0        F          F          loop  F          F          F        
++8-subexp-0        T          T          loop  T          T          T        
+-fair-0-0          T          T          loop  T          F          F        
+---------------------------------------> loop <-------------------------------
+-loop-0            F          F          loop  T          F          F        
+-loop-elapse-0     T          T          loop  T          T          F        
+-ok-pc0.x-0        T          T          loop  T          T          F        
+-ok-pc1.x-0        T          T          loop  T          T          F        
+---------------------------------------> loop <-------------------------------
+-ok-pc10.x-0       T          T          loop  T          T          F        
+-ok-pc11.x-0       T          T          loop  T          T          F        
+-ok-pc12.x-0       T          T          loop  T          T          F        
+-ok-pc13.x-0       T          T          loop  T          T          F        
+---------------------------------------> loop <-------------------------------
+-ok-pc14.x-0       T          T          loop  T          T          F        
+-ok-pc15.x-0       T          T          loop  T          T          F        
+-ok-pc16.x-0       T          T          loop  T          T          F        
+-ok-pc17.x-0       T          T          loop  T          T          F        
+---------------------------------------> loop <-------------------------------
+-ok-pc18.x-0       T          T          loop  T          T          F        
+-ok-pc19.x-0       T          T          loop  T          T          F        
+-ok-pc2.x-0        T          T          loop  T          T          F        
+-ok-pc20.x-0       T          T          loop  T          T          F        
+---------------------------------------> loop <-------------------------------
+-ok-pc21.x-0       T          T          loop  T          T          F        
+-ok-pc22.x-0       T          T          loop  T          T          F        
+-ok-pc23.x-0       T          T          loop  T          T          F        
+-ok-pc24.x-0       T          T          loop  T          T          F        
+---------------------------------------> loop <-------------------------------
+-ok-pc3.x-0        T          T          loop  T          T          F        
+-ok-pc4.x-0        T          T          loop  T          T          F        
+-ok-pc5.x-0        T          T          loop  T          T          F        
+-ok-pc6.x-0        T          T          loop  T          T          F        
+---------------------------------------> loop <-------------------------------
+-ok-pc7.x-0        T          T          loop  T          T          F        
+-ok-pc8.x-0        T          T          loop  T          T          F        
+-ok-pc9.x-0        T          T          loop  T          T          F        
+-smaller-exists-0  F          F          loop  F          T          T        
+---------------------------------------> loop <-------------------------------
+@delta-0           0          154/3      loop  0          4/3        0        
+@open-0            F          T          loop  F          T          F        
+a0.evt-0           enter      enter      loop  enter      enter      enter    
+a0.l-0             s1         s1         loop  s1         s1         s1       
+---------------------------------------> loop <-------------------------------
+a1.evt-0           enter      enter      loop  enter      enter      enter    
+a1.l-0             s1         s1         loop  s1         s1         s1       
+a10.evt-0          enter      enter      loop  enter      enter      enter    
+a10.l-0            s1         s1         loop  s1         s1         s1       
+---------------------------------------> loop <-------------------------------
+a11.evt-0          stutter    stutter    loop  stutter    stutter    stutter  
+a11.l-0            s1         s1         loop  s1         s1         s1       
+a12.evt-0          stutter    stutter    loop  stutter    stutter    stutter  
+a12.l-0            s1         s1         loop  s1         s1         s1       
+---------------------------------------> loop <-------------------------------
+a13.evt-0          exit       exit       loop  exit       exit       exit     
+a13.l-0            s1         s1         loop  s1         s1         s1       
+a14.evt-0          stutter    stutter    loop  stutter    stutter    stutter  
+a14.l-0            s1         s1         loop  s1         s1         s1       
+---------------------------------------> loop <-------------------------------
+a15.evt-0          enter      enter      loop  enter      enter      enter    
+a15.l-0            s1         s1         loop  s1         s1         s1       
+a16.evt-0          stutter    stutter    loop  stutter    stutter    stutter  
+a16.l-0            s1         s1         loop  s1         s1         s1       
+---------------------------------------> loop <-------------------------------
+a17.evt-0          stutter    stutter    loop  stutter    stutter    stutter  
+a17.l-0            s1         s1         loop  s1         s1         s1       
+a18.evt-0          stutter    stutter    loop  stutter    stutter    stutter  
+a18.l-0            s1         s1         loop  s1         s1         s1       
+---------------------------------------> loop <-------------------------------
+a19.evt-0          exit       exit       loop  exit       exit       exit     
+a19.l-0            s1         s1         loop  s1         s1         s1       
+a2.evt-0           stutter    stutter    loop  stutter    stutter    stutter  
+a2.l-0             s1         s1         loop  s1         s1         s1       
+---------------------------------------> loop <-------------------------------
+a20.evt-0          enter      enter      loop  enter      enter      enter    
+a20.l-0            s1         s1         loop  s1         s1         s1       
+a21.evt-0          stutter    stutter    loop  stutter    stutter    stutter  
+a21.l-0            s1         s1         loop  s1         s1         s1       
+---------------------------------------> loop <-------------------------------
+a22.evt-0          exit       exit       loop  exit       exit       exit     
+a22.l-0            s1         s1         loop  s1         s1         s1       
+a23.evt-0          stutter    stutter    loop  stutter    stutter    stutter  
+a23.l-0            s1         s1         loop  s1         s1         s1       
+---------------------------------------> loop <-------------------------------
+a24.evt-0          exit       exit       loop  exit       exit       exit     
+a24.l-0            s1         s1         loop  s1         s1         s1       
+a3.evt-0           exit       exit       loop  exit       exit       exit     
+a3.l-0             s1         s1         loop  s1         s1         s1       
+---------------------------------------> loop <-------------------------------
+a4.evt-0           enter      enter      loop  enter      enter      enter    
+a4.l-0             s1         s1         loop  s1         s1         s1       
+a5.evt-0           stutter    stutter    loop  stutter    stutter    stutter  
+a5.l-0             s1         s1         loop  s1         s1         s1       
+---------------------------------------> loop <-------------------------------
+a6.evt-0           stutter    stutter    loop  stutter    stutter    stutter  
+a6.l-0             s1         s1         loop  s1         s1         s1       
+a7.evt-0           stutter    stutter    loop  stutter    stutter    stutter  
+a7.l-0             s1         s1         loop  s1         s1         s1       
+---------------------------------------> loop <-------------------------------
+a8.evt-0           stutter    stutter    loop  stutter    stutter    stutter  
+a8.l-0             s1         s1         loop  s1         s1         s1       
+a9.evt-0           stutter    stutter    loop  stutter    stutter    stutter  
+a9.l-0             s1         s1         loop  s1         s1         s1       
+---------------------------------------> loop <-------------------------------
+c.evt-0            move       move       loop  move       move       move     
+c.l-0              initial    initial    loop  initial    initial    initial  
+id-0               23         23         loop  23         23         23       
+pc0.evt-0          enter      enter      loop  enter      enter      enter    
+---------------------------------------> loop <-------------------------------
+pc0.l-0            not_ready  not_ready  loop  not_ready  not_ready  not_ready
+pc0.x-0            0          0          loop  154/3      154/3      158/3    
+pc1.evt-0          move       move       loop  move       move       move     
+pc1.l-0            not_ready  not_ready  loop  not_ready  not_ready  not_ready
+---------------------------------------> loop <-------------------------------
+pc1.x-0            0          0          loop  154/3      154/3      158/3    
+pc10.evt-0         enter      enter      loop  enter      enter      enter    
+pc10.l-0           not_ready  not_ready  loop  not_ready  not_ready  not_ready
+pc10.x-0           0          0          loop  154/3      154/3      158/3    
+---------------------------------------> loop <-------------------------------
+pc11.evt-0         move       move       loop  move       move       move     
+pc11.l-0           not_ready  not_ready  loop  not_ready  not_ready  not_ready
+pc11.x-0           0          0          loop  154/3      154/3      158/3    
+pc12.evt-0         move       move       loop  move       move       move     
+---------------------------------------> loop <-------------------------------
+pc12.l-0           not_ready  not_ready  loop  not_ready  not_ready  not_ready
+pc12.x-0           0          0          loop  154/3      154/3      158/3    
+pc13.evt-0         exit       exit       loop  exit       exit       exit     
+pc13.l-0           not_ready  not_ready  loop  not_ready  not_ready  not_ready
+---------------------------------------> loop <-------------------------------
+pc13.x-0           0          0          loop  154/3      154/3      158/3    
+pc14.evt-0         move       move       loop  move       move       move     
+pc14.l-0           not_ready  not_ready  loop  not_ready  not_ready  not_ready
+pc14.x-0           0          0          loop  154/3      154/3      158/3    
+---------------------------------------> loop <-------------------------------
+pc15.evt-0         enter      enter      loop  enter      enter      enter    
+pc15.l-0           not_ready  not_ready  loop  not_ready  not_ready  not_ready
+pc15.x-0           0          0          loop  154/3      154/3      158/3    
+pc16.evt-0         move       move       loop  move       move       move     
+---------------------------------------> loop <-------------------------------
+pc16.l-0           not_ready  not_ready  loop  not_ready  not_ready  not_ready
+pc16.x-0           0          0          loop  154/3      154/3      158/3    
+pc17.evt-0         move       move       loop  move       move       move     
+pc17.l-0           not_ready  not_ready  loop  not_ready  not_ready  not_ready
+---------------------------------------> loop <-------------------------------
+pc17.x-0           0          0          loop  154/3      154/3      158/3    
+pc18.evt-0         move       move       loop  move       move       move     
+pc18.l-0           not_ready  not_ready  loop  not_ready  not_ready  not_ready
+pc18.x-0           0          0          loop  154/3      154/3      158/3    
+---------------------------------------> loop <-------------------------------
+pc19.evt-0         move       move       loop  move       move       move     
+pc19.l-0           not_ready  not_ready  loop  not_ready  not_ready  not_ready
+pc19.x-0           0          0          loop  154/3      154/3      158/3    
+pc2.evt-0          stutter    stutter    loop  stutter    stutter    stutter  
+---------------------------------------> loop <-------------------------------
+pc2.l-0            not_ready  not_ready  loop  not_ready  not_ready  not_ready
+pc2.x-0            0          0          loop  154/3      154/3      158/3    
+pc20.evt-0         enter      enter      loop  enter      enter      enter    
+pc20.l-0           not_ready  not_ready  loop  not_ready  not_ready  not_ready
+---------------------------------------> loop <-------------------------------
+pc20.x-0           0          0          loop  154/3      154/3      158/3    
+pc21.evt-0         move       move       loop  move       move       move     
+pc21.l-0           not_ready  not_ready  loop  not_ready  not_ready  not_ready
+pc21.x-0           0          0          loop  154/3      154/3      158/3    
+---------------------------------------> loop <-------------------------------
+pc22.evt-0         move       move       loop  move       move       move     
+pc22.l-0           not_ready  not_ready  loop  not_ready  not_ready  not_ready
+pc22.x-0           0          0          loop  154/3      154/3      158/3    
+pc23.evt-0         move       move       loop  move       move       move     
+---------------------------------------> loop <-------------------------------
+pc23.l-0           not_ready  not_ready  loop  not_ready  not_ready  not_ready
+pc23.x-0           0          0          loop  154/3      154/3      158/3    
+pc24.evt-0         move       move       loop  move       move       move     
+pc24.l-0           not_ready  not_ready  loop  not_ready  not_ready  not_ready
+---------------------------------------> loop <-------------------------------
+pc24.x-0           0          0          loop  154/3      154/3      158/3    
+pc3.evt-0          enter      enter      loop  enter      enter      enter    
+pc3.l-0            not_ready  not_ready  loop  not_ready  not_ready  not_ready
+pc3.x-0            0          0          loop  154/3      154/3      158/3    
+---------------------------------------> loop <-------------------------------
+pc4.evt-0          move       move       loop  move       move       move     
+pc4.l-0            not_ready  not_ready  loop  not_ready  not_ready  not_ready
+pc4.x-0            0          0          loop  154/3      154/3      158/3    
+pc5.evt-0          move       move       loop  move       move       move     
+---------------------------------------> loop <-------------------------------
+pc5.l-0            not_ready  not_ready  loop  not_ready  not_ready  not_ready
+pc5.x-0            0          0          loop  154/3      154/3      158/3    
+pc6.evt-0          move       move       loop  move       move       move     
+pc6.l-0            not_ready  not_ready  loop  not_ready  not_ready  not_ready
+---------------------------------------> loop <-------------------------------
+pc6.x-0            0          0          loop  154/3      154/3      158/3    
+pc7.evt-0          move       move       loop  move       move       move     
+pc7.l-0            not_ready  not_ready  loop  not_ready  not_ready  not_ready
+pc7.x-0            0          0          loop  154/3      154/3      158/3    
+---------------------------------------> loop <-------------------------------
+pc8.evt-0          move       move       loop  move       move       move     
+pc8.l-0            not_ready  not_ready  loop  not_ready  not_ready  not_ready
+pc8.x-0            0          0          loop  154/3      154/3      158/3    
+pc9.evt-0          move       move       loop  move       move       move     
+---------------------------------------> loop <-------------------------------
+pc9.l-0            not_ready  not_ready  loop  not_ready  not_ready  not_ready
+pc9.x-0            0          0          loop  154/3      154/3      158/3    

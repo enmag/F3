@@ -1,0 +1,172 @@
+Creating empty 100MiB image file: /home/magnago/overlay/fischer_0023.c.ext3
+Formatting image with ext3 file system
+Image is done: /home/magnago/overlay/fischer_0023.c.ext3
+This is Ultimate 0.2.1-origin.dev-f91880a
+[2021-04-24 15:34:38,376 INFO  L177        SettingsManager]: Resetting all preferences to default values...
+[2021-04-24 15:34:38,379 INFO  L181        SettingsManager]: Resetting UltimateCore preferences to default values
+[2021-04-24 15:34:38,425 INFO  L184        SettingsManager]: Ultimate Commandline Interface provides no preferences, ignoring...
+[2021-04-24 15:34:38,425 INFO  L181        SettingsManager]: Resetting Boogie Preprocessor preferences to default values
+[2021-04-24 15:34:38,426 INFO  L181        SettingsManager]: Resetting Boogie Procedure Inliner preferences to default values
+[2021-04-24 15:34:38,427 INFO  L181        SettingsManager]: Resetting Abstract Interpretation preferences to default values
+[2021-04-24 15:34:38,428 INFO  L181        SettingsManager]: Resetting LassoRanker preferences to default values
+[2021-04-24 15:34:38,429 INFO  L181        SettingsManager]: Resetting Reaching Definitions preferences to default values
+[2021-04-24 15:34:38,430 INFO  L181        SettingsManager]: Resetting SyntaxChecker preferences to default values
+[2021-04-24 15:34:38,430 INFO  L181        SettingsManager]: Resetting Sifa preferences to default values
+[2021-04-24 15:34:38,431 INFO  L184        SettingsManager]: B?chi Program Product provides no preferences, ignoring...
+[2021-04-24 15:34:38,432 INFO  L181        SettingsManager]: Resetting LTL2Aut preferences to default values
+[2021-04-24 15:34:38,432 INFO  L181        SettingsManager]: Resetting PEA to Boogie preferences to default values
+[2021-04-24 15:34:38,433 INFO  L181        SettingsManager]: Resetting BlockEncodingV2 preferences to default values
+[2021-04-24 15:34:38,434 INFO  L181        SettingsManager]: Resetting ChcToBoogie preferences to default values
+[2021-04-24 15:34:38,435 INFO  L181        SettingsManager]: Resetting AutomataScriptInterpreter preferences to default values
+[2021-04-24 15:34:38,435 INFO  L181        SettingsManager]: Resetting BuchiAutomizer preferences to default values
+[2021-04-24 15:34:38,436 INFO  L181        SettingsManager]: Resetting CACSL2BoogieTranslator preferences to default values
+[2021-04-24 15:34:38,438 INFO  L181        SettingsManager]: Resetting CodeCheck preferences to default values
+[2021-04-24 15:34:38,439 INFO  L181        SettingsManager]: Resetting InvariantSynthesis preferences to default values
+[2021-04-24 15:34:38,440 INFO  L181        SettingsManager]: Resetting RCFGBuilder preferences to default values
+[2021-04-24 15:34:38,441 INFO  L181        SettingsManager]: Resetting Referee preferences to default values
+[2021-04-24 15:34:38,441 INFO  L181        SettingsManager]: Resetting TraceAbstraction preferences to default values
+[2021-04-24 15:34:38,443 INFO  L184        SettingsManager]: TraceAbstractionConcurrent provides no preferences, ignoring...
+[2021-04-24 15:34:38,443 INFO  L184        SettingsManager]: TraceAbstractionWithAFAs provides no preferences, ignoring...
+[2021-04-24 15:34:38,443 INFO  L181        SettingsManager]: Resetting TreeAutomizer preferences to default values
+[2021-04-24 15:34:38,444 INFO  L181        SettingsManager]: Resetting IcfgToChc preferences to default values
+[2021-04-24 15:34:38,444 INFO  L181        SettingsManager]: Resetting IcfgTransformer preferences to default values
+[2021-04-24 15:34:38,445 INFO  L184        SettingsManager]: ReqToTest provides no preferences, ignoring...
+[2021-04-24 15:34:38,445 INFO  L181        SettingsManager]: Resetting Boogie Printer preferences to default values
+[2021-04-24 15:34:38,446 INFO  L181        SettingsManager]: Resetting ChcSmtPrinter preferences to default values
+[2021-04-24 15:34:38,446 INFO  L181        SettingsManager]: Resetting ReqPrinter preferences to default values
+[2021-04-24 15:34:38,447 INFO  L181        SettingsManager]: Resetting Witness Printer preferences to default values
+[2021-04-24 15:34:38,448 INFO  L184        SettingsManager]: Boogie PL CUP Parser provides no preferences, ignoring...
+[2021-04-24 15:34:38,448 INFO  L181        SettingsManager]: Resetting CDTParser preferences to default values
+[2021-04-24 15:34:38,448 INFO  L184        SettingsManager]: AutomataScriptParser provides no preferences, ignoring...
+[2021-04-24 15:34:38,449 INFO  L184        SettingsManager]: ReqParser provides no preferences, ignoring...
+[2021-04-24 15:34:38,449 INFO  L181        SettingsManager]: Resetting SmtParser preferences to default values
+[2021-04-24 15:34:38,449 INFO  L181        SettingsManager]: Resetting Witness Parser preferences to default values
+[2021-04-24 15:34:38,450 INFO  L188        SettingsManager]: Finished resetting all preferences to default values...
+[2021-04-24 15:34:38,451 INFO  L101        SettingsManager]: Beginning loading settings from /home/singularity/UAutomizer-linux/config/svcomp-LTL-64bit-Automizer_Default.epf
+[2021-04-24 15:34:38,473 INFO  L113        SettingsManager]: Loading preferences was successful
+[2021-04-24 15:34:38,473 INFO  L115        SettingsManager]: Preferences different from defaults after loading the file:
+[2021-04-24 15:34:38,474 INFO  L136        SettingsManager]: Preferences of BlockEncodingV2 differ from their defaults:
+[2021-04-24 15:34:38,475 INFO  L138        SettingsManager]:  * Minimize states even if more edges are added than removed.=true
+[2021-04-24 15:34:38,475 INFO  L138        SettingsManager]:  * Rewrite not-equals=true
+[2021-04-24 15:34:38,475 INFO  L138        SettingsManager]:  * Create parallel compositions if possible=false
+[2021-04-24 15:34:38,475 INFO  L138        SettingsManager]:  * Minimize states using LBE with the strategy=NONE
+[2021-04-24 15:34:38,475 INFO  L138        SettingsManager]:  * Use SBE=true
+[2021-04-24 15:34:38,476 INFO  L136        SettingsManager]: Preferences of BuchiAutomizer differ from their defaults:
+[2021-04-24 15:34:38,476 INFO  L138        SettingsManager]:  * Compute Interpolants along a Counterexample=Craig_TreeInterpolation
+[2021-04-24 15:34:38,476 INFO  L138        SettingsManager]:  * Use old map elimination=false
+[2021-04-24 15:34:38,476 INFO  L138        SettingsManager]:  * Try twofold refinement=false
+[2021-04-24 15:34:38,477 INFO  L136        SettingsManager]: Preferences of CACSL2BoogieTranslator differ from their defaults:
+[2021-04-24 15:34:38,477 INFO  L138        SettingsManager]:  * Check unreachability of error function in SV-COMP mode=false
+[2021-04-24 15:34:38,477 INFO  L138        SettingsManager]:  * Overapproximate operations on floating types=true
+[2021-04-24 15:34:38,477 INFO  L138        SettingsManager]:  * Check division by zero=IGNORE
+[2021-04-24 15:34:38,477 INFO  L138        SettingsManager]:  * Pointer to allocated memory at dereference=ASSUME
+[2021-04-24 15:34:38,478 INFO  L138        SettingsManager]:  * If two pointers are subtracted or compared they have the same base address=ASSUME
+[2021-04-24 15:34:38,478 INFO  L138        SettingsManager]:  * Check array bounds for arrays that are off heap=ASSUME
+[2021-04-24 15:34:38,478 INFO  L138        SettingsManager]:  * Check if freed pointer was valid=false
+[2021-04-24 15:34:38,478 INFO  L138        SettingsManager]:  * Use constant arrays=true
+[2021-04-24 15:34:38,478 INFO  L138        SettingsManager]:  * Pointer base address is valid at dereference=ASSUME
+[2021-04-24 15:34:38,479 INFO  L136        SettingsManager]: Preferences of RCFGBuilder differ from their defaults:
+[2021-04-24 15:34:38,479 INFO  L138        SettingsManager]:  * Size of a code block=SingleStatement
+[2021-04-24 15:34:38,479 INFO  L138        SettingsManager]:  * SMT solver=Internal_SMTInterpol
+Applying setting for plugin de.uni_freiburg.informatik.ultimate.plugins.generator.cacsl2boogietranslator: Overapproximate operations on floating types -> false
+Applying setting for plugin de.uni_freiburg.informatik.ultimate.plugins.generator.cacsl2boogietranslator: Assume nondeterminstic values are in range -> false
+[2021-04-24 15:34:38,703 INFO  L75    nceAwareModelManager]: Repository-Root is: /tmp
+[2021-04-24 15:34:38,729 INFO  L261   ainManager$Toolchain]: [Toolchain 1]: Applicable parser(s) successfully (re)initialized
+[2021-04-24 15:34:38,731 INFO  L217   ainManager$Toolchain]: [Toolchain 1]: Toolchain selected.
+[2021-04-24 15:34:38,732 INFO  L271        PluginConnector]: Initializing CDTParser...
+[2021-04-24 15:34:38,733 INFO  L275        PluginConnector]: CDTParser initialized
+[2021-04-24 15:34:38,734 INFO  L432   ainManager$Toolchain]: [Toolchain 1]: Parsing single file: /home/magnago/benchmarks/ltl_timed_automata/fischer/ultimate/fischer_0023.c
+[2021-04-24 15:34:38,779 INFO  L220              CDTParser]: Created temporary CDT project at /home/singularity/ba189813260c422f893d0413518bee93/FLAG58a71a236
+!SESSION 2021-04-24 15:34:36.795 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=11.0.10
+java.vendor=Ubuntu
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Framework arguments:  --console -tc /home/singularity/UAutomizer-linux/config/AutomizerLTL.xml -s /home/singularity/UAutomizer-linux/config/svcomp-LTL-64bit-Automizer_Default.epf --cacsl2boogietranslator.overapproximate.operations.on.floating.types=false --cacsl2boogietranslator.assume.nondeterminstic.values.are.in.range false -i /home/magnago/benchmarks/ltl_timed_automata/fischer/ultimate/fischer_0023.c
+Command-line arguments:  -os linux -ws gtk -arch x86_64 -consoleLog --console -data @user.home/.ultimate -tc /home/singularity/UAutomizer-linux/config/AutomizerLTL.xml -s /home/singularity/UAutomizer-linux/config/svcomp-LTL-64bit-Automizer_Default.epf -data /home/singularity --cacsl2boogietranslator.overapproximate.operations.on.floating.types=false --cacsl2boogietranslator.assume.nondeterminstic.values.are.in.range false -i /home/magnago/benchmarks/ltl_timed_automata/fischer/ultimate/fischer_0023.c
+
+!ENTRY org.eclipse.cdt.core 1 0 2021-04-24 15:34:39.010
+!MESSAGE Indexed 'FLAG58a71a236' (0 sources, 0 headers) in 0.004 sec: 0 declarations; 0 references; 0 unresolved inclusions; 0 syntax errors; 0 unresolved names (0%)
+[2021-04-24 15:34:39,222 INFO  L306              CDTParser]: Found 1 translation units.
+[2021-04-24 15:34:39,223 INFO  L160              CDTParser]: Scanning /home/magnago/benchmarks/ltl_timed_automata/fischer/ultimate/fischer_0023.c
+[2021-04-24 15:34:39,252 INFO  L349              CDTParser]: About to delete temporary CDT project at /home/singularity/ba189813260c422f893d0413518bee93/FLAG58a71a236
+[2021-04-24 15:34:39,266 INFO  L357              CDTParser]: Successfully deleted /home/singularity/ba189813260c422f893d0413518bee93
+[2021-04-24 15:34:39,267 INFO  L299   ainManager$Toolchain]: ####################### [Toolchain 1] #######################
+[2021-04-24 15:34:39,269 INFO  L131        ToolchainWalker]: Walking toolchain with 7 elements.
+[2021-04-24 15:34:39,271 INFO  L113        PluginConnector]: ------------------------CACSL2BoogieTranslator----------------------------
+[2021-04-24 15:34:39,271 INFO  L271        PluginConnector]: Initializing CACSL2BoogieTranslator...
+[2021-04-24 15:34:39,273 INFO  L275        PluginConnector]: CACSL2BoogieTranslator initialized
+[2021-04-24 15:34:39,273 INFO  L185        PluginConnector]: Executing the observer ACSLObjectContainerObserver from plugin CACSL2BoogieTranslator for "CDTParser AST 24.04 03:34:39" (1/1) ...
+[2021-04-24 15:34:39,274 INFO  L205        PluginConnector]: Invalid model from CACSL2BoogieTranslator for observer de.uni_freiburg.informatik.ultimate.plugins.generator.cacsl2boogietranslator.ACSLObjectContainerObserver@4ab41e82 and model type de.uni_freiburg.informatik.ultimate.plugins.generator.cacsl2boogietranslator AST 24.04 03:34:39, skipping insertion in model container
+[2021-04-24 15:34:39,274 INFO  L185        PluginConnector]: Executing the observer CACSL2BoogieTranslatorObserver from plugin CACSL2BoogieTranslator for "CDTParser AST 24.04 03:34:39" (1/1) ...
+[2021-04-24 15:34:39,280 INFO  L145         MainTranslator]: Starting translation in SV-COMP mode 
+[2021-04-24 15:34:39,317 INFO  L178         MainTranslator]: Built tables and reachable declarations
+[2021-04-24 15:34:39,587 INFO  L206          PostProcessor]: Analyzing one entry point: main
+[2021-04-24 15:34:39,591 INFO  L203         MainTranslator]: Completed pre-run
+[2021-04-24 15:34:39,675 INFO  L206          PostProcessor]: Analyzing one entry point: main
+[2021-04-24 15:34:39,692 INFO  L208         MainTranslator]: Completed translation
+[2021-04-24 15:34:39,692 INFO  L202        PluginConnector]: Adding new model de.uni_freiburg.informatik.ultimate.plugins.generator.cacsl2boogietranslator AST 24.04 03:34:39 WrapperNode
+[2021-04-24 15:34:39,692 INFO  L132        PluginConnector]: ------------------------ END CACSL2BoogieTranslator----------------------------
+[2021-04-24 15:34:39,693 INFO  L113        PluginConnector]: ------------------------Boogie Preprocessor----------------------------
+[2021-04-24 15:34:39,694 INFO  L271        PluginConnector]: Initializing Boogie Preprocessor...
+[2021-04-24 15:34:39,694 INFO  L275        PluginConnector]: Boogie Preprocessor initialized
+[2021-04-24 15:34:39,705 INFO  L185        PluginConnector]: Executing the observer EnsureBoogieModelObserver from plugin Boogie Preprocessor for "de.uni_freiburg.informatik.ultimate.plugins.generator.cacsl2boogietranslator AST 24.04 03:34:39" (1/1) ...
+[2021-04-24 15:34:39,705 INFO  L185        PluginConnector]: Executing the observer TypeChecker from plugin Boogie Preprocessor for "de.uni_freiburg.informatik.ultimate.plugins.generator.cacsl2boogietranslator AST 24.04 03:34:39" (1/1) ...
+[2021-04-24 15:34:39,723 INFO  L185        PluginConnector]: Executing the observer ConstExpander from plugin Boogie Preprocessor for "de.uni_freiburg.informatik.ultimate.plugins.generator.cacsl2boogietranslator AST 24.04 03:34:39" (1/1) ...
+[2021-04-24 15:34:39,724 INFO  L185        PluginConnector]: Executing the observer StructExpander from plugin Boogie Preprocessor for "de.uni_freiburg.informatik.ultimate.plugins.generator.cacsl2boogietranslator AST 24.04 03:34:39" (1/1) ...
+[2021-04-24 15:34:39,758 INFO  L185        PluginConnector]: Executing the observer UnstructureCode from plugin Boogie Preprocessor for "de.uni_freiburg.informatik.ultimate.plugins.generator.cacsl2boogietranslator AST 24.04 03:34:39" (1/1) ...
+[2021-04-24 15:34:39,765 INFO  L185        PluginConnector]: Executing the observer FunctionInliner from plugin Boogie Preprocessor for "de.uni_freiburg.informatik.ultimate.plugins.generator.cacsl2boogietranslator AST 24.04 03:34:39" (1/1) ...
+[2021-04-24 15:34:39,772 INFO  L185        PluginConnector]: Executing the observer BoogieSymbolTableConstructor from plugin Boogie Preprocessor for "de.uni_freiburg.informatik.ultimate.plugins.generator.cacsl2boogietranslator AST 24.04 03:34:39" (1/1) ...
+[2021-04-24 15:34:39,778 INFO  L132        PluginConnector]: ------------------------ END Boogie Preprocessor----------------------------
+[2021-04-24 15:34:39,779 INFO  L113        PluginConnector]: ------------------------RCFGBuilder----------------------------
+[2021-04-24 15:34:39,779 INFO  L271        PluginConnector]: Initializing RCFGBuilder...
+[2021-04-24 15:34:39,779 INFO  L275        PluginConnector]: RCFGBuilder initialized
+[2021-04-24 15:34:39,780 INFO  L185        PluginConnector]: Executing the observer RCFGBuilderObserver from plugin RCFGBuilder for "de.uni_freiburg.informatik.ultimate.plugins.generator.cacsl2boogietranslator AST 24.04 03:34:39" (1/1) ...
+[2021-04-24 15:34:39,838 INFO  L138     BoogieDeclarations]: Found implementation of procedure ULTIMATE.init
+[2021-04-24 15:34:39,839 INFO  L138     BoogieDeclarations]: Found implementation of procedure ULTIMATE.start
+[2021-04-24 15:34:39,839 INFO  L138     BoogieDeclarations]: Found implementation of procedure __VERIFIER_nondet_bool
+[2021-04-24 15:34:39,839 INFO  L138     BoogieDeclarations]: Found implementation of procedure main
+[2021-04-24 15:34:39,839 INFO  L130     BoogieDeclarations]: Found specification of procedure __VERIFIER_nondet_float
+[2021-04-24 15:34:39,839 INFO  L130     BoogieDeclarations]: Found specification of procedure __VERIFIER_nondet_int
+[2021-04-24 15:34:39,839 INFO  L130     BoogieDeclarations]: Found specification of procedure __VERIFIER_nondet_bool
+[2021-04-24 15:34:39,839 INFO  L130     BoogieDeclarations]: Found specification of procedure main
+[2021-04-24 15:34:39,839 INFO  L130     BoogieDeclarations]: Found specification of procedure ULTIMATE.init
+[2021-04-24 15:34:39,839 INFO  L130     BoogieDeclarations]: Found specification of procedure ULTIMATE.start
+[2021-04-24 15:34:40,267 INFO  L294             CfgBuilder]: Using the 1 location(s) as analysis (start of procedure ULTIMATE.start)
+[2021-04-24 15:34:40,267 INFO  L299             CfgBuilder]: Removed 1 assume(true) statements.
+[2021-04-24 15:34:40,269 INFO  L202        PluginConnector]: Adding new model de.uni_freiburg.informatik.ultimate.plugins.generator.rcfgbuilder CFG 24.04 03:34:40 BoogieIcfgContainer
+[2021-04-24 15:34:40,269 INFO  L132        PluginConnector]: ------------------------ END RCFGBuilder----------------------------
+[2021-04-24 15:34:40,269 INFO  L113        PluginConnector]: ------------------------LTL2Aut----------------------------
+[2021-04-24 15:34:40,270 INFO  L271        PluginConnector]: Initializing LTL2Aut...
+[2021-04-24 15:34:40,271 INFO  L275        PluginConnector]: LTL2Aut initialized
+[2021-04-24 15:34:40,272 INFO  L185        PluginConnector]: Executing the observer LTL2autObserver from plugin LTL2Aut for "de.uni_freiburg.informatik.ultimate.plugins.generator.cacsl2boogietranslator AST 24.04 03:34:39" (2/3) ...
+No working directory specified, using /usr/bin/ltl2ba
+Starting monitored process 1 with ltl2ba -f ! ( ( ( [] ( <> ( a ) ) || ! ( [] ( <> ( b ) ) ) ) || ! ( [] ( <> ( c ) ) ) ) )  (exit command is null, workingDir is null)
+[2021-04-24 15:34:40,310 INFO  L125        LTL2autObserver]: LTL Property is: ((G(F((0 != ~p0_l0~0 && 0 != ~p0_l1~0))) || !(G(F((0 != ~p0_l0~0 && !(0 != ~p0_l1~0)))))) || !(G(F((1.0 <= ~_diverge_delta~0)))))
+[2021-04-24 15:34:40,311 INFO  L202        PluginConnector]: Adding new model Hardcoded de.uni_freiburg.informatik.ultimate.ltl2aut AST 24.04 03:34:40 NWAContainer
+[2021-04-24 15:34:40,311 INFO  L132        PluginConnector]: ------------------------ END LTL2Aut----------------------------
+[2021-04-24 15:34:40,311 INFO  L113        PluginConnector]: ------------------------B?chi Program Product----------------------------
+[2021-04-24 15:34:40,311 INFO  L271        PluginConnector]: Initializing B?chi Program Product...
+[2021-04-24 15:34:40,312 INFO  L275        PluginConnector]: B?chi Program Product initialized
+[2021-04-24 15:34:40,312 INFO  L185        PluginConnector]: Executing the observer BuchiProductObserver from plugin B?chi Program Product for "de.uni_freiburg.informatik.ultimate.plugins.generator.rcfgbuilder CFG 24.04 03:34:40" (3/4) ...
+[2021-04-24 15:34:40,313 INFO  L205        PluginConnector]: Invalid model from B?chi Program Product for observer de.uni_freiburg.informatik.ultimate.buchiprogramproduct.BuchiProductObserver@790cec6d and model type LTL+Program Product de.uni_freiburg.informatik.ultimate.buchiprogramproduct OTHER 24.04 03:34:40, skipping insertion in model container
+[2021-04-24 15:34:40,313 INFO  L185        PluginConnector]: Executing the observer BuchiProductObserver from plugin B?chi Program Product for "Hardcoded de.uni_freiburg.informatik.ultimate.ltl2aut AST 24.04 03:34:40" (4/4) ...
+[2021-04-24 15:34:40,315 INFO  L104   BuchiProductObserver]: Initial property automaton 4 locations, 10 edges
+[2021-04-24 15:34:40,317 INFO  L110   BuchiProductObserver]: Initial RCFG 618 locations, 804 edges
+[2021-04-24 15:34:40,317 INFO  L93    BuchiProductObserver]: Beginning generation of product automaton
+[2021-04-24 15:34:40,322 INFO  L132       ProductGenerator]: The program has no step specification, so we assume maximum atomicity
+[2021-04-24 15:34:41,988 INFO  L97    BuchiProductObserver]: Finished generation of product automaton successfully
+[2021-04-24 15:34:41,995 INFO  L110   BuchiProductObserver]: BuchiProgram size 2749 locations, 7013 edges
+[2021-04-24 15:34:41,995 INFO  L202        PluginConnector]: Adding new model LTL+Program Product de.uni_freiburg.informatik.ultimate.buchiprogramproduct OTHER 24.04 03:34:41 BoogieIcfgContainer
+[2021-04-24 15:34:41,995 INFO  L132        PluginConnector]: ------------------------ END B?chi Program Product----------------------------
+[2021-04-24 15:34:41,996 INFO  L113        PluginConnector]: ------------------------BlockEncodingV2----------------------------
+[2021-04-24 15:34:41,996 INFO  L271        PluginConnector]: Initializing BlockEncodingV2...
+[2021-04-24 15:34:41,998 INFO  L275        PluginConnector]: BlockEncodingV2 initialized
+[2021-04-24 15:34:41,998 INFO  L185        PluginConnector]: Executing the observer BlockEncodingObserver from plugin BlockEncodingV2 for "LTL+Program Product de.uni_freiburg.informatik.ultimate.buchiprogramproduct OTHER 24.04 03:34:41" (1/1) ...
+[2021-04-24 15:34:42,234 INFO  L313           BlockEncoder]: Initial Icfg 2749 locations, 7013 edges
+[2021-04-24 15:34:42,234 INFO  L258           BlockEncoder]: Using Remove infeasible edges
+[2021-04-24 15:34:42,235 INFO  L263           BlockEncoder]: Using Maximize final states
+[2021-04-24 15:34:42,235 INFO  L270           BlockEncoder]: Using Minimize states even if more edges are added than removed.=true
+[2021-04-24 15:34:42,236 INFO  L296           BlockEncoder]: Using Remove sink states
+[2021-04-24 15:34:42,236 INFO  L171           BlockEncoder]: Using Apply optimizations until nothing changes=true
+[2021-04-24 15:34:42,236 INFO  L179           BlockEncoder]: Using Rewrite not-equals

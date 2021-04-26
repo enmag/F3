@@ -1,0 +1,11 @@
+ input: /home/magnago/benchmarks/ltl_timed_automata/lynch/divine/lynch_protocol_0015.xml
+ property { 0 }: (G F v1_eq_1) -> (G F p0_cs7)
+ ------------------- OWCTY -------------------
+ initialise...		    Uncaught exception of type St9bad_alloc:
+std::bad_alloc
+terminate called after throwing an instance of 'std::bad_alloc'
+  what():  std::bad_alloc
+/home/run_divine.sh: line 4: 1887634 Aborted                 (core dumped) /home/divine-3.3.3/_build/tools/divine verify -w 1 -p 0 -f -d $1
+real 464.93
+user 448.45
+sys 15.47

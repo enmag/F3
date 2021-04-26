@@ -1,0 +1,73 @@
+Property 0 [36;1m(FALSE SR ((pc0.l != error) | (pc1.l != error))) -> (FALSE SR (TRUE SU (id = 0)))[0m ..... [31;1mdoes not hold[0m 
+>>> Index:         0          1          loop  2          3          4        
+>>> Type:          |          (-)        loop  |          (-)        |        
+---------------------------------------> loop <-------------------------------
++0-obligation-0    F          T          loop  T          T          T        
++0-subexp-0        T          T          loop  F          F          F        
++1-subexp-0        F          F          loop  F          F          F        
++2-subexp-0        T          T          loop  T          T          T        
+---------------------------------------> loop <-------------------------------
++3-subexp-0        T          T          loop  F          F          F        
++4-subexp-0        T          T          loop  T          T          T        
++5-subexp-0        F          F          loop  T          F          T        
++6-obligation-0    F          F          loop  T          T          T        
+---------------------------------------> loop <-------------------------------
++6-subexp-0        F          F          loop  T          F          T        
++7-subexp-0        F          F          loop  F          F          F        
++8-subexp-0        T          T          loop  T          T          T        
+-fair-0-0          T          T          loop  T          T          F        
+---------------------------------------> loop <-------------------------------
+-loop-0            F          F          loop  T          F          F        
+-loop-elapse-0     T          T          loop  T          T          F        
+-ok-pc0.x-0        T          T          loop  T          T          F        
+-ok-pc1.x-0        T          T          loop  T          T          F        
+---------------------------------------> loop <-------------------------------
+-ok-pc2.x-0        T          T          loop  T          T          F        
+-ok-pc3.x-0        T          T          loop  T          T          F        
+-ok-pc4.x-0        T          T          loop  T          T          F        
+-ok-pc5.x-0        T          T          loop  T          T          F        
+---------------------------------------> loop <-------------------------------
+-smaller-exists-0  F          F          loop  F          T          T        
+@delta-0           0          154/3      loop  0          4/3        0        
+@open-0            F          T          loop  F          T          F        
+a0.evt-0           enter      enter      loop  enter      enter      enter    
+---------------------------------------> loop <-------------------------------
+a0.l-0             s1         s1         loop  s1         s1         s1       
+a1.evt-0           enter      enter      loop  enter      enter      enter    
+a1.l-0             s1         s1         loop  s1         s1         s1       
+a2.evt-0           enter      enter      loop  enter      enter      enter    
+---------------------------------------> loop <-------------------------------
+a2.l-0             s1         s1         loop  s1         s1         s1       
+a3.evt-0           exit       exit       loop  exit       exit       exit     
+a3.l-0             s1         s1         loop  s1         s1         s1       
+a4.evt-0           stutter    stutter    loop  stutter    stutter    stutter  
+---------------------------------------> loop <-------------------------------
+a4.l-0             s1         s1         loop  s1         s1         s1       
+a5.evt-0           exit       exit       loop  exit       exit       exit     
+a5.l-0             s1         s1         loop  s1         s1         s1       
+c.evt-0            move       move       loop  move       move       move     
+---------------------------------------> loop <-------------------------------
+c.l-0              initial    initial    loop  initial    initial    initial  
+id-0               6          6          loop  6          6          6        
+pc0.evt-0          enter      enter      loop  enter      enter      enter    
+pc0.l-0            not_ready  not_ready  loop  not_ready  not_ready  not_ready
+---------------------------------------> loop <-------------------------------
+pc0.x-0            0          0          loop  154/3      154/3      158/3    
+pc1.evt-0          stutter    stutter    loop  stutter    stutter    stutter  
+pc1.l-0            not_ready  not_ready  loop  not_ready  not_ready  not_ready
+pc1.x-0            0          0          loop  154/3      154/3      158/3    
+---------------------------------------> loop <-------------------------------
+pc2.evt-0          move       move       loop  move       move       move     
+pc2.l-0            not_ready  not_ready  loop  not_ready  not_ready  not_ready
+pc2.x-0            0          0          loop  154/3      154/3      158/3    
+pc3.evt-0          move       move       loop  move       move       move     
+---------------------------------------> loop <-------------------------------
+pc3.l-0            not_ready  not_ready  loop  not_ready  not_ready  not_ready
+pc3.x-0            0          0          loop  154/3      154/3      158/3    
+pc4.evt-0          move       move       loop  move       move       move     
+pc4.l-0            not_ready  not_ready  loop  not_ready  not_ready  not_ready
+---------------------------------------> loop <-------------------------------
+pc4.x-0            0          0          loop  154/3      154/3      158/3    
+pc5.evt-0          enter      enter      loop  enter      enter      enter    
+pc5.l-0            not_ready  not_ready  loop  not_ready  not_ready  not_ready
+pc5.x-0            0          0          loop  154/3      154/3      158/3    

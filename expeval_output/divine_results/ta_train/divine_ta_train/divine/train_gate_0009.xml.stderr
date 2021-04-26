@@ -1,0 +1,229 @@
+ input: /home/magnago/benchmarks/ltl_timed_automata/train/divine/train_gate_0009.xml
+ property { 0 }: G ((g0 && X g1) -> F (g2 && X g3))
+ ------------------- OWCTY -------------------
+ initialise...		    MAP/ET
+ ============================================= 
+           The property DOES NOT hold      
+ ============================================= 
+ generating counterexample...      
+===== Trace from initial =====
+
+train0 = train0, train1 = train0, train2 = train0, train3 = train0, train4 = train0, train5 = train0, train6 = train0, train7 = train0, train8 = train0, gate = gate0, controller = controller0, prop = 0
+controller.cnt = 0
+
+URA state: <=0	<=0	<=0	<=0	<=0	<=0	<=0	<=0	<=0	<=0	<=0	<=0	<=0	\
+<INF	<=0	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	\
+<INF	<INF	<=0	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	\
+<INF	<INF	<INF	<=0	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	\
+<INF	<INF	<INF	<INF	<=0	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	\
+<INF	<INF	<INF	<INF	<INF	<=0	<INF	<INF	<INF	<INF	<INF	<INF	<INF	\
+<INF	<INF	<INF	<INF	<INF	<INF	<=0	<INF	<INF	<INF	<INF	<INF	<INF	\
+<INF	<INF	<INF	<INF	<INF	<INF	<INF	<=0	<INF	<INF	<INF	<INF	<INF	\
+<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<=0	<INF	<INF	<INF	<INF	\
+<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<=0	<INF	<INF	<INF	\
+<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<=0	<INF	<INF	\
+<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<=0	<INF	\
+<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<=0	\
+
+
+train0 = train0, train1 = train0, train2 = train0, train3 = train0, train4 = train0, train5 = train0, train6 = train0, train7 = train1, train8 = train0, gate = gate0, controller = controller1, prop = 1
+controller.cnt = 1
+train7.x ≤ 1	controller.z ≤ 1
+-1 ≤ train0.x-train7.x	-1 ≤ train0.x-controller.z
+-1 ≤ train1.x-train7.x	-1 ≤ train1.x-controller.z
+-1 ≤ train2.x-train7.x	-1 ≤ train2.x-controller.z
+-1 ≤ train3.x-train7.x	-1 ≤ train3.x-controller.z
+-1 ≤ train4.x-train7.x	-1 ≤ train4.x-controller.z
+-1 ≤ train5.x-train7.x	-1 ≤ train5.x-controller.z
+-1 ≤ train6.x-train7.x	-1 ≤ train6.x-controller.z
+train7.x-train8.x ≤ 1	train7.x-gate.y ≤ 1
+0 ≤ train7.x-controller.z ≤ 0	train7.x-_aux ≤ 0
+-1 ≤ train8.x-controller.z	-1 ≤ gate.y-controller.z
+controller.z-_aux ≤ 0	
+URA state: <=0	<=0	<=0	<=0	<=0	<=0	<=0	<=0	<=0	<=0	<=0	<=0	<=0	\
+<INF	<=0	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	\
+<INF	<INF	<=0	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	\
+<INF	<INF	<INF	<=0	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	\
+<INF	<INF	<INF	<INF	<=0	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	\
+<INF	<INF	<INF	<INF	<INF	<=0	<INF	<INF	<INF	<INF	<INF	<INF	<INF	\
+<INF	<INF	<INF	<INF	<INF	<INF	<=0	<INF	<INF	<INF	<INF	<INF	<INF	\
+<INF	<INF	<INF	<INF	<INF	<INF	<INF	<=0	<INF	<INF	<INF	<INF	<INF	\
+<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<=0	<INF	<INF	<INF	<INF	\
+<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<=0	<INF	<INF	<INF	\
+<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<=0	<INF	<INF	\
+<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<=0	<INF	\
+<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<=0	\
+
+
+train0 = train0, train1 = train0, train2 = train0, train3 = train0, train4 = train0, train5 = train0, train6 = train0, train7 = train1, train8 = train0, gate = gate1, controller = controller2, prop = 5
+controller.cnt = 1
+1 ≤ train7.x ≤ 2	_aux ≤ 0
+-2 ≤ train0.x-train7.x	0 ≤ train0.x-_aux
+-2 ≤ train1.x-train7.x	0 ≤ train1.x-_aux
+-2 ≤ train2.x-train7.x	0 ≤ train2.x-_aux
+-2 ≤ train3.x-train7.x	0 ≤ train3.x-_aux
+-2 ≤ train4.x-train7.x	0 ≤ train4.x-_aux
+-2 ≤ train5.x-train7.x	0 ≤ train5.x-_aux
+-2 ≤ train6.x-train7.x	0 ≤ train6.x-_aux
+train7.x-train8.x ≤ 2	train7.x-gate.y ≤ 1
+train7.x-controller.z ≤ 2	1 ≤ train7.x-_aux ≤ 2
+0 ≤ train8.x-_aux	0 ≤ gate.y-_aux
+0 ≤ controller.z-_aux	
+URA state: <=0	<=0	<=0	<=0	<=0	<=0	<=0	<=0	<=0	<=0	<=0	<=0	<=0	\
+<INF	<=0	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	\
+<INF	<INF	<=0	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	\
+<INF	<INF	<INF	<=0	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	\
+<INF	<INF	<INF	<INF	<=0	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	\
+<INF	<INF	<INF	<INF	<INF	<=0	<INF	<INF	<INF	<INF	<INF	<INF	<INF	\
+<INF	<INF	<INF	<INF	<INF	<INF	<=0	<INF	<INF	<INF	<INF	<INF	<INF	\
+<INF	<INF	<INF	<INF	<INF	<INF	<INF	<=0	<INF	<INF	<INF	<INF	<INF	\
+<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<=0	<INF	<INF	<INF	<INF	\
+<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<=0	<INF	<INF	<INF	\
+<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<=0	<INF	<INF	\
+<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<=0	<INF	\
+<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<=0	\
+
+
+train0 = train0, train1 = train0, train2 = train0, train3 = train0, train4 = train0, train5 = train0, train6 = train0, train7 = train1, train8 = train0, gate = gate2, controller = controller2, prop = 6
+controller.cnt = 1
+2 ≤ train7.x	_aux ≤ 0
+0 ≤ train0.x-_aux	0 ≤ train1.x-_aux
+0 ≤ train2.x-_aux	0 ≤ train3.x-_aux
+0 ≤ train4.x-_aux	0 ≤ train5.x-_aux
+0 ≤ train6.x-_aux	2 ≤ train7.x-_aux
+0 ≤ train8.x-_aux	0 ≤ gate.y-_aux
+0 ≤ controller.z-_aux	
+URA state: <=0	<=0	<=0	<=0	<=0	<=0	<=0	<=0	<=0	<=0	<=0	<=0	<=0	\
+<INF	<=0	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	\
+<INF	<INF	<=0	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	\
+<INF	<INF	<INF	<=0	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	\
+<INF	<INF	<INF	<INF	<=0	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	\
+<INF	<INF	<INF	<INF	<INF	<=0	<INF	<INF	<INF	<INF	<INF	<INF	<INF	\
+<INF	<INF	<INF	<INF	<INF	<INF	<=0	<INF	<INF	<INF	<INF	<INF	<INF	\
+<INF	<INF	<INF	<INF	<INF	<INF	<INF	<=0	<INF	<INF	<INF	<INF	<INF	\
+<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<=0	<INF	<INF	<INF	<INF	\
+<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<=0	<INF	<INF	<INF	\
+<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<=0	<INF	<INF	\
+<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<=0	<INF	\
+<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<=0	\
+
+
+train0 = train0, train1 = train0, train2 = train0, train3 = train0, train4 = train0, train5 = train0, train6 = train0, train7 = train2, train8 = train0, gate = gate2, controller = controller2, prop = 6
+controller.cnt = 1
+3 < train7.x	_aux ≤ 0
+0 ≤ train0.x-_aux	0 ≤ train1.x-_aux
+0 ≤ train2.x-_aux	0 ≤ train3.x-_aux
+0 ≤ train4.x-_aux	0 ≤ train5.x-_aux
+0 ≤ train6.x-_aux	3 < train7.x-_aux
+0 ≤ train8.x-_aux	0 ≤ gate.y-_aux
+0 ≤ controller.z-_aux	
+URA state: <=0	<=0	<=0	<=0	<=0	<=0	<=0	<=0	<=0	<=0	<=0	<=0	<=0	\
+<INF	<=0	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	\
+<INF	<INF	<=0	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	\
+<INF	<INF	<INF	<=0	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	\
+<INF	<INF	<INF	<INF	<=0	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	\
+<INF	<INF	<INF	<INF	<INF	<=0	<INF	<INF	<INF	<INF	<INF	<INF	<INF	\
+<INF	<INF	<INF	<INF	<INF	<INF	<=0	<INF	<INF	<INF	<INF	<INF	<INF	\
+<INF	<INF	<INF	<INF	<INF	<INF	<INF	<=0	<INF	<INF	<INF	<INF	<INF	\
+<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<=0	<INF	<INF	<INF	<INF	\
+<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<=0	<INF	<INF	<INF	\
+<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<=0	<INF	<INF	\
+<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<=0	<INF	\
+<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<=0	\
+
+
+
+===== The cycle =====
+
+train0 = train0, train1 = train0, train2 = train0, train3 = train0, train4 = train0, train5 = train0, train6 = train0, train7 = train3, train8 = train0, gate = gate2, controller = controller2, prop = 4
+controller.cnt = 1
+3 < train7.x	_aux < 1
+-1 < train0.x-_aux	-1 < train1.x-_aux
+-1 < train2.x-_aux	-1 < train3.x-_aux
+-1 < train4.x-_aux	-1 < train5.x-_aux
+-1 < train6.x-_aux	3 < train7.x-_aux
+-1 < train8.x-_aux	-1 < gate.y-_aux
+-1 < controller.z-_aux	
+URA state: <=0	<=0	<=0	<=0	<=0	<=0	<=0	<=0	<=0	<=0	<=0	<=0	<=0	\
+<INF	<=0	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	\
+<INF	<INF	<=0	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	\
+<INF	<INF	<INF	<=0	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	\
+<INF	<INF	<INF	<INF	<=0	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	\
+<INF	<INF	<INF	<INF	<INF	<=0	<INF	<INF	<INF	<INF	<INF	<INF	<INF	\
+<INF	<INF	<INF	<INF	<INF	<INF	<=0	<INF	<INF	<INF	<INF	<INF	<INF	\
+<INF	<INF	<INF	<INF	<INF	<INF	<INF	<=0	<INF	<INF	<INF	<INF	<INF	\
+<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<=0	<INF	<INF	<INF	<INF	\
+<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<=0	<INF	<INF	<INF	\
+<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<=0	<INF	<INF	\
+<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<=0	<INF	\
+<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<=0	\
+
+
+train0 = train0, train1 = train0, train2 = train0, train3 = train0, train4 = train0, train5 = train0, train6 = train0, train7 = train0, train8 = train0, gate = gate2, controller = controller3, prop = 4
+controller.cnt = 0
+_aux < 1	-1 < train0.x-_aux
+-1 < train1.x-_aux	-1 < train2.x-_aux
+-1 < train3.x-_aux	-1 < train4.x-_aux
+-1 < train5.x-_aux	-1 < train6.x-_aux
+-1 < train7.x-_aux	-1 < train8.x-_aux
+-1 < gate.y-_aux	-1 < controller.z-_aux
+
+URA state: <=0	<=0	<=0	<=0	<=0	<=0	<=0	<=0	<=0	<=0	<=0	<=0	<=0	\
+<INF	<=0	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	\
+<INF	<INF	<=0	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	\
+<INF	<INF	<INF	<=0	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	\
+<INF	<INF	<INF	<INF	<=0	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	\
+<INF	<INF	<INF	<INF	<INF	<=0	<INF	<INF	<INF	<INF	<INF	<INF	<INF	\
+<INF	<INF	<INF	<INF	<INF	<INF	<=0	<INF	<INF	<INF	<INF	<INF	<INF	\
+<INF	<INF	<INF	<INF	<INF	<INF	<INF	<=0	<INF	<INF	<INF	<INF	<INF	\
+<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<=0	<INF	<INF	<INF	<INF	\
+<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<=0	<INF	<INF	<INF	\
+<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<=0	<INF	<INF	\
+<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<=0	<INF	\
+<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<=0	\
+
+
+train0 = train0, train1 = train0, train2 = train0, train3 = train0, train4 = train0, train5 = train0, train6 = train0, train7 = train1, train8 = train0, gate = gate2, controller = controller2, prop = 6
+controller.cnt = 1
+0 < train7.x	_aux ≤ 0
+0 ≤ train0.x-_aux	0 ≤ train1.x-_aux
+0 ≤ train2.x-_aux	0 ≤ train3.x-_aux
+0 ≤ train4.x-_aux	0 ≤ train5.x-_aux
+0 ≤ train6.x-_aux	0 < train7.x-_aux
+0 ≤ train8.x-_aux	0 ≤ gate.y-_aux
+0 ≤ controller.z-_aux	
+URA state: <=0	<=0	<=0	<=0	<=0	<=0	<=0	<=0	<=0	<=0	<=0	<=0	<=0	\
+<INF	<=0	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	\
+<INF	<INF	<=0	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	\
+<INF	<INF	<INF	<=0	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	\
+<INF	<INF	<INF	<INF	<=0	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	\
+<INF	<INF	<INF	<INF	<INF	<=0	<INF	<INF	<INF	<INF	<INF	<INF	<INF	\
+<INF	<INF	<INF	<INF	<INF	<INF	<=0	<INF	<INF	<INF	<INF	<INF	<INF	\
+<INF	<INF	<INF	<INF	<INF	<INF	<INF	<=0	<INF	<INF	<INF	<INF	<INF	\
+<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<=0	<INF	<INF	<INF	<INF	\
+<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<=0	<INF	<INF	<INF	\
+<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<=0	<INF	<INF	\
+<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<=0	<INF	\
+<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<=0	\
+
+
+train0 = train0, train1 = train0, train2 = train0, train3 = train0, train4 = train0, train5 = train0, train6 = train0, train7 = train2, train8 = train0, gate = gate2, controller = controller2, prop = 6
+controller.cnt = 1
+3 < train7.x	_aux ≤ 0
+0 ≤ train0.x-_aux	0 ≤ train1.x-_aux
+0 ≤ train2.x-_aux	0 ≤ train3.x-_aux
+0 ≤ train4.x-_aux	0 ≤ train5.x-_aux
+0 ≤ train6.x-_aux	3 < train7.x-_aux
+0 ≤ train8.x-_aux	0 ≤ gate.y-_aux
+0 ≤ controller.z-_aux	
+URA state: <=0	<=0	<=0	<=0	<=0	<=0	<=0	<=0	<=0	<=0	<=0	<=0	<=0	\
+<INF	<=0	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	\
+<INF	<INF	<=0	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	\
+<INF	<INF	<INF	<=0	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	\
+<INF	<INF	<INF	<INF	<=0	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	\
+<INF	<INF	<INF	<INF	<INF	<=0	<INF	<INF	<INF	<INF	<INF	<INF	<INF	\
+<INF	<INF	<INF	<INF	<INF	<INF	<=0	<INF	<INF	<INF	<INF	<INF	<INF	\
+<INF	<INF	<INF	<INF	<INF	<INF	<INF	<=0	<INF	<INF	<INF	<INF	<INF	\
+<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<=0	<INF	<INF	<INF	<INF	\
+<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<=0	<INF	<INF	<INF	\
+<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<INF	<

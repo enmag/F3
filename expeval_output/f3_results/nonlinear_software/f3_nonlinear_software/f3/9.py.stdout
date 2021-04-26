@@ -1,0 +1,7 @@
+
+
+run 1/1: `9`
+
+	Found non-termination argument:
+	[{pc: 1, x: 32, y: 32}, {pc: 2, x: 32, y: 32}, {pc: 3, x: 32, y: 32}, {pc: 6, x: 32, y: 32}, {pc: 7, x: 32, y: 32}, {pc: 1, x: 32, y: 32}]
+end of `9`: SUCCESS in 0.0735008716583252s

@@ -1,0 +1,35 @@
+
+State
+
+( Bus.idle S0.wait S1.wait S2.wait )
+Bus.x-S0.x<=0, Bus.x-S1.x<=0, Bus.x-S2.x<=0, S0.x-Bus.x<=0, S0.x-S1.x<=0, S0.x-S2.x<=0, S1.x-Bus.x<=0, S1.x-S0.x<=0, S1.x-S2.x<=0, S2.x-Bus.x<=0, S2.x-S0.x<=0, S2.x-S1.x<=0 j=0 
+
+Transitions:
+  S0.wait->S0.transm { 1, begin!, x := 0 }
+  Bus.idle->Bus.active { 1, begin?, x := 0 }
+
+State
+
+( Bus.active S0.transm S1.wait S2.wait )
+Bus.x<=404, Bus.x-S0.x<=0, Bus.x-S1.x<=0, Bus.x-S2.x<=0, S0.x<=404, S0.x-Bus.x<=0, S0.x-S1.x<=0, S0.x-S2.x<=0, S1.x-S2.x<=0, S2.x-S1.x<=0 j=0 
+
+Transitions:
+  Bus.active->Bus.active { x >= SIGMA, busy!, 1 }
+  S2.wait->S2.retry { 1, busy?, x := 0 }
+
+State
+
+( Bus.active S0.transm S1.wait S2.retry )
+Bus.x>=13, S0.x>=13, S1.x>=13, Bus.x<=404, Bus.x-S0.x<=0, Bus.x-S1.x<=0, Bus.x-S2.x<=404, S0.x<=404, S0.x-Bus.x<=0, S0.x-S1.x<=0, S0.x-S2.x<=404, S2.x<=26, S2.x-Bus.x<=-13, S2.x-S0.x<=-13, S2.x-S1.x<=-13 j=0 
+
+Transitions:
+  Bus.active->Bus.active { x >= SIGMA, busy!, 1 }
+  S1.wait->S1.retry { 1, busy?, x := 0 }
+
+State
+
+( Bus.active S0.transm S1.retry S2.retry )
+Bus.x>=13, S0.x>=13, Bus.x<=404, Bus.x-S0.x<=0, Bus.x-S1.x<=404, Bus.x-S2.x<=404, S0.x<=404, S0.x-Bus.x<=0, S0.x-S1.x<=404, S0.x-S2.x<=404, S1.x<=26, S1.x-Bus.x<=-13, S1.x-S0.x<=-13, S1.x-S2.x<=0, S2.x<=26, S2.x-Bus.x<=-13, S2.x-S0.x<=-13, S2.x-S1.x<=26 j=0 
+real 1.02
+user 0.07
+sys 0.19

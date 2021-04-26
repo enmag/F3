@@ -1,0 +1,26 @@
+Graph finished, checking  consistency
+Graph finished, checked consistency, took 0.003s
+Running T2 finished with non-zero exit code 1 when running command: 
+[mono, /home/T2/src/bin/Release/T2.exe, --try_nonterm=1, --print_proof, --termination, /tmp/aprove.InputModules.Programs.t29007516054560356073.t2]
+Exception in thread "DefaultMachine" java.lang.OutOfMemoryError: unable to create new native thread
+	at java.lang.Thread.start0(Native Method)
+	at java.lang.Thread.start(Thread.java:717)
+	at aprove.Strategies.Util.PrioritizableThreadPool.startWorker(PrioritizableThreadPool.java:410)
+	at aprove.Strategies.Util.PrioritizableThreadPool.executeNow(PrioritizableThreadPool.java:191)
+	at aprove.Strategies.Util.ThreadingPolicy$HighPolicy.schedule(ThreadingPolicy.java:26)
+	at aprove.Strategies.Util.ThreadingPolicy$DefaultPolicy.schedule(ThreadingPolicy.java:41)
+	at aprove.Strategies.ExecutableStrategies.Executor.start(Executor.java:114)
+	at aprove.Strategies.ExecutableStrategies.ExecProcessorStrategy.exec(ExecProcessorStrategy.java:55)
+	at aprove.Strategies.ExecutableStrategies.ExecSequence.exec(ExecSequence.java:24)
+	at aprove.Strategies.ExecutableStrategies.ExecAllParallel.exec(ExecAllParallel.java:29)
+	at aprove.Strategies.ExecutableStrategies.ExecSolve.exec(ExecSolve.java:82)
+	at aprove.Strategies.ExecutableStrategies.ExecAny.exec(ExecAny.java:62)
+	at aprove.Strategies.ExecutableStrategies.ExecSolve.exec(ExecSolve.java:82)
+	at aprove.Strategies.ExecutableStrategies.ExecAny.exec(ExecAny.java:62)
+	at aprove.Strategies.ExecutableStrategies.StrategyRoot.evaluateOnce(StrategyRoot.java:35)
+	at aprove.Strategies.ExecutableStrategies.impl.DefaultMachine$CmdExec.run(DefaultMachine.java:247)
+	at aprove.Strategies.ExecutableStrategies.impl.DefaultMachine.run(DefaultMachine.java:174)
+	at java.lang.Thread.run(Thread.java:748)
+real 141.42
+user 1000.83
+sys 14.59

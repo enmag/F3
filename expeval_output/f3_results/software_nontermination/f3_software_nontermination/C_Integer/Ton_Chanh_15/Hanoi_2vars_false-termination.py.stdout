@@ -1,0 +1,26 @@
+
+
+run 1/1: `Hanoi_2vars_false-termination`
+
+	Found non-termination argument:
+	State 0
+		pc = 0
+		((-1 * x) < 0)
+		(((-1 * y) + (-1 * x)) < 0)
+		(((-1 * y) + -1) <= 0)
+	Trans 0 -- 1
+		_x_x = x
+		_x_y = y
+	State 1
+		pc = 1
+	Trans 1 -- 2
+		_x_x = (y + x)
+		_x_y = y
+	State 2
+		pc = 2
+	Trans 2 -- 3
+		_x_x = x
+		_x_y = (y + 1)
+	starting from: {pc: 0, x: 1, y: 0}
+
+end of `Hanoi_2vars_false-termination`: SUCCESS in 1.2168350219726562s

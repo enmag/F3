@@ -1,0 +1,8 @@
+group: mitlbmc_ta_csma_cd
+platform: Linux node1 5.4.0-56-generic #62-Ubuntu SMP Mon Nov 23 19:20:19 UTC 2020 x86_64 x86_64
+timestamp: 1616106821
+time: 2021-03-18 23:33:41
+exitcode: 0
+real: 12.29
+user: 11.79
+sys: 0.32

@@ -1,0 +1,11 @@
+ input: /home/magnago/benchmarks/ltl_timed_automata/lynch/divine/lynch_protocol_0019.xml
+ property { 0 }: (G F v1_eq_1) -> (G F p0_cs7)
+ ------------------- OWCTY -------------------
+ initialise...		    Uncaught exception of type N5brick4mmap15SystemExceptionE:
+System error: Cannot allocate memory, when mmap failed
+terminate called after throwing an instance of 'brick::mmap::SystemException'
+  what():  System error: Cannot allocate memory, when mmap failed
+/home/run_divine.sh: line 4: 1637302 Aborted                 (core dumped) /home/divine-3.3.3/_build/tools/divine verify -w 1 -p 0 -f -d $1
+real 629.51
+user 612.19
+sys 16.24

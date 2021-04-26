@@ -1,0 +1,37 @@
+Traceback (most recent call last):
+  File "/home/pyrank/src/run_benchmarks.py", line 366, in <module>
+    main(getopts())
+  File "/home/pyrank/src/run_benchmarks.py", line 228, in main
+    res, runtime = dispatch_test(test_module, label, out_dir)
+  File "/home/pyrank/src/run_benchmarks.py", line 162, in dispatch_test
+    return run_ltl_test(test, label, out_dir)
+  File "/home/pyrank/src/run_benchmarks.py", line 88, in run_ltl_test
+    return search_nonterm(env, symbols, init, trans, fairness,
+  File "/home/pyrank/src/run_benchmarks.py", line 131, in search_nonterm
+    _, arg, param_assigns = search_unrank_bmc(env, symbols, init, trans,
+  File "/home/pyrank/src/unranker.py", line 165, in search_unrank_bmc
+    synth_unrank(env, symbols, trace,
+  File "/home/pyrank/src/unranker.py", line 442, in synth_unrank
+    log("{}".format(nontermarg.describe(indent="\t")),
+  File "/home/pyrank/src/funnel.py", line 1121, in describe
+    return "".join(f.describe(model, indent) for f in self._funnels) + \
+  File "/home/pyrank/src/funnel.py", line 1121, in <genexpr>
+    return "".join(f.describe(model, indent) for f in self._funnels) + \
+  File "/home/pyrank/src/funnel.py", line 2002, in describe
+    s.serialize(), val.serialize())
+  File "/home/magnago/.local/lib/python3.8/site-packages/pysmt/fnode.py", line 532, in serialize
+    return _env().serializer.serialize(self, threshold=threshold)
+  File "/home/magnago/.local/lib/python3.8/site-packages/pysmt/printers.py", line 345, in serialize
+    p = self.PrinterClass(buf)
+  File "/home/magnago/.local/lib/python3.8/site-packages/pysmt/printers.py", line 34, in __init__
+    TreeWalker.__init__(self, env=env)
+  File "/home/magnago/.local/lib/python3.8/site-packages/pysmt/walkers/tree.py", line 36, in __init__
+    Walker.__init__(self, env)
+  File "/home/magnago/.local/lib/python3.8/site-packages/pysmt/walkers/generic.py", line 85, in __init__
+    self.functions[o] = getattr(self, nt_to_fun(o))
+  File "/home/magnago/.local/lib/python3.8/site-packages/pysmt/walkers/generic.py", line 32, in nt_to_fun
+    return "walk_%s" % op.op_to_str(o).lower()
+KeyboardInterrupt
+real 3603.19
+user 0.00
+sys 0.00

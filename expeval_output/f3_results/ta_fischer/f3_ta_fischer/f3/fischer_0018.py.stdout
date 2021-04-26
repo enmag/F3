@@ -1,0 +1,196 @@
+
+
+run 1/1: `fischer_0018`
+
+	Found non-termination argument:
+	State 4
+		_EL_U_1956 = False
+		_EL_U_1958 = True
+		p12_l0 = False
+		p17_l1 = False
+		p11_l0 = False
+		p16_l1 = False
+		p10_l0 = False
+		p2_l1 = False
+		p17_l0 = False
+		p8_l1 = False
+		p2_l0 = False
+		p13_l0 = False
+		p1_l1 = False
+		p0_l0 = True
+		p7_l1 = False
+		p12_l1 = False
+		p6_l0 = False
+		turn = 1
+		id = 1
+		p14_l0 = False
+		p15_l1 = False
+		p9_l0 = False
+		p5_l1 = False
+		p9_l1 = False
+		p3_l0 = False
+		p3_l1 = False
+		p0_l1 = False
+		p15_l0 = False
+		p10_l1 = False
+		p4_l0 = False
+		p1_l0 = False
+		p4_l1 = False
+		p16_l0 = False
+		p11_l1 = False
+		p5_l0 = False
+		p6_l1 = False
+		p13_l1 = False
+		p7_l0 = False
+		p14_l1 = False
+		p8_l0 = False
+		_J1985 = True
+		_J1991 = True
+		_J1996 = True
+		_J2002 = True
+		_J2009 = True
+		_J2015 = True
+		_EL_U_1948 = True
+		_EL_U_1950 = False
+		_EL_U_1952 = True
+		_EL_U_1954 = False
+		((-1.0 * p5_x) < -2.0)
+		((-1.0 * delta) < 0.0)
+		((-1.0 * _diverge_delta) <= -1.0)
+		((-1.0 * p2_x) < -2.0)
+		((-1.0 * p15_x) < -2.0)
+		((-1.0 * p12_x) < -2.0)
+		((-1.0 * p9_x) < -2.0)
+		((-1.0 * p6_x) < -2.0)
+		((-1.0 * p3_x) < -2.0)
+		((-1.0 * p0_x) < -2.0)
+		((-1.0 * p16_x) < -2.0)
+		((-1.0 * p10_x) < -2.0)
+		((-1.0 * p4_x) < -2.0)
+		((-1.0 * p13_x) < -2.0)
+		((-1.0 * delta) <= -1.0)
+		((-1.0 * p7_x) < -2.0)
+		((-1.0 * p15_x) <= 0.0)
+		((-1.0 * p16_x) <= 0.0)
+		((-1.0 * p1_x) < -2.0)
+		((-1.0 * p17_x) < -2.0)
+		((-1.0 * p14_x) < -2.0)
+		((-1.0 * p11_x) < -2.0)
+		((-1.0 * p8_x) < -2.0)
+	Trans 4 -- 5
+		_x_delta = ((delta * 67/68) + (p17_x * 69/68) + (p16_x * 19043/18768) + (p15_x * 1/276) + (p14_x * 69/68) + (p12_x * 1/276) + (_diverge_delta * 18767/18768) + (p11_x * 19043/18768) + (p10_x * 19043/18768) + (p9_x * 18491/18768) + (p6_x * 69/68) + (p2_x * 18491/18768) + (p13_x * 19043/18768) + (p0_x * 19043/18768) + (p3_x * 19043/18768) + (p1_x * 69/68) + (p7_x * 19043/18768) + (p4_x * 19043/18768) + (p8_x * 18491/18768) + (p5_x * 69/68))
+		_x_p17_x = (p17_x + delta)
+		_x_p16_x = (p16_x + delta)
+		_x_p15_x = (p15_x + delta)
+		_x_p14_x = (p14_x + delta)
+		_x_p12_x = (p12_x + delta)
+		_x__diverge_delta = delta
+		_x_p11_x = (p11_x + delta)
+		_x_p10_x = (p10_x + delta)
+		_x_p9_x = (p9_x + delta)
+		_x_p6_x = (p6_x + delta)
+		_x_p2_x = (p2_x + delta)
+		_x_p13_x = (p13_x + delta)
+		_x_p0_x = (p0_x + delta)
+		_x_p3_x = (p3_x + delta)
+		_x_p1_x = (p1_x + delta)
+		_x_p7_x = (p7_x + delta)
+		_x_p4_x = (p4_x + delta)
+		_x_p8_x = (p8_x + delta)
+		_x_p5_x = (p5_x + delta)
+	State 5
+		_EL_U_1956 = False
+		_EL_U_1958 = True
+		p12_l0 = False
+		p17_l1 = False
+		p11_l0 = False
+		p16_l1 = False
+		p10_l0 = False
+		p2_l1 = False
+		p17_l0 = False
+		p8_l1 = False
+		p2_l0 = False
+		p13_l0 = False
+		p1_l1 = False
+		p0_l0 = True
+		p7_l1 = False
+		p12_l1 = False
+		p6_l0 = False
+		turn = 1
+		id = 1
+		p14_l0 = False
+		p15_l1 = False
+		p9_l0 = False
+		p5_l1 = False
+		p9_l1 = False
+		p3_l0 = False
+		p3_l1 = False
+		p0_l1 = False
+		p15_l0 = False
+		p10_l1 = False
+		p4_l0 = False
+		p1_l0 = False
+		p4_l1 = False
+		p16_l0 = False
+		p11_l1 = False
+		p5_l0 = False
+		p6_l1 = False
+		p13_l1 = False
+		p7_l0 = False
+		p14_l1 = False
+		p8_l0 = False
+		_J1985 = False
+		_J1991 = False
+		_J1996 = False
+		_J2002 = False
+		_J2009 = False
+		_J2015 = False
+		_EL_U_1948 = True
+		_EL_U_1950 = False
+		_EL_U_1952 = True
+		_EL_U_1954 = False
+		(((-1.0 * p14_x) + (-1.0 * delta)) < -2.0)
+		(((-1.0 * p10_x) + (-1.0 * delta)) < -2.0)
+		(((-1.0 * p15_x) + (-1.0 * delta)) < -2.0)
+		(((-1.0 * p11_x) + (-1.0 * delta)) < -2.0)
+		(((-1.0 * p4_x) + (-1.0 * delta)) < -2.0)
+		(((-1.0 * p12_x) + (-1.0 * delta)) < -2.0)
+		(((-1.0 * p8_x) + (-1.0 * delta)) < -2.0)
+		(((-1.0 * p13_x) + (-1.0 * delta)) < -2.0)
+		(((-1.0 * p9_x) + (-1.0 * delta)) < -2.0)
+		(((-1.0 * p7_x) + (-1.0 * delta)) < -2.0)
+		(((-1.0 * p6_x) + (-1.0 * delta)) < -2.0)
+		(((-1.0 * p15_x) + (-1.0 * delta)) <= 0.0)
+		(((-1.0 * p16_x) + (-1.0 * delta)) <= 0.0)
+		(((-1.0 * p3_x) + (-1.0 * delta)) < -2.0)
+		(((-1.0 * p5_x) + (-1.0 * delta)) < -2.0)
+		(((-1.0 * p1_x) + (-1.0 * delta)) < -2.0)
+		((-1.0 * delta) <= -1.0)
+		(((-1.0 * p0_x) + (-1.0 * delta)) < -2.0)
+		(((-1.0 * p17_x) + (-1.0 * delta)) < -2.0)
+		(((-1.0 * p16_x) + (-1.0 * delta)) < -2.0)
+		(((-1.0 * p2_x) + (-1.0 * delta)) < -2.0)
+	Trans 5 -- 6
+		_x_delta = (p17_x + (p16_x * 275/18768) + p15_x + (p14_x * 18769/18768) + (p12_x * 275/18768) + (-1.0 * _diverge_delta) + (p11_x * 1/68) + (p10_x * 275/18768) + (p9_x * 18767/18768) + p6_x + (p2_x * 1/68) + (p13_x * 18769/18768) + (p0_x * 1/68) + (p3_x * 275/18768) + p1_x + (p7_x * 18769/18768) + (p4_x * 18767/18768) + (p8_x * 18767/18768) + (p5_x * 275/18768) + 1/18768)
+		_x_p17_x = (p17_x + delta)
+		_x_p16_x = (p16_x + delta)
+		_x_p15_x = (p15_x + delta)
+		_x_p14_x = (p14_x + delta)
+		_x_p12_x = (p12_x + delta)
+		_x__diverge_delta = delta
+		_x_p11_x = (p11_x + delta)
+		_x_p10_x = (p10_x + delta)
+		_x_p9_x = (p9_x + delta)
+		_x_p6_x = (p6_x + delta)
+		_x_p2_x = (p2_x + delta)
+		_x_p13_x = (p13_x + delta)
+		_x_p0_x = (p0_x + delta)
+		_x_p3_x = (p3_x + delta)
+		_x_p1_x = (p1_x + delta)
+		_x_p7_x = (p7_x + delta)
+		_x_p4_x = (p4_x + delta)
+		_x_p8_x = (p8_x + delta)
+		_x_p5_x = (p5_x + delta)
+	starting from: {_EL_U_1956: False, delta: 5/2, p17_x: 7/2, p16_x: 7/2, p15_x: 7/2, p14_x: 7/2, p12_l0: False, p12_x: 7/2, _diverge_delta: 1.0, p17_l1: False, p11_l0: False, p11_x: 7/2, p16_l1: False, p10_l0: False, p10_x: 7/2, p9_x: 7/2, p2_l1: False, p17_l0: False, p6_x: 7/2, p8_l1: False, p2_l0: False, p13_l0: False, p2_x: 7/2, p1_l1: False, p13_x: 7/2, p0_l0: True, p7_l1: False, p0_x: 7/2, p12_l1: False, p6_l0: False, turn: 1, id: 1, p14_l0: False, p3_x: 7/2, p15_l1: False, p9_l0: False, p1_x: 7/2, p5_l1: False, p9_l1: False, p3_l0: False, p3_l1: False, p0_l1: False, p7_x: 7/2, p15_l0: False, p4_x: 7/2, p10_l1: False, p4_l0: False, p1_l0: False, p4_l1: False, p8_x: 7/2, p16_l0: False, p5_x: 7/2, p11_l1: False, p5_l0: False, p6_l1: False, p13_l1: False, p7_l0: False, p14_l1: False, p8_l0: False, _J1985: True, _J1991: True, _J1996: True, _J2002: True, _J2009: True, _J2015: True, _EL_U_1958: True, _EL_U_1948: True, _EL_U_1950: False, _EL_U_1952: True, _EL_U_1954: False}
+
+end of `fischer_0018`: SUCCESS in 19.702219009399414s

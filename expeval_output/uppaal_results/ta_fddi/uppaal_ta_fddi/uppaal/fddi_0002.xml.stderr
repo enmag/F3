@@ -1,0 +1,61 @@
+
+State
+
+( RING.ring_to_counter ST0.station_z_idle ST1.station_z_idle )
+RING.x<=0, RING.x-ST0.x<=0, RING.x-ST0.y<=0, RING.x-ST0.z<=0, RING.x-ST1.x<=0, RING.x-ST1.y<=0, RING.x-ST1.z<=0, ST0.x<=0, ST0.x-RING.x<=0, ST0.x-ST0.y<=0, ST0.x-ST0.z<=0, ST0.x-ST1.x<=0, ST0.x-ST1.y<=0, ST0.x-ST1.z<=0, ST0.y<=0, ST0.y-RING.x<=0, ST0.y-ST0.x<=0, ST0.y-ST0.z<=0, ST0.y-ST1.x<=0, ST0.y-ST1.y<=0, ST0.y-ST1.z<=0, ST0.z<=0, ST0.z-RING.x<=0, ST0.z-ST0.x<=0, ST0.z-ST0.y<=0, ST0.z-ST1.x<=0, ST0.z-ST1.y<=0, ST0.z-ST1.z<=0, ST1.x<=0, ST1.x-RING.x<=0, ST1.x-ST0.x<=0, ST1.x-ST0.y<=0, ST1.x-ST0.z<=0, ST1.x-ST1.y<=0, ST1.x-ST1.z<=0, ST1.y<=0, ST1.y-RING.x<=0, ST1.y-ST0.x<=0, ST1.y-ST0.y<=0, ST1.y-ST0.z<=0, ST1.y-ST1.x<=0, ST1.y-ST1.z<=0, ST1.z<=0, ST1.z-RING.x<=0, ST1.z-ST0.x<=0, ST1.z-ST0.y<=0, ST1.z-ST0.z<=0, ST1.z-ST1.x<=0, ST1.z-ST1.y<=0 RING.counter=0 ST0.id=0 ST1.id=1 
+
+Transitions:
+  RING.ring_to_counter->RING.ring_counter { x <= td, tt[counter]!, 1 }
+  ST0.station_z_idle->ST0.station_z_sync { 1, tt[id]?, y := 0, x := 0 }
+
+State
+
+( RING.ring_counter ST0.station_z_sync ST1.station_z_idle )
+RING.x<=20, RING.x-ST0.x<=0, RING.x-ST0.y<=0, RING.x-ST0.z<=0, RING.x-ST1.x<=0, RING.x-ST1.y<=0, RING.x-ST1.z<=0, ST0.x<=20, ST0.x-RING.x<=0, ST0.x-ST0.y<=0, ST0.x-ST0.z<=0, ST0.x-ST1.x<=0, ST0.x-ST1.y<=0, ST0.x-ST1.z<=0, ST0.y<=20, ST0.y-RING.x<=0, ST0.y-ST0.x<=0, ST0.y-ST0.z<=0, ST0.y-ST1.x<=0, ST0.y-ST1.y<=0, ST0.y-ST1.z<=0, ST0.z<=20, ST0.z-RING.x<=0, ST0.z-ST0.x<=0, ST0.z-ST0.y<=0, ST0.z-ST1.x<=0, ST0.z-ST1.y<=0, ST0.z-ST1.z<=0, ST1.x<=20, ST1.x-RING.x<=0, ST1.x-ST0.x<=0, ST1.x-ST0.y<=0, ST1.x-ST0.z<=0, ST1.x-ST1.y<=0, ST1.x-ST1.z<=0, ST1.y<=20, ST1.y-RING.x<=0, ST1.y-ST0.x<=0, ST1.y-ST0.y<=0, ST1.y-ST0.z<=0, ST1.y-ST1.x<=0, ST1.y-ST1.z<=0, ST1.z<=20, ST1.z-RING.x<=0, ST1.z-ST0.x<=0, ST1.z-ST0.y<=0, ST1.z-ST0.z<=0, ST1.z-ST1.x<=0, ST1.z-ST1.y<=0 RING.counter=0 ST0.id=0 ST1.id=1 
+
+Transitions:
+  ST0.station_z_sync->ST0.station_z_async { x >= SA && z < TRTT, tau, 1 }
+
+State
+
+( RING.ring_counter ST0.station_z_async ST1.station_z_idle )
+RING.x>=20, ST0.x>=20, ST0.y>=20, ST0.z>=20, ST1.x>=20, ST1.y>=20, ST1.z>=20, RING.x<=120, RING.x-ST0.x<=0, RING.x-ST0.y<=0, RING.x-ST0.z<=0, RING.x-ST1.x<=0, RING.x-ST1.y<=0, RING.x-ST1.z<=0, ST0.x<=120, ST0.x-RING.x<=0, ST0.x-ST0.y<=0, ST0.x-ST0.z<=0, ST0.x-ST1.x<=0, ST0.x-ST1.y<=0, ST0.x-ST1.z<=0, ST0.y<=120, ST0.y-RING.x<=0, ST0.y-ST0.x<=0, ST0.y-ST0.z<=0, ST0.y-ST1.x<=0, ST0.y-ST1.y<=0, ST0.y-ST1.z<=0, ST0.z<=120, ST0.z-RING.x<=0, ST0.z-ST0.x<=0, ST0.z-ST0.y<=0, ST0.z-ST1.x<=0, ST0.z-ST1.y<=0, ST0.z-ST1.z<=0, ST1.x<=120, ST1.x-RING.x<=0, ST1.x-ST0.x<=0, ST1.x-ST0.y<=0, ST1.x-ST0.z<=0, ST1.x-ST1.y<=0, ST1.x-ST1.z<=0, ST1.y<=120, ST1.y-RING.x<=0, ST1.y-ST0.x<=0, ST1.y-ST0.y<=0, ST1.y-ST0.z<=0, ST1.y-ST1.x<=0, ST1.y-ST1.z<=0, ST1.z<=120, ST1.z-RING.x<=0, ST1.z-ST0.x<=0, ST1.z-ST0.y<=0, ST1.z-ST0.z<=0, ST1.z-ST1.x<=0, ST1.z-ST1.y<=0 RING.counter=0 ST0.id=0 ST1.id=1 
+
+Transitions:
+  ST0.station_z_async->ST0.station_y_idle { 1, rt[id]!, 1 }
+  RING.ring_counter->RING.ring_to_counter { counter < N - 1, rt[counter]?, x := 0, counter := counter + 1 }
+
+State
+
+( RING.ring_to_counter ST0.station_y_idle ST1.station_z_idle )
+ST0.x>=20, ST0.y>=20, ST0.z>=20, ST1.x>=20, ST1.y>=20, ST1.z>=20, RING.x<=0, RING.x-ST0.x<=-20, RING.x-ST0.y<=-20, RING.x-ST0.z<=-20, RING.x-ST1.x<=-20, RING.x-ST1.y<=-20, RING.x-ST1.z<=-20, ST0.x<=120, ST0.x-RING.x<=120, ST0.x-ST0.y<=0, ST0.x-ST0.z<=0, ST0.x-ST1.x<=0, ST0.x-ST1.y<=0, ST0.x-ST1.z<=0, ST0.y<=120, ST0.y-RING.x<=120, ST0.y-ST0.x<=0, ST0.y-ST0.z<=0, ST0.y-ST1.x<=0, ST0.y-ST1.y<=0, ST0.y-ST1.z<=0, ST0.z<=120, ST0.z-RING.x<=120, ST0.z-ST0.x<=0, ST0.z-ST0.y<=0, ST0.z-ST1.x<=0, ST0.z-ST1.y<=0, ST0.z-ST1.z<=0, ST1.x<=120, ST1.x-RING.x<=120, ST1.x-ST0.x<=0, ST1.x-ST0.y<=0, ST1.x-ST0.z<=0, ST1.x-ST1.y<=0, ST1.x-ST1.z<=0, ST1.y<=120, ST1.y-RING.x<=120, ST1.y-ST0.x<=0, ST1.y-ST0.y<=0, ST1.y-ST0.z<=0, ST1.y-ST1.x<=0, ST1.y-ST1.z<=0, ST1.z<=120, ST1.z-RING.x<=120, ST1.z-ST0.x<=0, ST1.z-ST0.y<=0, ST1.z-ST0.z<=0, ST1.z-ST1.x<=0, ST1.z-ST1.y<=0 RING.counter=1 ST0.id=0 ST1.id=1 
+
+Transitions:
+  RING.ring_to_counter->RING.ring_counter { x <= td, tt[counter]!, 1 }
+  ST1.station_z_idle->ST1.station_z_sync { 1, tt[id]?, y := 0, x := 0 }
+
+State
+
+( RING.ring_counter ST0.station_y_idle ST1.station_z_sync )
+ST0.x>=20, ST0.y>=20, ST0.z>=20, ST1.z>=20, RING.x<=20, RING.x-ST0.x<=-20, RING.x-ST0.y<=-20, RING.x-ST0.z<=-20, RING.x-ST1.x<=0, RING.x-ST1.y<=0, RING.x-ST1.z<=-20, ST0.x<=140, ST0.x-RING.x<=120, ST0.x-ST0.y<=0, ST0.x-ST0.z<=0, ST0.x-ST1.x<=120, ST0.x-ST1.y<=120, ST0.x-ST1.z<=0, ST0.y<=140, ST0.y-RING.x<=120, ST0.y-ST0.x<=0, ST0.y-ST0.z<=0, ST0.y-ST1.x<=120, ST0.y-ST1.y<=120, ST0.y-ST1.z<=0, ST0.z<=140, ST0.z-RING.x<=120, ST0.z-ST0.x<=0, ST0.z-ST0.y<=0, ST0.z-ST1.x<=120, ST0.z-ST1.y<=120, ST0.z-ST1.z<=0, ST1.x<=20, ST1.x-RING.x<=0, ST1.x-ST0.x<=-20, ST1.x-ST0.y<=-20, ST1.x-ST0.z<=-20, ST1.x-ST1.y<=0, ST1.x-ST1.z<=-20, ST1.y<=20, ST1.y-RING.x<=0, ST1.y-ST0.x<=-20, ST1.y-ST0.y<=-20, ST1.y-ST0.z<=-20, ST1.y-ST1.x<=0, ST1.y-ST1.z<=-20, ST1.z<=140, ST1.z-RING.x<=120, ST1.z-ST0.x<=0, ST1.z-ST0.y<=0, ST1.z-ST0.z<=0, ST1.z-ST1.x<=120, ST1.z-ST1.y<=120 RING.counter=1 ST0.id=0 ST1.id=1 
+
+Transitions:
+  ST1.station_z_sync->ST1.station_y_idle { x >= SA && z >= TRTT, rt[id]!, 1 }
+  RING.ring_counter->RING.ring_to_counter { counter == N - 1, rt[counter]?, x := 0, counter := 0 }
+
+State
+
+( RING.ring_to_counter ST0.station_y_idle ST1.station_y_idle )
+ST0.x>=120, ST0.y>=120, ST0.z>=120, ST1.x>=20, ST1.y>=20, ST1.z>=120, RING.x<=0, RING.x-ST0.x<=-120, RING.x-ST0.y<=-120, RING.x-ST0.z<=-120, RING.x-ST1.x<=-20, RING.x-ST1.y<=-20, RING.x-ST1.z<=-120, ST0.x<=140, ST0.x-RING.x<=140, ST0.x-ST0.y<=0, ST0.x-ST0.z<=0, ST0.x-ST1.x<=120, ST0.x-ST1.y<=120, ST0.x-ST1.z<=0, ST0.y<=140, ST0.y-RING.x<=140, ST0.y-ST0.x<=0, ST0.y-ST0.z<=0, ST0.y-ST1.x<=120, ST0.y-ST1.y<=120, ST0.y-ST1.z<=0, ST0.z<=140, ST0.z-RING.x<=140, ST0.z-ST0.x<=0, ST0.z-ST0.y<=0, ST0.z-ST1.x<=120, ST0.z-ST1.y<=120, ST0.z-ST1.z<=0, ST1.x<=20, ST1.x-RING.x<=20, ST1.x-ST0.x<=-100, ST1.x-ST0.y<=-100, ST1.x-ST0.z<=-100, ST1.x-ST1.y<=0, ST1.x-ST1.z<=-100, ST1.y<=20, ST1.y-RING.x<=20, ST1.y-ST0.x<=-100, ST1.y-ST0.y<=-100, ST1.y-ST0.z<=-100, ST1.y-ST1.x<=0, ST1.y-ST1.z<=-100, ST1.z<=140, ST1.z-RING.x<=140, ST1.z-ST0.x<=0, ST1.z-ST0.y<=0, ST1.z-ST0.z<=0, ST1.z-ST1.x<=120, ST1.z-ST1.y<=120 RING.counter=0 ST0.id=0 ST1.id=1 
+
+Transitions:
+  RING.ring_to_counter->RING.ring_counter { x <= td, tt[counter]!, 1 }
+  ST0.station_y_idle->ST0.station_y_sync { 1, tt[id]?, z := 0, x := 0 }
+
+State
+
+( RING.ring_counter ST0.station_y_sync ST1.station_y_idle )
+ST0.y>=120, ST1.x>=20, ST1.y>=20, ST1.z>=120, RING.x-ST0.x<=0, RING.x-ST0.y<=-120, RING.x-ST0.z<=0, RING.x-ST1.x<=-20, RING.x-ST1.y<=-20, RING.x-ST1.z<=-120, ST0.x-RING.x<=0, ST0.x-ST0.y<=-120, ST0.x-ST0.z<=0, ST0.x-ST1.x<=-20, ST0.x-ST1.y<=-20, ST0.x-ST1.z<=-120, ST0.y-RING.x<=140, ST0.y-ST0.x<=140, ST0.y-ST0.z<=140, ST0.y-ST1.x<=120, ST0.y-ST1.y<=120, ST0.y-ST1.z<=0, ST0.z-RING.x<=0, ST0.z-ST0.x<=0, ST0.z-ST0.y<=-120, ST0.z-ST1.x<=-20, ST0.z-ST1.y<=-20, ST0.z-ST1.z<=-120, ST1.x-RING.x<=20, ST1.x-ST0.x<=20, ST1.x-ST0.y<=-100, ST1.x-ST0.z<=20, ST1.x-ST1.y<=0, ST1.x-ST1.z<=-100, ST1.y-RING.x<=20, ST1.y-ST0.x<=20, ST1.y-ST0.y<=-100, ST1.y-ST0.z<=20, ST1.y-ST1.x<=0, ST1.y-ST1.z<=-100, ST1.z-RING.x<=140, ST1.z-ST0.x<=140, ST1.z-ST0.y<=0, ST1.z-ST0.z<=140, ST1.z-ST1.x<=120, ST1.z-ST1.y<=120 RING.counter=0 ST0.id=0 ST1.id=1 
+real 1.02
+user 0.06
+sys 0.18

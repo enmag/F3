@@ -1,0 +1,8 @@
+group: pyrank_ta_csma_cd
+platform: Linux node1 5.4.0-56-generic #62-Ubuntu SMP Mon Nov 23 19:20:19 UTC 2020 x86_64 x86_64
+timestamp: 1616945597
+time: 2021-03-28 17:33:17
+exitcode: 0
+real: 523.26
+user: 521.12
+sys: 1.51

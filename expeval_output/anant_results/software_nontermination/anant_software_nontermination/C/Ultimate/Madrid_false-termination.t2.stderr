@@ -1,0 +1,21 @@
+ERROR:root:
+Traceback (most recent call last):
+  File "/home/anant/tool/build/t2parser.py", line 97, in nontermCheck
+    t2lassoParser.main_func(lassoStr, extractInv)
+  File "/home/anant/tool/build/t2lassoParser.py", line 542, in main_func
+    getGuardsAssignments(stemRelation, quantifiedVarsStem, False)
+  File "/home/anant/tool/build/t2lassoParser.py", line 279, in getGuardsAssignments
+    formula = cycleRelation[0]
+IndexError: list index out of range
+ERROR:root:
+Traceback (most recent call last):
+  File "/home/anant/tool/build/t2parser.py", line 97, in nontermCheck
+    t2lassoParser.main_func(lassoStr, extractInv)
+  File "/home/anant/tool/build/t2lassoParser.py", line 542, in main_func
+    getGuardsAssignments(stemRelation, quantifiedVarsStem, False)
+  File "/home/anant/tool/build/t2lassoParser.py", line 279, in getGuardsAssignments
+    formula = cycleRelation[0]
+IndexError: list index out of range
+real 1.02
+user 0.25
+sys 0.31

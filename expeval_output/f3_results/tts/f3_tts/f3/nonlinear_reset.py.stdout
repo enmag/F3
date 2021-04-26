@@ -1,0 +1,58 @@
+
+
+run 1/1: `nonlinear_reset`
+
+	Found non-termination argument:
+	Do states 2..3 while (ToReal(counter) < 0.0)
+	State 2
+		_diverge_delta = 0.0
+		_J112 = True
+		_J118 = True
+		_J124 = True
+		_J130 = True
+		_EL_U_80 = True
+		_EL_U_82 = False
+		_EL_U_85 = True
+		_EL_U_87 = False
+		((-1.0 * delta) < 0.0)
+		(delta = 1.0)
+	Trans 2 -- 3
+		_x_bound : (c + delta)
+		_x_c : (c + delta)
+		_x_delta : 0.0
+		_x_counter : counter
+	State 3
+		_diverge_delta = 1.0
+		_J112 = False
+		_J118 = False
+		_J124 = False
+		_J130 = False
+		_EL_U_80 = True
+		_EL_U_82 = False
+		_EL_U_85 = True
+		_EL_U_87 = False
+	Trans 3 -- 2
+		_x_bound : (ToReal(counter) * ToReal(counter))
+		_x_c : (ToReal(counter) * ToReal(counter))
+		_x_delta : 1.0
+		_x_counter : (counter + 1)
+	End do-while
+	State 3
+		_diverge_delta = 1.0
+		_J112 = False
+		_J118 = False
+		_J124 = False
+		_J130 = False
+		_EL_U_80 = True
+		_EL_U_82 = False
+		_EL_U_85 = True
+		_EL_U_87 = False
+		((-1.0 * ToReal(counter)) <= 0.0)
+	Trans 3 -- 4
+		_x_bound = (ToReal(counter) * ToReal(counter))
+		_x_c = (ToReal(counter) * ToReal(counter))
+		_x_delta = 1.0
+		_x_counter = (counter + 1)
+	starting from: {delta: 1.0, _diverge_delta: 0.0, counter: 1, bound: 0.0, c: 0.0, _J112: True, _J118: True, _J124: True, _J130: True, _EL_U_80: True, _EL_U_82: False, _EL_U_85: True, _EL_U_87: False}
+
+end of `nonlinear_reset`: SUCCESS in 0.731705904006958s

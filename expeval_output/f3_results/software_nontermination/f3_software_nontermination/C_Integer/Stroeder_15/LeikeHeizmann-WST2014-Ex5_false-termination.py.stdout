@@ -1,0 +1,44 @@
+
+
+run 1/1: `LeikeHeizmann-WST2014-Ex5_false-termination`
+
+	Found non-termination argument:
+	Do states 0..3 while (((ToReal(olda) * 13/20) + -67/20) < 0.0)
+	State 0
+		pc = 0
+		((-1 * a) <= -7)
+		((-1 * b) <= -7)
+	Trans 0 -- 1
+		_x_olda : olda
+		_x_a : a
+		_x_b : b
+	State 1
+		pc = 1
+	Trans 1 -- 2
+		_x_olda : a
+		_x_a : a
+		_x_b : b
+	State 2
+		pc = 2
+	Trans 2 -- 3
+		_x_olda : olda
+		_x_a : b
+		_x_b : b
+	State 3
+		pc = 3
+	Trans 3 -- 0
+		_x_olda : olda
+		_x_a : a
+		_x_b : (olda + 1)
+	End do-while
+	State 3
+		pc = 3
+		((-1 * a) <= -7)
+		((67/20 - (ToReal(olda) * 13/20)) <= 0.0)
+	Trans 3 -- 4
+		_x_olda = olda
+		_x_a = a
+		_x_b = (olda + 1)
+	starting from: {olda: 0, pc: 0, a: 7, b: 7}
+
+end of `LeikeHeizmann-WST2014-Ex5_false-termination`: SUCCESS in 1.280454158782959s

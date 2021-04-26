@@ -1,0 +1,6 @@
+ input: /home/magnago/benchmarks/ltl_timed_automata/train/divine/train_gate_0021.xml
+ property { 0 }: G ((g0 && X g1) -> F (g2 && X g3))
+ ------------------- OWCTY -------------------
+ initialise...		    real 3602.60
+user 3581.18
+sys 21.05

@@ -1,0 +1,6 @@
+ input: /home/magnago/benchmarks/ltl_timed_automata/lynch/divine/lynch_protocol_0023.xml
+ property { 0 }: (G F v1_eq_1) -> (G F p0_cs7)
+ ------------------- OWCTY -------------------
+ initialise...		    real 3603.47
+user 3592.41
+sys 10.01

@@ -1,0 +1,6 @@
+Result : Non-Terminating
+sat for numRecurrentSetEqs = 2
+Closed Recurrent Set is
+1 * vc_0 +  <= -3
+-1 * vx_0 + -3 * vc_0 +  <= 2
+

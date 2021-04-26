@@ -1,0 +1,8 @@
+group: ultimate_tts_token_ring
+platform: Linux node4 5.4.0-54-generic #60-Ubuntu SMP Fri Nov 6 10:37:59 UTC 2020 x86_64 x86_64
+timestamp: 1619286180
+time: 2021-04-24 19:43:00
+exitcode: 0
+real: 985.78
+user: 0.18
+sys: 0.67

@@ -1,0 +1,8 @@
+group: nuxmv_ta_fddi
+platform: Linux node1 5.4.0-56-generic #62-Ubuntu SMP Mon Nov 23 19:20:19 UTC 2020 x86_64 x86_64
+timestamp: 1616129730
+time: 2021-03-19 05:55:30
+exitcode: 0
+real: 1921.08
+user: 1919.18
+sys: 1.24

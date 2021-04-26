@@ -1,0 +1,7 @@
+
+
+run 1/1: `16`
+
+	Found non-termination argument:
+	[{z: 0, pc: 2, x: 1, y: 0}, {z: 0, pc: 3, x: 1, y: 0}, {z: 0, pc: 4, x: 1, y: 0}, {z: 0, pc: 5, x: 0, y: 0}, {z: 0, pc: 2, x: 1, y: 0}]
+end of `16`: SUCCESS in 0.07820487022399902s

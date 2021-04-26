@@ -1,0 +1,6 @@
+ input: /home/magnago/benchmarks/ltl_timed_automata/csma-cd/divine/csma_0022.xml
+ property { 0 }: G (s0_transm -> F s0_wait)
+ ------------------- OWCTY -------------------
+ initialise...		    real 3603.17
+user 3590.11
+sys 12.31

@@ -1,0 +1,64 @@
+
+
+run 1/1: `sender_receiver`
+
+	Found non-termination argument:
+	State 3
+		r_l = False
+		s_msg_id = -1
+		s_evt = False
+		s_l = False
+		s2r = 0
+		r2s = 0
+		_J213 = True
+		_J222 = True
+		_J227 = True
+		_J233 = True
+		_J240 = True
+		_J246 = True
+		_EL_U_175 = True
+		_EL_U_177 = False
+		_EL_U_179 = True
+		_EL_U_181 = False
+		_EL_U_183 = False
+		_EL_U_186 = True
+		(_diverge_delta < 1.0)
+		(s_c = 0.0)
+		(((-1.0 * s_timeout) + s_c) < 0.0)
+		((-1.0 * delta) < 0.0)
+		((-1.0 * s_timeout) < -1.0)
+		((-1.0 * s_c) <= 0.0)
+		(((-1.0 * delta) + (-1.0 * s_c) + s_timeout) = 0.0)
+		(((-1.0 * delta) + (-1.0 * _diverge_delta)) <= -1.0)
+	Trans 3 -- 4
+		_x_s_timeout = s_timeout
+		_x_delta = 0.0
+		_x__diverge_delta = (_diverge_delta + delta)
+		_x_s_c = (s_c + delta)
+	State 4
+		r_l = False
+		s_msg_id = -1
+		s_evt = True
+		s_l = False
+		s2r = 0
+		r2s = 0
+		_J213 = False
+		_J222 = False
+		_J227 = False
+		_J233 = False
+		_J240 = False
+		_J246 = False
+		_EL_U_175 = True
+		_EL_U_177 = False
+		_EL_U_179 = True
+		_EL_U_181 = False
+		_EL_U_183 = False
+		_EL_U_186 = True
+	Trans 4 -- 5
+		_x_s_timeout = (((s_timeout * 2.0) + (s_c * 1/8) + -1/4) - (_diverge_delta * 1/8))
+		_x_delta = (((s_timeout * 13/8) + (s_c * 1/2) + -1/4) - (_diverge_delta * 1/8))
+		_x__diverge_delta = delta
+		_x_s_c = 0.0
+	starting from: {delta: 5/4, _diverge_delta: 0.0, s_c: 0.0, s_timeout: 5/4, r_l: False, s_msg_id: -1, s_evt: False, s_l: False, s2r: 0, r2s: 0, _J213: True, _J222: True, _J227: True, _J233: True, _J240: True, _J246: True, _EL_U_175: True, _EL_U_177: False, _EL_U_179: True, _EL_U_181: False, _EL_U_183: False, _EL_U_186: True}
+
+end of `sender_receiver`: SUCCESS in 205.4216468334198s

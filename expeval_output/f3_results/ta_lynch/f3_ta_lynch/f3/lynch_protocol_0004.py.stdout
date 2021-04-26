@@ -1,0 +1,108 @@
+
+
+run 1/1: `lynch_protocol_0004`
+
+	Found non-termination argument:
+	State 1
+		p3_l3 = False
+		p3_l2 = False
+		p3_l1 = False
+		p3_evt = False
+		p3_l0 = False
+		p2_l3 = False
+		p2_l2 = False
+		p2_l1 = False
+		p2_evt = False
+		v1 = 1
+		v2 = True
+		p2_l0 = False
+		p0_l3 = False
+		p1_l2 = False
+		p0_evt = False
+		p0_l1 = False
+		p1_l0 = False
+		p1_l3 = False
+		p0_l2 = False
+		_EL_U_935 = True
+		p0_l0 = False
+		p1_evt = False
+		p1_l1 = False
+		_J972 = True
+		_J978 = True
+		_J983 = True
+		_J989 = True
+		_J996 = True
+		_J1002 = True
+		_EL_U_937 = False
+		_EL_U_939 = True
+		_EL_U_941 = False
+		_EL_U_943 = False
+		_EL_U_945 = True
+		((-1.0 * p3_c) <= 0.0)
+		((-1.0 * p0_c) < -16.0)
+		((-1.0 * delta) < 0.0)
+		((-1.0 * p2_c) <= 0.0)
+		((-1.0 * _diverge_delta) <= -1.0)
+		((-1.0 * delta) <= -1.0)
+		((-1.0 * p1_c) < -16.0)
+		((-1.0 * p3_c) < -16.0)
+		((-1.0 * p2_c) < -16.0)
+	Trans 1 -- 2
+		_x_p2_c = (p2_c + delta)
+		_x_delta = (p2_c + delta + _diverge_delta + p1_c + p3_c + p0_c + -1.0)
+		_x__diverge_delta = delta
+		_x_p1_c = (p1_c + delta)
+		_x_p3_c = (p3_c + delta)
+		_x_p0_c = (p0_c + delta)
+	State 2
+		p3_l3 = False
+		p3_l2 = False
+		p3_l1 = False
+		p3_evt = False
+		p3_l0 = False
+		p2_l3 = False
+		p2_l2 = False
+		p2_l1 = False
+		p2_evt = False
+		v1 = 1
+		v2 = True
+		p2_l0 = False
+		p0_l3 = False
+		p1_l2 = False
+		p0_evt = False
+		p0_l1 = False
+		p1_l0 = False
+		p1_l3 = False
+		p0_l2 = False
+		_EL_U_935 = True
+		p0_l0 = False
+		p1_evt = False
+		p1_l1 = False
+		_J972 = False
+		_J978 = False
+		_J983 = False
+		_J989 = False
+		_J996 = False
+		_J1002 = False
+		_EL_U_937 = False
+		_EL_U_939 = True
+		_EL_U_941 = False
+		_EL_U_943 = False
+		_EL_U_945 = True
+		(((-1.0 * delta) + (-1.0 * p2_c)) < -16.0)
+		(((-1.0 * delta) + (-1.0 * p3_c)) <= 0.0)
+		((-1.0 * delta) <= -1.0)
+		(((-1.0 * delta) + (-1.0 * p1_c)) < -16.0)
+		(((-1.0 * delta) + (-1.0 * p2_c)) <= 0.0)
+		(((-1.0 * delta) + (-1.0 * p3_c)) < -16.0)
+		(((-1.0 * delta) + (-1.0 * p0_c)) < -16.0)
+	Trans 2 -- 3
+		_x_p2_c = (p2_c + delta)
+		_x_delta = (p2_c + delta + (-1.0 * _diverge_delta) + p1_c + p3_c + p0_c + -1.0)
+		_x__diverge_delta = delta
+		_x_p1_c = (p1_c + delta)
+		_x_p3_c = (p3_c + delta)
+		_x_p0_c = (p0_c + delta)
+	starting from: {delta: 1.0, _diverge_delta: 33/2, p3_l3: False, p3_l2: False, p3_l1: False, p3_evt: False, p3_l0: False, p3_c: 33/2, p2_l3: False, p2_l2: False, p2_l1: False, p2_evt: False, v1: 1, v2: True, p2_l0: False, p2_c: 33/2, p0_l3: False, p1_l2: False, p0_evt: False, p0_l1: False, p1_l0: False, p1_c: 33/2, p1_l3: False, p0_l2: False, p0_c: 33/2, p0_l0: False, p1_evt: False, p1_l1: False, _J972: True, _J978: True, _J983: True, _J989: True, _J996: True, _J1002: True, _EL_U_937: False, _EL_U_939: True, _EL_U_941: False, _EL_U_943: False, _EL_U_945: True, _EL_U_935: True}
+
+end of `lynch_protocol_0004`: SUCCESS in 1.7294297218322754s

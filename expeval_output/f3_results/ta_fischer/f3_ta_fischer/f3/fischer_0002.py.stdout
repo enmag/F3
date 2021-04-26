@@ -1,0 +1,65 @@
+
+
+run 1/1: `fischer_0002`
+
+	Found non-termination argument:
+	State 4
+		p1_l1 = False
+		p0_l1 = False
+		p0_l0 = True
+		p1_l0 = False
+		_EL_U_269 = True
+		turn = 2
+		id = 1
+		_EL_U_273 = True
+		_J306 = True
+		_J312 = True
+		_J317 = True
+		_J323 = True
+		_J330 = True
+		_J336 = True
+		_EL_U_275 = False
+		_EL_U_277 = False
+		_EL_U_279 = True
+		_EL_U_271 = False
+		((-1.0 * p0_x) < -2.0)
+		((-1.0 * _diverge_delta) <= -1.0)
+		((-1.0 * delta) <= -1.0)
+		((-1.0 * delta) < 0.0)
+		((-1.0 * p1_x) < -2.0)
+	Trans 4 -- 5
+		_x_p0_x = (p0_x + delta)
+		_x_delta = (p0_x + delta + _diverge_delta + p1_x + -1.0)
+		_x__diverge_delta = delta
+		_x_p1_x = (p1_x + delta)
+	State 5
+		p1_l1 = False
+		p0_l1 = False
+		p0_l0 = True
+		p1_l0 = False
+		_EL_U_269 = True
+		turn = 2
+		id = 1
+		_EL_U_273 = True
+		_J306 = False
+		_J312 = False
+		_J317 = False
+		_J323 = False
+		_J330 = False
+		_J336 = False
+		_EL_U_275 = False
+		_EL_U_277 = False
+		_EL_U_279 = True
+		_EL_U_271 = False
+		((-1.0 * delta) < 0.0)
+		(((-1.0 * p1_x) + (-1.0 * delta)) < -2.0)
+		(((-1.0 * p0_x) + (-1.0 * delta)) < -2.0)
+		((-1.0 * delta) <= -1.0)
+	Trans 5 -- 6
+		_x_p0_x = (p0_x + delta)
+		_x_delta = (((p0_x * 1/4) + delta + -1/4) - ((_diverge_delta * 1/4) + (p1_x * 1/4)))
+		_x__diverge_delta = delta
+		_x_p1_x = (p1_x + delta)
+	starting from: {delta: 5/2, _diverge_delta: 5/2, p1_l1: False, p0_l1: False, p0_l0: True, p1_l0: False, p0_x: 5.0, turn: 2, id: 1, p1_x: 5.0, _J306: True, _J312: True, _J317: True, _J323: True, _J330: True, _J336: True, _EL_U_273: True, _EL_U_275: False, _EL_U_277: False, _EL_U_279: True, _EL_U_269: True, _EL_U_271: False}
+
+end of `fischer_0002`: SUCCESS in 1.1974914073944092s

@@ -1,0 +1,56 @@
+
+
+run 1/1: `timed_extending_bound`
+
+	Found non-termination argument:
+	State 3
+		delta = 0.0
+		_diverge_delta = 0.0
+		dec_bound = True
+		_J103 = True
+		_J109 = True
+		_J115 = True
+		_J121 = True
+		_EL_U_77 = True
+		_EL_U_79 = False
+		_EL_U_82 = True
+		_EL_U_84 = False
+		(((-1.0 * ToReal(bound)) + c) = 0.0)
+	Trans 3 -- 4
+		_x_bound = (bound + 1)
+		_x_c = c
+	State 4
+		delta = 1.0
+		_diverge_delta = 0.0
+		dec_bound = False
+		_J103 = False
+		_J109 = False
+		_J115 = False
+		_J121 = False
+		_EL_U_77 = True
+		_EL_U_79 = False
+		_EL_U_82 = True
+		_EL_U_84 = False
+		(((-1.0 * ToReal(bound)) + c) = -1.0)
+		(((-1.0 * ToReal(bound)) + c) <= 0.0)
+	Trans 4 -- 5
+		_x_bound = bound
+		_x_c = (c + 1.0)
+	State 5
+		delta = 0.0
+		_diverge_delta = 1.0
+		dec_bound = True
+		_J103 = True
+		_J109 = True
+		_J115 = False
+		_J121 = True
+		_EL_U_77 = True
+		_EL_U_79 = False
+		_EL_U_82 = True
+		_EL_U_84 = False
+	Trans 5 -- 6
+		_x_bound = bound
+		_x_c = c
+	starting from: {delta: 0.0, _diverge_delta: 0.0, dec_bound: True, bound: 0, c: 0.0, _J103: True, _J109: True, _J115: True, _J121: True, _EL_U_77: True, _EL_U_79: False, _EL_U_82: True, _EL_U_84: False}
+
+end of `timed_extending_bound`: SUCCESS in 0.9570441246032715s

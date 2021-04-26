@@ -1,0 +1,8 @@
+group: ultimate_ta_critical_region
+platform: Linux node1 5.4.0-56-generic #62-Ubuntu SMP Mon Nov 23 19:20:19 UTC 2020 x86_64 x86_64
+timestamp: 1619272779
+time: 2021-04-24 15:59:39
+exitcode: 0
+real: 838.81
+user: 0.16
+sys: 0.64

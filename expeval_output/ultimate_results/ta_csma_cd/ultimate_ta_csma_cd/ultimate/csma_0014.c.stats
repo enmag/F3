@@ -1,0 +1,8 @@
+group: ultimate_ta_csma_cd
+platform: Linux node1 5.4.0-56-generic #62-Ubuntu SMP Mon Nov 23 19:20:19 UTC 2020 x86_64 x86_64
+timestamp: 1619275356
+time: 2021-04-24 16:42:36
+exitcode: 0
+real: 1057.94
+user: 0.18
+sys: 0.63

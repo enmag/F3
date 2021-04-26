@@ -1,0 +1,36 @@
+Traceback (most recent call last):
+  File "/home/pyrank/src/abstract_loops.py", line 214, in gen_loops
+    sat = solve_with_timeout(BMC._TIMEOUT, solver)
+  File "/home/pyrank/src/solver.py", line 165, in solve_with_timeout
+    res = solver.solve(assumptions)
+  File "/home/magnago/.local/lib/python3.8/site-packages/pysmt/solvers/solver.py", line 357, in solve
+    res = self._solve(assumptions=assumptions)
+  File "/home/magnago/.local/lib/python3.8/site-packages/pysmt/decorators.py", line 64, in clear_pending_pop_wrap
+    return f(self, *args, **kwargs)
+  File "/home/magnago/.local/lib/python3.8/site-packages/pysmt/solvers/msat.py", line 276, in _solve
+    raise SolverReturnedUnknownResultError(msat_msg)
+pysmt.exceptions.SolverReturnedUnknownResultError: user-requested termination
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/pyrank/src/run_benchmarks.py", line 366, in <module>
+    main(getopts())
+  File "/home/pyrank/src/run_benchmarks.py", line 228, in main
+    res, runtime = dispatch_test(test_module, label, out_dir)
+  File "/home/pyrank/src/run_benchmarks.py", line 162, in dispatch_test
+    return run_ltl_test(test, label, out_dir)
+  File "/home/pyrank/src/run_benchmarks.py", line 88, in run_ltl_test
+    return search_nonterm(env, symbols, init, trans, fairness,
+  File "/home/pyrank/src/run_benchmarks.py", line 131, in search_nonterm
+    _, arg, param_assigns = search_unrank_bmc(env, symbols, init, trans,
+  File "/home/pyrank/src/unranker.py", line 111, in search_unrank_bmc
+    for i, (trace, lback_idx, abst_states, abst_trans) in \
+  File "/home/pyrank/src/abstract_loops.py", line 218, in gen_loops
+    .format(to_smt2(solver.assertions)),
+  File "/home/pyrank/src/utils.py", line 43, in to_smt2
+    return buf.getvalue()
+KeyboardInterrupt
+real 3603.07
+user 0.00
+sys 0.00

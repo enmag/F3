@@ -1,0 +1,11 @@
+ input: /home/magnago/benchmarks/ltl_timed_automata/train/divine/train_gate_0013.xml
+ property { 0 }: G ((g0 && X g1) -> F (g2 && X g3))
+ ------------------- OWCTY -------------------
+ initialise...		    Uncaught exception of type St9bad_alloc:
+std::bad_alloc
+terminate called after throwing an instance of 'std::bad_alloc'
+  what():  std::bad_alloc
+/home/run_divine.sh: line 4: 1907055 Aborted                 (core dumped) /home/divine-3.3.3/_build/tools/divine verify -w 1 -p 0 -f -d $1
+real 325.62
+user 311.42
+sys 13.45

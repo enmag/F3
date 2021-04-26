@@ -1,0 +1,123 @@
+
+
+run 1/1: `critical_region_0002`
+
+	Found non-termination argument:
+	Do states 1..2 while ((pc1_x * 1/2) < 0.0)
+	State 1
+		delta = 1.0
+		pc1_l2 = False
+		pc0_l2 = False
+		pc1_l1 = False
+		pc0_l1 = False
+		pc1_l0 = False
+		pc0_l0 = False
+		id = 0
+		a1_l = False
+		c_move = False
+		c_initial = True
+		a0_l = False
+		pc1_evt1 = True
+		pc0_evt1 = False
+		a0_evt0 = False
+		a0_evt1 = True
+		a1_evt0 = True
+		a1_evt1 = False
+		pc1_evt0 = True
+		pc0_evt0 = True
+		_J589 = True
+		_J595 = True
+		_J604 = True
+		_J611 = True
+		_J617 = True
+		_EL_U_556 = True
+		_EL_U_558 = False
+		_EL_U_561 = False
+		_EL_U_563 = False
+		_EL_U_565 = True
+		((-1.0 * pc0_x) < -50.0)
+		((-1.0 * _diverge_delta) <= -1.0)
+		((-1.0 * pc1_x) < -50.0)
+		True
+	Trans 1 -- 2
+		_x_pc1_x : (pc1_x + 1.0)
+		_x_pc0_x : (pc0_x + 1.0)
+		_x__diverge_delta : 1.0
+	State 2
+		delta = 1.0
+		pc1_l2 = False
+		pc0_l2 = False
+		pc1_l1 = False
+		pc0_l1 = False
+		pc1_l0 = False
+		pc0_l0 = False
+		id = 0
+		a1_l = False
+		c_move = False
+		c_initial = True
+		a0_l = False
+		pc1_evt1 = False
+		pc0_evt1 = False
+		a0_evt0 = False
+		a0_evt1 = False
+		a1_evt0 = False
+		a1_evt1 = False
+		pc1_evt0 = True
+		pc0_evt0 = False
+		_J589 = False
+		_J595 = False
+		_J604 = False
+		_J611 = False
+		_J617 = False
+		_EL_U_556 = True
+		_EL_U_558 = False
+		_EL_U_561 = False
+		_EL_U_563 = False
+		_EL_U_565 = True
+	Trans 2 -- 1
+		_x_pc1_x : (pc1_x + 1.0)
+		_x_pc0_x : (pc0_x + 1.0)
+		_x__diverge_delta : 1.0
+	End do-while
+	State 2
+		delta = 1.0
+		pc1_l2 = False
+		pc0_l2 = False
+		pc1_l1 = False
+		pc0_l1 = False
+		pc1_l0 = False
+		pc0_l0 = False
+		id = 0
+		a1_l = False
+		c_move = False
+		c_initial = True
+		a0_l = False
+		pc1_evt1 = False
+		pc0_evt1 = False
+		a0_evt0 = False
+		a0_evt1 = False
+		a1_evt0 = False
+		a1_evt1 = False
+		pc1_evt0 = True
+		pc0_evt0 = False
+		_J589 = False
+		_J595 = False
+		_J604 = False
+		_J611 = False
+		_J617 = False
+		_EL_U_556 = True
+		_EL_U_558 = False
+		_EL_U_561 = False
+		_EL_U_563 = False
+		_EL_U_565 = True
+		((-1.0 * (pc1_x * 1/2)) <= 0.0)
+		((-1.0 * _diverge_delta) <= -1.0)
+		((-1.0 * pc1_x) < -49.0)
+		((-1.0 * pc0_x) < -49.0)
+	Trans 2 -- 3
+		_x_pc1_x = (pc1_x + 1.0)
+		_x_pc0_x = (pc0_x + 1.0)
+		_x__diverge_delta = 1.0
+	starting from: {delta: 1.0, pc1_l2: False, pc0_l2: False, pc1_l1: False, pc0_l1: False, pc1_l0: False, pc0_l0: False, _diverge_delta: 429/8, id: 0, a1_l: False, c_move: False, c_initial: True, a0_l: False, pc1_evt1: True, pc0_evt1: False, a0_evt0: False, a0_evt1: True, a1_evt0: True, a1_evt1: False, pc1_x: 429/8, pc0_x: 429/8, pc1_evt0: True, pc0_evt0: True, _J589: True, _J595: True, _J604: True, _J611: True, _J617: True, _EL_U_556: True, _EL_U_558: False, _EL_U_561: False, _EL_U_563: False, _EL_U_565: True}
+
+end of `critical_region_0002`: SUCCESS in 1.2635679244995117s

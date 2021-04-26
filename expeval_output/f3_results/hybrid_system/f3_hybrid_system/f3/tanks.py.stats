@@ -1,0 +1,8 @@
+group: pyrank_hybrid_system
+platform: Linux node1 5.4.0-56-generic #62-Ubuntu SMP Mon Nov 23 19:20:19 UTC 2020 x86_64 x86_64
+timestamp: 1616963049
+time: 2021-03-28 22:24:09
+exitcode: 0
+real: 1743.1
+user: 1523.46
+sys: 209.19

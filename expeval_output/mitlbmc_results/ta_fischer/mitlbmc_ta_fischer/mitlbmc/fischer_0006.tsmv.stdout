@@ -1,0 +1,55 @@
+Property 0 [36;1m(FALSE SR (TRUE SU (P0.location = wait))) -> (FALSE SR (TRUE SU (P0.location = cs)))[0m ....... [31;1mdoes not hold[0m 
+>>> Index:         0     1     2     3     loop  4     5     6   
+>>> Type:          |     |     |     (-)   loop  |     (-)   |   
+-----------------------------------------> loop <----------------
++0-obligation-0    F     T     T     T     loop  T     T     T   
++0-subexp-0        T     F     T     F     loop  F     T     F   
++1-subexp-0        F     F     F     F     loop  F     F     F   
++10-subexp-0       F     F     F     F     loop  F     F     F   
+-----------------------------------------> loop <----------------
++11-subexp-0       T     T     T     T     loop  T     T     T   
++2-subexp-0        F     T     T     T     loop  T     T     T   
++3-subexp-0        F     T     T     T     loop  T     T     T   
++4-subexp-0        T     T     T     T     loop  T     T     T   
+-----------------------------------------> loop <----------------
++5-subexp-0        F     F     T     T     loop  T     T     T   
++6-subexp-0        T     T     F     F     loop  F     F     F   
++7-subexp-0        T     T     T     T     loop  T     T     T   
++8-subexp-0        F     F     T     T     loop  F     F     F   
+-----------------------------------------> loop <----------------
++9-obligation-0    F     F     F     T     loop  T     T     T   
++9-subexp-0        F     F     T     T     loop  F     F     F   
+-fair-0-0          T     T     T     T     loop  T     T     F   
+-fair-1-0          T     T     T     T     loop  T     T     F   
+-----------------------------------------> loop <----------------
+-loop-0            F     F     F     F     loop  T     F     F   
+-loop-elapse-0     T     T     T     T     loop  T     T     F   
+-ok-P0.x-0         T     T     T     T     loop  T     T     F   
+-ok-P1.x-0         T     T     T     T     loop  T     T     F   
+-----------------------------------------> loop <----------------
+-ok-P2.x-0         T     T     T     T     loop  T     T     F   
+-ok-P3.x-0         T     T     T     T     loop  T     T     F   
+-ok-P4.x-0         T     T     T     T     loop  T     T     F   
+-ok-P5.x-0         T     T     T     T     loop  T     T     F   
+-----------------------------------------> loop <----------------
+-smaller-exists-0  F     F     F     F     loop  F     T     T   
+@delta-0           0     0     0     11/3  loop  0     5/3   0   
+@open-0            F     F     F     T     loop  F     T     F   
+P0.location-0      idle  req   wait  wait  loop  wait  wait  wait
+-----------------------------------------> loop <----------------
+P0.x-0             0     0     0     0     loop  11/3  11/3  16/3
+P1.location-0      idle  idle  idle  idle  loop  idle  idle  idle
+P1.x-0             0     0     0     0     loop  11/3  11/3  16/3
+P2.location-0      idle  idle  idle  idle  loop  idle  idle  idle
+-----------------------------------------> loop <----------------
+P2.x-0             0     0     0     0     loop  11/3  11/3  16/3
+P3.location-0      idle  idle  idle  idle  loop  idle  idle  idle
+P3.x-0             0     0     0     0     loop  11/3  11/3  16/3
+P4.location-0      idle  idle  idle  idle  loop  idle  idle  idle
+-----------------------------------------> loop <----------------
+P4.x-0             0     0     0     0     loop  11/3  11/3  16/3
+P5.location-0      idle  idle  idle  idle  loop  idle  idle  idle
+P5.x-0             0     0     0     0     loop  11/3  11/3  16/3
+id-0               0     0     1     1     loop  1     1     1   
+-----------------------------------------> loop <----------------
+turn-0             1     1     6     6     loop  6     6     6   

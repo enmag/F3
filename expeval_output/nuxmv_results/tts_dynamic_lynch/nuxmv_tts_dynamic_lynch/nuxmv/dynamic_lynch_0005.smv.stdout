@@ -1,0 +1,213 @@
+*** This is nuXmv 2.0.0 (compiled on Sun Mar 14 22:37:19 2021)
+*** Copyright (c) 2014-2021, Fondazione Bruno Kessler
+*** For more information on nuXmv see https://nuxmv.fbk.eu
+*** or email to <nuxmv@list.fbk.eu>.
+*** Please report bugs at https://nuxmv.fbk.eu/bugs
+*** (click on "Login Anonymously" to access)
+*** Alternatively write to <nuxmv@list.fbk.eu>.
+
+*** This version of nuXmv is linked to NuSMV 2.6.0.
+*** For more information on NuSMV see <http://nusmv.fbk.eu>
+*** or email to <nusmv-users@list.fbk.eu>.
+*** Copyright (C) 2010-2021, Fondazione Bruno Kessler
+
+*** This version of nuXmv is linked to the CUDD library version 2.4.1
+*** Copyright (c) 1995-2004, Regents of the University of Colorado
+
+*** This version of nuXmv is linked to the MiniSat SAT solver. 
+*** See http://minisat.se/MiniSat.html
+*** Copyright (c) 2003-2006, Niklas Een, Niklas Sorensson
+*** Copyright (c) 2007-2010, Niklas Sorensson
+
+*** This version of nuXmv is linked to MathSAT
+*** Copyright (C) 2009-2019 by Fondazione Bruno Kessler
+*** Copyright (C) 2009-2019 by University of Trento and others
+*** See http://mathsat.fbk.eu
+
+-- no proof or counterexample found with bound 0
+-- no proof or counterexample found with bound 1
+-- no proof or counterexample found with bound 2
+-- no proof or counterexample found with bound 3
+-- no proof or counterexample found with bound 4
+-- no proof or counterexample found with bound 5
+-- no proof or counterexample found with bound 6
+-- no proof or counterexample found with bound 7
+-- no proof or counterexample found with bound 8
+-- no proof or counterexample found with bound 9
+-- no proof or counterexample found with bound 10
+-- no proof or counterexample found with bound 11
+-- no proof or counterexample found with bound 12
+-- LTL specification  F ( G next(max_prop) >= max_prop)  is false
+-- as demonstrated by the following execution sequence
+Trace Description: IC3 smt counterexample 
+Trace Type: Counterexample 
+Infinite Trace diverging symbols: p0.c, p2.c, p3.c
+  -> State: 1.1 <-
+    p0.c = 0.0
+    p1.c = 0.0
+    p2.c = 0.0
+    p3.c = 0.0
+    p4.c = 0.0
+    v1 = 0
+    v2 = FALSE
+    proposed[0] = 16.0
+    proposed[1] = 16.0
+    proposed[2] = 16.0
+    proposed[3] = 16.0
+    proposed[4] = 16.0
+    max_prop = 16.0
+    p0.l = L1
+    p1.l = L1
+    p2.l = L1
+    p3.l = L1
+    p4.l = L1
+    _T = 16
+  -- [ time elapse: time = 0.0; delta = 2.0 ] --
+  -> State: 1.2 <-
+    p0.c = 2.0
+    p1.c = 2.0
+    p2.c = 2.0
+    p3.c = 2.0
+    p4.c = 2.0
+  -- [ time elapse: time = 2.0; delta = 18.0 ] --
+  -> State: 1.3 <-
+    p0.c = 20.0
+    p1.c = 20.0
+    p2.c = 20.0
+    p3.c = 20.0
+    p4.c = 20.0
+  -> Input: 1.4 <-
+    p0.event = stutter
+    p1.event = move
+    p2.event = stutter
+    p3.event = stutter
+    p4.event = move
+    p0.evt_move = FALSE
+    p0.evt_stutter = TRUE
+    p1.evt_move = TRUE
+    p1.evt_stutter = FALSE
+    p2.evt_move = FALSE
+    p2.evt_stutter = TRUE
+    p3.evt_move = FALSE
+    p3.evt_stutter = TRUE
+    p4.evt_move = TRUE
+    p4.evt_stutter = FALSE
+  -- Loop starts here
+  -- [ discrete transition ] --
+  -> State: 1.4 <-
+    p0.c = p0.c + 0.0
+    p1.c = 0.0
+    p2.c = p2.c + 0.0
+    p3.c = p3.c + 0.0
+    p4.c = 0.0
+    p1.l = L2
+    p4.l = L2
+  -> Input: 1.5 <-
+    p1.event = stutter
+    p1.evt_move = FALSE
+    p1.evt_stutter = TRUE
+  -- [ discrete transition ] --
+  -> State: 1.5 <-
+    v1 = 5
+    proposed[1] = 18.0
+    max_prop = 18.0
+    p4.l = L3
+  -> Input: 1.6 <-
+    p1.event = move
+    p4.event = stutter
+    p1.evt_move = TRUE
+    p1.evt_stutter = FALSE
+    p4.evt_move = FALSE
+    p4.evt_stutter = TRUE
+  -- [ discrete transition ] --
+  -> State: 1.6 <-
+    v1 = 2
+    proposed[4] = 18.0
+    p1.l = L3
+  -- [ time elapse: time = diverging; delta = 20.0 ] --
+  -> State: 1.7 <-
+    p0.c = p0.c + 20.0
+    p1.c = 20.0
+    p2.c = p2.c + 20.0
+    p3.c = p3.c + 20.0
+    p4.c = 20.0
+  -- [ time elapse: time = diverging; delta = 2.0 ] --
+  -> State: 1.8 <-
+    p0.c = p0.c + 2.0
+    p1.c = 22.0
+    p2.c = p2.c + 2.0
+    p3.c = p3.c + 2.0
+    p4.c = 22.0
+  -> Input: 1.9 <-
+  -- [ discrete transition ] --
+  -> State: 1.9 <-
+    p0.c = p0.c + 0.0
+    p2.c = p2.c + 0.0
+    p3.c = p3.c + 0.0
+    proposed[1] = 16.0
+    proposed[3] = 18.0
+    p1.l = L4
+  -> Input: 1.10 <-
+  -- [ discrete transition ] --
+  -> State: 1.10 <-
+    p1.c = 0.0
+    proposed[2] = 40.0
+    max_prop = 40.0
+    p1.l = L5
+  -> Input: 1.11 <-
+  -- [ discrete transition ] --
+  -> State: 1.11 <-
+    v2 = TRUE
+    proposed[4] = 40.0
+    p1.l = L6
+  -> Input: 1.12 <-
+  -- [ discrete transition ] --
+  -> State: 1.12 <-
+    proposed[0] = 40.0
+    proposed[2] = 16.0
+    proposed[3] = 40.0
+    proposed[4] = 18.0
+    p1.l = CS7
+  -> Input: 1.13 <-
+    p4.event = move
+    p4.evt_move = TRUE
+    p4.evt_stutter = FALSE
+  -- [ discrete transition ] --
+  -> State: 1.13 <-
+    proposed[0] = 18.0
+    proposed[2] = 14.0
+    proposed[3] = 18.0
+    max_prop = 18.0
+    p1.l = L8
+    p4.l = L1
+  -> Input: 1.14 <-
+    p4.event = stutter
+    p4.evt_move = FALSE
+    p4.evt_stutter = TRUE
+  -- [ discrete transition ] --
+  -> State: 1.14 <-
+    v2 = FALSE
+    proposed[3] = 16.0
+    proposed[4] = 16.0
+    p1.l = L9
+  -> Input: 1.15 <-
+  -- [ discrete transition ] --
+  -> State: 1.15 <-
+    v1 = 0
+    proposed[0] = 14.0
+    proposed[3] = 14.0
+    max_prop = 16.0
+    p1.l = L1
+  -> Input: 1.16 <-
+    p4.event = move
+    p4.evt_move = TRUE
+    p4.evt_stutter = FALSE
+  -- [ discrete transition ] --
+  -> State: 1.16 <-
+    p4.c = 0.0
+    proposed[0] = 16.0
+    proposed[2] = 16.0
+    proposed[3] = 16.0
+    p1.l = L2
+    p4.l = L2
+SUCCESS 

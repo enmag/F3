@@ -1,0 +1,11 @@
+ input: /home/magnago/benchmarks/ltl_timed_automata/csma-cd/divine/csma_0014.xml
+ property { 0 }: G (s0_transm -> F s0_wait)
+ ------------------- OWCTY -------------------
+ initialise...		    Uncaught exception of type St9bad_alloc:
+std::bad_alloc
+terminate called after throwing an instance of 'std::bad_alloc'
+  what():  std::bad_alloc
+/home/run_divine.sh: line 4: 1850325 Aborted                 (core dumped) /home/divine-3.3.3/_build/tools/divine verify -w 1 -p 0 -f -d $1
+real 341.92
+user 326.43
+sys 14.95

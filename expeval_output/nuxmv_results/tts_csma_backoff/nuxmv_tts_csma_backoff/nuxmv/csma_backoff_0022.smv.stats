@@ -1,0 +1,8 @@
+group: nuxmv_tts_csma_backoff
+platform: Linux node2 5.4.0-56-generic #62-Ubuntu SMP Mon Nov 23 19:20:19 UTC 2020 x86_64 x86_64
+timestamp: 1616277229
+time: 2021-03-20 22:53:49
+exitcode: 0
+real: 3602.4
+user: 3588.49
+sys: 12.87

@@ -1,0 +1,188 @@
+
+
+run 1/1: `csma_backoff_single_station`
+
+	Found non-termination argument:
+	State 3
+		env_evt2 = False
+		env_evt1 = False
+		env_evt0 = False
+		st_l1 = True
+		st_l0 = False
+		bus_evt0 = True
+		bus_evt1 = False
+		bus_l0 = True
+		bus_evt2 = False
+		bus_cd_id = True
+		st_evt0 = True
+		bus_l1 = False
+		st_evt1 = False
+		st_evt2 = False
+		_J465 = True
+		_J471 = True
+		_J476 = True
+		_J482 = True
+		_J489 = True
+		_J495 = True
+		_EL_U_428 = True
+		_EL_U_430 = False
+		_EL_U_432 = True
+		_EL_U_434 = False
+		_EL_U_436 = False
+		_EL_U_438 = True
+		(st_x < 404.0)
+		((-1.0 * bus_x) <= 0.0)
+		((-1.0 * st_x) <= 0.0)
+		(bus_x = 0.0)
+		((_diverge_delta + delta) < 1.0)
+		(st_x <= 404.0)
+		((-1.0 * delta) = 0.0)
+		(bus_x < 13.0)
+		((-1.0 * st_backoff) <= -13.0)
+		(_diverge_delta < 1.0)
+		(((-1.0 * st_backoff) + st_x) < 0.0)
+	Trans 3 -- 4
+		_x_st_backoff = (((st_backoff * 15476516413/7447610040) + 1068033/1066840) - ((delta * 1/447) + (_diverge_delta * 895/894) + (bus_x * 1/447) + (st_x * 895/894)))
+		_x_delta = 0.0
+		_x__diverge_delta = (_diverge_delta + delta)
+		_x_bus_x = 0.0
+		_x_st_x = 0.0
+	State 4
+		env_evt2 = True
+		env_evt1 = False
+		env_evt0 = False
+		st_l1 = False
+		st_l0 = True
+		bus_evt0 = False
+		bus_evt1 = False
+		bus_l0 = True
+		bus_evt2 = True
+		bus_cd_id = False
+		st_evt0 = False
+		bus_l1 = True
+		st_evt1 = False
+		st_evt2 = False
+		_J465 = False
+		_J471 = False
+		_J476 = False
+		_J482 = False
+		_J489 = False
+		_J495 = False
+		_EL_U_428 = True
+		_EL_U_430 = False
+		_EL_U_432 = True
+		_EL_U_434 = False
+		_EL_U_436 = False
+		_EL_U_438 = True
+		((-1.0 * st_backoff) < 0.0)
+		((-1.0 * st_backoff) <= -13.0)
+	Trans 4 -- 5
+		_x_st_backoff = st_backoff
+		_x_delta = (((st_backoff * 895/894) + 895/894) - ((delta * 1/894) + (_diverge_delta * 1/894) + (st_x * 1/894)))
+		_x__diverge_delta = (_diverge_delta + delta)
+		_x_bus_x = 0.0
+		_x_st_x = (st_x + delta)
+	State 5
+		env_evt2 = False
+		env_evt1 = False
+		env_evt0 = False
+		st_l1 = False
+		st_l0 = True
+		bus_evt0 = False
+		bus_evt1 = False
+		bus_l0 = False
+		bus_evt2 = False
+		bus_cd_id = False
+		st_evt0 = False
+		bus_l1 = False
+		st_evt1 = False
+		st_evt2 = False
+		_J465 = True
+		_J471 = True
+		_J476 = False
+		_J482 = True
+		_J489 = False
+		_J495 = True
+		_EL_U_428 = True
+		_EL_U_430 = False
+		_EL_U_432 = True
+		_EL_U_434 = False
+		_EL_U_436 = False
+		_EL_U_438 = True
+		(((-1.0 * _diverge_delta) + (-1.0 * delta)) <= -1.0)
+		(((-1.0 * st_x) + (-1.0 * delta) + st_backoff) <= 0.0)
+	Trans 5 -- 6
+		_x_st_backoff = st_backoff
+		_x_delta = 0.0
+		_x__diverge_delta = (_diverge_delta + delta)
+		_x_bus_x = (bus_x + delta)
+		_x_st_x = (st_x + delta)
+	State 6
+		env_evt2 = False
+		env_evt1 = False
+		env_evt0 = False
+		st_l1 = False
+		st_l0 = True
+		bus_evt0 = False
+		bus_evt1 = False
+		bus_l0 = False
+		bus_evt2 = True
+		bus_cd_id = False
+		st_evt0 = False
+		bus_l1 = False
+		st_evt1 = False
+		st_evt2 = True
+		_J465 = True
+		_J471 = True
+		_J476 = False
+		_J482 = True
+		_J489 = False
+		_J495 = True
+		_EL_U_428 = True
+		_EL_U_430 = False
+		_EL_U_432 = True
+		_EL_U_434 = False
+		_EL_U_436 = False
+		_EL_U_438 = True
+	Trans 6 -- 7
+		_x_st_backoff = st_backoff
+		_x_delta = 0.0
+		_x__diverge_delta = delta
+		_x_bus_x = 0.0
+		_x_st_x = 0.0
+	State 7
+		env_evt2 = True
+		env_evt1 = False
+		env_evt0 = False
+		st_l1 = True
+		st_l0 = False
+		bus_evt0 = False
+		bus_evt1 = False
+		bus_l0 = False
+		bus_evt2 = True
+		bus_cd_id = False
+		st_evt0 = False
+		bus_l1 = True
+		st_evt1 = False
+		st_evt2 = False
+		_J465 = True
+		_J471 = True
+		_J476 = False
+		_J482 = True
+		_J489 = True
+		_J495 = True
+		_EL_U_428 = True
+		_EL_U_430 = False
+		_EL_U_432 = True
+		_EL_U_434 = False
+		_EL_U_436 = False
+		_EL_U_438 = True
+	Trans 7 -- 8
+		_x_st_backoff = st_backoff
+		_x_delta = 0.0
+		_x__diverge_delta = (_diverge_delta + delta)
+		_x_bus_x = 0.0
+		_x_st_x = 0.0
+	starting from: {delta: 0.0, _diverge_delta: 0.0, env_evt2: False, env_evt1: False, env_evt0: False, st_l1: True, st_l0: False, bus_evt0: True, bus_evt1: False, st_x: 0.0, bus_l0: True, bus_evt2: False, bus_cd_id: True, st_evt0: True, bus_l1: False, st_backoff: 13.0, bus_x: 0.0, st_evt1: False, st_evt2: False, _J465: True, _J471: True, _J476: True, _J482: True, _J489: True, _J495: True, _EL_U_428: True, _EL_U_430: False, _EL_U_432: True, _EL_U_434: False, _EL_U_436: False, _EL_U_438: True}
+
+end of `csma_backoff_single_station`: SUCCESS in 2.9694132804870605s

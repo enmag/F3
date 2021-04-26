@@ -1,0 +1,8 @@
+group: pyrank_ta_fddi
+platform: Linux node1 5.4.0-56-generic #62-Ubuntu SMP Mon Nov 23 19:20:19 UTC 2020 x86_64 x86_64
+timestamp: 1616945694
+time: 2021-03-28 17:34:54
+exitcode: 0
+real: 12.29
+user: 10.97
+sys: 0.36

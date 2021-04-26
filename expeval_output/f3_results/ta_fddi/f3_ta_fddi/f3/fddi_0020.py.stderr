@@ -1,0 +1,50 @@
+Traceback (most recent call last):
+  File "/home/pyrank/src/abstract_loops.py", line 214, in gen_loops
+    sat = solve_with_timeout(BMC._TIMEOUT, solver)
+  File "/home/pyrank/src/solver.py", line 157, in solve_with_timeout
+    res = solver.solve(assumptions)
+  File "/home/magnago/.local/lib/python3.8/site-packages/pysmt/solvers/solver.py", line 357, in solve
+    res = self._solve(assumptions=assumptions)
+  File "/home/magnago/.local/lib/python3.8/site-packages/pysmt/decorators.py", line 64, in clear_pending_pop_wrap
+    return f(self, *args, **kwargs)
+  File "/home/magnago/.local/lib/python3.8/site-packages/pysmt/solvers/msat.py", line 276, in _solve
+    raise SolverReturnedUnknownResultError(msat_msg)
+pysmt.exceptions.SolverReturnedUnknownResultError: user-requested termination
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/pyrank/src/run_benchmarks.py", line 366, in <module>
+    main(getopts())
+  File "/home/pyrank/src/run_benchmarks.py", line 228, in main
+    res, runtime = dispatch_test(test_module, label, out_dir)
+  File "/home/pyrank/src/run_benchmarks.py", line 162, in dispatch_test
+    return run_ltl_test(test, label, out_dir)
+  File "/home/pyrank/src/run_benchmarks.py", line 88, in run_ltl_test
+    return search_nonterm(env, symbols, init, trans, fairness,
+  File "/home/pyrank/src/run_benchmarks.py", line 131, in search_nonterm
+    _, arg, param_assigns = search_unrank_bmc(env, symbols, init, trans,
+  File "/home/pyrank/src/unranker.py", line 111, in search_unrank_bmc
+    for i, (trace, lback_idx, abst_states, abst_trans) in \
+  File "/home/pyrank/src/abstract_loops.py", line 218, in gen_loops
+    .format(to_smt2(solver.assertions)),
+  File "/home/pyrank/src/utils.py", line 40, in to_smt2
+    script = smtlibscript_from_formula(And(*formulas), logic=logic)
+  File "/home/magnago/.local/lib/python3.8/site-packages/pysmt/smtlib/script.py", line 283, in smtlibscript_from_formula
+    deps = formula.get_free_variables()
+  File "/home/magnago/.local/lib/python3.8/site-packages/pysmt/fnode.py", line 114, in get_free_variables
+    return _env().fvo.get_free_variables(self)
+  File "/home/magnago/.local/lib/python3.8/site-packages/pysmt/oracles.py", line 348, in get_free_variables
+    return self.walk(formula)
+  File "/home/magnago/.local/lib/python3.8/site-packages/pysmt/walkers/dag.py", line 106, in walk
+    res = self.iter_walk(formula, **kwargs)
+  File "/home/magnago/.local/lib/python3.8/site-packages/pysmt/walkers/dag.py", line 98, in iter_walk
+    self._process_stack(**kwargs)
+  File "/home/magnago/.local/lib/python3.8/site-packages/pysmt/walkers/dag.py", line 91, in _process_stack
+    self._compute_node_result(formula, **kwargs)
+  File "/home/magnago/.local/lib/python3.8/site-packages/pysmt/walkers/dag.py", line 60, in _compute_node_result
+    def _compute_node_result(self, formula, **kwargs):
+KeyboardInterrupt
+real 3603.31
+user 0.00
+sys 0.00

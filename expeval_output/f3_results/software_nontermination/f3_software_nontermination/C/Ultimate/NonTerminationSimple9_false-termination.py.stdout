@@ -1,0 +1,7 @@
+
+
+run 1/1: `NonTerminationSimple9_false-termination`
+
+	Found non-termination argument:
+	[{pc: 0, x: 0, nondet: 0}, {pc: 1, x: 0, nondet: 0}, {pc: 0, x: 0, nondet: 0}]
+end of `NonTerminationSimple9_false-termination`: SUCCESS in 0.02243828773498535s

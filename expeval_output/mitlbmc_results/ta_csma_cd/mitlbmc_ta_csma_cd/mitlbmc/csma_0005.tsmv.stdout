@@ -1,0 +1,52 @@
+Property 0 [36;1mFALSE SR ((s0.l = transm) -> (TRUE SU (s0.l = wait)))[0m ............ [31;1mdoes not hold[0m 
+>>> Index:         0        1        loop  2          3         4         5         6         7         8         9        10       11       
+>>> Type:          |        |        loop  |          |         |         (-)       |         |         |         |        |        |        
+-----------------------------------> loop <--------------------------------------------------------------------------------------------------
++0-subexp-0        T        T        loop  F          F         T         T         T         T         T         T        T        F        
++1-subexp-0        T        T        loop  T          T         T         T         T         T         T         T        T        T        
++2-subexp-0        F        F        loop  T          F         F         F         F         F         F         F        F        T        
++3-obligation-0    F        F        loop  T          T         T         T         T         T         T         T        T        T        
+-----------------------------------> loop <--------------------------------------------------------------------------------------------------
++3-subexp-0        F        F        loop  T          F         F         F         F         F         F         F        F        T        
++4-subexp-0        F        F        loop  F          F         F         F         F         F         F         F        F        F        
++5-subexp-0        F        T        loop  T          T         T         T         T         T         T         T        T        T        
+-fair-0-0          T        T        loop  T          T         F         F         F         F         F         F        F        F        
+-----------------------------------> loop <--------------------------------------------------------------------------------------------------
+-loop-0            F        F        loop  T          F         F         F         F         F         F         F        F        F        
+-loop-elapse-0     T        T        loop  T          T         T         T         F         F         F         F        F        F        
+-ok-bus.x-0        T        T        loop  T          T         T         T         T         T         T         T        T        F        
+-ok-s0.x-0         T        T        loop  T          T         T         T         T         T         T         T        T        F        
+-----------------------------------> loop <--------------------------------------------------------------------------------------------------
+-ok-s1.x-0         T        T        loop  T          T         T         T         T         T         T         T        T        F        
+-ok-s2.x-0         T        T        loop  T          T         T         T         T         T         T         T        T        F        
+-ok-s3.x-0         T        T        loop  T          T         T         T         T         T         T         T        T        F        
+-ok-s4.x-0         T        T        loop  T          T         T         T         T         T         T         T        T        F        
+-----------------------------------> loop <--------------------------------------------------------------------------------------------------
+-smaller-exists-0  F        F        loop  F          T         T         T         T         T         T         T        T        T        
+@delta-0           0        0        loop  0          0         0         25/2      0         0         0         0        0        0        
+@open-0            F        F        loop  F          F         F         T         F         F         F         F        F        F        
+bus.cd_id-0        4        0        loop  0          1         2         2         2         3         4         4        4        0        
+-----------------------------------> loop <--------------------------------------------------------------------------------------------------
+bus.evt-0          begin    begin    loop  cd         cd        cd        cd        cd        cd        cd        begin    begin    cd       
+bus.j-0            0        0        loop  0          1         2         2         2         3         4         0        0        0        
+bus.l-0            idle     active   loop  collision  transmit  transmit  transmit  transmit  transmit  transmit  idle     active   collision
+bus.x-0            0        0        loop  0          0         0         0         25/2      0         0         0        0        0        
+-----------------------------------> loop <--------------------------------------------------------------------------------------------------
+s0.evt-0           begin    stutter  loop  cd         stutter   stutter   stutter   stutter   stutter   stutter   stutter  begin    cd       
+s0.l-0             wait     transm   loop  transm     retry     retry     retry     retry     retry     retry     retry    retry    transm   
+s0.x-0             0        0        loop  0          0         0         0         25/2      0         0         0        0        0        
+s1.evt-0           stutter  begin    loop  stutter    cd        stutter   stutter   stutter   stutter   stutter   begin    stutter  stutter  
+-----------------------------------> loop <--------------------------------------------------------------------------------------------------
+s1.l-0             wait     wait     loop  transm     transm    retry     retry     retry     retry     retry     retry    transm   transm   
+s1.x-0             0        0        loop  0          0         0         0         25/2      0         0         0        0        0        
+s2.evt-0           stutter  stutter  loop  stutter    stutter   cd        cd        cd        stutter   stutter   stutter  stutter  stutter  
+s2.l-0             wait     wait     loop  wait       wait      wait      wait      wait      wait      wait      wait     wait     wait     
+-----------------------------------> loop <--------------------------------------------------------------------------------------------------
+s2.x-0             0        0        loop  0          0         0         0         25/2      0         0         0        0        0        
+s3.evt-0           stutter  stutter  loop  stutter    stutter   stutter   stutter   stutter   cd        stutter   stutter  stutter  stutter  
+s3.l-0             wait     wait     loop  wait       wait      wait      wait      wait      wait      wait      wait     wait     wait     
+s3.x-0             0        0        loop  0          0         0         0         25/2      0         0         0        0        0        
+-----------------------------------> loop <--------------------------------------------------------------------------------------------------
+s4.evt-0           stutter  stutter  loop  stutter    stutter   stutter   stutter   stutter   stutter   cd        stutter  stutter  stutter  
+s4.l-0             wait     wait     loop  wait       wait      wait      wait      wait      wait      wait      wait     wait     wait     
+s4.x-0             0        0        loop  0          0         0         0         25/2      0         0         0        0        0        
