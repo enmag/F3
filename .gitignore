@@ -1,3 +1,8 @@
+# LTL module compilation files
+src/ltl/*.o
+src/ltl/*_wrap.*
+src/ltl/ltl.py
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

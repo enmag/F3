@@ -38,7 +38,7 @@ Then, download the F3 source code from GitHub:
 
 Change Pysmt branch to the nonlinear branch.
   $> cd $PYSMT_HOME; git checkout nonlinear
-Update the version of the z3 and mathsat solver downloaded by Pysmt.
+Update the version of the z3 and mathsat SMT-solvers downloaded by Pysmt.
   $> cd $PYSMT_HOME; git apply $F3_HOME/pysmt.patch
 
 Install Pysmt, might require sudo.
@@ -51,6 +51,7 @@ Install the SMT-solvers mathsat and z3, this command will ask to accept their li
 
 Install the python package `timeout-decorator` with:
   $> pip3 install --user timeout-decorator
+Pip may fail to build wheel for this package and print some error message. However, at the end of the message you show see that the installation has succeded anyway, something like "Successfully installed timeout-decorator-0.5.0".
 
 By default pysmt downloads the SMT-solvers in $HOME/.smt_solvers.
 F3 requires the header and library of mathsat to be in the system paths.
