@@ -1,25 +1,16 @@
-
-
-run 1/1: `NonTerminationSimple2_false-termination`
+F3 run `NonTerminationSimple2_false-termination`
 
 	Found non-termination argument:
-	Do states 0..1 while ((ToReal(x) + 3/4) < 0.0)
 	State 0
 		pc = 0
+		((-1 * x) <= 1)
 		((-1 * x) <= 0)
 	Trans 0 -- 1
-		_x_x : x
+		_x_x = x
 	State 1
 		pc = 1
-	Trans 1 -- 0
-		_x_x : (x + 1)
-	End do-while
-	State 1
-		pc = 1
-		(((-1.0 * ToReal(x)) + -3/4) <= 0.0)
-		((-1 * x) <= 1)
 	Trans 1 -- 2
 		_x_x = (x + 1)
-	starting from: {pc: 0, x: 0}
+	starting from: pc : 0, x : 0
 
-end of `NonTerminationSimple2_false-termination`: SUCCESS in 0.4074666500091553s
+end of `NonTerminationSimple2_false-termination`: SUCCESS in 1.0292162895202637s

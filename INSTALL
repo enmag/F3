@@ -13,7 +13,7 @@ F3 has been tested using python3.8 and should run using python3.5 or above.
 
 The following commands install the required packages on Ubuntu20.04 (might require sudo):
   $> apt -y update
-  $> apt -y install python3 python3-pip git autoconf flex bison libpcre3 libpcre3-dev libgmp-dev swig
+  $> apt -y install python3 python3-pip git libgmp-dev swig
 
 
 ## Download Pysmt
@@ -34,12 +34,10 @@ Then, download the F3 source code from GitHub:
   $> git clone https://github.com/EnricoMagnago/F3.git $F3_HOME
 
 
-## Patch and install Pysmt.
+## Install Pysmt.
 
 Change Pysmt branch to the nonlinear branch.
   $> cd $PYSMT_HOME; git checkout nonlinear
-Update the version of the z3 and mathsat SMT-solvers downloaded by Pysmt.
-  $> cd $PYSMT_HOME; git apply $F3_HOME/pysmt.patch
 
 Install Pysmt, might require sudo.
   $> cd $PYSMT_HOME; python3 ./setup.py install;
@@ -49,10 +47,6 @@ Install the SMT-solvers mathsat and z3, this command will ask to accept their li
 
 ## Install F3
 
-Install the python package `timeout-decorator` with:
-  $> pip3 install --user timeout-decorator
-Pip may fail to build wheel for this package and print some error message. However, at the end of the message you show see that the installation has succeded anyway, something like "Successfully installed timeout-decorator-0.5.0".
-
 By default pysmt downloads the SMT-solvers in $HOME/.smt_solvers.
 F3 requires the header and library of mathsat to be in the system paths.
 Copy the header and library file in the system paths by running the following two commands as sudo:
@@ -60,7 +54,7 @@ Copy the header and library file in the system paths by running the following tw
   $> cp $HOME/.smt_solvers/msat/mathsat-5.6.6-linux-x86_64/lib/libmathsat.a /usr/lib/libmathsat.a
 
 The module used by F3 to perform the LTL tableau construction requires to include the mathsat header.
-  $> patch $F3_HOME/src/ltl/ltl.i $F3_HOME/f3_ltl_i.patch
+  $> patch $F3_HOME/src/ltl/ltl.i $F3_HOME/ltl_i.patch
 If you copied "mathsat.h" in some path different from "/usr/include/mathsat.h", please manually edit ltl.i and type the correct path of "mathsat.h".
 
 
@@ -77,9 +71,9 @@ or in debug mode with:
 ## Run F3
 
 For a set of command line options $OPTS for F3 and benchmark file $BENCHMARK, the following command allows to run F3 with the given options on such benchmark.
-  $> python3 -O $F3_HOME/src/run_benchmarks.py $OPTS $BENCHMARK
+  $> python3 -O $F3_HOME/src/run_f3.py $OPTS $BENCHMARK
 
 For example to run F3 with verbosity 1 on benchmark "NonTerminationSimple2_false-termination":
-  $> python3 -O $F3_HOME/src/run_benchmarks.py -v 1 $F3_HOME/benchmarks/software_nontermination/f3/C/Ultimate/NonTerminationSimple2_false-termination.py
+  $> python3 -O $F3_HOME/src/run_f3.py -v 1 $F3_HOME/benchmarks/software_nontermination/f3/C/Ultimate/NonTerminationSimple2_false-termination.py
 
-We use the -O option for the python interpreter because the source code of F3 contains many assertions that perform additional checks that significatly slow down its performance.
+We use the -O option for the python interpreter because the source code of F3 contains many assertions that perform additional checks, meant for debugging, that significatly slow down its performance.

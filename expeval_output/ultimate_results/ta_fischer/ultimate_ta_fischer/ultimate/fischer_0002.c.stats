@@ -1,8 +1,0 @@
-group: ultimate_ta_fischer
-platform: Linux node1 5.4.0-56-generic #62-Ubuntu SMP Mon Nov 23 19:20:19 UTC 2020 x86_64 x86_64
-timestamp: 1619277746
-time: 2021-04-24 17:22:26
-exitcode: 0
-real: 254.73
-user: 1750.24
-sys: 14.46

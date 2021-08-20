@@ -102,4 +102,6 @@ MODULE SyncMaster(delta, drift)
       esac;
 
   TRANS (mode = work & next(mode) = send) -> (sm - drift <= next(sm) & next(sm) <= sm + drift);
-  TRANS ((mode = send & next(mode) = sync1) | (mode = sync2 & next(mode) = work)) -> next(sm) = sm;
+  TRANS ((mode = send & next(mode) = sync1) |
+         (mode = sync1 & next(mode) = sync2) |
+         (mode = sync2 & next(mode) = work)) -> next(sm) = sm;

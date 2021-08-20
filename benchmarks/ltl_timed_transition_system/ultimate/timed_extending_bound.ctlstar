@@ -1,0 +1,1 @@
+A (( (F (G dec_bound)) || (! (G (F (1.0 <= _diverge_delta))))))

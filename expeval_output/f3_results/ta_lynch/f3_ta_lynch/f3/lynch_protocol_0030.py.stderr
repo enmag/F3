@@ -1,3 +1,35 @@
-real 61.44
-user 60.05
-sys 0.52
+Traceback (most recent call last):
+  File "/home/F3/src/run_f3.py", line 436, in <module>
+    main(config_args().parse_args())
+  File "/home/F3/src/run_f3.py", line 432, in main
+    run_f3(bench, out_dir)
+  File "/home/F3/src/run_f3.py", line 260, in run_f3
+    res = solve_problem(prob, label, out_dir)
+  File "/home/F3/src/run_f3.py", line 251, in solve_problem
+    return run_ltl_test(problem, env, label, out_dir)
+  File "/home/F3/src/run_f3.py", line 113, in run_ltl_test
+    return search_nonterm(env, symbols, init, trans, fairness,
+  File "/home/F3/src/run_f3.py", line 169, in search_nonterm
+    _, arg0, arg1 = search_unrank_bmc(env, symbols, init, trans,
+  File "/home/F3/src/unranker.py", line 255, in search_unrank_bmc
+    synth_unrank(env, symbols, trace, abst_path, hints,
+  File "/home/F3/src/unranker.py", line 656, in synth_unrank
+    arg = nontermarg.motzkin_instantiate(extra=learn)
+  File "/home/F3/src/funnel.py", line 651, in motzkin_instantiate
+    for c in self.generate_motzkin_constr():
+  File "/home/F3/src/funnel.py", line 841, in generate_motzkin_constr
+    yield from motzkin_transpose(self.env, constrs,
+  File "/home/F3/src/motzkin.py", line 121, in motzkin_transpose
+    ineq = Ineq(env, curr, params, td)
+  File "/home/F3/src/ineq.py", line 49, in __init__
+    self._lhs, self._rhs = Ineq._parse(env, ineq, self.params, td)
+  File "/home/F3/src/ineq.py", line 171, in _parse
+    const *= arg.constant_value()
+  File "/usr/lib/python3.8/fractions.py", line 397, in reverse
+    return monomorphic_operator(a, b)
+  File "/usr/lib/python3.8/fractions.py", line 427, in _mul
+    return Fraction(a.numerator * b.numerator, a.denominator * b.denominator)
+KeyboardInterrupt
+real 3602.18
+user 3592.34
+sys 9.79

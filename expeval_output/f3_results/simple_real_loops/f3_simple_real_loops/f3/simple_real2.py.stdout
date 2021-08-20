@@ -1,6 +1,4 @@
-
-
-run 1/1: `simple_real2`
+F3 run `simple_real2`
 
 	Found non-termination argument:
 	State 0
@@ -12,6 +10,6 @@ run 1/1: `simple_real2`
 		b = False
 	Trans 1 -- 2
 		_x_x = ((-1.0 * x) + 29/27)
-	starting from: {b: True, x: 1/2}
+	starting from: b : True, x : 1.0
 
-end of `simple_real2`: SUCCESS in 0.18170785903930664s
+end of `simple_real2`: SUCCESS in 0.8805186748504639s

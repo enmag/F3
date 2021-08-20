@@ -1,45 +1,39 @@
+SystemError: ../Objects/longobject.c:482: bad argument to internal function
+
+The above exception was the direct cause of the following exception:
+
 Traceback (most recent call last):
-  File "/home/pyrank/src/run_benchmarks.py", line 366, in <module>
-    main(getopts())
-  File "/home/pyrank/src/run_benchmarks.py", line 228, in main
-    res, runtime = dispatch_test(test_module, label, out_dir)
-  File "/home/pyrank/src/run_benchmarks.py", line 162, in dispatch_test
-    return run_ltl_test(test, label, out_dir)
-  File "/home/pyrank/src/run_benchmarks.py", line 88, in run_ltl_test
+  File "/home/F3/src/run_f3.py", line 436, in <module>
+    main(config_args().parse_args())
+  File "/home/F3/src/run_f3.py", line 432, in main
+    run_f3(bench, out_dir)
+  File "/home/F3/src/run_f3.py", line 260, in run_f3
+    res = solve_problem(prob, label, out_dir)
+  File "/home/F3/src/run_f3.py", line 251, in solve_problem
+    return run_ltl_test(problem, env, label, out_dir)
+  File "/home/F3/src/run_f3.py", line 113, in run_ltl_test
     return search_nonterm(env, symbols, init, trans, fairness,
-  File "/home/pyrank/src/run_benchmarks.py", line 131, in search_nonterm
-    _, arg, param_assigns = search_unrank_bmc(env, symbols, init, trans,
-  File "/home/pyrank/src/unranker.py", line 165, in search_unrank_bmc
-    synth_unrank(env, symbols, trace,
-  File "/home/pyrank/src/unranker.py", line 460, in synth_unrank
-    arg = nontermarg.motzkin_instantiate(extra=learn)
-  File "/home/pyrank/src/funnel.py", line 862, in motzkin_instantiate
-    for c in self.generate_motzkin_constr():
-  File "/home/pyrank/src/funnel.py", line 1088, in generate_motzkin_constr
-    yield from motzkin_transpose(self.env, constrs,
-  File "/home/pyrank/src/motzkin.py", line 133, in motzkin_transpose
-    log("\t    {}  <{}>  {}".format(symb, ineq_type, ineq), _LOG_LVL)
-  File "/home/pyrank/src/ineq.py", line 212, in __repr__
-    res = " + ".join("{} * {}".format(repr(val), repr(key))
-  File "/home/pyrank/src/ineq.py", line 212, in <genexpr>
-    res = " + ".join("{} * {}".format(repr(val), repr(key))
-  File "/home/magnago/.local/lib/python3.8/site-packages/pysmt/fnode.py", line 523, in __repr__
-    return str(self)
-  File "/home/magnago/.local/lib/python3.8/site-packages/pysmt/fnode.py", line 520, in __str__
-    return self.serialize(threshold=5)
-  File "/home/magnago/.local/lib/python3.8/site-packages/pysmt/fnode.py", line 532, in serialize
-    return _env().serializer.serialize(self, threshold=threshold)
-  File "/home/magnago/.local/lib/python3.8/site-packages/pysmt/printers.py", line 345, in serialize
-    p = self.PrinterClass(buf)
-  File "/home/magnago/.local/lib/python3.8/site-packages/pysmt/printers.py", line 34, in __init__
-    TreeWalker.__init__(self, env=env)
-  File "/home/magnago/.local/lib/python3.8/site-packages/pysmt/walkers/tree.py", line 36, in __init__
-    Walker.__init__(self, env)
-  File "/home/magnago/.local/lib/python3.8/site-packages/pysmt/walkers/generic.py", line 85, in __init__
-    self.functions[o] = getattr(self, nt_to_fun(o))
-  File "/home/magnago/.local/lib/python3.8/site-packages/pysmt/walkers/generic.py", line 32, in nt_to_fun
-    return "walk_%s" % op.op_to_str(o).lower()
-KeyboardInterrupt
-real 3602.38
+  File "/home/F3/src/run_f3.py", line 169, in search_nonterm
+    _, arg0, arg1 = search_unrank_bmc(env, symbols, init, trans,
+  File "/home/F3/src/unranker.py", line 255, in search_unrank_bmc
+    synth_unrank(env, symbols, trace, abst_path, hints,
+  File "/home/F3/src/unranker.py", line 643, in synth_unrank
+    arg, learn = nontermarg.ef_instantiate()
+  File "/home/F3/src/funnel.py", line 623, in ef_instantiate
+    res, learn = efsolve(self.env, self.parameters, symbs,
+  File "/home/F3/src/efsolver.py", line 108, in efsolve
+    eres = solve_with_timeout(get_timeout(), esolver)
+  File "/home/F3/src/solver.py", line 117, in solve_with_timeout
+    return solver.solve(assumptions)
+  File "/usr/local/lib/python3.8/dist-packages/PySMT-0.9.1.dev331-py3.8.egg/pysmt/solvers/solver.py", line 351, in solve
+    res = self._solve(assumptions=assumptions)
+  File "/usr/local/lib/python3.8/dist-packages/PySMT-0.9.1.dev331-py3.8.egg/pysmt/decorators.py", line 64, in clear_pending_pop_wrap
+    return f(self, *args, **kwargs)
+  File "/usr/local/lib/python3.8/dist-packages/PySMT-0.9.1.dev331-py3.8.egg/pysmt/solvers/msat.py", line 266, in _solve
+    res = mathsat.msat_solve(self.msat_env())
+  File "/usr/local/lib/python3.8/dist-packages/mathsat.py", line 1437, in msat_solve
+    return _mathsat.msat_solve(e)
+SystemError: <built-in function msat_solve> returned a result with an error set
+real 3603.02
 user 0.00
 sys 0.00

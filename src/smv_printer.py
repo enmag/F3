@@ -105,7 +105,7 @@ class SMVPrinter(HRPrinter):
             self.write(formula.symbol_name())
         elif name.startswith(NEXT_MONITOR_PREFIX):
             name = name[len(NEXT_MONITOR_PREFIX):]
-            self.write("next({})".format(name))
+            self.write(f"next({name})")
         else:
             HRPrinter.walk_symbol(self, formula)
 
@@ -127,9 +127,9 @@ class SMVPrinter(HRPrinter):
             self.write("0.0")
         elif d == 1:
             # need to keep it as real otherwise a division becomes int div.
-            self.write("{}{}.0".format(sign, n))
+            self.write(f"{sign}{n}.0")
         else:
-            self.write("{}f'{}/{}".format(sign, n, d))
+            self.write(f"{sign}f'{n}/{d}")
 
     def walk_bool_constant(self, formula: FNode):
         assert isinstance(formula, FNode)
@@ -392,9 +392,9 @@ class SMVPrinterReplace(SMVPrinter):
     Longest expression is matched first (top-down in the three)
     """
 
-    def __init__(self, stream: StringIO, subs: dict, env: PysmtEnv = None):
+    def __init__(self, stream: StringIO, subs: dict, env: PysmtEnv):
         assert isinstance(stream, StringIO)
-        assert env is None or isinstance(env, PysmtEnv)
+        assert isinstance(env, PysmtEnv)
         SMVPrinter.__init__(self, stream, env=env)
         self._subs = subs if subs else {}
 
@@ -416,24 +416,25 @@ class SMVSerializer(HRSerializer):
     PrinterClass = SMVPrinterReplace
 
 
-def to_smv(formula: FNode, subs: dict = None, threshold: int = None) -> str:
+def to_smv(env: PysmtEnv, formula: FNode, subs: dict = None,
+           threshold: int = None) -> str:
     """Creates a SMVPrinterReplace with the given substitutions,
     transforms the given formula into a smv string and returns it"""
-    buf = StringIO()
-    p = SMVPrinterReplace(buf, subs=subs)
-    p.printer(formula, threshold)
-    res = buf.getvalue()
-    buf.close()
-    return res
+    assert isinstance(env, PysmtEnv)
+    assert isinstance(formula, FNode)
+    assert formula in env.formula_manager.formulae.values()
+
+    with StringIO() as buf:
+        p = SMVPrinterReplace(buf, subs=subs, env=env)
+        p.printer(formula, threshold)
+        return buf.getvalue()
 
 
-def ltl_to_smv(env, solver, enc, ltl) -> str:
-    buf = StringIO()
-    p = SMVPrinter(buf, env=env)
-    p.print_ltl(solver, enc, ltl)
-    res = buf.getvalue()
-    buf.close()
-    return res
+def ltl_to_smv(env: PysmtEnv, solver, enc, ltl) -> str:
+    with StringIO() as buf:
+        p = SMVPrinter(buf, env=env)
+        p.print_ltl(solver, enc, ltl)
+        return buf.getvalue()
 
 
 def smv_type(symb_sort: PySMTType) -> str:
@@ -447,5 +448,5 @@ def smv_type(symb_sort: PySMTType) -> str:
     elif symb_sort == BOOL:
         res = "boolean"
     else:
-        assert False, "unknown type `{}`".format(symb_sort)
+        assert False, f"unknown type `{symb_sort}`"
     return res

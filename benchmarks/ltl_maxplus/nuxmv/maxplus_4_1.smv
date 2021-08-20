@@ -1,0 +1,22 @@
+MODULE main
+
+  VAR x_0 : real;
+
+  VAR x_1 : real;
+
+  VAR x_2 : real;
+
+  VAR x_3 : real;
+
+
+
+  TRANS ((next(x_0) >= (13.0 + x_0)) & (next(x_0) >= (18.0 + x_3))) & ((next(x_0) = (13.0 + x_0)) | (next(x_0) = (18.0 + x_3)));
+
+  TRANS ((next(x_1) >= (12.0 + x_0)) & (next(x_1) >= (5.0 + x_3))) & ((next(x_1) = (12.0 + x_0)) | (next(x_1) = (5.0 + x_3)));
+
+  TRANS ((next(x_2) >= (19.0 + x_2)) & (next(x_2) >= (20.0 + x_3))) & ((next(x_2) = (19.0 + x_2)) | (next(x_2) = (20.0 + x_3)));
+
+  TRANS ((next(x_3) >= (12.0 + x_1)) & (next(x_3) >= (15.0 + x_2))) & ((next(x_3) = (12.0 + x_1)) | (next(x_3) = (15.0 + x_2)));
+
+
+  LTLSPEC ((x_2 - x_0 >= -17) | (X (G (x_2 - x_3 >= -1))));

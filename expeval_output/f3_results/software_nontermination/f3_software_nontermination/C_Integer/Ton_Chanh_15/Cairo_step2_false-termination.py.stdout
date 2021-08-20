@@ -1,25 +1,20 @@
-
-
-run 1/1: `Cairo_step2_false-termination`
+F3 run `Cairo_step2_false-termination`
 
 	Found non-termination argument:
-	Do states 3..4 while (((-1.0 * ToReal(x)) + -5/2) < 0.0)
 	State 3
 		pc = 1
-		(x < 0)
-	Trans 3 -- 4
-		_x_x : x
-	State 4
-		pc = 2
-	Trans 4 -- 3
-		_x_x : (x + -2)
-	End do-while
-	State 4
-		pc = 2
 		(x < 2)
-		((ToReal(x) + 5/2) <= 0.0)
+		(x <= 2)
+		(x < 0)
+		(x < 4)
+		(x <= 0)
+		(x <= 4)
+	Trans 3 -- 4
+		_x_x = x
+	State 4
+		pc = 2
 	Trans 4 -- 5
 		_x_x = (x + -2)
-	starting from: {pc: 1, x: -1}
+	starting from: pc : 1, x : -1
 
-end of `Cairo_step2_false-termination`: SUCCESS in 0.4718043804168701s
+end of `Cairo_step2_false-termination`: SUCCESS in 1.1001951694488525s

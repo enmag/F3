@@ -10,7 +10,7 @@ MODULE main
     f0 : Vehicle(1, delta, leader, MIN_ACC, MAX_ACC);
 
   INVAR delta >= 0;
-  TRANS delta = 0 -> next(delta) > 0;
+  -- TRANS delta = 0 -> next(delta) > 0;
 
   INIT time = 0;
   TRANS next(time) = time + delta;
@@ -26,12 +26,15 @@ MODULE LeaderVehicle(period, delta, min_acc, max_acc)
     a : real;
     v : real;
     c : real;
+    travel : real;
 
-  INIT a = 0 & v = 0 & c = 0;
+  INIT a = 0 & v = 0 & c = 0 & travel = 0;
 
   INVAR 0 <= c & c <= period;
   INVAR v >= 0 & v + a * delta >= 0; -- never goes back.
   INVAR min_acc <= a & a <= max_acc;
+
+  TRANS next(travel) = travel + v * delta + f'1/2 * a * delta * delta;
 
   TRANS c = period -> (next(c) = 0 & delta = 0);
   TRANS c < period -> next(c) = c + delta;
@@ -58,7 +61,7 @@ MODULE Vehicle(period, delta, vehicle, min_acc, max_acc)
   INVAR v >= 0 & v + a * delta >= 0;
   INVAR min_acc <= a & a <= max_acc;
 
-  TRANS c = period -> (next(c) = 0 & delta = 0);
+  TRANS c >= period -> (next(c) = 0 & delta = 0);
   TRANS c < period -> next(c) = c + delta;
 
   -- controller changes acceleration by preserving: current_distance - distance_in_next_period - space_to_stop > 0

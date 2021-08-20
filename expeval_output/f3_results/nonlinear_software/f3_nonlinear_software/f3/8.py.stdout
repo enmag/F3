@@ -1,7 +1,8 @@
-
-
-run 1/1: `8`
+F3 run `8`
 
 	Found non-termination argument:
-	[{pc: 1, z: 3}, {pc: 2, z: 3}, {pc: 1, z: 3}]
-end of `8`: SUCCESS in 0.02689051628112793s
+	pc : 1, z : 3
+	pc : 2, z : 3
+	pc : 1, z : 3
+
+end of `8`: SUCCESS in 0.2842867374420166s

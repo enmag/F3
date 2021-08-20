@@ -1,3 +1,49 @@
+F3 run `bouncing_ball_simple`
 
+	Found non-termination argument:
+	State 1
+		_J140 = True
+		_J134 = True
+		_EL_U_109 = True
+		h = 0.0
+		_EL_U_111 = False
+		_EL_U_113 = True
+		delta = 0.0
+		_EL_U_115 = False
+		v = -981/100
+		_J152 = True
+		_J146 = True
+		((-1.0 * _diverge_delta) <= -1.0)
+	Trans 1 -- 2
+		_x__diverge_delta = 0.0
+	State 2
+		_J140 = False
+		_J134 = False
+		_EL_U_109 = True
+		h = 0.0
+		_EL_U_111 = False
+		_EL_U_113 = True
+		delta = 1.0
+		_EL_U_115 = False
+		v = 981/100
+		_J152 = False
+		_J146 = False
+	Trans 2 -- 3
+		_x__diverge_delta = (_diverge_delta + 1.0)
+	State 3
+		_J140 = True
+		_J134 = True
+		_EL_U_109 = True
+		h = 981/200
+		_EL_U_111 = False
+		_EL_U_113 = True
+		delta = 1.0
+		_EL_U_115 = False
+		v = 0.0
+		_J152 = True
+		_J146 = False
+	Trans 3 -- 4
+		_x__diverge_delta = 1.0
+	starting from: _J140 : True, _J134 : True, _EL_U_109 : True, h : 0.0, _EL_U_111 : False, _diverge_delta : 2.0, _EL_U_113 : True, delta : 0.0, _EL_U_115 : False, v : -981/100, _J152 : True, _J146 : True
 
-run 1/1: `bouncing_ball_simple`
+end of `bouncing_ball_simple`: SUCCESS in 0.5961854457855225s

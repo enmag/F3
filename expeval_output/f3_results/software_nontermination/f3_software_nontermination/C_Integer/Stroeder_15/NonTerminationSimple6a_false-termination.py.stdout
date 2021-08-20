@@ -1,28 +1,19 @@
-
-
-run 1/1: `NonTerminationSimple6a_false-termination`
+F3 run `NonTerminationSimple6a_false-termination`
 
 	Found non-termination argument:
-	Do states 0..1 while ((ToReal(x) + 9/2) < 0.0)
 	State 0
 		pc = 0
 		c = 5
-		((-1 * x) <= 0)
-	Trans 0 -- 1
-		_x_x : x
-	State 1
-		pc = 1
-		c = 5
-	Trans 1 -- 0
-		_x_x : (x + 5)
-	End do-while
-	State 1
-		pc = 1
-		c = 5
 		((-1 * x) <= 5)
-		(((-1.0 * ToReal(x)) + -9/2) <= 0.0)
+		((-1 * x) <= 0)
+		((-1 * x) <= 10)
+	Trans 0 -- 1
+		_x_x = x
+	State 1
+		pc = 1
+		c = 5
 	Trans 1 -- 2
 		_x_x = (x + 5)
-	starting from: {pc: 0, x: 0, c: 5}
+	starting from: pc : 0, x : 0, c : 5
 
-end of `NonTerminationSimple6a_false-termination`: SUCCESS in 0.4554784297943115s
+end of `NonTerminationSimple6a_false-termination`: SUCCESS in 1.0784077644348145s

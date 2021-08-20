@@ -1,77 +1,77 @@
-
-
-run 1/1: `lynch_protocol_0002`
+F3 run `lynch_protocol_0002`
 
 	Found non-termination argument:
 	State 1
-		v1 = 1
-		v2 = True
-		p0_l3 = False
-		p1_l2 = False
-		p0_evt = False
-		p0_l1 = False
-		p1_l0 = False
-		p1_l3 = False
-		p0_l2 = False
-		p0_l0 = False
-		p1_evt = False
-		p1_l1 = False
-		_J540 = True
-		_J546 = True
-		_J551 = True
-		_J557 = True
-		_J564 = True
+		p1_evt = True
+		p0_evt = True
 		_J570 = True
+		v1 = 1
+		_J564 = True
+		p1_l0 = False
+		v2 = True
+		_J557 = True
+		_J551 = True
+		_J546 = True
+		_EL_U_513 = True
+		_J540 = True
 		_EL_U_503 = True
 		_EL_U_505 = False
+		p1_l2 = False
 		_EL_U_507 = True
+		p0_l1 = False
 		_EL_U_509 = False
+		p0_l0 = False
 		_EL_U_511 = False
-		_EL_U_513 = True
+		p1_l1 = False
+		p0_l2 = False
+		p0_l3 = False
+		p1_l3 = False
 		((-1.0 * p1_c) < -16.0)
+		((-1.0 * p1_c) <= 0.0)
 		((-1.0 * p0_c) < -16.0)
 		((-1.0 * _diverge_delta) <= -1.0)
-		((-1.0 * delta) <= -1.0)
 		((-1.0 * delta) < 0.0)
+		((-1.0 * delta) <= -1.0)
 	Trans 1 -- 2
-		_x__diverge_delta = delta
-		_x_delta = ((_diverge_delta * 1/6) + (delta * 7/6) + (p1_c * 7/6) + (p0_c * 7/6) + -1/6)
+		_x_p0_c = (delta + p0_c)
 		_x_p1_c = (p1_c + delta)
-		_x_p0_c = (p0_c + delta)
+		_x__diverge_delta = delta
+		_x_delta = ((p1_c * 5/4) + (_diverge_delta * 1/4) + (p0_c * 5/4) + (delta * 5/4) + -1/4)
 	State 2
-		v1 = 1
-		v2 = True
-		p0_l3 = False
-		p1_l2 = False
-		p0_evt = False
-		p0_l1 = False
-		p1_l0 = False
-		p1_l3 = False
-		p0_l2 = False
-		p0_l0 = False
-		p1_evt = False
-		p1_l1 = False
-		_J540 = False
-		_J546 = False
-		_J551 = False
-		_J557 = False
-		_J564 = False
+		p1_evt = True
+		p0_evt = True
 		_J570 = False
+		v1 = 1
+		_J564 = False
+		p1_l0 = False
+		v2 = True
+		_J557 = False
+		_J551 = False
+		_J546 = False
+		_EL_U_513 = True
+		_J540 = False
 		_EL_U_503 = True
 		_EL_U_505 = False
+		p1_l2 = False
 		_EL_U_507 = True
+		p0_l1 = False
 		_EL_U_509 = False
+		p0_l0 = False
 		_EL_U_511 = False
-		_EL_U_513 = True
-		(((-1.0 * p1_c) + (-1.0 * delta)) < -16.0)
+		p1_l1 = False
+		p0_l2 = False
+		p0_l3 = False
+		p1_l3 = False
 		(((-1.0 * p0_c) + (-1.0 * delta)) < -16.0)
-		((-1.0 * delta) <= -1.0)
+		(((-1.0 * p1_c) + (-1.0 * delta)) < -16.0)
 		((-1.0 * delta) < 0.0)
+		((-1.0 * delta) <= -1.0)
+		(((-1.0 * p1_c) + (-1.0 * delta)) <= 0.0)
 	Trans 2 -- 3
-		_x__diverge_delta = delta
-		_x_delta = ((delta + -1/6) - ((_diverge_delta * 1/6) + (p1_c * 1/6) + (p0_c * 1/6)))
+		_x_p0_c = (delta + p0_c)
 		_x_p1_c = (p1_c + delta)
-		_x_p0_c = (p0_c + delta)
-	starting from: {delta: 1.0, v1: 1, v2: True, p0_l3: False, _diverge_delta: 33/2, p1_l2: False, p0_evt: False, p0_l1: False, p1_l0: False, p1_c: 33/2, p1_l3: False, p0_l2: False, p0_c: 33/2, p0_l0: False, p1_evt: False, p1_l1: False, _J540: True, _J546: True, _J551: True, _J557: True, _J564: True, _J570: True, _EL_U_503: True, _EL_U_505: False, _EL_U_507: True, _EL_U_509: False, _EL_U_511: False, _EL_U_513: True}
+		_x__diverge_delta = delta
+		_x_delta = (((p1_c * 1/4) + delta + -1/4) - ((_diverge_delta * 1/4) + (p0_c * 1/4)))
+	starting from: p1_c : 33/2, _diverge_delta : 33/2, delta : 1.0, p1_evt : True, p0_evt : True, v1 : 1, v2 : True, p0_l1 : False, p0_l0 : False, p0_l2 : False, p0_l3 : False, p0_c : 33/2, _J570 : True, p1_l0 : False, _J564 : True, _J557 : True, _J551 : True, _J546 : True, _J540 : True, _EL_U_503 : True, _EL_U_505 : False, _EL_U_507 : True, _EL_U_509 : False, _EL_U_511 : False, p1_l1 : False, _EL_U_513 : True, p1_l2 : False, p1_l3 : False
 
-end of `lynch_protocol_0002`: SUCCESS in 0.819439172744751s
+end of `lynch_protocol_0002`: SUCCESS in 3.151716470718384s

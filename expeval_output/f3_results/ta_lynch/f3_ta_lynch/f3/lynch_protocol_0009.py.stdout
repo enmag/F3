@@ -1,248 +1,172 @@
-
-
-run 1/1: `lynch_protocol_0009`
+F3 run `lynch_protocol_0009`
 
 	Found non-termination argument:
-	Do states 1..1 while (((p5_c * 1/33) + (delta * 1/33)) < 0.0)
 	State 1
-		p8_l0 = False
-		p7_l2 = False
 		p7_l1 = False
 		p7_l0 = False
-		p7_evt = False
-		p6_l2 = False
-		p6_l1 = False
-		p6_l0 = False
-		p6_evt = False
-		p5_l3 = False
-		p5_l2 = False
 		p5_l1 = False
+		p7_l2 = False
 		p5_l0 = False
-		p5_evt = False
-		p4_l3 = False
-		p4_l2 = False
-		p4_l1 = False
-		p4_l0 = False
-		p1_evt = False
-		p8_l1 = False
-		p0_l0 = False
-		p1_l3 = False
-		p6_l3 = False
-		p8_l2 = False
-		p0_evt = False
-		p8_evt = False
-		p1_l2 = False
-		p0_l3 = False
-		p7_l3 = False
-		p2_l0 = False
-		p1_l1 = False
-		v2 = False
-		p1_l0 = False
-		v1 = 1
-		p2_evt = False
-		p2_l1 = False
-		_diverge_delta = 33/2
-		p2_l2 = False
-		p2_l3 = False
-		p0_l1 = False
-		p8_l3 = False
-		p3_l0 = False
-		p0_l2 = False
-		p3_evt = False
+		p0_evt = True
 		p3_l1 = False
+		p5_l2 = False
+		p3_l0 = False
+		p2_evt = True
+		p5_l3 = False
 		p3_l2 = False
+		p1_l1 = False
+		p1_l0 = False
 		p3_l3 = False
-		p4_evt = False
-		_J2053 = True
-		_J2059 = True
-		_J2064 = True
-		_J2070 = True
-		_J2077 = True
+		p1_l2 = False
+		p3_evt = True
+		p4_evt = True
+		p1_l3 = False
+		p5_evt = True
+		p6_evt = True
+		p7_evt = True
+		p8_evt = True
+		v1 = 1
+		v2 = True
+		p7_l3 = False
 		_J2083 = True
+		_J2077 = True
+		_J2070 = True
+		_J2064 = True
+		_J2059 = True
+		_J2053 = True
 		_EL_U_2016 = True
 		_EL_U_2018 = False
 		_EL_U_2020 = True
+		p8_l1 = False
+		p8_l0 = False
 		_EL_U_2022 = False
+		p6_l1 = False
+		p8_l2 = False
+		p6_l0 = False
 		_EL_U_2024 = False
+		p8_l3 = False
+		p4_l1 = False
+		p6_l2 = False
+		p4_l0 = False
+		p0_l1 = False
+		p6_l3 = False
+		p2_l1 = False
+		p4_l2 = False
+		p0_l0 = False
+		p2_l0 = False
+		p4_l3 = False
+		p2_l2 = False
+		p0_l2 = False
+		p0_l3 = False
+		p2_l3 = False
+		p1_evt = True
 		_EL_U_2026 = True
+		((-1.0 * p7_c) < -16.0)
+		((-1.0 * p0_c) < -16.0)
+		((-1.0 * delta) < 0.0)
 		((-1.0 * p3_c) < -16.0)
 		((-1.0 * p6_c) < -16.0)
 		((-1.0 * p2_c) < -16.0)
-		((-1.0 * p5_c) < -16.0)
+		((-1.0 * delta) <= -1.0)
+		((-1.0 * _diverge_delta) <= -1.0)
 		((-1.0 * p1_c) < -16.0)
+		((-1.0 * p5_c) < -16.0)
 		((-1.0 * p8_c) < -16.0)
 		((-1.0 * p4_c) < -16.0)
-		(delta = 33/2)
-		((-1.0 * delta) < 0.0)
-		((-1.0 * p7_c) < -16.0)
-		((-1.0 * p0_c) < -16.0)
-	Trans 1 -- 1
-		_x_p1_c : (p1_c + delta)
-		_x_delta : 33/2
-		_x_p2_c : (p2_c + delta)
-		_x_p8_c : (p8_c + delta)
-		_x_p7_c : (p7_c + delta)
-		_x_p6_c : (p6_c + delta)
-		_x_p0_c : (p0_c + delta)
-		_x_p3_c : (p3_c + delta)
-		_x_p5_c : (p5_c + delta)
-		_x_p4_c : (p4_c + delta)
-	End do-while
-	State 1
-		p8_l0 = False
-		p7_l2 = False
-		p7_l1 = False
-		p7_l0 = False
-		p7_evt = False
-		p6_l2 = False
-		p6_l1 = False
-		p6_l0 = False
-		p6_evt = False
-		p5_l3 = False
-		p5_l2 = False
-		p5_l1 = False
-		p5_l0 = False
-		p5_evt = False
-		p4_l3 = False
-		p4_l2 = False
-		p4_l1 = False
-		p4_l0 = False
-		p1_evt = False
-		p8_l1 = False
-		p0_l0 = False
-		p1_l3 = False
-		p6_l3 = False
-		p8_l2 = False
-		p0_evt = False
-		p8_evt = False
-		p1_l2 = False
-		p0_l3 = False
-		p7_l3 = False
-		p2_l0 = False
-		p1_l1 = False
-		v2 = False
-		p1_l0 = False
-		v1 = 1
-		p2_evt = False
-		p2_l1 = False
-		_diverge_delta = 33/2
-		p2_l2 = False
-		p2_l3 = False
-		p0_l1 = False
-		p8_l3 = False
-		p3_l0 = False
-		p0_l2 = False
-		p3_evt = False
-		p3_l1 = False
-		p3_l2 = False
-		p3_l3 = False
-		p4_evt = False
-		_J2053 = True
-		_J2059 = True
-		_J2064 = True
-		_J2070 = True
-		_J2077 = True
-		_J2083 = True
-		_EL_U_2016 = True
-		_EL_U_2018 = False
-		_EL_U_2020 = True
-		_EL_U_2022 = False
-		_EL_U_2024 = False
-		_EL_U_2026 = True
-		(((-1.0 * p3_c) + (-1.0 * delta)) < 1/2)
-		(((-1.0 * p8_c) + (-1.0 * delta)) < 1/2)
-		((-1.0 * ((delta * 1/33) + (p5_c * 1/33))) <= 0.0)
-		(((-1.0 * p0_c) + (-1.0 * delta)) < 1/2)
-		(((-1.0 * p7_c) + (-1.0 * delta)) < 1/2)
-		(((-1.0 * p1_c) + (-1.0 * delta)) < 1/2)
-		(delta = 33/2)
-		(((-1.0 * p5_c) + (-1.0 * delta)) < 1/2)
-		(((-1.0 * p2_c) + (-1.0 * delta)) < 1/2)
-		(((-1.0 * p6_c) + (-1.0 * delta)) < 1/2)
-		(((-1.0 * p4_c) + (-1.0 * delta)) < 1/2)
 	Trans 1 -- 2
-		_x_p1_c = (p1_c + delta)
-		_x_delta = 33/2
-		_x_p2_c = (p2_c + delta)
-		_x_p8_c = (p8_c + delta)
-		_x_p7_c = (p7_c + delta)
-		_x_p6_c = (p6_c + delta)
+		_x_p6_c = (delta + p6_c)
+		_x_p7_c = (delta + p7_c)
+		_x__diverge_delta = delta
+		_x_p4_c = (delta + p4_c)
+		_x_p3_c = (delta + p3_c)
 		_x_p0_c = (p0_c + delta)
-		_x_p3_c = (p3_c + delta)
-		_x_p5_c = (p5_c + delta)
-		_x_p4_c = (p4_c + delta)
+		_x_p8_c = (p8_c + delta)
+		_x_p1_c = (p1_c + delta)
+		_x_p5_c = (delta + p5_c)
+		_x_p2_c = (p2_c + delta)
+		_x_delta = ((p7_c * 5/4) + (p6_c * 5/4) + (p5_c * 5/4) + (p4_c * 5/4) + (_diverge_delta * 1/4) + (p3_c * 5/4) + delta + (p0_c * 5/4) + (p2_c * 3/4) + (p1_c * 5/4) + (p8_c * 5/4))
 	State 2
-		p8_l0 = False
-		p7_l2 = False
 		p7_l1 = False
 		p7_l0 = False
-		p7_evt = False
-		p6_l2 = False
-		p6_l1 = False
-		p6_l0 = False
-		p6_evt = False
-		p5_l3 = False
-		p5_l2 = False
 		p5_l1 = False
+		p7_l2 = False
 		p5_l0 = False
-		p5_evt = False
-		p4_l3 = False
-		p4_l2 = False
-		p4_l1 = False
-		p4_l0 = False
-		p1_evt = False
-		p8_l1 = False
-		p0_l0 = False
-		p1_l3 = False
-		p6_l3 = False
-		p8_l2 = False
-		p0_evt = False
-		p8_evt = False
-		p1_l2 = False
-		p0_l3 = False
-		p7_l3 = False
-		p2_l0 = False
-		p1_l1 = False
-		v2 = False
-		p1_l0 = False
-		v1 = 1
-		p2_evt = False
-		p2_l1 = False
-		_diverge_delta = 33/2
-		p2_l2 = False
-		p2_l3 = False
-		p0_l1 = False
-		p8_l3 = False
-		p3_l0 = False
-		p0_l2 = False
-		p3_evt = False
+		p0_evt = True
 		p3_l1 = False
+		p5_l2 = False
+		p3_l0 = False
+		p2_evt = True
+		p5_l3 = False
 		p3_l2 = False
+		p1_l1 = False
+		p1_l0 = False
 		p3_l3 = False
-		p4_evt = False
-		_J2053 = False
-		_J2059 = False
-		_J2064 = False
-		_J2070 = False
-		_J2077 = False
+		p1_l2 = False
+		p3_evt = True
+		p4_evt = True
+		p1_l3 = False
+		p5_evt = True
+		p6_evt = True
+		p7_evt = True
+		p8_evt = True
+		v1 = 1
+		v2 = True
+		p7_l3 = False
 		_J2083 = False
+		_J2077 = False
+		_J2070 = False
+		_J2064 = False
+		_J2059 = False
+		_J2053 = False
 		_EL_U_2016 = True
 		_EL_U_2018 = False
 		_EL_U_2020 = True
+		p8_l1 = False
+		p8_l0 = False
 		_EL_U_2022 = False
+		p6_l1 = False
+		p8_l2 = False
+		p6_l0 = False
 		_EL_U_2024 = False
+		p8_l3 = False
+		p4_l1 = False
+		p6_l2 = False
+		p4_l0 = False
+		p0_l1 = False
+		p6_l3 = False
+		p2_l1 = False
+		p4_l2 = False
+		p0_l0 = False
+		p2_l0 = False
+		p4_l3 = False
+		p2_l2 = False
+		p0_l2 = False
+		p0_l3 = False
+		p2_l3 = False
+		p1_evt = True
 		_EL_U_2026 = True
+		(((-1.0 * delta) + (-1.0 * p5_c)) < -16.0)
+		(((-1.0 * p2_c) + (-1.0 * delta)) < -16.0)
+		(((-1.0 * delta) + (-1.0 * p0_c)) < -16.0)
+		(((-1.0 * delta) + (-1.0 * p8_c)) < -16.0)
+		((-1.0 * delta) <= -1.0)
+		(((-1.0 * p3_c) + (-1.0 * delta)) < -16.0)
+		(((-1.0 * p6_c) + (-1.0 * delta)) < -16.0)
+		(((-1.0 * delta) + (-1.0 * p4_c)) < -16.0)
+		(((-1.0 * delta) + (-1.0 * p1_c)) < -16.0)
+		(((-1.0 * delta) + (-1.0 * p7_c)) < -16.0)
 	Trans 2 -- 3
-		_x_p1_c = (p1_c + delta)
-		_x_delta = 33/2
-		_x_p2_c = (p2_c + delta)
-		_x_p8_c = (p8_c + delta)
-		_x_p7_c = (p7_c + delta)
-		_x_p6_c = (p6_c + delta)
+		_x_p6_c = (delta + p6_c)
+		_x_p7_c = (delta + p7_c)
+		_x__diverge_delta = delta
+		_x_p4_c = (delta + p4_c)
+		_x_p3_c = (delta + p3_c)
 		_x_p0_c = (p0_c + delta)
-		_x_p3_c = (p3_c + delta)
-		_x_p5_c = (p5_c + delta)
-		_x_p4_c = (p4_c + delta)
-	starting from: {delta: 33/2, p8_l0: False, p7_l2: False, p7_l1: False, p7_l0: False, p7_evt: False, p7_c: 33/2, p6_l2: False, p6_l1: False, p6_l0: False, p6_evt: False, p6_c: 33/2, p5_l3: False, p5_l2: False, p5_l1: False, p5_l0: False, p5_evt: False, p5_c: 33/2, p4_l3: False, p4_l2: False, p4_l1: False, p4_l0: False, p1_evt: False, p8_l1: False, p0_c: 33/2, p0_l0: False, p1_l3: False, p6_l3: False, p1_c: 33/2, p8_l2: False, p0_evt: False, p8_evt: False, p1_l2: False, p0_l3: False, p7_l3: False, p2_c: 33/2, p2_l0: False, p8_c: 33/2, p1_l1: False, v2: False, p1_l0: False, v1: 1, p2_evt: False, p2_l1: False, _diverge_delta: 33/2, p2_l2: False, p2_l3: False, p0_l1: False, p3_c: 33/2, p8_l3: False, p3_l0: False, p0_l2: False, p3_evt: False, p3_l1: False, p3_l2: False, p3_l3: False, p4_c: 33/2, p4_evt: False, _J2053: True, _J2059: True, _J2064: True, _J2070: True, _J2077: True, _J2083: True, _EL_U_2016: True, _EL_U_2018: False, _EL_U_2020: True, _EL_U_2022: False, _EL_U_2024: False, _EL_U_2026: True}
+		_x_p8_c = (p8_c + delta)
+		_x_p1_c = (p1_c + delta)
+		_x_p5_c = (delta + p5_c)
+		_x_p2_c = (p2_c + delta)
+		_x_delta = ((-1.0 * p7_c) + (-1.0 * p6_c) + (-1.0 * p5_c) + (-1.0 * p4_c) + (-1.0 * _diverge_delta) + (-1.0 * p3_c) + delta + (-1.0 * p0_c) + (p2_c * 33/4) + (-1.0 * p1_c) + (-1.0 * p8_c) + -1/4)
+	starting from: p0_evt : True, _diverge_delta : 33/2, delta : 1.0, p2_evt : True, p7_l1 : False, p7_l0 : False, p5_l1 : False, p7_l2 : False, p5_l0 : False, p1_evt : True, p3_l1 : False, p7_l3 : False, p5_l2 : False, p3_l0 : False, p5_l3 : False, p7_c : 33/2, p3_l2 : False, p1_l1 : False, p1_l0 : False, p3_l3 : False, p5_c : 33/2, p1_l2 : False, p1_l3 : False, p3_c : 33/2, p3_evt : True, p4_evt : True, p5_evt : True, p1_c : 33/2, p6_evt : True, p7_evt : True, p8_evt : True, v1 : 1, v2 : True, _J2083 : True, _J2077 : True, _J2070 : True, _J2064 : True, _J2059 : True, _J2053 : True, _EL_U_2016 : True, _EL_U_2018 : False, _EL_U_2020 : True, p8_l1 : False, p8_l0 : False, _EL_U_2022 : False, p6_l1 : False, p8_l2 : False, p6_l0 : False, _EL_U_2024 : False, p8_l3 : False, p4_l1 : False, p6_l2 : False, p4_l0 : False, p0_l1 : False, p8_c : 33/2, p6_l3 : False, p2_l1 : False, p4_l2 : False, p0_l0 : False, p2_l0 : False, p6_c : 33/2, p4_l3 : False, p2_l2 : False, p0_l2 : False, p0_l3 : False, p2_l3 : False, p4_c : 33/2, p0_c : 33/2, p2_c : 33/2, _EL_U_2026 : True
 
-end of `lynch_protocol_0009`: SUCCESS in 1.8384840488433838s
+end of `lynch_protocol_0009`: SUCCESS in 6.539841175079346s

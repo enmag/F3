@@ -1,8 +1,8 @@
-group: pyrank_tts_dynamic_fischer
-platform: Linux node1 5.4.0-56-generic #62-Ubuntu SMP Mon Nov 23 19:20:19 UTC 2020 x86_64 x86_64
-timestamp: 1616956561
-time: 2021-03-28 20:36:01
+group: f3_tts_dynamic_fischer
+platform: Linux node2 5.4.0-56-generic #62-Ubuntu SMP Mon Nov 23 19:20:19 UTC 2020 x86_64 x86_64
+timestamp: 1629317822
+time: 2021-08-18 22:17:02
 exitcode: 0
-real: 2050.17
-user: 2044.91
-sys: 4.13
+real: 3602.44
+user: 0.0
+sys: 0.0

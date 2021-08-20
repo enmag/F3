@@ -48,6 +48,7 @@ MODULE Train(rbc, max_brake, max_acc, period, delta)
   TRANS c >= period -> next(c) = 0 & delta = 0;
 
   INVAR z >= 0;
+  INVAR v >= 0;
   INVAR - max_brake <= a & a <= max_acc;
   INVAR v >= rbc.v_des -> a <= 0;
 

@@ -1,13 +1,13 @@
 # F3 (FindFairFunnel)
-F3 searches for fair paths in transition systems.    
-F3 is capable of searching for counterexamples to LTL specification.    
+F3 searches for fair paths in transition systems.
+F3 is capable of searching for counterexamples to LTL specification.
 F3 can discard all paths in which the sum of the assignments to some symbol does not diverge to infinity. This can be used to remove all zeno-paths in timed systems.
 
-Upon success F3 will write on stdout the sequence of abstract regions and transition of the funnel-loop in a human readable format. For every loop the associated ranking function is provided.
+Upon success F3 will write on stdout the sequence of regions and transitions of the funnel-loop in a human readable format. For every loop the associated ranking function is provided.
 
 
 ## Install in Docker image
-Using docker and the `Dockerfile` it is possible to create a docker image with F3 installed from your local copy of this repository.    
+Using docker and the `Dockerfile` it is possible to create a docker image with F3 installed from your local copy of this repository.
 The file `INSTALL_DOCKER` details the commands that can be used to build the Docker image and to execute it.
 
 
@@ -16,8 +16,8 @@ The file `INSTALL_DOCKER` details the commands that can be used to build the Doc
 
 
 ## Benchmarks
-The directory benchmarks contains a collection of software (non)termination and LTL model checking problems.    
-More details on the benchmarks are provided in `benchmarks/README`.    
+The directory benchmarks contains a collection of software (non)termination and LTL model checking problems.
+More details on the benchmarks are provided in `benchmarks/README`.
 The benchmarks are organised in the following categories:
 * LS : linear software programs (directory `software_nontermination`),
 * NS : non-linear software programs (directory `nonlinear_software`),
@@ -30,14 +30,14 @@ Each directory contains the benchmarks in the input language of a number of tool
 
 
 ## F3 input files
-F3 loads a Python source files as input.    
-Such file should declare either a function `transition_system` or a function `check_ltl`.    
-The first method is used to provide a fair transition system for which we want to find a fair path, the second one is used to provide a transition system and a LTL specification for which we want to find a counterexample.    
+F3 loads a Python source file as input.
+Such file should declare either a function `transition_system` or a function `check_ltl`.
+The first method is used to provide a fair transition system for which we want to find a fair path, the second one is used to provide a transition system and a LTL specification for which we want to find a counterexample.
 Inputs that declare the `check_ltl` function can optionally define another function called `diverging_symbs`. Such function can be used to tell F3 which symbols of the system must diverge to infinity in the counterexample: the sum of all their assignments diverges to infinity.
 
 
 ## F3 command line options
-Every command line option supported by F3 comes with a default value, hence you can "just run it" without specifying anything special.    
+Every command line option supported by F3 comes with a default value, hence you can "just run it" without specifying anything special.
 Here we briefly describe the main command line options supported by F3.
 * `-h, --help`: writes on stdout the list of available options and a description for each of them.
 * `-v, --verbose`: control the amount of messages that F3 writes on stdout.
@@ -56,12 +56,14 @@ Here we briefly describe the main command line options supported by F3.
 * `-max-extend, --loop_extension_bound`: discard all candiate loop that cannot be exetended by the given factor.
 * `-bool-impl, --use-bool-impl`: enable/disable boolean implicant computation.
 * `-unsat-cores, --use-unsat-cores`: enable/disable usage of unsat-cores for implicant computation.
+* `-min-core', --minimal-core`: requires enabled unsat-cores, enable/disable computation of minimal unsat core.
 * `-merge-ineqs, --merge-ineqs`: enable/disable merging of inequalities `a >= b & b <= a` into `a = b`.
 * `-s, --solvers`: set sequence of SMT-solvers to be used.
 * `-min-ineqs, --min-inequalities`: set minimum number of inequalities to be synthesised for each funnel.
 * `-max-ineqs, --max-inequalities`: set minimum number of inequalities to be synthesised for each funnel.
 * `-propagate, --constr-propagate`: set mode of propagation of state inequalities through transition equalities.
 * `-generalised-lasso, --generalised-lasso`: enable/disable detection of generalised lassos.
+* `-det-div, --deterministic-diverging-monitor`: enable/disable deterministic reset of diverging symbol monitor.
 * `-smv-out, --smv-out`: write SMV model representing the funnel-loop in the given directory.
 
 
@@ -93,11 +95,11 @@ Trans 1 -- 2
 	_x_x = (x + 1)
 starting from: {pc: 0, x: 0}
 ```
-By default F3 does not print any information about the search and simply print the end results when it find one.
-By increasing the verbosity (option -v) it is possible to obtain more information about the funnel-loop templates, the solver that are being used etc.
+By default F3 does not print any information about the search and simply prints the end result when it finds one.
+By increasing the verbosity (option `-v`) it is possible to obtain more information about the funnel-loop templates, the solver that are being used etc.
 
 
 ## Generating the plots
 The directory `expeval_output` contains the outputs obtained by executing of F3 and other tools on the benchmarks contained in the `benchmarks` directory.
 The `script` directory contains 2 python scripts that can be used to parse and plot such outputs.
-Please, refer to the file `GENERATE_PLOTS` for a more detailed description of the command that can be used to generate such plots.
+Please, refer to the file `GENERATE_PLOTS` for a more detailed description of the commands that can be used to generate such plots.

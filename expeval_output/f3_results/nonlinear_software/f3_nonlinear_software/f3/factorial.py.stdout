@@ -1,42 +1,32 @@
-
-
-run 1/1: `factorial`
+F3 run `factorial`
 
 	Found non-termination argument:
-	Do states 8..10 while (((ToReal(fact) * 4/3) + (-1.0 * ToReal(i)) + -3.0) < 0.0)
 	State 8
 		n = 5
 		pc = 5
-		((-1 * fact) < -2)
+		((((-1 * fact * i * i) + i) - ((fact * i * 3) + (fact * 2))) <= -2)
+		((-1 * i) < 1)
+		(((-1 * fact) + i) <= -1)
+		((-1 * i) < 0)
+		(((-1 * fact * i) + (-1 * fact) + i) <= -2)
 		(((-1 * fact) + i) <= 0)
 		((-1 * i) < -1)
-		(((-1 * fact) + i) <= -1)
+		(((-1 * fact * i) + (-1 * fact) + i) <= -1)
 	Trans 8 -- 9
-		_x_fact : fact
-		_x_i : (i + 1)
+		_x_i = (i + 1)
+		_x_fact = fact
 	State 9
 		n = 5
 		pc = 3
 	Trans 9 -- 10
-		_x_fact : fact
-		_x_i : i
-	State 10
-		n = 5
-		pc = 4
-	Trans 10 -- 8
-		_x_fact : (fact * i)
-		_x_i : i
-	End do-while
-	State 10
-		n = 5
-		pc = 4
-		((-1 * i) < -1)
-		(((-1 * fact * i) + i) <= 0)
-		(((ToReal(i) + 3.0) - (ToReal(fact) * 4/3)) <= 0.0)
-		((-1 * fact * i) < -2)
-	Trans 10 -- 11
-		_x_fact = (fact * i)
 		_x_i = i
-	starting from: {pc: 5, fact: 4, i: 2, n: 5}
+		_x_fact = fact
+	State 10
+		n = 5
+		pc = 4
+	Trans 10 -- 11
+		_x_i = i
+		_x_fact = (fact * i)
+	starting from: pc : 5, fact : 4, i : 2, n : 5
 
-end of `factorial`: SUCCESS in 1.2745254039764404s
+end of `factorial`: SUCCESS in 1.4456627368927002s

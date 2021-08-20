@@ -1,617 +1,198 @@
-
-
-run 1/1: `train_gate_0011`
+F3 run `train_gate_0011`
 
 	Found non-termination argument:
-	Do states 24..24 while False
-	State 24
-		delta = 0.0
-		t10_l0 = False
-		t10_evt1 = False
-		t10_evt0 = False
-		t9_evt1 = False
-		t2_evt1 = False
-		t2_l1 = False
-		t3_evt0 = False
-		t2_l0 = False
-		t2_evt0 = False
-		_diverge_delta = 0.0
-		t1_l1 = False
-		t1_evt1 = False
-		gate_l0 = False
-		t1_evt0 = False
-		t0_l1 = False
-		t0_evt1 = False
-		t10_l1 = False
-		t4_l0 = False
-		t0_l0 = False
-		gate_l1 = True
-		t8_l0 = False
-		t9_evt0 = False
-		t6_l1 = False
-		t7_evt0 = False
-		controller_l1 = False
-		t5_evt0 = False
-		t9_l0 = False
-		gate_evt0 = False
+	State 12
+		t7_l1 = False
 		t7_l0 = False
 		t4_l1 = False
-		controller_evt0 = False
-		t3_l1 = False
-		t4_evt0 = False
-		t1_l0 = False
-		controller_evt1 = False
-		t4_evt1 = False
+		t4_l0 = False
+		t1_evt0 = False
+		t1_evt1 = False
 		t0_evt0 = False
-		t9_l1 = False
-		gate_evt1 = False
-		t7_l1 = False
-		t8_evt0 = False
-		controller_evt2 = False
-		controller_cnt = 5
+		t0_evt1 = False
+		t2_evt0 = False
+		t2_evt1 = False
+		t1_l1 = False
+		t1_l0 = False
+		t3_evt0 = False
+		controller_l1 = True
 		t3_evt1 = False
-		_EL_U_1633 = True
-		_EL_U_1635 = False
-		t3_l0 = False
-		t5_evt1 = False
+		_J1699 = True
 		controller_l0 = False
-		_EL_X_1601 = True
-		t5_l0 = False
-		t5_l1 = False
+		t4_evt0 = False
+		_J1693 = True
+		t4_evt1 = False
+		_J1687 = True
+		_J1670 = True
+		t5_evt0 = False
+		_EL_U_1633 = True
+		t5_evt1 = False
+		_EL_U_1635 = False
 		t6_evt0 = False
+		_EL_X_1601 = True
 		t6_evt1 = False
 		_EL_X_1603 = False
-		t6_l0 = False
+		controller_cnt = 1
+		t7_evt0 = False
 		t7_evt1 = False
 		_EL_U_1637 = False
+		t8_evt0 = False
 		t8_evt1 = False
 		_EL_U_1640 = False
+		t9_evt0 = False
+		t9_evt1 = False
+		t10_evt0 = False
+		t10_evt1 = False
+		controller_evt0 = True
+		controller_evt1 = False
+		controller_evt2 = False
 		t8_l1 = False
-		_J1670 = True
-		_J1687 = True
-		_J1693 = True
-		_J1699 = True
+		t8_l0 = False
+		t5_l1 = False
+		t5_l0 = False
+		t2_l1 = False
+		t2_l0 = False
+		gate_evt0 = False
+		gate_evt1 = False
+		t9_l1 = False
+		t9_l0 = False
+		t6_l1 = False
+		t6_l0 = False
+		t3_l1 = False
+		t3_l0 = False
+		gate_l1 = True
+		gate_l0 = False
+		t0_l1 = False
+		t0_l0 = False
+		t10_l1 = False
+		t10_l0 = False
+		((-1.0 * delta) < 0.0)
+		((-1.0 * delta) <= -1.0)
+		((-1.0 * _diverge_delta) <= -1.0)
+		((-1.0 * t5_x) < -5.0)
+		((-1.0 * controller_z) < -1.0)
+		((-1.0 * t8_x) < -5.0)
+		((-1.0 * t10_x) < -5.0)
+		((-1.0 * gate_y) < -2.0)
+		((-1.0 * t7_x) < -5.0)
+		((-1.0 * t1_x) < -5.0)
+		((-1.0 * t6_x) < -5.0)
 		((-1.0 * t4_x) < -5.0)
 		((-1.0 * t3_x) < -5.0)
-		((-1.0 * t9_x) < -3.0)
-		((-1.0 * t1_x) < -5.0)
-		((-1.0 * t3_x) < -3.0)
-		((-1.0 * t10_x) < -3.0)
-		((-1.0 * t5_x) < -3.0)
-		((-1.0 * t1_x) < -3.0)
-		((-1.0 * t4_x) < -3.0)
-		((-1.0 * t8_x) < -3.0)
-		((-1.0 * gate_y) < 0.0)
-		((-1.0 * t7_x) < -3.0)
-		((-1.0 * t6_x) < -3.0)
-		((-1.0 * t2_x) < -3.0)
-		((-1.0 * gate_y) < -2.0)
-		((-1.0 * controller_z) < 1.0)
-		((-1.0 * t0_x) < -3.0)
-		((-1.0 * t6_x) < -5.0)
-		((-1.0 * controller_z) < -1.0)
-		((-1.0 * t9_x) < -5.0)
-		((-1.0 * t5_x) < -5.0)
-		((-1.0 * t8_x) < -5.0)
-		((-1.0 * t7_x) < -5.0)
-		((-1.0 * t2_x) < -5.0)
 		((-1.0 * t0_x) < -5.0)
-		((-1.0 * t10_x) < -5.0)
-	Trans 24 -- 24
-		_x_gate_y : gate_y
-		_x_t7_x : t7_x
-		_x_t0_x : t0_x
-		_x_t8_x : t8_x
-		_x_t9_x : t9_x
-		_x_t10_x : t10_x
-		_x_t3_x : t3_x
-		_x_t5_x : t5_x
-		_x_t2_x : t2_x
-		_x_t1_x : t1_x
-		_x_controller_z : controller_z
-		_x_t4_x : t4_x
-		_x_t6_x : t6_x
-	End do-while
-	State 24
-		delta = 0.0
-		t10_l0 = False
-		t10_evt1 = False
-		t10_evt0 = False
-		t9_evt1 = False
-		t2_evt1 = False
-		t2_l1 = False
-		t3_evt0 = False
-		t2_l0 = False
-		t2_evt0 = False
-		_diverge_delta = 0.0
-		t1_l1 = False
-		t1_evt1 = False
-		gate_l0 = False
-		t1_evt0 = False
-		t0_l1 = False
-		t0_evt1 = False
-		t10_l1 = False
-		t4_l0 = False
-		t0_l0 = False
-		gate_l1 = True
-		t8_l0 = False
-		t9_evt0 = False
-		t6_l1 = False
-		t7_evt0 = False
-		controller_l1 = False
-		t5_evt0 = False
-		t9_l0 = False
-		gate_evt0 = False
+		((-1.0 * t9_x) < -5.0)
+		((-1.0 * t2_x) < -5.0)
+	Trans 12 -- 13
+		_x_t8_x = (t8_x + delta)
+		_x_t1_x = (delta + t1_x)
+		_x__diverge_delta = delta
+		_x_t5_x = (t5_x + delta)
+		_x_t3_x = (delta + t3_x)
+		_x_t4_x = (t4_x + delta)
+		_x_t7_x = (t7_x + delta)
+		_x_gate_y = (gate_y + delta)
+		_x_t9_x = (t9_x + delta)
+		_x_t0_x = (t0_x + delta)
+		_x_t10_x = (delta + t10_x)
+		_x_t2_x = (t2_x + delta)
+		_x_t6_x = (t6_x + delta)
+		_x_controller_z = (controller_z + delta)
+		_x_delta = (t10_x + t1_x + t3_x + delta + t5_x + gate_y + t7_x + controller_z + t9_x + t0_x + t2_x + t4_x + t6_x + t8_x + 1.0)
+	State 13
+		t7_l1 = False
 		t7_l0 = False
 		t4_l1 = False
-		controller_evt0 = False
-		t3_l1 = False
-		t4_evt0 = False
-		t1_l0 = False
-		controller_evt1 = False
-		t4_evt1 = False
-		t0_evt0 = False
-		t9_l1 = False
-		gate_evt1 = False
-		t7_l1 = False
-		t8_evt0 = False
-		controller_evt2 = False
-		controller_cnt = 5
-		t3_evt1 = False
-		_EL_U_1633 = True
-		_EL_U_1635 = False
-		t3_l0 = False
-		t5_evt1 = False
-		controller_l0 = False
-		_EL_X_1601 = True
-		t5_l0 = False
-		t5_l1 = False
-		t6_evt0 = False
-		t6_evt1 = False
-		_EL_X_1603 = False
-		t6_l0 = False
-		t7_evt1 = False
-		_EL_U_1637 = False
-		t8_evt1 = False
-		_EL_U_1640 = False
-		t8_l1 = False
-		_J1670 = True
-		_J1687 = True
-		_J1693 = True
-		_J1699 = True
-		((-1.0 * t6_x) < -3.0)
-		((-1.0 * t2_x) < -3.0)
-		((-1.0 * t9_x) < -3.0)
-		((-1.0 * controller_z) < 1.0)
-		((-1.0 * t3_x) < -3.0)
-		((-1.0 * t0_x) < -3.0)
-		((-1.0 * t10_x) < -3.0)
-		((-1.0 * t5_x) < -3.0)
-		((-1.0 * t1_x) < -3.0)
-		((-1.0 * t4_x) < -3.0)
-		((-1.0 * t8_x) < -3.0)
-		((-1.0 * gate_y) < 0.0)
-		((-1.0 * t7_x) < -3.0)
-		True
-	Trans 24 -- 25
-		_x_gate_y = gate_y
-		_x_t7_x = t7_x
-		_x_t0_x = t0_x
-		_x_t8_x = t8_x
-		_x_t9_x = t9_x
-		_x_t10_x = t10_x
-		_x_t3_x = t3_x
-		_x_t5_x = t5_x
-		_x_t2_x = t2_x
-		_x_t1_x = t1_x
-		_x_controller_z = controller_z
-		_x_t4_x = t4_x
-		_x_t6_x = t6_x
-	State 25
-		delta = 0.0
-		t10_l0 = False
-		t10_evt1 = False
-		t10_evt0 = False
-		t9_evt1 = False
-		t2_evt1 = False
-		t2_l1 = False
-		t3_evt0 = False
-		t2_l0 = False
-		t2_evt0 = False
-		_diverge_delta = 0.0
-		t1_l1 = False
-		t1_evt1 = False
-		gate_l0 = False
-		t1_evt0 = False
-		t0_l1 = False
-		t0_evt1 = False
-		t10_l1 = False
 		t4_l0 = False
-		t0_l0 = False
-		gate_l1 = True
-		t8_l0 = False
-		t9_evt0 = False
-		t6_l1 = False
-		t7_evt0 = False
-		controller_l1 = False
-		t5_evt0 = False
-		t9_l0 = False
-		gate_evt0 = False
-		t7_l0 = False
-		t4_l1 = False
-		controller_evt0 = False
-		t3_l1 = False
-		t4_evt0 = False
+		t1_evt0 = False
+		t1_evt1 = False
+		t0_evt0 = True
+		t0_evt1 = True
+		t2_evt0 = False
+		t2_evt1 = False
+		t1_l1 = False
 		t1_l0 = False
-		controller_evt1 = False
-		t4_evt1 = False
-		t0_evt0 = False
-		t9_l1 = False
-		gate_evt1 = False
-		t7_l1 = False
-		t8_evt0 = False
-		controller_evt2 = False
-		controller_cnt = 5
+		t3_evt0 = False
+		controller_l1 = True
 		t3_evt1 = False
-		_EL_U_1633 = True
-		_EL_U_1635 = False
-		t3_l0 = False
-		t5_evt1 = False
-		controller_l0 = False
-		_EL_X_1601 = True
-		t5_l0 = False
-		t5_l1 = False
-		t6_evt0 = False
-		t6_evt1 = False
-		_EL_X_1603 = False
-		t6_l0 = False
-		t7_evt1 = False
-		_EL_U_1637 = False
-		t8_evt1 = False
-		_EL_U_1640 = False
-		t8_l1 = False
-		_J1670 = False
-		_J1687 = False
-		_J1693 = False
 		_J1699 = False
-	Trans 25 -- 26
-		_x_gate_y = gate_y
-		_x_t7_x = t7_x
-		_x_t0_x = t0_x
-		_x_t8_x = t8_x
-		_x_t9_x = t9_x
-		_x_t10_x = t10_x
-		_x_t3_x = t3_x
-		_x_t5_x = t5_x
-		_x_t2_x = t2_x
-		_x_t1_x = t1_x
-		_x_controller_z = controller_z
-		_x_t4_x = t4_x
-		_x_t6_x = t6_x
-	State 26
-		delta = 1.0
-		t10_l0 = False
-		t10_evt1 = False
-		t10_evt0 = False
-		t9_evt1 = False
-		t2_evt1 = True
-		t2_l1 = False
-		t3_evt0 = False
-		t2_l0 = False
-		t2_evt0 = False
-		_diverge_delta = 0.0
-		t1_l1 = False
-		t1_evt1 = False
-		gate_l0 = False
-		t1_evt0 = False
-		t0_l1 = False
-		t0_evt1 = False
-		t10_l1 = False
-		t4_l0 = False
-		t0_l0 = False
-		gate_l1 = True
-		t8_l0 = False
-		t9_evt0 = False
-		t6_l1 = False
-		t7_evt0 = False
-		controller_l1 = False
-		t5_evt0 = False
-		t9_l0 = False
-		gate_evt0 = False
-		t7_l0 = False
-		t4_l1 = False
-		controller_evt0 = True
-		t3_l1 = False
+		controller_l0 = False
 		t4_evt0 = False
-		t1_l0 = False
+		_J1693 = False
+		t4_evt1 = False
+		_J1687 = False
+		_J1670 = False
+		t5_evt0 = False
+		_EL_U_1633 = True
+		t5_evt1 = False
+		_EL_U_1635 = False
+		t6_evt0 = False
+		_EL_X_1601 = True
+		t6_evt1 = False
+		_EL_X_1603 = False
+		controller_cnt = 1
+		t7_evt0 = False
+		t7_evt1 = False
+		_EL_U_1637 = False
+		t8_evt0 = False
+		t8_evt1 = False
+		_EL_U_1640 = False
+		t9_evt0 = False
+		t9_evt1 = False
+		t10_evt0 = False
+		t10_evt1 = False
+		controller_evt0 = False
 		controller_evt1 = True
-		t4_evt1 = False
-		t0_evt0 = False
-		t9_l1 = False
-		gate_evt1 = False
-		t7_l1 = False
-		t8_evt0 = False
 		controller_evt2 = False
-		controller_cnt = 5
-		t3_evt1 = False
-		_EL_U_1633 = True
-		_EL_U_1635 = False
-		t3_l0 = False
-		t5_evt1 = False
-		controller_l0 = False
-		_EL_X_1601 = True
-		t5_l0 = False
-		t5_l1 = False
-		t6_evt0 = False
-		t6_evt1 = False
-		_EL_X_1603 = False
-		t6_l0 = False
-		t7_evt1 = False
-		_EL_U_1637 = False
-		t8_evt1 = False
-		_EL_U_1640 = False
 		t8_l1 = False
-		_J1670 = True
-		_J1687 = True
-		_J1693 = False
-		_J1699 = True
-	Trans 26 -- 27
-		_x_gate_y = (gate_y + 1.0)
-		_x_t7_x = (t7_x + 1.0)
-		_x_t0_x = (t0_x + 1.0)
-		_x_t8_x = (t8_x + 1.0)
-		_x_t9_x = (t9_x + 1.0)
-		_x_t10_x = (t10_x + 1.0)
-		_x_t3_x = (t3_x + 1.0)
-		_x_t5_x = (t5_x + 1.0)
-		_x_t2_x = (t2_x + 1.0)
-		_x_t1_x = (t1_x + 1.0)
-		_x_controller_z = (controller_z + 1.0)
-		_x_t4_x = (t4_x + 1.0)
-		_x_t6_x = (t6_x + 1.0)
-	State 27
-		delta = 0.0
-		t10_l0 = False
-		t10_evt1 = False
-		t10_evt0 = False
-		t9_evt1 = False
-		t2_evt1 = False
-		t2_l1 = False
-		t3_evt0 = False
-		t2_l0 = False
-		t2_evt0 = False
-		_diverge_delta = 1.0
-		t1_l1 = False
-		t1_evt1 = False
-		gate_l0 = False
-		t1_evt0 = False
-		t0_l1 = False
-		t0_evt1 = False
-		t10_l1 = False
-		t4_l0 = False
-		t0_l0 = False
-		gate_l1 = True
 		t8_l0 = False
-		t9_evt0 = False
-		t6_l1 = False
-		t7_evt0 = False
-		controller_l1 = False
-		t5_evt0 = False
-		t9_l0 = False
+		t5_l1 = False
+		t5_l0 = False
+		t2_l1 = False
+		t2_l0 = False
 		gate_evt0 = False
-		t7_l0 = False
-		t4_l1 = False
-		controller_evt0 = False
-		t3_l1 = False
-		t4_evt0 = False
-		t1_l0 = False
-		controller_evt1 = False
-		t4_evt1 = False
-		t0_evt0 = False
-		t9_l1 = False
 		gate_evt1 = False
-		t7_l1 = False
-		t8_evt0 = False
-		controller_evt2 = False
-		controller_cnt = 5
-		t3_evt1 = False
-		_EL_U_1633 = True
-		_EL_U_1635 = False
-		t3_l0 = False
-		t5_evt1 = False
-		controller_l0 = False
-		_EL_X_1601 = True
-		t5_l0 = False
-		t5_l1 = False
-		t6_evt0 = False
-		t6_evt1 = False
-		_EL_X_1603 = False
-		t6_l0 = False
-		t7_evt1 = False
-		_EL_U_1637 = False
-		t8_evt1 = False
-		_EL_U_1640 = False
-		t8_l1 = False
-		_J1670 = True
-		_J1687 = True
-		_J1693 = False
-		_J1699 = True
-	Trans 27 -- 28
-		_x_gate_y = gate_y
-		_x_t7_x = t7_x
-		_x_t0_x = t0_x
-		_x_t8_x = t8_x
-		_x_t9_x = t9_x
-		_x_t10_x = t10_x
-		_x_t3_x = t3_x
-		_x_t5_x = t5_x
-		_x_t2_x = t2_x
-		_x_t1_x = t1_x
-		_x_controller_z = controller_z
-		_x_t4_x = t4_x
-		_x_t6_x = t6_x
-	State 28
-		delta = 1.0
-		t10_l0 = False
-		t10_evt1 = False
-		t10_evt0 = False
-		t9_evt1 = False
-		t2_evt1 = False
-		t2_l1 = False
-		t3_evt0 = False
-		t2_l0 = False
-		t2_evt0 = False
-		_diverge_delta = 0.0
-		t1_l1 = False
-		t1_evt1 = False
-		gate_l0 = False
-		t1_evt0 = False
-		t0_l1 = False
-		t0_evt1 = False
-		t10_l1 = False
-		t4_l0 = False
-		t0_l0 = False
-		gate_l1 = True
-		t8_l0 = False
-		t9_evt0 = True
-		t6_l1 = False
-		t7_evt0 = False
-		controller_l1 = False
-		t5_evt0 = False
-		t9_l0 = False
-		gate_evt0 = True
-		t7_l0 = False
-		t4_l1 = False
-		controller_evt0 = True
-		t3_l1 = False
-		t4_evt0 = False
-		t1_l0 = False
-		controller_evt1 = False
-		t4_evt1 = False
-		t0_evt0 = False
 		t9_l1 = False
-		gate_evt1 = True
-		t7_l1 = False
-		t8_evt0 = False
-		controller_evt2 = False
-		controller_cnt = 5
-		t3_evt1 = False
-		_EL_U_1633 = True
-		_EL_U_1635 = False
-		t3_l0 = False
-		t5_evt1 = False
-		controller_l0 = False
-		_EL_X_1601 = True
-		t5_l0 = False
-		t5_l1 = False
-		t6_evt0 = False
-		t6_evt1 = False
-		_EL_X_1603 = False
-		t6_l0 = False
-		t7_evt1 = False
-		_EL_U_1637 = False
-		t8_evt1 = False
-		_EL_U_1640 = False
-		t8_l1 = False
-		_J1670 = True
-		_J1687 = True
-		_J1693 = True
-		_J1699 = True
-	Trans 28 -- 29
-		_x_gate_y = (gate_y + 1.0)
-		_x_t7_x = (t7_x + 1.0)
-		_x_t0_x = (t0_x + 1.0)
-		_x_t8_x = (t8_x + 1.0)
-		_x_t9_x = (t9_x + 1.0)
-		_x_t10_x = (t10_x + 1.0)
-		_x_t3_x = (t3_x + 1.0)
-		_x_t5_x = (t5_x + 1.0)
-		_x_t2_x = (t2_x + 1.0)
-		_x_t1_x = (t1_x + 1.0)
-		_x_controller_z = (controller_z + 1.0)
-		_x_t4_x = (t4_x + 1.0)
-		_x_t6_x = (t6_x + 1.0)
-	State 29
-		delta = 0.0
-		t10_l0 = False
-		t10_evt1 = False
-		t10_evt0 = False
-		t9_evt1 = False
-		t2_evt1 = False
-		t2_l1 = False
-		t3_evt0 = False
-		t2_l0 = False
-		t2_evt0 = False
-		_diverge_delta = 1.0
-		t1_l1 = False
-		t1_evt1 = False
-		gate_l0 = False
-		t1_evt0 = False
-		t0_l1 = False
-		t0_evt1 = False
-		t10_l1 = False
-		t4_l0 = False
-		t0_l0 = False
-		gate_l1 = True
-		t8_l0 = False
-		t9_evt0 = False
-		t6_l1 = False
-		t7_evt0 = False
-		controller_l1 = False
-		t5_evt0 = False
 		t9_l0 = False
-		gate_evt0 = False
-		t7_l0 = False
-		t4_l1 = False
-		controller_evt0 = False
-		t3_l1 = False
-		t4_evt0 = False
-		t1_l0 = False
-		controller_evt1 = False
-		t4_evt1 = False
-		t0_evt0 = False
-		t9_l1 = False
-		gate_evt1 = False
-		t7_l1 = False
-		t8_evt0 = False
-		controller_evt2 = False
-		controller_cnt = 5
-		t3_evt1 = False
-		_EL_U_1633 = True
-		_EL_U_1635 = False
-		t3_l0 = False
-		t5_evt1 = False
-		controller_l0 = False
-		_EL_X_1601 = True
-		t5_l0 = False
-		t5_l1 = False
-		t6_evt0 = False
-		t6_evt1 = False
-		_EL_X_1603 = False
+		t6_l1 = False
 		t6_l0 = False
-		t7_evt1 = False
-		_EL_U_1637 = False
-		t8_evt1 = False
-		_EL_U_1640 = False
-		t8_l1 = False
-		_J1670 = False
-		_J1687 = False
-		_J1693 = False
-		_J1699 = False
-	Trans 29 -- 30
-		_x_gate_y = gate_y
-		_x_t7_x = t7_x
-		_x_t0_x = t0_x
-		_x_t8_x = t8_x
-		_x_t9_x = t9_x
-		_x_t10_x = t10_x
-		_x_t3_x = t3_x
-		_x_t5_x = t5_x
-		_x_t2_x = t2_x
-		_x_t1_x = t1_x
-		_x_controller_z = controller_z
-		_x_t4_x = t4_x
-		_x_t6_x = t6_x
-	starting from: {delta: 0.0, t10_l0: False, t10_evt1: False, t10_evt0: False, t10_x: 16085/77, t9_evt1: False, t3_x: 16085/77, t2_evt1: False, t2_l1: False, t3_evt0: False, t2_l0: False, t2_evt0: False, _diverge_delta: 0.0, t1_l1: False, t2_x: 63955/308, t1_evt1: False, gate_l0: False, t1_evt0: False, t0_l1: False, t1_x: 16085/77, t0_evt1: False, t0_x: 63955/308, t10_l1: False, t4_l0: False, t0_l0: False, gate_l1: True, t8_l0: False, t9_evt0: False, gate_y: 16008/77, t6_l1: False, t7_evt0: False, controller_l1: False, t5_evt0: False, t9_l0: False, gate_evt0: False, t7_l0: False, t4_l1: False, controller_evt0: False, t3_l1: False, t4_evt0: False, t1_l0: False, controller_evt1: False, t4_evt1: False, t5_x: 16085/77, t0_evt0: False, t9_l1: False, gate_evt1: False, t7_l1: False, t8_evt0: False, controller_evt2: False, controller_cnt: 5, t3_evt1: False, controller_z: 15700/77, t4_x: 16085/77, t3_l0: False, t5_evt1: False, controller_l0: False, t6_x: 16085/77, t5_l0: False, t5_l1: False, t6_evt0: False, t6_evt1: False, t7_x: 63493/308, t6_l0: False, t7_evt1: False, t8_x: 16085/77, t8_evt1: False, t9_x: 63955/308, t8_l1: False, _J1670: True, _J1687: True, _J1693: True, _J1699: True, _EL_U_1633: True, _EL_U_1635: False, _EL_X_1601: True, _EL_X_1603: False, _EL_U_1637: False, _EL_U_1640: False}
+		t3_l1 = False
+		t3_l0 = False
+		gate_l1 = True
+		gate_l0 = False
+		t0_l1 = False
+		t0_l0 = False
+		t10_l1 = False
+		t10_l0 = False
+		(((-1.0 * delta) + (-1.0 * t7_x)) < -5.0)
+		(((-1.0 * delta) + (-1.0 * t2_x)) < -5.0)
+		(((-1.0 * delta) + (-1.0 * t8_x)) < -5.0)
+		(((-1.0 * delta) + (-1.0 * t3_x)) < -5.0)
+		((-1.0 * delta) <= -1.0)
+		(((-1.0 * delta) + (-1.0 * t1_x)) < -5.0)
+		(((-1.0 * delta) + (-1.0 * t10_x)) < -5.0)
+		(((-1.0 * delta) + (-1.0 * t0_x)) < -5.0)
+		(((-1.0 * delta) + (-1.0 * t5_x)) < -5.0)
+		(((-1.0 * delta) + (-1.0 * t6_x)) < -5.0)
+		(((-1.0 * delta) + (-1.0 * gate_y)) < -2.0)
+		(((-1.0 * delta) + (-1.0 * t9_x)) < -5.0)
+		(((-1.0 * delta) + (-1.0 * controller_z)) < -1.0)
+		(((-1.0 * delta) + (-1.0 * t4_x)) < -5.0)
+	Trans 13 -- 14
+		_x_t8_x = (t8_x + delta)
+		_x_t1_x = (delta + t1_x)
+		_x__diverge_delta = delta
+		_x_t5_x = (t5_x + delta)
+		_x_t3_x = (delta + t3_x)
+		_x_t4_x = (t4_x + delta)
+		_x_t7_x = (t7_x + delta)
+		_x_gate_y = (gate_y + delta)
+		_x_t9_x = (t9_x + delta)
+		_x_t0_x = (t0_x + delta)
+		_x_t10_x = (delta + t10_x)
+		_x_t2_x = (t2_x + delta)
+		_x_t6_x = (t6_x + delta)
+		_x_controller_z = (controller_z + delta)
+		_x_delta = (((t10_x * 5/4) + (t1_x * 5/4) + (t3_x * 5/4) + (t5_x * 5/4) + (gate_y * 5/4) + (t7_x * 5/4) + (controller_z * 5/4) + (t9_x * 5/4) + (t0_x * 5/4) + (t2_x * 5/4) + (t4_x * 5/4) + (t6_x * 5/4) + (t8_x * 5/4) + 1/4) - (_diverge_delta * 1/4))
+	starting from: t7_l1 : False, t7_l0 : False, _diverge_delta : 904544/543, delta : 1.0, t7_x : 930112/543, t1_evt0 : False, t1_evt1 : False, t0_evt0 : False, t0_evt1 : False, t2_evt0 : False, t2_evt1 : False, t1_l1 : False, t1_l0 : False, t3_evt0 : False, t3_evt1 : False, t1_x : 929569/543, _J1699 : True, t4_evt0 : False, _J1693 : True, t4_evt1 : False, _J1687 : True, _J1670 : True, t5_evt0 : False, _EL_U_1633 : True, t5_evt1 : False, _EL_U_1635 : False, t6_evt0 : False, _EL_X_1601 : True, t6_evt1 : False, _EL_X_1603 : False, t7_evt0 : False, t7_evt1 : False, _EL_U_1637 : False, t8_evt0 : False, t8_evt1 : False, _EL_U_1640 : False, t9_evt0 : False, t9_evt1 : False, t10_evt0 : False, t10_evt1 : False, controller_evt0 : True, controller_evt1 : False, controller_evt2 : False, t8_l1 : False, t8_l0 : False, t8_x : 929569/543, t2_l1 : False, t2_l0 : False, t2_x : 930112/543, gate_evt0 : False, gate_evt1 : False, t9_l1 : False, t9_l0 : False, t9_x : 930112/543, t3_l1 : False, t3_l0 : False, gate_l1 : True, gate_l0 : False, t3_x : 930112/543, gate_y : 929569/543, t10_l1 : False, t10_l0 : False, t10_x : 930112/543, t4_l1 : False, t4_l0 : False, t4_x : 930112/543, controller_l1 : True, controller_l0 : False, controller_z : 930112/543, controller_cnt : 1, t5_l1 : False, t5_l0 : False, t5_x : 930112/543, t6_l1 : False, t6_l0 : False, t6_x : 930112/543, t0_l1 : False, t0_l0 : False, t0_x : 930112/543
 
-end of `train_gate_0011`: SUCCESS in 628.144205570221s
+end of `train_gate_0011`: SUCCESS in 2119.5880360603333s

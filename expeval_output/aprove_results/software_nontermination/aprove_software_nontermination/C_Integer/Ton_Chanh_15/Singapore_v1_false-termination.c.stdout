@@ -1,7 +1,9 @@
 #
 # There is insufficient memory for the Java Runtime Environment to continue.
-# Native memory allocation (malloc) failed to allocate 24 bytes for AllocateHeap
+# Native memory allocation (malloc) failed to allocate 88 bytes for AllocateHeap
+[thread 140133551474432 also had an error]
+[thread 140141395187456 also had an error]
+[thread 140133566211840 also had an error]
 # An error report file with more information is saved as:
-# /home/magnago/benchtools/hs_err_pid2230882.log
-[thread 139976652941056 also had an error]
-[thread 139976629782272 also had an error]
+# /home/magnago/benchtools/hs_err_pid2513627.log
+[thread 140133563053824 also had an error]

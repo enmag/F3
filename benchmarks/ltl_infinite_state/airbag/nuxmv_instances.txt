@@ -1,0 +1,2 @@
+./nuxmv/airbag_2.smv
+./nuxmv/airbag_1.smv

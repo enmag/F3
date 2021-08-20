@@ -1,8 +1,8 @@
-group: pyrank_ta_critical_region
-platform: Linux node1 5.4.0-56-generic #62-Ubuntu SMP Mon Nov 23 19:20:19 UTC 2020 x86_64 x86_64
-timestamp: 1616944949
-time: 2021-03-28 17:22:29
+group: f3_ta_critical_region
+platform: Linux node2 5.4.0-56-generic #62-Ubuntu SMP Mon Nov 23 19:20:19 UTC 2020 x86_64 x86_64
+timestamp: 1629301391
+time: 2021-08-18 17:43:11
 exitcode: 0
-real: 12.29
-user: 10.91
-sys: 0.49
+real: 3602.17
+user: 0.0
+sys: 0.0

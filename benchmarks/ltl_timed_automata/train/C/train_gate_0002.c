@@ -1,0 +1,160 @@
+extern float __VERIFIER_nondet_float(void);
+extern int __VERIFIER_nondet_int(void);
+typedef enum {false, true} bool;
+bool __VERIFIER_nondet_bool(void) {
+  return __VERIFIER_nondet_int() != 0;
+}
+
+int main()
+{
+float _diverge_delta, _x__diverge_delta;
+float delta, _x_delta;
+float t1_x, _x_t1_x;
+bool t1_l1, _x_t1_l1;
+bool t1_l0, _x_t1_l0;
+bool gate_l1, _x_gate_l1;
+bool gate_l0, _x_gate_l0;
+bool t1_evt1, _x_t1_evt1;
+bool t1_evt0, _x_t1_evt0;
+float gate_y, _x_gate_y;
+bool gate_evt1, _x_gate_evt1;
+bool gate_evt0, _x_gate_evt0;
+bool _J656, _x__J656;
+bool _J650, _x__J650;
+bool _J644, _x__J644;
+bool _J627, _x__J627;
+bool _EL_U_590, _x__EL_U_590;
+bool controller_l1, _x_controller_l1;
+bool controller_l0, _x_controller_l0;
+bool _EL_U_592, _x__EL_U_592;
+bool _EL_X_558, _x__EL_X_558;
+bool _EL_X_560, _x__EL_X_560;
+float controller_z, _x_controller_z;
+bool _EL_U_594, _x__EL_U_594;
+int controller_cnt, _x_controller_cnt;
+bool _EL_U_597, _x__EL_U_597;
+bool controller_evt1, _x_controller_evt1;
+bool controller_evt0, _x_controller_evt0;
+bool controller_evt2, _x_controller_evt2;
+float t0_x, _x_t0_x;
+bool t0_l1, _x_t0_l1;
+bool t0_l0, _x_t0_l0;
+bool t0_evt1, _x_t0_evt1;
+bool t0_evt0, _x_t0_evt0;
+
+  int __steps_to_fair = __VERIFIER_nondet_int();
+  _diverge_delta = __VERIFIER_nondet_float();
+  delta = __VERIFIER_nondet_float();
+  t1_x = __VERIFIER_nondet_float();
+  t1_l1 = __VERIFIER_nondet_bool();
+  t1_l0 = __VERIFIER_nondet_bool();
+  gate_l1 = __VERIFIER_nondet_bool();
+  gate_l0 = __VERIFIER_nondet_bool();
+  t1_evt1 = __VERIFIER_nondet_bool();
+  t1_evt0 = __VERIFIER_nondet_bool();
+  gate_y = __VERIFIER_nondet_float();
+  gate_evt1 = __VERIFIER_nondet_bool();
+  gate_evt0 = __VERIFIER_nondet_bool();
+  _J656 = __VERIFIER_nondet_bool();
+  _J650 = __VERIFIER_nondet_bool();
+  _J644 = __VERIFIER_nondet_bool();
+  _J627 = __VERIFIER_nondet_bool();
+  _EL_U_590 = __VERIFIER_nondet_bool();
+  controller_l1 = __VERIFIER_nondet_bool();
+  controller_l0 = __VERIFIER_nondet_bool();
+  _EL_U_592 = __VERIFIER_nondet_bool();
+  _EL_X_558 = __VERIFIER_nondet_bool();
+  _EL_X_560 = __VERIFIER_nondet_bool();
+  controller_z = __VERIFIER_nondet_float();
+  _EL_U_594 = __VERIFIER_nondet_bool();
+  controller_cnt = __VERIFIER_nondet_int();
+  _EL_U_597 = __VERIFIER_nondet_bool();
+  controller_evt1 = __VERIFIER_nondet_bool();
+  controller_evt0 = __VERIFIER_nondet_bool();
+  controller_evt2 = __VERIFIER_nondet_bool();
+  t0_x = __VERIFIER_nondet_float();
+  t0_l1 = __VERIFIER_nondet_bool();
+  t0_l0 = __VERIFIER_nondet_bool();
+  t0_evt1 = __VERIFIER_nondet_bool();
+  t0_evt0 = __VERIFIER_nondet_bool();
+
+  bool __ok = ((((((((( !t1_l0) && ( !t1_l1)) && (t1_x == 0.0)) && (((( !t1_l0) && ( !t1_l1)) || (t1_l0 && ( !t1_l1))) || ((t1_l1 && ( !t1_l0)) || (t1_l0 && t1_l1)))) && (((( !t1_evt0) && ( !t1_evt1)) || (t1_evt0 && ( !t1_evt1))) || ((t1_evt1 && ( !t1_evt0)) || (t1_evt0 && t1_evt1)))) && ((( !t1_l0) && ( !t1_l1)) || (t1_x <= 5.0))) && ((((((( !t0_l0) && ( !t0_l1)) && (t0_x == 0.0)) && (((( !t0_l0) && ( !t0_l1)) || (t0_l0 && ( !t0_l1))) || ((t0_l1 && ( !t0_l0)) || (t0_l0 && t0_l1)))) && (((( !t0_evt0) && ( !t0_evt1)) || (t0_evt0 && ( !t0_evt1))) || ((t0_evt1 && ( !t0_evt0)) || (t0_evt0 && t0_evt1)))) && ((( !t0_l0) && ( !t0_l1)) || (t0_x <= 5.0))) && (((((((( !controller_l0) && ( !controller_l1)) && (controller_z == 0.0)) && (((( !controller_l0) && ( !controller_l1)) || (controller_l0 && ( !controller_l1))) || ((controller_l1 && ( !controller_l0)) || (controller_l0 && controller_l1)))) && (((( !controller_evt2) && (( !controller_evt0) && ( !controller_evt1))) || (( !controller_evt2) && (controller_evt0 && ( !controller_evt1)))) || ((( !controller_evt2) && (controller_evt1 && ( !controller_evt0))) || ((( !controller_evt2) && (controller_evt0 && controller_evt1)) || (controller_evt2 && (( !controller_evt0) && ( !controller_evt1))))))) && ((((controller_cnt == 0) || (controller_cnt == 1)) || (controller_cnt == 2)) || (controller_cnt == 3))) && ((controller_z <= 1.0) || ( !((controller_l0 && ( !controller_l1)) || (controller_l0 && controller_l1))))) && (((((((( !gate_l0) && ( !gate_l1)) && (gate_y == 0.0)) && (((( !gate_l0) && ( !gate_l1)) || (gate_l0 && ( !gate_l1))) || ((gate_l1 && ( !gate_l0)) || (gate_l0 && gate_l1)))) && (((( !gate_evt0) && ( !gate_evt1)) || (gate_evt0 && ( !gate_evt1))) || ((gate_evt1 && ( !gate_evt0)) || (gate_evt0 && gate_evt1)))) && ((gate_y <= 1.0) || ( !(gate_l0 && ( !gate_l1))))) && ((gate_y <= 2.0) || ( !(gate_l0 && gate_l1)))) && (0.0 <= delta))))) && (delta == _diverge_delta)) && ((((( !(( !(_EL_U_597 || ( !((_EL_U_594 || ((gate_l1 && ( !gate_l0)) && (_EL_X_560 && _EL_X_558))) || ( !((( !gate_l0) && ( !gate_l1)) && (_EL_X_560 && ( !_EL_X_558)))))))) || (_EL_U_592 || ( !((1.0 <= _diverge_delta) || _EL_U_590))))) && ( !_J627)) && ( !_J644)) && ( !_J650)) && ( !_J656)));
+  while (__steps_to_fair >= 0 && __ok) {
+    if ((((_J627 && _J644) && _J650) && _J656)) {
+      __steps_to_fair = __VERIFIER_nondet_int();
+    } else {
+      __steps_to_fair--;
+    }
+    _x__diverge_delta = __VERIFIER_nondet_float();
+    _x_delta = __VERIFIER_nondet_float();
+    _x_t1_x = __VERIFIER_nondet_float();
+    _x_t1_l1 = __VERIFIER_nondet_bool();
+    _x_t1_l0 = __VERIFIER_nondet_bool();
+    _x_gate_l1 = __VERIFIER_nondet_bool();
+    _x_gate_l0 = __VERIFIER_nondet_bool();
+    _x_t1_evt1 = __VERIFIER_nondet_bool();
+    _x_t1_evt0 = __VERIFIER_nondet_bool();
+    _x_gate_y = __VERIFIER_nondet_float();
+    _x_gate_evt1 = __VERIFIER_nondet_bool();
+    _x_gate_evt0 = __VERIFIER_nondet_bool();
+    _x__J656 = __VERIFIER_nondet_bool();
+    _x__J650 = __VERIFIER_nondet_bool();
+    _x__J644 = __VERIFIER_nondet_bool();
+    _x__J627 = __VERIFIER_nondet_bool();
+    _x__EL_U_590 = __VERIFIER_nondet_bool();
+    _x_controller_l1 = __VERIFIER_nondet_bool();
+    _x_controller_l0 = __VERIFIER_nondet_bool();
+    _x__EL_U_592 = __VERIFIER_nondet_bool();
+    _x__EL_X_558 = __VERIFIER_nondet_bool();
+    _x__EL_X_560 = __VERIFIER_nondet_bool();
+    _x_controller_z = __VERIFIER_nondet_float();
+    _x__EL_U_594 = __VERIFIER_nondet_bool();
+    _x_controller_cnt = __VERIFIER_nondet_int();
+    _x__EL_U_597 = __VERIFIER_nondet_bool();
+    _x_controller_evt1 = __VERIFIER_nondet_bool();
+    _x_controller_evt0 = __VERIFIER_nondet_bool();
+    _x_controller_evt2 = __VERIFIER_nondet_bool();
+    _x_t0_x = __VERIFIER_nondet_float();
+    _x_t0_l1 = __VERIFIER_nondet_bool();
+    _x_t0_l0 = __VERIFIER_nondet_bool();
+    _x_t0_evt1 = __VERIFIER_nondet_bool();
+    _x_t0_evt0 = __VERIFIER_nondet_bool();
+
+    __ok = (((((((((((((((((((( !_x_t1_l0) && ( !_x_t1_l1)) || (_x_t1_l0 && ( !_x_t1_l1))) || ((_x_t1_l1 && ( !_x_t1_l0)) || (_x_t1_l0 && _x_t1_l1))) && (((( !_x_t1_evt0) && ( !_x_t1_evt1)) || (_x_t1_evt0 && ( !_x_t1_evt1))) || ((_x_t1_evt1 && ( !_x_t1_evt0)) || (_x_t1_evt0 && _x_t1_evt1)))) && ((( !_x_t1_l0) && ( !_x_t1_l1)) || (_x_t1_x <= 5.0))) && ((((t1_l0 == _x_t1_l0) && (t1_l1 == _x_t1_l1)) && ((delta + (t1_x + (-1.0 * _x_t1_x))) == 0.0)) || ( !(( !(delta <= 0.0)) || (( !t1_evt0) && ( !t1_evt1)))))) && ((((_x_t1_l0 && ( !_x_t1_l1)) && (t1_evt0 && ( !t1_evt1))) && (_x_t1_x == 0.0)) || ( !((( !t1_l0) && ( !t1_l1)) && ((delta == 0.0) && ( !(( !t1_evt0) && ( !t1_evt1)))))))) && ((((_x_t1_l1 && ( !_x_t1_l0)) && ( !(t1_x <= 2.0))) && ((t1_evt0 && t1_evt1) && (t1_x == _x_t1_x))) || ( !((t1_l0 && ( !t1_l1)) && ((delta == 0.0) && ( !(( !t1_evt0) && ( !t1_evt1)))))))) && (((t1_x == _x_t1_x) && ((_x_t1_l0 && _x_t1_l1) && (t1_evt0 && t1_evt1))) || ( !((t1_l1 && ( !t1_l0)) && ((delta == 0.0) && ( !(( !t1_evt0) && ( !t1_evt1)))))))) && ((((( !_x_t1_l0) && ( !_x_t1_l1)) && (t1_x <= 5.0)) && ((t1_evt1 && ( !t1_evt0)) && (t1_x == _x_t1_x))) || ( !((t1_l0 && t1_l1) && ((delta == 0.0) && ( !(( !t1_evt0) && ( !t1_evt1)))))))) && (((((((((((( !_x_t0_l0) && ( !_x_t0_l1)) || (_x_t0_l0 && ( !_x_t0_l1))) || ((_x_t0_l1 && ( !_x_t0_l0)) || (_x_t0_l0 && _x_t0_l1))) && (((( !_x_t0_evt0) && ( !_x_t0_evt1)) || (_x_t0_evt0 && ( !_x_t0_evt1))) || ((_x_t0_evt1 && ( !_x_t0_evt0)) || (_x_t0_evt0 && _x_t0_evt1)))) && ((( !_x_t0_l0) && ( !_x_t0_l1)) || (_x_t0_x <= 5.0))) && ((((t0_l0 == _x_t0_l0) && (t0_l1 == _x_t0_l1)) && ((delta + (t0_x + (-1.0 * _x_t0_x))) == 0.0)) || ( !(( !(delta <= 0.0)) || (( !t0_evt0) && ( !t0_evt1)))))) && ((((_x_t0_l0 && ( !_x_t0_l1)) && (t0_evt0 && ( !t0_evt1))) && (_x_t0_x == 0.0)) || ( !((( !t0_l0) && ( !t0_l1)) && ((delta == 0.0) && ( !(( !t0_evt0) && ( !t0_evt1)))))))) && ((((_x_t0_l1 && ( !_x_t0_l0)) && ( !(t0_x <= 2.0))) && ((t0_evt0 && t0_evt1) && (t0_x == _x_t0_x))) || ( !((t0_l0 && ( !t0_l1)) && ((delta == 0.0) && ( !(( !t0_evt0) && ( !t0_evt1)))))))) && (((t0_x == _x_t0_x) && ((_x_t0_l0 && _x_t0_l1) && (t0_evt0 && t0_evt1))) || ( !((t0_l1 && ( !t0_l0)) && ((delta == 0.0) && ( !(( !t0_evt0) && ( !t0_evt1)))))))) && ((((( !_x_t0_l0) && ( !_x_t0_l1)) && (t0_x <= 5.0)) && ((t0_evt1 && ( !t0_evt0)) && (t0_x == _x_t0_x))) || ( !((t0_l0 && t0_l1) && ((delta == 0.0) && ( !(( !t0_evt0) && ( !t0_evt1)))))))) && (((((((((((((((((( !_x_controller_l0) && ( !_x_controller_l1)) || (_x_controller_l0 && ( !_x_controller_l1))) || ((_x_controller_l1 && ( !_x_controller_l0)) || (_x_controller_l0 && _x_controller_l1))) && (((( !_x_controller_evt2) && (( !_x_controller_evt0) && ( !_x_controller_evt1))) || (( !_x_controller_evt2) && (_x_controller_evt0 && ( !_x_controller_evt1)))) || ((( !_x_controller_evt2) && (_x_controller_evt1 && ( !_x_controller_evt0))) || ((( !_x_controller_evt2) && (_x_controller_evt0 && _x_controller_evt1)) || (_x_controller_evt2 && (( !_x_controller_evt0) && ( !_x_controller_evt1))))))) && ((((_x_controller_cnt == 0) || (_x_controller_cnt == 1)) || (_x_controller_cnt == 2)) || (_x_controller_cnt == 3))) && ((_x_controller_z <= 1.0) || ( !((_x_controller_l0 && ( !_x_controller_l1)) || (_x_controller_l0 && _x_controller_l1))))) && (((((controller_l0 == _x_controller_l0) && (controller_l1 == _x_controller_l1)) && ((delta + (controller_z + (-1.0 * _x_controller_z))) == 0.0)) && (controller_cnt == _x_controller_cnt)) || ( !(( !(delta <= 0.0)) || (( !controller_evt2) && (( !controller_evt0) && ( !controller_evt1))))))) && ((((_x_controller_l0 && ( !_x_controller_l1)) && (( !controller_evt2) && (controller_evt0 && ( !controller_evt1)))) && ((_x_controller_cnt == 1) && (_x_controller_z == 0.0))) || ( !((( !controller_l0) && ( !controller_l1)) && ((delta == 0.0) && ( !(( !controller_evt2) && (( !controller_evt0) && ( !controller_evt1))))))))) && (((controller_z == _x_controller_z) && ((_x_controller_l0 && ( !_x_controller_l1)) || (_x_controller_l1 && ( !_x_controller_l0)))) || ( !((controller_l0 && ( !controller_l1)) && ((delta == 0.0) && ( !(( !controller_evt2) && (( !controller_evt0) && ( !controller_evt1))))))))) && ((((( !controller_evt2) && (controller_evt0 && ( !controller_evt1))) && ((controller_cnt + (-1 * _x_controller_cnt)) == -1)) || ((( !controller_evt2) && (controller_evt1 && ( !controller_evt0))) && ((controller_cnt + (-1 * _x_controller_cnt)) == 1))) || ( !(((delta == 0.0) && ( !(( !controller_evt2) && (( !controller_evt0) && ( !controller_evt1))))) && ((controller_l0 && ( !controller_l1)) && (_x_controller_l0 && ( !_x_controller_l1))))))) && (((( !controller_evt2) && (controller_evt0 && controller_evt1)) && ((controller_cnt == _x_controller_cnt) && (controller_z == 1.0))) || ( !(((delta == 0.0) && ( !(( !controller_evt2) && (( !controller_evt0) && ( !controller_evt1))))) && ((controller_l0 && ( !controller_l1)) && (_x_controller_l1 && ( !_x_controller_l0))))))) && (((_x_controller_l1 && ( !_x_controller_l0)) || (_x_controller_l0 && _x_controller_l1)) || ( !((controller_l1 && ( !controller_l0)) && ((delta == 0.0) && ( !(( !controller_evt2) && (( !controller_evt0) && ( !controller_evt1))))))))) && (((controller_z == _x_controller_z) && (((( !controller_evt2) && (controller_evt0 && ( !controller_evt1))) && ((controller_cnt + (-1 * _x_controller_cnt)) == -1)) || (((( !controller_evt2) && (controller_evt1 && ( !controller_evt0))) && ((controller_cnt + (-1 * _x_controller_cnt)) == 1)) && ( !(controller_cnt <= 1))))) || ( !(((delta == 0.0) && ( !(( !controller_evt2) && (( !controller_evt0) && ( !controller_evt1))))) && ((controller_l1 && ( !controller_l0)) && (_x_controller_l1 && ( !_x_controller_l0))))))) && ((((( !controller_evt2) && (controller_evt1 && ( !controller_evt0))) && (controller_cnt == 1)) && ((_x_controller_cnt == 0) && (_x_controller_z == 0.0))) || ( !(((delta == 0.0) && ( !(( !controller_evt2) && (( !controller_evt0) && ( !controller_evt1))))) && ((controller_l1 && ( !controller_l0)) && (_x_controller_l0 && _x_controller_l1)))))) && (((controller_z == _x_controller_z) && ((( !_x_controller_l0) && ( !_x_controller_l1)) || (_x_controller_l1 && ( !_x_controller_l0)))) || ( !((controller_l0 && controller_l1) && ((delta == 0.0) && ( !(( !controller_evt2) && (( !controller_evt0) && ( !controller_evt1))))))))) && ((((controller_cnt + (-1 * _x_controller_cnt)) == -1) && ((( !controller_evt2) && (controller_evt0 && ( !controller_evt1))) && (controller_z <= 1.0))) || ( !(((delta == 0.0) && ( !(( !controller_evt2) && (( !controller_evt0) && ( !controller_evt1))))) && ((_x_controller_l1 && ( !_x_controller_l0)) && (controller_l0 && controller_l1)))))) && ((((((((((((( !_x_gate_l0) && ( !_x_gate_l1)) || (_x_gate_l0 && ( !_x_gate_l1))) || ((_x_gate_l1 && ( !_x_gate_l0)) || (_x_gate_l0 && _x_gate_l1))) && (((( !_x_gate_evt0) && ( !_x_gate_evt1)) || (_x_gate_evt0 && ( !_x_gate_evt1))) || ((_x_gate_evt1 && ( !_x_gate_evt0)) || (_x_gate_evt0 && _x_gate_evt1)))) && ((_x_gate_y <= 1.0) || ( !(_x_gate_l0 && ( !_x_gate_l1))))) && ((_x_gate_y <= 2.0) || ( !(_x_gate_l0 && _x_gate_l1)))) && ((((gate_l0 == _x_gate_l0) && (gate_l1 == _x_gate_l1)) && ((delta + (gate_y + (-1.0 * _x_gate_y))) == 0.0)) || ( !((( !gate_evt0) && ( !gate_evt1)) || ( !(delta <= 0.0)))))) && ((((_x_gate_l0 && ( !_x_gate_l1)) && (gate_evt0 && ( !gate_evt1))) && (_x_gate_y == 0.0)) || ( !((( !gate_l0) && ( !gate_l1)) && ((delta == 0.0) && ( !(( !gate_evt0) && ( !gate_evt1)))))))) && ((((_x_gate_l1 && ( !_x_gate_l0)) && (gate_evt0 && gate_evt1)) && ((gate_y <= 1.0) && (gate_y == _x_gate_y))) || ( !((gate_l0 && ( !gate_l1)) && ((delta == 0.0) && ( !(( !gate_evt0) && ( !gate_evt1)))))))) && (((_x_gate_y == 0.0) && ((_x_gate_l0 && _x_gate_l1) && (gate_evt1 && ( !gate_evt0)))) || ( !((gate_l1 && ( !gate_l0)) && ((delta == 0.0) && ( !(( !gate_evt0) && ( !gate_evt1)))))))) && (((gate_y == _x_gate_y) && (((( !_x_gate_l0) && ( !_x_gate_l1)) && (1.0 <= gate_y)) && ((gate_evt0 && gate_evt1) && (gate_y <= 2.0)))) || ( !((gate_l0 && gate_l1) && ((delta == 0.0) && ( !(( !gate_evt0) && ( !gate_evt1)))))))) && (0.0 <= _x_delta))))) && ((( !t1_evt0) && ( !t1_evt1)) || ( !((delta == 0.0) && ( !(( !t0_evt0) && ( !t0_evt1))))))) && ((( !t0_evt0) && ( !t0_evt1)) || ( !((delta == 0.0) && ( !(( !t1_evt0) && ( !t1_evt1))))))) && (((gate_evt0 && ( !gate_evt1)) == (( !controller_evt2) && (controller_evt0 && controller_evt1))) || ( !(delta == 0.0)))) && (( !(delta == 0.0)) || ((gate_evt1 && ( !gate_evt0)) == (controller_evt2 && (( !controller_evt0) && ( !controller_evt1)))))) && (( !(delta == 0.0)) || ((( !controller_evt2) && (controller_evt0 && ( !controller_evt1))) == ((t0_evt0 && ( !t0_evt1)) || (t1_evt0 && ( !t1_evt1)))))) && (( !(delta == 0.0)) || ((( !controller_evt2) && (controller_evt1 && ( !controller_evt0))) == ((t0_evt1 && ( !t0_evt0)) || (t1_evt1 && ( !t1_evt0)))))) && (((delta == _x__diverge_delta) || ( !(1.0 <= _diverge_delta))) && ((1.0 <= _diverge_delta) || ((delta + (_diverge_delta + (-1.0 * _x__diverge_delta))) == 0.0)))) && ((((((_EL_U_592 == (_x__EL_U_592 || ( !(_x__EL_U_590 || (1.0 <= _x__diverge_delta))))) && ((_EL_U_590 == (_x__EL_U_590 || (1.0 <= _x__diverge_delta))) && ((_EL_U_597 == (_x__EL_U_597 || ( !((_x__EL_U_594 || ((_x_gate_l1 && ( !_x_gate_l0)) && (_x__EL_X_558 && _x__EL_X_560))) || ( !((( !_x_gate_l0) && ( !_x_gate_l1)) && (_x__EL_X_560 && ( !_x__EL_X_558)))))))) && ((_EL_U_594 == (_x__EL_U_594 || ((_x_gate_l1 && ( !_x_gate_l0)) && (_x__EL_X_558 && _x__EL_X_560)))) && ((_x_gate_l0 == _EL_X_560) && (_x_gate_l1 == _EL_X_558)))))) && (_x__J627 == (( !(((_J627 && _J644) && _J650) && _J656)) && ((((_J627 && _J644) && _J650) && _J656) || ((((gate_l1 && ( !gate_l0)) && (_EL_X_560 && _EL_X_558)) || ( !(_EL_U_594 || ((gate_l1 && ( !gate_l0)) && (_EL_X_560 && _EL_X_558))))) || _J627))))) && (_x__J644 == (( !(((_J627 && _J644) && _J650) && _J656)) && ((((_J627 && _J644) && _J650) && _J656) || ((( !((_EL_U_594 || ((gate_l1 && ( !gate_l0)) && (_EL_X_560 && _EL_X_558))) || ( !((( !gate_l0) && ( !gate_l1)) && (_EL_X_560 && ( !_EL_X_558)))))) || ( !(_EL_U_597 || ( !((_EL_U_594 || ((gate_l1 && ( !gate_l0)) && (_EL_X_560 && _EL_X_558))) || ( !((( !gate_l0) && ( !gate_l1)) && (_EL_X_560 && ( !_EL_X_558))))))))) || _J644))))) && (_x__J650 == (( !(((_J627 && _J644) && _J650) && _J656)) && ((((_J627 && _J644) && _J650) && _J656) || (((1.0 <= _diverge_delta) || ( !((1.0 <= _diverge_delta) || _EL_U_590))) || _J650))))) && (_x__J656 == (( !(((_J627 && _J644) && _J650) && _J656)) && ((((_J627 && _J644) && _J650) && _J656) || ((( !((1.0 <= _diverge_delta) || _EL_U_590)) || ( !(_EL_U_592 || ( !((1.0 <= _diverge_delta) || _EL_U_590))))) || _J656))))));
+    _diverge_delta = _x__diverge_delta;
+    delta = _x_delta;
+    t1_x = _x_t1_x;
+    t1_l1 = _x_t1_l1;
+    t1_l0 = _x_t1_l0;
+    gate_l1 = _x_gate_l1;
+    gate_l0 = _x_gate_l0;
+    t1_evt1 = _x_t1_evt1;
+    t1_evt0 = _x_t1_evt0;
+    gate_y = _x_gate_y;
+    gate_evt1 = _x_gate_evt1;
+    gate_evt0 = _x_gate_evt0;
+    _J656 = _x__J656;
+    _J650 = _x__J650;
+    _J644 = _x__J644;
+    _J627 = _x__J627;
+    _EL_U_590 = _x__EL_U_590;
+    controller_l1 = _x_controller_l1;
+    controller_l0 = _x_controller_l0;
+    _EL_U_592 = _x__EL_U_592;
+    _EL_X_558 = _x__EL_X_558;
+    _EL_X_560 = _x__EL_X_560;
+    controller_z = _x_controller_z;
+    _EL_U_594 = _x__EL_U_594;
+    controller_cnt = _x_controller_cnt;
+    _EL_U_597 = _x__EL_U_597;
+    controller_evt1 = _x_controller_evt1;
+    controller_evt0 = _x_controller_evt0;
+    controller_evt2 = _x_controller_evt2;
+    t0_x = _x_t0_x;
+    t0_l1 = _x_t0_l1;
+    t0_l0 = _x_t0_l0;
+    t0_evt1 = _x_t0_evt1;
+    t0_evt0 = _x_t0_evt0;
+
+  }
+}

@@ -1,5 +1,5 @@
 Graph finished, checking  consistency
-Graph finished, checked consistency, took 0.001s
-real 8.22
-user 52.30
-sys 4.01
+Graph finished, checked consistency, took 0.0s
+real 8.26
+user 53.67
+sys 4.19

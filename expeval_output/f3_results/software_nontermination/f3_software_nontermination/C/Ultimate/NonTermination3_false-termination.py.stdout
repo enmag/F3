@@ -1,7 +1,9 @@
-
-
-run 1/1: `NonTermination3_false-termination`
+F3 run `NonTermination3_false-termination`
 
 	Found non-termination argument:
-	[{pc: 0, i: 3, a0: -1, a1: -1, a2: -1, a3: 1, a4: -1, a5: -1, a6: -1, a7: -1, a8: -1, a9: -1}, {pc: 1, i: 3, a0: -1, a1: -1, a2: -1, a3: 1, a4: -1, a5: -1, a6: -1, a7: -1, a8: -1, a9: -1}, {pc: 2, i: -1, a0: -1, a1: -1, a2: -1, a3: 1, a4: -1, a5: -1, a6: -1, a7: -1, a8: -1, a9: -1}, {pc: 0, i: 3, a0: -1, a1: -1, a2: -1, a3: 1, a4: -1, a5: -1, a6: -1, a7: -1, a8: -1, a9: -1}]
-end of `NonTermination3_false-termination`: SUCCESS in 0.07824063301086426s
+	pc : 0, i : 3, a0 : -1, a1 : -1, a2 : -1, a3 : 1, a4 : -1, a5 : -1, a6 : -1, a7 : -1, a8 : -1, a9 : -1
+	pc : 1, i : 3, a0 : -1, a1 : -1, a2 : -1, a3 : 1, a4 : -1, a5 : -1, a6 : -1, a7 : -1, a8 : -1, a9 : -1
+	pc : 2, i : -1, a0 : -1, a1 : -1, a2 : -1, a3 : 1, a4 : -1, a5 : -1, a6 : -1, a7 : -1, a8 : -1, a9 : -1
+	pc : 0, i : 3, a0 : -1, a1 : -1, a2 : -1, a3 : 1, a4 : -1, a5 : -1, a6 : -1, a7 : -1, a8 : -1, a9 : -1
+
+end of `NonTermination3_false-termination`: SUCCESS in 0.29311680793762207s

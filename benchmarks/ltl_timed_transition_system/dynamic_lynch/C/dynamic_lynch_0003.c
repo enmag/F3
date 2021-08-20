@@ -1,0 +1,164 @@
+extern float __VERIFIER_nondet_float(void);
+extern int __VERIFIER_nondet_int(void);
+typedef enum {false, true} bool;
+bool __VERIFIER_nondet_bool(void) {
+  return __VERIFIER_nondet_int() != 0;
+}
+
+int main()
+{
+float p1_c, _x_p1_c;
+float _diverge_delta, _x__diverge_delta;
+float delta, _x_delta;
+float proposed2, _x_proposed2;
+float max_prop, _x_max_prop;
+bool v2, _x_v2;
+float proposed1, _x_proposed1;
+float proposed0, _x_proposed0;
+bool p2_l1, _x_p2_l1;
+bool p2_l0, _x_p2_l0;
+bool p2_l2, _x_p2_l2;
+bool p2_l3, _x_p2_l3;
+int v1, _x_v1;
+bool inc_max_prop, _x_inc_max_prop;
+float p2_c, _x_p2_c;
+bool p0_l1, _x_p0_l1;
+bool p0_l0, _x_p0_l0;
+bool p0_l2, _x_p0_l2;
+bool p0_l3, _x_p0_l3;
+bool _J873, _x__J873;
+bool _J867, _x__J867;
+float p0_c, _x_p0_c;
+bool _J861, _x__J861;
+bool _J855, _x__J855;
+bool _EL_U_828, _x__EL_U_828;
+bool _EL_U_830, _x__EL_U_830;
+bool _EL_U_833, _x__EL_U_833;
+bool _EL_U_835, _x__EL_U_835;
+bool p1_l1, _x_p1_l1;
+bool p1_l0, _x_p1_l0;
+bool p1_l2, _x_p1_l2;
+bool p1_l3, _x_p1_l3;
+bool p1_evt, _x_p1_evt;
+bool p0_evt, _x_p0_evt;
+bool p2_evt, _x_p2_evt;
+
+  int __steps_to_fair = __VERIFIER_nondet_int();
+  p1_c = __VERIFIER_nondet_float();
+  _diverge_delta = __VERIFIER_nondet_float();
+  delta = __VERIFIER_nondet_float();
+  proposed2 = __VERIFIER_nondet_float();
+  max_prop = __VERIFIER_nondet_float();
+  v2 = __VERIFIER_nondet_bool();
+  proposed1 = __VERIFIER_nondet_float();
+  proposed0 = __VERIFIER_nondet_float();
+  p2_l1 = __VERIFIER_nondet_bool();
+  p2_l0 = __VERIFIER_nondet_bool();
+  p2_l2 = __VERIFIER_nondet_bool();
+  p2_l3 = __VERIFIER_nondet_bool();
+  v1 = __VERIFIER_nondet_int();
+  inc_max_prop = __VERIFIER_nondet_bool();
+  p2_c = __VERIFIER_nondet_float();
+  p0_l1 = __VERIFIER_nondet_bool();
+  p0_l0 = __VERIFIER_nondet_bool();
+  p0_l2 = __VERIFIER_nondet_bool();
+  p0_l3 = __VERIFIER_nondet_bool();
+  _J873 = __VERIFIER_nondet_bool();
+  _J867 = __VERIFIER_nondet_bool();
+  p0_c = __VERIFIER_nondet_float();
+  _J861 = __VERIFIER_nondet_bool();
+  _J855 = __VERIFIER_nondet_bool();
+  _EL_U_828 = __VERIFIER_nondet_bool();
+  _EL_U_830 = __VERIFIER_nondet_bool();
+  _EL_U_833 = __VERIFIER_nondet_bool();
+  _EL_U_835 = __VERIFIER_nondet_bool();
+  p1_l1 = __VERIFIER_nondet_bool();
+  p1_l0 = __VERIFIER_nondet_bool();
+  p1_l2 = __VERIFIER_nondet_bool();
+  p1_l3 = __VERIFIER_nondet_bool();
+  p1_evt = __VERIFIER_nondet_bool();
+  p0_evt = __VERIFIER_nondet_bool();
+  p2_evt = __VERIFIER_nondet_bool();
+
+  bool __ok = (((((((p2_l3 && (( !p2_l2) && (( !p2_l0) && ( !p2_l1)))) || ((( !p2_l3) && (p2_l2 && (p2_l0 && p2_l1))) || ((( !p2_l3) && (p2_l2 && (p2_l1 && ( !p2_l0)))) || ((( !p2_l3) && (p2_l2 && (p2_l0 && ( !p2_l1)))) || ((( !p2_l3) && (p2_l2 && (( !p2_l0) && ( !p2_l1)))) || ((( !p2_l3) && (( !p2_l2) && (p2_l0 && p2_l1))) || ((( !p2_l3) && (( !p2_l2) && (p2_l1 && ( !p2_l0)))) || ((( !p2_l3) && (( !p2_l2) && (( !p2_l0) && ( !p2_l1)))) || (( !p2_l3) && (( !p2_l2) && (p2_l0 && ( !p2_l1)))))))))))) && ((( !p2_l3) && (( !p2_l2) && (( !p2_l0) && ( !p2_l1)))) && (p2_c == 0.0))) && ((p2_c <= proposed2) || ( !(((( !p2_l3) && (( !p2_l2) && (p2_l0 && ( !p2_l1)))) || (( !p2_l3) && (p2_l2 && (( !p2_l0) && ( !p2_l1))))) || ((( !p2_l3) && (p2_l2 && (p2_l0 && p2_l1))) || (p2_l3 && (( !p2_l2) && (( !p2_l0) && ( !p2_l1))))))))) && (((((p1_l3 && (( !p1_l2) && (( !p1_l0) && ( !p1_l1)))) || ((( !p1_l3) && (p1_l2 && (p1_l0 && p1_l1))) || ((( !p1_l3) && (p1_l2 && (p1_l1 && ( !p1_l0)))) || ((( !p1_l3) && (p1_l2 && (p1_l0 && ( !p1_l1)))) || ((( !p1_l3) && (p1_l2 && (( !p1_l0) && ( !p1_l1)))) || ((( !p1_l3) && (( !p1_l2) && (p1_l0 && p1_l1))) || ((( !p1_l3) && (( !p1_l2) && (p1_l1 && ( !p1_l0)))) || ((( !p1_l3) && (( !p1_l2) && (( !p1_l0) && ( !p1_l1)))) || (( !p1_l3) && (( !p1_l2) && (p1_l0 && ( !p1_l1)))))))))))) && ((( !p1_l3) && (( !p1_l2) && (( !p1_l0) && ( !p1_l1)))) && (p1_c == 0.0))) && ((p1_c <= proposed1) || ( !(((( !p1_l3) && (( !p1_l2) && (p1_l0 && ( !p1_l1)))) || (( !p1_l3) && (p1_l2 && (( !p1_l0) && ( !p1_l1))))) || ((( !p1_l3) && (p1_l2 && (p1_l0 && p1_l1))) || (p1_l3 && (( !p1_l2) && (( !p1_l0) && ( !p1_l1))))))))) && (((((p0_l3 && (( !p0_l2) && (( !p0_l0) && ( !p0_l1)))) || ((( !p0_l3) && (p0_l2 && (p0_l0 && p0_l1))) || ((( !p0_l3) && (p0_l2 && (p0_l1 && ( !p0_l0)))) || ((( !p0_l3) && (p0_l2 && (p0_l0 && ( !p0_l1)))) || ((( !p0_l3) && (p0_l2 && (( !p0_l0) && ( !p0_l1)))) || ((( !p0_l3) && (( !p0_l2) && (p0_l0 && p0_l1))) || ((( !p0_l3) && (( !p0_l2) && (p0_l1 && ( !p0_l0)))) || ((( !p0_l3) && (( !p0_l2) && (( !p0_l0) && ( !p0_l1)))) || (( !p0_l3) && (( !p0_l2) && (p0_l0 && ( !p0_l1)))))))))))) && ((( !p0_l3) && (( !p0_l2) && (( !p0_l0) && ( !p0_l1)))) && (p0_c == 0.0))) && ((p0_c <= proposed0) || ( !(((( !p0_l3) && (( !p0_l2) && (p0_l0 && ( !p0_l1)))) || (( !p0_l3) && (p0_l2 && (( !p0_l0) && ( !p0_l1))))) || ((( !p0_l3) && (p0_l2 && (p0_l0 && p0_l1))) || (p0_l3 && (( !p0_l2) && (( !p0_l0) && ( !p0_l1))))))))) && (((((((((inc_max_prop && ((v1 == 3) || ((v1 == 2) || ((v1 == 0) || (v1 == 1))))) && (proposed0 == 16.0)) && (proposed1 == 16.0)) && (proposed2 == 16.0)) && (0.0 <= delta)) && (( !(proposed0 <= 0.0)) && (proposed0 <= max_prop))) && (( !(proposed1 <= 0.0)) && (proposed1 <= max_prop))) && (( !(proposed2 <= 0.0)) && (proposed2 <= max_prop))) && (((max_prop == proposed0) || (max_prop == proposed1)) || (max_prop == proposed2)))))) && (delta == _diverge_delta)) && ((((( !((_EL_U_835 || ( !(( !inc_max_prop) || _EL_U_833))) || (_EL_U_830 || ( !((1.0 <= _diverge_delta) || _EL_U_828))))) && ( !_J855)) && ( !_J861)) && ( !_J867)) && ( !_J873)));
+  while (__steps_to_fair >= 0 && __ok) {
+    if ((((_J855 && _J861) && _J867) && _J873)) {
+      __steps_to_fair = __VERIFIER_nondet_int();
+    } else {
+      __steps_to_fair--;
+    }
+    _x_p1_c = __VERIFIER_nondet_float();
+    _x__diverge_delta = __VERIFIER_nondet_float();
+    _x_delta = __VERIFIER_nondet_float();
+    _x_proposed2 = __VERIFIER_nondet_float();
+    _x_max_prop = __VERIFIER_nondet_float();
+    _x_v2 = __VERIFIER_nondet_bool();
+    _x_proposed1 = __VERIFIER_nondet_float();
+    _x_proposed0 = __VERIFIER_nondet_float();
+    _x_p2_l1 = __VERIFIER_nondet_bool();
+    _x_p2_l0 = __VERIFIER_nondet_bool();
+    _x_p2_l2 = __VERIFIER_nondet_bool();
+    _x_p2_l3 = __VERIFIER_nondet_bool();
+    _x_v1 = __VERIFIER_nondet_int();
+    _x_inc_max_prop = __VERIFIER_nondet_bool();
+    _x_p2_c = __VERIFIER_nondet_float();
+    _x_p0_l1 = __VERIFIER_nondet_bool();
+    _x_p0_l0 = __VERIFIER_nondet_bool();
+    _x_p0_l2 = __VERIFIER_nondet_bool();
+    _x_p0_l3 = __VERIFIER_nondet_bool();
+    _x__J873 = __VERIFIER_nondet_bool();
+    _x__J867 = __VERIFIER_nondet_bool();
+    _x_p0_c = __VERIFIER_nondet_float();
+    _x__J861 = __VERIFIER_nondet_bool();
+    _x__J855 = __VERIFIER_nondet_bool();
+    _x__EL_U_828 = __VERIFIER_nondet_bool();
+    _x__EL_U_830 = __VERIFIER_nondet_bool();
+    _x__EL_U_833 = __VERIFIER_nondet_bool();
+    _x__EL_U_835 = __VERIFIER_nondet_bool();
+    _x_p1_l1 = __VERIFIER_nondet_bool();
+    _x_p1_l0 = __VERIFIER_nondet_bool();
+    _x_p1_l2 = __VERIFIER_nondet_bool();
+    _x_p1_l3 = __VERIFIER_nondet_bool();
+    _x_p1_evt = __VERIFIER_nondet_bool();
+    _x_p0_evt = __VERIFIER_nondet_bool();
+    _x_p2_evt = __VERIFIER_nondet_bool();
+
+    __ok = (((((((((((((((((((((((((_x_p2_l3 && (( !_x_p2_l2) && (( !_x_p2_l0) && ( !_x_p2_l1)))) || ((( !_x_p2_l3) && (_x_p2_l2 && (_x_p2_l0 && _x_p2_l1))) || ((( !_x_p2_l3) && (_x_p2_l2 && (_x_p2_l1 && ( !_x_p2_l0)))) || ((( !_x_p2_l3) && (_x_p2_l2 && (_x_p2_l0 && ( !_x_p2_l1)))) || ((( !_x_p2_l3) && (_x_p2_l2 && (( !_x_p2_l0) && ( !_x_p2_l1)))) || ((( !_x_p2_l3) && (( !_x_p2_l2) && (_x_p2_l0 && _x_p2_l1))) || ((( !_x_p2_l3) && (( !_x_p2_l2) && (_x_p2_l1 && ( !_x_p2_l0)))) || ((( !_x_p2_l3) && (( !_x_p2_l2) && (( !_x_p2_l0) && ( !_x_p2_l1)))) || (( !_x_p2_l3) && (( !_x_p2_l2) && (_x_p2_l0 && ( !_x_p2_l1)))))))))))) && ((_x_p2_c <= _x_proposed2) || ( !(((( !_x_p2_l3) && (( !_x_p2_l2) && (_x_p2_l0 && ( !_x_p2_l1)))) || (( !_x_p2_l3) && (_x_p2_l2 && (( !_x_p2_l0) && ( !_x_p2_l1))))) || ((( !_x_p2_l3) && (_x_p2_l2 && (_x_p2_l0 && _x_p2_l1))) || (_x_p2_l3 && (( !_x_p2_l2) && (( !_x_p2_l0) && ( !_x_p2_l1))))))))) && (((((((p2_l0 == _x_p2_l0) && (p2_l1 == _x_p2_l1)) && (p2_l2 == _x_p2_l2)) && (p2_l3 == _x_p2_l3)) && ((delta + (p2_c + (-1.0 * _x_p2_c))) == 0.0)) && (proposed2 == _x_proposed2)) || ( !(( !(delta <= 0.0)) || ( !p2_evt))))) && (((((v1 == 0) && (( !_x_p2_l3) && (( !_x_p2_l2) && (_x_p2_l0 && ( !_x_p2_l1))))) && ((v2 == _x_v2) && (_x_p2_c == 0.0))) && ((v1 == _x_v1) && (proposed2 == _x_proposed2))) || ( !((( !p2_l3) && (( !p2_l2) && (( !p2_l0) && ( !p2_l1)))) && ((delta == 0.0) && p2_evt))))) && (((proposed2 == _x_proposed2) && (((v2 == _x_v2) && (_x_p2_c == 0.0)) && ((( !_x_p2_l3) && (( !_x_p2_l2) && (_x_p2_l1 && ( !_x_p2_l0)))) && (_x_v1 == 3)))) || ( !((( !p2_l3) && (( !p2_l2) && (p2_l0 && ( !p2_l1)))) && ((delta == 0.0) && p2_evt))))) && ((((v2 == _x_v2) && (v1 == _x_v1)) && (((( !_x_p2_l3) && (( !_x_p2_l2) && (( !_x_p2_l0) && ( !_x_p2_l1)))) || (( !_x_p2_l3) && (( !_x_p2_l2) && (_x_p2_l0 && _x_p2_l1)))) && (p2_c == _x_p2_c))) || ( !((( !p2_l3) && (( !p2_l2) && (p2_l1 && ( !p2_l0)))) && ((delta == 0.0) && p2_evt))))) && (((proposed2 == _x_proposed2) && ( !(v1 == 3))) || ( !(((delta == 0.0) && p2_evt) && ((( !_x_p2_l3) && (( !_x_p2_l2) && (( !_x_p2_l0) && ( !_x_p2_l1)))) && (( !p2_l3) && (( !p2_l2) && (p2_l1 && ( !p2_l0))))))))) && ((((v1 == 3) && ( !(p2_c <= max_prop))) && ( !(proposed2 <= _x_proposed2))) || ( !(((delta == 0.0) && p2_evt) && ((( !p2_l3) && (( !p2_l2) && (p2_l1 && ( !p2_l0)))) && (( !_x_p2_l3) && (( !_x_p2_l2) && (_x_p2_l0 && _x_p2_l1)))))))) && ((((v2 == _x_v2) && (v1 == _x_v1)) && ((proposed2 == _x_proposed2) && ((( !_x_p2_l3) && (( !_x_p2_l2) && (( !_x_p2_l0) && ( !_x_p2_l1)))) || (( !_x_p2_l3) && (_x_p2_l2 && (( !_x_p2_l0) && ( !_x_p2_l1))))))) || ( !((( !p2_l3) && (( !p2_l2) && (p2_l0 && p2_l1))) && ((delta == 0.0) && p2_evt))))) && ((v2 && (p2_c == _x_p2_c)) || ( !(((delta == 0.0) && p2_evt) && ((( !_x_p2_l3) && (( !_x_p2_l2) && (( !_x_p2_l0) && ( !_x_p2_l1)))) && (( !p2_l3) && (( !p2_l2) && (p2_l0 && p2_l1)))))))) && ((( !v2) && (_x_p2_c == 0.0)) || ( !(((delta == 0.0) && p2_evt) && ((( !p2_l3) && (( !p2_l2) && (p2_l0 && p2_l1))) && (( !_x_p2_l3) && (_x_p2_l2 && (( !_x_p2_l0) && ( !_x_p2_l1))))))))) && ((((v1 == _x_v1) && (proposed2 == _x_proposed2)) && ((_x_p2_c == 0.0) && (_x_v2 && (( !_x_p2_l3) && (_x_p2_l2 && (_x_p2_l0 && ( !_x_p2_l1))))))) || ( !((( !p2_l3) && (p2_l2 && (( !p2_l0) && ( !p2_l1)))) && ((delta == 0.0) && p2_evt))))) && (((proposed2 == _x_proposed2) && (((v2 == _x_v2) && (v1 == _x_v1)) && ((p2_c == _x_p2_c) && ((( !_x_p2_l3) && (( !_x_p2_l2) && (( !_x_p2_l0) && ( !_x_p2_l1)))) || (( !_x_p2_l3) && (_x_p2_l2 && (_x_p2_l1 && ( !_x_p2_l0)))))))) || ( !((( !p2_l3) && (p2_l2 && (p2_l0 && ( !p2_l1)))) && ((delta == 0.0) && p2_evt))))) && (( !(v1 == 3)) || ( !(((delta == 0.0) && p2_evt) && ((( !_x_p2_l3) && (( !_x_p2_l2) && (( !_x_p2_l0) && ( !_x_p2_l1)))) && (( !p2_l3) && (p2_l2 && (p2_l0 && ( !p2_l1))))))))) && ((v1 == 3) || ( !(((delta == 0.0) && p2_evt) && ((( !p2_l3) && (p2_l2 && (p2_l0 && ( !p2_l1)))) && (( !_x_p2_l3) && (_x_p2_l2 && (_x_p2_l1 && ( !_x_p2_l0))))))))) && (((proposed2 == _x_proposed2) && (((v2 == _x_v2) && (v1 == _x_v1)) && ((( !_x_p2_l3) && (_x_p2_l2 && (_x_p2_l0 && _x_p2_l1))) && (_x_p2_c == 0.0)))) || ( !((( !p2_l3) && (p2_l2 && (p2_l1 && ( !p2_l0)))) && ((delta == 0.0) && p2_evt))))) && (((proposed2 == _x_proposed2) && ((( !_x_v2) && (_x_p2_l3 && (( !_x_p2_l2) && (( !_x_p2_l0) && ( !_x_p2_l1))))) && ((v1 == _x_v1) && (_x_p2_c == 0.0)))) || ( !((( !p2_l3) && (p2_l2 && (p2_l0 && p2_l1))) && ((delta == 0.0) && p2_evt))))) && (((proposed2 == _x_proposed2) && (((_x_v1 == 0) && (( !_x_p2_l3) && (( !_x_p2_l2) && (( !_x_p2_l0) && ( !_x_p2_l1))))) && ((v2 == _x_v2) && (p2_c == _x_p2_c)))) || ( !((p2_l3 && (( !p2_l2) && (( !p2_l0) && ( !p2_l1)))) && ((delta == 0.0) && p2_evt))))) && ((((((((((((((((((((_x_p1_l3 && (( !_x_p1_l2) && (( !_x_p1_l0) && ( !_x_p1_l1)))) || ((( !_x_p1_l3) && (_x_p1_l2 && (_x_p1_l0 && _x_p1_l1))) || ((( !_x_p1_l3) && (_x_p1_l2 && (_x_p1_l1 && ( !_x_p1_l0)))) || ((( !_x_p1_l3) && (_x_p1_l2 && (_x_p1_l0 && ( !_x_p1_l1)))) || ((( !_x_p1_l3) && (_x_p1_l2 && (( !_x_p1_l0) && ( !_x_p1_l1)))) || ((( !_x_p1_l3) && (( !_x_p1_l2) && (_x_p1_l0 && _x_p1_l1))) || ((( !_x_p1_l3) && (( !_x_p1_l2) && (_x_p1_l1 && ( !_x_p1_l0)))) || ((( !_x_p1_l3) && (( !_x_p1_l2) && (( !_x_p1_l0) && ( !_x_p1_l1)))) || (( !_x_p1_l3) && (( !_x_p1_l2) && (_x_p1_l0 && ( !_x_p1_l1)))))))))))) && ((_x_p1_c <= _x_proposed1) || ( !(((( !_x_p1_l3) && (( !_x_p1_l2) && (_x_p1_l0 && ( !_x_p1_l1)))) || (( !_x_p1_l3) && (_x_p1_l2 && (( !_x_p1_l0) && ( !_x_p1_l1))))) || ((( !_x_p1_l3) && (_x_p1_l2 && (_x_p1_l0 && _x_p1_l1))) || (_x_p1_l3 && (( !_x_p1_l2) && (( !_x_p1_l0) && ( !_x_p1_l1))))))))) && (((((((p1_l0 == _x_p1_l0) && (p1_l1 == _x_p1_l1)) && (p1_l2 == _x_p1_l2)) && (p1_l3 == _x_p1_l3)) && ((delta + (p1_c + (-1.0 * _x_p1_c))) == 0.0)) && (proposed1 == _x_proposed1)) || ( !(( !(delta <= 0.0)) || ( !p1_evt))))) && (((((v1 == 0) && (( !_x_p1_l3) && (( !_x_p1_l2) && (_x_p1_l0 && ( !_x_p1_l1))))) && ((v2 == _x_v2) && (_x_p1_c == 0.0))) && ((v1 == _x_v1) && (proposed1 == _x_proposed1))) || ( !((( !p1_l3) && (( !p1_l2) && (( !p1_l0) && ( !p1_l1)))) && ((delta == 0.0) && p1_evt))))) && (((proposed1 == _x_proposed1) && (((v2 == _x_v2) && (_x_p1_c == 0.0)) && ((( !_x_p1_l3) && (( !_x_p1_l2) && (_x_p1_l1 && ( !_x_p1_l0)))) && (_x_v1 == 2)))) || ( !((( !p1_l3) && (( !p1_l2) && (p1_l0 && ( !p1_l1)))) && ((delta == 0.0) && p1_evt))))) && ((((v2 == _x_v2) && (v1 == _x_v1)) && (((( !_x_p1_l3) && (( !_x_p1_l2) && (( !_x_p1_l0) && ( !_x_p1_l1)))) || (( !_x_p1_l3) && (( !_x_p1_l2) && (_x_p1_l0 && _x_p1_l1)))) && (p1_c == _x_p1_c))) || ( !((( !p1_l3) && (( !p1_l2) && (p1_l1 && ( !p1_l0)))) && ((delta == 0.0) && p1_evt))))) && (((proposed1 == _x_proposed1) && ( !(v1 == 2))) || ( !(((delta == 0.0) && p1_evt) && ((( !_x_p1_l3) && (( !_x_p1_l2) && (( !_x_p1_l0) && ( !_x_p1_l1)))) && (( !p1_l3) && (( !p1_l2) && (p1_l1 && ( !p1_l0))))))))) && ((((v1 == 2) && ( !(p1_c <= max_prop))) && ( !(proposed1 <= _x_proposed1))) || ( !(((delta == 0.0) && p1_evt) && ((( !p1_l3) && (( !p1_l2) && (p1_l1 && ( !p1_l0)))) && (( !_x_p1_l3) && (( !_x_p1_l2) && (_x_p1_l0 && _x_p1_l1)))))))) && ((((v2 == _x_v2) && (v1 == _x_v1)) && ((proposed1 == _x_proposed1) && ((( !_x_p1_l3) && (( !_x_p1_l2) && (( !_x_p1_l0) && ( !_x_p1_l1)))) || (( !_x_p1_l3) && (_x_p1_l2 && (( !_x_p1_l0) && ( !_x_p1_l1))))))) || ( !((( !p1_l3) && (( !p1_l2) && (p1_l0 && p1_l1))) && ((delta == 0.0) && p1_evt))))) && ((v2 && (p1_c == _x_p1_c)) || ( !(((delta == 0.0) && p1_evt) && ((( !_x_p1_l3) && (( !_x_p1_l2) && (( !_x_p1_l0) && ( !_x_p1_l1)))) && (( !p1_l3) && (( !p1_l2) && (p1_l0 && p1_l1)))))))) && ((( !v2) && (_x_p1_c == 0.0)) || ( !(((delta == 0.0) && p1_evt) && ((( !p1_l3) && (( !p1_l2) && (p1_l0 && p1_l1))) && (( !_x_p1_l3) && (_x_p1_l2 && (( !_x_p1_l0) && ( !_x_p1_l1))))))))) && ((((v1 == _x_v1) && (proposed1 == _x_proposed1)) && ((_x_p1_c == 0.0) && (_x_v2 && (( !_x_p1_l3) && (_x_p1_l2 && (_x_p1_l0 && ( !_x_p1_l1))))))) || ( !((( !p1_l3) && (p1_l2 && (( !p1_l0) && ( !p1_l1)))) && ((delta == 0.0) && p1_evt))))) && (((proposed1 == _x_proposed1) && (((v2 == _x_v2) && (v1 == _x_v1)) && ((p1_c == _x_p1_c) && ((( !_x_p1_l3) && (( !_x_p1_l2) && (( !_x_p1_l0) && ( !_x_p1_l1)))) || (( !_x_p1_l3) && (_x_p1_l2 && (_x_p1_l1 && ( !_x_p1_l0)))))))) || ( !((( !p1_l3) && (p1_l2 && (p1_l0 && ( !p1_l1)))) && ((delta == 0.0) && p1_evt))))) && (( !(v1 == 2)) || ( !(((delta == 0.0) && p1_evt) && ((( !_x_p1_l3) && (( !_x_p1_l2) && (( !_x_p1_l0) && ( !_x_p1_l1)))) && (( !p1_l3) && (p1_l2 && (p1_l0 && ( !p1_l1))))))))) && ((v1 == 2) || ( !(((delta == 0.0) && p1_evt) && ((( !p1_l3) && (p1_l2 && (p1_l0 && ( !p1_l1)))) && (( !_x_p1_l3) && (_x_p1_l2 && (_x_p1_l1 && ( !_x_p1_l0))))))))) && (((proposed1 == _x_proposed1) && (((v2 == _x_v2) && (v1 == _x_v1)) && ((( !_x_p1_l3) && (_x_p1_l2 && (_x_p1_l0 && _x_p1_l1))) && (_x_p1_c == 0.0)))) || ( !((( !p1_l3) && (p1_l2 && (p1_l1 && ( !p1_l0)))) && ((delta == 0.0) && p1_evt))))) && (((proposed1 == _x_proposed1) && ((( !_x_v2) && (_x_p1_l3 && (( !_x_p1_l2) && (( !_x_p1_l0) && ( !_x_p1_l1))))) && ((v1 == _x_v1) && (_x_p1_c == 0.0)))) || ( !((( !p1_l3) && (p1_l2 && (p1_l0 && p1_l1))) && ((delta == 0.0) && p1_evt))))) && (((proposed1 == _x_proposed1) && (((_x_v1 == 0) && (( !_x_p1_l3) && (( !_x_p1_l2) && (( !_x_p1_l0) && ( !_x_p1_l1))))) && ((v2 == _x_v2) && (p1_c == _x_p1_c)))) || ( !((p1_l3 && (( !p1_l2) && (( !p1_l0) && ( !p1_l1)))) && ((delta == 0.0) && p1_evt))))) && ((((((((((((((((((((_x_p0_l3 && (( !_x_p0_l2) && (( !_x_p0_l0) && ( !_x_p0_l1)))) || ((( !_x_p0_l3) && (_x_p0_l2 && (_x_p0_l0 && _x_p0_l1))) || ((( !_x_p0_l3) && (_x_p0_l2 && (_x_p0_l1 && ( !_x_p0_l0)))) || ((( !_x_p0_l3) && (_x_p0_l2 && (_x_p0_l0 && ( !_x_p0_l1)))) || ((( !_x_p0_l3) && (_x_p0_l2 && (( !_x_p0_l0) && ( !_x_p0_l1)))) || ((( !_x_p0_l3) && (( !_x_p0_l2) && (_x_p0_l0 && _x_p0_l1))) || ((( !_x_p0_l3) && (( !_x_p0_l2) && (_x_p0_l1 && ( !_x_p0_l0)))) || ((( !_x_p0_l3) && (( !_x_p0_l2) && (( !_x_p0_l0) && ( !_x_p0_l1)))) || (( !_x_p0_l3) && (( !_x_p0_l2) && (_x_p0_l0 && ( !_x_p0_l1)))))))))))) && ((_x_p0_c <= _x_proposed0) || ( !(((( !_x_p0_l3) && (( !_x_p0_l2) && (_x_p0_l0 && ( !_x_p0_l1)))) || (( !_x_p0_l3) && (_x_p0_l2 && (( !_x_p0_l0) && ( !_x_p0_l1))))) || ((( !_x_p0_l3) && (_x_p0_l2 && (_x_p0_l0 && _x_p0_l1))) || (_x_p0_l3 && (( !_x_p0_l2) && (( !_x_p0_l0) && ( !_x_p0_l1))))))))) && (((((((p0_l0 == _x_p0_l0) && (p0_l1 == _x_p0_l1)) && (p0_l2 == _x_p0_l2)) && (p0_l3 == _x_p0_l3)) && ((delta + (p0_c + (-1.0 * _x_p0_c))) == 0.0)) && (proposed0 == _x_proposed0)) || ( !(( !p0_evt) || ( !(delta <= 0.0)))))) && (((((( !_x_p0_l3) && (( !_x_p0_l2) && (_x_p0_l0 && ( !_x_p0_l1)))) && (v1 == 0)) && ((_x_p0_c == 0.0) && (v2 == _x_v2))) && ((proposed0 == _x_proposed0) && (v1 == _x_v1))) || ( !((( !p0_l3) && (( !p0_l2) && (( !p0_l0) && ( !p0_l1)))) && (p0_evt && (delta == 0.0)))))) && (((proposed0 == _x_proposed0) && (((_x_p0_c == 0.0) && (v2 == _x_v2)) && ((( !_x_p0_l3) && (( !_x_p0_l2) && (_x_p0_l1 && ( !_x_p0_l0)))) && (_x_v1 == 1)))) || ( !((( !p0_l3) && (( !p0_l2) && (p0_l0 && ( !p0_l1)))) && (p0_evt && (delta == 0.0)))))) && (((((( !_x_p0_l3) && (( !_x_p0_l2) && (( !_x_p0_l0) && ( !_x_p0_l1)))) || (( !_x_p0_l3) && (( !_x_p0_l2) && (_x_p0_l0 && _x_p0_l1)))) && (p0_c == _x_p0_c)) && ((v2 == _x_v2) && (v1 == _x_v1))) || ( !((( !p0_l3) && (( !p0_l2) && (p0_l1 && ( !p0_l0)))) && (p0_evt && (delta == 0.0)))))) && (((proposed0 == _x_proposed0) && ( !(v1 == 1))) || ( !((p0_evt && (delta == 0.0)) && ((( !_x_p0_l3) && (( !_x_p0_l2) && (( !_x_p0_l0) && ( !_x_p0_l1)))) && (( !p0_l3) && (( !p0_l2) && (p0_l1 && ( !p0_l0))))))))) && ((((v1 == 1) && ( !(p0_c <= max_prop))) && ( !(proposed0 <= _x_proposed0))) || ( !((p0_evt && (delta == 0.0)) && ((( !p0_l3) && (( !p0_l2) && (p0_l1 && ( !p0_l0)))) && (( !_x_p0_l3) && (( !_x_p0_l2) && (_x_p0_l0 && _x_p0_l1)))))))) && ((((v2 == _x_v2) && (v1 == _x_v1)) && ((proposed0 == _x_proposed0) && ((( !_x_p0_l3) && (( !_x_p0_l2) && (( !_x_p0_l0) && ( !_x_p0_l1)))) || (( !_x_p0_l3) && (_x_p0_l2 && (( !_x_p0_l0) && ( !_x_p0_l1))))))) || ( !((( !p0_l3) && (( !p0_l2) && (p0_l0 && p0_l1))) && (p0_evt && (delta == 0.0)))))) && ((v2 && (p0_c == _x_p0_c)) || ( !((p0_evt && (delta == 0.0)) && ((( !_x_p0_l3) && (( !_x_p0_l2) && (( !_x_p0_l0) && ( !_x_p0_l1)))) && (( !p0_l3) && (( !p0_l2) && (p0_l0 && p0_l1)))))))) && (((_x_p0_c == 0.0) && ( !v2)) || ( !((p0_evt && (delta == 0.0)) && ((( !p0_l3) && (( !p0_l2) && (p0_l0 && p0_l1))) && (( !_x_p0_l3) && (_x_p0_l2 && (( !_x_p0_l0) && ( !_x_p0_l1))))))))) && ((((proposed0 == _x_proposed0) && (v1 == _x_v1)) && ((_x_p0_c == 0.0) && (_x_v2 && (( !_x_p0_l3) && (_x_p0_l2 && (_x_p0_l0 && ( !_x_p0_l1))))))) || ( !((( !p0_l3) && (p0_l2 && (( !p0_l0) && ( !p0_l1)))) && (p0_evt && (delta == 0.0)))))) && (((proposed0 == _x_proposed0) && (((v2 == _x_v2) && (v1 == _x_v1)) && ((p0_c == _x_p0_c) && ((( !_x_p0_l3) && (( !_x_p0_l2) && (( !_x_p0_l0) && ( !_x_p0_l1)))) || (( !_x_p0_l3) && (_x_p0_l2 && (_x_p0_l1 && ( !_x_p0_l0)))))))) || ( !((( !p0_l3) && (p0_l2 && (p0_l0 && ( !p0_l1)))) && (p0_evt && (delta == 0.0)))))) && (( !(v1 == 1)) || ( !((p0_evt && (delta == 0.0)) && ((( !_x_p0_l3) && (( !_x_p0_l2) && (( !_x_p0_l0) && ( !_x_p0_l1)))) && (( !p0_l3) && (p0_l2 && (p0_l0 && ( !p0_l1))))))))) && ((v1 == 1) || ( !((p0_evt && (delta == 0.0)) && ((( !p0_l3) && (p0_l2 && (p0_l0 && ( !p0_l1)))) && (( !_x_p0_l3) && (_x_p0_l2 && (_x_p0_l1 && ( !_x_p0_l0))))))))) && (((proposed0 == _x_proposed0) && (((v2 == _x_v2) && (v1 == _x_v1)) && ((( !_x_p0_l3) && (_x_p0_l2 && (_x_p0_l0 && _x_p0_l1))) && (_x_p0_c == 0.0)))) || ( !((( !p0_l3) && (p0_l2 && (p0_l1 && ( !p0_l0)))) && (p0_evt && (delta == 0.0)))))) && (((proposed0 == _x_proposed0) && (((_x_p0_l3 && (( !_x_p0_l2) && (( !_x_p0_l0) && ( !_x_p0_l1)))) && ( !_x_v2)) && ((_x_p0_c == 0.0) && (v1 == _x_v1)))) || ( !((( !p0_l3) && (p0_l2 && (p0_l0 && p0_l1))) && (p0_evt && (delta == 0.0)))))) && (((proposed0 == _x_proposed0) && (((( !_x_p0_l3) && (( !_x_p0_l2) && (( !_x_p0_l0) && ( !_x_p0_l1)))) && (_x_v1 == 0)) && ((v2 == _x_v2) && (p0_c == _x_p0_c)))) || ( !((p0_l3 && (( !p0_l2) && (( !p0_l0) && ( !p0_l1)))) && (p0_evt && (delta == 0.0)))))) && (((((((_x_v1 == 3) || ((_x_v1 == 2) || ((_x_v1 == 1) || (_x_v1 == 0)))) && (0.0 <= _x_delta)) && (( !(_x_proposed0 <= 0.0)) && (_x_proposed0 <= _x_max_prop))) && (( !(_x_proposed1 <= 0.0)) && (_x_proposed1 <= _x_max_prop))) && (( !(_x_proposed2 <= 0.0)) && (_x_proposed2 <= _x_max_prop))) && (((_x_max_prop == _x_proposed0) || (_x_max_prop == _x_proposed1)) || (_x_max_prop == _x_proposed2)))))) && ((delta <= 0.0) || ((v2 == _x_v2) && (v1 == _x_v1)))) && (( !(( !p2_evt) && (( !p0_evt) && ( !p1_evt)))) || ( !(delta == 0.0)))) && (_x_inc_max_prop == (max_prop <= _x_max_prop))) && (((delta == _x__diverge_delta) || ( !(1.0 <= _diverge_delta))) && ((1.0 <= _diverge_delta) || ((delta + (_diverge_delta + (-1.0 * _x__diverge_delta))) == 0.0)))) && ((((((_EL_U_830 == (_x__EL_U_830 || ( !(_x__EL_U_828 || (1.0 <= _x__diverge_delta))))) && ((_EL_U_828 == (_x__EL_U_828 || (1.0 <= _x__diverge_delta))) && ((_EL_U_833 == (_x__EL_U_833 || ( !_x_inc_max_prop))) && (_EL_U_835 == (_x__EL_U_835 || ( !(_x__EL_U_833 || ( !_x_inc_max_prop)))))))) && (_x__J855 == (( !(((_J855 && _J861) && _J867) && _J873)) && ((((_J855 && _J861) && _J867) && _J873) || ((( !inc_max_prop) || ( !(( !inc_max_prop) || _EL_U_833))) || _J855))))) && (_x__J861 == (( !(((_J855 && _J861) && _J867) && _J873)) && ((((_J855 && _J861) && _J867) && _J873) || ((( !(( !inc_max_prop) || _EL_U_833)) || ( !(_EL_U_835 || ( !(( !inc_max_prop) || _EL_U_833))))) || _J861))))) && (_x__J867 == (( !(((_J855 && _J861) && _J867) && _J873)) && ((((_J855 && _J861) && _J867) && _J873) || (((1.0 <= _diverge_delta) || ( !((1.0 <= _diverge_delta) || _EL_U_828))) || _J867))))) && (_x__J873 == (( !(((_J855 && _J861) && _J867) && _J873)) && ((((_J855 && _J861) && _J867) && _J873) || ((( !((1.0 <= _diverge_delta) || _EL_U_828)) || ( !(_EL_U_830 || ( !((1.0 <= _diverge_delta) || _EL_U_828))))) || _J873))))));
+    p1_c = _x_p1_c;
+    _diverge_delta = _x__diverge_delta;
+    delta = _x_delta;
+    proposed2 = _x_proposed2;
+    max_prop = _x_max_prop;
+    v2 = _x_v2;
+    proposed1 = _x_proposed1;
+    proposed0 = _x_proposed0;
+    p2_l1 = _x_p2_l1;
+    p2_l0 = _x_p2_l0;
+    p2_l2 = _x_p2_l2;
+    p2_l3 = _x_p2_l3;
+    v1 = _x_v1;
+    inc_max_prop = _x_inc_max_prop;
+    p2_c = _x_p2_c;
+    p0_l1 = _x_p0_l1;
+    p0_l0 = _x_p0_l0;
+    p0_l2 = _x_p0_l2;
+    p0_l3 = _x_p0_l3;
+    _J873 = _x__J873;
+    _J867 = _x__J867;
+    p0_c = _x_p0_c;
+    _J861 = _x__J861;
+    _J855 = _x__J855;
+    _EL_U_828 = _x__EL_U_828;
+    _EL_U_830 = _x__EL_U_830;
+    _EL_U_833 = _x__EL_U_833;
+    _EL_U_835 = _x__EL_U_835;
+    p1_l1 = _x_p1_l1;
+    p1_l0 = _x_p1_l0;
+    p1_l2 = _x_p1_l2;
+    p1_l3 = _x_p1_l3;
+    p1_evt = _x_p1_evt;
+    p0_evt = _x_p0_evt;
+    p2_evt = _x_p2_evt;
+
+  }
+}

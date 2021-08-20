@@ -397,9 +397,12 @@ class SyncMaster:
                                           msat_make_plus(menv, self.sm,
                                                          self.drift)))
         res = msat_make_and(menv, res, msat_make_impl(menv, lhs, rhs))
-        lhs = msat_make_or(menv,
-                           msat_make_and(menv, self.send, self.x_sync1),
-                           msat_make_and(menv, self.sync2, self.x_work))
+        lhs = msat_make_or(
+            menv,
+            msat_make_and(menv, self.send, self.x_sync1),
+            msat_make_or(menv,
+                         msat_make_and(menv, self.sync1, self.x_sync2),
+                         msat_make_and(menv, self.sync2, self.x_work)))
         rhs = msat_make_equal(menv, self.x_sm, self.sm)
         res = msat_make_and(menv, res, msat_make_impl(menv, lhs, rhs))
         return res

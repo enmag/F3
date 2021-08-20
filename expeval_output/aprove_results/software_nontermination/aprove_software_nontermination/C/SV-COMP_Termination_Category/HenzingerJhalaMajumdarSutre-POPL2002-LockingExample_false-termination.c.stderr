@@ -19,6 +19,6 @@ Exception in thread "DefaultMachine" java.lang.OutOfMemoryError: unable to creat
 	at aprove.Strategies.ExecutableStrategies.impl.DefaultMachine$CmdExec.run(DefaultMachine.java:247)
 	at aprove.Strategies.ExecutableStrategies.impl.DefaultMachine.run(DefaultMachine.java:174)
 	at java.lang.Thread.run(Thread.java:748)
-real 7.17
-user 25.95
-sys 1.95
+real 583.65
+user 0.01
+sys 0.01

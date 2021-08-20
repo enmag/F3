@@ -1,13 +1,12 @@
 //@ ltl invariant negative: ( (! ([] (<> (! AP((r <= i)))))) || (! ([] (<> (! AP((m_x_i <= i)))))));
-
 extern float __VERIFIER_nondet_float(void);
 extern int __VERIFIER_nondet_int(void);
-
-char __VERIFIER_nondet_bool(void) {
+typedef enum {false, true} bool;
+bool __VERIFIER_nondet_bool(void) {
   return __VERIFIER_nondet_int() != 0;
 }
 
-
+bool __ok;
 float m_x_i, _x_m_x_i;
 float r, _x_r;
 float i, _x_i;
@@ -18,7 +17,7 @@ int main()
   r = __VERIFIER_nondet_float();
   i = __VERIFIER_nondet_float();
 
-  int __ok = ((0.0 <= i) && (( !(r <= 0.0)) && ( !(10.0 <= r))));
+  __ok = ((0.0 <= i) && (( !(r <= 0.0)) && ( !(10.0 <= r))));
   while (__ok) {
     _x_m_x_i = __VERIFIER_nondet_float();
     _x_r = __VERIFIER_nondet_float();

@@ -1,0 +1,3 @@
+./nuxmv/simple_int2.smv
+./nuxmv/simple_int0.smv
+./nuxmv/simple_int1.smv

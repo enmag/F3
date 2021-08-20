@@ -1,8 +1,8 @@
-group: pyrank_bounded_counter
-platform: Linux node1 5.4.0-56-generic #62-Ubuntu SMP Mon Nov 23 19:20:19 UTC 2020 x86_64 x86_64
-timestamp: 1616944729
-time: 2021-03-28 17:18:49
+group: f3_bounded_counter
+platform: Linux node2 5.4.0-56-generic #62-Ubuntu SMP Mon Nov 23 19:20:19 UTC 2020 x86_64 x86_64
+timestamp: 1629301221
+time: 2021-08-18 17:40:21
 exitcode: 0
-real: 3.07
-user: 1.82
-sys: 0.43
+real: 4.1
+user: 2.77
+sys: 0.59

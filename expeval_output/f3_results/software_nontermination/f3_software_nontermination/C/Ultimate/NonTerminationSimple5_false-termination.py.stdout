@@ -1,29 +1,20 @@
-
-
-run 1/1: `NonTerminationSimple5_false-termination`
+F3 run `NonTerminationSimple5_false-termination`
 
 	Found non-termination argument:
-	Do states 0..2 while ((ToReal(x) + -1/4) < 0.0)
 	State 0
 		pc = 0
+		((-1 * x) <= 1)
 		((-1 * x) <= 0)
 	Trans 0 -- 1
-		_x_x : x
+		_x_x = x
 	State 1
 		pc = 1
 	Trans 1 -- 2
-		_x_x : x
+		_x_x = x
 	State 2
 		pc = 3
-	Trans 2 -- 0
-		_x_x : (x + 1)
-	End do-while
-	State 2
-		pc = 3
-		(((-1.0 * ToReal(x)) + 1/4) <= 0.0)
-		((-1 * x) <= 1)
 	Trans 2 -- 3
 		_x_x = (x + 1)
-	starting from: {pc: 0, x: 0}
+	starting from: pc : 0, x : 0
 
-end of `NonTerminationSimple5_false-termination`: SUCCESS in 0.4738790988922119s
+end of `NonTerminationSimple5_false-termination`: SUCCESS in 0.9992456436157227s

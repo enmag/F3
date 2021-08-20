@@ -32,9 +32,8 @@ Command line options for F3 can be appended after the image tag.
 For example to run F3 with verbosity 1 on some benchmark `BENCHMARK` add the option `-v 1` as follows:
   $> docker run f3 -v 1 $BENCHMARK
 
-In general to tun F3 with options OPTS on benchmark BENCH run:
+In general to run F3 with options OPTS on benchmark BENCH run:
   $> docker run f3 $OPTS $BENCH
-If $BENCH is a directory, F3 will visit recursively all the subdirectories and try to load and execute every *.py file it finds.
 
 
 ## REMOVE DOCKER CONTAINER AND IMAGE

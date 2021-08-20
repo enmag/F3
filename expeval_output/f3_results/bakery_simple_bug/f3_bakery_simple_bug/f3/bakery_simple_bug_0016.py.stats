@@ -1,8 +1,8 @@
-group: pyrank_bakery_simple_bug
-platform: Linux node1 5.4.0-56-generic #62-Ubuntu SMP Mon Nov 23 19:20:19 UTC 2020 x86_64 x86_64
-timestamp: 1616944670
-time: 2021-03-28 17:17:50
+group: f3_bakery_simple_bug
+platform: Linux node2 5.4.0-56-generic #62-Ubuntu SMP Mon Nov 23 19:20:19 UTC 2020 x86_64 x86_64
+timestamp: 1629301165
+time: 2021-08-18 17:39:25
 exitcode: 0
-real: 58.39
-user: 56.18
-sys: 1.17
+real: 57.36
+user: 55.8
+sys: 0.95

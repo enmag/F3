@@ -1,6 +1,7 @@
-from typing import Tuple, Optional
-from collections import defaultdict, Iterable
+from typing import Tuple, Optional, Iterable, FrozenSet
+from collections import defaultdict
 from fractions import Fraction
+from io import StringIO
 
 from pysmt.environment import Environment as PysmtEnv
 from pysmt.fnode import FNode
@@ -36,8 +37,8 @@ class Ineq:
         assert isinstance(ineq, FNode)
         assert isinstance(params, Iterable)
         assert isinstance(td, TimesDistributor)
-        assert ineq.is_equals() or ineq.is_le() or ineq.is_lt(), \
-            "Not =, < or <= : {}".format(ineq.serialize())
+        assert isinstance(ineq, Expr) or \
+            ineq.is_equals() or ineq.is_le() or ineq.is_lt()
         self.env = env
         self.params = frozenset(params)
         self._type = Ineq.EQ
@@ -50,13 +51,11 @@ class Ineq:
         if __debug__:
             from solver import Solver
             mgr = self.env.formula_manager
-            with Solver(env=env) as solver:
+            with Solver(env=env) as _solver:
                 eq = mgr.Iff(ineq, self.pysmt_ineq())
                 n_eq = mgr.Not(eq)
-                solver.add_assertion(n_eq)
-                if solver.solve():
-                    assert False, "{} : {}".format(eq.serialize(),
-                                                   solver.get_model())
+                _solver.add_assertion(n_eq)
+                assert _solver.solve() is False
 
     def is_eq(self) -> bool:
         "True iff current ineq is an equality"
@@ -134,6 +133,7 @@ class Ineq:
         assert ineq_type.is_real_type() or ineq_type.is_int_type()
 
         mgr = env.formula_manager
+        get_free_vars = env.fvo.walk
         pysmt_num = None
         if ineq_type.is_int_type():
             pysmt_num = mgr.Int
@@ -149,7 +149,7 @@ class Ineq:
         while stack:
             curr = stack.pop()
             # if all symbols are parameters this is a "constant".
-            if env.fvo.get_free_variables(curr) <= params:
+            if get_free_vars(curr) <= params:
                 rhs.plus_fnode(curr)
             elif curr.is_symbol():
                 lhs[curr].plus_const(1)
@@ -164,7 +164,7 @@ class Ineq:
                 symbs = []
                 _params = []
                 for arg in args:
-                    assert not arg.is_plus(), curr.serialize()
+                    assert not arg.is_plus()
                     if arg.is_times():
                         args.extend(arg.args())
                     elif arg.is_constant():
@@ -179,13 +179,13 @@ class Ineq:
                         symbs.append(arg)
                     elif arg.is_toreal():
                         # ToReal(s) and s are considered as 2 different symbols.
-                        assert arg.arg(0).is_symbol(), curr.serialize()
+                        assert arg.arg(0).is_symbol()
                         if arg.arg(0) in params:
                             _params.append(arg)
                         else:
                             symbs.append(arg)
                     else:
-                        assert False, "Unhandled op: {}".format(arg)
+                        assert False, f"Unhandled op: {arg}"
                         # symbs.append(arg)
                 symbs.sort(key=default_key)
                 symbs = mgr.Times(symbs)
@@ -208,27 +208,78 @@ class Ineq:
         return lhs, rhs
 
     def __repr__(self) -> str:
-        if self.lhs:
-            res = " + ".join("{} * {}".format(repr(val), repr(key))
-                             for key, val in self.lhs.items())
-        else:
-            res = "0"
+        serialize = self.env.serializer.serialize
+        with StringIO() as buf:
+            if self.lhs:
+                assert all(isinstance(v, Expr) for v in self.lhs.values())
+                assert all(isinstance(k, FNode) for k in self.lhs)
+                buf.write(" + ".join(f"{repr(val)} * {serialize(key)}"
+                                     for key, val in self.lhs.items()))
+            else:
+                buf.write("0")
 
-        if self.is_lt():
-            res += " < "
-        elif self.is_le():
-            res += " <= "
-        else:
-            res += " = "
+            if self.is_lt():
+                buf.write(" < ")
+            elif self.is_le():
+                buf.write(" <= ")
+            else:
+                buf.write(" = ")
 
-        res += repr(self.rhs)
-        return res
+            assert isinstance(self.rhs, Expr)
+            buf.write(repr(self.rhs))
+            return buf.getvalue()
 
+    def __eq__(self, other) -> bool:
+        if not isinstance(other, self.__class__):
+            return False
+        if self.env != other.env or self._type != other._type or\
+           self.lhs.expr_type != other.lhs.expr_type:
+            return False
+        return self.rhs == other.rhs and self.lhs == other.lhs
+
+    def __hash__(self):
+        return hash((self.lhs, self.rhs))
     # EOC Ineq
 
 
 class Expr:
     "Represent a sum of products, apply simplifications"
+
+    @staticmethod
+    def make_product(env: PysmtEnv,
+                     td: TimesDistributor,
+                     expr_type,
+                     symbs: Iterable[FNode],
+                     params: Iterable[FNode],
+                     const: FNode = None):
+        assert isinstance(env, PysmtEnv)
+        assert isinstance(td, TimesDistributor)
+        assert isinstance(symbs, Iterable)
+        assert isinstance(params, Iterable)
+        assert all(isinstance(s, FNode) for s in symbs)
+        assert all(isinstance(p, FNode) for p in params)
+        assert all(s in env.formula_manager.get_all_symbols()
+                   for s in symbs)
+        assert all(p in env.formula_manager.get_all_symbols()
+                   for p in params)
+        assert expr_type.is_int_type() or expr_type.is_real_type()
+        res = Expr(env, expr_type, td)
+        for s, c in zip(symbs, params):
+            assert isinstance(s, FNode)
+            assert isinstance(c, FNode)
+            assert s in env.formula_manager.get_all_symbols()
+            assert c in env.formula_manager.get_all_symbols()
+            assert env.stc.get_type(s) == expr_type
+            assert env.stc.get_type(c) == expr_type
+            s = td(s)
+            c = td(c)
+            assert not s.is_constant()
+            res.symb2coef[s] = c
+
+        if const is not None:
+            assert res.number(1) not in res.symb2coef
+            res.symb2coef[res.number(1)] = const
+        return res
 
     def __init__(self, env: PysmtEnv, expr_type: PySMTType,
                  td: TimesDistributor, formula: Optional[FNode] = None,
@@ -281,13 +332,12 @@ class Expr:
             in_f = [f for f in [formula, expr, const] if f is not None]
             if in_f:
                 from solver import Solver
-                with Solver(env=self.env) as solver:
+                with Solver(env=self.env) as _solver:
                     expr = self.mgr.Plus(in_f)
                     eq = self.mgr.Equals(expr, self.pysmt_expr())
                     n_eq = self.mgr.Not(eq)
-                    solver.add_assertion(n_eq)
-                    if solver.solve():
-                        assert False, "{} : {}".format(eq, solver.get_model())
+                    _solver.add_assertion(n_eq)
+                    assert _solver.solve() is False
 
     def is_zero(self) -> bool:
         """Return true if self is zero"""
@@ -307,10 +357,17 @@ class Expr:
             return True
         return False
 
-    def clone(self):
+    def clone(self, f=None):
         "Return new instance of Expr representing the same expression"
+
         res = Expr(self.env, self.expr_type, self.td)
-        res.symb2coef = {k: v for k, v in self.symb2coef.items() if v != 0}
+        if f is None:
+            res.symb2coef = {k: v
+                             for k, v in self.symb2coef.items() if v != 0}
+        else:
+            for k, v in self.symb2coef.items():
+                if v != 0:
+                    res.times_fnode(self.mgr.Times(f(k), f(v)))
         return res
 
     def get_real(self):
@@ -336,6 +393,7 @@ class Expr:
         # assert self.env.stc.get_type(formula) == self.expr_type
         assert self.expr_type.is_real_type() or \
             self.expr_type == self.env.stc.get_type(formula)
+        get_free_vars = self.env.fvo.walk
         do_to_real = self.expr_type.is_real_type() and \
             self.env.stc.get_type(formula).is_int_type()
         one = self.number(1)
@@ -344,7 +402,7 @@ class Expr:
         while stack:
             curr = stack.pop()
             if curr.is_constant() or \
-               len(self.get_free_variables(curr)) == 0:
+               len(get_free_vars(curr)) == 0:
                 val = self.simplify(curr).constant_value()
                 self.symb2coef[one] += val
                 if self.symb2coef[one] == 0:
@@ -365,8 +423,8 @@ class Expr:
                 const = 1
                 symbs = []
                 for factor in factors:
-                    assert not factor.is_plus(), "{}".format(factor)
-                    assert not factor.is_minus(), "{}".format(factor)
+                    assert not factor.is_plus(), str(factor)
+                    assert not factor.is_minus(), str(factor)
                     if factor.is_times():
                         factors.extend(factor.args())
                     elif factor.is_symbol() or factor.is_toreal():
@@ -374,7 +432,7 @@ class Expr:
                             factor.arg(0).is_symbol()
                         symbs.append(factor)
                     elif factor.is_constant() or \
-                            len(self.get_free_variables(factor)) == 0:
+                            len(get_free_vars(factor)) == 0:
                         const *= self.simplify(factor).constant_value()
                     elif factor.is_div():
                         symbs.append(factor)
@@ -383,7 +441,7 @@ class Expr:
                         symbs.append(factor)
                     else:
                         symbs.append(factor)
-                        print("Expr - Unhandled op: {}".format(factor))
+                        print(f"Expr - Unhandled op: {factor}")
                 symbs = self.mgr.Times(sorted(symbs,
                                               key=default_key)) \
                     if symbs else one
@@ -426,7 +484,7 @@ class Expr:
             assert isinstance(expr, Expr)
             assert self.expr_type.is_real_type() or \
                 expr.expr_type == self.expr_type, \
-                "{} -- {}".format(expr, self)
+                f"{expr} -- {self}"
             if expr.is_zero():
                 self.symb2coef.clear()
                 return self
@@ -454,10 +512,6 @@ class Expr:
         assert isinstance(formula, FNode)
         return self.env.simplifier.simplify(formula)
 
-    def get_free_variables(self, formula: FNode):
-        assert isinstance(formula, FNode)
-        return self.env.fvo.get_free_variables(formula)
-
     def pysmt_expr(self) -> FNode:
         "Convert Expr into FNode"
         keys = sorted(self.symb2coef.keys(), key=default_key)
@@ -466,6 +520,16 @@ class Expr:
         if to_add:
             return self.mgr.Plus(to_add)
         return self.number(0)
+
+    def __eq__(self, other) -> bool:
+        if not isinstance(other, self.__class__):
+            return False
+        if self.env != other.env or self.expr_type != other.expr_type:
+            return False
+        return self.symb2coef == other.symb2coef
+
+    def __hash__(self):
+        return hash(self.symb2coef)
 
     def _fnode_times(self, lhs: FNode, rhs) -> FNode:
         assert isinstance(lhs, FNode)
@@ -487,18 +551,18 @@ class Expr:
         return self.mgr.Times(lhs, self.number(rhs))
 
     def __str__(self) -> str:
-        return str(self.pysmt_expr())
+        return repr(self)
 
     def __repr__(self) -> str:
-        return self.pysmt_expr().serialize()
+        return self.env.serializer.serialize(self.pysmt_expr())
 
     # EOC Expr
 
 
-def eq_to_assign(env: PysmtEnv, equality: FNode,
-                 td: TimesDistributor,
-                 _time: Optional[int] = None) -> Tuple[FNode, Optional[FNode],
-                                                       Optional[bool]]:
+def eq2assign(env: PysmtEnv, equality: FNode,
+              td: TimesDistributor,
+              _time: Optional[int] = None) -> Tuple[FNode, Optional[FNode],
+                                                    Optional[bool]]:
     """Return k, v where k is a symbol and v is an expression.
     Return None, None if the rewriting failed.
 
@@ -512,6 +576,7 @@ def eq_to_assign(env: PysmtEnv, equality: FNode,
     if equality.is_true():
         return equality, None, None
     assert equality.is_equals()
+    assert len(equality.args()) == 2
     assert _time is None or isinstance(_time, int)
     assert _time is None or _time >= 0
 
@@ -523,9 +588,9 @@ def eq_to_assign(env: PysmtEnv, equality: FNode,
     if expr.is_zero():  # 0 = 0
         if __debug__:
             from solver import Solver
-            with Solver(env=env) as solver:
-                solver.add_assertion(mgr.Not(equality))
-                assert solver.solve() is False
+            with Solver(env=env) as _solver:
+                _solver.add_assertion(mgr.Not(equality))
+                assert _solver.solve() is False
         return mgr.TRUE(), None, None
 
     _symb = None
@@ -570,12 +635,12 @@ def eq_to_assign(env: PysmtEnv, equality: FNode,
     # multiply by inverse of the opposite coefficient
     expr.times(coef_expr)
 
-    assert _symb not in expr.pysmt_expr().get_free_variables()
+    assert _symb not in env.fvo.walk(expr.pysmt_expr())
     if __debug__:
         from solver import Solver
-        with Solver(env=env) as solver:
+        with Solver(env=env) as _solver:
             _rv = mgr.Equals(_symb, expr.pysmt_expr())
             _iff = mgr.Iff(equality, _rv)
-            solver.add_assertion(mgr.Not(_iff))
-            assert solver.solve() is False
+            _solver.add_assertion(mgr.Not(_iff))
+            assert _solver.solve() is False
     return _symb, expr.pysmt_expr(), _is_next

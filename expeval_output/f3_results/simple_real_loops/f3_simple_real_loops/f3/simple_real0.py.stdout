@@ -1,6 +1,4 @@
-
-
-run 1/1: `simple_real0`
+F3 run `simple_real0`
 
 	Found non-termination argument:
 	State 0
@@ -9,7 +7,7 @@ run 1/1: `simple_real0`
 		_x_x = (-3/2 - (x * 3/2))
 	State 1
 	Trans 1 -- 2
-		_x_x = (3/2 - (x * 3/2))
-	starting from: {x: 1.0}
+		_x_x = (27/16 - (x * 17/8))
+	starting from: x : 1.0
 
-end of `simple_real0`: SUCCESS in 0.4050915241241455s
+end of `simple_real0`: SUCCESS in 2.1239798069000244s

@@ -1,39 +1,30 @@
-
-
-run 1/1: `power`
+F3 run `power`
 
 	Found non-termination argument:
-	Do states 6..8 while (((ToReal(e) * 1/2) + (ToReal(i) * 7/4) + -21.0) < 0.0)
 	State 6
 		n = 5
 		pc = 3
 		(((-1 * e) + i) <= 0)
+		((i - (e * 5)) <= -1)
 		((-1 * i) < -1)
+		((-1 * i) < 1)
+		((i - (e * 25)) <= -2)
+		((-1 * i) < 0)
 	Trans 6 -- 7
-		_x_e : e
-		_x_i : i
+		_x_e = e
+		_x_i = i
 	State 7
 		n = 5
 		pc = 4
 	Trans 7 -- 8
-		_x_e : (e * 5)
-		_x_i : i
+		_x_e = (e * 5)
+		_x_i = i
 	State 8
 		n = 5
 		pc = 5
-	Trans 8 -- 6
-		_x_e : e
-		_x_i : (i + 1)
-	End do-while
-	State 8
-		n = 5
-		pc = 5
-		(((-1 * e) + i) <= -1)
-		((-1 * i) < 0)
-		((21.0 - ((ToReal(i) * 7/4) + (ToReal(e) * 1/2))) <= 0.0)
 	Trans 8 -- 9
 		_x_e = e
 		_x_i = (i + 1)
-	starting from: {pc: 3, e: 5, i: 2, n: 5}
+	starting from: pc : 3, e : 5, i : 2, n : 5
 
-end of `power`: SUCCESS in 0.9020311832427979s
+end of `power`: SUCCESS in 1.431997299194336s

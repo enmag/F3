@@ -1,8 +1,8 @@
-group: pyrank_ta_fischer
-platform: Linux node1 5.4.0-56-generic #62-Ubuntu SMP Mon Nov 23 19:20:19 UTC 2020 x86_64 x86_64
-timestamp: 1616949509
-time: 2021-03-28 18:38:29
+group: f3_ta_fischer
+platform: Linux node2 5.4.0-56-generic #62-Ubuntu SMP Mon Nov 23 19:20:19 UTC 2020 x86_64 x86_64
+timestamp: 1629309108
+time: 2021-08-18 19:51:48
 exitcode: 0
-real: 60.42
-user: 59.39
-sys: 0.56
+real: 54.27
+user: 53.22
+sys: 0.72

@@ -99,10 +99,10 @@ def check_ltl(menv: msat_env, enc: LTLEncoder):
                               msat_make_and(menv, comp.x_invar, comp.trans))
 
     # ltl
-    ltl = enc.make_F(enc.make_G(msat_make_and(
+    ltl = msat_make_not(menv, enc.make_G(enc.make_F(msat_make_and(
         menv,
         msat_make_gt(menv, delta, zero),
-        msat_make_gt(menv, leader.v, zero))))
+        msat_make_gt(menv, leader.v, zero)))))
     return TermMap(curr2next), init, trans, ltl
 
 
@@ -118,21 +118,27 @@ class Leader:
         self.max_acc = max_acc
         self.delta = delta
         self.x_delta = x_delta
-        self.a, self.x_a = decl_consts(menv, "{}_a".format(name), real_type)
-        self.v, self.x_v = decl_consts(menv, "{}_v".format(name), real_type)
-        self.c, self.x_c = decl_consts(menv, "{}_c".format(name), real_type)
+        self.a, self.x_a = decl_consts(menv, f"{name}_a", real_type)
+        self.v, self.x_v = decl_consts(menv, f"{name}_v", real_type)
+        self.c, self.x_c = decl_consts(menv, f"{name}_c", real_type)
+        self.travel, self.x_travel = decl_consts(menv, f"{name}_travel",
+                                                 real_type)
 
     @property
     def curr2next(self) -> dict:
         """ Return dictionary of symbols: current to next"""
-        return {self.a: self.x_a, self.v: self.x_v, self.c: self.x_c}
+        return {self.a: self.x_a, self.v: self.x_v, self.c: self.x_c,
+                self.travel: self.x_travel}
 
     @property
     def init(self):
         """Return formula representing the initial states"""
         menv = self.menv
         zero = msat_make_number(menv, "0")
-        return msat_make_and(menv, msat_make_equal(menv, self.a, zero),
+        return msat_make_and(menv,
+                             msat_make_and(menv,
+                                           msat_make_equal(menv, self.a, zero),
+                                           msat_make_equal(menv, self.travel, zero)),
                              msat_make_and(menv,
                                            msat_make_equal(menv, self.v, zero),
                                            msat_make_equal(menv, self.c, zero)))
@@ -162,7 +168,7 @@ class Leader:
         menv = self.menv
         zero = msat_make_number(menv, "0")
         v_p_a_delta = msat_make_plus(menv, self.x_v,
-                                     msat_make_times(menv, self.x_a, self.delta))
+                                     msat_make_times(menv, self.x_a, self.x_delta))
         zero_le_c = msat_make_leq(menv, zero, self.x_c)
         c_le_period = msat_make_leq(menv, self.x_c, self.period)
         v_ge_zero = msat_make_geq(menv, self.x_v, zero)
@@ -194,11 +200,12 @@ class Leader:
             msat_make_plus(menv, self.v,
                            msat_make_times(menv, self.a, self.delta)))
         xv_eq_zero = msat_make_equal(menv, self.x_v, zero)
-        res = msat_make_impl(menv, c_eq_period,
-                             msat_make_and(menv, xc_eq_zero, delta_eq_zero))
-        res = msat_make_and(menv, res,
-                            msat_make_impl(menv, c_lt_period,
-                                           xc_eq_c_p_delta))
+        res = msat_make_and(
+            menv,
+            msat_make_impl(menv, c_eq_period,
+                           msat_make_and(menv, xc_eq_zero, delta_eq_zero)),
+            msat_make_impl(menv, c_lt_period,
+                           xc_eq_c_p_delta))
         lhs = msat_make_and(menv, delta_eq_zero,
                             msat_make_and(menv, c_eq_period, xc_eq_zero))
         lhs = msat_make_not(menv, lhs)
@@ -206,10 +213,20 @@ class Leader:
             menv, res,
             msat_make_impl(menv, lhs,
                            msat_make_or(menv, xa_eq_a, xa_eq_zero)))
+        next_travel = msat_make_plus(menv, self.travel,
+                                     msat_make_times(menv, self.v, self.delta))
+        next_travel = msat_make_plus(
+            menv, next_travel,
+            msat_make_times(menv,
+                            msat_make_times(menv, msat_make_number(menv, "0.5"),
+                                            self.a),
+                            msat_make_times(menv, self.delta, self.delta)))
         res = msat_make_and(
             menv, res,
-            msat_make_or(menv, xv_eq_v_p_a_delta,
-                         msat_make_and(menv, xv_eq_zero, xa_eq_zero)))
+            msat_make_and(menv,
+                          msat_make_or(menv, xv_eq_v_p_a_delta,
+                                       msat_make_and(menv, xv_eq_zero, xa_eq_zero)),
+                          msat_make_equal(menv, self.x_travel, next_travel)))
         return res
 
 
@@ -286,7 +303,7 @@ class Follower:
         v_p_a_delta_ge_zero = msat_make_geq(
             menv,
             msat_make_plus(menv, self.x_v,
-                           msat_make_times(menv, self.x_a, self.delta)),
+                           msat_make_times(menv, self.x_a, self.x_delta)),
             zero)
         min_acc_le_a = msat_make_leq(menv, self.min_acc, self.x_a)
         a_le_max_acc = msat_make_leq(menv, self.x_a, self.max_acc)
@@ -310,7 +327,7 @@ class Follower:
         c_lt_period = msat_make_lt(menv, self.c, self.period)
         xc_eq_0 = msat_make_equal(menv, self.x_c, r_0)
         xc_eq_c_p_delta = msat_make_equal(menv, self.x_c,
-                                          msat_make_plus(menv, self.period,
+                                          msat_make_plus(menv, self.c,
                                                          self.delta))
         x_v_eq_v_p_ad = msat_make_equal(
             menv, self.x_v,

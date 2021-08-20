@@ -1,7 +1,10 @@
-
-
-run 1/1: `Rotation180_false-termination`
+F3 run `Rotation180_false-termination`
 
 	Found non-termination argument:
-	[{y: 0, old_x: 0, pc: 0, x: 0}, {y: 0, old_x: 0, pc: 1, x: 0}, {y: 0, old_x: 0, pc: 2, x: 0}, {y: 0, old_x: 0, pc: 3, x: 0}, {y: 0, old_x: 0, pc: 0, x: 0}]
-end of `Rotation180_false-termination`: SUCCESS in 0.026767253875732422s
+	y : 0, old_x : 0, pc : 0, x : 0
+	y : 0, old_x : 0, pc : 1, x : 0
+	y : 0, old_x : 0, pc : 2, x : 0
+	y : 0, old_x : 0, pc : 3, x : 0
+	y : 0, old_x : 0, pc : 0, x : 0
+
+end of `Rotation180_false-termination`: SUCCESS in 0.22830772399902344s

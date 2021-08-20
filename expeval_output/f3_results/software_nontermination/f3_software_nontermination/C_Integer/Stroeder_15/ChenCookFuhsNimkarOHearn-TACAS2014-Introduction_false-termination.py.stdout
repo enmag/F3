@@ -1,7 +1,8 @@
-
-
-run 1/1: `ChenCookFuhsNimkarOHearn-TACAS2014-Introduction_false-termination`
+F3 run `ChenCookFuhsNimkarOHearn-TACAS2014-Introduction_false-termination`
 
 	Found non-termination argument:
-	[{pc: 2, k: 0, i: 0}, {pc: 3, k: 0, i: 0}, {pc: 2, k: 0, i: 0}]
-end of `ChenCookFuhsNimkarOHearn-TACAS2014-Introduction_false-termination`: SUCCESS in 0.028540849685668945s
+	pc : 2, k : 0, i : 0
+	pc : 3, k : 0, i : 0
+	pc : 2, k : 0, i : 0
+
+end of `ChenCookFuhsNimkarOHearn-TACAS2014-Introduction_false-termination`: SUCCESS in 0.28479647636413574s

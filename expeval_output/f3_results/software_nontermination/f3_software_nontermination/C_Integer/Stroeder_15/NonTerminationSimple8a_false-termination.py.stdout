@@ -1,32 +1,25 @@
-
-
-run 1/1: `NonTerminationSimple8a_false-termination`
+F3 run `NonTerminationSimple8a_false-termination`
 
 	Found non-termination argument:
-	Do states 0..2 while (ToReal(x) < 0.0)
 	State 0
 		pc = 0
-		nondet = -1
+		(nondet < 0)
 		((-1 * x) <= 0)
+		((-1 * x) <= 1)
 	Trans 0 -- 1
-		_x_x : x
+		_x_x = x
+		_x_nondet = ((-1 * x) + nondet + -1)
 	State 1
 		pc = 1
-		nondet = -1
+		(nondet < 0)
 	Trans 1 -- 2
-		_x_x : x
+		_x_nondet = 0
+		_x_x = x
 	State 2
 		pc = 2
-		nondet = 0
-	Trans 2 -- 0
-		_x_x : (x + 1)
-	End do-while
-	State 2
-		pc = 2
-		nondet = 0
-		((-1.0 * ToReal(x)) <= 0.0)
 	Trans 2 -- 3
 		_x_x = (x + 1)
-	starting from: {pc: 0, x: 0, nondet: -1}
+		_x_nondet = ((-1 * x) + (nondet * 4) + -1)
+	starting from: pc : 0, x : 0, nondet : -1
 
-end of `NonTerminationSimple8a_false-termination`: SUCCESS in 0.5828614234924316s
+end of `NonTerminationSimple8a_false-termination`: SUCCESS in 2.7678346633911133s

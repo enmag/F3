@@ -1,848 +1,585 @@
-
-
-run 1/1: `critical_region_0027`
+F3 run `critical_region_0027`
 
 	Found non-termination argument:
-	Do states 1..2 while ((pc22_x + pc9_x + pc8_x + pc20_x + pc24_x + pc15_x + pc3_x + pc18_x + pc14_x + pc11_x + pc17_x + pc25_x + pc4_x + pc10_x + pc6_x + pc13_x + pc1_x + pc21_x + pc5_x + pc16_x + pc23_x + pc12_x + pc0_x + pc19_x + pc26_x + (_diverge_delta * 9/8) + pc2_x + pc7_x + -2731/2) < 0.0)
 	State 1
-		delta = 1.0
-		pc25_l1 = False
-		pc24_evt0 = True
-		pc23_l1 = False
-		pc23_l0 = False
-		pc22_l1 = False
-		pc22_l0 = False
-		pc22_evt1 = True
-		pc22_evt0 = True
-		pc21_l1 = False
-		pc21_evt1 = True
-		pc21_evt0 = True
-		pc20_l1 = False
-		pc20_l0 = False
-		pc20_evt1 = True
-		pc19_l1 = False
-		pc19_l0 = False
-		pc19_evt1 = False
-		pc25_l2 = False
-		pc19_evt0 = True
-		pc18_evt1 = True
-		pc24_l2 = False
-		pc18_evt0 = True
-		pc23_l2 = False
-		pc17_evt0 = True
-		pc22_l2 = False
-		pc16_evt0 = True
-		pc15_l0 = False
-		pc15_evt1 = True
-		pc14_evt1 = True
-		pc20_l2 = False
-		pc14_evt0 = True
-		pc13_l1 = False
-		pc13_l0 = False
-		pc12_l1 = False
-		pc12_l0 = False
-		pc12_evt1 = True
-		pc18_l2 = False
-		pc12_evt0 = True
-		pc11_l1 = False
-		pc11_evt1 = True
+		a10_l = False
+		pc26_evt1 = True
+		a24_l = False
+		pc26_evt0 = True
+		a26_evt1 = False
+		a26_evt0 = True
+		a25_l = False
+		pc3_l1 = False
+		pc3_l0 = False
+		pc25_evt1 = True
+		pc3_l2 = False
+		pc25_evt0 = True
+		a25_evt1 = False
+		a25_evt0 = True
 		pc10_l1 = False
 		pc10_l0 = False
-		pc10_evt1 = True
-		pc9_l1 = False
-		pc9_l0 = False
-		pc9_evt1 = True
-		pc15_l2 = False
-		pc9_evt0 = True
-		pc8_l0 = False
-		pc8_evt1 = False
+		a11_l = False
+		pc10_l2 = False
+		pc24_evt1 = True
+		id = 23
+		pc24_evt0 = True
+		a24_evt1 = False
+		pc17_l1 = False
+		a24_evt0 = True
+		pc17_l0 = False
+		pc17_l2 = False
+		_J6311 = True
+		_J6305 = True
+		a26_l = False
+		_J6298 = True
+		_J6289 = True
+		pc23_evt1 = True
+		pc24_l1 = False
+		pc23_evt0 = True
+		pc24_l0 = False
+		a23_evt1 = False
+		pc24_l2 = False
+		a23_evt0 = True
+		_J6283 = True
+		_EL_U_6250 = True
+		_EL_U_6252 = False
+		_EL_U_6255 = False
+		_EL_U_6257 = False
+		a12_l = False
+		pc22_evt1 = True
+		_EL_U_6259 = True
+		pc22_evt0 = True
+		a22_evt1 = False
+		a22_evt0 = True
+		pc0_l1 = False
+		pc0_l0 = False
+		pc21_evt1 = True
+		pc0_l2 = False
+		pc21_evt0 = True
+		a21_evt1 = False
+		a21_evt0 = True
 		pc7_l1 = False
 		pc7_l0 = False
-		pc13_l2 = False
-		pc7_evt0 = True
-		pc23_evt1 = True
+		pc20_evt1 = True
+		pc7_l2 = False
+		pc20_evt0 = True
+		a13_l = False
+		a20_evt1 = False
+		a20_evt0 = True
+		pc14_l1 = False
+		pc14_l0 = False
+		pc14_l2 = False
+		pc19_evt1 = True
+		pc19_evt0 = True
+		a19_evt1 = False
+		pc21_l1 = False
+		a19_evt0 = True
+		pc21_l0 = False
+		c_initial = True
+		pc21_l2 = False
+		pc18_evt1 = True
+		pc18_evt0 = True
+		a18_evt1 = False
+		a14_l = False
+		a18_evt0 = True
+		pc17_evt1 = True
+		pc17_evt0 = True
+		a17_evt1 = False
+		a17_evt0 = True
+		a0_l = False
+		pc16_evt1 = True
+		pc4_l1 = False
+		pc16_evt0 = True
+		pc4_l0 = False
 		a16_evt1 = False
-		a15_evt1 = True
-		a4_evt0 = False
-		a3_evt0 = False
+		pc4_l2 = False
+		a16_evt0 = True
+		a15_l = False
+		pc11_l1 = False
+		pc11_l0 = False
+		pc15_evt1 = True
+		pc11_l2 = False
+		pc15_evt0 = True
+		a15_evt1 = False
+		a15_evt0 = True
+		pc18_l1 = False
+		pc18_l0 = False
+		pc18_l2 = False
+		a1_l = False
+		pc14_evt1 = True
+		pc14_evt0 = True
+		a14_evt1 = False
+		pc25_l1 = False
+		a14_evt0 = True
+		pc25_l0 = False
+		pc25_l2 = False
+		a16_l = False
 		pc13_evt1 = True
-		a13_evt1 = True
-		pc16_l1 = False
-		a2_evt0 = False
+		pc13_evt0 = True
+		a13_evt1 = False
+		a13_evt0 = True
+		pc12_evt1 = True
+		a2_l = False
+		pc12_evt0 = True
 		a12_evt1 = False
-		pc25_evt1 = True
-		a1_evt0 = False
-		a11_evt1 = True
+		pc1_l1 = False
+		a12_evt0 = True
+		pc1_l0 = False
+		pc1_l2 = False
+		a17_l = False
+		pc11_evt1 = True
+		pc8_l1 = False
+		pc11_evt0 = True
+		pc8_l0 = False
+		a11_evt1 = False
+		pc8_l2 = False
+		a11_evt0 = True
+		pc15_l1 = False
+		pc15_l0 = False
+		pc10_evt1 = True
+		pc15_l2 = False
+		pc10_evt0 = True
+		a10_evt1 = False
+		a3_l = False
+		a10_evt0 = True
+		pc22_l1 = False
+		pc22_l0 = False
+		pc22_l2 = False
+		pc9_evt1 = True
 		a18_l = False
+		pc9_evt0 = True
+		a9_evt1 = False
+		a9_evt0 = True
+		pc8_evt1 = True
+		pc8_evt0 = True
 		a8_evt1 = False
 		a8_evt0 = True
-		a19_evt1 = True
-		_EL_U_6250 = True
-		pc3_l2 = False
-		a11_l = False
-		_EL_U_6252 = False
-		pc7_l2 = False
-		pc1_evt0 = True
-		a1_evt1 = True
-		a21_evt1 = False
-		pc7_evt1 = True
-		a2_l = False
-		a16_l = False
-		pc26_l1 = False
-		a5_evt0 = False
-		pc0_l1 = False
-		pc11_l0 = False
-		a6_evt1 = False
-		a15_evt0 = False
-		pc2_evt1 = True
-		a7_l = False
-		a12_l = False
-		pc16_l2 = False
-		pc10_evt0 = True
-		a2_evt1 = True
-		pc9_l2 = False
-		a10_evt0 = False
-		pc3_evt0 = True
-		a11_evt0 = False
-		a3_l = False
-		pc21_l0 = False
-		a9_evt1 = True
-		pc17_l1 = False
-		a0_evt1 = False
-		_EL_U_6257 = False
-		a7_evt0 = False
-		a18_evt1 = False
-		a7_evt1 = True
-		pc23_evt0 = True
-		a16_evt0 = True
-		a8_l = False
-		pc17_l0 = False
-		a0_evt0 = True
-		a6_evt0 = True
-		pc14_l1 = False
-		a17_evt1 = False
-		a10_l = False
-		c_initial = True
-		c_move = False
-		a9_evt0 = False
-		pc24_l1 = False
-		a20_evt1 = False
-		pc25_l0 = False
-		a1_l = False
-		pc14_l0 = False
-		a17_evt0 = True
-		pc24_evt1 = True
-		a25_l = False
-		_EL_U_6259 = True
-		pc17_l2 = False
-		pc11_evt0 = True
-		pc18_l1 = False
-		a9_l = False
-		pc14_l2 = False
-		pc8_evt0 = True
-		a0_l = False
-		a4_evt1 = True
-		pc19_l2 = False
-		pc13_evt0 = True
-		a13_evt0 = False
-		a24_evt1 = False
-		pc12_l2 = False
-		pc6_evt0 = True
-		pc17_evt1 = True
-		a5_l = False
-		a13_l = False
-		a22_evt1 = False
-		a12_evt0 = True
-		a23_evt1 = False
 		a4_l = False
-		pc2_l1 = False
-		a15_l = False
-		pc2_l0 = False
-		pc5_l2 = False
-		pc26_l2 = False
-		pc20_evt0 = True
-		pc0_l2 = False
-		a5_evt1 = True
-		pc4_l0 = False
-		a14_evt0 = False
-		pc8_l1 = False
-		a6_l = False
-		a18_evt0 = True
-		pc15_l1 = False
-		a26_l = False
+		pc7_evt1 = True
+		pc7_evt0 = True
 		a19_l = False
-		a19_evt0 = False
-		pc3_l1 = False
-		pc21_l2 = False
-		pc15_evt0 = True
-		a20_l = False
-		pc24_l0 = False
-		a20_evt0 = True
-		pc6_l0 = False
-		a21_l = False
-		pc6_evt1 = True
-		a21_evt0 = True
-		a22_l = False
-		pc4_evt1 = True
-		a22_evt0 = True
-		pc25_evt0 = True
-		a23_l = False
-		a23_evt0 = True
-		pc16_l0 = False
-		a24_l = False
-		pc16_evt1 = False
-		a24_evt0 = True
-		a25_evt0 = False
-		a25_evt1 = True
-		pc10_l2 = False
-		pc4_evt0 = True
-		a26_evt0 = False
-		pc18_l0 = False
-		a26_evt1 = True
-		pc26_evt0 = True
-		pc0_evt0 = True
-		pc26_evt1 = True
-		pc0_evt1 = True
-		pc26_l0 = False
-		pc0_l0 = False
-		pc1_evt1 = True
-		a3_evt1 = True
-		pc1_l0 = False
-		pc4_l2 = False
-		pc1_l1 = False
-		a14_l = False
-		pc1_l2 = False
-		pc8_l2 = False
-		pc2_evt0 = True
-		pc2_l2 = False
-		a10_evt1 = True
-		pc3_evt1 = True
-		pc3_l0 = False
-		id = 19
-		pc6_l2 = False
-		a14_evt1 = True
-		pc4_l1 = False
-		pc11_l2 = False
-		a17_l = False
-		pc5_evt0 = True
-		pc5_evt1 = True
-		pc5_l0 = False
 		pc5_l1 = False
+		a7_evt1 = False
+		pc5_l0 = False
+		a7_evt0 = True
+		pc5_l2 = False
+		pc6_evt1 = True
+		pc12_l1 = False
+		pc6_evt0 = True
+		pc12_l0 = False
+		a6_evt1 = False
+		pc12_l2 = False
+		a6_evt0 = True
+		a5_l = False
+		pc19_l1 = False
+		pc19_l0 = False
+		pc5_evt1 = True
+		pc19_l2 = False
+		pc5_evt0 = True
+		a5_evt1 = False
+		a5_evt0 = True
+		a20_l = False
+		pc26_l1 = False
+		pc26_l0 = False
+		pc26_l2 = False
+		pc4_evt1 = True
+		pc4_evt0 = True
+		a4_evt1 = False
+		a4_evt0 = True
+		a6_l = False
+		pc3_evt1 = True
+		pc3_evt0 = True
+		a3_evt1 = False
+		a3_evt0 = True
+		pc2_l1 = False
+		a21_l = False
+		pc2_l0 = False
+		pc2_l2 = False
+		pc2_evt1 = True
+		pc2_evt0 = True
+		a2_evt1 = False
+		pc9_l1 = False
+		a2_evt0 = True
+		pc9_l0 = False
+		pc9_l2 = False
+		pc1_evt1 = True
+		a7_l = False
+		pc1_evt0 = True
+		pc16_l1 = False
+		a1_evt1 = False
+		pc16_l0 = False
+		a1_evt0 = True
+		pc16_l2 = False
+		a22_l = False
+		pc23_l1 = False
+		pc23_l0 = False
+		pc0_evt1 = True
+		pc23_l2 = False
+		pc0_evt0 = True
+		a0_evt1 = False
+		a0_evt0 = True
+		c_move = True
+		a8_l = False
+		a23_l = False
 		pc6_l1 = False
-		_J6283 = True
-		_J6289 = True
-		_J6298 = True
-		_J6305 = True
-		_J6311 = True
-		_EL_U_6255 = False
-		True
+		pc6_l0 = False
+		pc6_l2 = False
+		pc13_l1 = False
+		a9_l = False
+		pc13_l0 = False
+		pc13_l2 = False
+		pc20_l1 = False
+		pc20_l0 = False
+		pc20_l2 = False
+		((-1.0 * pc21_x) < -50.0)
+		((-1.0 * pc0_x) < -50.0)
 		((-1.0 * pc12_x) < -50.0)
-		((-1.0 * pc20_x) < -50.0)
-		((-1.0 * pc6_x) < -50.0)
-		((-1.0 * pc1_x) < -50.0)
-		((-1.0 * pc23_x) < -50.0)
+		((-1.0 * pc26_x) < -50.0)
+		((-1.0 * pc13_x) < -50.0)
+		((-1.0 * pc14_x) < -50.0)
 		((-1.0 * _diverge_delta) <= -1.0)
+		((-1.0 * pc1_x) < -50.0)
+		((-1.0 * pc15_x) < -50.0)
+		((-1.0 * pc2_x) < -50.0)
+		((-1.0 * delta) <= -1.0)
+		((-1.0 * pc16_x) < -50.0)
+		((-1.0 * pc8_x) < -50.0)
+		((-1.0 * pc3_x) < -50.0)
+		((-1.0 * pc17_x) < -50.0)
+		((-1.0 * pc22_x) < -50.0)
+		((-1.0 * pc4_x) < -50.0)
+		((-1.0 * pc18_x) < -50.0)
 		((-1.0 * pc9_x) < -50.0)
 		((-1.0 * pc5_x) < -50.0)
-		((-1.0 * pc18_x) < -50.0)
-		((-1.0 * pc26_x) < -50.0)
-		((-1.0 * pc4_x) < -50.0)
-		((-1.0 * pc8_x) < -50.0)
 		((-1.0 * pc19_x) < -50.0)
-		((-1.0 * pc17_x) < -50.0)
-		((-1.0 * pc21_x) < -50.0)
-		((-1.0 * pc3_x) < -50.0)
-		((-1.0 * pc25_x) < -50.0)
-		((-1.0 * pc22_x) < -50.0)
-		((-1.0 * pc16_x) < -50.0)
-		((-1.0 * pc7_x) < -50.0)
-		((-1.0 * pc2_x) < -50.0)
-		((-1.0 * pc11_x) < -50.0)
-		((-1.0 * pc15_x) < -50.0)
-		((-1.0 * pc24_x) < -50.0)
-		((-1.0 * pc14_x) < -50.0)
 		((-1.0 * pc10_x) < -50.0)
-		((-1.0 * pc13_x) < -50.0)
-		((-1.0 * pc0_x) < -50.0)
+		((-1.0 * pc23_x) < -50.0)
+		((-1.0 * pc24_x) < -50.0)
+		((-1.0 * pc6_x) < -50.0)
+		((-1.0 * pc20_x) < -50.0)
+		((-1.0 * pc25_x) < -50.0)
+		((-1.0 * pc11_x) < -50.0)
+		((-1.0 * pc7_x) < -50.0)
+		((-1.0 * delta) < 0.0)
+		((((pc0_x * 1/8) + (pc19_x * 1/2) + (-1.0 * _diverge_delta) + (-1.0 * delta) + pc7_x + (-1.0 * pc20_x) + (pc1_x * 1/2) + (-1.0 * pc21_x) + (pc2_x * 1/8) + (-1.0 * pc22_x) + (pc16_x * 1/4) + (pc10_x * 1/8) + (pc17_x * 1/8) + (-1.0 * pc5_x) + (pc18_x * 1/8) + (pc12_x * 1/4) + (-1.0 * pc25_x) + 1848.0) - ((pc13_x * 1/2) + (pc26_x * 1/2) + (pc14_x * 1/2) + (pc8_x * 1/2) + (pc15_x * 1/4) + (pc9_x * 1/8) + (pc3_x * 1/4) + (pc23_x * 1/2) + (pc4_x * 1/2) + (pc11_x * 1/4) + (pc24_x * 1/8) + (pc6_x * 1/2))) <= 0.0)
 	Trans 1 -- 2
-		_x_pc7_x : (pc7_x + 1.0)
-		_x_pc2_x : (pc2_x + 1.0)
-		_x__diverge_delta : 1.0
-		_x_pc26_x : (pc26_x + 1.0)
-		_x_pc19_x : (pc19_x + 1.0)
-		_x_pc0_x : (pc0_x + 1.0)
-		_x_pc12_x : (pc12_x + 1.0)
-		_x_pc23_x : (pc23_x + 1.0)
-		_x_pc16_x : (pc16_x + 1.0)
-		_x_pc5_x : (pc5_x + 1.0)
-		_x_pc21_x : (pc21_x + 1.0)
-		_x_pc1_x : (pc1_x + 1.0)
-		_x_pc13_x : (pc13_x + 1.0)
-		_x_pc6_x : (pc6_x + 1.0)
-		_x_pc10_x : (pc10_x + 1.0)
-		_x_pc4_x : (pc4_x + 1.0)
-		_x_pc25_x : (pc25_x + 1.0)
-		_x_pc17_x : (pc17_x + 1.0)
-		_x_pc11_x : (pc11_x + 1.0)
-		_x_pc14_x : (pc14_x + 1.0)
-		_x_pc18_x : (pc18_x + 1.0)
-		_x_pc3_x : (pc3_x + 1.0)
-		_x_pc15_x : (pc15_x + 1.0)
-		_x_pc24_x : (pc24_x + 1.0)
-		_x_pc20_x : (pc20_x + 1.0)
-		_x_pc8_x : (pc8_x + 1.0)
-		_x_pc9_x : (pc9_x + 1.0)
-		_x_pc22_x : (pc22_x + 1.0)
+		_x_pc14_x = (pc14_x + delta)
+		_x_pc3_x = (pc3_x + delta)
+		_x_pc0_x = (delta + pc0_x)
+		_x_pc13_x = (pc13_x + delta)
+		_x_pc26_x = (pc26_x + delta)
+		_x_pc6_x = (pc6_x + delta)
+		_x_pc21_x = (pc21_x + delta)
+		_x_pc24_x = (pc24_x + delta)
+		_x_pc12_x = (pc12_x + delta)
+		_x_pc19_x = (delta + pc19_x)
+		_x_pc25_x = (pc25_x + delta)
+		_x_pc10_x = (pc10_x + delta)
+		_x_pc7_x = (pc7_x + delta)
+		_x__diverge_delta = delta
+		_x_pc11_x = (pc11_x + delta)
+		_x_pc5_x = (pc5_x + delta)
+		_x_pc20_x = (pc20_x + delta)
+		_x_pc23_x = (pc23_x + delta)
+		_x_pc8_x = (pc8_x + delta)
+		_x_pc18_x = (pc18_x + delta)
+		_x_pc16_x = (pc16_x + delta)
+		_x_pc9_x = (pc9_x + delta)
+		_x_pc2_x = (pc2_x + delta)
+		_x_pc4_x = (pc4_x + delta)
+		_x_pc15_x = (pc15_x + delta)
+		_x_pc22_x = (pc22_x + delta)
+		_x_pc1_x = (pc1_x + delta)
+		_x_pc17_x = (pc17_x + delta)
+		_x_delta = (pc0_x + _diverge_delta + (delta * 1/4) + pc13_x + pc26_x + pc7_x + (pc20_x * 1/8) + (pc14_x * 1/2) + pc8_x + (pc21_x * 1/2) + pc2_x + pc15_x + pc22_x + pc3_x + pc16_x + pc10_x + pc23_x + pc4_x + pc11_x + pc5_x + pc18_x + pc12_x + pc25_x + (pc6_x * 1/4) + 1.0)
 	State 2
-		delta = 1.0
-		pc25_l1 = False
-		pc24_evt0 = False
-		pc23_l1 = False
-		pc23_l0 = False
-		pc22_l1 = False
-		pc22_l0 = False
-		pc22_evt1 = False
-		pc22_evt0 = False
-		pc21_l1 = False
-		pc21_evt1 = False
-		pc21_evt0 = False
-		pc20_l1 = False
-		pc20_l0 = False
-		pc20_evt1 = False
-		pc19_l1 = False
-		pc19_l0 = False
-		pc19_evt1 = False
-		pc25_l2 = False
-		pc19_evt0 = False
-		pc18_evt1 = False
-		pc24_l2 = False
-		pc18_evt0 = False
-		pc23_l2 = False
-		pc17_evt0 = False
-		pc22_l2 = False
-		pc16_evt0 = False
-		pc15_l0 = False
-		pc15_evt1 = False
-		pc14_evt1 = False
-		pc20_l2 = False
-		pc14_evt0 = False
-		pc13_l1 = False
-		pc13_l0 = False
-		pc12_l1 = False
-		pc12_l0 = False
-		pc12_evt1 = False
-		pc18_l2 = False
-		pc12_evt0 = False
-		pc11_l1 = False
-		pc11_evt1 = False
+		a10_l = False
+		pc26_evt1 = True
+		a24_l = False
+		pc26_evt0 = True
+		a26_evt1 = False
+		a26_evt0 = False
+		a25_l = False
+		pc3_l1 = False
+		pc3_l0 = False
+		pc25_evt1 = True
+		pc3_l2 = False
+		pc25_evt0 = True
+		a25_evt1 = False
+		a25_evt0 = False
 		pc10_l1 = False
 		pc10_l0 = False
-		pc10_evt1 = False
-		pc9_l1 = False
-		pc9_l0 = False
-		pc9_evt1 = False
-		pc15_l2 = False
-		pc9_evt0 = False
-		pc8_l0 = False
-		pc8_evt1 = False
+		a11_l = False
+		pc10_l2 = False
+		pc24_evt1 = True
+		id = 4
+		pc24_evt0 = True
+		a24_evt1 = False
+		pc17_l1 = False
+		a24_evt0 = True
+		pc17_l0 = False
+		pc17_l2 = False
+		_J6311 = False
+		_J6305 = False
+		a26_l = False
+		_J6298 = False
+		_J6289 = False
+		pc23_evt1 = True
+		pc24_l1 = False
+		pc23_evt0 = True
+		pc24_l0 = False
+		a23_evt1 = False
+		pc24_l2 = False
+		a23_evt0 = True
+		_J6283 = False
+		_EL_U_6250 = True
+		_EL_U_6252 = False
+		_EL_U_6255 = False
+		_EL_U_6257 = False
+		a12_l = False
+		pc22_evt1 = True
+		_EL_U_6259 = True
+		pc22_evt0 = True
+		a22_evt1 = False
+		a22_evt0 = False
+		pc0_l1 = False
+		pc0_l0 = False
+		pc21_evt1 = True
+		pc0_l2 = False
+		pc21_evt0 = True
+		a21_evt1 = False
+		a21_evt0 = False
 		pc7_l1 = False
 		pc7_l0 = False
-		pc13_l2 = False
-		pc7_evt0 = False
-		pc23_evt1 = False
-		a16_evt1 = False
-		a15_evt1 = False
-		a4_evt0 = False
-		a3_evt0 = False
-		pc13_evt1 = False
-		a13_evt1 = False
-		pc16_l1 = False
-		a2_evt0 = False
-		a12_evt1 = False
-		pc25_evt1 = False
-		a1_evt0 = False
-		a11_evt1 = False
-		a18_l = False
-		a8_evt1 = False
-		a8_evt0 = False
-		a19_evt1 = False
-		_EL_U_6250 = True
-		pc3_l2 = False
-		a11_l = False
-		_EL_U_6252 = False
+		pc20_evt1 = True
 		pc7_l2 = False
-		pc1_evt0 = False
-		a1_evt1 = False
-		a21_evt1 = False
-		pc7_evt1 = False
-		a2_l = False
-		a16_l = False
-		pc26_l1 = False
-		a5_evt0 = False
-		pc0_l1 = False
-		pc11_l0 = False
-		a6_evt1 = False
-		a15_evt0 = False
-		pc2_evt1 = False
-		a7_l = False
-		a12_l = False
-		pc16_l2 = False
-		pc10_evt0 = True
-		a2_evt1 = False
-		pc9_l2 = False
-		a10_evt0 = False
-		pc3_evt0 = False
-		a11_evt0 = False
-		a3_l = False
-		pc21_l0 = False
-		a9_evt1 = False
-		pc17_l1 = False
-		a0_evt1 = False
-		_EL_U_6257 = False
-		a7_evt0 = False
-		a18_evt1 = False
-		a7_evt1 = False
-		pc23_evt0 = False
-		a16_evt0 = False
-		a8_l = False
-		pc17_l0 = False
-		a0_evt0 = False
-		a6_evt0 = False
-		pc14_l1 = False
-		a17_evt1 = False
-		a10_l = False
-		c_initial = True
-		c_move = True
-		a9_evt0 = False
-		pc24_l1 = False
-		a20_evt1 = False
-		pc25_l0 = False
-		a1_l = False
-		pc14_l0 = False
-		a17_evt0 = False
-		pc24_evt1 = False
-		a25_l = False
-		_EL_U_6259 = True
-		pc17_l2 = False
-		pc11_evt0 = False
-		pc18_l1 = False
-		a9_l = False
-		pc14_l2 = False
-		pc8_evt0 = False
-		a0_l = False
-		a4_evt1 = False
-		pc19_l2 = False
-		pc13_evt0 = False
-		a13_evt0 = False
-		a24_evt1 = False
-		pc12_l2 = False
-		pc6_evt0 = False
-		pc17_evt1 = False
-		a5_l = False
+		pc20_evt0 = True
 		a13_l = False
-		a22_evt1 = False
-		a12_evt0 = False
-		a23_evt1 = False
-		a4_l = False
-		pc2_l1 = False
-		a15_l = False
-		pc2_l0 = False
-		pc5_l2 = False
-		pc26_l2 = False
-		pc20_evt0 = False
-		pc0_l2 = False
-		a5_evt1 = False
-		pc4_l0 = False
-		a14_evt0 = False
-		pc8_l1 = False
-		a6_l = False
-		a18_evt0 = False
-		pc15_l1 = False
-		a26_l = False
-		a19_l = False
-		a19_evt0 = False
-		pc3_l1 = False
-		pc21_l2 = False
-		pc15_evt0 = False
-		a20_l = False
-		pc24_l0 = False
+		a20_evt1 = False
 		a20_evt0 = False
-		pc6_l0 = False
-		a21_l = False
-		pc6_evt1 = False
-		a21_evt0 = False
-		a22_l = False
-		pc4_evt1 = False
-		a22_evt0 = False
-		pc25_evt0 = False
-		a23_l = False
-		a23_evt0 = False
-		pc16_l0 = False
-		a24_l = False
-		pc16_evt1 = False
-		a24_evt0 = False
-		a25_evt0 = False
-		a25_evt1 = False
-		pc10_l2 = False
-		pc4_evt0 = False
-		a26_evt0 = False
-		pc18_l0 = False
-		a26_evt1 = False
-		pc26_evt0 = False
-		pc0_evt0 = False
-		pc26_evt1 = False
-		pc0_evt1 = False
-		pc26_l0 = False
-		pc0_l0 = False
-		pc1_evt1 = False
-		a3_evt1 = False
-		pc1_l0 = False
-		pc4_l2 = False
-		pc1_l1 = False
+		pc14_l1 = False
+		pc14_l0 = False
+		pc14_l2 = False
+		pc19_evt1 = True
+		pc19_evt0 = True
+		a19_evt1 = False
+		pc21_l1 = False
+		a19_evt0 = False
+		pc21_l0 = False
+		c_initial = True
+		pc21_l2 = False
+		pc18_evt1 = False
+		pc18_evt0 = False
+		a18_evt1 = False
 		a14_l = False
-		pc1_l2 = False
-		pc8_l2 = False
-		pc2_evt0 = False
-		pc2_l2 = False
-		a10_evt1 = False
-		pc3_evt1 = False
-		pc3_l0 = False
-		id = 7
-		pc6_l2 = False
-		a14_evt1 = False
+		a18_evt0 = False
+		pc17_evt1 = True
+		pc17_evt0 = True
+		a17_evt1 = False
+		a17_evt0 = False
+		a0_l = False
+		pc16_evt1 = False
 		pc4_l1 = False
+		pc16_evt0 = False
+		pc4_l0 = False
+		a16_evt1 = False
+		pc4_l2 = False
+		a16_evt0 = True
+		a15_l = False
+		pc11_l1 = False
+		pc11_l0 = False
+		pc15_evt1 = True
 		pc11_l2 = False
-		a17_l = False
-		pc5_evt0 = False
-		pc5_evt1 = False
-		pc5_l0 = False
-		pc5_l1 = False
-		pc6_l1 = False
-		_J6283 = False
-		_J6289 = False
-		_J6298 = False
-		_J6305 = False
-		_J6311 = False
-		_EL_U_6255 = False
-	Trans 2 -- 1
-		_x_pc7_x : (pc7_x + 1.0)
-		_x_pc2_x : (pc2_x + 1.0)
-		_x__diverge_delta : 1.0
-		_x_pc26_x : (pc26_x + 1.0)
-		_x_pc19_x : (pc19_x + 1.0)
-		_x_pc0_x : (pc0_x + 1.0)
-		_x_pc12_x : (pc12_x + 1.0)
-		_x_pc23_x : (pc23_x + 1.0)
-		_x_pc16_x : (pc16_x + 1.0)
-		_x_pc5_x : (pc5_x + 1.0)
-		_x_pc21_x : (pc21_x + 1.0)
-		_x_pc1_x : (pc1_x + 1.0)
-		_x_pc13_x : (pc13_x + 1.0)
-		_x_pc6_x : (pc6_x + 1.0)
-		_x_pc10_x : (pc10_x + 1.0)
-		_x_pc4_x : (pc4_x + 1.0)
-		_x_pc25_x : (pc25_x + 1.0)
-		_x_pc17_x : (pc17_x + 1.0)
-		_x_pc11_x : (pc11_x + 1.0)
-		_x_pc14_x : (pc14_x + 1.0)
-		_x_pc18_x : (pc18_x + 1.0)
-		_x_pc3_x : (pc3_x + 1.0)
-		_x_pc15_x : (pc15_x + 1.0)
-		_x_pc24_x : (pc24_x + 1.0)
-		_x_pc20_x : (pc20_x + 1.0)
-		_x_pc8_x : (pc8_x + 1.0)
-		_x_pc9_x : (pc9_x + 1.0)
-		_x_pc22_x : (pc22_x + 1.0)
-	End do-while
-	State 2
-		delta = 1.0
+		pc15_evt0 = True
+		a15_evt1 = False
+		a15_evt0 = True
+		pc18_l1 = False
+		pc18_l0 = False
+		pc18_l2 = False
+		a1_l = False
+		pc14_evt1 = True
+		pc14_evt0 = True
+		a14_evt1 = False
 		pc25_l1 = False
-		pc24_evt0 = False
-		pc23_l1 = False
-		pc23_l0 = False
+		a14_evt0 = False
+		pc25_l0 = False
+		pc25_l2 = False
+		a16_l = False
+		pc13_evt1 = True
+		pc13_evt0 = True
+		a13_evt1 = False
+		a13_evt0 = False
+		pc12_evt1 = True
+		a2_l = False
+		pc12_evt0 = True
+		a12_evt1 = False
+		pc1_l1 = False
+		a12_evt0 = False
+		pc1_l0 = False
+		pc1_l2 = False
+		a17_l = False
+		pc11_evt1 = True
+		pc8_l1 = False
+		pc11_evt0 = True
+		pc8_l0 = False
+		a11_evt1 = False
+		pc8_l2 = False
+		a11_evt0 = False
+		pc15_l1 = False
+		pc15_l0 = False
+		pc10_evt1 = True
+		pc15_l2 = False
+		pc10_evt0 = True
+		a10_evt1 = False
+		a3_l = False
+		a10_evt0 = False
 		pc22_l1 = False
 		pc22_l0 = False
-		pc22_evt1 = False
-		pc22_evt0 = False
-		pc21_l1 = False
-		pc21_evt1 = False
-		pc21_evt0 = False
-		pc20_l1 = False
-		pc20_l0 = False
-		pc20_evt1 = False
+		pc22_l2 = False
+		pc9_evt1 = True
+		a18_l = False
+		pc9_evt0 = True
+		a9_evt1 = False
+		a9_evt0 = False
+		pc8_evt1 = True
+		pc8_evt0 = True
+		a8_evt1 = False
+		a8_evt0 = True
+		a4_l = False
+		pc7_evt1 = True
+		pc7_evt0 = True
+		a19_l = False
+		pc5_l1 = False
+		a7_evt1 = False
+		pc5_l0 = False
+		a7_evt0 = True
+		pc5_l2 = False
+		pc6_evt1 = False
+		pc12_l1 = False
+		pc6_evt0 = False
+		pc12_l0 = False
+		a6_evt1 = False
+		pc12_l2 = False
+		a6_evt0 = False
+		a5_l = False
 		pc19_l1 = False
 		pc19_l0 = False
-		pc19_evt1 = False
-		pc25_l2 = False
-		pc19_evt0 = False
-		pc18_evt1 = False
-		pc24_l2 = False
-		pc18_evt0 = False
-		pc23_l2 = False
-		pc17_evt0 = False
-		pc22_l2 = False
-		pc16_evt0 = False
-		pc15_l0 = False
-		pc15_evt1 = False
-		pc14_evt1 = False
-		pc20_l2 = False
-		pc14_evt0 = False
-		pc13_l1 = False
-		pc13_l0 = False
-		pc12_l1 = False
-		pc12_l0 = False
-		pc12_evt1 = False
-		pc18_l2 = False
-		pc12_evt0 = False
-		pc11_l1 = False
-		pc11_evt1 = False
-		pc10_l1 = False
-		pc10_l0 = False
-		pc10_evt1 = False
-		pc9_l1 = False
-		pc9_l0 = False
-		pc9_evt1 = False
-		pc15_l2 = False
-		pc9_evt0 = False
-		pc8_l0 = False
-		pc8_evt1 = False
-		pc7_l1 = False
-		pc7_l0 = False
-		pc13_l2 = False
-		pc7_evt0 = False
-		pc23_evt1 = False
-		a16_evt1 = False
-		a15_evt1 = False
-		a4_evt0 = False
-		a3_evt0 = False
-		pc13_evt1 = False
-		a13_evt1 = False
-		pc16_l1 = False
-		a2_evt0 = False
-		a12_evt1 = False
-		pc25_evt1 = False
-		a1_evt0 = False
-		a11_evt1 = False
-		a18_l = False
-		a8_evt1 = False
-		a8_evt0 = False
-		a19_evt1 = False
-		_EL_U_6250 = True
-		pc3_l2 = False
-		a11_l = False
-		_EL_U_6252 = False
-		pc7_l2 = False
-		pc1_evt0 = False
-		a1_evt1 = False
-		a21_evt1 = False
-		pc7_evt1 = False
-		a2_l = False
-		a16_l = False
-		pc26_l1 = False
-		a5_evt0 = False
-		pc0_l1 = False
-		pc11_l0 = False
-		a6_evt1 = False
-		a15_evt0 = False
-		pc2_evt1 = False
-		a7_l = False
-		a12_l = False
-		pc16_l2 = False
-		pc10_evt0 = True
-		a2_evt1 = False
-		pc9_l2 = False
-		a10_evt0 = False
-		pc3_evt0 = False
-		a11_evt0 = False
-		a3_l = False
-		pc21_l0 = False
-		a9_evt1 = False
-		pc17_l1 = False
-		a0_evt1 = False
-		_EL_U_6257 = False
-		a7_evt0 = False
-		a18_evt1 = False
-		a7_evt1 = False
-		pc23_evt0 = False
-		a16_evt0 = False
-		a8_l = False
-		pc17_l0 = False
-		a0_evt0 = False
-		a6_evt0 = False
-		pc14_l1 = False
-		a17_evt1 = False
-		a10_l = False
-		c_initial = True
-		c_move = True
-		a9_evt0 = False
-		pc24_l1 = False
-		a20_evt1 = False
-		pc25_l0 = False
-		a1_l = False
-		pc14_l0 = False
-		a17_evt0 = False
-		pc24_evt1 = False
-		a25_l = False
-		_EL_U_6259 = True
-		pc17_l2 = False
-		pc11_evt0 = False
-		pc18_l1 = False
-		a9_l = False
-		pc14_l2 = False
-		pc8_evt0 = False
-		a0_l = False
-		a4_evt1 = False
+		pc5_evt1 = True
 		pc19_l2 = False
-		pc13_evt0 = False
-		a13_evt0 = False
-		a24_evt1 = False
-		pc12_l2 = False
-		pc6_evt0 = False
-		pc17_evt1 = False
-		a5_l = False
-		a13_l = False
-		a22_evt1 = False
-		a12_evt0 = False
-		a23_evt1 = False
-		a4_l = False
-		pc2_l1 = False
-		a15_l = False
-		pc2_l0 = False
-		pc5_l2 = False
-		pc26_l2 = False
-		pc20_evt0 = False
-		pc0_l2 = False
+		pc5_evt0 = True
 		a5_evt1 = False
-		pc4_l0 = False
-		a14_evt0 = False
-		pc8_l1 = False
-		a6_l = False
-		a18_evt0 = False
-		pc15_l1 = False
-		a26_l = False
-		a19_l = False
-		a19_evt0 = False
-		pc3_l1 = False
-		pc21_l2 = False
-		pc15_evt0 = False
+		a5_evt0 = False
 		a20_l = False
-		pc24_l0 = False
-		a20_evt0 = False
-		pc6_l0 = False
-		a21_l = False
-		pc6_evt1 = False
-		a21_evt0 = False
-		a22_l = False
-		pc4_evt1 = False
-		a22_evt0 = False
-		pc25_evt0 = False
-		a23_l = False
-		a23_evt0 = False
-		pc16_l0 = False
-		a24_l = False
-		pc16_evt1 = False
-		a24_evt0 = False
-		a25_evt0 = False
-		a25_evt1 = False
-		pc10_l2 = False
-		pc4_evt0 = False
-		a26_evt0 = False
-		pc18_l0 = False
-		a26_evt1 = False
-		pc26_evt0 = False
-		pc0_evt0 = False
-		pc26_evt1 = False
-		pc0_evt1 = False
+		pc26_l1 = False
 		pc26_l0 = False
-		pc0_l0 = False
-		pc1_evt1 = False
+		pc26_l2 = False
+		pc4_evt1 = False
+		pc4_evt0 = False
+		a4_evt1 = False
+		a4_evt0 = False
+		a6_l = False
+		pc3_evt1 = True
+		pc3_evt0 = True
 		a3_evt1 = False
-		pc1_l0 = False
-		pc4_l2 = False
-		pc1_l1 = False
-		a14_l = False
-		pc1_l2 = False
-		pc8_l2 = False
-		pc2_evt0 = False
+		a3_evt0 = False
+		pc2_l1 = False
+		a21_l = False
+		pc2_l0 = False
 		pc2_l2 = False
-		a10_evt1 = False
-		pc3_evt1 = False
-		pc3_l0 = False
-		id = 7
-		pc6_l2 = False
-		a14_evt1 = False
-		pc4_l1 = False
-		pc11_l2 = False
-		a17_l = False
-		pc5_evt0 = False
-		pc5_evt1 = False
-		pc5_l0 = False
-		pc5_l1 = False
+		pc2_evt1 = False
+		pc2_evt0 = False
+		a2_evt1 = False
+		pc9_l1 = False
+		a2_evt0 = False
+		pc9_l0 = False
+		pc9_l2 = False
+		pc1_evt1 = True
+		a7_l = False
+		pc1_evt0 = True
+		pc16_l1 = False
+		a1_evt1 = False
+		pc16_l0 = False
+		a1_evt0 = False
+		pc16_l2 = False
+		a22_l = False
+		pc23_l1 = False
+		pc23_l0 = False
+		pc0_evt1 = False
+		pc23_l2 = False
+		pc0_evt0 = False
+		a0_evt1 = False
+		a0_evt0 = True
+		c_move = False
+		a8_l = False
+		a23_l = False
 		pc6_l1 = False
-		_J6283 = False
-		_J6289 = False
-		_J6298 = False
-		_J6305 = False
-		_J6311 = False
-		_EL_U_6255 = False
-		((-1.0 * pc11_x) < -49.0)
-		((-1.0 * pc17_x) < -49.0)
-		((-1.0 * pc19_x) < -49.0)
-		((-1.0 * pc20_x) < -49.0)
-		((-1.0 * pc2_x) < -49.0)
-		((-1.0 * pc9_x) < -49.0)
-		((-1.0 * _diverge_delta) <= -1.0)
-		((-1.0 * pc15_x) < -49.0)
-		((-1.0 * pc21_x) < -49.0)
-		((-1.0 * pc6_x) < -49.0)
-		((-1.0 * pc5_x) < -49.0)
-		((-1.0 * pc24_x) < -49.0)
-		((-1.0 * pc3_x) < -49.0)
-		((-1.0 * pc1_x) < -49.0)
-		((-1.0 * pc18_x) < -49.0)
-		((-1.0 * pc14_x) < -49.0)
-		((-1.0 * pc8_x) < -49.0)
-		((-1.0 * pc25_x) < -49.0)
-		((-1.0 * pc23_x) < -49.0)
-		((-1.0 * pc7_x) < -49.0)
-		((-1.0 * pc26_x) < -49.0)
-		((-1.0 * pc10_x) < -49.0)
-		((-1.0 * pc22_x) < -49.0)
-		((-1.0 * pc4_x) < -49.0)
-		((-1.0 * pc13_x) < -49.0)
-		((-1.0 * pc16_x) < -49.0)
-		((-1.0 * pc0_x) < -49.0)
-		((((-1.0 * pc7_x) + (-1.0 * pc2_x) + (-1.0 * pc26_x) + (-1.0 * pc19_x) + (-1.0 * pc0_x) + (-1.0 * pc12_x) + (-1.0 * pc23_x) + (-1.0 * pc16_x) + (-1.0 * pc5_x) + (-1.0 * pc21_x) + (-1.0 * pc1_x) + (-1.0 * pc13_x) + (-1.0 * pc6_x) + (-1.0 * pc10_x) + (-1.0 * pc4_x) + (-1.0 * pc25_x) + (-1.0 * pc17_x) + (-1.0 * pc11_x) + (-1.0 * pc14_x) + (-1.0 * pc18_x) + (-1.0 * pc3_x) + (-1.0 * pc15_x) + (-1.0 * pc24_x) + (-1.0 * pc20_x) + (-1.0 * pc8_x) + (-1.0 * pc9_x) + (-1.0 * pc22_x) + 2731/2) - (_diverge_delta * 9/8)) <= 0.0)
-		((-1.0 * pc12_x) < -49.0)
+		pc6_l0 = False
+		pc6_l2 = False
+		pc13_l1 = False
+		a9_l = False
+		pc13_l0 = False
+		pc13_l2 = False
+		pc20_l1 = False
+		pc20_l0 = False
+		pc20_l2 = False
+		(((-1.0 * delta) + (-1.0 * pc6_x)) < -50.0)
+		(((-1.0 * delta) + (-1.0 * pc16_x)) < -50.0)
+		(((-1.0 * pc12_x) + (-1.0 * delta)) < -50.0)
+		(((-1.0 * delta) + (-1.0 * pc9_x)) < -50.0)
+		(((-1.0 * delta) + (-1.0 * pc8_x)) < -50.0)
+		(((-1.0 * delta) + (-1.0 * pc20_x)) < -50.0)
+		(((-1.0 * pc26_x) + (-1.0 * delta)) < -50.0)
+		(((-1.0 * delta) + (-1.0 * pc5_x)) < -50.0)
+		(((-1.0 * delta) + (-1.0 * pc18_x)) < -50.0)
+		(((-1.0 * delta) + (-1.0 * pc3_x)) < -50.0)
+		(((-1.0 * delta) + (-1.0 * pc25_x)) < -50.0)
+		((-1.0 * delta) <= -1.0)
+		(((-1.0 * pc13_x) + (-1.0 * delta)) < -50.0)
+		(((-1.0 * delta) + (-1.0 * pc19_x)) < -50.0)
+		(((-1.0 * delta) + (-1.0 * pc17_x)) < -50.0)
+		(((-1.0 * delta) + (-1.0 * pc11_x)) < -50.0)
+		(((-1.0 * pc14_x) + (-1.0 * delta)) < -50.0)
+		(((-1.0 * delta) + (-1.0 * pc1_x)) < -50.0)
+		(((-1.0 * delta) + (-1.0 * pc10_x)) < -50.0)
+		(((-1.0 * delta) + (-1.0 * pc22_x)) < -50.0)
+		(((-1.0 * delta) + (-1.0 * pc7_x)) < -50.0)
+		(((-1.0 * delta) + (-1.0 * pc15_x)) < -50.0)
+		(((-1.0 * delta) + (-1.0 * pc23_x)) < -50.0)
+		(((-1.0 * delta) + (-1.0 * pc4_x)) < -50.0)
+		(((-1.0 * pc21_x) + (-1.0 * delta)) < -50.0)
+		(((-1.0 * delta) + (-1.0 * pc24_x)) < -50.0)
+		(((-1.0 * delta) + (-1.0 * pc2_x)) < -50.0)
+		(((-1.0 * pc0_x) + (-1.0 * delta)) < -50.0)
 	Trans 2 -- 3
-		_x_pc7_x = (pc7_x + 1.0)
-		_x_pc2_x = (pc2_x + 1.0)
-		_x__diverge_delta = 1.0
-		_x_pc26_x = (pc26_x + 1.0)
-		_x_pc19_x = (pc19_x + 1.0)
-		_x_pc0_x = (pc0_x + 1.0)
-		_x_pc12_x = (pc12_x + 1.0)
-		_x_pc23_x = (pc23_x + 1.0)
-		_x_pc16_x = (pc16_x + 1.0)
-		_x_pc5_x = (pc5_x + 1.0)
-		_x_pc21_x = (pc21_x + 1.0)
-		_x_pc1_x = (pc1_x + 1.0)
-		_x_pc13_x = (pc13_x + 1.0)
-		_x_pc6_x = (pc6_x + 1.0)
-		_x_pc10_x = (pc10_x + 1.0)
-		_x_pc4_x = (pc4_x + 1.0)
-		_x_pc25_x = (pc25_x + 1.0)
-		_x_pc17_x = (pc17_x + 1.0)
-		_x_pc11_x = (pc11_x + 1.0)
-		_x_pc14_x = (pc14_x + 1.0)
-		_x_pc18_x = (pc18_x + 1.0)
-		_x_pc3_x = (pc3_x + 1.0)
-		_x_pc15_x = (pc15_x + 1.0)
-		_x_pc24_x = (pc24_x + 1.0)
-		_x_pc20_x = (pc20_x + 1.0)
-		_x_pc8_x = (pc8_x + 1.0)
-		_x_pc9_x = (pc9_x + 1.0)
-		_x_pc22_x = (pc22_x + 1.0)
-	starting from: {delta: 1.0, _diverge_delta: 51.0, pc25_l1: False, pc24_evt0: True, pc23_l1: False, pc23_l0: False, pc22_l1: False, pc22_l0: False, pc22_evt1: True, pc22_evt0: True, pc21_l1: False, pc21_evt1: True, pc21_evt0: True, pc20_l1: False, pc20_l0: False, pc20_evt1: True, pc19_l1: False, pc19_l0: False, pc19_evt1: False, pc25_l2: False, pc19_evt0: True, pc18_evt1: True, pc24_l2: False, pc18_evt0: True, pc23_l2: False, pc17_evt0: True, pc22_l2: False, pc16_evt0: True, pc15_l0: False, pc15_evt1: True, pc14_evt1: True, pc20_l2: False, pc14_evt0: True, pc13_l1: False, pc13_l0: False, pc12_l1: False, pc12_l0: False, pc12_evt1: True, pc18_l2: False, pc12_evt0: True, pc11_l1: False, pc11_evt1: True, pc10_l1: False, pc10_l0: False, pc10_evt1: True, pc9_l1: False, pc9_l0: False, pc9_evt1: True, pc24_x: 51.0, pc15_l2: False, pc9_evt0: True, pc9_x: 51.0, pc8_l0: False, pc8_evt1: False, pc7_l1: False, pc7_l0: False, pc22_x: 51.0, pc13_l2: False, pc7_evt0: True, pc7_x: 51.0, pc23_evt1: True, a16_evt1: False, pc2_x: 51.0, a15_evt1: True, a4_evt0: False, a3_evt0: False, pc13_evt1: True, a13_evt1: True, pc16_l1: False, a2_evt0: False, a12_evt1: False, pc25_evt1: True, a1_evt0: False, a11_evt1: True, a18_l: False, a8_evt1: False, a8_evt0: True, a19_evt1: True, pc12_x: 51.0, pc3_l2: False, a11_l: False, pc16_x: 51.0, pc7_l2: False, pc1_evt0: True, a1_evt1: True, a21_evt1: False, pc7_evt1: True, a2_l: False, a16_l: False, pc26_l1: False, a5_evt0: False, pc0_l1: False, pc11_l0: False, a6_evt1: False, a15_evt0: False, pc2_evt1: True, a7_l: False, a12_l: False, pc4_x: 51.0, pc25_x: 51.0, pc16_l2: False, pc10_evt0: True, a2_evt1: True, pc18_x: 51.0, pc9_l2: False, a10_evt0: False, pc3_evt0: True, a11_evt0: False, a3_l: False, pc21_l0: False, a9_evt1: True, pc17_l1: False, a0_evt1: False, pc8_x: 51.0, a7_evt0: False, a18_evt1: False, a7_evt1: True, pc23_evt0: True, a16_evt0: True, a8_l: False, pc17_l0: False, a0_evt0: True, a6_evt0: True, pc14_l1: False, a17_evt1: False, a10_l: False, c_initial: True, c_move: False, a9_evt0: False, pc24_l1: False, a20_evt1: False, pc25_l0: False, a1_l: False, pc14_l0: False, a17_evt0: True, pc24_evt1: True, a25_l: False, pc26_x: 51.0, pc17_l2: False, pc11_evt0: True, pc0_x: 51.0, pc18_l1: False, a9_l: False, pc23_x: 51.0, pc14_l2: False, pc8_evt0: True, a0_l: False, a4_evt1: True, pc19_l2: False, pc13_evt0: True, a13_evt0: False, a24_evt1: False, pc21_x: 51.0, pc12_l2: False, pc6_evt0: True, pc17_evt1: True, a5_l: False, a13_l: False, a22_evt1: False, pc6_x: 51.0, a12_evt0: True, a23_evt1: False, a4_l: False, pc2_l1: False, a15_l: False, pc2_l0: False, pc14_x: 51.0, pc5_l2: False, pc26_l2: False, pc20_evt0: True, pc0_l2: False, a5_evt1: True, pc4_l0: False, a14_evt0: False, pc8_l1: False, a6_l: False, a18_evt0: True, pc15_l1: False, a26_l: False, a19_l: False, a19_evt0: False, pc3_l1: False, pc21_l2: False, pc15_evt0: True, a20_l: False, pc24_l0: False, a20_evt0: True, pc6_l0: False, a21_l: False, pc6_evt1: True, a21_evt0: True, a22_l: False, pc4_evt1: True, a22_evt0: True, pc25_evt0: True, a23_l: False, a23_evt0: True, pc16_l0: False, a24_l: False, pc16_evt1: False, a24_evt0: True, a25_evt0: False, a25_evt1: True, pc19_x: 51.0, pc10_l2: False, pc4_evt0: True, a26_evt0: False, pc18_l0: False, a26_evt1: True, pc26_evt0: True, pc0_evt0: True, pc26_evt1: True, pc0_evt1: True, pc5_x: 51.0, pc26_l0: False, pc0_l0: False, pc1_x: 51.0, pc1_evt1: True, a3_evt1: True, pc1_l0: False, pc13_x: 51.0, pc4_l2: False, pc1_l1: False, pc10_x: 51.0, a14_l: False, pc1_l2: False, pc17_x: 51.0, pc8_l2: False, pc2_evt0: True, pc11_x: 51.0, pc2_l2: False, pc3_x: 51.0, a10_evt1: True, pc3_evt1: True, pc3_l0: False, pc15_x: 51.0, id: 19, pc6_l2: False, a14_evt1: True, pc4_l1: False, pc20_x: 51.0, pc11_l2: False, a17_l: False, pc5_evt0: True, pc5_evt1: True, pc5_l0: False, pc5_l1: False, pc6_l1: False, _J6283: True, _J6289: True, _J6298: True, _J6305: True, _J6311: True, _EL_U_6250: True, _EL_U_6257: False, _EL_U_6259: True, _EL_U_6252: False, _EL_U_6255: False}
+		_x_pc14_x = (pc14_x + delta)
+		_x_pc3_x = (pc3_x + delta)
+		_x_pc0_x = (delta + pc0_x)
+		_x_pc13_x = (pc13_x + delta)
+		_x_pc26_x = (pc26_x + delta)
+		_x_pc6_x = (pc6_x + delta)
+		_x_pc21_x = (pc21_x + delta)
+		_x_pc24_x = (pc24_x + delta)
+		_x_pc12_x = (pc12_x + delta)
+		_x_pc19_x = (delta + pc19_x)
+		_x_pc25_x = (pc25_x + delta)
+		_x_pc10_x = (pc10_x + delta)
+		_x_pc7_x = (pc7_x + delta)
+		_x__diverge_delta = delta
+		_x_pc11_x = (pc11_x + delta)
+		_x_pc5_x = (pc5_x + delta)
+		_x_pc20_x = (pc20_x + delta)
+		_x_pc23_x = (pc23_x + delta)
+		_x_pc8_x = (pc8_x + delta)
+		_x_pc18_x = (pc18_x + delta)
+		_x_pc16_x = (pc16_x + delta)
+		_x_pc9_x = (pc9_x + delta)
+		_x_pc2_x = (pc2_x + delta)
+		_x_pc4_x = (pc4_x + delta)
+		_x_pc15_x = (pc15_x + delta)
+		_x_pc22_x = (pc22_x + delta)
+		_x_pc1_x = (pc1_x + delta)
+		_x_pc17_x = (pc17_x + delta)
+		_x_delta = ((pc0_x + pc19_x + (delta * 1/2) + pc13_x + pc26_x + pc7_x + (pc20_x * 2.0) + pc1_x + pc14_x + pc8_x + pc21_x + pc2_x + pc15_x + (pc9_x * 2.0) + pc22_x + pc3_x + pc16_x + pc10_x + pc23_x + pc4_x + pc17_x + pc11_x + (pc24_x * 2.0) + pc5_x + pc18_x + pc12_x + pc25_x + pc6_x + 1/4) - (_diverge_delta * 1/8))
+	starting from: _diverge_delta : 11281/45, delta : 1.0, pc13_x : 11281/45, a10_l : False, pc26_evt1 : True, pc20_x : 11281/45, pc26_evt0 : True, a26_evt1 : False, a26_evt0 : True, a25_l : False, pc3_l1 : False, pc3_l0 : False, pc25_evt1 : True, pc3_l2 : False, pc25_evt0 : True, a25_evt1 : False, a25_evt0 : True, pc10_l1 : False, pc10_l0 : False, a11_l : False, pc10_l2 : False, pc24_evt1 : True, id : 23, pc24_evt0 : True, a24_evt1 : False, pc17_l1 : False, a24_evt0 : True, pc17_l0 : False, pc17_l2 : False, _J6311 : True, pc3_x : 11281/45, _J6305 : True, _J6298 : True, a26_l : False, _J6289 : True, pc23_evt1 : True, pc24_l1 : False, pc23_evt0 : True, pc24_l0 : False, a23_evt1 : False, pc24_l2 : False, a23_evt0 : True, pc10_x : 11281/45, _J6283 : True, _EL_U_6250 : True, _EL_U_6252 : False, _EL_U_6255 : False, _EL_U_6257 : False, a12_l : False, pc22_evt1 : True, _EL_U_6259 : True, pc22_evt0 : True, pc17_x : 11281/45, a22_evt1 : False, a22_evt0 : True, pc0_l1 : False, pc24_x : 11281/45, pc21_evt1 : True, pc0_l0 : False, pc21_evt0 : True, pc0_l2 : False, a21_evt1 : False, a21_evt0 : True, pc7_l1 : False, pc20_l0 : False, pc20_evt1 : True, pc7_l0 : False, a13_l : False, pc20_evt0 : True, a20_evt1 : False, pc7_l2 : False, a20_evt0 : True, pc14_l1 : False, pc14_l0 : False, pc0_x : 11281/45, pc14_l2 : False, pc19_evt1 : True, pc19_evt0 : True, a19_evt1 : False, pc21_l1 : False, a19_evt0 : True, pc21_l0 : False, c_initial : True, pc21_l2 : False, pc7_x : 11281/45, pc18_evt1 : True, pc18_evt0 : True, a18_evt1 : False, a14_l : False, a18_evt0 : True, pc14_x : 11281/45, pc17_evt1 : True, pc17_evt0 : True, pc21_x : 11281/45, a17_evt1 : False, a17_evt0 : True, a0_l : False, pc16_evt1 : True, pc4_l1 : False, pc16_evt0 : True, pc4_l0 : False, a16_evt1 : False, pc4_l2 : False, a16_evt0 : True, a15_l : False, pc11_l1 : False, pc11_l0 : False, pc15_evt1 : True, pc11_l2 : False, pc15_evt0 : True, a15_evt1 : False, a15_evt0 : True, pc18_l1 : False, pc18_l0 : False, pc18_l2 : False, a1_l : False, pc4_x : 11281/45, pc14_evt1 : True, pc14_evt0 : True, a14_evt1 : False, pc25_l1 : False, a14_evt0 : True, pc25_l0 : False, pc25_l2 : False, pc11_x : 11281/45, a16_l : False, pc13_evt1 : True, pc13_evt0 : True, a13_evt1 : False, a13_evt0 : True, pc18_x : 11281/45, pc12_evt1 : True, a2_l : False, pc12_evt0 : True, pc25_x : 11281/45, a12_evt1 : False, pc1_l1 : False, a12_evt0 : True, pc1_l0 : False, pc1_l2 : False, a17_l : False, pc11_evt1 : True, pc8_l1 : False, pc11_evt0 : True, pc8_l0 : False, a11_evt1 : False, pc8_l2 : False, a11_evt0 : True, pc15_l1 : False, pc15_l0 : False, pc10_evt1 : True, pc15_l2 : False, pc10_evt0 : True, pc1_x : 11281/45, a10_evt1 : False, a3_l : False, a10_evt0 : True, pc22_l1 : False, pc22_l0 : False, pc22_l2 : False, pc8_x : 11281/45, pc9_evt1 : True, a18_l : False, pc9_evt0 : True, a9_evt1 : False, a9_evt0 : True, pc15_x : 11281/45, pc8_evt1 : True, pc8_evt0 : True, a8_evt1 : False, a8_evt0 : True, pc22_x : 11281/45, a4_l : False, pc7_evt1 : True, pc7_evt0 : True, a19_l : False, pc5_l1 : False, a7_evt1 : False, pc5_l0 : False, a7_evt0 : True, pc5_l2 : False, pc6_evt1 : True, pc12_l1 : False, pc6_evt0 : True, pc12_l0 : False, a6_evt1 : False, pc12_l2 : False, a6_evt0 : True, a5_l : False, pc19_l1 : False, pc19_l0 : False, pc5_evt1 : True, pc19_l2 : False, pc5_evt0 : True, pc5_x : 11281/45, a5_evt1 : False, a5_evt0 : True, a20_l : False, pc26_l1 : False, pc26_l0 : False, pc26_l2 : False, pc12_x : 11281/45, pc4_evt1 : True, pc4_evt0 : True, a4_evt1 : False, a4_evt0 : True, pc19_x : 11281/45, a6_l : False, pc3_evt1 : True, pc3_evt0 : True, a3_evt1 : False, a3_evt0 : True, pc26_x : 11281/45, pc2_l1 : False, a21_l : False, pc2_l0 : False, pc2_l2 : False, pc2_evt1 : True, pc2_evt0 : True, a2_evt1 : False, pc9_l1 : False, a2_evt0 : True, pc9_l0 : False, pc9_l2 : False, pc1_evt1 : True, a7_l : False, pc1_evt0 : True, pc16_l1 : False, a1_evt1 : False, pc16_l0 : False, a1_evt0 : True, pc16_l2 : False, pc2_x : 11281/45, a22_l : False, pc23_l1 : False, pc23_l0 : False, pc0_evt1 : True, pc23_l2 : False, pc0_evt0 : True, pc9_x : 11281/45, a0_evt1 : False, a0_evt0 : True, pc16_x : 11281/45, c_move : True, a8_l : False, pc23_x : 11281/45, a23_l : False, pc6_l1 : False, pc6_l0 : False, pc6_l2 : False, pc13_l1 : False, a9_l : False, pc13_l0 : False, pc13_l2 : False, pc20_l1 : False, a24_l : False, pc20_l2 : False, pc6_x : 11281/45
 
-end of `critical_region_0027`: SUCCESS in 35.40190887451172s
+end of `critical_region_0027`: SUCCESS in 1130.8132121562958s

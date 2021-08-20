@@ -1,4 +1,3 @@
-/home/run_pyrank.sh: line 3: 1443001 Segmentation fault      (core dumped) python3 -O /home/pyrank/src/run_benchmarks.py $@
-real 198.63
-user 196.80
-sys 0.79
+real 3602.67
+user 0.00
+sys 0.00

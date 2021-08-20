@@ -1,7 +1,8 @@
-
-
-run 1/1: `Bangalore_v2_false-termination`
+F3 run `Bangalore_v2_false-termination`
 
 	Found non-termination argument:
-	[{pc: 1, x: 0, y: 0}, {pc: 2, x: 0, y: 0}, {pc: 1, x: 0, y: 0}]
-end of `Bangalore_v2_false-termination`: SUCCESS in 0.02371811866760254s
+	pc : 1, x : 0, y : 0
+	pc : 2, x : 0, y : 0
+	pc : 1, x : 0, y : 0
+
+end of `Bangalore_v2_false-termination`: SUCCESS in 0.19427776336669922s

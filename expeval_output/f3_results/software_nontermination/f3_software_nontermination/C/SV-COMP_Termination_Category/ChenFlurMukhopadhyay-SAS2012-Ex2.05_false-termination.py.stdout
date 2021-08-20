@@ -1,7 +1,9 @@
-
-
-run 1/1: `ChenFlurMukhopadhyay-SAS2012-Ex2.05_false-termination`
+F3 run `ChenFlurMukhopadhyay-SAS2012-Ex2.05_false-termination`
 
 	Found non-termination argument:
-	[{pc: 0, x: -1, y: 0}, {pc: 1, x: -1, y: 0}, {pc: 2, x: -1, y: 0}, {pc: 0, x: -1, y: 0}]
-end of `ChenFlurMukhopadhyay-SAS2012-Ex2.05_false-termination`: SUCCESS in 0.028547048568725586s
+	pc : 0, x : -1, y : 0
+	pc : 1, x : -1, y : 0
+	pc : 2, x : -1, y : 0
+	pc : 0, x : -1, y : 0
+
+end of `ChenFlurMukhopadhyay-SAS2012-Ex2.05_false-termination`: SUCCESS in 0.26870179176330566s

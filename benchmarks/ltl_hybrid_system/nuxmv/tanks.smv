@@ -7,12 +7,19 @@ MODULE main
     pipe_s0 : Pipe(delta, 1, 1);
     tank0 : Tank(delta, 10, pipe_s0.flow - pipe_sink.flow, pipe_s0.d_flow - pipe_sink.d_flow);
     pipe_sink : Pipe(delta, 1, 1);
+    tot_vol_in : real;
+    tot_vol_out : real;
 
-  INIT source.vol = 100 & pipe_s0.close & tank0.vol = 0 & time = 0;
-  INVAR delta >= 0;
+  INIT time = 0;
   TRANS next(time) = time + delta;
+  INIT tot_vol_in = 0 & tot_vol_out = 0;
+  INIT source.vol = 0 & pipe_s0.close & tank0.vol = 0;
+  INVAR delta >= 0;
+  TRANS next(tot_vol_in) = tot_vol_in + pipe_source.flow * delta + f'1/2 * pipe_source.d_flow * pow(delta, 2);
+  TRANS next(tot_vol_out) = tot_vol_out + pipe_sink.flow * delta + f'1/2 * pipe_sink.d_flow * pow(delta, 2);
 
-  LTLSPEC (G (pipe_source.close & pipe_sink.close)) -> G source.vol + tank0.vol = 100;
+  INVARSPEC source.vol + tank0.vol = tot_vol_in - tot_vol_out;
+  LTLSPEC (G (pipe_source.close & pipe_sink.close)) -> G source.vol + tank0.vol = 0;
   LTLSPEC !(G F (pipe_s0.open | pipe_s0.opening));
   LTLSPEC G source.vol + tank0.vol <= 110;
   LTLSPEC G source.vol + tank0.vol <= 100;
@@ -39,6 +46,7 @@ MODULE Pipe(delta, max_flow, speed)
         TRUE : 0;
       esac;
 
+  INIT close;
   INVAR close -> flow = 0;
   INVAR open -> flow = max_flow;
   INVAR 0 <= flow & flow <= max_flow;

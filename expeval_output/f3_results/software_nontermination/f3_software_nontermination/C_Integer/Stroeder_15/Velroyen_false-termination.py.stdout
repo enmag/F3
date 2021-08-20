@@ -1,7 +1,9 @@
-
-
-run 1/1: `Velroyen_false-termination`
+F3 run `Velroyen_false-termination`
 
 	Found non-termination argument:
-	[{pc: 0, x: 36}, {pc: 1, x: 36}, {pc: 7, x: 36}, {pc: 0, x: 36}]
-end of `Velroyen_false-termination`: SUCCESS in 0.0431821346282959s
+	pc : 0, x : 36
+	pc : 1, x : 36
+	pc : 7, x : 36
+	pc : 0, x : 36
+
+end of `Velroyen_false-termination`: SUCCESS in 0.2223200798034668s

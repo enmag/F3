@@ -1,5 +1,6 @@
-from collections.abc import Iterable
+from typing import Iterator, Iterable, Optional
 
+from pysmt.environment import Environment as PysmtEnv
 from pysmt.walkers import IdentityDagWalker
 from pysmt.fnode import FNode
 
@@ -14,7 +15,10 @@ class Canonizer(IdentityDagWalker):
     Does not increase depth of the tree representing the formula.
     """
 
-    def __init__(self, key=None, env=None, inv_mem=None):
+    def __init__(self, key=None, env: PysmtEnv = None,
+                 inv_mem: Optional[bool] = None):
+        assert isinstance(env, PysmtEnv)
+        assert inv_mem is None or isinstance(inv_mem, bool)
         IdentityDagWalker.__init__(self, env=env,
                                    invalidate_memoization=inv_mem)
         if not key:
@@ -22,7 +26,7 @@ class Canonizer(IdentityDagWalker):
         self._key = key
         self.td = TimesDistributor(env=self.env)
 
-    def _sort(self, args: Iterable):
+    def _sort(self, args: Iterable[FNode]):
         assert isinstance(args, Iterable)
         return sorted(args, key=self._key)
 
@@ -31,22 +35,23 @@ class Canonizer(IdentityDagWalker):
 
     if __debug__:
         def walk(self, formula: FNode, **kwargs) -> FNode:
+            assert formula in self.env.formula_manager.formulae.values()
             res = super().walk(formula, **kwargs)
             from solver import Solver
-            import pysmt.typing as types
             mgr = self.env.formula_manager
-            with Solver(env=self.env) as solver:
+            serialize = self.env.serializer.serialize
+            with Solver(env=self.env) as _solver:
                 f_type = self.env.stc.get_type(formula)
-                eqs = mgr.Iff(formula, res) if f_type is types.BOOL \
+                eqs = mgr.Iff(formula, res) if f_type.is_bool_type() \
                     else mgr.Equals(formula, res)
                 n_eqs = mgr.Not(eqs)
-                solver.add_assertion(n_eqs)
-                assert solver.solve() is False, \
-                    "{} has model: {}".format(n_eqs.serialize(),
-                                              solver.get_model())
+                _solver.add_assertion(n_eqs)
+                assert _solver.solve() is False, \
+                    f"{serialize(n_eqs)} has model: {_solver.get_model()}"
+            assert res in self.env.formula_manager.formulae.values()
             return res
 
-    def walk_toreal(self, formula: FNode, args, **kwargs) -> FNode:
+    def walk_toreal(self, formula: FNode, args, **_) -> FNode:
         assert isinstance(formula, FNode)
         assert len(args) == 1
         arg = args[0]
@@ -56,9 +61,9 @@ class Canonizer(IdentityDagWalker):
         new_args = []
         while stack:
             curr = stack.pop()
-            if curr.is_symbol():
-                new_args.append(self.mgr.ToReal(curr))
-            elif curr.is_constant():
+            while curr.is_toreal():
+                curr = curr.arg(0)
+            if curr.is_constant():
                 val = curr.constant_value()
                 assert isinstance(val, int)
                 new_args.append(self.mgr.Real(val))
@@ -75,37 +80,55 @@ class Canonizer(IdentityDagWalker):
                 symbs = []
                 const = 1
                 for arg in args:
-                    assert not arg.is_plus(), curr.serialize()
-                    assert not arg.is_toreal(), curr.serialize()
+                    assert not arg.is_plus()
+                    assert not arg.is_toreal()
                     assert self.env.stc.get_type(arg).is_int_type()
                     if arg.is_times():
                         args.extend(arg.args())
                     elif arg.is_constant():
                         const *= arg.constant_value()
-                    elif arg.is_symbol():
-                        symbs.append(arg)
+                        assert isinstance(const, int)
                     else:
                         symbs.append(arg)
-                args = [self.mgr.ToReal(s) for s in symbs]
-                args.append(self.mgr.Real(const))
-                new_args.append(self.mgr.Times(self._sort(args)))
+                if const == 0:
+                    new_args.append(self.mgr.ToReal(0))
+                else:
+                    args = [self.mgr.ToReal(s) for s in symbs]
+                    args.append(self.mgr.Real(const))
+                    new_args.append(self.mgr.Times(self._sort(args)))
             else:
                 new_args.append(self.mgr.ToReal(curr))
         return self.mgr.Plus(self._sort(new_args))
 
-    def walk_and(self, formula: FNode, args, **kwargs) -> FNode:
+    def walk_not(self, formula: FNode, args, **_) -> FNode:
         assert isinstance(formula, FNode)
-        return self.mgr.And(self._sort(args))
+        assert len(args) == 1
+        arg = args[0]
+        while arg.is_not():
+            arg = arg.arg(0)
+        if len(arg.args()) == 2:
+            args = arg.args()
+            if arg.is_lt():
+                return self.mgr.GE(args[0], args[1])
+            if arg.is_le():
+                return self.mgr.GT(args[0], args[1])
+        return self.mgr.Not(arg)
 
-    def walk_or(self, formula: FNode, args, **kwargs) -> FNode:
+    def walk_and(self, formula: FNode, args, **_) -> FNode:
         assert isinstance(formula, FNode)
-        return self.mgr.Or(self._sort(args))
+        return self.mgr.And(
+            self._sort(Canonizer._flatten(args, lambda x: x.is_and())))
 
-    def walk_iff(self, formula: FNode, args, **kwargs) -> FNode:
+    def walk_or(self, formula: FNode, args, **_) -> FNode:
+        assert isinstance(formula, FNode)
+        return self.mgr.Or(
+            self._sort(Canonizer._flatten(args, lambda x: x.is_or())))
+
+    def walk_iff(self, formula: FNode, args, **_) -> FNode:
         assert isinstance(formula, FNode)
         return self.mgr.Iff(*self._sort(args))
 
-    def walk_equals(self, formula: FNode, args, **kwargs) -> FNode:
+    def walk_equals(self, formula: FNode, args, **_) -> FNode:
         assert isinstance(formula, FNode)
         assert len(args) == 2
         eq = self.mgr.Equals(*self._sort(args))
@@ -117,7 +140,7 @@ class Canonizer(IdentityDagWalker):
             return self.mgr.FALSE()
         return eq
 
-    def walk_lt(self, formula: FNode, args, **kwargs) -> FNode:
+    def walk_lt(self, formula: FNode, args, **_) -> FNode:
         assert isinstance(formula, FNode)
         assert len(args) == 2
         ineq = self.mgr.LT(args[0], args[1])
@@ -129,7 +152,7 @@ class Canonizer(IdentityDagWalker):
             return self.mgr.FALSE()
         return ineq
 
-    def walk_le(self, formula: FNode, args, **kwargs) -> FNode:
+    def walk_le(self, formula: FNode, args, **_) -> FNode:
         assert isinstance(formula, FNode)
         assert len(args) == 2
         ineq = self.mgr.LE(args[0], args[1])
@@ -155,10 +178,22 @@ class Canonizer(IdentityDagWalker):
         qvars = self._sort(qvars)
         return self.mgr.Exists(qvars, args[0])
 
-    def walk_plus(self, formula: FNode, args, **kwargs) -> FNode:
+    def walk_plus(self, formula: FNode, args, **_) -> FNode:
         assert isinstance(formula, FNode)
-        return self.mgr.Plus(self._sort(args))
+        return self.mgr.Plus(
+            self._sort(Canonizer._flatten(args, lambda x: x.is_plus())))
 
-    def walk_times(self, formula: FNode, args, **kwargs) -> FNode:
+    def walk_times(self, formula: FNode, args, **_) -> FNode:
         assert isinstance(formula, FNode)
-        return self.mgr.Times(self._sort(args))
+        return self.mgr.Times(
+            self._sort(Canonizer._flatten(args, lambda x: x.is_times())))
+
+    @staticmethod
+    def _flatten(fms: Iterable[FNode], acc) -> Iterator[FNode]:
+        args = list(fms)
+        while args:
+            curr = args.pop()
+            if acc(curr):
+                args.extend(curr.args())
+            else:
+                yield curr

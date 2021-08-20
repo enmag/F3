@@ -18,7 +18,7 @@ class ExprAtTime(IdentityDagWalker):
         assert isinstance(formula, FNode)
         assert formula in mgr.formulae.values()
         res = set()
-        for v in formula.get_free_variables():
+        for v in mgr.env.fvo.walk(formula):
             if "@" in v.symbol_name():
                 _, num = ExprAtTime.get_symb_time(mgr, v)
                 res.add(num)
@@ -36,7 +36,7 @@ class ExprAtTime(IdentityDagWalker):
         assert isinstance(mgr, FormulaManager)
         assert isinstance(s, FNode)
         assert s.is_symbol(), s
-        assert "@" in s.symbol_name(), s.serialize()
+        assert "@" in s.symbol_name()
         symb_name = s.symbol_name()
         idx = symb_name.find("@")
         name = symb_name[:idx]
@@ -87,7 +87,7 @@ class ExprAtTime(IdentityDagWalker):
     def _at_time(self, s: FNode) -> FNode:
         assert isinstance(s, FNode)
         assert s.is_symbol()
-        assert "@" not in s.symbol_name() or self.idx < 0, s.serialize()
+        assert "@" not in s.symbol_name() or self.idx < 0
         symb_name = s.symbol_name()
         if self.ignore_pref and symb_name.startswith(self.ignore_pref):
             return self.mgr.Symbol(symb_name, s.symbol_type())
@@ -102,12 +102,11 @@ class ExprAtTime(IdentityDagWalker):
         if idx < 0:
             assert self.x_idx < 0
             name, num = ExprAtTime.get_symb_time(self.mgr, s)
-            assert num in {-idx - 1, -self.x_idx - 1}, \
-                "{}, {} -- {}".format(idx, self.x_idx, s.serialize())
+            assert num in {-idx - 1, -self.x_idx - 1}
             if num == -self.x_idx - 1:
                 name = name_next(name)
         else:
-            name = "{}@{}".format(symb_name, idx)
+            name = f"{symb_name}@{idx}"
 
         return self.mgr.Symbol(name, s.symbol_type())
 

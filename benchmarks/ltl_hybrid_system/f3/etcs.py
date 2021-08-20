@@ -161,6 +161,10 @@ def check_ltl(menv: msat_env, enc: LTLEncoder):
                           msat_make_impl(menv,
                                          msat_make_geq(menv, x_t_v, x_rbc_v_des),
                                          msat_make_leq(menv, x_t_a, _0)))
+    # invar t_v >= 0
+    init = msat_make_and(menv, init, msat_make_geq(menv, t_v, _0))
+    trans = msat_make_and(menv, trans, msat_make_geq(menv, x_t_v, _0))
+
     # transition relation
     # rbc_brake' -> rbc_m' = rbc_m & rbc_d' = rbc_d
     lhs = x_rbc_brake
@@ -189,7 +193,7 @@ def check_ltl(menv: msat_env, enc: LTLEncoder):
     # t_c >= period -> t_c' = 0 & d = 0;
     lhs = msat_make_geq(menv, t_c, period)
     rhs = msat_make_and(menv,
-                        msat_make_equal(menv, t_c, _0),
+                        msat_make_equal(menv, x_t_c, _0),
                         msat_make_equal(menv, d, _0))
     trans = msat_make_and(menv, trans,
                           msat_make_impl(menv, lhs, rhs))

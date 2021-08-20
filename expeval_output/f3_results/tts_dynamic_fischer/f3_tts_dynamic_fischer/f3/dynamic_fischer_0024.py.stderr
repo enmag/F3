@@ -1,37 +1,33 @@
 Traceback (most recent call last):
-  File "/home/pyrank/src/run_benchmarks.py", line 366, in <module>
-    main(getopts())
-  File "/home/pyrank/src/run_benchmarks.py", line 228, in main
-    res, runtime = dispatch_test(test_module, label, out_dir)
-  File "/home/pyrank/src/run_benchmarks.py", line 162, in dispatch_test
-    return run_ltl_test(test, label, out_dir)
-  File "/home/pyrank/src/run_benchmarks.py", line 88, in run_ltl_test
+  File "/home/F3/src/run_f3.py", line 436, in <module>
+    main(config_args().parse_args())
+  File "/home/F3/src/run_f3.py", line 432, in main
+    run_f3(bench, out_dir)
+  File "/home/F3/src/run_f3.py", line 260, in run_f3
+    res = solve_problem(prob, label, out_dir)
+  File "/home/F3/src/run_f3.py", line 251, in solve_problem
+    return run_ltl_test(problem, env, label, out_dir)
+  File "/home/F3/src/run_f3.py", line 113, in run_ltl_test
     return search_nonterm(env, symbols, init, trans, fairness,
-  File "/home/pyrank/src/run_benchmarks.py", line 131, in search_nonterm
-    _, arg, param_assigns = search_unrank_bmc(env, symbols, init, trans,
-  File "/home/pyrank/src/unranker.py", line 165, in search_unrank_bmc
-    synth_unrank(env, symbols, trace,
-  File "/home/pyrank/src/unranker.py", line 442, in synth_unrank
-    log("{}".format(nontermarg.describe(indent="\t")),
-  File "/home/pyrank/src/funnel.py", line 1121, in describe
-    return "".join(f.describe(model, indent) for f in self._funnels) + \
-  File "/home/pyrank/src/funnel.py", line 1121, in <genexpr>
-    return "".join(f.describe(model, indent) for f in self._funnels) + \
-  File "/home/pyrank/src/funnel.py", line 2002, in describe
-    s.serialize(), val.serialize())
-  File "/home/magnago/.local/lib/python3.8/site-packages/pysmt/fnode.py", line 532, in serialize
-    return _env().serializer.serialize(self, threshold=threshold)
-  File "/home/magnago/.local/lib/python3.8/site-packages/pysmt/printers.py", line 345, in serialize
-    p = self.PrinterClass(buf)
-  File "/home/magnago/.local/lib/python3.8/site-packages/pysmt/printers.py", line 34, in __init__
-    TreeWalker.__init__(self, env=env)
-  File "/home/magnago/.local/lib/python3.8/site-packages/pysmt/walkers/tree.py", line 36, in __init__
-    Walker.__init__(self, env)
-  File "/home/magnago/.local/lib/python3.8/site-packages/pysmt/walkers/generic.py", line 85, in __init__
-    self.functions[o] = getattr(self, nt_to_fun(o))
-  File "/home/magnago/.local/lib/python3.8/site-packages/pysmt/walkers/generic.py", line 32, in nt_to_fun
-    return "walk_%s" % op.op_to_str(o).lower()
+  File "/home/F3/src/run_f3.py", line 169, in search_nonterm
+    _, arg0, arg1 = search_unrank_bmc(env, symbols, init, trans,
+  File "/home/F3/src/unranker.py", line 255, in search_unrank_bmc
+    synth_unrank(env, symbols, trace, abst_path, hints,
+  File "/home/F3/src/unranker.py", line 656, in synth_unrank
+    arg = nontermarg.motzkin_instantiate(extra=learn)
+  File "/home/F3/src/funnel.py", line 651, in motzkin_instantiate
+    for c in self.generate_motzkin_constr():
+  File "/home/F3/src/funnel.py", line 841, in generate_motzkin_constr
+    yield from motzkin_transpose(self.env, constrs,
+  File "/home/F3/src/motzkin.py", line 154, in motzkin_transpose
+    le_mat, le_const = _matrix_product(env, keys, le_lambdas, les, td)
+  File "/home/F3/src/motzkin.py", line 56, in _matrix_product
+    coeff_A.plus(*[Expr(env, expr_type, td,
+  File "/home/F3/src/motzkin.py", line 56, in <listcomp>
+    coeff_A.plus(*[Expr(env, expr_type, td,
+  File "/home/F3/src/ineq.py", line 491, in times
+    if not expr.is_one():
 KeyboardInterrupt
-real 3603.19
+real 3602.21
 user 0.00
 sys 0.00

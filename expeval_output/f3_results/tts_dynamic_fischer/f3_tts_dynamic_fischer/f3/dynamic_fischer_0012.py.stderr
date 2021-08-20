@@ -1,3 +1,39 @@
-real 43.00
-user 42.15
-sys 0.60
+SystemError: ../Objects/longobject.c:482: bad argument to internal function
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/F3/src/run_f3.py", line 436, in <module>
+    main(config_args().parse_args())
+  File "/home/F3/src/run_f3.py", line 432, in main
+    run_f3(bench, out_dir)
+  File "/home/F3/src/run_f3.py", line 260, in run_f3
+    res = solve_problem(prob, label, out_dir)
+  File "/home/F3/src/run_f3.py", line 251, in solve_problem
+    return run_ltl_test(problem, env, label, out_dir)
+  File "/home/F3/src/run_f3.py", line 113, in run_ltl_test
+    return search_nonterm(env, symbols, init, trans, fairness,
+  File "/home/F3/src/run_f3.py", line 169, in search_nonterm
+    _, arg0, arg1 = search_unrank_bmc(env, symbols, init, trans,
+  File "/home/F3/src/unranker.py", line 255, in search_unrank_bmc
+    synth_unrank(env, symbols, trace, abst_path, hints,
+  File "/home/F3/src/unranker.py", line 656, in synth_unrank
+    arg = nontermarg.motzkin_instantiate(extra=learn)
+  File "/home/F3/src/funnel.py", line 711, in motzkin_instantiate
+    res = solver.solve()
+  File "/home/F3/src/multisolver.py", line 97, in solve
+    res = self._c_solver.timeout_solve(assumptions=assumptions)
+  File "/home/F3/src/multisolver.py", line 191, in solver_timeout_solve
+    return self.solve(assumptions)
+  File "/usr/local/lib/python3.8/dist-packages/PySMT-0.9.1.dev331-py3.8.egg/pysmt/solvers/solver.py", line 351, in solve
+    res = self._solve(assumptions=assumptions)
+  File "/usr/local/lib/python3.8/dist-packages/PySMT-0.9.1.dev331-py3.8.egg/pysmt/decorators.py", line 64, in clear_pending_pop_wrap
+    return f(self, *args, **kwargs)
+  File "/usr/local/lib/python3.8/dist-packages/PySMT-0.9.1.dev331-py3.8.egg/pysmt/solvers/msat.py", line 266, in _solve
+    res = mathsat.msat_solve(self.msat_env())
+  File "/usr/local/lib/python3.8/dist-packages/mathsat.py", line 1437, in msat_solve
+    return _mathsat.msat_solve(e)
+SystemError: <built-in function msat_solve> returned a result with an error set
+real 3602.42
+user 0.00
+sys 0.00

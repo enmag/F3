@@ -1,5 +1,7 @@
 Graph finished, checking  consistency
 Graph finished, checked consistency, took 0.001s
-real 1042.42
-user 0.02
+Running T2 finished with non-zero exit code 134 when running command: 
+[mono, /home/T2/src/bin/Release/T2.exe, --try_nonterm=1, --print_proof, --termination, /tmp/aprove.InputModules.Programs.t23054481104448110649.t2]
+real 1061.33
+user 0.00
 sys 0.00

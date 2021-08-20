@@ -3,7 +3,7 @@
 ## Install matplotlib
 The following command installs matplotlib via the pip package manager.
   $> pip3 install --user matplotlib
-On Ubuntu20, it seems that it is required to install the package via apt.
+On Ubuntu20, it is required to install the package via apt.
 Otherwise, matplotlib fails to open the windows in which the plots are shown.
 Run the following command as sudo:
   $> apt -y install python3-matplotlib

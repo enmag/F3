@@ -1,0 +1,160 @@
+extern float __VERIFIER_nondet_float(void);
+extern int __VERIFIER_nondet_int(void);
+typedef enum {false, true} bool;
+bool __VERIFIER_nondet_bool(void) {
+  return __VERIFIER_nondet_int() != 0;
+}
+
+int main()
+{
+int sm3_l, _x_sm3_l;
+int sm3_loop_len, _x_sm3_loop_len;
+bool sm3_state, _x_sm3_state;
+int sm2_l, _x_sm2_l;
+int sm2_loop_len, _x_sm2_loop_len;
+bool sm2_state, _x_sm2_state;
+int sm1_l, _x_sm1_l;
+int sm1_loop_len, _x_sm1_loop_len;
+bool sm1_state, _x_sm1_state;
+int sm0_l, _x_sm0_l;
+int sm0_loop_len, _x_sm0_loop_len;
+bool sm0_state, _x_sm0_state;
+int semaphore, _x_semaphore;
+bool _J386, _x__J386;
+bool _J380, _x__J380;
+bool _J373, _x__J373;
+bool _J367, _x__J367;
+bool _J360, _x__J360;
+bool _J354, _x__J354;
+bool _J348, _x__J348;
+bool _J342, _x__J342;
+bool _J336, _x__J336;
+bool _J330, _x__J330;
+bool _EL_U_270, _x__EL_U_270;
+int run, _x_run;
+bool _EL_U_272, _x__EL_U_272;
+bool _EL_U_274, _x__EL_U_274;
+bool _EL_U_276, _x__EL_U_276;
+bool _EL_U_278, _x__EL_U_278;
+bool _EL_U_280, _x__EL_U_280;
+bool _EL_U_282, _x__EL_U_282;
+bool _EL_U_284, _x__EL_U_284;
+bool _EL_U_290, _x__EL_U_290;
+bool _EL_U_292, _x__EL_U_292;
+
+  int __steps_to_fair = __VERIFIER_nondet_int();
+  sm3_l = __VERIFIER_nondet_int();
+  sm3_loop_len = __VERIFIER_nondet_int();
+  sm3_state = __VERIFIER_nondet_bool();
+  sm2_l = __VERIFIER_nondet_int();
+  sm2_loop_len = __VERIFIER_nondet_int();
+  sm2_state = __VERIFIER_nondet_bool();
+  sm1_l = __VERIFIER_nondet_int();
+  sm1_loop_len = __VERIFIER_nondet_int();
+  sm1_state = __VERIFIER_nondet_bool();
+  sm0_l = __VERIFIER_nondet_int();
+  sm0_loop_len = __VERIFIER_nondet_int();
+  sm0_state = __VERIFIER_nondet_bool();
+  semaphore = __VERIFIER_nondet_int();
+  _J386 = __VERIFIER_nondet_bool();
+  _J380 = __VERIFIER_nondet_bool();
+  _J373 = __VERIFIER_nondet_bool();
+  _J367 = __VERIFIER_nondet_bool();
+  _J360 = __VERIFIER_nondet_bool();
+  _J354 = __VERIFIER_nondet_bool();
+  _J348 = __VERIFIER_nondet_bool();
+  _J342 = __VERIFIER_nondet_bool();
+  _J336 = __VERIFIER_nondet_bool();
+  _J330 = __VERIFIER_nondet_bool();
+  _EL_U_270 = __VERIFIER_nondet_bool();
+  run = __VERIFIER_nondet_int();
+  _EL_U_272 = __VERIFIER_nondet_bool();
+  _EL_U_274 = __VERIFIER_nondet_bool();
+  _EL_U_276 = __VERIFIER_nondet_bool();
+  _EL_U_278 = __VERIFIER_nondet_bool();
+  _EL_U_280 = __VERIFIER_nondet_bool();
+  _EL_U_282 = __VERIFIER_nondet_bool();
+  _EL_U_284 = __VERIFIER_nondet_bool();
+  _EL_U_290 = __VERIFIER_nondet_bool();
+  _EL_U_292 = __VERIFIER_nondet_bool();
+
+  bool __ok = ((((((semaphore == 0) && (sm0_state && (( !(sm0_loop_len <= 0)) && (sm0_l == 0)))) && (sm1_state && (( !(sm1_loop_len <= 0)) && (sm1_l == 0)))) && (sm2_state && (( !(sm2_loop_len <= 0)) && (sm2_l == 0)))) && (sm3_state && (( !(sm3_loop_len <= 0)) && (sm3_l == 0)))) && ((((((((((( !((_EL_U_292 || ( !((semaphore == 0) || _EL_U_290))) || ( !(((( !(_EL_U_284 || ( !((run == 0) || _EL_U_282)))) && ( !(_EL_U_280 || ( !((run == 1) || _EL_U_278))))) && ( !(_EL_U_276 || ( !((run == 2) || _EL_U_274))))) && ( !(_EL_U_272 || ( !((run == 3) || _EL_U_270)))))))) && ( !_J330)) && ( !_J336)) && ( !_J342)) && ( !_J348)) && ( !_J354)) && ( !_J360)) && ( !_J367)) && ( !_J373)) && ( !_J380)) && ( !_J386)));
+  while (__steps_to_fair >= 0 && __ok) {
+    if ((((((((((_J330 && _J336) && _J342) && _J348) && _J354) && _J360) && _J367) && _J373) && _J380) && _J386)) {
+      __steps_to_fair = __VERIFIER_nondet_int();
+    } else {
+      __steps_to_fair--;
+    }
+    _x_sm3_l = __VERIFIER_nondet_int();
+    _x_sm3_loop_len = __VERIFIER_nondet_int();
+    _x_sm3_state = __VERIFIER_nondet_bool();
+    _x_sm2_l = __VERIFIER_nondet_int();
+    _x_sm2_loop_len = __VERIFIER_nondet_int();
+    _x_sm2_state = __VERIFIER_nondet_bool();
+    _x_sm1_l = __VERIFIER_nondet_int();
+    _x_sm1_loop_len = __VERIFIER_nondet_int();
+    _x_sm1_state = __VERIFIER_nondet_bool();
+    _x_sm0_l = __VERIFIER_nondet_int();
+    _x_sm0_loop_len = __VERIFIER_nondet_int();
+    _x_sm0_state = __VERIFIER_nondet_bool();
+    _x_semaphore = __VERIFIER_nondet_int();
+    _x__J386 = __VERIFIER_nondet_bool();
+    _x__J380 = __VERIFIER_nondet_bool();
+    _x__J373 = __VERIFIER_nondet_bool();
+    _x__J367 = __VERIFIER_nondet_bool();
+    _x__J360 = __VERIFIER_nondet_bool();
+    _x__J354 = __VERIFIER_nondet_bool();
+    _x__J348 = __VERIFIER_nondet_bool();
+    _x__J342 = __VERIFIER_nondet_bool();
+    _x__J336 = __VERIFIER_nondet_bool();
+    _x__J330 = __VERIFIER_nondet_bool();
+    _x__EL_U_270 = __VERIFIER_nondet_bool();
+    _x_run = __VERIFIER_nondet_int();
+    _x__EL_U_272 = __VERIFIER_nondet_bool();
+    _x__EL_U_274 = __VERIFIER_nondet_bool();
+    _x__EL_U_276 = __VERIFIER_nondet_bool();
+    _x__EL_U_278 = __VERIFIER_nondet_bool();
+    _x__EL_U_280 = __VERIFIER_nondet_bool();
+    _x__EL_U_282 = __VERIFIER_nondet_bool();
+    _x__EL_U_284 = __VERIFIER_nondet_bool();
+    _x__EL_U_290 = __VERIFIER_nondet_bool();
+    _x__EL_U_292 = __VERIFIER_nondet_bool();
+
+    __ok = (((((((_x_semaphore == 0) || ( !(semaphore == 4))) && ((((((((((sm0_l == 0) && ( !(_x_sm0_loop_len <= sm0_loop_len))) || ( !(_x_sm0_state && ( !sm0_state)))) && ((_x_sm0_state && ( !sm0_state)) || (sm0_loop_len == _x_sm0_loop_len))) && (( !sm0_state) || ((sm0_l + (-1 * _x_sm0_l)) == 1))) && (_x_sm0_state || ( !(sm0_state && ( !(sm0_loop_len <= sm0_l)))))) && (_x_sm0_state || ( !(((semaphore == 4) && (_x_semaphore == 0)) && ( !sm0_state))))) && ((sm0_state == _x_sm0_state) || ( !(( !(((semaphore == 4) && (_x_semaphore == 0)) && ( !sm0_state))) && ( !(run == 0)))))) && ((semaphore == _x_semaphore) || ( !((run == 0) && (sm0_state == _x_sm0_state))))) && (((semaphore + (-1 * _x_semaphore)) == -1) || ( !(( !_x_sm0_state) && ((run == 0) && sm0_state)))))) && ((((((((((sm1_l == 0) && ( !(_x_sm1_loop_len <= sm1_loop_len))) || ( !(_x_sm1_state && ( !sm1_state)))) && ((_x_sm1_state && ( !sm1_state)) || (sm1_loop_len == _x_sm1_loop_len))) && (( !sm1_state) || ((sm1_l + (-1 * _x_sm1_l)) == 1))) && (_x_sm1_state || ( !(sm1_state && ( !(sm1_loop_len <= sm1_l)))))) && (_x_sm1_state || ( !(((semaphore == 4) && (_x_semaphore == 0)) && ( !sm1_state))))) && ((sm1_state == _x_sm1_state) || ( !(( !(((semaphore == 4) && (_x_semaphore == 0)) && ( !sm1_state))) && ( !(run == 1)))))) && ((semaphore == _x_semaphore) || ( !((run == 1) && (sm1_state == _x_sm1_state))))) && (((semaphore + (-1 * _x_semaphore)) == -1) || ( !(( !_x_sm1_state) && ((run == 1) && sm1_state)))))) && ((((((((((sm2_l == 0) && ( !(_x_sm2_loop_len <= sm2_loop_len))) || ( !(_x_sm2_state && ( !sm2_state)))) && ((_x_sm2_state && ( !sm2_state)) || (sm2_loop_len == _x_sm2_loop_len))) && (( !sm2_state) || ((sm2_l + (-1 * _x_sm2_l)) == 1))) && (_x_sm2_state || ( !(sm2_state && ( !(sm2_loop_len <= sm2_l)))))) && (_x_sm2_state || ( !(((semaphore == 4) && (_x_semaphore == 0)) && ( !sm2_state))))) && ((sm2_state == _x_sm2_state) || ( !(( !(((semaphore == 4) && (_x_semaphore == 0)) && ( !sm2_state))) && ( !(run == 2)))))) && ((semaphore == _x_semaphore) || ( !((run == 2) && (sm2_state == _x_sm2_state))))) && (((semaphore + (-1 * _x_semaphore)) == -1) || ( !(( !_x_sm2_state) && ((run == 2) && sm2_state)))))) && ((((((((((sm3_l == 0) && ( !(_x_sm3_loop_len <= sm3_loop_len))) || ( !(_x_sm3_state && ( !sm3_state)))) && ((_x_sm3_state && ( !sm3_state)) || (sm3_loop_len == _x_sm3_loop_len))) && (( !sm3_state) || ((sm3_l + (-1 * _x_sm3_l)) == 1))) && (_x_sm3_state || ( !(sm3_state && ( !(sm3_loop_len <= sm3_l)))))) && (_x_sm3_state || ( !(((semaphore == 4) && (_x_semaphore == 0)) && ( !sm3_state))))) && ((sm3_state == _x_sm3_state) || ( !(( !(((semaphore == 4) && (_x_semaphore == 0)) && ( !sm3_state))) && ( !(run == 3)))))) && ((semaphore == _x_semaphore) || ( !((run == 3) && (sm3_state == _x_sm3_state))))) && (((semaphore + (-1 * _x_semaphore)) == -1) || ( !(( !_x_sm3_state) && ((run == 3) && sm3_state)))))) && ((((((((((((_EL_U_272 == (_x__EL_U_272 || ( !(_x__EL_U_270 || (_x_run == 3))))) && ((_EL_U_270 == (_x__EL_U_270 || (_x_run == 3))) && ((_EL_U_276 == (_x__EL_U_276 || ( !(_x__EL_U_274 || (_x_run == 2))))) && ((_EL_U_274 == (_x__EL_U_274 || (_x_run == 2))) && ((_EL_U_280 == (_x__EL_U_280 || ( !(_x__EL_U_278 || (_x_run == 1))))) && ((_EL_U_278 == (_x__EL_U_278 || (_x_run == 1))) && ((_EL_U_284 == (_x__EL_U_284 || ( !(_x__EL_U_282 || (_x_run == 0))))) && ((_EL_U_282 == (_x__EL_U_282 || (_x_run == 0))) && ((_EL_U_290 == ((_x_semaphore == 0) || _x__EL_U_290)) && (_EL_U_292 == (_x__EL_U_292 || ( !((_x_semaphore == 0) || _x__EL_U_290))))))))))))) && (_x__J330 == (( !(((((((((_J330 && _J336) && _J342) && _J348) && _J354) && _J360) && _J367) && _J373) && _J380) && _J386)) && ((((((((((_J330 && _J336) && _J342) && _J348) && _J354) && _J360) && _J367) && _J373) && _J380) && _J386) || (((semaphore == 0) || ( !((semaphore == 0) || _EL_U_290))) || _J330))))) && (_x__J336 == (( !(((((((((_J330 && _J336) && _J342) && _J348) && _J354) && _J360) && _J367) && _J373) && _J380) && _J386)) && ((((((((((_J330 && _J336) && _J342) && _J348) && _J354) && _J360) && _J367) && _J373) && _J380) && _J386) || ((( !((semaphore == 0) || _EL_U_290)) || ( !(_EL_U_292 || ( !((semaphore == 0) || _EL_U_290))))) || _J336))))) && (_x__J342 == (( !(((((((((_J330 && _J336) && _J342) && _J348) && _J354) && _J360) && _J367) && _J373) && _J380) && _J386)) && ((((((((((_J330 && _J336) && _J342) && _J348) && _J354) && _J360) && _J367) && _J373) && _J380) && _J386) || (((run == 0) || ( !((run == 0) || _EL_U_282))) || _J342))))) && (_x__J348 == (( !(((((((((_J330 && _J336) && _J342) && _J348) && _J354) && _J360) && _J367) && _J373) && _J380) && _J386)) && ((((((((((_J330 && _J336) && _J342) && _J348) && _J354) && _J360) && _J367) && _J373) && _J380) && _J386) || ((( !((run == 0) || _EL_U_282)) || ( !(_EL_U_284 || ( !((run == 0) || _EL_U_282))))) || _J348))))) && (_x__J354 == (( !(((((((((_J330 && _J336) && _J342) && _J348) && _J354) && _J360) && _J367) && _J373) && _J380) && _J386)) && ((((((((((_J330 && _J336) && _J342) && _J348) && _J354) && _J360) && _J367) && _J373) && _J380) && _J386) || (((run == 1) || ( !((run == 1) || _EL_U_278))) || _J354))))) && (_x__J360 == (( !(((((((((_J330 && _J336) && _J342) && _J348) && _J354) && _J360) && _J367) && _J373) && _J380) && _J386)) && ((((((((((_J330 && _J336) && _J342) && _J348) && _J354) && _J360) && _J367) && _J373) && _J380) && _J386) || ((( !((run == 1) || _EL_U_278)) || ( !(_EL_U_280 || ( !((run == 1) || _EL_U_278))))) || _J360))))) && (_x__J367 == (( !(((((((((_J330 && _J336) && _J342) && _J348) && _J354) && _J360) && _J367) && _J373) && _J380) && _J386)) && ((((((((((_J330 && _J336) && _J342) && _J348) && _J354) && _J360) && _J367) && _J373) && _J380) && _J386) || (((run == 2) || ( !((run == 2) || _EL_U_274))) || _J367))))) && (_x__J373 == (( !(((((((((_J330 && _J336) && _J342) && _J348) && _J354) && _J360) && _J367) && _J373) && _J380) && _J386)) && ((((((((((_J330 && _J336) && _J342) && _J348) && _J354) && _J360) && _J367) && _J373) && _J380) && _J386) || ((( !((run == 2) || _EL_U_274)) || ( !(_EL_U_276 || ( !((run == 2) || _EL_U_274))))) || _J373))))) && (_x__J380 == (( !(((((((((_J330 && _J336) && _J342) && _J348) && _J354) && _J360) && _J367) && _J373) && _J380) && _J386)) && ((((((((((_J330 && _J336) && _J342) && _J348) && _J354) && _J360) && _J367) && _J373) && _J380) && _J386) || (((run == 3) || ( !((run == 3) || _EL_U_270))) || _J380))))) && (_x__J386 == (( !(((((((((_J330 && _J336) && _J342) && _J348) && _J354) && _J360) && _J367) && _J373) && _J380) && _J386)) && ((((((((((_J330 && _J336) && _J342) && _J348) && _J354) && _J360) && _J367) && _J373) && _J380) && _J386) || ((( !((run == 3) || _EL_U_270)) || ( !(_EL_U_272 || ( !((run == 3) || _EL_U_270))))) || _J386))))));
+    sm3_l = _x_sm3_l;
+    sm3_loop_len = _x_sm3_loop_len;
+    sm3_state = _x_sm3_state;
+    sm2_l = _x_sm2_l;
+    sm2_loop_len = _x_sm2_loop_len;
+    sm2_state = _x_sm2_state;
+    sm1_l = _x_sm1_l;
+    sm1_loop_len = _x_sm1_loop_len;
+    sm1_state = _x_sm1_state;
+    sm0_l = _x_sm0_l;
+    sm0_loop_len = _x_sm0_loop_len;
+    sm0_state = _x_sm0_state;
+    semaphore = _x_semaphore;
+    _J386 = _x__J386;
+    _J380 = _x__J380;
+    _J373 = _x__J373;
+    _J367 = _x__J367;
+    _J360 = _x__J360;
+    _J354 = _x__J354;
+    _J348 = _x__J348;
+    _J342 = _x__J342;
+    _J336 = _x__J336;
+    _J330 = _x__J330;
+    _EL_U_270 = _x__EL_U_270;
+    run = _x_run;
+    _EL_U_272 = _x__EL_U_272;
+    _EL_U_274 = _x__EL_U_274;
+    _EL_U_276 = _x__EL_U_276;
+    _EL_U_278 = _x__EL_U_278;
+    _EL_U_280 = _x__EL_U_280;
+    _EL_U_282 = _x__EL_U_282;
+    _EL_U_284 = _x__EL_U_284;
+    _EL_U_290 = _x__EL_U_290;
+    _EL_U_292 = _x__EL_U_292;
+
+  }
+}

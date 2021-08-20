@@ -1,0 +1,4 @@
+./nuxmv/extending_bound.smv
+./nuxmv/constant_bound.smv
+./nuxmv/constant_bound_no_stutter.smv
+./nuxmv/extending_bound_no_stutter.smv

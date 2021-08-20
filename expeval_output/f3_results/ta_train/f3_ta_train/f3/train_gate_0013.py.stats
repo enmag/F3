@@ -1,8 +1,8 @@
-group: pyrank_ta_train
-platform: Linux node1 5.4.0-56-generic #62-Ubuntu SMP Mon Nov 23 19:20:19 UTC 2020 x86_64 x86_64
-timestamp: 1616951565
-time: 2021-03-28 19:12:45
+group: f3_ta_train
+platform: Linux node2 5.4.0-56-generic #62-Ubuntu SMP Mon Nov 23 19:20:19 UTC 2020 x86_64 x86_64
+timestamp: 1629310069
+time: 2021-08-18 20:07:49
 exitcode: 0
-real: 77.82
-user: 76.23
-sys: 0.53
+real: 3602.71
+user: 0.0
+sys: 0.0

@@ -1,11 +1,8 @@
-
-
-run 1/1: `NonTermination2_false-termination`
+F3 run `NonTermination2_false-termination`
 
 	Found non-termination argument:
 	State 0
 		pc = 0
-		(((old_x * 2) + (-1 * x)) <= 0)
 		((-1 * x) < -1)
 	Trans 0 -- 1
 		_x_x = x
@@ -13,13 +10,13 @@ run 1/1: `NonTermination2_false-termination`
 	State 1
 		pc = 1
 	Trans 1 -- 2
-		_x_x = x
 		_x_old_x = x
+		_x_x = x
 	State 2
 		pc = 2
 	Trans 2 -- 3
-		_x_x = ((x * 2) + (old_x * 2) + -2)
 		_x_old_x = old_x
+		_x_x = (((x * 5) + -2) - (old_x * 2))
 	State 3
 		pc = 3
 		(((old_x * 2) + (-1 * x)) <= 0)
@@ -27,6 +24,6 @@ run 1/1: `NonTermination2_false-termination`
 	Trans 3 -- 4
 		_x_x = x
 		_x_old_x = old_x
-	starting from: {pc: 0, x: 2, old_x: 1}
+	starting from: pc : 0, x : 2, old_x : 1
 
-end of `NonTermination2_false-termination`: SUCCESS in 0.8167719841003418s
+end of `NonTermination2_false-termination`: SUCCESS in 2.0743589401245117s

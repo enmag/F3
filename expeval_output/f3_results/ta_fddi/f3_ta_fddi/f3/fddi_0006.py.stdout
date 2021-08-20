@@ -1,3 +1,183 @@
+F3 run `fddi_0006`
 
+	Found non-termination argument:
+	State 25
+		s3_l1 = True
+		s3_l0 = True
+		s3_l2 = False
+		r_counter = 0
+		r_l = False
+		r_evt_id = 3
+		s1_l1 = True
+		r_event0 = True
+		s1_l0 = True
+		r_event1 = False
+		s1_l2 = False
+		s5_evt1 = False
+		s5_evt0 = False
+		s4_evt1 = False
+		s4_evt0 = False
+		s4_l1 = True
+		s4_l0 = True
+		s4_l2 = False
+		s3_evt1 = False
+		s3_evt0 = True
+		s2_evt1 = False
+		s2_evt0 = False
+		s2_l1 = True
+		s2_l0 = True
+		s2_l2 = False
+		s1_evt1 = False
+		s1_evt0 = False
+		s0_evt1 = True
+		s0_evt0 = False
+		s0_l1 = False
+		s0_l0 = False
+		s0_l2 = True
+		s5_l1 = True
+		s5_l0 = True
+		s5_l2 = False
+		_J1601 = True
+		_J1595 = True
+		_J1589 = True
+		_J1583 = True
+		_EL_U_1557 = True
+		_EL_U_1559 = False
+		_EL_U_1561 = False
+		_EL_U_1563 = True
+		((-1.0 * s0_y) <= -120.0)
+		((-1.0 * s5_y) <= -120.0)
+		((-1.0 * s1_y) <= -120.0)
+		((-1.0 * s5_x) < -120.0)
+		((-1.0 * s5_z) <= -120.0)
+		((-1.0 * s2_z) <= -120.0)
+		((-1.0 * s0_x) < -120.0)
+		((-1.0 * s3_x) < -120.0)
+		((-1.0 * s1_x) < -120.0)
+		((-1.0 * s4_x) < -120.0)
+		((-1.0 * r_x) < 0.0)
+		(((-1.0 * delta) + (-1.0 * _diverge_delta)) <= -1.0)
+		((-1.0 * s4_y) <= -120.0)
+		(_diverge_delta < 1.0)
+		((-1.0 * delta) < 0.0)
+		((-1.0 * s1_z) <= -120.0)
+		((-1.0 * s3_x) < -20.0)
+		((-1.0 * s2_x) < -120.0)
+		((-1.0 * s2_y) <= -120.0)
+		((-1.0 * s3_z) <= -120.0)
+		((-1.0 * s0_z) <= -120.0)
+		((-1.0 * s4_z) <= -120.0)
+		((-1.0 * s3_y) <= -120.0)
+	Trans 25 -- 26
+		_x_s4_z = (s4_z + delta)
+		_x_s1_y = (s1_y + delta)
+		_x_s1_z = (s1_z + delta)
+		_x_s3_z = (s3_z + delta)
+		_x_s3_x = (s3_x + delta)
+		_x_s3_y = (s3_y + delta)
+		_x_s0_y = (s0_y + delta)
+		_x_s5_z = (delta + s5_z)
+		_x_s0_z = (s0_z + delta)
+		_x_s0_x = (s0_x + delta)
+		_x_r_x = (r_x + delta)
+		_x__diverge_delta = (delta + _diverge_delta)
+		_x_s5_y = (s5_y + delta)
+		_x_s5_x = (s5_x + delta)
+		_x_s2_x = (s2_x + delta)
+		_x_s2_y = (s2_y + delta)
+		_x_s4_x = (s4_x + delta)
+		_x_s2_z = (s2_z + delta)
+		_x_s4_y = (s4_y + delta)
+		_x_s1_x = (s1_x + delta)
+		_x_delta = 51/104
+	State 26
+		s3_l1 = True
+		s3_l0 = True
+		s3_l2 = False
+		r_counter = 0
+		r_l = False
+		r_evt_id = 5
+		s1_l1 = True
+		r_event0 = False
+		s1_l0 = True
+		r_event1 = False
+		s1_l2 = False
+		s5_evt1 = False
+		s5_evt0 = False
+		s4_evt1 = False
+		s4_evt0 = False
+		s4_l1 = True
+		s4_l0 = True
+		s4_l2 = False
+		s3_evt1 = False
+		s3_evt0 = True
+		s2_evt1 = False
+		s2_evt0 = False
+		s2_l1 = True
+		s2_l0 = True
+		s2_l2 = False
+		s1_evt1 = False
+		s1_evt0 = False
+		s0_evt1 = False
+		s0_evt0 = False
+		s0_l1 = False
+		s0_l0 = False
+		s0_l2 = True
+		s5_l1 = True
+		s5_l0 = True
+		s5_l2 = False
+		_J1601 = False
+		_J1595 = False
+		_J1589 = False
+		_J1583 = False
+		_EL_U_1557 = True
+		_EL_U_1559 = False
+		_EL_U_1561 = False
+		_EL_U_1563 = True
+		(((-1.0 * s3_x) + (-1.0 * delta)) < -20.0)
+		(((-1.0 * s0_x) + (-1.0 * delta)) < -120.0)
+		(((-1.0 * s2_x) + (-1.0 * delta)) < -120.0)
+		(((-1.0 * s3_x) + (-1.0 * delta)) < -120.0)
+		(((-1.0 * s0_y) + (-1.0 * delta)) <= -120.0)
+		(((-1.0 * s2_y) + (-1.0 * delta)) <= -120.0)
+		(((-1.0 * s1_x) + (-1.0 * delta)) < -120.0)
+		(((-1.0 * s5_y) + (-1.0 * delta)) <= -120.0)
+		(((-1.0 * s3_z) + (-1.0 * delta)) <= -120.0)
+		(((-1.0 * s4_x) + (-1.0 * delta)) < -120.0)
+		(((-1.0 * s1_y) + (-1.0 * delta)) <= -120.0)
+		(((-1.0 * s0_z) + (-1.0 * delta)) <= -120.0)
+		(((-1.0 * r_x) + (-1.0 * delta)) < 0.0)
+		(((-1.0 * s5_x) + (-1.0 * delta)) < -120.0)
+		((-1.0 * delta) < 0.0)
+		(((-1.0 * s4_z) + (-1.0 * delta)) <= -120.0)
+		(((-1.0 * s4_y) + (-1.0 * delta)) <= -120.0)
+		(((-1.0 * s5_z) + (-1.0 * delta)) <= -120.0)
+		(delta < 1.0)
+		(((-1.0 * s3_y) + (-1.0 * delta)) <= -120.0)
+		(((-1.0 * s2_z) + (-1.0 * delta)) <= -120.0)
+		(((-1.0 * s1_z) + (-1.0 * delta)) <= -120.0)
+	Trans 26 -- 27
+		_x_s4_z = (s4_z + delta)
+		_x_s1_y = (s1_y + delta)
+		_x_s1_z = (s1_z + delta)
+		_x_s3_z = (s3_z + delta)
+		_x_s3_x = (s3_x + delta)
+		_x_s3_y = (s3_y + delta)
+		_x_s0_y = (s0_y + delta)
+		_x_s5_z = (delta + s5_z)
+		_x_s0_z = (s0_z + delta)
+		_x_s0_x = (s0_x + delta)
+		_x__diverge_delta = delta
+		_x_r_x = (r_x + delta)
+		_x_s5_y = (s5_y + delta)
+		_x_s5_x = (s5_x + delta)
+		_x_s2_x = (s2_x + delta)
+		_x_s2_y = (s2_y + delta)
+		_x_s4_x = (s4_x + delta)
+		_x_s2_z = (s2_z + delta)
+		_x_s4_y = (s4_y + delta)
+		_x_s1_x = (s1_x + delta)
+		_x_delta = 293/310
+	starting from: s3_l1 : True, s3_l0 : True, s5_z : 32041635/28, s3_l2 : False, _diverge_delta : 3/14, r_counter : 0, delta : 11/14, r_l : False, s3_y : 32037715/28, s3_x : 32037715/28, r_evt_id : 3, r_event0 : True, s1_l1 : True, r_event1 : False, s3_z : 32041635/28, s1_l0 : True, s5_evt1 : False, s5_evt0 : False, s1_l2 : False, r_x : 32036035/28, s1_y : 32038835/28, s1_x : 32038835/28, s4_evt1 : False, s4_evt0 : False, s1_z : 32041635/28, s4_l1 : True, s4_l0 : True, s4_l2 : False, s3_evt1 : False, s3_evt0 : True, s4_y : 32037155/28, s2_evt1 : False, s2_evt0 : False, s4_x : 32037155/28, s2_l1 : True, s2_l0 : True, s4_z : 32041635/28, s2_l2 : False, s1_evt1 : False, s1_evt0 : False, s2_y : 32038275/28, s0_evt1 : True, s2_x : 32038275/28, s0_evt0 : False, s0_l1 : False, s0_l0 : False, s0_l2 : True, s2_z : 32041635/28, s5_l1 : True, s5_l0 : True, s5_l2 : False, _J1601 : True, s0_z : 32036035/28, _J1595 : True, s0_y : 32041635/28, _J1589 : True, _J1583 : True, s0_x : 32036035/28, _EL_U_1557 : True, _EL_U_1559 : False, s5_y : 32036595/28, _EL_U_1561 : False, s5_x : 32036595/28, _EL_U_1563 : True
 
-run 1/1: `fddi_0006`
+end of `fddi_0006`: SUCCESS in 681.9401350021362s

@@ -1,7 +1,9 @@
-
-
-run 1/1: `BradleyMannaSipma-CAV2005-Fig1-inline_false-termination`
+F3 run `BradleyMannaSipma-CAV2005-Fig1-inline_false-termination`
 
 	Found non-termination argument:
-	[{pc: 1, y1: 0, y2: 1}, {pc: 2, y1: 0, y2: 1}, {pc: 4, y1: 0, y2: 1}, {pc: 1, y1: 0, y2: 1}]
-end of `BradleyMannaSipma-CAV2005-Fig1-inline_false-termination`: SUCCESS in 0.035686492919921875s
+	pc : 1, y1 : 0, y2 : 1
+	pc : 2, y1 : 0, y2 : 1
+	pc : 4, y1 : 0, y2 : 1
+	pc : 1, y1 : 0, y2 : 1
+
+end of `BradleyMannaSipma-CAV2005-Fig1-inline_false-termination`: SUCCESS in 0.3330576419830322s

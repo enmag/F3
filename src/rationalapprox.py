@@ -6,10 +6,6 @@ _VAL_BOUND = 10000
 _APPROX_PRECISION = 3
 
 
-def approximate() -> bool:
-    return get_approx_precision() > 0
-
-
 def set_approx_precision(val: int) -> None:
     global _APPROX_PRECISION
     _APPROX_PRECISION = val
@@ -82,7 +78,7 @@ def eval_continued_frac(seq, bound=-1):
     n, d, num, den = 0, 1, 1, 0
     for u in seq:
         new_den = den * u + d
-        if bound > 0 and new_den >= bound:
+        if 0 < bound <= new_den:
             break
         n, d, num, den = num, den, num * u + n, new_den
     assert den <= get_val_bound()
@@ -99,20 +95,22 @@ def continued_fraction(x, maxlen):
     if isinstance(x, float):
         return _float_cont_frac(x, maxlen)
     if isinstance(x, int):
-        return [x]  # RationalApprox._int_cont_frac(x, 1, 1)
+        return [max(min(x, get_val_bound()), -get_val_bound())]
     raise TypeError('Unsupported input type {:}'.format(type(x)))
 
 
 def _int_cont_frac(num, den, max_amount):
     abs_tol = get_tolerance()
     fractional_part = abs_tol + 1  # something greater than abs_tol
-    real_number = num / den
+    real_number = Fraction(num, den)
     amount = 0
     while abs(fractional_part) > abs_tol and amount < max_amount and den != 0:
         integer_part = num // den
         fractional_part = real_number - integer_part
+        assert isinstance(fractional_part, Fraction)
         if fractional_part != 0:
-            real_number = 1.0 / fractional_part
+            real_number = Fraction(fractional_part.denominator,
+                                   fractional_part.numerator)
         num -= integer_part * den
         num, den = den, num
         amount += 1

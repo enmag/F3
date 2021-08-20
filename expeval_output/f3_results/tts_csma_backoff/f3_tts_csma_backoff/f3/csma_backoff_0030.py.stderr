@@ -1,33 +1,39 @@
-SystemError: ../Objects/longobject.c:482: bad argument to internal function
-
-The above exception was the direct cause of the following exception:
-
 Traceback (most recent call last):
-  File "/home/pyrank/src/run_benchmarks.py", line 366, in <module>
-    main(getopts())
-  File "/home/pyrank/src/run_benchmarks.py", line 228, in main
-    res, runtime = dispatch_test(test_module, label, out_dir)
-  File "/home/pyrank/src/run_benchmarks.py", line 162, in dispatch_test
-    return run_ltl_test(test, label, out_dir)
-  File "/home/pyrank/src/run_benchmarks.py", line 88, in run_ltl_test
+  File "/home/F3/src/run_f3.py", line 436, in <module>
+    main(config_args().parse_args())
+  File "/home/F3/src/run_f3.py", line 432, in main
+    run_f3(bench, out_dir)
+  File "/home/F3/src/run_f3.py", line 260, in run_f3
+    res = solve_problem(prob, label, out_dir)
+  File "/home/F3/src/run_f3.py", line 251, in solve_problem
+    return run_ltl_test(problem, env, label, out_dir)
+  File "/home/F3/src/run_f3.py", line 113, in run_ltl_test
     return search_nonterm(env, symbols, init, trans, fairness,
-  File "/home/pyrank/src/run_benchmarks.py", line 131, in search_nonterm
-    _, arg, param_assigns = search_unrank_bmc(env, symbols, init, trans,
-  File "/home/pyrank/src/unranker.py", line 111, in search_unrank_bmc
-    for i, (trace, lback_idx, abst_states, abst_trans) in \
-  File "/home/pyrank/src/abstract_loops.py", line 214, in gen_loops
-    sat = solve_with_timeout(BMC._TIMEOUT, solver)
-  File "/home/pyrank/src/solver.py", line 165, in solve_with_timeout
-    res = solver.solve(assumptions)
-  File "/home/magnago/.local/lib/python3.8/site-packages/pysmt/solvers/solver.py", line 357, in solve
-    res = self._solve(assumptions=assumptions)
-  File "/home/magnago/.local/lib/python3.8/site-packages/pysmt/decorators.py", line 64, in clear_pending_pop_wrap
-    return f(self, *args, **kwargs)
-  File "/home/magnago/.local/lib/python3.8/site-packages/pysmt/solvers/msat.py", line 271, in _solve
-    res = mathsat.msat_solve(self.msat_env())
-  File "/home/magnago/.local/lib/python3.8/site-packages/mathsat.py", line 1404, in msat_solve
-    return _mathsat.msat_solve(e)
-SystemError: <built-in function msat_solve> returned a result with an error set
-real 3603.25
+  File "/home/F3/src/run_f3.py", line 169, in search_nonterm
+    _, arg0, arg1 = search_unrank_bmc(env, symbols, init, trans,
+  File "/home/F3/src/unranker.py", line 255, in search_unrank_bmc
+    synth_unrank(env, symbols, trace, abst_path, hints,
+  File "/home/F3/src/unranker.py", line 656, in synth_unrank
+    arg = nontermarg.motzkin_instantiate(extra=learn)
+  File "/home/F3/src/funnel.py", line 651, in motzkin_instantiate
+    for c in self.generate_motzkin_constr():
+  File "/home/F3/src/funnel.py", line 841, in generate_motzkin_constr
+    yield from motzkin_transpose(self.env, constrs,
+  File "/home/F3/src/motzkin.py", line 145, in motzkin_transpose
+    log(f"\t    {serialize(symb)}  <{ineq_type}>  {ineq}", _LOG_LVL)
+  File "/home/F3/src/ineq.py", line 229, in __repr__
+    buf.write(repr(self.rhs))
+  File "/home/F3/src/ineq.py", line 557, in __repr__
+    return self.env.serializer.serialize(self.pysmt_expr())
+  File "/usr/local/lib/python3.8/dist-packages/PySMT-0.9.1.dev331-py3.8.egg/pysmt/printers.py", line 349, in serialize
+    p.printer(formula, threshold)
+  File "/usr/local/lib/python3.8/dist-packages/PySMT-0.9.1.dev331-py3.8.egg/pysmt/printers.py", line 45, in printer
+    self.walk(f, threshold=threshold)
+  File "/usr/local/lib/python3.8/dist-packages/PySMT-0.9.1.dev331-py3.8.egg/pysmt/walkers/tree.py", line 52, in walk
+    iterator = f(formula)
+  File "/usr/local/lib/python3.8/dist-packages/PySMT-0.9.1.dev331-py3.8.egg/pysmt/printers.py", line 99, in walk_real_constant
+    self.write("%s/%s" % (n, d))
+KeyboardInterrupt
+real 3603.07
 user 0.00
 sys 0.00

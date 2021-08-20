@@ -1,8 +1,8 @@
-group: pyrank_semaphore
-platform: Linux node1 5.4.0-56-generic #62-Ubuntu SMP Mon Nov 23 19:20:19 UTC 2020 x86_64 x86_64
-timestamp: 1616944739
-time: 2021-03-28 17:18:59
+group: f3_semaphore
+platform: Linux node2 5.4.0-56-generic #62-Ubuntu SMP Mon Nov 23 19:20:19 UTC 2020 x86_64 x86_64
+timestamp: 1629301269
+time: 2021-08-18 17:41:09
 exitcode: 0
-real: 250.14
-user: 249.5
-sys: 0.53
+real: 494.31
+user: 492.18
+sys: 1.01

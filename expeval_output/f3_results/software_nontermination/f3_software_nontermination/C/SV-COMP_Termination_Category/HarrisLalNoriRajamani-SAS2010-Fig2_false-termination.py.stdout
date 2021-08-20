@@ -1,7 +1,8 @@
-
-
-run 1/1: `HarrisLalNoriRajamani-SAS2010-Fig2_false-termination`
+F3 run `HarrisLalNoriRajamani-SAS2010-Fig2_false-termination`
 
 	Found non-termination argument:
-	[{pc: 5, fpc: 8, x: 1, y: 7, d: 0}, {pc: 5, fpc: 12, x: 1, y: 7, d: 0}, {pc: 5, fpc: 14, x: 1, y: 7, d: 0}, {pc: 5, fpc: 8, x: 1, y: 7, d: 0}]
-end of `HarrisLalNoriRajamani-SAS2010-Fig2_false-termination`: SUCCESS in 0.1721508502960205s
+	pc : 5, fpc : 12, x : 1, y : 6, d : 0
+	pc : 5, fpc : 13, x : 1, y : 6, d : 0
+	pc : 5, fpc : 12, x : 1, y : 6, d : 0
+
+end of `HarrisLalNoriRajamani-SAS2010-Fig2_false-termination`: SUCCESS in 0.45766711235046387s

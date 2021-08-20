@@ -1,7 +1,11 @@
-
-
-run 1/1: `HenzingerJhalaMajumdarSutre-POPL2002-LockingExample_false-termination`
+F3 run `HenzingerJhalaMajumdarSutre-POPL2002-LockingExample_false-termination`
 
 	Found non-termination argument:
-	[{pc: 1, LOCK: 1, got_lock: 0, old: 0, new: 0}, {pc: 2, LOCK: 1, got_lock: 0, old: 0, new: 0}, {pc: 3, LOCK: 1, got_lock: 0, old: 0, new: 0}, {pc: 6, LOCK: 1, got_lock: 0, old: 0, new: 0}, {pc: 8, LOCK: 1, got_lock: 0, old: 0, new: 0}, {pc: 1, LOCK: 1, got_lock: 0, old: 0, new: 0}]
-end of `HenzingerJhalaMajumdarSutre-POPL2002-LockingExample_false-termination`: SUCCESS in 0.11055946350097656s
+	pc : 1, LOCK : 1, got_lock : 0, old : 0, new : 0
+	pc : 2, LOCK : 1, got_lock : 0, old : 0, new : 0
+	pc : 3, LOCK : 1, got_lock : 0, old : 0, new : 0
+	pc : 6, LOCK : 1, got_lock : 0, old : 0, new : 0
+	pc : 8, LOCK : 1, got_lock : 0, old : 0, new : 0
+	pc : 1, LOCK : 1, got_lock : 0, old : 0, new : 0
+
+end of `HenzingerJhalaMajumdarSutre-POPL2002-LockingExample_false-termination`: SUCCESS in 0.3528878688812256s

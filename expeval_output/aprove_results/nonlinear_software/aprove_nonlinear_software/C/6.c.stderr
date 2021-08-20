@@ -1,6 +1,6 @@
 Graph finished, checking  consistency
-Graph finished, checked consistency, took 0.001s
-Aborted 1616266573Exec. 9, LLVMNontermination with some error. Reason: java.lang.UnsupportedOperationException: No viable cases left. Operation: //t.
+Graph finished, checked consistency, took 0.0s
+Aborted 1627969701Exec. 9, LLVMNontermination with some error. Reason: java.lang.UnsupportedOperationException: No viable cases left. Operation: //t.
             aprove.Framework.BasicStructures.Arithmetic.Integer.BinaryIntegerFunctionExpression.toSMTExp(BinaryIntegerFunctionExpression.java:46)
             aprove.Framework.BasicStructures.Arithmetic.Integer.IntegerRelation.toSMTExp(IntegerRelation.java:143)
             aprove.InputModules.Programs.llvm.segraph.LLVMSEPath.toSMTExp(LLVMSEPath.java:1265)
@@ -27,5 +27,5 @@ java.lang.UnsupportedOperationException: No viable cases left. Operation: //t
 	at aprove.Strategies.Util.PrioritizableThreadPool$Worker.run(PrioritizableThreadPool.java:274)
 	at java.lang.Thread.run(Thread.java:748)
 real 6.16
-user 21.23
+user 25.61
 sys 2.47

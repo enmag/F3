@@ -1,41 +1,30 @@
-
-
-run 1/1: `integer_log_by_mul`
+F3 run `integer_log_by_mul`
 
 	Found non-termination argument:
-	Do states 7..9 while (((ToReal(log) * 5/16) + -5/4) < 0.0)
 	State 7
 		d = 1
 		f_mul = 1
 		n = 8
 		pc = 7
 		((-1 * log) < 0)
+		((-1 * log) < 2)
+		((-1 * log) < 1)
 	Trans 7 -- 8
-		_x_log : log
+		_x_log = log
 	State 8
 		d = 1
 		f_mul = 1
 		n = 8
 		pc = 5
 	Trans 8 -- 9
-		_x_log : log
+		_x_log = log
 	State 9
 		d = 1
 		f_mul = 1
 		n = 8
 		pc = 6
-	Trans 9 -- 7
-		_x_log : (log + 1)
-	End do-while
-	State 9
-		d = 1
-		f_mul = 1
-		n = 8
-		pc = 6
-		((5/4 - (ToReal(log) * 5/16)) <= 0.0)
-		((-1 * log) < 1)
 	Trans 9 -- 10
 		_x_log = (log + 1)
-	starting from: {d: 1, f_mul: 1, log: 1, n: 8, pc: 7}
+	starting from: d : 1, f_mul : 1, log : 1, n : 8, pc : 7
 
-end of `integer_log_by_mul`: SUCCESS in 1.0221154689788818s
+end of `integer_log_by_mul`: SUCCESS in 1.2235567569732666s

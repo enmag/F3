@@ -1,7 +1,10 @@
-
-
-run 1/1: `lasso_example3`
+F3 run `lasso_example3`
 
 	Found non-termination argument:
-	[{pc: 2, i: 0, j: 1, k: 1}, {pc: 3, i: 0, j: 1, k: 1}, {pc: 4, i: 1, j: 1, k: 1}, {pc: 5, i: 0, j: 1, k: 0}, {pc: 2, i: 0, j: 1, k: 1}]
-end of `lasso_example3`: SUCCESS in 0.07911252975463867s
+	pc : 2, i : 0, j : 1, k : 1
+	pc : 3, i : 0, j : 1, k : 1
+	pc : 4, i : 1, j : 1, k : 1
+	pc : 5, i : 0, j : 1, k : 0
+	pc : 2, i : 0, j : 1, k : 1
+
+end of `lasso_example3`: SUCCESS in 0.38615894317626953s

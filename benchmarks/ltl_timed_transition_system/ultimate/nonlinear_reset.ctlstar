@@ -1,0 +1,1 @@
+A (( (F (G ( (! (delta <= 0.0)) || (! (c == bound))))) || (! (G (F (1.0 <= _diverge_delta))))))

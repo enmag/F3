@@ -1,14 +1,13 @@
-
-
-run 1/1: `Hanoi_3vars_false-termination`
+F3 run `Hanoi_3vars_false-termination`
 
 	Found non-termination argument:
 	State 0
 		pc = 0
-		(((-1 * y) + (-1 * x)) < 0)
+		((((-1 * z) + (-1 * x)) - (y * 2)) < 0)
 		((-1 * x) < 0)
-		((-1 * y) <= 0)
-		((-1 * (z * 2)) <= 0)
+		(((-1 * y) + (-1 * x)) < 0)
+		(((-1 * y) + -1) <= 0)
+		((-1 * z) <= 0)
 	Trans 0 -- 1
 		_x_x = x
 		_x_y = y
@@ -16,8 +15,8 @@ run 1/1: `Hanoi_3vars_false-termination`
 	State 1
 		pc = 1
 	Trans 1 -- 2
-		_x_x = (x + y)
 		_x_y = y
+		_x_x = (y + x)
 		_x_z = z
 	State 2
 		pc = 2
@@ -28,9 +27,9 @@ run 1/1: `Hanoi_3vars_false-termination`
 	State 3
 		pc = 3
 	Trans 3 -- 4
+		_x_z = (z + 1)
 		_x_x = x
 		_x_y = y
-		_x_z = (z + 1)
-	starting from: {z: 0, pc: 0, x: 1, y: 0}
+	starting from: z : 0, pc : 0, x : 1, y : 0
 
-end of `Hanoi_3vars_false-termination`: SUCCESS in 28.59510326385498s
+end of `Hanoi_3vars_false-termination`: SUCCESS in 55.86426901817322s

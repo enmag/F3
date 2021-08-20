@@ -1,81 +1,66 @@
-
-
-run 1/1: `nCr_combination`
+F3 run `nCr_combination`
 
 	Found non-termination argument:
-	Do states 18..23 while (((ToReal(nmul) + -6.0) - (ToReal(dmul) * 3/2)) < 0.0)
-	State 18
+	State 36
 		den = 0
 		nCr = 1
 		n_num = 1
 		num = 0
 		pc = 18
-		r_num = 0
-	Trans 18 -- 19
-		_x_nmul : nmul
-		_x_dmul : dmul
-	State 19
+		r_num = 1
+	Trans 36 -- 37
+		_x_dmul = dmul
+		_x_nmul = nmul
+	State 37
 		den = 0
 		nCr = 1
 		n_num = 1
 		num = 0
 		pc = 19
-		r_num = 0
-	Trans 19 -- 20
-		_x_nmul : nmul
-		_x_dmul : (dmul + -1)
-	State 20
+		r_num = 1
+	Trans 37 -- 38
+		_x_dmul = (dmul + -1)
+		_x_nmul = nmul
+	State 38
 		den = 0
 		nCr = 1
 		n_num = 1
 		num = 0
 		pc = 11
-		r_num = 0
-	Trans 20 -- 21
-		_x_nmul : nmul
-		_x_dmul : dmul
-	State 21
+		r_num = 1
+	Trans 38 -- 39
+		_x_dmul = dmul
+		_x_nmul = nmul
+	State 39
 		den = 0
 		nCr = 1
 		n_num = 1
 		num = 0
 		pc = 12
-		r_num = 0
-	Trans 21 -- 22
-		_x_nmul : nmul
-		_x_dmul : dmul
-	State 22
+		r_num = 1
+	Trans 39 -- 40
+		_x_dmul = dmul
+		_x_nmul = nmul
+	State 40
 		den = 0
 		nCr = 1
 		n_num = 1
 		num = 0
 		pc = 16
-		r_num = 0
-	Trans 22 -- 23
-		_x_nmul : nmul
-		_x_dmul : dmul
-	State 23
-		den = 0
-		nCr = 1
-		n_num = 1
-		num = 0
-		pc = 17
-		r_num = 0
-	Trans 23 -- 18
-		_x_nmul : (nmul + -1)
-		_x_dmul : dmul
-	End do-while
-	State 23
-		den = 0
-		nCr = 1
-		n_num = 1
-		num = 0
-		pc = 17
-		r_num = 0
-		(((ToReal(dmul) * 3/2) + (-1.0 * ToReal(nmul)) + 6.0) <= 0.0)
-	Trans 23 -- 24
-		_x_nmul = (nmul + -1)
+		r_num = 1
+	Trans 40 -- 41
 		_x_dmul = dmul
-	starting from: {den: 0, dmul: -1, nCr: 1, n_num: 1, nmul: -1, num: 0, pc: 18, r_num: 0}
+		_x_nmul = nmul
+	State 41
+		den = 0
+		nCr = 1
+		n_num = 1
+		num = 0
+		pc = 17
+		r_num = 1
+	Trans 41 -- 42
+		_x_dmul = dmul
+		_x_nmul = (nmul + -1)
+	starting from: den : 0, dmul : -3, nCr : 1, n_num : 1, nmul : -4, num : 0, pc : 18, r_num : 1
 
-end of `nCr_combination`: SUCCESS in 5.739486932754517s
+end of `nCr_combination`: SUCCESS in 12.04407525062561s

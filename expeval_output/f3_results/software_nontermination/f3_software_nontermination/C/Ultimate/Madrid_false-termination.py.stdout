@@ -1,7 +1,8 @@
-
-
-run 1/1: `Madrid_false-termination`
+F3 run `Madrid_false-termination`
 
 	Found non-termination argument:
-	[{pc: 1, x: 2}, {pc: 2, x: 2}, {pc: 1, x: 2}]
-end of `Madrid_false-termination`: SUCCESS in 0.02457141876220703s
+	pc : 1, x : 2
+	pc : 2, x : 2
+	pc : 1, x : 2
+
+end of `Madrid_false-termination`: SUCCESS in 0.23411822319030762s

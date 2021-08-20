@@ -1,7 +1,8 @@
-
-
-run 1/1: `NonTerminationSimple3_false-termination`
+F3 run `NonTerminationSimple3_false-termination`
 
 	Found non-termination argument:
-	[{pc: 0, x: 0, c: 0}, {pc: 1, x: 0, c: 0}, {pc: 0, x: 0, c: 0}]
-end of `NonTerminationSimple3_false-termination`: SUCCESS in 0.022942304611206055s
+	pc : 0, x : 0, c : 0
+	pc : 1, x : 0, c : 0
+	pc : 0, x : 0, c : 0
+
+end of `NonTerminationSimple3_false-termination`: SUCCESS in 0.2906808853149414s

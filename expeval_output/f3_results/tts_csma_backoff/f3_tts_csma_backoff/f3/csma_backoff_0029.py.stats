@@ -1,8 +1,8 @@
-group: pyrank_tts_csma_backoff
-platform: Linux node1 5.4.0-56-generic #62-Ubuntu SMP Mon Nov 23 19:20:19 UTC 2020 x86_64 x86_64
-timestamp: 1617000256
-time: 2021-03-29 08:44:16
+group: f3_tts_csma_backoff
+platform: Linux node2 5.4.0-56-generic #62-Ubuntu SMP Mon Nov 23 19:20:19 UTC 2020 x86_64 x86_64
+timestamp: 1629314217
+time: 2021-08-18 21:16:57
 exitcode: 0
-real: 3602.6
+real: 3602.51
 user: 0.0
 sys: 0.0

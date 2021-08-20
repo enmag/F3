@@ -21,16 +21,16 @@ void f(int n_number, int numerator, int denominator,
       return;
     }
 
-    while (nCr >= 1) {
+    while (nCr >= 1) { // loc = 11
       if (nondet_bool()) { // 2 -> 5 -> 6
         if (! (numerator < 1)) { return; }
         nCr = numerator / denominator;
         return;
       }
-      numerator = numerator * nmul;
+      numerator = numerator * nmul; // loc = 16
       nmul = nmul - 1;
       denominator = denominator * dmul;
-      dmul = dmul - 1;
+      dmul = dmul - 1; // loc = 19
     }
     if (nondet_bool()) { // 2 -> 5 -> 6
       if (! (numerator < 1)) { return; }

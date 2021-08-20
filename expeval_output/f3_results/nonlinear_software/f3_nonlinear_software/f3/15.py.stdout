@@ -1,53 +1,42 @@
-
-
-run 1/1: `15`
+F3 run `15`
 
 	Found non-termination argument:
-	Do states 2..6 while ((ToReal(x) * 1/40) < 0.0)
 	State 2
 		pc = 2
-		((-1 * x) <= 0)
+		(((y * 2) + (-1 * x)) <= -1)
 		((-1 * x) <= -1)
+		(y <= -19)
 		(y <= -20)
+		(((y * 4) + (-1 * x)) <= 1)
+		(y <= -18)
 	Trans 2 -- 3
-		_x_z : z
-		_x_x : x
-		_x_y : y
+		_x_z = z
+		_x_x = x
+		_x_y = y
 	State 3
 		pc = 3
 	Trans 3 -- 4
-		_x_z : z
-		_x_x : x
-		_x_y : y
+		_x_z = z
+		_x_x = x
+		_x_y = y
 	State 4
 		pc = 5
 	Trans 4 -- 5
-		_x_z : (x * y)
-		_x_x : x
-		_x_y : y
+		_x_z = (x * y)
+		_x_x = x
+		_x_y = y
 	State 5
 		pc = 6
 	Trans 5 -- 6
-		_x_z : z
-		_x_x : (x - (y * 2))
-		_x_y : y
+		_x_x = (x - (y * 2))
+		_x_z = z
+		_x_y = y
 	State 6
 		pc = 7
-	Trans 6 -- 2
-		_x_z : z
-		_x_x : x
-		_x_y : (y + -1)
-	End do-while
-	State 6
-		pc = 7
-		(y <= -19)
-		((-1 * x) <= -1)
-		((-1 * x) <= 0)
-		((-1.0 * (ToReal(x) * 1/40)) <= 0.0)
 	Trans 6 -- 7
 		_x_z = z
 		_x_x = x
 		_x_y = (y + -1)
-	starting from: {z: -39, pc: 2, x: 2, y: -20}
+	starting from: z : -39, pc : 2, x : 2, y : -20
 
-end of `15`: SUCCESS in 1.6875584125518799s
+end of `15`: SUCCESS in 2.2347216606140137s

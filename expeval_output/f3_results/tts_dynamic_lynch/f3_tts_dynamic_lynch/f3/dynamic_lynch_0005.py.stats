@@ -1,8 +1,8 @@
-group: pyrank_tts_dynamic_lynch
+group: f3_tts_dynamic_lynch
 platform: Linux node1 5.4.0-56-generic #62-Ubuntu SMP Mon Nov 23 19:20:19 UTC 2020 x86_64 x86_64
-timestamp: 1616957825
-time: 2021-03-28 20:57:05
+timestamp: 1629320859
+time: 2021-08-18 23:07:39
 exitcode: 0
-real: 3603.17
-user: 0.0
-sys: 0.0
+real: 3604.32
+user: 3599.34
+sys: 3.03

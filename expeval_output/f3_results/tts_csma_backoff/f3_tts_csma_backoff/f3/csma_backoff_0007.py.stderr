@@ -1,3 +1,43 @@
-real 3603.14
+Traceback (most recent call last):
+  File "/home/F3/src/run_f3.py", line 436, in <module>
+    main(config_args().parse_args())
+  File "/home/F3/src/run_f3.py", line 432, in main
+    run_f3(bench, out_dir)
+  File "/home/F3/src/run_f3.py", line 260, in run_f3
+    res = solve_problem(prob, label, out_dir)
+  File "/home/F3/src/run_f3.py", line 251, in solve_problem
+    return run_ltl_test(problem, env, label, out_dir)
+  File "/home/F3/src/run_f3.py", line 113, in run_ltl_test
+    return search_nonterm(env, symbols, init, trans, fairness,
+  File "/home/F3/src/run_f3.py", line 169, in search_nonterm
+    _, arg0, arg1 = search_unrank_bmc(env, symbols, init, trans,
+  File "/home/F3/src/unranker.py", line 255, in search_unrank_bmc
+    synth_unrank(env, symbols, trace, abst_path, hints,
+  File "/home/F3/src/unranker.py", line 643, in synth_unrank
+    arg, learn = nontermarg.ef_instantiate()
+  File "/home/F3/src/funnel.py", line 623, in ef_instantiate
+    res, learn = efsolve(self.env, self.parameters, symbs,
+  File "/home/F3/src/efsolver.py", line 161, in efsolve
+    fsolver.add_assertion(mgr.Not(simplify(substitute(phi, x1_model))))
+  File "/usr/local/lib/python3.8/dist-packages/PySMT-0.9.1.dev331-py3.8.egg/pysmt/simplifier.py", line 59, in simplify
+    return self.walk(formula)
+  File "/usr/local/lib/python3.8/dist-packages/PySMT-0.9.1.dev331-py3.8.egg/pysmt/walkers/dag.py", line 106, in walk
+    res = self.iter_walk(formula, **kwargs)
+  File "/usr/local/lib/python3.8/dist-packages/PySMT-0.9.1.dev331-py3.8.egg/pysmt/walkers/dag.py", line 98, in iter_walk
+    self._process_stack(**kwargs)
+  File "/usr/local/lib/python3.8/dist-packages/PySMT-0.9.1.dev331-py3.8.egg/pysmt/walkers/dag.py", line 91, in _process_stack
+    self._compute_node_result(formula, **kwargs)
+  File "/usr/local/lib/python3.8/dist-packages/PySMT-0.9.1.dev331-py3.8.egg/pysmt/walkers/dag.py", line 75, in _compute_node_result
+    self.memoization[key] = f(formula, args=args, **kwargs)
+  File "/usr/local/lib/python3.8/dist-packages/PySMT-0.9.1.dev331-py3.8.egg/pysmt/simplifier.py", line 372, in walk_times
+    constant_mul *= x.constant_value()
+  File "/usr/lib/python3.8/fractions.py", line 397, in reverse
+    return monomorphic_operator(a, b)
+  File "/usr/lib/python3.8/fractions.py", line 427, in _mul
+    return Fraction(a.numerator * b.numerator, a.denominator * b.denominator)
+  File "/usr/lib/python3.8/fractions.py", line 182, in __new__
+    g = math.gcd(numerator, denominator)
+KeyboardInterrupt
+real 3602.51
 user 0.00
 sys 0.00

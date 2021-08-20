@@ -1,46 +1,45 @@
-
-
-run 1/1: `airbag_2`
+F3 run `airbag_2`
 
 	Found non-termination argument:
 	State 1
-		link_out_message = 0
-		sensor_message = 0
-		link_valid_crc = False
-		link_new_data_available = False
-		device_exploded = True
-		o_valid_explode = True
-		o_collision = True
-		fault_deletion = False
-		fault_corruption = False
-		_J121 = True
-		_J127 = True
-		_J133 = True
-		_EL_U_96 = True
-		_EL_U_98 = False
-		_EL_U_101 = False
-	Trans 1 -- 2
-		_x_link_out_counter = sensor_counter
-		_x_sensor_counter = (sensor_counter + 1)
-	State 2
-		link_out_message = 0
-		sensor_message = 0
-		link_valid_crc = True
-		link_new_data_available = True
-		device_exploded = True
-		o_valid_explode = True
 		o_collision = True
 		fault_deletion = True
+		link_valid_crc = True
+		link_new_data_available = True
+		_J133 = True
 		fault_corruption = True
-		_J121 = False
-		_J127 = False
-		_J133 = False
+		_J127 = True
+		_J121 = True
 		_EL_U_96 = True
 		_EL_U_98 = False
+		sensor_message = 0
 		_EL_U_101 = False
-	Trans 2 -- 3
-		_x_link_out_counter = 0
+		o_valid_explode = True
+		device_exploded = True
+		(link_out_message = 1)
+	Trans 1 -- 2
 		_x_sensor_counter = (sensor_counter + 1)
-	starting from: {sensor_counter: -1, link_out_message: 0, sensor_message: 0, link_out_counter: -1, link_valid_crc: False, link_new_data_available: False, device_exploded: True, o_valid_explode: True, o_collision: True, fault_deletion: False, fault_corruption: False, _J121: True, _J127: True, _J133: True, _EL_U_96: True, _EL_U_98: False, _EL_U_101: False}
+		_x_link_out_message = 0
+		_x_link_out_counter = 0
+	State 2
+		o_collision = True
+		fault_deletion = False
+		link_valid_crc = False
+		link_new_data_available = False
+		_J133 = False
+		fault_corruption = False
+		_J127 = False
+		_J121 = False
+		_EL_U_96 = True
+		_EL_U_98 = False
+		sensor_message = 1
+		_EL_U_101 = False
+		o_valid_explode = True
+		device_exploded = True
+	Trans 2 -- 3
+		_x_link_out_message = 1
+		_x_sensor_counter = (sensor_counter + 1)
+		_x_link_out_counter = sensor_counter
+	starting from: link_out_message : 1, o_collision : True, link_valid_crc : True, link_new_data_available : True, fault_deletion : True, _J133 : True, link_out_counter : 0, _J127 : True, fault_corruption : True, _J121 : True, _EL_U_96 : True, sensor_counter : 1, sensor_message : 0, _EL_U_98 : False, _EL_U_101 : False, o_valid_explode : True, device_exploded : True
 
-end of `airbag_2`: SUCCESS in 0.6874186992645264s
+end of `airbag_2`: SUCCESS in 2.116427421569824s

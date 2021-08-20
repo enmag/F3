@@ -1,0 +1,3 @@
+./nuxmv/simple_real2.smv
+./nuxmv/simple_real0.smv
+./nuxmv/simple_real1.smv
