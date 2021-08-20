@@ -460,9 +460,6 @@ def rf_or_funnel_from_trace(env: PysmtEnv,
     del restr_lasso_symbs
     assert sorted(lasso_symbs_lst, key=len, reverse=True) == lasso_symbs_lst
     if __debug__:
-        print("DEBUG CONC LASSO SYMBS:")
-        for lasso_symbs in lasso_symbs_lst:
-            print("\tf{"; ".join(env.serializer.serialize(s) for s in lasso_symbs)}")
         # each set should be contain all the following ones.
         for i, _ in enumerate(lasso_symbs_lst):
             for j in range(i+1, len(lasso_symbs_lst)):
