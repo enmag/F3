@@ -1,7 +1,18 @@
 F3 run `synchronization_ttethernet_network1`
 
 	Found non-termination argument:
+	Do states 1..10 while False
 	State 1
+		sm0_sm = 2.0
+		sm3_sm = 2.0
+		sm4_sm = 2.0
+		sm1_sm = 2.0
+		delta = 0.0
+		cm0_cm = 0.0
+		sm2_sm = 2.0
+		cm1_cm = 0.0
+		cm0_x = 2.0
+		cm1_x = 2.0
 		_EL_U_636 = True
 		_EL_U_638 = False
 		_EL_U_646 = True
@@ -17,29 +28,21 @@ F3 run `synchronization_ttethernet_network1`
 		_J682 = True
 		sm1_mode = 0
 		_J676 = True
-		(((sm0_sm * 4/5) - ((sm1_sm * 1/5) + (sm2_sm * 1/5) + (sm3_sm * 1/5) + (sm4_sm * 1/5))) = 0.0)
-		((-1.0 * delta) = 0.0)
-		(((sm3_sm * 4/5) - ((sm0_sm * 1/5) + (sm1_sm * 1/5) + (sm2_sm * 1/5) + (sm4_sm * 1/5))) = 0.0)
-		(((sm1_sm * 4/5) - ((sm0_sm * 1/5) + (sm2_sm * 1/5) + (sm3_sm * 1/5) + (sm4_sm * 1/5))) = 0.0)
+		((-1.0 * _diverge_delta) < 0.0)
 		((-1.0 * _diverge_delta) <= -1.0)
-		(cm0_x = 2.0)
-		(cm1_x = 2.0)
-		(((sm4_sm * 4/5) - ((sm0_sm * 1/5) + (sm1_sm * 1/5) + (sm2_sm * 1/5) + (sm3_sm * 1/5))) = 0.0)
-		(((cm1_cm * 5.0) + (-1.0 * sm0_sm) + (-1.0 * sm2_sm) + (-1.0 * sm4_sm) + (-1.0 * sm3_sm) + (-1.0 * sm1_sm)) < 0.0)
-		(((sm2_sm * 4/5) - ((sm0_sm * 1/5) + (sm1_sm * 1/5) + (sm3_sm * 1/5) + (sm4_sm * 1/5))) = 0.0)
 	Trans 1 -- 2
-		_x_sm2_sm = sm2_sm
-		_x__diverge_delta = delta
-		_x_sm3_sm = sm3_sm
-		_x_sm4_sm = sm4_sm
-		_x_cm1_cm = cm1_cm
-		_x_delta = 0.0
-		_x_cm1_x = 0.0
-		_x_cm0_cm = cm0_cm
-		_x_cm0_x = 0.0
-		_x_sm0_sm = sm0_sm
-		_x_sm1_sm = sm1_sm
+		_x__diverge_delta : 0.0	
 	State 2
+		sm0_sm = 1.0
+		sm3_sm = 1.0
+		sm4_sm = 1.0
+		sm1_sm = 1.0
+		delta = 0.0
+		cm0_cm = 0.0
+		sm2_sm = 1.0
+		cm1_cm = 0.0
+		cm0_x = 0.0
+		cm1_x = 0.0
 		_EL_U_636 = True
 		_EL_U_638 = False
 		_EL_U_646 = True
@@ -56,18 +59,18 @@ F3 run `synchronization_ttethernet_network1`
 		sm1_mode = 1
 		_J676 = False
 	Trans 2 -- 3
-		_x_sm2_sm = sm2_sm
-		_x_sm3_sm = sm3_sm
-		_x_sm4_sm = sm4_sm
-		_x_delta = 0.0
-		_x_cm1_x = 0.0
-		_x__diverge_delta = (delta + _diverge_delta)
-		_x_cm0_cm = ((sm4_sm * 1/5) + (sm3_sm * 1/5) + (sm2_sm * 1/5) + (sm1_sm * 1/5) + (sm0_sm * 1/5))
-		_x_cm0_x = 0.0
-		_x_cm1_cm = ((sm4_sm * 1/5) + (sm3_sm * 1/5) + (sm2_sm * 1/5) + (sm1_sm * 1/5) + (sm0_sm * 1/5))
-		_x_sm0_sm = sm0_sm
-		_x_sm1_sm = sm1_sm
+		_x__diverge_delta : _diverge_delta	
 	State 3
+		sm0_sm = 1.0
+		sm3_sm = 1.0
+		sm4_sm = 1.0
+		sm1_sm = 1.0
+		delta = 0.0
+		cm0_cm = 1.0
+		sm2_sm = 1.0
+		cm1_cm = 1.0
+		cm0_x = 0.0
+		cm1_x = 0.0
 		_EL_U_636 = True
 		_EL_U_638 = False
 		_EL_U_646 = True
@@ -84,18 +87,18 @@ F3 run `synchronization_ttethernet_network1`
 		sm1_mode = 2
 		_J676 = False
 	Trans 3 -- 4
-		_x_sm0_sm = ((cm1_cm * 1/2) + (cm0_cm * 1/2))
-		_x_sm1_sm = ((cm1_cm * 1/2) + (cm0_cm * 1/2))
-		_x_sm2_sm = ((cm1_cm * 1/2) + (cm0_cm * 1/2))
-		_x_sm3_sm = ((cm1_cm * 1/2) + (cm0_cm * 1/2))
-		_x_sm4_sm = ((cm1_cm * 1/2) + (cm0_cm * 1/2))
-		_x_delta = 0.0
-		_x_cm1_x = 0.0
-		_x__diverge_delta = (delta + _diverge_delta)
-		_x_cm0_cm = cm0_cm
-		_x_cm0_x = 0.0
-		_x_cm1_cm = cm1_cm
+		_x__diverge_delta : _diverge_delta	
 	State 4
+		sm0_sm = 1.0
+		sm3_sm = 1.0
+		sm4_sm = 1.0
+		sm1_sm = 1.0
+		delta = 0.0
+		cm0_cm = 1.0
+		sm2_sm = 1.0
+		cm1_cm = 1.0
+		cm0_x = 0.0
+		cm1_x = 0.0
 		_EL_U_636 = True
 		_EL_U_638 = False
 		_EL_U_646 = True
@@ -112,18 +115,18 @@ F3 run `synchronization_ttethernet_network1`
 		sm1_mode = 3
 		_J676 = True
 	Trans 4 -- 5
-		_x_sm2_sm = sm2_sm
-		_x_sm3_sm = sm3_sm
-		_x_sm4_sm = sm4_sm
-		_x_cm1_cm = cm1_cm
-		_x__diverge_delta = (delta + _diverge_delta)
-		_x_cm0_cm = cm0_cm
-		_x_sm0_sm = sm0_sm
-		_x_sm1_sm = sm1_sm
-		_x_delta = (((-1.0 * sm0_sm) + (sm3_sm * 13/8) + (-1.0 * sm4_sm) + (sm1_sm * 1/4) + (cm0_cm * 1/2) + (sm2_sm * 1/8) + 3/2) - (cm1_cm * 1/2))
-		_x_cm1_x = (((sm0_sm * 1/8) + (sm3_sm * 9/4) + (-1.0 * sm4_sm) + -1.0) - ((sm1_sm * 1/2) + (cm0_cm * 1/8) + (sm2_sm * 1/2) + (cm1_cm * 1/4)))
-		_x_cm0_x = (((sm4_sm * 1/8) + (-1.0 * sm1_sm) + (cm0_cm * 5/4) + (cm1_cm * 1/4) + -1.0) - ((sm0_sm * 1/4) + (sm3_sm * 1/8) + (sm2_sm * 1/4)))
+		_x__diverge_delta : _diverge_delta	
 	State 5
+		sm0_sm = 1.0
+		sm3_sm = 1.0
+		sm4_sm = 1.0
+		sm1_sm = 1.0
+		delta = 0.0
+		cm0_cm = 1.0
+		sm2_sm = 1.0
+		cm1_cm = 1.0
+		cm0_x = 2.0
+		cm1_x = 2.0
 		_EL_U_636 = True
 		_EL_U_638 = False
 		_EL_U_646 = True
@@ -139,50 +142,179 @@ F3 run `synchronization_ttethernet_network1`
 		_J682 = True
 		sm1_mode = 0
 		_J676 = True
-		(((cm0_x * 5.0) + (cm1_cm * 5.0) + (-1.0 * sm0_sm) + (-1.0 * sm2_sm) + (-1.0 * sm4_sm) + (-1.0 * sm3_sm) + (-1.0 * sm1_sm)) < 10.0)
-		((cm0_x + delta) <= 1.0)
-		(((-1.0 * _diverge_delta) + (-1.0 * delta)) <= -1.0)
-		(((-1.0 * cm0_x) + cm1_x) = 0.0)
 	Trans 5 -- 6
-		_x_sm2_sm = (sm2_sm + delta)
-		_x_sm3_sm = (delta + sm3_sm)
-		_x_sm4_sm = (delta + sm4_sm)
-		_x_cm1_cm = cm1_cm
-		_x_cm0_x = (cm0_x + delta)
-		_x__diverge_delta = (delta + _diverge_delta)
-		_x_sm0_sm = (delta + sm0_sm)
-		_x_cm1_x = (cm1_x + delta)
-		_x_cm0_cm = cm0_cm
-		_x_sm1_sm = (sm1_sm + delta)
-		_x_delta = ((-1.0 * cm0_x) + (-1.0 * delta) + 2.0)
+		_x__diverge_delta : _diverge_delta	
 	State 6
+		sm0_sm = 0.0
+		sm3_sm = 0.0
+		sm4_sm = 0.0
+		sm1_sm = 0.0
+		delta = 0.0
+		cm0_cm = 1.0
+		sm2_sm = 0.0
+		cm1_cm = 1.0
+		cm0_x = 0.0
+		cm1_x = 0.0
 		_EL_U_636 = True
 		_EL_U_638 = False
 		_EL_U_646 = True
-		sm2_mode = 0
-		cm0_mode = 0
+		sm2_mode = 1
+		cm0_mode = 1
 		_EL_U_648 = False
-		sm0_mode = 0
-		sm3_mode = 0
-		cm1_mode = 0
+		sm0_mode = 1
+		sm3_mode = 1
+		cm1_mode = 1
 		_J694 = True
-		sm4_mode = 0
+		sm4_mode = 1
 		_J688 = False
 		_J682 = True
-		sm1_mode = 0
+		sm1_mode = 1
 		_J676 = True
 	Trans 6 -- 7
-		_x_delta = 0.0
-		_x_sm2_sm = (sm2_sm + delta)
-		_x_sm3_sm = (delta + sm3_sm)
-		_x__diverge_delta = delta
-		_x_sm4_sm = (delta + sm4_sm)
-		_x_cm1_cm = cm1_cm
-		_x_cm0_x = (cm0_x + delta)
-		_x_sm0_sm = (delta + sm0_sm)
-		_x_cm1_x = (cm1_x + delta)
-		_x_cm0_cm = cm0_cm
-		_x_sm1_sm = (sm1_sm + delta)
+		_x__diverge_delta : _diverge_delta	
+	State 7
+		sm0_sm = 0.0
+		sm3_sm = 0.0
+		sm4_sm = 0.0
+		sm1_sm = 0.0
+		delta = 0.0
+		cm0_cm = 0.0
+		sm2_sm = 0.0
+		cm1_cm = 0.0
+		cm0_x = 0.0
+		cm1_x = 0.0
+		_EL_U_636 = True
+		_EL_U_638 = False
+		_EL_U_646 = True
+		sm2_mode = 2
+		cm0_mode = 2
+		_EL_U_648 = False
+		sm0_mode = 2
+		sm3_mode = 2
+		cm1_mode = 2
+		_J694 = True
+		sm4_mode = 2
+		_J688 = False
+		_J682 = True
+		sm1_mode = 2
+		_J676 = True
+	Trans 7 -- 8
+		_x__diverge_delta : _diverge_delta	
+	State 8
+		sm0_sm = 0.0
+		sm3_sm = 0.0
+		sm4_sm = 0.0
+		sm1_sm = 0.0
+		delta = 0.0
+		cm0_cm = 0.0
+		sm2_sm = 0.0
+		cm1_cm = 0.0
+		cm0_x = 0.0
+		cm1_x = 0.0
+		_EL_U_636 = True
+		_EL_U_638 = False
+		_EL_U_646 = True
+		sm2_mode = 3
+		cm0_mode = 3
+		_EL_U_648 = False
+		sm0_mode = 3
+		sm3_mode = 3
+		cm1_mode = 3
+		_J694 = True
+		sm4_mode = 3
+		_J688 = False
+		_J682 = True
+		sm1_mode = 3
+		_J676 = True
+	Trans 8 -- 9
+		_x__diverge_delta : _diverge_delta	
+	State 9
+		sm0_sm = 0.0
+		sm3_sm = 0.0
+		sm4_sm = 0.0
+		sm1_sm = 0.0
+		delta = 1.0
+		cm0_cm = 0.0
+		sm2_sm = 0.0
+		cm1_cm = 0.0
+		cm0_x = 0.0
+		cm1_x = 0.0
+		_EL_U_636 = True
+		_EL_U_638 = False
+		_EL_U_646 = True
+		sm2_mode = 0
+		cm0_mode = 0
+		_EL_U_648 = False
+		sm0_mode = 0
+		sm3_mode = 0
+		cm1_mode = 0
+		_J694 = True
+		sm4_mode = 0
+		_J688 = False
+		_J682 = True
+		sm1_mode = 0
+		_J676 = True
+	Trans 9 -- 10
+		_x__diverge_delta : (_diverge_delta + 1.0)	
+	State 10
+		sm0_sm = 1.0
+		sm3_sm = 1.0
+		sm4_sm = 1.0
+		sm1_sm = 1.0
+		delta = 1.0
+		cm0_cm = 0.0
+		sm2_sm = 1.0
+		cm1_cm = 0.0
+		cm0_x = 1.0
+		cm1_x = 1.0
+		_EL_U_636 = True
+		_EL_U_638 = False
+		_EL_U_646 = True
+		sm2_mode = 0
+		cm0_mode = 0
+		_EL_U_648 = False
+		sm0_mode = 0
+		sm3_mode = 0
+		cm1_mode = 0
+		_J694 = True
+		sm4_mode = 0
+		_J688 = False
+		_J682 = True
+		sm1_mode = 0
+		_J676 = True
+	Trans 10 -- 1
+		_x__diverge_delta : 1.0	
+	End do-while
+	State 10
+		sm0_sm = 1.0
+		sm3_sm = 1.0
+		sm4_sm = 1.0
+		sm1_sm = 1.0
+		delta = 1.0
+		cm0_cm = 0.0
+		sm2_sm = 1.0
+		cm1_cm = 0.0
+		cm0_x = 1.0
+		cm1_x = 1.0
+		_EL_U_636 = True
+		_EL_U_638 = False
+		_EL_U_646 = True
+		sm2_mode = 0
+		cm0_mode = 0
+		_EL_U_648 = False
+		sm0_mode = 0
+		sm3_mode = 0
+		cm1_mode = 0
+		_J694 = True
+		sm4_mode = 0
+		_J688 = False
+		_J682 = True
+		sm1_mode = 0
+		_J676 = True
+		True
+		((-1.0 * _diverge_delta) <= -1.0)
+	Trans 10 -- 11
+		_x__diverge_delta = 1.0
 	starting from: sm0_sm : 2.0, sm2_mode : 0, _diverge_delta : 2.0, delta : 0.0, sm2_sm : 2.0, sm4_mode : 0, sm4_sm : 2.0, cm1_cm : 0.0, cm1_mode : 0, sm1_mode : 0, cm1_x : 2.0, sm1_sm : 2.0, sm3_mode : 0, _J694 : True, _J688 : True, _J682 : True, _J676 : True, sm3_sm : 2.0, _EL_U_636 : True, _EL_U_638 : False, _EL_U_646 : True, cm0_cm : 0.0, cm0_mode : 0, _EL_U_648 : False, sm0_mode : 0, cm0_x : 2.0
 
-end of `synchronization_ttethernet_network1`: SUCCESS in 86.8905258178711s
+end of `synchronization_ttethernet_network1`: SUCCESS in 4.5556769371032715s

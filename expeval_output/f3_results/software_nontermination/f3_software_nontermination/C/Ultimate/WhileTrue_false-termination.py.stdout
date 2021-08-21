@@ -4,4 +4,4 @@ F3 run `WhileTrue_false-termination`
 	pc : 0
 	pc : 0
 
-end of `WhileTrue_false-termination`: SUCCESS in 0.28618597984313965s
+end of `WhileTrue_false-termination`: SUCCESS in 0.18517518043518066s

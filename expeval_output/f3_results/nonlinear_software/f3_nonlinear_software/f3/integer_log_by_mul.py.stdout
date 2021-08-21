@@ -6,9 +6,10 @@ F3 run `integer_log_by_mul`
 		f_mul = 1
 		n = 8
 		pc = 7
-		((-1 * log) < 0)
 		((-1 * log) < 2)
+		((-1 * log) < 0)
 		((-1 * log) < 1)
+		True
 	Trans 7 -- 8
 		_x_log = log
 	State 8
@@ -27,4 +28,4 @@ F3 run `integer_log_by_mul`
 		_x_log = (log + 1)
 	starting from: d : 1, f_mul : 1, log : 1, n : 8, pc : 7
 
-end of `integer_log_by_mul`: SUCCESS in 1.2235567569732666s
+end of `integer_log_by_mul`: SUCCESS in 2.110231876373291s

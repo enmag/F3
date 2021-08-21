@@ -28,35 +28,36 @@ F3 run `csma_backoff_single_station`
 		st_evt2 = False
 		_EL_U_436 = False
 		_EL_U_438 = True
-		(((-1.0 * st_backoff) + st_x) < 0.0)
+		(((-1.0 * delta) + _diverge_delta) = 0.0)
 		((-1.0 * st_x) <= 0.0)
+		((-1.0 * bus_x) <= 0.0)
 		(st_x <= 404.0)
 		(delta = 0.0)
-		((delta + _diverge_delta) < 1.0)
-		(_diverge_delta < 1.0)
-		((-1.0 * st_backoff) <= -13.0)
-		(bus_x = 0.0)
 		(bus_x < 13.0)
-		((-1.0 * bus_x) <= 0.0)
+		(bus_x = 0.0)
+		((-1.0 * st_backoff) <= -13.0)
+		(_diverge_delta < 1.0)
+		((delta + _diverge_delta) < 1.0)
+		(((-1.0 * st_backoff) + st_x) < 0.0)
 	Trans 3 -- 4
+		_x__diverge_delta = (delta + _diverge_delta)
 		_x_bus_x = 0.0
 		_x_delta = 0.0
-		_x__diverge_delta = (delta + _diverge_delta)
 		_x_st_x = 0.0
-		_x_st_backoff = (((st_backoff * 155923/74412) + (-1.0 * bus_x) + 27/26) - ((st_x * 2781/2756) + (_diverge_delta * 27/26) + (delta * 27/26)))
+		_x_st_backoff = (((st_backoff * 34791731/34257280) + 34791731/34257280) - ((st_x * 819/535270) + (bus_x * 819/535270) + (_diverge_delta * 65/64) + (delta * 1071359/1070540)))
 	State 4
 		bus_cd_id = False
-		bus_evt1 = True
+		bus_evt1 = False
 		st_l1 = False
-		bus_evt0 = False
+		bus_evt0 = True
 		_J495 = False
 		_J489 = False
 		bus_evt2 = False
 		_J482 = False
 		st_l0 = True
-		env_evt1 = True
+		env_evt1 = False
 		_J476 = False
-		env_evt0 = False
+		env_evt0 = True
 		_J471 = False
 		env_evt2 = False
 		_J465 = False
@@ -75,10 +76,10 @@ F3 run `csma_backoff_single_station`
 		((-1.0 * st_backoff) < 0.0)
 	Trans 4 -- 5
 		_x_st_backoff = st_backoff
+		_x__diverge_delta = (delta + _diverge_delta)
 		_x_bus_x = 0.0
 		_x_st_x = (delta + st_x)
-		_x__diverge_delta = (delta + _diverge_delta)
-		_x_delta = (((st_backoff * 53/26) + (_diverge_delta * 25/26) + (-1.0 * bus_x) + 27/26) - ((st_x * 25/26) + (delta * 25/26)))
+		_x_delta = (((st_x * 1/64) + (st_backoff * 65/64) + 65/64) - (delta * 1/64))
 	State 5
 		bus_cd_id = False
 		bus_evt1 = False
@@ -86,14 +87,14 @@ F3 run `csma_backoff_single_station`
 		bus_evt0 = False
 		_J495 = True
 		_J489 = False
-		bus_evt2 = True
+		bus_evt2 = False
 		_J482 = True
 		st_l0 = True
 		env_evt1 = False
 		_J476 = False
-		env_evt0 = False
+		env_evt0 = True
 		_J471 = True
-		env_evt2 = True
+		env_evt2 = False
 		_J465 = True
 		_EL_U_428 = True
 		bus_l1 = False
@@ -109,11 +110,11 @@ F3 run `csma_backoff_single_station`
 		(((-1.0 * delta) + (-1.0 * _diverge_delta)) <= -1.0)
 		(((-1.0 * delta) + (-1.0 * st_x) + st_backoff) <= 0.0)
 	Trans 5 -- 6
-		_x_bus_x = (bus_x + delta)
 		_x_st_backoff = st_backoff
-		_x_st_x = (delta + st_x)
-		_x_delta = 0.0
 		_x__diverge_delta = (delta + _diverge_delta)
+		_x_bus_x = (delta + bus_x)
+		_x_delta = 0.0
+		_x_st_x = (delta + st_x)
 	State 6
 		bus_cd_id = False
 		bus_evt1 = False
@@ -142,11 +143,11 @@ F3 run `csma_backoff_single_station`
 		_EL_U_436 = False
 		_EL_U_438 = True
 	Trans 6 -- 7
-		_x__diverge_delta = delta
 		_x_st_backoff = st_backoff
 		_x_bus_x = 0.0
-		_x_delta = 0.0
+		_x__diverge_delta = delta
 		_x_st_x = 0.0
+		_x_delta = 0.0
 	State 7
 		bus_cd_id = False
 		bus_evt1 = False
@@ -177,9 +178,9 @@ F3 run `csma_backoff_single_station`
 	Trans 7 -- 8
 		_x_st_backoff = st_backoff
 		_x_bus_x = 0.0
-		_x_st_x = (delta + st_x)
-		_x_delta = 0.0
 		_x__diverge_delta = (delta + _diverge_delta)
+		_x_delta = 0.0
+		_x_st_x = (delta + st_x)
 	starting from: _diverge_delta : 0.0, delta : 0.0, bus_cd_id : True, bus_evt1 : False, _J495 : True, bus_evt0 : True, bus_evt2 : False, _J489 : True, _J482 : True, env_evt1 : False, _J476 : True, env_evt0 : False, _J471 : True, env_evt2 : False, _J465 : True, _EL_U_428 : True, _EL_U_430 : False, _EL_U_432 : True, st_evt1 : False, st_evt0 : True, _EL_U_434 : False, st_evt2 : False, _EL_U_436 : False, _EL_U_438 : True, st_l1 : True, st_l0 : False, bus_l1 : False, bus_l0 : True, st_x : 0.0, st_backoff : 13.0, bus_x : 0.0
 
-end of `csma_backoff_single_station`: SUCCESS in 7.124083995819092s
+end of `csma_backoff_single_station`: SUCCESS in 6.183572769165039s

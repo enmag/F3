@@ -8,15 +8,15 @@ F3 run `Hanoi_plus_false-termination`
 		((-1 * x) < 0)
 		((-1 * z) <= 0)
 	Trans 0 -- 1
+		_x_y = y
 		_x_x = x
 		_x_z = z
-		_x_y = y
 	State 1
 		pc = 1
 	Trans 1 -- 2
+		_x_y = y
 		_x_x = (y + x)
 		_x_z = z
-		_x_y = y
 	State 2
 		pc = 2
 	Trans 2 -- 3
@@ -26,9 +26,9 @@ F3 run `Hanoi_plus_false-termination`
 	State 3
 		pc = 3
 	Trans 3 -- 4
-		_x_x = x
 		_x_y = y
+		_x_x = x
 		_x_z = (z + x)
 	starting from: z : 0, pc : 0, x : 1, y : 0
 
-end of `Hanoi_plus_false-termination`: SUCCESS in 2.053313732147217s
+end of `Hanoi_plus_false-termination`: SUCCESS in 2.054868698120117s

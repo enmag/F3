@@ -5,4 +5,4 @@ F3 run `Division_false-termination`
 	pc : 1, y : 0
 	pc : 0, y : 0
 
-end of `Division_false-termination`: SUCCESS in 0.20393705368041992s
+end of `Division_false-termination`: SUCCESS in 0.24785137176513672s

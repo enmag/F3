@@ -1,8 +1,8 @@
 group: f3_ta_fddi
-platform: Linux node2 5.4.0-56-generic #62-Ubuntu SMP Mon Nov 23 19:20:19 UTC 2020 x86_64 x86_64
-timestamp: 1629305571
-time: 2021-08-18 18:52:51
+platform: Linux node4 5.4.0-54-generic #60-Ubuntu SMP Fri Nov 6 10:37:59 UTC 2020 x86_64 x86_64
+timestamp: 1629477644
+time: 2021-08-20 18:40:44
 exitcode: 0
-real: 3602.6
+real: 3602.81
 user: 0.0
 sys: 0.0

@@ -126,7 +126,7 @@ class BMC:
         # collect atoms for abstract loop-back detection.
         lback_atms = set()
         for pred in chain(i_get_atoms(fair),
-                          (p for c_init in self.init
+                          (self.cn(p) for c_init in self.init
                            for p in i_get_atoms(c_init))):
             assert i_get_free_vars(pred) <= self.orig_symbs
             assert self.cn(pred) == pred

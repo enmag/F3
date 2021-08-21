@@ -3,31 +3,32 @@ F3 run `LeikeHeizmann-WST2014-Ex5_false-termination`
 	Found non-termination argument:
 	State 0
 		pc = 0
-		((-1 * a) <= -6)
-		((-1 * a) <= -7)
 		((-1 * b) <= -7)
+		((-1 * a) <= -7)
+		((-1 * a) <= -6)
+		((35 - ((a * 2) + (b * 2) + (olda * 2))) <= 0)
 	Trans 0 -- 1
-		_x_a = a
 		_x_b = b
+		_x_a = a
 		_x_olda = olda
 	State 1
 		pc = 1
 	Trans 1 -- 2
+		_x_b = b
 		_x_a = a
 		_x_olda = a
-		_x_b = b
 	State 2
 		pc = 2
 	Trans 2 -- 3
-		_x_a = b
 		_x_b = b
+		_x_a = b
 		_x_olda = olda
 	State 3
 		pc = 3
 	Trans 3 -- 4
+		_x_b = (olda + 1)
 		_x_a = a
 		_x_olda = olda
-		_x_b = (olda + 1)
 	starting from: olda : 7, pc : 0, a : 7, b : 7
 
-end of `LeikeHeizmann-WST2014-Ex5_false-termination`: SUCCESS in 1.355071783065796s
+end of `LeikeHeizmann-WST2014-Ex5_false-termination`: SUCCESS in 2.008178472518921s

@@ -22,4 +22,4 @@ F3 run `example1`
 		_x_j = ((j * j * j * 1/3) + 1.0)
 	starting from: pc : 0, i : 0.0, j : 0.0
 
-end of `example1`: SUCCESS in 62.09592628479004s
+end of `example1`: SUCCESS in 44.663164138793945s

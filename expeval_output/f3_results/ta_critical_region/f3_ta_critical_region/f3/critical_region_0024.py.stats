@@ -1,8 +1,8 @@
 group: f3_ta_critical_region
-platform: Linux node2 5.4.0-56-generic #62-Ubuntu SMP Mon Nov 23 19:20:19 UTC 2020 x86_64 x86_64
-timestamp: 1629301501
-time: 2021-08-18 17:45:01
+platform: Linux node4 5.4.0-54-generic #60-Ubuntu SMP Fri Nov 6 10:37:59 UTC 2020 x86_64 x86_64
+timestamp: 1629476393
+time: 2021-08-20 18:19:53
 exitcode: 0
-real: 201.73
-user: 200.06
-sys: 1.39
+real: 569.36
+user: 566.96
+sys: 1.95

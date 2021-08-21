@@ -3,12 +3,13 @@ F3 run `Singapore_v1_false-termination`
 	Found non-termination argument:
 	State 1
 		pc = 1
-		((-1 * ((y * 3) + (x * 4))) < -1)
-		(((-1 * y) + (-1 * x)) < 0)
-		(((-1 * y) - (x * 2)) < 0)
 		((-1 * ((y * 4) + (x * 4))) < -3)
+		((-1 * ((y * 3) + (x * 4))) < -1)
 		((-1 * x) < 0)
+		(((-1 * y) + (-1 * x)) < 0)
 		((-1 * ((y * 2) + (x * 2))) < -1)
+		(((-1 * y) - (x * 2)) < 0)
+		(((x * 6) + (y * 6) + -10) <= 0)
 	Trans 1 -- 2
 		_x_x = x
 		_x_y = y
@@ -24,4 +25,4 @@ F3 run `Singapore_v1_false-termination`
 		_x_y = (y + -1)
 	starting from: pc : 1, x : 1, y : 0
 
-end of `Singapore_v1_false-termination`: SUCCESS in 1.2065718173980713s
+end of `Singapore_v1_false-termination`: SUCCESS in 7.770632743835449s

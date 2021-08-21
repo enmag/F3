@@ -26,4 +26,4 @@ F3 run `NonTermination2_false-termination`
 		_x_old_x = old_x
 	starting from: pc : 0, x : 2, old_x : 1
 
-end of `NonTermination2_false-termination`: SUCCESS in 2.0743589401245117s
+end of `NonTermination2_false-termination`: SUCCESS in 2.017084836959839s

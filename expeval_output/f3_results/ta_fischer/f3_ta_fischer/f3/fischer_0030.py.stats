@@ -1,8 +1,8 @@
 group: f3_ta_fischer
-platform: Linux node2 5.4.0-56-generic #62-Ubuntu SMP Mon Nov 23 19:20:19 UTC 2020 x86_64 x86_64
-timestamp: 1629309212
-time: 2021-08-18 19:53:32
+platform: Linux node4 5.4.0-54-generic #60-Ubuntu SMP Fri Nov 6 10:37:59 UTC 2020 x86_64 x86_64
+timestamp: 1629481197
+time: 2021-08-20 19:39:57
 exitcode: 0
-real: 3576.12
-user: 3565.65
-sys: 9.53
+real: 39.89
+user: 38.34
+sys: 0.65

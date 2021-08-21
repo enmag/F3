@@ -70,21 +70,23 @@ F3 run `bakery_simple_bug_0018`
 		p14_l1 = False
 		p14_l0 = False
 		num14 = 0
-		((-1 * num0) <= 1)
-		((-1 * num0) <= 0)
-		(((-1 * max_num) + num0) = 0)
 		((-1 * num0) < 2)
-		(((-1 * min_num) + num0) = 0)
-		((-1 * max_num) <= 0)
 		((-1 * num0) <= 2)
-		((-1 * num0) < 0)
+		((-1 * num0) < 1)
+		(((-1 * min_num) + num0) = 0)
+		((-1 * num0) <= 0)
+		((-1 * max_num) <= 0)
+		(((-1 * max_num) + num0) = 0)
+		((-1 * min_num) < 0)
 		((-1 * max_num) < 0)
 		((-1 * min_num) <= 0)
-		((-1 * num0) < 1)
+		((-1 * num0) < 0)
+		((-1 * num0) <= 1)
+		(((-1 * min_num) + 2) <= 0)
 	Trans 5 -- 6
 		_x_num0 = num0
-		_x_min_num = num0
 		_x_max_num = num0
+		_x_min_num = num0
 	State 6
 		p3_l1 = False
 		p3_l0 = False
@@ -156,8 +158,8 @@ F3 run `bakery_simple_bug_0018`
 		num14 = 0
 	Trans 6 -- 7
 		_x_num0 = num0
-		_x_min_num = num0
 		_x_max_num = num0
+		_x_min_num = num0
 	State 7
 		p3_l1 = False
 		p3_l0 = False
@@ -229,8 +231,8 @@ F3 run `bakery_simple_bug_0018`
 		num14 = 0
 	Trans 7 -- 8
 		_x_num0 = num0
-		_x_min_num = num0
 		_x_max_num = num0
+		_x_min_num = num0
 	State 8
 		p3_l1 = False
 		p3_l0 = False
@@ -302,8 +304,8 @@ F3 run `bakery_simple_bug_0018`
 		num14 = 0
 	Trans 8 -- 9
 		_x_num0 = (max_num + 1)
-		_x_min_num = (max_num + 1)
 		_x_max_num = (max_num + 1)
+		_x_min_num = (max_num + 1)
 	starting from: p3_l1 : False, p3_l0 : False, p5_l1 : False, p7_l1 : False, p7_l0 : False, p5_l0 : False, num16 : 0, p1_l1 : False, p1_l0 : False, num3 : 0, num5 : 0, num7 : 0, p9_l1 : False, p9_l0 : False, num1 : 0, p17_l1 : False, num9 : 0, p17_l0 : False, p11_l1 : False, p11_l0 : False, num11 : 0, p13_l1 : False, p13_l0 : False, num13 : 0, num17 : 0, p15_l1 : False, p15_l0 : False, num15 : 0, p0_l1 : False, p0_l0 : True, run1 : False, run0 : False, p4_l1 : False, p4_l0 : False, run2 : False, p6_l1 : False, _J1989 : True, run3 : False, _J1980 : True, p8_l1 : False, _J1974 : True, p8_l0 : False, _J1969 : True, run4 : False, _J1963 : True, num4 : 0, num0 : 2, num8 : 0, _EL_U_1932 : True, _EL_U_1933 : True, num6 : 0, num2 : 0, p10_l1 : False, _EL_U_1936 : False, p10_l0 : False, _EL_U_1938 : False, p12_l1 : False, p12_l0 : False, _EL_U_1940 : True, num10 : 0, p2_l1 : False, min_num : 2, num12 : 0, p2_l0 : False, p14_l1 : False, p14_l0 : False, p6_l0 : False, max_num : 2, num14 : 0, p16_l1 : False, p16_l0 : False
 
-end of `bakery_simple_bug_0018`: SUCCESS in 55.57286810874939s
+end of `bakery_simple_bug_0018`: SUCCESS in 56.194926261901855s

@@ -4,14 +4,15 @@ F3 run `factorial`
 	State 8
 		n = 5
 		pc = 5
-		((((-1 * fact * i * i) + i) - ((fact * i * 3) + (fact * 2))) <= -2)
-		((-1 * i) < 1)
 		(((-1 * fact) + i) <= -1)
-		((-1 * i) < 0)
-		(((-1 * fact * i) + (-1 * fact) + i) <= -2)
+		((((-1 * fact * i * i) + i) - ((fact * i * 3) + (fact * 2))) <= -2)
 		(((-1 * fact) + i) <= 0)
-		((-1 * i) < -1)
+		(((-1 * fact * i) + (-1 * fact) + i) <= -2)
 		(((-1 * fact * i) + (-1 * fact) + i) <= -1)
+		((-1 * i) < -1)
+		((-1 * i) < 1)
+		((-1 * i) < 0)
+		((7 - ((fact * 2) + (i * 2))) <= 0)
 	Trans 8 -- 9
 		_x_i = (i + 1)
 		_x_fact = fact
@@ -29,4 +30,4 @@ F3 run `factorial`
 		_x_fact = (fact * i)
 	starting from: pc : 5, fact : 4, i : 2, n : 5
 
-end of `factorial`: SUCCESS in 1.4456627368927002s
+end of `factorial`: SUCCESS in 2.0267937183380127s

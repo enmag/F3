@@ -6,8 +6,9 @@ F3 run `simple_real0`
 	Trans 0 -- 1
 		_x_x = (-3/2 - (x * 3/2))
 	State 1
+		(x <= 0.0)
 	Trans 1 -- 2
-		_x_x = (27/16 - (x * 17/8))
+		_x_x = (3/2 - (x * 3/2))
 	starting from: x : 1.0
 
-end of `simple_real0`: SUCCESS in 2.1239798069000244s
+end of `simple_real0`: SUCCESS in 1.9846608638763428s

@@ -2,18 +2,18 @@ F3 run `dynamic_fischer_0005`
 
 	Found non-termination argument:
 	State 6
-		proposed0 = 7/8
-		p3_l1 = True
+		proposed0 = 3/4
+		p3_l1 = False
 		p3_l0 = False
-		p1_saved_max = 5/4
-		p4_saved_max = 5/4
+		proposed3 = 3/4
+		p1_saved_max = 211735/6108
+		p4_saved_max = 211735/6108
 		turn2 = False
-		p2_l1 = False
+		p2_l1 = True
 		p2_l0 = False
 		turn1 = True
-		turn0 = True
-		p0_saved_max = 5/4
-		proposed2 = 7/8
+		turn0 = False
+		p0_saved_max = 211735/6108
 		id2 = True
 		_J763 = True
 		id1 = False
@@ -21,6 +21,7 @@ F3 run `dynamic_fischer_0005`
 		id0 = True
 		_J751 = True
 		_J745 = True
+		p3_saved_max = 211735/6108
 		_EL_U_718 = True
 		_EL_U_720 = False
 		_EL_U_723 = True
@@ -28,61 +29,61 @@ F3 run `dynamic_fischer_0005`
 		_EL_U_725 = False
 		p1_l1 = False
 		p1_l0 = False
-		proposed1 = 7/8
+		proposed1 = 3/4
 		p4_l1 = False
 		p4_l0 = False
-		proposed4 = 1/8
-		p2_saved_max = 5/4
+		proposed4 = 3/4
 		p0_l1 = False
 		p0_l0 = False
-		((-1.0 * proposed3) <= -7/8)
-		(((-1.0 * max_prop) + proposed3) = 0.0)
 		((-1.0 * delta) = 0.0)
-		(_diverge_delta < 1.0)
 		((delta + _diverge_delta) < 1.0)
-		(((-1.0 * proposed3) + p3_x) <= 0.0)
-		((-1.0 * p0_x) < -7/8)
-		((-1.0 * p2_x) < -7/8)
-		((-1.0 * max_prop) < -7/8)
-		((-1.0 * max_prop) < -1/8)
-		((-1.0 * p4_x) < -1/8)
-		((-1.0 * p1_x) < -7/8)
-		((-1.0 * p3_x) <= 0.0)
-		((-1.0 * proposed3) <= -1/8)
-		((-1.0 * max_prop) <= -1/8)
-		(p3_x = 0.0)
-		((-1.0 * max_prop) <= -7/8)
+		((-1.0 * p4_x) < -3/4)
+		((-1.0 * proposed2) <= -3/4)
+		(((-1.0 * proposed2) + p2_x) <= 0.0)
+		((-1.0 * p2_x) <= 0.0)
+		(max_prop < 211735/6108)
+		((-1.0 * p3_x) < -3/4)
+		(((-1.0 * delta) + _diverge_delta) = 0.0)
+		((-1.0 * p0_x) < -3/4)
+		((-1.0 * p1_x) <= 0.0)
+		((-1.0 * p1_x) < -3/4)
+		((-1.0 * max_prop) < -3/4)
+		(((-1.0 * proposed2) + max_prop) = 0.0)
+		(p2_x = 0.0)
+		(_diverge_delta < 1.0)
+		((-1.0 * max_prop) <= -3/4)
 	Trans 6 -- 7
-		_x_p2_x = (p2_x + delta)
-		_x_p4_x = (p4_x + delta)
-		_x_p1_x = (delta + p1_x)
-		_x_delta = 0.0
-		_x_proposed3 = proposed3
-		_x_p3_x = 0.0
 		_x__diverge_delta = (delta + _diverge_delta)
-		_x_p3_saved_max = max_prop
+		_x_proposed2 = proposed2
 		_x_p0_x = (delta + p0_x)
-		_x_max_prop = proposed3
+		_x_p1_x = (delta + p1_x)
+		_x_p2_x = 0.0
+		_x_p2_saved_max = max_prop
+		_x_p4_x = (p4_x + delta)
+		_x_p3_x = (p3_x + delta)
+		_x_max_prop = proposed2
+		_x_delta = (((p1_x * 2.0) + (_diverge_delta * 1/8) + p4_x + (-1.0 * max_prop) + 44.0) - ((delta * 1/4) + (proposed2 * 1/4)))
 	State 7
-		proposed0 = 7/8
+		proposed0 = 3/4
 		p3_l1 = False
-		p3_l0 = True
-		p1_saved_max = 5/4
-		p4_saved_max = 5/4
+		p3_l0 = False
+		proposed3 = 3/4
+		p1_saved_max = 211735/6108
+		p4_saved_max = 211735/6108
 		turn2 = False
 		p2_l1 = False
-		p2_l0 = False
+		p2_l0 = True
 		turn1 = True
-		turn0 = True
-		p0_saved_max = 5/4
-		proposed2 = 7/8
+		turn0 = False
+		p0_saved_max = 211735/6108
 		id2 = False
 		_J763 = False
 		id1 = True
 		_J757 = False
-		id0 = True
+		id0 = False
 		_J751 = False
 		_J745 = False
+		p3_saved_max = 211735/6108
 		_EL_U_718 = True
 		_EL_U_720 = False
 		_EL_U_723 = True
@@ -90,94 +91,45 @@ F3 run `dynamic_fischer_0005`
 		_EL_U_725 = False
 		p1_l1 = False
 		p1_l0 = False
-		proposed1 = 7/8
+		proposed1 = 3/4
 		p4_l1 = False
 		p4_l0 = False
-		proposed4 = 1/8
-		p2_saved_max = 5/4
+		proposed4 = 3/4
 		p0_l1 = False
 		p0_l0 = False
-	Trans 7 -- 8
-		_x_p2_x = (p2_x + delta)
-		_x_p4_x = (p4_x + delta)
-		_x_p1_x = (delta + p1_x)
-		_x_proposed3 = proposed3
-		_x_p3_x = p3_x
-		_x__diverge_delta = (delta + _diverge_delta)
-		_x_p3_saved_max = max_prop
-		_x_p0_x = (delta + p0_x)
-		_x_max_prop = proposed3
-		_x_delta = (((p1_x * 2.0) + (-1.0 * p3_saved_max) + (p0_x * 8.0) + (p4_x * 8.0) + (proposed3 * 14.0) + (p2_x * 4.0) + 1.0) - ((_diverge_delta * 24.0) + (max_prop * 1/4)))
-	State 8
-		proposed0 = 7/8
-		p3_l1 = True
-		p3_l0 = True
-		p1_saved_max = 5/4
-		p4_saved_max = 5/4
-		turn2 = False
-		p2_l1 = False
-		p2_l0 = False
-		turn1 = True
-		turn0 = True
-		p0_saved_max = 5/4
-		proposed2 = 7/8
-		id2 = False
-		_J763 = True
-		id1 = True
-		_J757 = False
-		id0 = True
-		_J751 = True
-		_J745 = False
-		_EL_U_718 = True
-		_EL_U_720 = False
-		_EL_U_723 = True
-		inc_max_prop = True
-		_EL_U_725 = False
-		p1_l1 = False
-		p1_l0 = False
-		proposed1 = 7/8
-		p4_l1 = False
-		p4_l0 = False
-		proposed4 = 1/8
-		p2_saved_max = 5/4
-		p0_l1 = False
-		p0_l0 = False
-		(((-1.0 * p0_x) + (-1.0 * delta)) < -7/8)
-		(((-1.0 * p1_x) + (-1.0 * delta)) < -7/8)
 		(((-1.0 * _diverge_delta) + (-1.0 * delta)) <= -1.0)
-		(((-1.0 * p4_x) + (-1.0 * delta)) < -1/8)
-		(((-1.0 * p2_x) + (-1.0 * delta)) < -7/8)
-	Trans 8 -- 9
-		_x_p2_x = (p2_x + delta)
-		_x_p4_x = (p4_x + delta)
-		_x_p1_x = (delta + p1_x)
-		_x_delta = 0.0
-		_x_p3_x = (p3_x + delta)
-		_x_proposed3 = proposed3
-		_x_p3_saved_max = p3_saved_max
+	Trans 7 -- 8
 		_x__diverge_delta = (delta + _diverge_delta)
+		_x_p2_x = (p2_x + delta)
+		_x_proposed2 = proposed2
+		_x_delta = 0.0
 		_x_p0_x = (delta + p0_x)
-		_x_max_prop = proposed3
-	State 9
-		proposed0 = 7/8
-		p3_l1 = True
-		p3_l0 = True
-		p1_saved_max = 5/4
-		p4_saved_max = 5/4
+		_x_p2_saved_max = p2_saved_max
+		_x_p1_x = (delta + p1_x)
+		_x_p4_x = (p4_x + delta)
+		_x_p3_x = (p3_x + delta)
+		_x_max_prop = (((_diverge_delta * 1/8) + (delta * 1/8) + (max_prop * 1/2) + (proposed2 * 25/32) + -11/2) - ((p1_x * 1/4) + (p2_saved_max * 1/8) + (p4_x * 1/8)))
+	State 8
+		proposed0 = 3/4
+		p3_l1 = False
+		p3_l0 = False
+		proposed3 = 3/4
+		p1_saved_max = 211735/6108
+		p4_saved_max = 211735/6108
 		turn2 = False
 		p2_l1 = False
-		p2_l0 = False
+		p2_l0 = True
 		turn1 = True
-		turn0 = True
-		p0_saved_max = 5/4
-		proposed2 = 7/8
+		turn0 = False
+		p0_saved_max = 211735/6108
 		id2 = False
 		_J763 = True
 		id1 = True
 		_J757 = False
-		id0 = True
+		id0 = False
 		_J751 = True
 		_J745 = False
+		p3_saved_max = 211735/6108
 		_EL_U_718 = True
 		_EL_U_720 = False
 		_EL_U_723 = True
@@ -185,37 +137,82 @@ F3 run `dynamic_fischer_0005`
 		_EL_U_725 = False
 		p1_l1 = False
 		p1_l0 = False
-		proposed1 = 7/8
+		proposed1 = 3/4
 		p4_l1 = False
 		p4_l0 = False
-		proposed4 = 1/8
-		p2_saved_max = 5/4
+		proposed4 = 3/4
+		p0_l1 = False
+		p0_l0 = False
+		((-1.0 * max_prop) <= -3/4)
+	Trans 8 -- 9
+		_x_proposed2 = proposed2
+		_x_delta = 0.0
+		_x_p0_x = (delta + p0_x)
+		_x_p1_x = (delta + p1_x)
+		_x_p2_x = p2_x
+		_x__diverge_delta = delta
+		_x_p2_saved_max = max_prop
+		_x_p4_x = (p4_x + delta)
+		_x_p3_x = (p3_x + delta)
+		_x_max_prop = proposed2
+	State 9
+		proposed0 = 3/4
+		p3_l1 = False
+		p3_l0 = False
+		proposed3 = 3/4
+		p1_saved_max = 211735/6108
+		p4_saved_max = 211735/6108
+		turn2 = False
+		p2_l1 = True
+		p2_l0 = True
+		turn1 = True
+		turn0 = False
+		p0_saved_max = 211735/6108
+		id2 = False
+		_J763 = True
+		id1 = True
+		_J757 = True
+		id0 = False
+		_J751 = True
+		_J745 = False
+		p3_saved_max = 211735/6108
+		_EL_U_718 = True
+		_EL_U_720 = False
+		_EL_U_723 = True
+		inc_max_prop = True
+		_EL_U_725 = False
+		p1_l1 = False
+		p1_l0 = False
+		proposed1 = 3/4
+		p4_l1 = False
+		p4_l0 = False
+		proposed4 = 3/4
 		p0_l1 = False
 		p0_l0 = False
 	Trans 9 -- 10
-		_x_p2_x = (p2_x + delta)
-		_x__diverge_delta = delta
-		_x_p4_x = (p4_x + delta)
-		_x_p1_x = (delta + p1_x)
-		_x_delta = 0.0
-		_x_p3_x = p3_x
-		_x_p3_saved_max = max_prop
+		_x__diverge_delta = (delta + _diverge_delta)
 		_x_p0_x = (delta + p0_x)
-		_x_max_prop = _x_proposed3
-		_x_proposed3 = (((p1_x * 1/4) + p0_x + p4_x + (proposed3 * 821/224) + (p3_x * 1/8) + (-1.0 * max_prop) + (p2_x * 1/2) + 1/2) - ((p3_saved_max * 1/2) + (_diverge_delta * 3.0)))
+		_x_p1_x = (delta + p1_x)
+		_x_p2_x = p2_x
+		_x_p2_saved_max = max_prop
+		_x_p4_x = (p4_x + delta)
+		_x_p3_x = (p3_x + delta)
+		_x_max_prop = _x_proposed2
+		_x_delta = (((p2_x * 1/2) + (proposed2 * 37/32) + -11/2) - ((p1_x * 1/4) + (p2_saved_max * 1/2) + (p4_x * 1/8) + (max_prop * 1/2)))
+		_x_proposed2 = ((p2_saved_max + p2_x + -665/64) - ((p1_x * 1/2) + (p4_x * 1/4) + (max_prop * 1/2)))
 	State 10
-		proposed0 = 7/8
+		proposed0 = 3/4
 		p3_l1 = False
 		p3_l0 = False
-		p1_saved_max = 5/4
-		p4_saved_max = 5/4
+		proposed3 = 3/4
+		p1_saved_max = 211735/6108
+		p4_saved_max = 211735/6108
 		turn2 = False
 		p2_l1 = False
 		p2_l0 = False
 		turn1 = True
-		turn0 = True
-		p0_saved_max = 5/4
-		proposed2 = 7/8
+		turn0 = False
+		p0_saved_max = 211735/6108
 		id2 = True
 		_J763 = True
 		id1 = False
@@ -223,6 +220,7 @@ F3 run `dynamic_fischer_0005`
 		id0 = True
 		_J751 = True
 		_J745 = False
+		p3_saved_max = 211735/6108
 		_EL_U_718 = True
 		_EL_U_720 = False
 		_EL_U_723 = True
@@ -230,29 +228,35 @@ F3 run `dynamic_fischer_0005`
 		_EL_U_725 = False
 		p1_l1 = False
 		p1_l0 = False
-		proposed1 = 7/8
+		proposed1 = 3/4
 		p4_l1 = False
 		p4_l0 = False
-		proposed4 = 1/8
-		p2_saved_max = 5/4
+		proposed4 = 3/4
 		p0_l1 = False
 		p0_l0 = False
-		((-1.0 * proposed3) <= -7/8)
-		((-1.0 * proposed3) < -7/8)
-		((-1.0 * proposed3) < -1/8)
-		((-1.0 * proposed3) <= -1/8)
-		((-1.0 * proposed3) <= 0.0)
+		((delta + _diverge_delta) = 0.0)
+		((-1.0 * delta) <= 0.0)
+		((delta + _diverge_delta) < 1.0)
+		(((-1.0 * p4_x) + (-1.0 * delta)) < -3/4)
+		((-1.0 * proposed2) <= -3/4)
+		(((-1.0 * p0_x) + (-1.0 * delta)) < -3/4)
+		((-1.0 * proposed2) <= 0.0)
+		(proposed2 < 211735/6108)
+		(((-1.0 * p1_x) + (-1.0 * delta)) <= 0.0)
+		(((-1.0 * p1_x) + (-1.0 * delta)) < -3/4)
+		((-1.0 * proposed2) < -3/4)
+		(((-1.0 * p3_x) + (-1.0 * delta)) < -3/4)
 	Trans 10 -- 11
-		_x_p2_x = (p2_x + delta)
-		_x_p4_x = (p4_x + delta)
-		_x_p1_x = (delta + p1_x)
-		_x_delta = 0.0
-		_x_proposed3 = proposed3
-		_x_p3_x = 0.0
 		_x__diverge_delta = (delta + _diverge_delta)
-		_x_p3_saved_max = max_prop
+		_x_proposed2 = proposed2
+		_x_delta = 0.0
 		_x_p0_x = (delta + p0_x)
-		_x_max_prop = proposed3
-	starting from: proposed0 : 7/8, p0_x : 961/120, _diverge_delta : 0.0, delta : 0.0, p3_l1 : True, p3_l0 : False, proposed3 : 9/8, p1_saved_max : 5/4, p3_x : 0.0, max_prop : 9/8, p4_saved_max : 5/4, turn2 : False, p2_l1 : False, p2_l0 : False, turn1 : True, turn0 : True, proposed2 : 7/8, p0_saved_max : 5/4, p2_x : 961/120, id2 : True, id1 : False, _J763 : True, _J757 : True, id0 : True, _J751 : True, _J745 : True, p3_saved_max : 9/8, _EL_U_718 : True, _EL_U_720 : False, _EL_U_723 : True, inc_max_prop : True, _EL_U_725 : False, p1_l1 : False, p1_l0 : False, proposed1 : 7/8, p1_x : 961/120, p4_l1 : False, p4_l0 : False, proposed4 : 1/8, p2_saved_max : 5/4, p4_x : 961/120, p0_l1 : False, p0_l0 : False
+		_x_p1_x = (delta + p1_x)
+		_x_p2_x = 0.0
+		_x_p2_saved_max = max_prop
+		_x_p4_x = (p4_x + delta)
+		_x_p3_x = (p3_x + delta)
+		_x_max_prop = proposed2
+	starting from: proposed0 : 3/4, p0_x : 211735/6108, _diverge_delta : 0.0, delta : 0.0, p3_l1 : False, p3_l0 : False, proposed3 : 3/4, p1_saved_max : 211735/6108, p3_x : 211735/6108, max_prop : 265/8, p4_saved_max : 211735/6108, turn2 : False, p2_l1 : True, p2_l0 : False, turn1 : True, turn0 : False, proposed2 : 265/8, p0_saved_max : 211735/6108, p2_x : 0.0, id2 : True, id1 : False, _J763 : True, _J757 : True, id0 : True, _J751 : True, _J745 : True, p3_saved_max : 211735/6108, _EL_U_718 : True, _EL_U_720 : False, _EL_U_723 : True, inc_max_prop : True, _EL_U_725 : False, p1_l1 : False, p1_l0 : False, proposed1 : 3/4, p1_x : 211735/6108, p4_l1 : False, p4_l0 : False, proposed4 : 3/4, p2_saved_max : 265/8, p4_x : 211735/6108, p0_l1 : False, p0_l0 : False
 
-end of `dynamic_fischer_0005`: SUCCESS in 49.30069589614868s
+end of `dynamic_fischer_0005`: SUCCESS in 2411.7015159130096s

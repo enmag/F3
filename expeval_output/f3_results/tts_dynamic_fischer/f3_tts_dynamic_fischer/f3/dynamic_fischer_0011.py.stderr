@@ -1,3 +1,49 @@
-real 3602.34
+Traceback (most recent call last):
+  File "/home/F3/src/run_f3.py", line 444, in <module>
+    main(config_args().parse_args())
+  File "/home/F3/src/run_f3.py", line 440, in main
+    run_f3(bench, out_dir)
+  File "/home/F3/src/run_f3.py", line 260, in run_f3
+    res = solve_problem(prob, label, out_dir)
+  File "/home/F3/src/run_f3.py", line 251, in solve_problem
+    return run_ltl_test(problem, env, label, out_dir)
+  File "/home/F3/src/run_f3.py", line 113, in run_ltl_test
+    return search_nonterm(env, symbols, init, trans, fairness,
+  File "/home/F3/src/run_f3.py", line 169, in search_nonterm
+    _, arg0, arg1 = search_funnel_bmc(env, symbols, init, trans,
+  File "/home/F3/src/main.py", line 250, in search_funnel_bmc
+    is_rf, args = rf_or_funnel_from_trace(env, symbols, trace, abst_path,
+  File "/home/F3/src/main.py", line 631, in rf_or_funnel_from_trace
+    model = instantiate_funnel_template(nontermarg)
+  File "/home/F3/src/main.py", line 692, in instantiate_funnel_template
+    model, learn = funnel_t.ef_instantiate()
+  File "/home/F3/src/funnel.py", line 630, in ef_instantiate
+    res, c_learn = efsolve(self.env, self.parameters, symbs,
+  File "/home/F3/src/efsolver.py", line 159, in efsolve
+    fsolver.add_assertion(mgr.Not(simplify(substitute(phi, x1_model))))
+  File "/usr/local/lib/python3.8/dist-packages/PySMT-0.9.1.dev332-py3.8.egg/pysmt/substituter.py", line 239, in substitute
+    res = self.walk(formula, substitutions=subs,
+  File "/usr/local/lib/python3.8/dist-packages/PySMT-0.9.1.dev332-py3.8.egg/pysmt/walkers/dag.py", line 106, in walk
+    res = self.iter_walk(formula, **kwargs)
+  File "/usr/local/lib/python3.8/dist-packages/PySMT-0.9.1.dev332-py3.8.egg/pysmt/walkers/dag.py", line 98, in iter_walk
+    self._process_stack(**kwargs)
+  File "/usr/local/lib/python3.8/dist-packages/PySMT-0.9.1.dev332-py3.8.egg/pysmt/walkers/dag.py", line 91, in _process_stack
+    self._compute_node_result(formula, **kwargs)
+  File "/usr/local/lib/python3.8/dist-packages/PySMT-0.9.1.dev332-py3.8.egg/pysmt/walkers/dag.py", line 75, in _compute_node_result
+    self.memoization[key] = f(formula, args=args, **kwargs)
+  File "/usr/local/lib/python3.8/dist-packages/PySMT-0.9.1.dev332-py3.8.egg/pysmt/substituter.py", line 271, in walk_identity_or_replace
+    res = Substituter.super(self, formula, args=args, **kwargs)
+  File "/usr/local/lib/python3.8/dist-packages/PySMT-0.9.1.dev332-py3.8.egg/pysmt/walkers/generic.py", line 109, in super
+    return f(self, formula, *args, **kwargs)
+  File "/usr/local/lib/python3.8/dist-packages/PySMT-0.9.1.dev332-py3.8.egg/pysmt/walkers/identitydag.py", line 95, in walk_times
+    return self.mgr.Times(args)
+  File "/usr/local/lib/python3.8/dist-packages/PySMT-0.9.1.dev332-py3.8.egg/pysmt/formula.py", line 236, in Times
+    tuple_args = self._polymorph_args_to_tuple(args)
+  File "/usr/local/lib/python3.8/dist-packages/PySMT-0.9.1.dev332-py3.8.egg/pysmt/formula.py", line 1085, in _polymorph_args_to_tuple
+    if len(args) == 1 and isinstance(args[0], Iterable):
+  File "/usr/lib/python3.8/abc.py", line 96, in __instancecheck__
+    def __instancecheck__(cls, instance):
+KeyboardInterrupt
+real 3602.07
 user 0.00
 sys 0.00

@@ -3,6 +3,7 @@ F3 run `NonTerminationSimple5_false-termination`
 	Found non-termination argument:
 	State 0
 		pc = 0
+		((-1 * x) <= 0)
 		((-1 * x) <= 1)
 		((-1 * x) <= 0)
 	Trans 0 -- 1
@@ -17,4 +18,4 @@ F3 run `NonTerminationSimple5_false-termination`
 		_x_x = (x + 1)
 	starting from: pc : 0, x : 0
 
-end of `NonTerminationSimple5_false-termination`: SUCCESS in 0.9992456436157227s
+end of `NonTerminationSimple5_false-termination`: SUCCESS in 1.091646671295166s

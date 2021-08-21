@@ -2,18 +2,19 @@ F3 run `train_gate_0003`
 
 	Found non-termination argument:
 	State 10
-		t1_evt0 = False
+		_diverge_delta = 0.0
+		t1_evt0 = True
 		t1_evt1 = False
-		t0_evt0 = False
+		t0_evt0 = True
 		t0_evt1 = False
-		t2_evt0 = False
+		t2_evt0 = True
 		_J772 = True
 		t2_evt1 = False
 		t1_l1 = False
 		t1_l0 = False
-		controller_evt0 = False
+		controller_evt0 = True
 		_J766 = True
-		controller_evt1 = True
+		controller_evt1 = False
 		_J760 = True
 		controller_evt2 = False
 		_J743 = True
@@ -34,23 +35,33 @@ F3 run `train_gate_0003`
 		gate_l0 = False
 		t2_l1 = False
 		t2_l0 = False
-		((-1.0 * t0_x) < -5.0)
 		((-1.0 * t1_x) < -5.0)
-		((-1.0 * t2_x) < -5.0)
+		(((-1.0 * gate_y) + (-1.0 * delta)) < -2.0)
 		((-1.0 * gate_y) < -2.0)
-		(((-1.0 * delta) + (-1.0 * _diverge_delta)) <= -1.0)
-		(_diverge_delta < 1.0)
-		((-1.0 * delta) < 0.0)
+		((-1.0 * t2_x) < -5.0)
 		((-1.0 * controller_z) < -1.0)
+		(((-1.0 * t2_x) + (-1.0 * delta)) < -5.0)
+		(((-1.0 * t2_x) + (-1.0 * delta)) < 61/38)
+		(((-1.0 * controller_z) + (-1.0 * delta)) < -1.0)
+		(((-1.0 * gate_y) + (-1.0 * delta)) < 175/38)
+		(((-1.0 * controller_z) + (-1.0 * delta)) < 213/38)
+		(((-1.0 * t1_x) + (-1.0 * delta)) < 61/38)
+		(((-1.0 * t0_x) + (-1.0 * delta)) < -5.0)
+		(((-1.0 * t0_x) + (-1.0 * delta)) < 61/38)
+		(delta = 251/38)
+		(((-1.0 * t1_x) + (-1.0 * delta)) < -5.0)
+		((-1.0 * delta) < 0.0)
+		((-1.0 * t0_x) < -5.0)
+		((1/4 - (gate_y * 19/692)) <= 0.0)
 	Trans 10 -- 11
-		_x_t2_x = (t2_x + delta)
-		_x_gate_y = (delta + gate_y)
 		_x_t1_x = (delta + t1_x)
-		_x__diverge_delta = (delta + _diverge_delta)
-		_x_t0_x = (t0_x + delta)
 		_x_controller_z = (delta + controller_z)
-		_x_delta = 5/6
+		_x_gate_y = (delta + gate_y)
+		_x_t2_x = (t2_x + delta)
+		_x_t0_x = (t0_x + delta)
+		_x_delta = 0.0
 	State 11
+		_diverge_delta = 251/38
 		t1_evt0 = False
 		t1_evt1 = False
 		t0_evt0 = False
@@ -60,7 +71,7 @@ F3 run `train_gate_0003`
 		t2_evt1 = False
 		t1_l1 = False
 		t1_l0 = False
-		controller_evt0 = True
+		controller_evt0 = False
 		_J766 = False
 		controller_evt1 = False
 		_J760 = False
@@ -83,21 +94,13 @@ F3 run `train_gate_0003`
 		gate_l0 = False
 		t2_l1 = False
 		t2_l0 = False
-		(((-1.0 * gate_y) + (-1.0 * delta)) < -2.0)
-		(delta < 1.0)
-		(((-1.0 * t0_x) + (-1.0 * delta)) < -5.0)
-		(((-1.0 * t2_x) + (-1.0 * delta)) < -5.0)
-		((-1.0 * delta) < 0.0)
-		(((-1.0 * controller_z) + (-1.0 * delta)) < -1.0)
-		(((-1.0 * t1_x) + (-1.0 * delta)) < -5.0)
 	Trans 11 -- 12
-		_x_t2_x = (t2_x + delta)
-		_x_gate_y = (delta + gate_y)
 		_x_t1_x = (delta + t1_x)
-		_x__diverge_delta = delta
-		_x_t0_x = (t0_x + delta)
 		_x_controller_z = (delta + controller_z)
-		_x_delta = ((_diverge_delta * 7/6) + (-1.0 * delta))
-	starting from: _diverge_delta : 0.0, delta : 1.0, t1_evt0 : False, t1_evt1 : False, t0_evt0 : False, t0_evt1 : False, t2_evt0 : False, _J772 : True, t2_evt1 : False, t1_l1 : False, t1_l0 : False, controller_evt0 : False, _J766 : True, controller_evt1 : True, _J760 : True, t1_x : 15.0, controller_evt2 : False, _J743 : True, _EL_U_706 : True, _EL_U_708 : False, _EL_X_674 : True, _EL_X_676 : False, _EL_U_710 : False, controller_l1 : True, controller_l0 : False, _EL_U_713 : False, gate_evt0 : False, gate_evt1 : False, controller_z : 15.0, controller_cnt : 1, t0_l1 : False, t0_l0 : False, t0_x : 14.0, gate_l1 : True, gate_l0 : False, gate_y : 14.0, t2_l1 : False, t2_l0 : False, t2_x : 15.0
+		_x_gate_y = (delta + gate_y)
+		_x_t2_x = (t2_x + delta)
+		_x_t0_x = (t0_x + delta)
+		_x_delta = 251/38
+	starting from: _diverge_delta : 0.0, delta : 251/38, t1_evt0 : True, t1_evt1 : False, t0_evt0 : True, t0_evt1 : False, t2_evt0 : True, _J772 : True, t2_evt1 : False, t1_l1 : False, t1_l0 : False, controller_evt0 : True, _J766 : True, controller_evt1 : False, _J760 : True, t1_x : 192/19, controller_evt2 : False, _J743 : True, _EL_U_706 : True, _EL_U_708 : False, _EL_X_674 : True, _EL_X_676 : False, _EL_U_710 : False, controller_l1 : True, controller_l0 : False, _EL_U_713 : False, gate_evt0 : False, gate_evt1 : False, controller_z : 192/19, controller_cnt : 1, t0_l1 : False, t0_l0 : False, t0_x : 173/19, gate_l1 : True, gate_l0 : False, gate_y : 173/19, t2_l1 : False, t2_l0 : False, t2_x : 192/19
 
-end of `train_gate_0003`: SUCCESS in 2122.264408826828s
+end of `train_gate_0003`: SUCCESS in 40.56670427322388s

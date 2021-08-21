@@ -4,11 +4,12 @@ F3 run `Singapore_v2_false-termination`
 	State 1
 		pc = 1
 		(((-1 * y) + (-1 * x)) < -1)
-		((-1 * ((y * 3) + (x * 4))) < -1)
-		(((-1 * y) - (x * 2)) < 0)
 		((-1 * ((y * 4) + (x * 4))) < -4)
-		((-1 * x) < 0)
+		((-1 * ((y * 3) + (x * 4))) < -1)
 		((-1 * ((y * 2) + (x * 2))) < -2)
+		((-1 * x) < 0)
+		(((-1 * y) - (x * 2)) < 0)
+		((((-1 * x) + 3) - (y * 2)) <= 0)
 	Trans 1 -- 2
 		_x_x = x
 		_x_y = y
@@ -24,4 +25,4 @@ F3 run `Singapore_v2_false-termination`
 		_x_y = (y + -1)
 	starting from: pc : 1, x : 1, y : 1
 
-end of `Singapore_v2_false-termination`: SUCCESS in 1.2525560855865479s
+end of `Singapore_v2_false-termination`: SUCCESS in 1.6892683506011963s

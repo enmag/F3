@@ -6,4 +6,4 @@ F3 run `lasso_example2`
 	i : 8, j : 2, k : 4, m : 0, pc : 4
 	i : 8, j : 2, k : 4, m : 0, pc : 2
 
-end of `lasso_example2`: SUCCESS in 0.24975800514221191s
+end of `lasso_example2`: SUCCESS in 0.3329906463623047s

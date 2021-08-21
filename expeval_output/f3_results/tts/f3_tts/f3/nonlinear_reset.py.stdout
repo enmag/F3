@@ -1,0 +1,45 @@
+F3 run `nonlinear_reset`
+
+	Found non-termination argument:
+	State 3
+		_diverge_delta = 0.0
+		_J130 = True
+		_J124 = True
+		_J118 = True
+		_J112 = True
+		_EL_U_80 = True
+		_EL_U_82 = False
+		_EL_U_85 = True
+		_EL_U_87 = False
+		((-1 * counter) < 0)
+		((-1.0 * c) < 0.0)
+		((-1 * counter) < 1)
+		((-1.0 * ToReal(counter) * ToReal(counter)) < 0.0)
+		(((-1.0 * ToReal(counter) * ToReal(counter)) - (ToReal(counter) * 2.0)) < 1.0)
+		((-1 * counter) < 2)
+		(delta = 7/2)
+		((-1.0 * delta) < 0.0)
+		((((-1.0 * delta) + (-1.0 * bound) + (ToReal(counter) * 19/10) + 16/17) - (c * 1/4)) <= 0.0)
+	Trans 3 -- 4
+		_x_counter = counter
+		_x_c = (c + delta)
+		_x_delta = 0.0
+		_x_bound = (c + delta)
+	State 4
+		_diverge_delta = 7/2
+		_J130 = False
+		_J124 = False
+		_J118 = False
+		_J112 = False
+		_EL_U_80 = True
+		_EL_U_82 = False
+		_EL_U_85 = True
+		_EL_U_87 = False
+	Trans 4 -- 5
+		_x_c = (ToReal(counter) * ToReal(counter))
+		_x_counter = (counter + 1)
+		_x_delta = 7/2
+		_x_bound = (ToReal(counter) * ToReal(counter))
+	starting from: counter : 2, _J130 : True, _J124 : True, _J118 : True, _diverge_delta : 0.0, _J112 : True, delta : 7/2, _EL_U_80 : True, _EL_U_82 : False, _EL_U_85 : True, _EL_U_87 : False, bound : 1.0, c : 1.0
+
+end of `nonlinear_reset`: SUCCESS in 2.496807813644409s

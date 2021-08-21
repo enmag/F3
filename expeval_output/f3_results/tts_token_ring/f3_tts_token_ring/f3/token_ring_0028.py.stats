@@ -1,8 +1,8 @@
 group: f3_tts_token_ring
-platform: Linux node2 5.4.0-56-generic #62-Ubuntu SMP Mon Nov 23 19:20:19 UTC 2020 x86_64 x86_64
-timestamp: 1629324974
-time: 2021-08-19 00:16:14
+platform: Linux node4 5.4.0-54-generic #60-Ubuntu SMP Fri Nov 6 10:37:59 UTC 2020 x86_64 x86_64
+timestamp: 1629494603
+time: 2021-08-20 23:23:23
 exitcode: 0
-real: 40.96
-user: 39.24
-sys: 0.72
+real: 7.17
+user: 6.02
+sys: 0.73

@@ -394,7 +394,6 @@ class Ranker:
         assert all(c in self.env.formula_manager.formulae.values()
                    for s in trans for c in s)
         assert len(states) == len(trans) + 1
-
         mgr = self.env.formula_manager
         lhs = frozenset([mgr.TRUE()])
         # delta > 0

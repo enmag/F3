@@ -5,4 +5,4 @@ F3 run `NonTerminationSimple7_false-termination`
 	pc : 2, x : 0, c : 0
 	pc : 1, x : 0, c : 0
 
-end of `NonTerminationSimple7_false-termination`: SUCCESS in 0.2001476287841797s
+end of `NonTerminationSimple7_false-termination`: SUCCESS in 0.2022569179534912s

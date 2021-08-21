@@ -18,18 +18,15 @@ F3 run `bakery_simple_bug_0002`
 		num1 = 0
 		_J267 = True
 		_J258 = True
-		((-1 * num0) < 1)
-		(((-1 * max_num) + num0) = 0)
-		((-1 * min_num) < 0)
-		((-1 * num0) <= 0)
 		((-1 * num0) < 0)
-		((-1 * num0) < 2)
-		((-1 * num0) <= 1)
-		(((-1 * min_num) + num0) = 0)
+		(((-1 * max_num) + num0) = 0)
+		((-1 * num0) < 1)
+		(((-1 * num0) + min_num) = 0)
+		(((-1 * num0) + (-1 * min_num) + (-1 * max_num) + 6) <= 0)
 	Trans 5 -- 6
 		_x_num0 = num0
-		_x_max_num = num0
 		_x_min_num = num0
+		_x_max_num = num0
 	State 6
 		_J252 = False
 		_J247 = False
@@ -49,8 +46,8 @@ F3 run `bakery_simple_bug_0002`
 		_J258 = False
 	Trans 6 -- 7
 		_x_num0 = num0
-		_x_max_num = num0
 		_x_min_num = num0
+		_x_max_num = num0
 	State 7
 		_J252 = False
 		_J247 = True
@@ -70,8 +67,8 @@ F3 run `bakery_simple_bug_0002`
 		_J258 = True
 	Trans 7 -- 8
 		_x_num0 = num0
-		_x_max_num = num0
 		_x_min_num = num0
+		_x_max_num = num0
 	State 8
 		_J252 = False
 		_J247 = True
@@ -95,4 +92,4 @@ F3 run `bakery_simple_bug_0002`
 		_x_min_num = (max_num + 1)
 	starting from: p0_l1 : False, p0_l0 : True, run0 : False, num0 : 2, min_num : 2, _J267 : True, _J258 : True, _J252 : True, _J247 : True, _J241 : True, _EL_U_210 : True, _EL_U_211 : True, max_num : 2, _EL_U_214 : False, _EL_U_216 : False, _EL_U_218 : True, p1_l1 : False, p1_l0 : False, num1 : 0
 
-end of `bakery_simple_bug_0002`: SUCCESS in 51.826117515563965s
+end of `bakery_simple_bug_0002`: SUCCESS in 27.794217109680176s

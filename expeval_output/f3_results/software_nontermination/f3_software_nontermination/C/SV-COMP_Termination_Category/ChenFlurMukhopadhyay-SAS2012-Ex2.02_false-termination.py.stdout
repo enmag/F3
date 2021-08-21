@@ -22,4 +22,4 @@ F3 run `ChenFlurMukhopadhyay-SAS2012-Ex2.02_false-termination`
 		_x_y = (y + -1)
 	starting from: pc : 0, x : -1, y : 0
 
-end of `ChenFlurMukhopadhyay-SAS2012-Ex2.02_false-termination`: SUCCESS in 2.7599658966064453s
+end of `ChenFlurMukhopadhyay-SAS2012-Ex2.02_false-termination`: SUCCESS in 2.5836732387542725s

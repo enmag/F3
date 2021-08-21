@@ -1,8 +1,8 @@
 group: f3_semaphore
-platform: Linux node2 5.4.0-56-generic #62-Ubuntu SMP Mon Nov 23 19:20:19 UTC 2020 x86_64 x86_64
-timestamp: 1629301229
-time: 2021-08-18 17:40:29
+platform: Linux node4 5.4.0-54-generic #60-Ubuntu SMP Fri Nov 6 10:37:59 UTC 2020 x86_64 x86_64
+timestamp: 1629476061
+time: 2021-08-20 18:14:21
 exitcode: 0
-real: 1627.75
-user: 1624.8
-sys: 2.14
+real: 1650.17
+user: 1647.32
+sys: 2.32

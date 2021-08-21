@@ -346,24 +346,40 @@ def rf_or_funnel_from_trace(env: PysmtEnv,
     serialize = env.serializer.serialize
     cn = Canonizer(env=env)
     td = TimesDistributor(env=env)
-
-    if get_use_generalised_lasso():
-        res, div_pos, div_neg = \
-            is_generalised_lasso(env, trace[first:], _symbs,
-                                 mgr.And(chain.from_iterable(chain(
-                                     abst_path[0], abst_path[1],
-                                     hints[1], hints[2]))),
-                                 td)
-        if res:
-            return False, (trace[first:], div_pos, div_neg)
-
     _abst_states, _abst_trans = abst_path
     _hints, _hints_states, _hints_trans = hints
+    del abst_path
+    del hints
+
+    _hints_symbs = frozenset.union(
+        *chain.from_iterable(h.owned_symbs for h in _hints)) if _hints else frozenset()
+    bool_symbs = frozenset(s for s in chain(_symbs, _hints_symbs)
+                           if s.symbol_type().is_bool_type())
+    # all finite state symbols follow a concrete lasso.
+    _conc_assigns = [{s: step[s] for s in bool_symbs}
+                     for step in trace[first:]]
+    # replace all boolean symbols with their assignment
+    _symbs = _symbs - bool_symbs
+    _abst_states, _abst_trans = _apply_assigns(env, _symbs, _conc_assigns,
+                                               _abst_states, _abst_trans, cn)
+    _hints_symbs = _hints_symbs - bool_symbs
+    _hints_states, _hints_trans = _apply_assigns(env, _symbs, _conc_assigns,
+                                                 _hints_states, _hints_trans,
+                                                 cn)
+    assert len(_hints_symbs & bool_symbs) == 0
+    assert len(_symbs & bool_symbs) == 0
+    assert all(len(env.fvo.get_free_variables(p) & bool_symbs) == 0
+               for s in _abst_states for p in s)
+    assert all(len(env.fvo.get_free_variables(p) & bool_symbs) == 0
+               for t in _abst_trans for p in t)
+    assert all(len(env.fvo.get_free_variables(p) & bool_symbs) == 0
+               for s in _hints_states for p in s)
+    assert all(len(env.fvo.get_free_variables(p) & bool_symbs) == 0
+               for t in _hints_trans for p in t)
+
     # last state implies first state : safe to copy predicates.
     _abst_states[-1] = _abst_states[0] | _abst_states[-1]
     _hints_states[-1] = _hints_states[0] | _hints_states[-1]
-    del abst_path
-    del hints
 
     if __debug__:
         simpl = env.simplifier.simplify
@@ -384,9 +400,48 @@ def rf_or_funnel_from_trace(env: PysmtEnv,
                 p = subst(p, {symb_to_next(mgr, k): v
                               for k, v in trace[idx + first + 1].items()})
                 assert simpl(subst(p, trace[idx + first])).is_true()
-    # last state implies first state : safe to copy predicates.
-    _abst_states[-1] = _abst_states[0] | _abst_states[-1]
-    _hints_states[-1] = _hints_states[0] | _hints_states[-1]
+
+    if get_use_generalised_lasso():
+        res, div_pos, div_neg = \
+            is_generalised_lasso(env, trace[first:], _symbs,
+                                 mgr.And(chain.from_iterable(chain(
+                                     _abst_states, _abst_trans,
+                                     _hints_states, _hints_trans))),
+                                 td)
+        if res:
+            return False, (trace[first:], div_pos, div_neg)
+
+    # Try synth ranking function, do this before substituting concrete values to obtain more general ranking function.
+    if get_use_rank_fun() and (get_use_ef_rf() or get_use_motzkin_rf()):
+        log("\n\tTry synth ranking function for abstract loop, using hints: "
+            f"{', '.join(str(h) for h in _hints) if _hints else None}",
+            get_log_lvl())
+        log("\n".join((f"\t\tState {idx + first}\n"
+                       f"\t\t  State assigns: {', '.join(f'{serialize(k)} : {serialize(v)}' for k, v in assign.items())}\n"
+                       f"\t\t  State: {', '.join(serialize(s) for s in state)}\n"
+                       f"\t\t  Hint state: {', '.join(serialize(s) for s in region)}\n"
+                       f"\t\t  Trans: {', '.join(serialize(t) for t in trans)}\n"
+                       f"\t\t  Hint trans: {', '.join(serialize(t) for t in hint_trans)}")
+                      for idx, (assign, state, trans, region, hint_trans) in
+                      enumerate(zip(_conc_assigns, _abst_states, _abst_trans,
+                                    _hints_states, _hints_trans))),
+            get_log_lvl())
+        log(f"\t\tState {len(_conc_assigns) + first - 1}\n"
+            f"\t\t  State assigns: {', '.join(f'{serialize(k)} : {serialize(v)}' for k, v in _conc_assigns[-1].items())}\n"
+            f"\t\t  State: {', '.join(serialize(s) for s in _abst_states[-1])}\n"
+            f"\t\t  Hint state: {', '.join(serialize(s) for s in _hints_states[-1])}",
+            get_log_lvl())
+        all_states = [s0 | s1 for s0, s1 in zip(_abst_states, _hints_states)]
+        all_trans = [t0 | t1 for t0, t1 in zip(_abst_trans, _hints_trans)]
+        ranker = Ranker(env, td, cn)
+        for rank_t in ranker.rank_templates(_symbs):
+            log(f"\n\tUsing ranking template: {rank_t}", get_log_lvl())
+            rank_rel = instantiate_rf_template(ranker, rank_t, all_states,
+                                               all_trans)
+            if rank_rel:
+                rank_rel = rank_t.instantiate(rank_rel)
+                log(f"\tFound ranking relation: {rank_rel}", get_log_lvl())
+                return True, rank_rel
 
     # canonize transition relations
     # increases chance of detecting constant symbols syntactically.
@@ -399,70 +454,42 @@ def rf_or_funnel_from_trace(env: PysmtEnv,
         [t0 | t1 for t0, t1 in zip(_abst_trans, _hints_trans)],
         cn, totime)
 
-    _hints_symbs = frozenset(chain.from_iterable(
-        h.owned_symbs for h in _hints)) - constant_symbs
-    _symbs = _symbs - constant_symbs
+    # list of symbols to consider with concrete lasso assignments: from smaller to bigger.
+    lasso_symbs_lst = [constant_symbs]
 
-    # replace all constant symbs with their assignment.
-    _conc_assigns = [{s: trace[idx][s]
-                      for s in constant_symbs}
-                     for idx in range(first, len(trace))]
-    _abst_states, _abst_trans = _apply_assigns(env, _symbs, _conc_assigns,
-                                               _abst_states, _abst_trans, cn)
-    _hints_states, _hints_trans = _apply_assigns(env, _symbs, _conc_assigns,
-                                                 _hints_states, _hints_trans,
-                                                 cn)
-    del _conc_assigns
-    assert len(_hints_symbs & constant_symbs) == 0
-    assert len(_symbs & constant_symbs) == 0
-    assert all(len(env.fvo.get_free_variables(p) & constant_symbs) == 0
-               for s in _abst_states for p in s)
-    assert all(len(env.fvo.get_free_variables(p) & constant_symbs) == 0
-               for t in _abst_trans for p in t)
-    assert all(len(env.fvo.get_free_variables(p) & constant_symbs) == 0
-               for s in _hints_states for p in s)
-    assert all(len(env.fvo.get_free_variables(p) & constant_symbs) == 0
-               for t in _hints_trans for p in t)
-
-    lasso_symbs = frozenset(s for s in _symbs
+    lasso_symbs = frozenset(s for s in _symbs - constant_symbs
                             if trace[first][s] == trace[-1][s])
-    assert len(lasso_symbs & constant_symbs) == 0
+    if lasso_symbs:
+        assert len(lasso_symbs & constant_symbs) == 0
+        depends = _extract_dependencies(mgr,
+                                        [abst_s | hint_s
+                                         for abst_s, hint_s in zip(_abst_states,
+                                                                   _hints_states)])
+        # remove all symbols that depend on non-lasso symbs
+        restr_lasso_symbs = lasso_symbs
+        _fixpoint = False
+        while not _fixpoint:
+            new = frozenset(s for s in restr_lasso_symbs
+                            if depends[symb_to_next(mgr, s)] <= restr_lasso_symbs)
+            _fixpoint = new == restr_lasso_symbs
+            if not _fixpoint:
+                restr_lasso_symbs = new
+        del depends
+        del _fixpoint
 
-    depends = _extract_dependencies(mgr,
-                                    [abst_s | hint_s
-                                     for abst_s, hint_s in zip(_abst_states,
-                                                               _hints_states)])
-    # remove all symbols that depend on non-lasso symbs
-    restr_lasso_symbs = lasso_symbs
-    _fixpoint = False
-    while not _fixpoint:
-        new = frozenset(s for s in restr_lasso_symbs
-                        if depends[symb_to_next(mgr, s)] <= restr_lasso_symbs)
-        _fixpoint = new == restr_lasso_symbs
-        if not _fixpoint:
-            restr_lasso_symbs = new
-    del depends
-    del _fixpoint
+        assert len(restr_lasso_symbs & constant_symbs) == 0
+        assert restr_lasso_symbs <= lasso_symbs
+        if restr_lasso_symbs and restr_lasso_symbs != lasso_symbs:
+            lasso_symbs_lst.append(restr_lasso_symbs | constant_symbs)
+        lasso_symbs_lst.append(lasso_symbs | constant_symbs)
+        del lasso_symbs
+        del restr_lasso_symbs
 
-    assert len(restr_lasso_symbs & constant_symbs) == 0
-    # First try to greedly fix the assignments of all current lasso vars
-    # then remove those upon which some non-lasso symbs depend.
-    lasso_symbs_lst = [lasso_symbs]
-    if lasso_symbs != restr_lasso_symbs:
-        lasso_symbs_lst.append(restr_lasso_symbs)
-
-    if len(lasso_symbs) > 0 and len(restr_lasso_symbs) > 0:
-        assert all(constant_symbs != symbs_lst
-                   for symbs_lst in lasso_symbs_lst)
-        lasso_symbs_lst.append(frozenset([]))
-
-    del lasso_symbs
-    del restr_lasso_symbs
-    assert sorted(lasso_symbs_lst, key=len, reverse=True) == lasso_symbs_lst
+    assert sorted(lasso_symbs_lst, key=len) == lasso_symbs_lst
     if __debug__:
         # each set should be contain all the following ones.
         for i, _ in enumerate(lasso_symbs_lst):
-            for j in range(i+1, len(lasso_symbs_lst)):
+            for j in range(0, i):
                 assert lasso_symbs_lst[i] >= lasso_symbs_lst[j]
     # save loop components for each set of lasso symbols.
     symbs_lst = []
@@ -474,17 +501,33 @@ def rf_or_funnel_from_trace(env: PysmtEnv,
     hints_trans_lst = []
     rank_rel = None
     # first try synth ranking functions from most general loop to most specific.
-    for lasso_symbs in reversed(lasso_symbs_lst):
-        symbs = _symbs - lasso_symbs
-        conc_assigns = [{s: trace[idx][s]
-                         for s in chain(lasso_symbs, constant_symbs)}
-                        for idx in range(first, len(trace))]
-        abst_states, abst_trans = _apply_assigns(env, symbs, conc_assigns,
-                                                 _abst_states, _abst_trans, cn)
-        hints_symbs = _hints_symbs - lasso_symbs
-        hints_states, hints_trans = _apply_assigns(env, symbs, conc_assigns,
-                                                   _hints_states,
-                                                   _hints_trans, cn)
+    for lasso_symbs in lasso_symbs_lst:
+        if lasso_symbs:
+            symbs = _symbs - lasso_symbs
+            conc_assigns = [{s: step[s]
+                             for s in chain(lasso_symbs, bool_symbs)}
+                            for step in trace[first:]]
+            abst_states, abst_trans = _apply_assigns(env, symbs, conc_assigns,
+                                                     _abst_states, _abst_trans, cn)
+            hints_symbs = _hints_symbs - lasso_symbs
+            hints_states, hints_trans = _apply_assigns(env, symbs, conc_assigns,
+                                                       _hints_states,
+                                                       _hints_trans, cn)
+        else:
+            symbs, hints_symbs = _symbs, _hints_symbs
+            conc_assigns = _conc_assigns
+            abst_states, abst_trans = _abst_states, _abst_trans
+            hints_states, hints_trans = _hints_states, _hints_trans
+        assert len(hints_symbs & lasso_symbs) == 0
+        assert len(symbs & lasso_symbs) == 0
+        assert all(len(env.fvo.get_free_variables(p) & lasso_symbs) == 0
+                   for s in abst_states for p in s)
+        assert all(len(env.fvo.get_free_variables(p) & lasso_symbs) == 0
+                   for t in abst_trans for p in t)
+        assert all(len(env.fvo.get_free_variables(p) & lasso_symbs) == 0
+                   for s in hints_states for p in s)
+        assert all(len(env.fvo.get_free_variables(p) & lasso_symbs) == 0
+                   for t in hints_trans for p in t)
         assert all(not c.is_false() for s in abst_states for c in s)
         assert all(not c.is_false() for s in abst_trans for c in s)
         assert all(not c.is_false() for s in hints_states for c in s)
@@ -523,7 +566,8 @@ def rf_or_funnel_from_trace(env: PysmtEnv,
                     assert simpl(subst(p, trace[idx + first])).is_true()
 
         rank_rel = None
-        if get_use_rank_fun() and (get_use_ef_rf() or get_use_motzkin_rf()):
+        if lasso_symbs and get_use_rank_fun() and (get_use_ef_rf() or
+                                                   get_use_motzkin_rf()):
             log("\n\tTry synth ranking function for abstract loop, using hints: "
                 f"{', '.join(str(h) for h in _hints) if _hints else None}",
                 get_log_lvl())
@@ -571,11 +615,11 @@ def rf_or_funnel_from_trace(env: PysmtEnv,
     assert len(symbs_lst) == len(hints_states_lst)
     assert len(symbs_lst) == len(hints_trans_lst)
     assert len(symbs_lst) == 0 or \
-        len(symbs_lst) == len(lasso_symbs_lst[-len(symbs_lst):])
-    # try synth FunnelLoop for remaining loop candidates.
+        len(symbs_lst) == len(lasso_symbs_lst[:len(symbs_lst)])
+    # try synth FunnelLoop for remaining loop candidates, from most specific to most general.
     for (lasso_symbs, symbs, conc_assigns, abst_states, abst_trans,
          hints_symbs, hints_states, hints_trans) in zip(
-             lasso_symbs_lst[-len(symbs_lst):],
+             reversed(lasso_symbs_lst[:len(symbs_lst)]),
              reversed(symbs_lst), reversed(conc_assigns_lst),
              reversed(abst_states_lst), reversed(abst_trans_lst),
              reversed(hints_symbs_lst), reversed(hints_states_lst),
@@ -900,6 +944,8 @@ def _extract_constant_symbs(env: PysmtEnv,
     assert isinstance(symbs, frozenset)
     assert all(isinstance(s, FNode) for s in symbs)
     assert all(s in env.formula_manager.get_all_symbols() for s in symbs)
+    assert all(s.symbol_type().is_real_type() or s.symbol_type().is_int_type()
+               for s in symbs)
     assert isinstance(trace, list)
     assert all(isinstance(state, dict) for state in trace)
     assert all(isinstance(k, FNode) for state in trace for k in state)
@@ -945,24 +991,21 @@ def _extract_constant_symbs(env: PysmtEnv,
     assert first < len(trace)
 
     mgr = env.formula_manager
-    tc = env.stc.walk
     res = set()
     to_analyse_symbs = []
     for s in symbs:
-        if tc(s).is_bool_type():
-            # fixed assignment to all finite-state symbols.
-            res.add(s)
-        elif trace[first][s] == trace[-1][s]:
+        assert env.stc.get_type(s).is_int_type() or \
+            env.stc.get_type(s).is_real_type()
+        if trace[first][s] == trace[-1][s]:
             # collect all symbols x such that x' = x holds in every transition.
-            assert tc(s).is_real_type() or \
-                tc(s).is_int_type()
             eq = cn(mgr.Equals(symb_to_next(mgr, s), s))
             if all(eq in tr for tr in trans):
                 res.add(s)
             else:
                 to_analyse_symbs.append(s)
     if len(to_analyse_symbs) > 0:
-        assert all(tc(s).is_int_type() or tc(s).is_real_type()
+        assert all(env.stc.get_type(s).is_int_type() or
+                   env.stc.get_type(s).is_real_type()
                    for s in to_analyse_symbs)
         assertions = []
         # states
@@ -1027,11 +1070,7 @@ def _extract_constant_symbs(env: PysmtEnv,
                 for s in res:
                     eq = assign2fnode(env, totime(s, idx + first + 1),
                                       x_step[s])
-                    if tc(s).is_bool_type():
-                        # assume finite state assignment.
-                        _solver.add_assertion(eq)
-                    else:
-                        disj.append(eq)
+                    disj.append(eq)
             _solver.add_assertion(mgr.Not(mgr.And(disj)))
             assert _solver.solve() is False
 

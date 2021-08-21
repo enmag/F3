@@ -1,17 +1,17 @@
 F3 run `constant_bound`
 
 	Found non-termination argument:
-	m_x_i : 10.0, _J100 : True, _J94 : True, _J87 : True, i : 9.0, _J81 : True, _EL_U_53 : True, _EL_U_55 : False, _EL_U_57 : True, r : 9.0, _EL_U_59 : False
-	m_x_i : 0.0, _J100 : False, _J94 : False, _J87 : False, i : 10.0, _J81 : False, _EL_U_53 : True, _EL_U_55 : False, _EL_U_57 : True, r : 9.0, _EL_U_59 : False
-	m_x_i : 1.0, _J100 : True, _J94 : False, _J87 : True, i : 0.0, _J81 : False, _EL_U_53 : True, _EL_U_55 : False, _EL_U_57 : True, r : 9.0, _EL_U_59 : False
-	m_x_i : 2.0, _J100 : True, _J94 : True, _J87 : True, i : 1.0, _J81 : True, _EL_U_53 : True, _EL_U_55 : False, _EL_U_57 : True, r : 9.0, _EL_U_59 : False
-	m_x_i : 3.0, _J100 : False, _J94 : False, _J87 : False, i : 2.0, _J81 : False, _EL_U_53 : True, _EL_U_55 : False, _EL_U_57 : True, r : 9.0, _EL_U_59 : False
-	m_x_i : 4.0, _J100 : True, _J94 : True, _J87 : True, i : 3.0, _J81 : True, _EL_U_53 : True, _EL_U_55 : False, _EL_U_57 : True, r : 9.0, _EL_U_59 : False
-	m_x_i : 5.0, _J100 : False, _J94 : False, _J87 : False, i : 4.0, _J81 : False, _EL_U_53 : True, _EL_U_55 : False, _EL_U_57 : True, r : 9.0, _EL_U_59 : False
-	m_x_i : 6.0, _J100 : True, _J94 : True, _J87 : True, i : 5.0, _J81 : True, _EL_U_53 : True, _EL_U_55 : False, _EL_U_57 : True, r : 9.0, _EL_U_59 : False
-	m_x_i : 7.0, _J100 : False, _J94 : False, _J87 : False, i : 6.0, _J81 : False, _EL_U_53 : True, _EL_U_55 : False, _EL_U_57 : True, r : 9.0, _EL_U_59 : False
-	m_x_i : 8.0, _J100 : True, _J94 : True, _J87 : True, i : 7.0, _J81 : True, _EL_U_53 : True, _EL_U_55 : False, _EL_U_57 : True, r : 9.0, _EL_U_59 : False
-	m_x_i : 9.0, _J100 : False, _J94 : False, _J87 : False, i : 8.0, _J81 : False, _EL_U_53 : True, _EL_U_55 : False, _EL_U_57 : True, r : 9.0, _EL_U_59 : False
-	m_x_i : 10.0, _J100 : True, _J94 : True, _J87 : True, i : 9.0, _J81 : True, _EL_U_53 : True, _EL_U_55 : False, _EL_U_57 : True, r : 9.0, _EL_U_59 : False
+	m_x_i : 6.0, _J100 : True, _J94 : True, _J87 : True, i : 5.0, _J81 : True, _EL_U_53 : True, _EL_U_55 : False, _EL_U_57 : True, r : 19/2, _EL_U_59 : False
+	m_x_i : 7.0, _J100 : False, _J94 : False, _J87 : False, i : 6.0, _J81 : False, _EL_U_53 : True, _EL_U_55 : False, _EL_U_57 : True, r : 19/2, _EL_U_59 : False
+	m_x_i : 8.0, _J100 : True, _J94 : True, _J87 : True, i : 7.0, _J81 : True, _EL_U_53 : True, _EL_U_55 : False, _EL_U_57 : True, r : 19/2, _EL_U_59 : False
+	m_x_i : 9.0, _J100 : False, _J94 : False, _J87 : False, i : 8.0, _J81 : False, _EL_U_53 : True, _EL_U_55 : False, _EL_U_57 : True, r : 19/2, _EL_U_59 : False
+	m_x_i : 10.0, _J100 : True, _J94 : True, _J87 : True, i : 9.0, _J81 : True, _EL_U_53 : True, _EL_U_55 : False, _EL_U_57 : True, r : 19/2, _EL_U_59 : False
+	m_x_i : 0.0, _J100 : False, _J94 : False, _J87 : False, i : 10.0, _J81 : False, _EL_U_53 : True, _EL_U_55 : False, _EL_U_57 : True, r : 19/2, _EL_U_59 : False
+	m_x_i : 1.0, _J100 : True, _J94 : False, _J87 : True, i : 0.0, _J81 : False, _EL_U_53 : True, _EL_U_55 : False, _EL_U_57 : True, r : 19/2, _EL_U_59 : False
+	m_x_i : 2.0, _J100 : True, _J94 : True, _J87 : True, i : 1.0, _J81 : True, _EL_U_53 : True, _EL_U_55 : False, _EL_U_57 : True, r : 19/2, _EL_U_59 : False
+	m_x_i : 3.0, _J100 : False, _J94 : False, _J87 : False, i : 2.0, _J81 : False, _EL_U_53 : True, _EL_U_55 : False, _EL_U_57 : True, r : 19/2, _EL_U_59 : False
+	m_x_i : 4.0, _J100 : True, _J94 : True, _J87 : True, i : 3.0, _J81 : True, _EL_U_53 : True, _EL_U_55 : False, _EL_U_57 : True, r : 19/2, _EL_U_59 : False
+	m_x_i : 5.0, _J100 : False, _J94 : False, _J87 : False, i : 4.0, _J81 : False, _EL_U_53 : True, _EL_U_55 : False, _EL_U_57 : True, r : 19/2, _EL_U_59 : False
+	m_x_i : 6.0, _J100 : True, _J94 : True, _J87 : True, i : 5.0, _J81 : True, _EL_U_53 : True, _EL_U_55 : False, _EL_U_57 : True, r : 19/2, _EL_U_59 : False
 
-end of `constant_bound`: SUCCESS in 4.039573431015015s
+end of `constant_bound`: SUCCESS in 4.780848741531372s

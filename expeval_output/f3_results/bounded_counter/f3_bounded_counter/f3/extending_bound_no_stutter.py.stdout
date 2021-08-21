@@ -13,12 +13,17 @@ F3 run `extending_bound_no_stutter`
 		_EL_U_65 = False
 		_EL_U_67 = True
 		r = 3.0
-		(((-1.0 * l) + i) < -1.0)
+		((-1.0 * l) < -2.0)
 		((-1.0 * l) < -3.0)
+		((-1.0 * l) < -1.0)
+		((-1.0 * l) < 0.0)
+		((-1.0 * l) < 1.0)
+		(((-1.0 * l) + i) < -1.0)
+		(((-1.0 * l) + i) < 0.0)
 		((-1.0 * i) <= -3.0)
 	Trans 2 -- 2
-		_x_l : l	
 		_x_i : (i + 1.0)	
+		_x_l : l	
 	End do-while
 	State 2
 		_EL_U_69 = False
@@ -31,14 +36,20 @@ F3 run `extending_bound_no_stutter`
 		_EL_U_65 = False
 		_EL_U_67 = True
 		r = 3.0
-		((l + (-1.0 * i) + -2.0) <= 0.0)
-		(((-1.0 * l) + i) < -1.0)
 		((-1.0 * i) <= -2.0)
+		((-1.0 * l) < -2.0)
+		((-1.0 * i) <= -1.0)
 		((-1.0 * l) < -3.0)
+		((l + (-1.0 * i) + -2.0) <= 0.0)
+		((-1.0 * l) < -1.0)
+		((-1.0 * l) < 0.0)
+		((-1.0 * l) < 1.0)
+		(((-1.0 * l) + i) < -1.0)
+		(((-1.0 * l) + i) < 0.0)
 		(((-1.0 * i) + l) <= 2.0)
 	Trans 2 -- 3
-		_x_l = l
 		_x_i = (i + 1.0)
+		_x_l = l
 	State 3
 		_EL_U_69 = False
 		inc_i = True
@@ -51,8 +62,8 @@ F3 run `extending_bound_no_stutter`
 		_EL_U_67 = True
 		r = 3.0
 	Trans 3 -- 4
-		_x_l = l
 		_x_i = (i + 1.0)
+		_x_l = l
 	State 4
 		_EL_U_69 = False
 		inc_i = True
@@ -79,8 +90,8 @@ F3 run `extending_bound_no_stutter`
 		_EL_U_67 = True
 		r = 3.0
 	Trans 5 -- 6
-		_x_l = l
 		_x_i = (i + 1.0)
+		_x_l = l
 	State 6
 		_EL_U_69 = False
 		inc_i = True
@@ -93,8 +104,8 @@ F3 run `extending_bound_no_stutter`
 		_EL_U_67 = True
 		r = 3.0
 	Trans 6 -- 7
-		_x_l = l
 		_x_i = (i + 1.0)
+		_x_l = l
 	State 7
 		_EL_U_69 = False
 		inc_i = True
@@ -107,8 +118,8 @@ F3 run `extending_bound_no_stutter`
 		_EL_U_67 = True
 		r = 3.0
 	Trans 7 -- 8
-		_x_l = l
 		_x_i = (i + 1.0)
-	starting from: _EL_U_69 : False, inc_i : True, l : 21/4, _J108 : True, _J102 : True, i : 13/4, _J97 : True, _J91 : True, _EL_U_63 : True, _EL_U_65 : False, _EL_U_67 : True, r : 3.0
+		_x_l = l
+	starting from: _EL_U_69 : False, inc_i : True, l : 46/9, _J108 : True, _J102 : True, i : 28/9, _J97 : True, _J91 : True, _EL_U_63 : True, _EL_U_65 : False, _EL_U_67 : True, r : 3.0
 
-end of `extending_bound_no_stutter`: SUCCESS in 2.2972049713134766s
+end of `extending_bound_no_stutter`: SUCCESS in 29.883942127227783s

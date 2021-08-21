@@ -4,4 +4,4 @@ F3 run `simple_int1`
 	b : False, x : 1
 	b : False, x : 1
 
-end of `simple_int1`: SUCCESS in 0.18727684020996094s
+end of `simple_int1`: SUCCESS in 0.19437551498413086s

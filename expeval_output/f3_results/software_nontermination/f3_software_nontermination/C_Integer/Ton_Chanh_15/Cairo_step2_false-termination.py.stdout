@@ -3,12 +3,13 @@ F3 run `Cairo_step2_false-termination`
 	Found non-termination argument:
 	State 3
 		pc = 1
-		(x < 2)
 		(x <= 2)
-		(x < 0)
-		(x < 4)
-		(x <= 0)
 		(x <= 4)
+		(x < 4)
+		(x < 0)
+		(x <= 0)
+		(x < 2)
+		((x + 1) <= 0)
 	Trans 3 -- 4
 		_x_x = x
 	State 4
@@ -17,4 +18,4 @@ F3 run `Cairo_step2_false-termination`
 		_x_x = (x + -2)
 	starting from: pc : 1, x : -1
 
-end of `Cairo_step2_false-termination`: SUCCESS in 1.1001951694488525s
+end of `Cairo_step2_false-termination`: SUCCESS in 1.284409761428833s

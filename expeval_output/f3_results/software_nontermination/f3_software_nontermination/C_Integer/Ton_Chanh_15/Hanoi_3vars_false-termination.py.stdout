@@ -9,21 +9,21 @@ F3 run `Hanoi_3vars_false-termination`
 		(((-1 * y) + -1) <= 0)
 		((-1 * z) <= 0)
 	Trans 0 -- 1
+		_x_z = z
 		_x_x = x
 		_x_y = y
-		_x_z = z
 	State 1
 		pc = 1
 	Trans 1 -- 2
-		_x_y = y
-		_x_x = (y + x)
 		_x_z = z
+		_x_x = (y + x)
+		_x_y = y
 	State 2
 		pc = 2
 	Trans 2 -- 3
-		_x_x = x
-		_x_y = (z + y)
 		_x_z = z
+		_x_y = (z + y)
+		_x_x = x
 	State 3
 		pc = 3
 	Trans 3 -- 4
@@ -32,4 +32,4 @@ F3 run `Hanoi_3vars_false-termination`
 		_x_y = y
 	starting from: z : 0, pc : 0, x : 1, y : 0
 
-end of `Hanoi_3vars_false-termination`: SUCCESS in 55.86426901817322s
+end of `Hanoi_3vars_false-termination`: SUCCESS in 57.02383089065552s

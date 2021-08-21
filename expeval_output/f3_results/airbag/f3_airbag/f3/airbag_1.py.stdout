@@ -2,6 +2,7 @@ F3 run `airbag_1`
 
 	Found non-termination argument:
 	State 1
+		link_out_message = 2
 		_EL_U_144 = True
 		new_valid_data = False
 		device_exploded = False
@@ -25,9 +26,9 @@ F3 run `airbag_1`
 		((-1 * sensor_counter) <= 4)
 	Trans 1 -- 2
 		_x_sensor_counter = (sensor_counter + 1)
-		_x_link_out_message = 0
 		_x_link_out_counter = 0
 	State 2
+		link_out_message = 1
 		_EL_U_144 = True
 		new_valid_data = False
 		device_exploded = False
@@ -47,9 +48,8 @@ F3 run `airbag_1`
 		link_new_data_available = False
 		_EL_U_141 = False
 	Trans 2 -- 3
-		_x_link_out_message = 2
 		_x_sensor_counter = sensor_counter
 		_x_link_out_counter = sensor_counter
 	starting from: _EL_U_144 : True, max_delta_counter_init : 2, collision : False, sensor_counter : 0, sensor_message : 1, fault_deletion : True, fault_corruption : False, device_last_valid_counter : -4, link_out_counter : 0, link_valid_crc : True, link_new_data_available : False, link_out_message : 2, new_valid_data : False, device_exploded : False, _J192 : True, _J175 : True, _J165 : True, _EL_X_121 : False, _EL_X_122 : False, _EL_U_137 : False, _EL_U_141 : False
 
-end of `airbag_1`: SUCCESS in 2.052441120147705s
+end of `airbag_1`: SUCCESS in 2.150632619857788s

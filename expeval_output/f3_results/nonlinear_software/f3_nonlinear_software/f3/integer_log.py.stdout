@@ -6,8 +6,9 @@ F3 run `integer_log`
 		n = 5
 		pc = 3
 		((-1 * log) < 0)
-		((-1 * log) < 2)
 		((-1 * log) < 1)
+		((-1 * log) < 2)
+		True
 	Trans 6 -- 7
 		_x_log = log
 	State 7
@@ -24,4 +25,4 @@ F3 run `integer_log`
 		_x_log = (log + 1)
 	starting from: pc : 3, d : 5, log : 1, n : 5
 
-end of `integer_log`: SUCCESS in 1.4338836669921875s
+end of `integer_log`: SUCCESS in 1.7604832649230957s

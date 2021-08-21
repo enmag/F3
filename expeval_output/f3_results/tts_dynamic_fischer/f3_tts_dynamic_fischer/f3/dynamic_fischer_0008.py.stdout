@@ -2,27 +2,29 @@ F3 run `dynamic_fischer_0008`
 
 	Found non-termination argument:
 	State 6
+		_diverge_delta = 0.0
+		delta = 0.0
+		p2_x = 0.0
 		p1_l1 = False
 		p1_l0 = False
-		proposed1 = 3873881359919/671095476487
+		proposed1 = 135722839159/86209011828
 		inc_max_prop = True
 		p4_l1 = False
 		p4_l0 = False
-		proposed4 = 3873881359919/671095476487
-		p2_saved_max = 121072/19637
+		proposed4 = 135722839159/86209011828
 		p7_l1 = False
 		p7_l0 = False
-		proposed7 = 3873881359919/671095476487
-		p5_saved_max = 121072/19637
+		proposed7 = 135722839159/86209011828
+		p5_saved_max = 17663215/4511376
 		p0_l1 = False
 		p0_l0 = False
-		proposed0 = 3873881359919/671095476487
+		proposed0 = 135722839159/86209011828
 		p3_l1 = False
 		p3_l0 = False
-		proposed3 = 3873881359919/671095476487
-		p1_saved_max = 121072/19637
-		turn2 = True
-		p6_l1 = True
+		proposed3 = 135722839159/86209011828
+		p1_saved_max = 17663215/4511376
+		turn2 = False
+		p6_l1 = False
 		p6_l0 = False
 		turn1 = True
 		_J1151 = True
@@ -30,198 +32,150 @@ F3 run `dynamic_fischer_0008`
 		_J1145 = True
 		_J1139 = True
 		_J1133 = True
-		p4_saved_max = 121072/19637
+		p4_saved_max = 17663215/4511376
 		id3 = True
 		_EL_U_1106 = True
+		proposed6 = 410038789/1157167944
 		id2 = False
 		_EL_U_1108 = False
 		_EL_U_1111 = True
 		id1 = False
 		id0 = False
 		_EL_U_1113 = False
-		p7_saved_max = 121072/19637
-		p2_l1 = False
+		p7_saved_max = 17663215/4511376
+		p2_l1 = True
 		p2_l0 = False
-		proposed2 = 3873881359919/671095476487
-		p0_saved_max = 121072/19637
+		p0_saved_max = 17663215/4511376
 		p5_l1 = False
 		p5_l0 = False
-		proposed5 = 3873881359919/671095476487
-		p3_saved_max = 121072/19637
-		((-1.0 * max_prop) <= -3873881359919/671095476487)
-		(_diverge_delta < 1.0)
-		(p6_x = 0.0)
-		(delta = 0.0)
-		(((-1.0 * proposed6) + max_prop) = 0.0)
-		(((-1.0 * proposed6) + p6_x) <= 0.0)
-		((-1.0 * p6_x) <= 0.0)
-		((-1.0 * p7_x) < -3873881359919/671095476487)
-		((-1.0 * max_prop) < -3873881359919/671095476487)
-		((-1.0 * p4_x) < -3873881359919/671095476487)
-		((-1.0 * p3_x) < -3873881359919/671095476487)
-		((-1.0 * p5_x) < -3873881359919/671095476487)
-		((-1.0 * p2_x) < -3873881359919/671095476487)
-		((-1.0 * proposed6) <= -3873881359919/671095476487)
-		((-1.0 * p0_x) < -3873881359919/671095476487)
-		((-1.0 * p1_x) < -3873881359919/671095476487)
-		((delta + _diverge_delta) < 1.0)
+		proposed5 = 135722839159/86209011828
+		p3_saved_max = 17663215/4511376
+		p6_saved_max = 17663215/4511376
+		((-1.0 * p4_x) < -49513827331/86209011828)
+		((-1.0 * max_prop) <= -135722839159/86209011828)
+		(((-1.0 * proposed2) + max_prop) = 0.0)
+		((-1.0 * max_prop) <= -410038789/1157167944)
+		((-1.0 * p6_x) < -410038789/1157167944)
+		((-1.0 * p1_x) < -135722839159/86209011828)
+		(max_prop < 17663215/4511376)
+		((-1.0 * max_prop) < -410038789/1157167944)
+		((-1.0 * max_prop) < -135722839159/86209011828)
+		((-1.0 * p3_x) < -49513827331/86209011828)
+		((-1.0 * p7_x) < -135722839159/86209011828)
+		((-1.0 * p0_x) < 36695184497/86209011828)
+		((-1.0 * p4_x) < -135722839159/86209011828)
+		((-1.0 * proposed2) <= -135722839159/86209011828)
+		((-1.0 * p4_x) < 36695184497/86209011828)
+		((-1.0 * p3_x) < -135722839159/86209011828)
+		((-1.0 * p0_x) < -49513827331/86209011828)
+		((-1.0 * p5_x) < 36695184497/86209011828)
+		((-1.0 * p0_x) < -135722839159/86209011828)
+		((-1.0 * p5_x) < -135722839159/86209011828)
+		((-1.0 * proposed2) <= 0.0)
+		((-1.0 * p6_x) < 1904297099/1157167944)
+		((-1.0 * p5_x) < -49513827331/86209011828)
+		((-1.0 * p1_x) < 36695184497/86209011828)
+		((-1.0 * proposed2) <= -410038789/1157167944)
+		((-1.0 * p3_x) < 36695184497/86209011828)
+		((-1.0 * p6_x) < 747129155/1157167944)
+		((-1.0 * p7_x) < 36695184497/86209011828)
+		((-1.0 * p1_x) < -49513827331/86209011828)
+		((-1.0 * p7_x) < -49513827331/86209011828)
 	Trans 6 -- 7
-		_x_p6_x = 0.0
-		_x_p3_x = (p3_x + delta)
-		_x_p0_x = (p0_x + delta)
-		_x_p5_x = (p5_x + delta)
-		_x_p1_x = (delta + p1_x)
-		_x_p2_x = (delta + p2_x)
-		_x_p4_x = (delta + p4_x)
-		_x_delta = 0.0
-		_x_p6_saved_max = max_prop
-		_x_p7_x = (delta + p7_x)
-		_x_proposed6 = proposed6
-		_x__diverge_delta = (delta + _diverge_delta)
-		_x_max_prop = proposed6
+		_x_p0_x = p0_x
+		_x_p6_x = p6_x
+		_x_p5_x = p5_x
+		_x_p2_saved_max = max_prop
+		_x_p3_x = p3_x
+		_x_p1_x = p1_x
+		_x_p4_x = p4_x
+		_x_p7_x = p7_x
+		_x_proposed2 = proposed2
+		_x_max_prop = proposed2
 	State 7
+		_diverge_delta = 0.0
+		delta = 0.0
+		p2_x = 0.0
 		p1_l1 = False
 		p1_l0 = False
-		proposed1 = 3873881359919/671095476487
+		proposed1 = 135722839159/86209011828
 		inc_max_prop = True
 		p4_l1 = False
 		p4_l0 = False
-		proposed4 = 3873881359919/671095476487
-		p2_saved_max = 121072/19637
+		proposed4 = 135722839159/86209011828
 		p7_l1 = False
 		p7_l0 = False
-		proposed7 = 3873881359919/671095476487
-		p5_saved_max = 121072/19637
+		proposed7 = 135722839159/86209011828
+		p5_saved_max = 17663215/4511376
 		p0_l1 = False
 		p0_l0 = False
-		proposed0 = 3873881359919/671095476487
+		proposed0 = 135722839159/86209011828
 		p3_l1 = False
 		p3_l0 = False
-		proposed3 = 3873881359919/671095476487
-		p1_saved_max = 121072/19637
-		turn2 = True
+		proposed3 = 135722839159/86209011828
+		p1_saved_max = 17663215/4511376
+		turn2 = False
 		p6_l1 = False
-		p6_l0 = True
+		p6_l0 = False
 		turn1 = True
 		_J1151 = False
 		turn0 = False
 		_J1145 = False
 		_J1139 = False
 		_J1133 = False
-		p4_saved_max = 121072/19637
+		p4_saved_max = 17663215/4511376
 		id3 = False
 		_EL_U_1106 = True
-		id2 = True
+		proposed6 = 410038789/1157167944
+		id2 = False
 		_EL_U_1108 = False
 		_EL_U_1111 = True
 		id1 = True
 		id0 = False
 		_EL_U_1113 = False
-		p7_saved_max = 121072/19637
+		p7_saved_max = 17663215/4511376
 		p2_l1 = False
-		p2_l0 = False
-		proposed2 = 3873881359919/671095476487
-		p0_saved_max = 121072/19637
+		p2_l0 = True
+		p0_saved_max = 17663215/4511376
 		p5_l1 = False
 		p5_l0 = False
-		proposed5 = 3873881359919/671095476487
-		p3_saved_max = 121072/19637
+		proposed5 = 135722839159/86209011828
+		p3_saved_max = 17663215/4511376
+		p6_saved_max = 17663215/4511376
 	Trans 7 -- 8
-		_x_p3_x = (p3_x + delta)
-		_x_p0_x = (p0_x + delta)
-		_x_p5_x = (p5_x + delta)
-		_x_p1_x = (delta + p1_x)
-		_x_p2_x = (delta + p2_x)
-		_x_p4_x = (delta + p4_x)
-		_x_delta = 0.0
+		_x_p0_x = p0_x
 		_x_p6_x = p6_x
-		_x_p6_saved_max = max_prop
-		_x_p7_x = (delta + p7_x)
-		_x_proposed6 = proposed6
-		_x__diverge_delta = (delta + _diverge_delta)
-		_x_max_prop = proposed6
+		_x_p5_x = p5_x
+		_x_p2_saved_max = max_prop
+		_x_p3_x = p3_x
+		_x_p1_x = p1_x
+		_x_p4_x = p4_x
+		_x_p7_x = p7_x
+		_x_proposed2 = proposed2
+		_x_max_prop = proposed2
 	State 8
+		_diverge_delta = 0.0
+		delta = 0.0
+		p2_x = 0.0
 		p1_l1 = False
 		p1_l0 = False
-		proposed1 = 3873881359919/671095476487
+		proposed1 = 135722839159/86209011828
 		inc_max_prop = True
 		p4_l1 = False
 		p4_l0 = False
-		proposed4 = 3873881359919/671095476487
-		p2_saved_max = 121072/19637
+		proposed4 = 135722839159/86209011828
 		p7_l1 = False
 		p7_l0 = False
-		proposed7 = 3873881359919/671095476487
-		p5_saved_max = 121072/19637
+		proposed7 = 135722839159/86209011828
+		p5_saved_max = 17663215/4511376
 		p0_l1 = False
 		p0_l0 = False
-		proposed0 = 3873881359919/671095476487
+		proposed0 = 135722839159/86209011828
 		p3_l1 = False
 		p3_l0 = False
-		proposed3 = 3873881359919/671095476487
-		p1_saved_max = 121072/19637
-		turn2 = True
-		p6_l1 = True
-		p6_l0 = True
-		turn1 = True
-		_J1151 = True
-		turn0 = False
-		_J1145 = False
-		_J1139 = True
-		_J1133 = False
-		p4_saved_max = 121072/19637
-		id3 = False
-		_EL_U_1106 = True
-		id2 = True
-		_EL_U_1108 = False
-		_EL_U_1111 = True
-		id1 = True
-		id0 = False
-		_EL_U_1113 = False
-		p7_saved_max = 121072/19637
-		p2_l1 = False
-		p2_l0 = False
-		proposed2 = 3873881359919/671095476487
-		p0_saved_max = 121072/19637
-		p5_l1 = False
-		p5_l0 = False
-		proposed5 = 3873881359919/671095476487
-		p3_saved_max = 121072/19637
-	Trans 8 -- 9
-		_x_p3_x = (p3_x + delta)
-		_x_p0_x = (p0_x + delta)
-		_x_p5_x = (p5_x + delta)
-		_x_p1_x = (delta + p1_x)
-		_x_p2_x = (delta + p2_x)
-		_x_p4_x = (delta + p4_x)
-		_x_p6_x = p6_x
-		_x_p6_saved_max = max_prop
-		_x_p7_x = (delta + p7_x)
-		_x__diverge_delta = (delta + _diverge_delta)
-		_x_max_prop = _x_proposed6
-		_x_delta = ((p7_x * 1/8) + (p4_x * 1/2) + p2_x + (-1.0 * _diverge_delta) + p1_x + p0_x + p5_x + (max_prop * 1/4) + p6_saved_max + p3_x + 1/2)
-		_x_proposed6 = (((proposed6 * 1/8) + max_prop + 3873881359919/5368763811896) - (p6_saved_max * 1/4))
-	State 9
-		p1_l1 = False
-		p1_l0 = False
-		proposed1 = 3873881359919/671095476487
-		inc_max_prop = False
-		p4_l1 = False
-		p4_l0 = False
-		proposed4 = 3873881359919/671095476487
-		p2_saved_max = 121072/19637
-		p7_l1 = False
-		p7_l0 = False
-		proposed7 = 3873881359919/671095476487
-		p5_saved_max = 121072/19637
-		p0_l1 = False
-		p0_l0 = False
-		proposed0 = 3873881359919/671095476487
-		p3_l1 = False
-		p3_l0 = False
-		proposed3 = 3873881359919/671095476487
-		p1_saved_max = 121072/19637
-		turn2 = True
+		proposed3 = 135722839159/86209011828
+		p1_saved_max = 17663215/4511376
+		turn2 = False
 		p6_l1 = False
 		p6_l0 = False
 		turn1 = True
@@ -230,70 +184,126 @@ F3 run `dynamic_fischer_0008`
 		_J1145 = False
 		_J1139 = True
 		_J1133 = False
-		p4_saved_max = 121072/19637
+		p4_saved_max = 17663215/4511376
+		id3 = False
+		_EL_U_1106 = True
+		proposed6 = 410038789/1157167944
+		id2 = False
+		_EL_U_1108 = False
+		_EL_U_1111 = True
+		id1 = True
+		id0 = False
+		_EL_U_1113 = False
+		p7_saved_max = 17663215/4511376
+		p2_l1 = True
+		p2_l0 = True
+		p0_saved_max = 17663215/4511376
+		p5_l1 = False
+		p5_l0 = False
+		proposed5 = 135722839159/86209011828
+		p3_saved_max = 17663215/4511376
+		p6_saved_max = 17663215/4511376
+	Trans 8 -- 9
+		_x_p0_x = p0_x
+		_x_p6_x = p6_x
+		_x_p5_x = p5_x
+		_x_p2_saved_max = max_prop
+		_x_p3_x = p3_x
+		_x_p1_x = p1_x
+		_x_p4_x = p4_x
+		_x_p7_x = p7_x
+		_x_max_prop = _x_proposed2
+		_x_proposed2 = (((p2_saved_max * 1/2) + 678614195795/689672094624) - (max_prop * 1/8))
+	State 9
+		_diverge_delta = 0.0
+		delta = 1.0
+		p2_x = 0.0
+		p1_l1 = False
+		p1_l0 = False
+		proposed1 = 135722839159/86209011828
+		inc_max_prop = False
+		p4_l1 = False
+		p4_l0 = False
+		proposed4 = 135722839159/86209011828
+		p7_l1 = False
+		p7_l0 = False
+		proposed7 = 135722839159/86209011828
+		p5_saved_max = 17663215/4511376
+		p0_l1 = False
+		p0_l0 = False
+		proposed0 = 135722839159/86209011828
+		p3_l1 = False
+		p3_l0 = False
+		proposed3 = 135722839159/86209011828
+		p1_saved_max = 17663215/4511376
+		turn2 = False
+		p6_l1 = False
+		p6_l0 = False
+		turn1 = True
+		_J1151 = True
+		turn0 = False
+		_J1145 = False
+		_J1139 = True
+		_J1133 = False
+		p4_saved_max = 17663215/4511376
 		id3 = True
 		_EL_U_1106 = True
+		proposed6 = 410038789/1157167944
 		id2 = False
 		_EL_U_1108 = False
 		_EL_U_1111 = True
 		id1 = False
 		id0 = False
 		_EL_U_1113 = False
-		p7_saved_max = 121072/19637
+		p7_saved_max = 17663215/4511376
 		p2_l1 = False
 		p2_l0 = False
-		proposed2 = 3873881359919/671095476487
-		p0_saved_max = 121072/19637
+		p0_saved_max = 17663215/4511376
 		p5_l1 = False
 		p5_l0 = False
-		proposed5 = 3873881359919/671095476487
-		p3_saved_max = 121072/19637
-		((-1.0 * proposed6) <= -3873881359919/671095476487)
-		(((-1.0 * delta) + (-1.0 * p7_x)) < -3873881359919/671095476487)
-		(((-1.0 * delta) + (-1.0 * p5_x)) < -3873881359919/671095476487)
-		((-1.0 * proposed6) < -3873881359919/671095476487)
-		(((-1.0 * delta) + (-1.0 * p2_x)) < -3873881359919/671095476487)
-		(((-1.0 * delta) + (-1.0 * p4_x)) < -3873881359919/671095476487)
-		(((-1.0 * delta) + (-1.0 * p0_x)) < -3873881359919/671095476487)
-		((-1.0 * proposed6) <= 0.0)
-		(((-1.0 * delta) + (-1.0 * p3_x)) < -3873881359919/671095476487)
-		(((-1.0 * delta) + (-1.0 * _diverge_delta)) <= -1.0)
-		(((-1.0 * delta) + (-1.0 * p1_x)) < -3873881359919/671095476487)
+		proposed5 = 135722839159/86209011828
+		p3_saved_max = 17663215/4511376
+		p6_saved_max = 17663215/4511376
+		((-1.0 * proposed2) <= -135722839159/86209011828)
+		((-1.0 * proposed2) < -135722839159/86209011828)
+		((-1.0 * proposed2) <= 0.0)
+		(proposed2 < 17663215/4511376)
+		((-1.0 * proposed2) < -410038789/1157167944)
+		((-1.0 * proposed2) <= -410038789/1157167944)
 	Trans 9 -- 10
-		_x_p3_x = (p3_x + delta)
-		_x_p0_x = (p0_x + delta)
-		_x_p5_x = (p5_x + delta)
-		_x_p1_x = (delta + p1_x)
-		_x_p2_x = (delta + p2_x)
-		_x_p4_x = (delta + p4_x)
-		_x_p6_x = (delta + p6_x)
-		_x_delta = 0.0
-		_x_p6_saved_max = p6_saved_max
-		_x_p7_x = (delta + p7_x)
-		_x_proposed6 = proposed6
-		_x__diverge_delta = (delta + _diverge_delta)
-		_x_max_prop = proposed6
+		_x_p7_x = (p7_x + 1.0)
+		_x_p4_x = (p4_x + 1.0)
+		_x_p6_x = (p6_x + 1.0)
+		_x_p1_x = (p1_x + 1.0)
+		_x_p0_x = (p0_x + 1.0)
+		_x_p5_x = (p5_x + 1.0)
+		_x_p2_saved_max = p2_saved_max
+		_x_proposed2 = proposed2
+		_x_p3_x = (p3_x + 1.0)
+		_x_max_prop = proposed2
 	State 10
+		_diverge_delta = 1.0
+		delta = 0.0
+		p2_x = 1.0
 		p1_l1 = False
 		p1_l0 = False
-		proposed1 = 3873881359919/671095476487
+		proposed1 = 135722839159/86209011828
 		inc_max_prop = True
 		p4_l1 = False
 		p4_l0 = False
-		proposed4 = 3873881359919/671095476487
-		p2_saved_max = 121072/19637
+		proposed4 = 135722839159/86209011828
 		p7_l1 = False
 		p7_l0 = False
-		proposed7 = 3873881359919/671095476487
-		p5_saved_max = 121072/19637
+		proposed7 = 135722839159/86209011828
+		p5_saved_max = 17663215/4511376
 		p0_l1 = False
 		p0_l0 = False
-		proposed0 = 3873881359919/671095476487
+		proposed0 = 135722839159/86209011828
 		p3_l1 = False
 		p3_l0 = False
-		proposed3 = 3873881359919/671095476487
-		p1_saved_max = 121072/19637
-		turn2 = True
+		proposed3 = 135722839159/86209011828
+		p1_saved_max = 17663215/4511376
+		turn2 = False
 		p6_l1 = False
 		p6_l0 = False
 		turn1 = True
@@ -302,38 +312,36 @@ F3 run `dynamic_fischer_0008`
 		_J1145 = False
 		_J1139 = True
 		_J1133 = True
-		p4_saved_max = 121072/19637
+		p4_saved_max = 17663215/4511376
 		id3 = True
 		_EL_U_1106 = True
+		proposed6 = 410038789/1157167944
 		id2 = False
 		_EL_U_1108 = False
 		_EL_U_1111 = True
 		id1 = False
 		id0 = False
 		_EL_U_1113 = False
-		p7_saved_max = 121072/19637
+		p7_saved_max = 17663215/4511376
 		p2_l1 = False
 		p2_l0 = False
-		proposed2 = 3873881359919/671095476487
-		p0_saved_max = 121072/19637
+		p0_saved_max = 17663215/4511376
 		p5_l1 = False
 		p5_l0 = False
-		proposed5 = 3873881359919/671095476487
-		p3_saved_max = 121072/19637
+		proposed5 = 135722839159/86209011828
+		p3_saved_max = 17663215/4511376
+		p6_saved_max = 17663215/4511376
 	Trans 10 -- 11
-		_x_p6_x = 0.0
-		_x_p3_x = (p3_x + delta)
-		_x_p0_x = (p0_x + delta)
-		_x_p5_x = (p5_x + delta)
-		_x_p1_x = (delta + p1_x)
-		_x_p2_x = (delta + p2_x)
-		_x_p4_x = (delta + p4_x)
-		_x_delta = 0.0
-		_x_p6_saved_max = max_prop
-		_x_p7_x = (delta + p7_x)
-		_x__diverge_delta = delta
-		_x_proposed6 = proposed6
-		_x_max_prop = proposed6
-	starting from: p1_l1 : False, p1_l0 : False, proposed1 : 3873881359919/671095476487, _diverge_delta : 0.0, inc_max_prop : True, p1_x : 121072/19637, delta : 0.0, p4_l1 : False, p4_l0 : False, proposed4 : 3873881359919/671095476487, p2_saved_max : 121072/19637, p4_x : 121072/19637, max_prop : 3961801498170/671095476487, p7_l1 : False, p7_l0 : False, proposed7 : 3873881359919/671095476487, p5_saved_max : 121072/19637, p7_x : 121072/19637, p0_l1 : False, p0_l0 : False, proposed0 : 3873881359919/671095476487, p0_x : 121072/19637, p3_l1 : False, p3_l0 : False, proposed3 : 3873881359919/671095476487, p1_saved_max : 121072/19637, turn2 : True, p3_x : 121072/19637, p6_l1 : True, p6_l0 : False, turn1 : True, _J1151 : True, turn0 : False, proposed6 : 3961801498170/671095476487, _J1145 : True, _J1139 : True, p4_saved_max : 121072/19637, id3 : True, p6_x : 0.0, _J1133 : True, id2 : False, _EL_U_1106 : True, _EL_U_1108 : False, id1 : False, _EL_U_1111 : True, id0 : False, p7_saved_max : 121072/19637, _EL_U_1113 : False, p2_l1 : False, p2_l0 : False, proposed2 : 3873881359919/671095476487, p0_saved_max : 121072/19637, p2_x : 121072/19637, p5_l1 : False, p5_l0 : False, proposed5 : 3873881359919/671095476487, p3_saved_max : 121072/19637, p5_x : 121072/19637, p6_saved_max : 3961801498170/671095476487
+		_x_p0_x = p0_x
+		_x_p6_x = p6_x
+		_x_p5_x = p5_x
+		_x_p3_x = p3_x
+		_x_p1_x = p1_x
+		_x_p4_x = p4_x
+		_x_p7_x = p7_x
+		_x_proposed2 = proposed2
+		_x_max_prop = proposed2
+		_x_p2_saved_max = proposed2
+	starting from: p1_l1 : False, p1_l0 : False, proposed1 : 135722839159/86209011828, _diverge_delta : 0.0, inc_max_prop : True, p1_x : 17663215/4511376, delta : 0.0, p4_l1 : False, p4_l0 : False, proposed4 : 135722839159/86209011828, p2_saved_max : 16401551560/7184084319, p4_x : 17663215/4511376, max_prop : 16401551560/7184084319, p7_l1 : False, p7_l0 : False, proposed7 : 135722839159/86209011828, p5_saved_max : 17663215/4511376, p7_x : 17663215/4511376, p0_l1 : False, p0_l0 : False, proposed0 : 135722839159/86209011828, p0_x : 17663215/4511376, p3_l1 : False, p3_l0 : False, proposed3 : 135722839159/86209011828, p1_saved_max : 17663215/4511376, turn2 : False, p3_x : 17663215/4511376, p6_l1 : False, p6_l0 : False, turn1 : True, _J1151 : True, turn0 : False, proposed6 : 410038789/1157167944, _J1145 : True, _J1139 : True, p4_saved_max : 17663215/4511376, id3 : True, p6_x : 17663215/4511376, _J1133 : True, id2 : False, _EL_U_1106 : True, _EL_U_1108 : False, id1 : False, _EL_U_1111 : True, id0 : False, p7_saved_max : 17663215/4511376, _EL_U_1113 : False, p2_l1 : True, p2_l0 : False, proposed2 : 16401551560/7184084319, p0_saved_max : 17663215/4511376, p2_x : 0.0, p5_l1 : False, p5_l0 : False, proposed5 : 135722839159/86209011828, p3_saved_max : 17663215/4511376, p5_x : 17663215/4511376, p6_saved_max : 17663215/4511376
 
-end of `dynamic_fischer_0008`: SUCCESS in 50.418185234069824s
+end of `dynamic_fischer_0008`: SUCCESS in 48.40776467323303s

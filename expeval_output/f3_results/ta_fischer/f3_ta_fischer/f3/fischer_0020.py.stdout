@@ -1,7 +1,10 @@
 F3 run `fischer_0020`
 
 	Found non-termination argument:
+	Do states 4..4 while ((p13_x + p10_x + p7_x + p18_x + p4_x + p15_x + p1_x + p12_x + p9_x + p6_x + p17_x + p3_x + p14_x + p0_x + p11_x + p8_x + p19_x + p5_x + p16_x + p2_x + -744/5) < 0.0)
 	State 4
+		_diverge_delta = 53/8
+		delta = 53/8
 		p19_l1 = False
 		p19_l0 = False
 		p0_l1 = False
@@ -10,7 +13,7 @@ F3 run `fischer_0020`
 		p3_l0 = False
 		p6_l1 = False
 		p6_l0 = False
-		turn = 20
+		turn = 1
 		id = 1
 		p9_l1 = False
 		p9_l0 = False
@@ -56,55 +59,51 @@ F3 run `fischer_0020`
 		p13_l0 = False
 		p16_l1 = False
 		p16_l0 = False
-		((-1.0 * p11_x) < -2.0)
-		((-1.0 * p14_x) < -2.0)
-		((-1.0 * p8_x) < -2.0)
-		((-1.0 * p5_x) < -2.0)
-		((-1.0 * p2_x) < -2.0)
-		((-1.0 * p18_x) < -2.0)
-		((-1.0 * p15_x) < -2.0)
-		((-1.0 * p9_x) < -2.0)
-		(_diverge_delta < 1.0)
-		((-1.0 * delta) < 0.0)
-		(((-1.0 * delta) + (-1.0 * _diverge_delta)) <= -1.0)
-		((-1.0 * p6_x) < -2.0)
-		((-1.0 * p3_x) < -2.0)
-		((-1.0 * p12_x) < -2.0)
 		((-1.0 * p16_x) < -2.0)
 		((-1.0 * p0_x) < -2.0)
 		((-1.0 * p10_x) < -2.0)
 		((-1.0 * p19_x) < -2.0)
 		((-1.0 * p4_x) < -2.0)
-		((-1.0 * p0_x) <= 0.0)
-		((-1.0 * p19_x) <= 0.0)
 		((-1.0 * p13_x) < -2.0)
 		((-1.0 * p7_x) < -2.0)
 		((-1.0 * p17_x) < -2.0)
 		((-1.0 * p1_x) < -2.0)
-	Trans 4 -- 5
-		_x_p13_x = (p13_x + delta)
-		_x_p0_x = (p0_x + delta)
-		_x_p6_x = (p6_x + delta)
-		_x_p3_x = (p3_x + delta)
-		_x_p12_x = (p12_x + delta)
-		_x_p9_x = (p9_x + delta)
-		_x_p14_x = (p14_x + delta)
-		_x_p15_x = (p15_x + delta)
-		_x_p18_x = (p18_x + delta)
-		_x_p16_x = (delta + p16_x)
-		_x_p19_x = (delta + p19_x)
-		_x_p2_x = (p2_x + delta)
-		_x_p5_x = (p5_x + delta)
-		_x__diverge_delta = (delta + _diverge_delta)
-		_x_p8_x = (p8_x + delta)
-		_x_p11_x = (p11_x + delta)
-		_x_p17_x = (p17_x + delta)
-		_x_p1_x = (p1_x + delta)
-		_x_p7_x = (p7_x + delta)
-		_x_p4_x = (p4_x + delta)
-		_x_p10_x = (p10_x + delta)
-		_x_delta = 1/4
-	State 5
+		((-1.0 * p5_x) < -2.0)
+		((-1.0 * p14_x) < -2.0)
+		((-1.0 * p11_x) < -2.0)
+		((-1.0 * p8_x) < -2.0)
+		((-1.0 * p9_x) < -2.0)
+		((-1.0 * p2_x) < -2.0)
+		((-1.0 * p18_x) < -2.0)
+		((-1.0 * p15_x) < -2.0)
+		((-1.0 * p3_x) < -2.0)
+		((-1.0 * p6_x) < -2.0)
+		((-1.0 * p12_x) < -2.0)
+	Trans 4 -- 4
+		_x_p18_x : (p18_x + 53/8)	
+		_x_p14_x : (p14_x + 53/8)	
+		_x_p19_x : (p19_x + 53/8)	
+		_x_p17_x : (p17_x + 53/8)	
+		_x_p6_x : (p6_x + 53/8)	
+		_x_p1_x : (p1_x + 53/8)	
+		_x_p3_x : (p3_x + 53/8)	
+		_x_p4_x : (p4_x + 53/8)	
+		_x_p2_x : (p2_x + 53/8)	
+		_x_p7_x : (p7_x + 53/8)	
+		_x_p12_x : (p12_x + 53/8)	
+		_x_p5_x : (p5_x + 53/8)	
+		_x_p10_x : (p10_x + 53/8)	
+		_x_p9_x : (p9_x + 53/8)	
+		_x_p0_x : (p0_x + 53/8)	
+		_x_p8_x : (p8_x + 53/8)	
+		_x_p13_x : (p13_x + 53/8)	
+		_x_p15_x : (p15_x + 53/8)	
+		_x_p11_x : (p11_x + 53/8)	
+		_x_p16_x : (p16_x + 53/8)	
+	End do-while
+	State 4
+		_diverge_delta = 53/8
+		delta = 53/8
 		p19_l1 = False
 		p19_l0 = False
 		p0_l1 = False
@@ -113,7 +112,106 @@ F3 run `fischer_0020`
 		p3_l0 = False
 		p6_l1 = False
 		p6_l0 = False
-		turn = 20
+		turn = 1
+		id = 1
+		p9_l1 = False
+		p9_l0 = False
+		p12_l1 = False
+		p12_l0 = False
+		p15_l1 = False
+		p15_l0 = False
+		p18_l1 = False
+		p18_l0 = False
+		_J2225 = True
+		_J2219 = True
+		p2_l1 = False
+		p2_l0 = False
+		_J2212 = True
+		_J2206 = True
+		p5_l1 = False
+		p5_l0 = False
+		_J2201 = True
+		_J2195 = True
+		p8_l1 = False
+		p8_l0 = False
+		_EL_U_2158 = True
+		_EL_U_2160 = False
+		p11_l1 = False
+		p11_l0 = False
+		_EL_U_2162 = True
+		_EL_U_2164 = False
+		p14_l1 = False
+		p14_l0 = False
+		_EL_U_2166 = False
+		_EL_U_2168 = True
+		p17_l1 = False
+		p17_l0 = False
+		p1_l1 = False
+		p1_l0 = False
+		p4_l1 = False
+		p4_l0 = False
+		p7_l1 = False
+		p7_l0 = False
+		p10_l1 = False
+		p10_l0 = False
+		p13_l1 = False
+		p13_l0 = False
+		p16_l1 = False
+		p16_l0 = False
+		(((-1.0 * p2_x) + (-1.0 * p16_x) + (-1.0 * p5_x) + (-1.0 * p19_x) + (-1.0 * p8_x) + (-1.0 * p11_x) + (-1.0 * p0_x) + (-1.0 * p14_x) + (-1.0 * p3_x) + (-1.0 * p17_x) + (-1.0 * p6_x) + (-1.0 * p9_x) + (-1.0 * p12_x) + (-1.0 * p1_x) + (-1.0 * p15_x) + (-1.0 * p4_x) + (-1.0 * p18_x) + (-1.0 * p7_x) + (-1.0 * p10_x) + (-1.0 * p13_x) + 744/5) <= 0.0)
+		((-1.0 * p15_x) < 45/4)
+		((-1.0 * p9_x) < 45/4)
+		((-1.0 * p13_x) < 45/4)
+		((-1.0 * p2_x) < 45/4)
+		((-1.0 * p7_x) < 45/4)
+		((-1.0 * p18_x) < 45/4)
+		((-1.0 * p0_x) < 45/4)
+		((-1.0 * p17_x) < 45/4)
+		((-1.0 * p5_x) < 45/4)
+		((-1.0 * p16_x) < 45/4)
+		((-1.0 * p14_x) < 45/4)
+		((-1.0 * p3_x) < 45/4)
+		((-1.0 * p10_x) < 45/4)
+		((-1.0 * p6_x) < 45/4)
+		((-1.0 * p11_x) < 45/4)
+		((-1.0 * p19_x) < 45/4)
+		((-1.0 * p12_x) < 45/4)
+		((-1.0 * p8_x) < 45/4)
+		((-1.0 * p4_x) < 45/4)
+		((-1.0 * p1_x) < 45/4)
+	Trans 4 -- 5
+		_x_p18_x = (p18_x + 53/8)
+		_x_p14_x = (p14_x + 53/8)
+		_x_p19_x = (p19_x + 53/8)
+		_x_p17_x = (p17_x + 53/8)
+		_x_p6_x = (p6_x + 53/8)
+		_x_p1_x = (p1_x + 53/8)
+		_x_p3_x = (p3_x + 53/8)
+		_x_p4_x = (p4_x + 53/8)
+		_x_p2_x = (p2_x + 53/8)
+		_x_p7_x = (p7_x + 53/8)
+		_x_p12_x = (p12_x + 53/8)
+		_x_p5_x = (p5_x + 53/8)
+		_x_p10_x = (p10_x + 53/8)
+		_x_p9_x = (p9_x + 53/8)
+		_x_p0_x = (p0_x + 53/8)
+		_x_p8_x = (p8_x + 53/8)
+		_x_p13_x = (p13_x + 53/8)
+		_x_p15_x = (p15_x + 53/8)
+		_x_p11_x = (p11_x + 53/8)
+		_x_p16_x = (p16_x + 53/8)
+	State 5
+		_diverge_delta = 53/8
+		delta = 53/8
+		p19_l1 = False
+		p19_l0 = False
+		p0_l1 = False
+		p0_l0 = True
+		p3_l1 = False
+		p3_l0 = False
+		p6_l1 = False
+		p6_l0 = False
+		turn = 1
 		id = 1
 		p9_l1 = False
 		p9_l0 = False
@@ -159,53 +257,27 @@ F3 run `fischer_0020`
 		p13_l0 = False
 		p16_l1 = False
 		p16_l0 = False
-		(((-1.0 * p15_x) + (-1.0 * delta)) < -2.0)
-		(((-1.0 * p1_x) + (-1.0 * delta)) < -2.0)
-		(((-1.0 * p10_x) + (-1.0 * delta)) < -2.0)
-		(((-1.0 * p9_x) + (-1.0 * delta)) < -2.0)
-		(((-1.0 * p11_x) + (-1.0 * delta)) < -2.0)
-		(delta < 1.0)
-		(((-1.0 * p19_x) + (-1.0 * delta)) < -2.0)
-		(((-1.0 * p14_x) + (-1.0 * delta)) < -2.0)
-		(((-1.0 * p4_x) + (-1.0 * delta)) < -2.0)
-		(((-1.0 * p6_x) + (-1.0 * delta)) < -2.0)
-		(((-1.0 * p0_x) + (-1.0 * delta)) <= 0.0)
-		(((-1.0 * p8_x) + (-1.0 * delta)) < -2.0)
-		(((-1.0 * p19_x) + (-1.0 * delta)) <= 0.0)
-		((-1.0 * delta) < 0.0)
-		(((-1.0 * p3_x) + (-1.0 * delta)) < -2.0)
-		(((-1.0 * p5_x) + (-1.0 * delta)) < -2.0)
-		(((-1.0 * p13_x) + (-1.0 * delta)) < -2.0)
-		(((-1.0 * p12_x) + (-1.0 * delta)) < -2.0)
-		(((-1.0 * p2_x) + (-1.0 * delta)) < -2.0)
-		(((-1.0 * p7_x) + (-1.0 * delta)) < -2.0)
-		(((-1.0 * p16_x) + (-1.0 * delta)) < -2.0)
-		(((-1.0 * p18_x) + (-1.0 * delta)) < -2.0)
-		(((-1.0 * p17_x) + (-1.0 * delta)) < -2.0)
-		(((-1.0 * p0_x) + (-1.0 * delta)) < -2.0)
 	Trans 5 -- 6
-		_x_p13_x = (p13_x + delta)
-		_x_p0_x = (p0_x + delta)
-		_x_p6_x = (p6_x + delta)
-		_x_p3_x = (p3_x + delta)
-		_x_p12_x = (p12_x + delta)
-		_x_p9_x = (p9_x + delta)
-		_x_p14_x = (p14_x + delta)
-		_x_p15_x = (p15_x + delta)
-		_x_p18_x = (p18_x + delta)
-		_x_p16_x = (delta + p16_x)
-		_x_p19_x = (delta + p19_x)
-		_x_p2_x = (p2_x + delta)
-		_x_p5_x = (p5_x + delta)
-		_x__diverge_delta = delta
-		_x_p8_x = (p8_x + delta)
-		_x_p11_x = (p11_x + delta)
-		_x_p17_x = (p17_x + delta)
-		_x_p1_x = (p1_x + delta)
-		_x_p7_x = (p7_x + delta)
-		_x_p4_x = (p4_x + delta)
-		_x_p10_x = (p10_x + delta)
-		_x_delta = ((p16_x * 1/8) + p19_x + (-1.0 * _diverge_delta) + (delta * 1/8) + p0_x + (p3_x * 1/8) + p6_x + (p9_x * 1/8) + (p12_x * 1/8) + (p15_x * 1/8) + p18_x + p2_x + (p5_x * 1/8) + (p8_x * 1/8) + p11_x + p14_x + (p17_x * 1/8) + p1_x + (p4_x * 9/8) + p7_x + p10_x + p13_x + -1.0)
-	starting from: p19_l1 : False, p16_x : 3.0, p19_l0 : False, p13_l0 : False, p19_x : 3.0, _diverge_delta : 1/2, delta : 5/2, p0_l1 : False, p0_l0 : True, p0_x : 3.0, p3_l1 : False, p3_l0 : False, turn : 20, p6_l1 : False, p6_l0 : False, id : 1, p3_x : 3.0, p9_l1 : False, p9_l0 : False, p6_x : 3.0, p12_l1 : False, p12_l0 : False, p9_x : 3.0, p15_l1 : False, p15_l0 : False, p12_x : 3.0, p16_l0 : False, p18_l1 : False, p18_l0 : False, p15_x : 3.0, p18_x : 3.0, _J2225 : True, _J2219 : True, p2_l1 : False, p2_l0 : False, _J2212 : True, _J2206 : True, p5_l1 : False, p5_l0 : False, p2_x : 3.0, _J2201 : True, _J2195 : True, p8_l1 : False, p8_l0 : False, p5_x : 3.0, _EL_U_2158 : True, _EL_U_2160 : False, p11_l1 : False, p11_l0 : False, p8_x : 3.0, _EL_U_2162 : True, _EL_U_2164 : False, p14_l1 : False, p14_l0 : False, p11_x : 3.0, _EL_U_2166 : False, _EL_U_2168 : True, p17_l1 : False, p17_l0 : False, p14_x : 3.0, p17_x : 3.0, p1_l1 : False, p1_l0 : False, p4_l1 : False, p4_l0 : False, p1_x : 3.0, p7_l1 : False, p7_l0 : False, p4_x : 3.0, p10_l1 : False, p10_l0 : False, p7_x : 3.0, p13_l1 : False, p10_x : 3.0, p16_l1 : False, p13_x : 3.0
+		_x_p18_x = (p18_x + 53/8)
+		_x_p14_x = (p14_x + 53/8)
+		_x_p19_x = (p19_x + 53/8)
+		_x_p17_x = (p17_x + 53/8)
+		_x_p6_x = (p6_x + 53/8)
+		_x_p1_x = (p1_x + 53/8)
+		_x_p3_x = (p3_x + 53/8)
+		_x_p4_x = (p4_x + 53/8)
+		_x_p2_x = (p2_x + 53/8)
+		_x_p7_x = (p7_x + 53/8)
+		_x_p12_x = (p12_x + 53/8)
+		_x_p5_x = (p5_x + 53/8)
+		_x_p10_x = (p10_x + 53/8)
+		_x_p9_x = (p9_x + 53/8)
+		_x_p0_x = (p0_x + 53/8)
+		_x_p8_x = (p8_x + 53/8)
+		_x_p13_x = (p13_x + 53/8)
+		_x_p15_x = (p15_x + 53/8)
+		_x_p11_x = (p11_x + 53/8)
+		_x_p16_x = (p16_x + 53/8)
+	starting from: p19_l1 : False, p16_x : 59/8, p19_l0 : False, p13_l0 : False, p19_x : 59/8, _diverge_delta : 53/8, delta : 53/8, p0_l1 : False, p0_l0 : True, p0_x : 53/8, p3_l1 : False, p3_l0 : False, turn : 1, p6_l1 : False, p6_l0 : False, id : 1, p3_x : 59/8, p9_l1 : False, p9_l0 : False, p6_x : 59/8, p12_l1 : False, p12_l0 : False, p9_x : 59/8, p15_l1 : False, p15_l0 : False, p12_x : 59/8, p16_l0 : False, p18_l1 : False, p18_l0 : False, p15_x : 59/8, p18_x : 59/8, _J2225 : True, _J2219 : True, p2_l1 : False, p2_l0 : False, _J2212 : True, _J2206 : True, p5_l1 : False, p5_l0 : False, p2_x : 59/8, _J2201 : True, _J2195 : True, p8_l1 : False, p8_l0 : False, p5_x : 59/8, _EL_U_2158 : True, _EL_U_2160 : False, p11_l1 : False, p11_l0 : False, p8_x : 59/8, _EL_U_2162 : True, _EL_U_2164 : False, p14_l1 : False, p14_l0 : False, p11_x : 59/8, _EL_U_2166 : False, _EL_U_2168 : True, p17_l1 : False, p17_l0 : False, p14_x : 59/8, p17_x : 59/8, p1_l1 : False, p1_l0 : False, p4_l1 : False, p4_l0 : False, p1_x : 59/8, p7_l1 : False, p7_l0 : False, p4_x : 59/8, p10_l1 : False, p10_l0 : False, p7_x : 59/8, p13_l1 : False, p10_x : 59/8, p16_l1 : False, p13_x : 59/8
 
-end of `fischer_0020`: SUCCESS in 27.94977903366089s
+end of `fischer_0020`: SUCCESS in 38.385515213012695s

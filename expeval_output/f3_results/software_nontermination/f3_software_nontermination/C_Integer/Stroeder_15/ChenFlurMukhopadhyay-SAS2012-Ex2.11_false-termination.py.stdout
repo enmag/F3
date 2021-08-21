@@ -4,8 +4,9 @@ F3 run `ChenFlurMukhopadhyay-SAS2012-Ex2.11_false-termination`
 	State 0
 		pc = 0
 		(((y * 5) - (x * 4)) < 0)
-		(((y * 48) - (x * 40)) < 0)
 		(((x * 12) - (y * 16)) < 0)
+		(((y * 48) - (x * 40)) < 0)
+		((((-1 * x) + (-1 * y) + 16) - (oldx * 67)) <= 0)
 	Trans 0 -- 1
 		_x_y = y
 		_x_oldx = oldx
@@ -13,9 +14,9 @@ F3 run `ChenFlurMukhopadhyay-SAS2012-Ex2.11_false-termination`
 	State 1
 		pc = 1
 	Trans 1 -- 2
+		_x_oldx = x
 		_x_y = y
 		_x_x = x
-		_x_oldx = x
 	State 2
 		pc = 2
 	Trans 2 -- 3
@@ -30,4 +31,4 @@ F3 run `ChenFlurMukhopadhyay-SAS2012-Ex2.11_false-termination`
 		_x_x = x
 	starting from: oldx : 0, pc : 0, x : 9, y : 7
 
-end of `ChenFlurMukhopadhyay-SAS2012-Ex2.11_false-termination`: SUCCESS in 51.10058856010437s
+end of `ChenFlurMukhopadhyay-SAS2012-Ex2.11_false-termination`: SUCCESS in 51.89807939529419s

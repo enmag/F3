@@ -1,7 +1,10 @@
 F3 run `fischer_0003`
 
 	Found non-termination argument:
+	Do states 4..4 while (((p0_x + p1_x + -24/5) - (p2_x * 159/80)) < 0.0)
 	State 4
+		_diverge_delta = 5/2
+		delta = 5/2
 		p1_l1 = False
 		p1_l0 = False
 		turn = 1
@@ -22,19 +25,48 @@ F3 run `fischer_0003`
 		_EL_U_379 = False
 		_EL_U_381 = False
 		_EL_U_383 = True
+		((-1.0 * p2_x) < -2.0)
 		((-1.0 * p0_x) < -2.0)
 		((-1.0 * p1_x) < -2.0)
-		((-1.0 * delta) < 0.0)
-		((-1.0 * delta) <= -1.0)
-		((-1.0 * _diverge_delta) <= -1.0)
-		((-1.0 * p2_x) < -2.0)
+	Trans 4 -- 4
+		_x_p1_x : (p1_x + 5/2)	
+		_x_p0_x : (p0_x + 5/2)	
+		_x_p2_x : (p2_x + 5/2)	
+	End do-while
+	State 4
+		_diverge_delta = 5/2
+		delta = 5/2
+		p1_l1 = False
+		p1_l0 = False
+		turn = 1
+		id = 1
+		_J440 = True
+		_J434 = True
+		p2_l1 = False
+		p2_l0 = False
+		_J427 = True
+		_J421 = True
+		_J416 = True
+		_J410 = True
+		_EL_U_373 = True
+		_EL_U_375 = False
+		_EL_U_377 = True
+		p0_l1 = False
+		p0_l0 = True
+		_EL_U_379 = False
+		_EL_U_381 = False
+		_EL_U_383 = True
+		((-1.0 * p1_x) < 3.0)
+		(((p2_x * 159/80) + (-1.0 * p1_x) + (-1.0 * p0_x) + 24/5) <= 0.0)
+		((-1.0 * p2_x) < 3.0)
+		((-1.0 * p0_x) < 3.0)
 	Trans 4 -- 5
-		_x__diverge_delta = delta
-		_x_p0_x = (p0_x + delta)
-		_x_p1_x = (p1_x + delta)
-		_x_p2_x = (p2_x + delta)
-		_x_delta = (_diverge_delta + (delta * 1/8) + p2_x + p1_x + p0_x + 1.0)
+		_x_p1_x = (p1_x + 5/2)
+		_x_p0_x = (p0_x + 5/2)
+		_x_p2_x = (p2_x + 5/2)
 	State 5
+		_diverge_delta = 5/2
+		delta = 5/2
 		p1_l1 = False
 		p1_l0 = False
 		turn = 1
@@ -55,17 +87,10 @@ F3 run `fischer_0003`
 		_EL_U_379 = False
 		_EL_U_381 = False
 		_EL_U_383 = True
-		(((-1.0 * p0_x) + (-1.0 * delta)) < -2.0)
-		(((-1.0 * p2_x) + (-1.0 * delta)) < -2.0)
-		((-1.0 * delta) <= -1.0)
-		(((-1.0 * p1_x) + (-1.0 * delta)) < -2.0)
-		((-1.0 * delta) <= 0.0)
 	Trans 5 -- 6
-		_x__diverge_delta = delta
-		_x_p0_x = (p0_x + delta)
-		_x_p1_x = (p1_x + delta)
-		_x_p2_x = (p2_x + delta)
-		_x_delta = ((delta + (p2_x * 9/8) + -1/8) - (_diverge_delta * 7/8))
+		_x_p1_x = (p1_x + 5/2)
+		_x_p0_x = (p0_x + 5/2)
+		_x_p2_x = (p2_x + 5/2)
 	starting from: _diverge_delta : 5/2, delta : 5/2, p1_l1 : False, p1_l0 : False, p1_x : 9/2, turn : 1, id : 1, p0_l1 : False, p0_l0 : True, p0_x : 5/2, _J440 : True, _J434 : True, p2_l1 : False, p2_l0 : False, _J427 : True, _J421 : True, _J416 : True, p2_x : 9/2, _J410 : True, _EL_U_373 : True, _EL_U_375 : False, _EL_U_377 : True, _EL_U_379 : False, _EL_U_381 : False, _EL_U_383 : True
 
-end of `fischer_0003`: SUCCESS in 3.8828885555267334s
+end of `fischer_0003`: SUCCESS in 2.4382801055908203s

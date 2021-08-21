@@ -8,6 +8,8 @@ F3 run `Mysore_false-termination`
 		(c < 0)
 		((-1 * x) <= -1)
 		(c < 1)
+		(c < 2)
+		(((-1 * x) + 1) <= 0)
 	Trans 1 -- 2
 		_x_c = c
 		_x_x = x
@@ -23,4 +25,4 @@ F3 run `Mysore_false-termination`
 		_x_c = (c + -1)
 	starting from: pc : 1, x : 1, c : -1
 
-end of `Mysore_false-termination`: SUCCESS in 1.2434580326080322s
+end of `Mysore_false-termination`: SUCCESS in 1.5813236236572266s
