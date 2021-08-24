@@ -168,7 +168,8 @@ class BMC:
             {s: self._fresh_symb(f"{BMC._PRED_MONITOR_STR}_{s.symbol_name()}",
                                  m_type=s.symbol_type())
              for s in chain(self.orig_symbs, self.hint_symbs)}
-        self.new_rank_rels = False
+        # self.rank_funs: List[RankFun] = []
+        self._new_rank_fun = False
 
         subst = self.i_env.substituter.substitute
         self._in_loop = self._fresh_symb("inloop")
@@ -198,37 +199,35 @@ class BMC:
 
         # learn ranking functions provided with the hints.
         if hints is not None:
-            self.add_ranking_rels([loc.rf for h in hints for loc in h.locs
-                                   if loc.rf is not None])
+            self._add_ranking_funs([loc.rf for h in hints for loc in h.locs
+                                    if loc.rf is not None])
 
     def _fresh_symb(self, base: str, m_type=types.BOOL) -> FNode:
         return new_symb(self.i_mgr, base, m_type)
 
-    def add_ranking_rels(self, rels: List[RankFun]) -> None:
-        assert isinstance(rels, list)
-        assert all(isinstance(rel, RankFun) for rel in rels)
-        assert all(rel.env == self.o_env for rel in rels)
+    def add_ranking_funs(self, ranks: List[RankFun]) -> None:
+        assert isinstance(ranks, list)
+        assert all(isinstance(rank, RankFun) for rank in ranks)
+        assert all(rank.env == self.o_env for rank in ranks)
+        self._add_ranking_funs([rank.to_env(self.i_env) for rank in ranks])
 
-        self.new_rank_rels = True
-        subst = self.i_env.substituter.substitute
+    def add_ranking_fun(self, rank: RankFun) -> None:
+        assert isinstance(rank, RankFun)
+        assert rank.env == self.o_env
+        self._add_ranking_funs([rank.to_env(self.i_env)])
+
+    def _add_ranking_funs(self, ranks: List[RankFun]) -> None:
+        assert isinstance(ranks, list)
+        assert all(isinstance(rank, RankFun) for rank in ranks)
+        assert all(rank.env == self.i_env for rank in ranks)
+        # self.rank_funs.extend(ranks)
+        self._new_rank_fun = True
         self.bad.extend(self.cn(self.i_mgr.Not(
             to_curr(self.i_mgr,
-                    subst(self.i_norm(rel.progress_pred),
-                          self.symb2monitor),
+                    self.i_env.substituter.substitute(self.i_norm(r.progress_pred),
+                                                      self.symb2monitor),
                     self.all_symbs)))
-                   for rel in rels)
-
-    def add_ranking_rel(self, rel: RankFun) -> None:
-        assert isinstance(rel, RankFun)
-        assert rel.env == self.o_env
-
-        self.new_rank_rels = True
-        subst = self.i_env.substituter.substitute
-        self.bad.append(self.cn(self.i_mgr.Not(to_curr(
-            self.i_mgr,
-            subst(self.i_norm(rel.progress_pred()),
-                  self.symb2monitor),
-            self.all_symbs))))
+                        for r in ranks)
 
     def gen_loops(self) -> Iterator[
             Tuple[Optional[list],
@@ -271,7 +270,7 @@ class BMC:
 
                 for pred in self.bad:
                     solver.add_assertion(self.totime(pred, k + 1))
-                self.new_rank_rels = False
+                self._new_rank_fun = False
 
                 ref = None
                 sat: Optional[bool] = True
@@ -281,13 +280,13 @@ class BMC:
                     log(f"\tBMC k = {k + 2}"
                         f' refinement = {"; ".join(serialize(r) for r in refinements)}',
                         BMC._LOG_LVL)
-                    if self.new_rank_rels:
+                    if self._new_rank_fun:
                         solver.pop()  # remove previous bad and refinements
                         solver.push()
                         for pred in self.bad:
                             solver.add_assertion(self.totime(pred, k + 1))
                         solver.add_assertions(refinements)  # re-add refinements.
-                        self.new_rank_rels = False
+                        self._new_rank_fun = False
                     try:
                         sat = solver.solve()
                     except SolverReturnedUnknownResultError:

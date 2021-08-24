@@ -256,8 +256,8 @@ def search_funnel_bmc(env: PysmtEnv, symbols: FrozenSet[FNode],
 
         if is_rf and args is not None:
             assert isinstance(args, RankFun)
-            loop_gen.add_ranking_rel(args)
-            # loop_gen.add_ranking_rels(args)
+            loop_gen.add_ranking_fun(args)
+            # loop_gen.add_ranking_funs(args)
 
         if not is_rf and args[1] is not None:
             assert isinstance(args, tuple)
