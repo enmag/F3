@@ -5,30 +5,30 @@ F3 run `fischer_0008`
 	State 4
 		_diverge_delta = 17/8
 		delta = 17/8
+		id = 1
+		turn = 2
 		p2_l0 = False
 		p5_l1 = False
 		p5_l0 = False
+		p1_l1 = False
+		p1_l0 = False
+		p4_l1 = False
+		p4_l0 = False
+		p7_l1 = False
+		p7_l0 = False
 		p0_l1 = False
 		p0_l0 = True
 		p3_l1 = False
-		turn = 2
 		p3_l0 = False
-		id = 1
 		p6_l1 = False
 		p6_l0 = False
 		_J965 = True
 		_J959 = True
-		p1_l1 = False
-		p1_l0 = False
 		_J952 = True
 		_J946 = True
-		p4_l1 = False
-		p4_l0 = False
 		_J941 = True
 		_J935 = True
 		_EL_U_898 = True
-		p7_l1 = False
-		p7_l0 = False
 		_EL_U_900 = False
 		_EL_U_902 = True
 		_EL_U_904 = False
@@ -44,42 +44,42 @@ F3 run `fischer_0008`
 		((-1.0 * p4_x) < -2.0)
 		((-1.0 * p0_x) < -2.0)
 	Trans 4 -- 4
-		_x_p2_x : (p2_x + 17/8)	
 		_x_p4_x : (p4_x + 17/8)	
-		_x_p6_x : (p6_x + 17/8)	
-		_x_p0_x : (p0_x + 17/8)	
 		_x_p3_x : (p3_x + 17/8)	
+		_x_p0_x : (p0_x + 17/8)	
 		_x_p1_x : (p1_x + 17/8)	
+		_x_p2_x : (p2_x + 17/8)	
 		_x_p7_x : (p7_x + 17/8)	
 		_x_p5_x : (p5_x + 17/8)	
+		_x_p6_x : (p6_x + 17/8)	
 	End do-while
 	State 4
 		_diverge_delta = 17/8
 		delta = 17/8
+		id = 1
+		turn = 2
 		p2_l0 = False
 		p5_l1 = False
 		p5_l0 = False
+		p1_l1 = False
+		p1_l0 = False
+		p4_l1 = False
+		p4_l0 = False
+		p7_l1 = False
+		p7_l0 = False
 		p0_l1 = False
 		p0_l0 = True
 		p3_l1 = False
-		turn = 2
 		p3_l0 = False
-		id = 1
 		p6_l1 = False
 		p6_l0 = False
 		_J965 = True
 		_J959 = True
-		p1_l1 = False
-		p1_l0 = False
 		_J952 = True
 		_J946 = True
-		p4_l1 = False
-		p4_l0 = False
 		_J941 = True
 		_J935 = True
 		_EL_U_898 = True
-		p7_l1 = False
-		p7_l0 = False
 		_EL_U_900 = False
 		_EL_U_902 = True
 		_EL_U_904 = False
@@ -96,41 +96,41 @@ F3 run `fischer_0008`
 		((((p6_x * 539/90) + (-1.0 * p5_x) + (-1.0 * p1_x) + (-1.0 * p4_x) + (-1.0 * p0_x) + (-1.0 * p7_x) + (-1.0 * p3_x) + 15.0) - (p2_x * 3/16)) <= 0.0)
 		((-1.0 * p1_x) < 9/4)
 	Trans 4 -- 5
-		_x_p2_x = (p2_x + 17/8)
 		_x_p4_x = (p4_x + 17/8)
-		_x_p6_x = (p6_x + 17/8)
-		_x_p0_x = (p0_x + 17/8)
 		_x_p3_x = (p3_x + 17/8)
+		_x_p0_x = (p0_x + 17/8)
 		_x_p1_x = (p1_x + 17/8)
+		_x_p2_x = (p2_x + 17/8)
 		_x_p7_x = (p7_x + 17/8)
 		_x_p5_x = (p5_x + 17/8)
+		_x_p6_x = (p6_x + 17/8)
 	State 5
 		_diverge_delta = 17/8
 		delta = 17/8
+		id = 1
+		turn = 2
 		p2_l0 = False
 		p5_l1 = False
 		p5_l0 = False
+		p1_l1 = False
+		p1_l0 = False
+		p4_l1 = False
+		p4_l0 = False
+		p7_l1 = False
+		p7_l0 = False
 		p0_l1 = False
 		p0_l0 = True
 		p3_l1 = False
-		turn = 2
 		p3_l0 = False
-		id = 1
 		p6_l1 = False
 		p6_l0 = False
 		_J965 = False
 		_J959 = False
-		p1_l1 = False
-		p1_l0 = False
 		_J952 = False
 		_J946 = False
-		p4_l1 = False
-		p4_l0 = False
 		_J941 = False
 		_J935 = False
 		_EL_U_898 = True
-		p7_l1 = False
-		p7_l0 = False
 		_EL_U_900 = False
 		_EL_U_902 = True
 		_EL_U_904 = False
@@ -138,14 +138,14 @@ F3 run `fischer_0008`
 		_EL_U_908 = True
 		p2_l1 = False
 	Trans 5 -- 6
-		_x_p2_x = (p2_x + 17/8)
 		_x_p4_x = (p4_x + 17/8)
-		_x_p6_x = (p6_x + 17/8)
-		_x_p0_x = (p0_x + 17/8)
 		_x_p3_x = (p3_x + 17/8)
+		_x_p0_x = (p0_x + 17/8)
 		_x_p1_x = (p1_x + 17/8)
+		_x_p2_x = (p2_x + 17/8)
 		_x_p7_x = (p7_x + 17/8)
 		_x_p5_x = (p5_x + 17/8)
+		_x_p6_x = (p6_x + 17/8)
 	starting from: p2_l0 : False, p5_l1 : False, p2_x : 3.0, p5_l0 : False, _diverge_delta : 17/8, p5_x : 3.0, delta : 17/8, turn : 2, id : 1, p1_l1 : False, p1_l0 : False, p4_l1 : False, p4_l0 : False, p1_x : 3.0, p7_l1 : False, p7_l0 : False, p4_x : 3.0, p7_x : 3.0, p0_l1 : False, p0_l0 : True, p0_x : 17/8, p3_l1 : False, p3_l0 : False, p6_l1 : False, p6_l0 : False, p3_x : 3.0, p6_x : 3.0, _J965 : True, _J959 : True, _J952 : True, _J946 : True, _J941 : True, _J935 : True, _EL_U_898 : True, _EL_U_900 : False, _EL_U_902 : True, _EL_U_904 : False, _EL_U_906 : False, _EL_U_908 : True, p2_l1 : False
 
-end of `fischer_0008`: SUCCESS in 3.748232126235962s
+end of `fischer_0008`: SUCCESS in 4.654132127761841s

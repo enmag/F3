@@ -1,8 +1,8 @@
 group: f3_ta_train
-platform: Linux node4 5.4.0-54-generic #60-Ubuntu SMP Fri Nov 6 10:37:59 UTC 2020 x86_64 x86_64
-timestamp: 1629481678
-time: 2021-08-20 19:47:58
+platform: Linux node3 5.4.0-56-generic #62-Ubuntu SMP Mon Nov 23 19:20:19 UTC 2020 x86_64 x86_64
+timestamp: 1629580450
+time: 2021-08-21 23:14:10
 exitcode: 0
-real: 594.93
-user: 593.53
-sys: 1.15
+real: 600.12
+user: 598.16
+sys: 1.2

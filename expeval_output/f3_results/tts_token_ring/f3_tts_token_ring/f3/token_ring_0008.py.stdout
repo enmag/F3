@@ -2,9 +2,16 @@ F3 run `token_ring_0008`
 
 	Found non-termination argument:
 	State 4
+		st5_req_time = 1/4
 		_diverge_delta = 0.0
 		mgr_timeout = 0.0
 		delta = 0.0
+		st6_req_time = 1/4
+		st3_req_time = 1/4
+		st0_req_time = 1/4
+		st7_req_time = 10.0
+		st4_req_time = 1/4
+		st1_req_time = 1/4
 		mgr_c = 0.0
 		_EL_U_650 = True
 		_EL_U_652 = False
@@ -16,10 +23,7 @@ F3 run `token_ring_0008`
 		st4_l = True
 		st1_l = True
 		_EL_U_660 = True
-		st7_req_time = 10.0
-		st4_req_time = 1/4
 		mgr_l = True
-		st1_req_time = 1/4
 		st1_evt1 = True
 		st1_evt0 = False
 		st0_evt1 = True
@@ -35,7 +39,6 @@ F3 run `token_ring_0008`
 		st5_evt1 = True
 		st5_evt0 = False
 		st6_evt1 = True
-		st5_req_time = 1/4
 		st6_evt0 = False
 		st7_evt1 = True
 		st7_evt0 = False
@@ -44,9 +47,6 @@ F3 run `token_ring_0008`
 		st6_l = True
 		st3_l = True
 		st0_l = True
-		st6_req_time = 1/4
-		st3_req_time = 1/4
-		st0_req_time = 1/4
 		_J724 = True
 		_J718 = True
 		_J711 = True
@@ -63,9 +63,16 @@ F3 run `token_ring_0008`
 		_x_st2_req_time = st2_req_time
 		_x_tot_transm_time = tot_transm_time
 	State 5
+		st5_req_time = 1/4
 		_diverge_delta = 0.0
 		mgr_timeout = 1.0
 		delta = 1.0
+		st6_req_time = 1/4
+		st3_req_time = 1/4
+		st0_req_time = 1/4
+		st7_req_time = 10.0
+		st4_req_time = 1/4
+		st1_req_time = 1/4
 		mgr_c = 0.0
 		_EL_U_650 = True
 		_EL_U_652 = False
@@ -77,10 +84,7 @@ F3 run `token_ring_0008`
 		st4_l = True
 		st1_l = True
 		_EL_U_660 = True
-		st7_req_time = 10.0
-		st4_req_time = 1/4
 		mgr_l = False
-		st1_req_time = 1/4
 		st1_evt1 = True
 		st1_evt0 = False
 		st0_evt1 = True
@@ -96,7 +100,6 @@ F3 run `token_ring_0008`
 		st5_evt1 = True
 		st5_evt0 = False
 		st6_evt1 = True
-		st5_req_time = 1/4
 		st6_evt0 = False
 		st7_evt1 = True
 		st7_evt0 = False
@@ -105,9 +108,6 @@ F3 run `token_ring_0008`
 		st6_l = True
 		st3_l = True
 		st0_l = True
-		st6_req_time = 1/4
-		st3_req_time = 1/4
-		st0_req_time = 1/4
 		_J724 = False
 		_J718 = False
 		_J711 = False
@@ -118,9 +118,16 @@ F3 run `token_ring_0008`
 		_x_st2_req_time = st2_req_time
 		_x_tot_transm_time = tot_transm_time
 	State 6
+		st5_req_time = 1/4
 		_diverge_delta = 1.0
 		mgr_timeout = 1.0
 		delta = 0.0
+		st6_req_time = 1/4
+		st3_req_time = 1/4
+		st0_req_time = 1/4
+		st7_req_time = 10.0
+		st4_req_time = 1/4
+		st1_req_time = 1/4
 		mgr_c = 1.0
 		_EL_U_650 = True
 		_EL_U_652 = False
@@ -132,10 +139,7 @@ F3 run `token_ring_0008`
 		st4_l = True
 		st1_l = True
 		_EL_U_660 = True
-		st7_req_time = 10.0
-		st4_req_time = 1/4
 		mgr_l = False
-		st1_req_time = 1/4
 		st1_evt1 = True
 		st1_evt0 = False
 		st0_evt1 = True
@@ -151,7 +155,6 @@ F3 run `token_ring_0008`
 		st5_evt1 = True
 		st5_evt0 = False
 		st6_evt1 = True
-		st5_req_time = 1/4
 		st6_evt0 = False
 		st7_evt1 = True
 		st7_evt0 = False
@@ -160,9 +163,6 @@ F3 run `token_ring_0008`
 		st6_l = True
 		st3_l = True
 		st0_l = True
-		st6_req_time = 1/4
-		st3_req_time = 1/4
-		st0_req_time = 1/4
 		_J724 = True
 		_J718 = False
 		_J711 = True
@@ -174,4 +174,4 @@ F3 run `token_ring_0008`
 		_x_st2_req_time = 1.0
 	starting from: _EL_U_650 : True, _EL_U_652 : False, _EL_X_617 : False, _diverge_delta : 0.0, _EL_U_654 : True, delta : 0.0, _EL_U_656 : False, st7_l : True, _EL_U_658 : False, st4_l : True, st1_l : True, _EL_U_660 : True, tot_transm_time : 10.0, st7_req_time : 10.0, st4_req_time : 1/4, mgr_l : True, st1_req_time : 1/4, mgr_c : 0.0, st1_evt1 : True, st1_evt0 : False, st0_evt1 : True, st0_evt0 : False, st2_evt1 : False, st2_evt0 : False, st3_evt1 : True, st3_evt0 : False, st4_evt1 : True, st5_l : True, st4_evt0 : False, st2_l : True, st5_evt1 : True, st5_evt0 : False, st6_evt1 : True, st5_req_time : 1/4, st6_evt0 : False, st2_req_time : 1.0, st7_evt1 : True, st7_evt0 : False, mgr_timeout : 0.0, mgr_evt1 : False, mgr_evt0 : False, st6_l : True, st3_l : True, st0_l : True, st6_req_time : 1/4, st3_req_time : 1/4, st0_req_time : 1/4, _J724 : True, _J718 : True, _J711 : True, _J705 : True, _J697 : True, _J691 : True
 
-end of `token_ring_0008`: SUCCESS in 3.224430799484253s
+end of `token_ring_0008`: SUCCESS in 4.505901575088501s

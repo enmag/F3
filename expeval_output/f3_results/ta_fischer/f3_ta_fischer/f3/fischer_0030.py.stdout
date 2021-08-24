@@ -1,16 +1,28 @@
 F3 run `fischer_0030`
 
 	Found non-termination argument:
-	Do states 4..4 while ((((p8_x * 1/61) + (p5_x * 1/61) + (p2_x * 62/61) + (p24_x * 1/61) + (p21_x * 1/61) + (p18_x * 1/61) + (p15_x * 1/61) + (p12_x * 1/61) + (p9_x * 1/61) + (p6_x * 1/61) + (p3_x * 1/61) + (p28_x * 1/61) + (p25_x * 1/61) + (p0_x * 1/61) + p22_x + p19_x + p16_x + p13_x + (-1.0 * p10_x) + p7_x + p4_x + (p29_x * 1/61) + (p1_x * 1/61) + (p26_x * 1/61) + (p23_x * 1/61) + (p20_x * 1/61) + (p17_x * 1/61) + (p14_x * 1/61) + p11_x + -2685/122) - (p27_x * 62/61)) < 0.0)
+	Do states 4..4 while (((p8_x * 1/600) + (p5_x * 1/600) + (p2_x * 1/600) + (p27_x * 1/600) + (p24_x * 1/600) + (-1.0 * p21_x) + (p18_x * 1/600) + (p15_x * 1/600) + (p12_x * 1/600) + (p9_x * 1/600) + (p6_x * 1/600) + (p3_x * 1/600) + (p28_x * 1/600) + (p25_x * 1/600) + p0_x + p22_x + p19_x + p16_x + p13_x + p10_x + p7_x + p4_x + (p29_x * 1/600) + (p1_x * 1/600) + (p26_x * 1/600) + (p23_x * 1/600) + (p20_x * 1/600) + (p17_x * 1/600) + (p14_x * 1/600) + (p11_x * 1/600) + -70/3) < 0.0)
 	State 4
 		_diverge_delta = 5/2
 		delta = 5/2
+		id = 1
+		turn = 17
+		p14_l1 = False
+		p14_l0 = False
+		p17_l1 = False
+		p17_l0 = False
+		p20_l1 = False
+		p20_l0 = False
+		p23_l1 = False
+		p23_l0 = False
+		p26_l1 = False
 		p1_l1 = False
 		p1_l0 = False
-		turn = 17
-		id = 1
+		p26_l0 = False
+		p29_l1 = False
 		p4_l1 = False
 		p4_l0 = False
+		p29_l0 = False
 		p7_l1 = False
 		p7_l0 = False
 		p10_l1 = False
@@ -23,6 +35,8 @@ F3 run `fischer_0030`
 		p19_l0 = False
 		p22_l1 = False
 		p22_l0 = False
+		p0_l1 = False
+		p0_l0 = True
 		p25_l1 = False
 		_J3275 = True
 		p25_l0 = False
@@ -32,43 +46,21 @@ F3 run `fischer_0030`
 		_J3262 = True
 		_J3256 = True
 		_J3251 = True
-		_J3245 = True
-		_EL_U_3208 = True
-		_EL_U_3210 = False
-		_EL_U_3212 = True
-		_EL_U_3214 = False
-		_EL_U_3216 = False
-		_EL_U_3218 = True
-		p2_l1 = False
-		p2_l0 = False
-		p5_l1 = False
-		p5_l0 = False
-		p8_l1 = False
-		p8_l0 = False
-		p11_l1 = False
-		p11_l0 = False
-		p14_l1 = False
-		p14_l0 = False
-		p17_l1 = False
-		p17_l0 = False
-		p20_l1 = False
-		p20_l0 = False
-		p23_l1 = False
-		p23_l0 = False
-		p26_l1 = False
-		p26_l0 = False
-		p29_l1 = False
-		p29_l0 = False
-		p0_l1 = False
-		p0_l0 = True
 		p3_l1 = False
-		p3_l0 = False
+		_J3245 = True
 		p6_l1 = False
+		_EL_U_3208 = True
 		p6_l0 = False
+		p3_l0 = False
+		_EL_U_3210 = False
 		p9_l1 = False
+		_EL_U_3212 = True
 		p9_l0 = False
+		_EL_U_3214 = False
 		p12_l1 = False
+		_EL_U_3216 = False
 		p12_l0 = False
+		_EL_U_3218 = True
 		p15_l1 = False
 		p15_l0 = False
 		p18_l1 = False
@@ -78,22 +70,37 @@ F3 run `fischer_0030`
 		p24_l1 = False
 		p24_l0 = False
 		p27_l1 = False
+		p2_l1 = False
+		p2_l0 = False
 		p27_l0 = False
+		p5_l1 = False
+		p5_l0 = False
+		p8_l1 = False
+		p8_l0 = False
+		p11_l1 = False
+		p11_l0 = False
+		((-1.0 * p2_x) < -2.0)
+		((-1.0 * p13_x) < -2.0)
+		((-1.0 * p6_x) < -2.0)
+		((-1.0 * p11_x) < -2.0)
+		((-1.0 * p0_x) < -2.0)
+		((-1.0 * p25_x) < -2.0)
+		((-1.0 * p14_x) < -2.0)
+		((-1.0 * p9_x) < -2.0)
 		((-1.0 * p20_x) < -2.0)
 		((-1.0 * p22_x) < -2.0)
+		((-1.0 * p3_x) < -2.0)
 		((-1.0 * p18_x) < -2.0)
 		((-1.0 * p7_x) < -2.0)
 		((-1.0 * p29_x) < -2.0)
 		((-1.0 * p5_x) < -2.0)
 		((-1.0 * p27_x) < -2.0)
 		((-1.0 * p16_x) < -2.0)
-		((-1.0 * p25_x) < -2.0)
-		((-1.0 * p3_x) < -2.0)
 		((-1.0 * p12_x) < -2.0)
 		((-1.0 * p1_x) < -2.0)
 		((-1.0 * p23_x) < -2.0)
-		((-1.0 * p21_x) < -2.0)
 		((-1.0 * p10_x) < -2.0)
+		((-1.0 * p21_x) < -2.0)
 		((-1.0 * p19_x) < -2.0)
 		((-1.0 * p8_x) < -2.0)
 		((-1.0 * p17_x) < -2.0)
@@ -102,90 +109,43 @@ F3 run `fischer_0030`
 		((-1.0 * p4_x) < -2.0)
 		((-1.0 * p26_x) < -2.0)
 		((-1.0 * p24_x) < -2.0)
-		((-1.0 * p13_x) < -2.0)
-		((-1.0 * p2_x) < -2.0)
-		((-1.0 * p6_x) < -2.0)
-		((-1.0 * p11_x) < -2.0)
-		((-1.0 * p0_x) < -2.0)
-		((-1.0 * p14_x) < -2.0)
-		((-1.0 * p9_x) < -2.0)
 	Trans 4 -- 4
-		_x_p3_x : (p3_x + 5/2)	
+		_x_p23_x : (p23_x + 5/2)	
+		_x_p20_x : (p20_x + 5/2)	
+		_x_p13_x : (p13_x + 5/2)	
+		_x_p19_x : (p19_x + 5/2)	
 		_x_p9_x : (p9_x + 5/2)	
 		_x_p15_x : (p15_x + 5/2)	
-		_x_p20_x : (p20_x + 5/2)	
-		_x_p12_x : (p12_x + 5/2)	
-		_x_p18_x : (p18_x + 5/2)	
-		_x_p1_x : (p1_x + 5/2)	
-		_x_p8_x : (p8_x + 5/2)	
-		_x_p16_x : (p16_x + 5/2)	
-		_x_p7_x : (p7_x + 5/2)	
-		_x_p4_x : (p4_x + 5/2)	
-		_x_p2_x : (p2_x + 5/2)	
-		_x_p25_x : (p25_x + 5/2)	
-		_x_p22_x : (p22_x + 5/2)	
-		_x_p23_x : (p23_x + 5/2)	
-		_x_p6_x : (p6_x + 5/2)	
-		_x_p14_x : (p14_x + 5/2)	
 		_x_p17_x : (p17_x + 5/2)	
-		_x_p13_x : (p13_x + 5/2)	
-		_x_p0_x : (p0_x + 5/2)	
-		_x_p5_x : (p5_x + 5/2)	
-		_x_p19_x : (p19_x + 5/2)	
-		_x_p21_x : (p21_x + 5/2)	
-		_x_p29_x : (p29_x + 5/2)	
-		_x_p26_x : (p26_x + 5/2)	
-		_x_p10_x : (p10_x + 5/2)	
-		_x_p11_x : (p11_x + 5/2)	
-		_x_p28_x : (p28_x + 5/2)	
+		_x_p3_x : (p3_x + 5/2)	
+		_x_p18_x : (p18_x + 5/2)	
 		_x_p24_x : (p24_x + 5/2)	
+		_x_p21_x : (p21_x + 5/2)	
+		_x_p16_x : (p16_x + 5/2)	
+		_x_p22_x : (p22_x + 5/2)	
+		_x_p0_x : (p0_x + 5/2)	
+		_x_p8_x : (p8_x + 5/2)	
+		_x_p5_x : (p5_x + 5/2)	
+		_x_p26_x : (p26_x + 5/2)	
+		_x_p12_x : (p12_x + 5/2)	
 		_x_p27_x : (p27_x + 5/2)	
+		_x_p28_x : (p28_x + 5/2)	
+		_x_p1_x : (p1_x + 5/2)	
+		_x_p14_x : (p14_x + 5/2)	
+		_x_p2_x : (p2_x + 5/2)	
+		_x_p10_x : (p10_x + 5/2)	
+		_x_p25_x : (p25_x + 5/2)	
+		_x_p7_x : (p7_x + 5/2)	
+		_x_p6_x : (p6_x + 5/2)	
+		_x_p4_x : (p4_x + 5/2)	
+		_x_p29_x : (p29_x + 5/2)	
+		_x_p11_x : (p11_x + 5/2)	
 	End do-while
 	State 4
 		_diverge_delta = 5/2
 		delta = 5/2
-		p1_l1 = False
-		p1_l0 = False
-		turn = 17
 		id = 1
-		p4_l1 = False
-		p4_l0 = False
-		p7_l1 = False
-		p7_l0 = False
-		p10_l1 = False
-		p10_l0 = False
-		p13_l1 = False
-		p13_l0 = False
-		p16_l1 = False
-		p16_l0 = False
-		p19_l1 = False
-		p19_l0 = False
-		p22_l1 = False
-		p22_l0 = False
-		p25_l1 = False
-		_J3275 = True
-		p25_l0 = False
-		_J3269 = True
-		p28_l1 = False
-		p28_l0 = False
-		_J3262 = True
-		_J3256 = True
-		_J3251 = True
-		_J3245 = True
-		_EL_U_3208 = True
-		_EL_U_3210 = False
-		_EL_U_3212 = True
-		_EL_U_3214 = False
-		_EL_U_3216 = False
-		_EL_U_3218 = True
-		p2_l1 = False
-		p2_l0 = False
-		p5_l1 = False
-		p5_l0 = False
-		p8_l1 = False
-		p8_l0 = False
-		p11_l1 = False
-		p11_l0 = False
+		turn = 17
 		p14_l1 = False
 		p14_l0 = False
 		p17_l1 = False
@@ -195,100 +155,13 @@ F3 run `fischer_0030`
 		p23_l1 = False
 		p23_l0 = False
 		p26_l1 = False
-		p26_l0 = False
-		p29_l1 = False
-		p29_l0 = False
-		p0_l1 = False
-		p0_l0 = True
-		p3_l1 = False
-		p3_l0 = False
-		p6_l1 = False
-		p6_l0 = False
-		p9_l1 = False
-		p9_l0 = False
-		p12_l1 = False
-		p12_l0 = False
-		p15_l1 = False
-		p15_l0 = False
-		p18_l1 = False
-		p18_l0 = False
-		p21_l1 = False
-		p21_l0 = False
-		p24_l1 = False
-		p24_l0 = False
-		p27_l1 = False
-		p27_l0 = False
-		((-1.0 * p6_x) < 3.0)
-		((-1.0 * p21_x) < 3.0)
-		((-1.0 * p3_x) < 3.0)
-		((-1.0 * p18_x) < 3.0)
-		((-1.0 * p9_x) < 3.0)
-		((-1.0 * p28_x) < 3.0)
-		((-1.0 * p27_x) < 3.0)
-		((-1.0 * p12_x) < 3.0)
-		((-1.0 * p24_x) < 3.0)
-		((-1.0 * p11_x) < 3.0)
-		((-1.0 * p10_x) < 3.0)
-		((-1.0 * p20_x) < 3.0)
-		((-1.0 * p16_x) < 3.0)
-		((-1.0 * p7_x) < 3.0)
-		((-1.0 * p13_x) < 3.0)
-		((-1.0 * p15_x) < 3.0)
-		((-1.0 * p19_x) < 3.0)
-		((-1.0 * p1_x) < 3.0)
-		((-1.0 * p25_x) < 3.0)
-		((-1.0 * p0_x) < 3.0)
-		((-1.0 * p29_x) < 3.0)
-		((-1.0 * p4_x) < 3.0)
-		((-1.0 * p8_x) < 3.0)
-		((-1.0 * p17_x) < 3.0)
-		((((-1.0 * p11_x) + (-1.0 * p4_x) + (-1.0 * p7_x) + p10_x + (-1.0 * p13_x) + (-1.0 * p16_x) + (-1.0 * p19_x) + (-1.0 * p22_x) + (p27_x * 62/61) + 2685/122) - ((p14_x * 1/61) + (p17_x * 1/61) + (p20_x * 1/61) + (p23_x * 1/61) + (p26_x * 1/61) + (p1_x * 1/61) + (p29_x * 1/61) + (p0_x * 1/61) + (p25_x * 1/61) + (p28_x * 1/61) + (p3_x * 1/61) + (p6_x * 1/61) + (p9_x * 1/61) + (p12_x * 1/61) + (p15_x * 1/61) + (p18_x * 1/61) + (p21_x * 1/61) + (p24_x * 1/61) + (p2_x * 62/61) + (p5_x * 1/61) + (p8_x * 1/61))) <= 0.0)
-		((-1.0 * p23_x) < 3.0)
-		((-1.0 * p2_x) < 3.0)
-		((-1.0 * p14_x) < 3.0)
-		((-1.0 * p22_x) < 3.0)
-		((-1.0 * p5_x) < 3.0)
-		((-1.0 * p26_x) < 3.0)
-	Trans 4 -- 5
-		_x_p3_x = (p3_x + 5/2)
-		_x_p9_x = (p9_x + 5/2)
-		_x_p15_x = (p15_x + 5/2)
-		_x_p20_x = (p20_x + 5/2)
-		_x_p12_x = (p12_x + 5/2)
-		_x_p18_x = (p18_x + 5/2)
-		_x_p1_x = (p1_x + 5/2)
-		_x_p8_x = (p8_x + 5/2)
-		_x_p16_x = (p16_x + 5/2)
-		_x_p7_x = (p7_x + 5/2)
-		_x_p4_x = (p4_x + 5/2)
-		_x_p2_x = (p2_x + 5/2)
-		_x_p25_x = (p25_x + 5/2)
-		_x_p22_x = (p22_x + 5/2)
-		_x_p23_x = (p23_x + 5/2)
-		_x_p6_x = (p6_x + 5/2)
-		_x_p14_x = (p14_x + 5/2)
-		_x_p17_x = (p17_x + 5/2)
-		_x_p13_x = (p13_x + 5/2)
-		_x_p0_x = (p0_x + 5/2)
-		_x_p5_x = (p5_x + 5/2)
-		_x_p19_x = (p19_x + 5/2)
-		_x_p21_x = (p21_x + 5/2)
-		_x_p29_x = (p29_x + 5/2)
-		_x_p26_x = (p26_x + 5/2)
-		_x_p10_x = (p10_x + 5/2)
-		_x_p11_x = (p11_x + 5/2)
-		_x_p28_x = (p28_x + 5/2)
-		_x_p24_x = (p24_x + 5/2)
-		_x_p27_x = (p27_x + 5/2)
-	State 5
-		_diverge_delta = 5/2
-		delta = 5/2
 		p1_l1 = False
 		p1_l0 = False
-		turn = 17
-		id = 1
+		p26_l0 = False
+		p29_l1 = False
 		p4_l1 = False
 		p4_l0 = False
+		p29_l0 = False
 		p7_l1 = False
 		p7_l0 = False
 		p10_l1 = False
@@ -301,6 +174,147 @@ F3 run `fischer_0030`
 		p19_l0 = False
 		p22_l1 = False
 		p22_l0 = False
+		p0_l1 = False
+		p0_l0 = True
+		p25_l1 = False
+		_J3275 = True
+		p25_l0 = False
+		_J3269 = True
+		p28_l1 = False
+		p28_l0 = False
+		_J3262 = True
+		_J3256 = True
+		_J3251 = True
+		p3_l1 = False
+		_J3245 = True
+		p6_l1 = False
+		_EL_U_3208 = True
+		p6_l0 = False
+		p3_l0 = False
+		_EL_U_3210 = False
+		p9_l1 = False
+		_EL_U_3212 = True
+		p9_l0 = False
+		_EL_U_3214 = False
+		p12_l1 = False
+		_EL_U_3216 = False
+		p12_l0 = False
+		_EL_U_3218 = True
+		p15_l1 = False
+		p15_l0 = False
+		p18_l1 = False
+		p18_l0 = False
+		p21_l1 = False
+		p21_l0 = False
+		p24_l1 = False
+		p24_l0 = False
+		p27_l1 = False
+		p2_l1 = False
+		p2_l0 = False
+		p27_l0 = False
+		p5_l1 = False
+		p5_l0 = False
+		p8_l1 = False
+		p8_l0 = False
+		p11_l1 = False
+		p11_l0 = False
+		((-1.0 * p28_x) < 3.0)
+		((-1.0 * p29_x) < 3.0)
+		((-1.0 * p22_x) < 3.0)
+		((-1.0 * p6_x) < 3.0)
+		((-1.0 * p24_x) < 3.0)
+		((-1.0 * p1_x) < 3.0)
+		((-1.0 * p14_x) < 3.0)
+		((-1.0 * p3_x) < 3.0)
+		((-1.0 * p19_x) < 3.0)
+		((-1.0 * p15_x) < 3.0)
+		((-1.0 * p5_x) < 3.0)
+		((-1.0 * p2_x) < 3.0)
+		((-1.0 * p9_x) < 3.0)
+		((-1.0 * p11_x) < 3.0)
+		((-1.0 * p8_x) < 3.0)
+		((-1.0 * p23_x) < 3.0)
+		((-1.0 * p27_x) < 3.0)
+		((-1.0 * p18_x) < 3.0)
+		((-1.0 * p20_x) < 3.0)
+		((-1.0 * p4_x) < 3.0)
+		((-1.0 * p0_x) < 3.0)
+		((-1.0 * p10_x) < 3.0)
+		((-1.0 * p16_x) < 3.0)
+		((-1.0 * p12_x) < 3.0)
+		((((-1.0 * p4_x) + (-1.0 * p7_x) + (-1.0 * p10_x) + (-1.0 * p13_x) + (-1.0 * p16_x) + (-1.0 * p19_x) + (-1.0 * p22_x) + (-1.0 * p0_x) + p21_x + 70/3) - ((p11_x * 1/600) + (p14_x * 1/600) + (p17_x * 1/600) + (p20_x * 1/600) + (p23_x * 1/600) + (p26_x * 1/600) + (p1_x * 1/600) + (p29_x * 1/600) + (p25_x * 1/600) + (p28_x * 1/600) + (p3_x * 1/600) + (p6_x * 1/600) + (p9_x * 1/600) + (p12_x * 1/600) + (p15_x * 1/600) + (p18_x * 1/600) + (p24_x * 1/600) + (p27_x * 1/600) + (p2_x * 1/600) + (p5_x * 1/600) + (p8_x * 1/600))) <= 0.0)
+		((-1.0 * p7_x) < 3.0)
+		((-1.0 * p17_x) < 3.0)
+		((-1.0 * p26_x) < 3.0)
+		((-1.0 * p13_x) < 3.0)
+		((-1.0 * p25_x) < 3.0)
+		((-1.0 * p21_x) < 3.0)
+	Trans 4 -- 5
+		_x_p23_x = (p23_x + 5/2)
+		_x_p20_x = (p20_x + 5/2)
+		_x_p13_x = (p13_x + 5/2)
+		_x_p19_x = (p19_x + 5/2)
+		_x_p9_x = (p9_x + 5/2)
+		_x_p15_x = (p15_x + 5/2)
+		_x_p17_x = (p17_x + 5/2)
+		_x_p3_x = (p3_x + 5/2)
+		_x_p18_x = (p18_x + 5/2)
+		_x_p24_x = (p24_x + 5/2)
+		_x_p21_x = (p21_x + 5/2)
+		_x_p16_x = (p16_x + 5/2)
+		_x_p22_x = (p22_x + 5/2)
+		_x_p0_x = (p0_x + 5/2)
+		_x_p8_x = (p8_x + 5/2)
+		_x_p5_x = (p5_x + 5/2)
+		_x_p26_x = (p26_x + 5/2)
+		_x_p12_x = (p12_x + 5/2)
+		_x_p27_x = (p27_x + 5/2)
+		_x_p28_x = (p28_x + 5/2)
+		_x_p1_x = (p1_x + 5/2)
+		_x_p14_x = (p14_x + 5/2)
+		_x_p2_x = (p2_x + 5/2)
+		_x_p10_x = (p10_x + 5/2)
+		_x_p25_x = (p25_x + 5/2)
+		_x_p7_x = (p7_x + 5/2)
+		_x_p6_x = (p6_x + 5/2)
+		_x_p4_x = (p4_x + 5/2)
+		_x_p29_x = (p29_x + 5/2)
+		_x_p11_x = (p11_x + 5/2)
+	State 5
+		_diverge_delta = 5/2
+		delta = 5/2
+		id = 1
+		turn = 17
+		p14_l1 = False
+		p14_l0 = False
+		p17_l1 = False
+		p17_l0 = False
+		p20_l1 = False
+		p20_l0 = False
+		p23_l1 = False
+		p23_l0 = False
+		p26_l1 = False
+		p1_l1 = False
+		p1_l0 = False
+		p26_l0 = False
+		p29_l1 = False
+		p4_l1 = False
+		p4_l0 = False
+		p29_l0 = False
+		p7_l1 = False
+		p7_l0 = False
+		p10_l1 = False
+		p10_l0 = False
+		p13_l1 = False
+		p13_l0 = False
+		p16_l1 = False
+		p16_l0 = False
+		p19_l1 = False
+		p19_l0 = False
+		p22_l1 = False
+		p22_l0 = False
+		p0_l1 = False
+		p0_l0 = True
 		p25_l1 = False
 		_J3275 = False
 		p25_l0 = False
@@ -310,43 +324,21 @@ F3 run `fischer_0030`
 		_J3262 = False
 		_J3256 = False
 		_J3251 = False
-		_J3245 = False
-		_EL_U_3208 = True
-		_EL_U_3210 = False
-		_EL_U_3212 = True
-		_EL_U_3214 = False
-		_EL_U_3216 = False
-		_EL_U_3218 = True
-		p2_l1 = False
-		p2_l0 = False
-		p5_l1 = False
-		p5_l0 = False
-		p8_l1 = False
-		p8_l0 = False
-		p11_l1 = False
-		p11_l0 = False
-		p14_l1 = False
-		p14_l0 = False
-		p17_l1 = False
-		p17_l0 = False
-		p20_l1 = False
-		p20_l0 = False
-		p23_l1 = False
-		p23_l0 = False
-		p26_l1 = False
-		p26_l0 = False
-		p29_l1 = False
-		p29_l0 = False
-		p0_l1 = False
-		p0_l0 = True
 		p3_l1 = False
-		p3_l0 = False
+		_J3245 = False
 		p6_l1 = False
+		_EL_U_3208 = True
 		p6_l0 = False
+		p3_l0 = False
+		_EL_U_3210 = False
 		p9_l1 = False
+		_EL_U_3212 = True
 		p9_l0 = False
+		_EL_U_3214 = False
 		p12_l1 = False
+		_EL_U_3216 = False
 		p12_l0 = False
+		_EL_U_3218 = True
 		p15_l1 = False
 		p15_l0 = False
 		p18_l1 = False
@@ -356,38 +348,46 @@ F3 run `fischer_0030`
 		p24_l1 = False
 		p24_l0 = False
 		p27_l1 = False
+		p2_l1 = False
+		p2_l0 = False
 		p27_l0 = False
+		p5_l1 = False
+		p5_l0 = False
+		p8_l1 = False
+		p8_l0 = False
+		p11_l1 = False
+		p11_l0 = False
 	Trans 5 -- 6
-		_x_p3_x = (p3_x + 5/2)
+		_x_p23_x = (p23_x + 5/2)
+		_x_p20_x = (p20_x + 5/2)
+		_x_p13_x = (p13_x + 5/2)
+		_x_p19_x = (p19_x + 5/2)
 		_x_p9_x = (p9_x + 5/2)
 		_x_p15_x = (p15_x + 5/2)
-		_x_p20_x = (p20_x + 5/2)
-		_x_p12_x = (p12_x + 5/2)
-		_x_p18_x = (p18_x + 5/2)
-		_x_p1_x = (p1_x + 5/2)
-		_x_p8_x = (p8_x + 5/2)
-		_x_p16_x = (p16_x + 5/2)
-		_x_p7_x = (p7_x + 5/2)
-		_x_p4_x = (p4_x + 5/2)
-		_x_p2_x = (p2_x + 5/2)
-		_x_p25_x = (p25_x + 5/2)
-		_x_p22_x = (p22_x + 5/2)
-		_x_p23_x = (p23_x + 5/2)
-		_x_p6_x = (p6_x + 5/2)
-		_x_p14_x = (p14_x + 5/2)
 		_x_p17_x = (p17_x + 5/2)
-		_x_p13_x = (p13_x + 5/2)
-		_x_p0_x = (p0_x + 5/2)
-		_x_p5_x = (p5_x + 5/2)
-		_x_p19_x = (p19_x + 5/2)
-		_x_p21_x = (p21_x + 5/2)
-		_x_p29_x = (p29_x + 5/2)
-		_x_p26_x = (p26_x + 5/2)
-		_x_p10_x = (p10_x + 5/2)
-		_x_p11_x = (p11_x + 5/2)
-		_x_p28_x = (p28_x + 5/2)
+		_x_p3_x = (p3_x + 5/2)
+		_x_p18_x = (p18_x + 5/2)
 		_x_p24_x = (p24_x + 5/2)
+		_x_p21_x = (p21_x + 5/2)
+		_x_p16_x = (p16_x + 5/2)
+		_x_p22_x = (p22_x + 5/2)
+		_x_p0_x = (p0_x + 5/2)
+		_x_p8_x = (p8_x + 5/2)
+		_x_p5_x = (p5_x + 5/2)
+		_x_p26_x = (p26_x + 5/2)
+		_x_p12_x = (p12_x + 5/2)
 		_x_p27_x = (p27_x + 5/2)
+		_x_p28_x = (p28_x + 5/2)
+		_x_p1_x = (p1_x + 5/2)
+		_x_p14_x = (p14_x + 5/2)
+		_x_p2_x = (p2_x + 5/2)
+		_x_p10_x = (p10_x + 5/2)
+		_x_p25_x = (p25_x + 5/2)
+		_x_p7_x = (p7_x + 5/2)
+		_x_p6_x = (p6_x + 5/2)
+		_x_p4_x = (p4_x + 5/2)
+		_x_p29_x = (p29_x + 5/2)
+		_x_p11_x = (p11_x + 5/2)
 	starting from: _diverge_delta : 5/2, delta : 5/2, turn : 17, id : 1, p4_l1 : False, p4_l0 : False, p4_x : 9/2, p10_l1 : False, p10_l0 : False, p10_x : 9/2, p16_l1 : False, p16_l0 : False, p16_x : 9/2, p22_l1 : False, p22_l0 : False, p22_x : 9/2, _J3275 : True, _J3269 : True, p28_l1 : False, p28_l0 : False, _J3262 : True, _J3256 : True, _J3251 : True, p28_x : 9/2, _J3245 : True, _EL_U_3208 : True, _EL_U_3210 : False, _EL_U_3212 : True, _EL_U_3214 : False, _EL_U_3216 : False, _EL_U_3218 : True, p5_l1 : False, p5_l0 : False, p5_x : 9/2, p11_l1 : False, p11_l0 : False, p11_x : 9/2, p17_l1 : False, p17_l0 : False, p17_x : 9/2, p23_l1 : False, p23_l0 : False, p23_x : 9/2, p29_l1 : False, p29_l0 : False, p29_x : 9/2, p0_l1 : False, p0_l0 : True, p0_x : 5/2, p6_l1 : False, p6_l0 : False, p6_x : 9/2, p12_l1 : False, p12_l0 : False, p12_x : 9/2, p18_l1 : False, p18_l0 : False, p18_x : 9/2, p24_l1 : False, p24_l0 : False, p24_x : 9/2, p1_l1 : False, p1_l0 : False, p1_x : 9/2, p7_l1 : False, p7_l0 : False, p7_x : 9/2, p13_l1 : False, p13_l0 : False, p13_x : 9/2, p19_l1 : False, p19_l0 : False, p19_x : 9/2, p25_l1 : False, p25_l0 : False, p25_x : 9/2, p2_l1 : False, p2_l0 : False, p2_x : 9/2, p8_l1 : False, p8_l0 : False, p8_x : 9/2, p14_l1 : False, p14_l0 : False, p14_x : 9/2, p20_l1 : False, p20_l0 : False, p20_x : 9/2, p26_l1 : False, p26_l0 : False, p26_x : 9/2, p3_l1 : False, p3_l0 : False, p3_x : 9/2, p9_l1 : False, p9_l0 : False, p9_x : 9/2, p15_l1 : False, p15_l0 : False, p15_x : 9/2, p21_l1 : False, p21_l0 : False, p21_x : 9/2, p27_l1 : False, p27_l0 : False, p27_x : 9/2
 
-end of `fischer_0030`: SUCCESS in 37.792967081069946s
+end of `fischer_0030`: SUCCESS in 64.79464149475098s

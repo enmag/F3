@@ -32,4 +32,4 @@ F3 run `Hanoi_3vars_false-termination`
 		_x_y = y
 	starting from: z : 0, pc : 0, x : 1, y : 0
 
-end of `Hanoi_3vars_false-termination`: SUCCESS in 57.02383089065552s
+end of `Hanoi_3vars_false-termination`: SUCCESS in 56.462157249450684s

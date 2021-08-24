@@ -1,8 +1,3 @@
-Exception ignored in: <function Z3Converter.__del__ at 0x7f89c33b5430>
-Traceback (most recent call last):
-  File "/usr/local/lib/python3.8/dist-packages/PySMT-0.9.1.dev332-py3.8.egg/pysmt/solvers/z3.py", line 920, in __del__
-    def __del__(self):
-KeyboardInterrupt: 
-real 3602.21
+real 3602.81
 user 0.00
 sys 0.00

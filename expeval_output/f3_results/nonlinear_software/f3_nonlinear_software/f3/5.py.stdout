@@ -28,4 +28,4 @@ F3 run `5`
 		_x_y = (y + 1)
 	starting from: z : 4, pc : 2, x : 0, y : 3
 
-end of `5`: SUCCESS in 1.9092402458190918s
+end of `5`: SUCCESS in 3.0164966583251953s

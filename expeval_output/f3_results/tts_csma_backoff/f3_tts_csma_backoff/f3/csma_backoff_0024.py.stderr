@@ -32,6 +32,6 @@ Traceback (most recent call last):
   File "/usr/local/lib/python3.8/dist-packages/mathsat.py", line 1437, in msat_solve
     return _mathsat.msat_solve(e)
 SystemError: <built-in function msat_solve> returned a result with an error set
-real 3602.89
+real 3602.32
 user 0.00
 sys 0.00

@@ -1,8 +1,8 @@
 F3 run `tanks`
 
 	Found non-termination argument:
-	_diverge_delta : 0.0, delta : 10.0, pipe2_dflow : 0.0, pipe1_dflow : 0.0, pipe1_mode : 0, pipe2_flow : 0.0, pipe1_flow : 0.0, tank1_vol : 0.0, pipe0_dflow : 0.0, pipe0_flow : 0.0, tot_vol_out : 0.0, _J513 : True, tank0_vol : 0.0, _J507 : True, _J501 : True, tot_vol_in : 0.0, _J495 : True, _EL_U_468 : True, _EL_U_470 : False, pipe2_mode : 0, _EL_U_472 : True, _EL_U_474 : False, pipe0_mode : 0
-	_diverge_delta : 10.0, delta : 0.0, pipe2_dflow : 0.0, pipe1_dflow : 0.0, pipe1_mode : 0, pipe2_flow : 1.0, pipe1_flow : 0.0, tank1_vol : 0.0, pipe0_dflow : 0.0, pipe0_flow : 10.0, tot_vol_out : 0.0, _J513 : False, tank0_vol : 0.0, _J507 : False, _J501 : False, tot_vol_in : 0.0, _J495 : False, _EL_U_468 : True, _EL_U_470 : False, pipe2_mode : 2, _EL_U_472 : True, _EL_U_474 : False, pipe0_mode : 2
-	_diverge_delta : 0.0, delta : 10.0, pipe2_dflow : 0.0, pipe1_dflow : 0.0, pipe1_mode : 0, pipe2_flow : 0.0, pipe1_flow : 0.0, tank1_vol : 0.0, pipe0_dflow : 0.0, pipe0_flow : 0.0, tot_vol_out : 0.0, _J513 : True, tank0_vol : 0.0, _J507 : True, _J501 : True, tot_vol_in : 0.0, _J495 : True, _EL_U_468 : True, _EL_U_470 : False, pipe2_mode : 0, _EL_U_472 : True, _EL_U_474 : False, pipe0_mode : 0
+	_diverge_delta : 0.0, delta : 1.0, pipe2_dflow : 0.0, pipe1_dflow : 0.0, pipe1_mode : 0, pipe2_flow : 0.0, pipe1_flow : 0.0, tank1_vol : 0.0, pipe0_dflow : 0.0, pipe0_flow : 0.0, tot_vol_out : 0.0, _J513 : True, tank0_vol : 0.0, _J507 : True, _J501 : True, tot_vol_in : 0.0, _J495 : True, _EL_U_468 : True, _EL_U_470 : False, pipe2_mode : 0, _EL_U_472 : True, _EL_U_474 : False, pipe0_mode : 0
+	_diverge_delta : 1.0, delta : 0.0, pipe2_dflow : 0.0, pipe1_dflow : 0.0, pipe1_mode : 2, pipe2_flow : 1.0, pipe1_flow : 1.0, tank1_vol : 0.0, pipe0_dflow : 0.0, pipe0_flow : 10.0, tot_vol_out : 0.0, _J513 : False, tank0_vol : 0.0, _J507 : False, _J501 : False, tot_vol_in : 0.0, _J495 : False, _EL_U_468 : True, _EL_U_470 : False, pipe2_mode : 2, _EL_U_472 : True, _EL_U_474 : False, pipe0_mode : 2
+	_diverge_delta : 0.0, delta : 1.0, pipe2_dflow : 0.0, pipe1_dflow : 0.0, pipe1_mode : 0, pipe2_flow : 0.0, pipe1_flow : 0.0, tank1_vol : 0.0, pipe0_dflow : 0.0, pipe0_flow : 0.0, tot_vol_out : 0.0, _J513 : True, tank0_vol : 0.0, _J507 : True, _J501 : True, tot_vol_in : 0.0, _J495 : True, _EL_U_468 : True, _EL_U_470 : False, pipe2_mode : 0, _EL_U_472 : True, _EL_U_474 : False, pipe0_mode : 0
 
-end of `tanks`: SUCCESS in 0.6503622531890869s
+end of `tanks`: SUCCESS in 0.8487498760223389s

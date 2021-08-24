@@ -2,14 +2,12 @@ F3 run `sender_receiver`
 
 	Found non-termination argument:
 	State 3
-		s_evt = True
-		r2s = 0
 		s2r = 0
-		_J246 = True
-		_J240 = True
+		r2s = 0
 		_J233 = True
 		r_l = True
 		_J227 = True
+		s_evt = True
 		_J222 = True
 		_J213 = True
 		_EL_U_175 = True
@@ -19,30 +17,31 @@ F3 run `sender_receiver`
 		_EL_U_183 = False
 		_EL_U_186 = True
 		s_l = False
-		(((-1.0 * s_timeout) + s_c) <= 0.0)
-		(_diverge_delta < 1.0)
-		((-1.0 * delta) < 0.0)
-		(s_c = 0.0)
-		(((-1.0 * s_c) + (-1.0 * delta) + s_timeout) = 0.0)
-		((-1 * s_msg_id) < 0)
+		_J246 = True
+		_J240 = True
+		((-1.0 * delta) <= 0.0)
 		(((-1.0 * _diverge_delta) + (-1.0 * delta)) <= -1.0)
-		((-1.0 * s_c) <= 0.0)
+		(s_c = 0.0)
+		(_diverge_delta < 1.0)
+		(((-1.0 * s_timeout) + delta + s_c) = 0.0)
+		((-1 * s_msg_id) < 0)
+		(((-1.0 * delta) + _diverge_delta) < 0.0)
+		(((-1.0 * s_timeout) + s_c) < 0.0)
+		((-1.0 * delta) < 0.0)
 		((-1.0 * s_timeout) < -1.0)
 	Trans 3 -- 4
+		_x_s_msg_id = s_msg_id
+		_x_s_timeout = s_timeout
+		_x__diverge_delta = (delta + _diverge_delta)
 		_x_s_c = (delta + s_c)
 		_x_delta = 0.0
-		_x__diverge_delta = (delta + _diverge_delta)
-		_x_s_timeout = s_timeout
-		_x_s_msg_id = s_msg_id
 	State 4
-		s_evt = True
-		r2s = 0
 		s2r = 0
-		_J246 = False
-		_J240 = False
+		r2s = 0
 		_J233 = False
 		r_l = True
 		_J227 = False
+		s_evt = True
 		_J222 = False
 		_J213 = False
 		_EL_U_175 = True
@@ -52,12 +51,14 @@ F3 run `sender_receiver`
 		_EL_U_183 = False
 		_EL_U_186 = True
 		s_l = False
+		_J246 = False
+		_J240 = False
 	Trans 4 -- 5
 		_x_s_c = 0.0
 		_x__diverge_delta = delta
-		_x_delta = (s_timeout + ToReal(s_msg_id))
-		_x_s_timeout = (s_timeout + ToReal(s_msg_id))
-		_x_s_msg_id = 1
+		_x_delta = ((s_c + s_timeout + ToReal(s_msg_id) + 1/4) - (_diverge_delta * 1/8))
+		_x_s_msg_id = s_msg_id
+		_x_s_timeout = (((s_c * 1/8) + (s_timeout * 15/8) + ToReal(s_msg_id) + 1/4) - (_diverge_delta * 1/8))
 	starting from: _diverge_delta : 0.0, delta : 3/2, r2s : 0, s2r : 0, _J246 : True, _J240 : True, _J233 : True, r_l : True, _J227 : True, _J222 : True, _J213 : True, _EL_U_175 : True, _EL_U_177 : False, _EL_U_179 : True, _EL_U_181 : False, _EL_U_183 : False, _EL_U_186 : True, s_l : False, s_evt : True, s_c : 0.0, s_timeout : 3/2, s_msg_id : 1
 
-end of `sender_receiver`: SUCCESS in 190.72110843658447s
+end of `sender_receiver`: SUCCESS in 234.04318976402283s

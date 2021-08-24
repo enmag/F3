@@ -39,6 +39,6 @@ Traceback (most recent call last):
   File "/usr/local/lib/python3.8/dist-packages/z3/z3core.py", line 3742, in Z3_solver_push
     _elems.f(a0, a1)
 KeyboardInterrupt
-real 3603.08
+real 3602.43
 user 0.00
 sys 0.00

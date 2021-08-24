@@ -2,6 +2,7 @@ F3 run `critical_region_0003`
 
 	Found non-termination argument:
 	State 1
+		id = 2
 		_J822 = True
 		_J816 = True
 		_EL_U_783 = True
@@ -31,7 +32,6 @@ F3 run `critical_region_0003`
 		a0_evt0 = True
 		c_move = True
 		a2_l = False
-		id = 2
 		c_initial = True
 		pc0_l1 = False
 		pc0_l0 = False
@@ -40,19 +40,19 @@ F3 run `critical_region_0003`
 		_J838 = True
 		_J831 = True
 		((-1.0 * pc2_x) < -50.0)
-		((-1.0 * pc1_x) < -50.0)
-		((-1.0 * pc0_x) < -50.0)
-		((-1.0 * _diverge_delta) <= -1.0)
-		(((-1.0 * delta) + _diverge_delta) < 0.0)
 		((-1.0 * delta) <= -1.0)
-		((-1.0 * delta) <= 0.0)
+		((-1.0 * pc1_x) < -50.0)
+		((-1.0 * _diverge_delta) <= -1.0)
+		((-1.0 * pc0_x) < -50.0)
+		(((-1.0 * delta) + _diverge_delta) < 0.0)
 	Trans 1 -- 2
 		_x_pc2_x = (delta + pc2_x)
-		_x__diverge_delta = delta
 		_x_pc1_x = (pc1_x + delta)
-		_x_pc0_x = (delta + pc0_x)
-		_x_delta = (pc2_x + pc0_x + (-1.0 * _diverge_delta) + delta + pc1_x + 1.0)
+		_x_pc0_x = (pc0_x + delta)
+		_x__diverge_delta = delta
+		_x_delta = ((pc2_x * 3/4) + (-1.0 * _diverge_delta) + delta + pc1_x + pc0_x + -1.0)
 	State 2
+		id = 0
 		_J822 = False
 		_J816 = False
 		_EL_U_783 = True
@@ -82,7 +82,6 @@ F3 run `critical_region_0003`
 		a0_evt0 = True
 		c_move = True
 		a2_l = False
-		id = 0
 		c_initial = True
 		pc0_l1 = False
 		pc0_l0 = False
@@ -90,16 +89,16 @@ F3 run `critical_region_0003`
 		_J844 = False
 		_J838 = False
 		_J831 = False
-		(((-1.0 * pc1_x) + (-1.0 * delta)) < -50.0)
-		(((-1.0 * pc0_x) + (-1.0 * delta)) < -50.0)
 		((-1.0 * delta) <= -1.0)
 		(((-1.0 * pc2_x) + (-1.0 * delta)) < -50.0)
+		(((-1.0 * pc1_x) + (-1.0 * delta)) < -50.0)
+		(((-1.0 * pc0_x) + (-1.0 * delta)) < -50.0)
 	Trans 2 -- 3
-		_x_pc2_x = (delta + pc2_x)
 		_x__diverge_delta = delta
 		_x_pc1_x = (pc1_x + delta)
-		_x_pc0_x = (delta + pc0_x)
-		_x_delta = (((pc2_x * 597/298) + (pc0_x * 597/298) + (-1.0 * delta) + (pc1_x * 597/298) + -299/298) - (_diverge_delta * 1/298))
-	starting from: _J822 : True, _J816 : True, _EL_U_783 : True, _diverge_delta : 53837/314, _EL_U_785 : False, delta : 45987/157, a0_l : False, _EL_U_788 : False, pc1_l1 : False, _EL_U_790 : False, pc1_l0 : False, pc1_l2 : False, pc0_x : 53837/314, _EL_U_792 : True, pc2_evt1 : True, pc2_evt0 : True, a2_evt1 : False, a2_evt0 : True, pc2_l1 : False, pc2_l0 : False, pc2_l2 : False, pc1_evt1 : True, pc1_evt0 : True, a1_evt1 : False, pc1_x : 53837/314, a1_evt0 : True, a1_l : False, pc0_evt1 : True, pc0_evt0 : True, a0_evt1 : False, a0_evt0 : True, pc2_x : 53837/314, c_move : True, a2_l : False, id : 2, c_initial : True, pc0_l1 : False, pc0_l0 : False, pc0_l2 : False, _J844 : True, _J838 : True, _J831 : True
+		_x_pc0_x = (pc0_x + delta)
+		_x_pc2_x = (delta + pc2_x)
+		_x_delta = ((pc2_x + (pc1_x * 5/4) + (pc0_x * 5/4) + -1.0) - (_diverge_delta * 1/4))
+	starting from: _J822 : True, _J816 : True, _EL_U_783 : True, _diverge_delta : 7577/3, _EL_U_785 : False, delta : 15004/3, a0_l : False, _EL_U_788 : False, pc1_l1 : False, _EL_U_790 : False, pc1_l0 : False, pc1_l2 : False, pc0_x : 7577/3, _EL_U_792 : True, pc2_evt1 : True, pc2_evt0 : True, a2_evt1 : False, a2_evt0 : True, pc2_l1 : False, pc2_l0 : False, pc2_l2 : False, pc1_evt1 : True, pc1_evt0 : True, a1_evt1 : False, pc1_x : 7577/3, a1_evt0 : True, a1_l : False, pc0_evt1 : True, pc0_evt0 : True, a0_evt1 : False, a0_evt0 : True, pc2_x : 7577/3, c_move : True, a2_l : False, id : 2, c_initial : True, pc0_l1 : False, pc0_l0 : False, pc0_l2 : False, _J844 : True, _J838 : True, _J831 : True
 
-end of `critical_region_0003`: SUCCESS in 4.456939935684204s
+end of `critical_region_0003`: SUCCESS in 5.3087241649627686s

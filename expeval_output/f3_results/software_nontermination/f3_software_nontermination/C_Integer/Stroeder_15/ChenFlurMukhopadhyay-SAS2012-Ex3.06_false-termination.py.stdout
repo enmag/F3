@@ -15,13 +15,13 @@ F3 run `ChenFlurMukhopadhyay-SAS2012-Ex3.06_false-termination`
 		pc = 1
 	Trans 1 -- 2
 		_x_y = y
-		_x_x = (z + x)
 		_x_z = z
+		_x_x = (z + x)
 	State 2
 		pc = 2
 	Trans 2 -- 3
-		_x_y = y
 		_x_z = (y * -2)
+		_x_y = y
 		_x_x = x
 	State 3
 		pc = 3
@@ -31,4 +31,4 @@ F3 run `ChenFlurMukhopadhyay-SAS2012-Ex3.06_false-termination`
 		_x_x = x
 	starting from: z : 0, pc : 0, x : -1, y : 0
 
-end of `ChenFlurMukhopadhyay-SAS2012-Ex3.06_false-termination`: SUCCESS in 2.7422358989715576s
+end of `ChenFlurMukhopadhyay-SAS2012-Ex3.06_false-termination`: SUCCESS in 3.970557928085327s

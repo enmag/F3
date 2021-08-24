@@ -28,4 +28,4 @@ F3 run `power`
 		_x_i = (i + 1)
 	starting from: pc : 3, e : 5, i : 2, n : 5
 
-end of `power`: SUCCESS in 1.5102059841156006s
+end of `power`: SUCCESS in 2.524899482727051s

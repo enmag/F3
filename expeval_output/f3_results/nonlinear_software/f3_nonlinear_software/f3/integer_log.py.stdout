@@ -25,4 +25,4 @@ F3 run `integer_log`
 		_x_log = (log + 1)
 	starting from: pc : 3, d : 5, log : 1, n : 5
 
-end of `integer_log`: SUCCESS in 1.7604832649230957s
+end of `integer_log`: SUCCESS in 6.224603652954102s

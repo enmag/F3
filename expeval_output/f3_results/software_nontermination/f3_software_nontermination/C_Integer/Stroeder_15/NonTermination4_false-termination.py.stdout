@@ -25,4 +25,4 @@ F3 run `NonTermination4_false-termination`
 		_x_y = (y * 3)
 	starting from: pc : 0, x : 2, y : 3
 
-end of `NonTermination4_false-termination`: SUCCESS in 1.5777981281280518s
+end of `NonTermination4_false-termination`: SUCCESS in 2.549351930618286s

@@ -17,4 +17,4 @@ F3 run `Cairo_nondet_false-termination`
 		_x_nondet = ((-1 * x) + (-1 * nondet) + -3)
 	starting from: pc : 1, x : -1, nondet : -2
 
-end of `Cairo_nondet_false-termination`: SUCCESS in 1.3326518535614014s
+end of `Cairo_nondet_false-termination`: SUCCESS in 2.150871992111206s

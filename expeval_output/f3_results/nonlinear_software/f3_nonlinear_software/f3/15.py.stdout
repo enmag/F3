@@ -14,7 +14,7 @@ F3 run `15`
 		(((y * 2) + (-1 * x)) <= -1)
 		(((y * 2) + (-1 * x)) <= 1)
 		(y <= -10)
-		((-1 * ((x * 20) + (y * 2))) <= 0)
+		True
 	Trans 2 -- 3
 		_x_z = z
 		_x_x = x
@@ -45,4 +45,4 @@ F3 run `15`
 		_x_y = (y + -1)
 	starting from: z : -39, pc : 2, x : 2, y : -20
 
-end of `15`: SUCCESS in 19.80185341835022s
+end of `15`: SUCCESS in 42.018553018569946s

@@ -2,865 +2,860 @@ F3 run `dynamic_fischer_0026`
 
 	Found non-termination argument:
 	State 6
+		proposed0 = 4847/185440
 		_diverge_delta = 0.0
+		p5_saved_max = 4847/46360
 		delta = 0.0
-		p5_x = 0.0
+		p25_saved_max = 4847/46360
+		proposed7 = 4847/185440
+		p15_saved_max = 4847/46360
+		p17_x = 0.0
+		proposed20 = 4847/185440
+		proposed10 = 4847/185440
+		p8_saved_max = 4847/46360
+		p18_saved_max = 4847/46360
+		p1_saved_max = 4847/46360
+		proposed3 = 4847/185440
+		proposed23 = 4847/185440
+		p21_saved_max = 4847/46360
+		proposed13 = 4847/185440
+		p11_saved_max = 4847/46360
+		p4_saved_max = 4847/46360
+		proposed6 = 4847/185440
+		p24_saved_max = 4847/46360
+		proposed16 = 4847/185440
+		p14_saved_max = 4847/46360
+		proposed9 = 4847/185440
+		p0_saved_max = 4847/46360
+		p7_saved_max = 4847/46360
+		proposed19 = 4847/185440
+		proposed2 = 4847/185440
+		proposed22 = 4847/185440
+		proposed12 = 4847/185440
+		p10_saved_max = 4847/46360
+		p20_saved_max = 4847/46360
+		p3_saved_max = 4847/46360
+		proposed5 = 4847/185440
+		proposed25 = 4847/185440
+		p23_saved_max = 4847/46360
+		proposed15 = 4847/185440
+		p13_saved_max = 4847/46360
+		p6_saved_max = 4847/46360
+		proposed18 = 4847/185440
+		proposed1 = 4847/185440
+		proposed8 = 4847/185440
+		p16_saved_max = 4847/46360
+		proposed21 = 4847/185440
+		proposed11 = 4847/185440
+		p9_saved_max = 4847/46360
+		p19_saved_max = 4847/46360
+		p2_saved_max = 4847/46360
+		proposed4 = 4847/185440
+		proposed24 = 4847/185440
+		p22_saved_max = 4847/46360
+		proposed14 = 4847/185440
+		p12_saved_max = 4847/46360
+		p0_l1 = False
 		p7_l1 = False
 		p7_l0 = False
-		proposed7 = 3/4
-		p15_saved_max = 187/36
-		p10_l1 = False
-		p10_l0 = False
-		proposed10 = 3/4
-		p18_saved_max = 187/36
-		p1_saved_max = 187/36
-		p13_l1 = False
-		p13_l0 = False
-		p21_saved_max = 187/36
-		proposed13 = 3/4
-		_J3445 = True
-		_J3439 = True
-		_J3433 = True
-		_J3427 = True
-		p16_l1 = False
-		p16_l0 = False
-		p24_saved_max = 187/36
-		_EL_U_3400 = True
-		_EL_U_3402 = False
-		p4_saved_max = 187/36
-		_EL_U_3405 = True
-		proposed16 = 3/4
-		_EL_U_3407 = False
-		p19_l1 = False
-		p19_l0 = False
-		p2_l1 = False
-		p2_l0 = False
-		p7_saved_max = 187/36
-		proposed19 = 3/4
-		proposed2 = 3/4
-		p22_l1 = False
-		p22_l0 = False
-		proposed22 = 3/4
-		p10_saved_max = 187/36
-		p25_l1 = False
-		p25_l0 = False
-		p5_l1 = True
-		p5_l0 = False
-		proposed25 = 3/4
-		p13_saved_max = 187/36
-		p8_l1 = False
-		p8_l0 = False
-		proposed8 = 3/4
-		p16_saved_max = 187/36
-		p11_l1 = False
-		p11_l0 = False
-		proposed11 = 3/4
-		p19_saved_max = 187/36
-		p2_saved_max = 187/36
-		p14_l1 = False
-		p14_l0 = False
-		p22_saved_max = 187/36
-		proposed14 = 3/4
-		p0_l1 = False
+		turn4 = True
 		p0_l0 = False
-		turn4 = False
-		p17_l1 = False
-		p25_saved_max = 187/36
+		p17_l1 = True
 		turn3 = False
 		p17_l0 = False
-		proposed0 = 3/4
-		turn2 = True
-		proposed17 = 3/4
+		turn2 = False
 		turn1 = False
 		p20_l1 = False
 		p20_l0 = False
 		turn0 = True
-		proposed20 = 3/4
+		p10_l1 = False
+		p10_l0 = False
 		p3_l1 = False
 		p3_l0 = False
 		id4 = True
-		p8_saved_max = 187/36
 		id3 = True
-		proposed3 = 3/4
 		p23_l1 = False
-		id2 = False
 		p23_l0 = False
-		proposed23 = 3/4
+		id2 = False
+		p13_l1 = False
+		p13_l0 = False
 		id1 = True
 		id0 = False
-		p11_saved_max = 187/36
+		_J3445 = True
+		_J3439 = True
+		_J3433 = True
 		p6_l1 = False
+		_J3427 = True
 		p6_l0 = False
-		proposed6 = 3/4
-		p14_saved_max = 187/36
+		p16_l1 = False
+		p16_l0 = False
+		_EL_U_3400 = True
+		_EL_U_3402 = False
+		_EL_U_3405 = True
+		_EL_U_3407 = False
+		p19_l1 = False
+		p19_l0 = False
 		p9_l1 = False
 		p9_l0 = False
-		proposed9 = 3/4
-		p0_saved_max = 187/36
-		p17_saved_max = 187/36
+		p2_l1 = False
+		p2_l0 = False
+		p22_l1 = False
+		p22_l0 = False
 		p12_l1 = False
 		p12_l0 = False
-		p20_saved_max = 187/36
-		proposed12 = 3/4
-		p3_saved_max = 187/36
+		p25_l1 = False
+		p25_l0 = False
+		p5_l1 = False
+		p5_l0 = False
 		p15_l1 = False
 		p15_l0 = False
-		p23_saved_max = 187/36
-		proposed15 = 3/4
+		p8_l1 = False
+		p8_l0 = False
 		p18_l1 = False
 		p18_l0 = False
 		p1_l1 = False
 		p1_l0 = False
-		p6_saved_max = 187/36
-		proposed18 = 1/4
-		proposed1 = 3/4
 		p21_l1 = False
 		p21_l0 = False
-		proposed21 = 3/4
-		p9_saved_max = 187/36
+		p11_l1 = False
+		p11_l0 = False
 		p4_l1 = False
 		p4_l0 = False
 		inc_max_prop = True
 		p24_l1 = False
 		p24_l0 = False
-		proposed4 = 3/4
-		proposed24 = 3/4
-		p12_saved_max = 187/36
-		((-1.0 * p19_x) < 5/4)
-		((-1.0 * p10_x) < 5/4)
-		((-1.0 * p24_x) < 5/4)
-		((-1.0 * p1_x) < 5/4)
-		((-1.0 * p15_x) < 1/4)
-		((-1.0 * p3_x) < 5/4)
-		((-1.0 * p11_x) < 5/4)
-		((-1.0 * p21_x) < 1/4)
-		((-1.0 * p20_x) < 5/4)
-		((-1.0 * p14_x) < 5/4)
-		((-1.0 * p0_x) < 1/4)
-		((-1.0 * p4_x) < 5/4)
-		((-1.0 * p18_x) < 7/4)
-		((-1.0 * p9_x) < 1/4)
-		((-1.0 * p19_x) < 1/4)
-		((-1.0 * p24_x) < 1/4)
-		((-1.0 * p3_x) < 1/4)
-		((-1.0 * p20_x) < 1/4)
-		((-1.0 * p4_x) < 1/4)
-		((-1.0 * p22_x) < 1/4)
-		((-1.0 * p13_x) < 1/4)
-		((-1.0 * p23_x) < 1/4)
-		((-1.0 * p6_x) < 1/4)
-		((-1.0 * p7_x) < 1/4)
-		((-1.0 * p17_x) < 1/4)
-		((-1.0 * p10_x) < 1/4)
-		((-1.0 * p1_x) < 1/4)
-		((-1.0 * p11_x) < 1/4)
-		((-1.0 * p14_x) < 1/4)
-		((-1.0 * proposed5) <= -1/4)
-		((-1.0 * p18_x) < 3/4)
-		((-1.0 * proposed5) <= -3/4)
-		((-1.0 * p8_x) < 1/4)
-		((-1.0 * p12_x) < 1/4)
-		((-1.0 * p16_x) < 1/4)
-		((-1.0 * p2_x) < 1/4)
-		((-1.0 * p25_x) < 1/4)
-		((-1.0 * max_prop) <= -1/4)
-		((-1.0 * max_prop) <= -3/4)
-		(((-1.0 * proposed5) + max_prop) = 0.0)
-		((-1.0 * p18_x) < -1/4)
-		(max_prop < 187/36)
-		((-1.0 * p8_x) < -3/4)
-		((-1.0 * p12_x) < -3/4)
-		((-1.0 * p16_x) < -3/4)
-		((-1.0 * p2_x) < -3/4)
-		((-1.0 * p25_x) < -3/4)
-		((-1.0 * max_prop) < -3/4)
-		((-1.0 * p15_x) < -3/4)
-		((-1.0 * p21_x) < -3/4)
-		((-1.0 * p0_x) < -3/4)
-		((-1.0 * p9_x) < -3/4)
-		((-1.0 * p19_x) < -3/4)
-		((-1.0 * p24_x) < -3/4)
-		(((-1.0 * p5_saved_max) + max_prop) = 0.0)
-		((-1.0 * p3_x) < -3/4)
-		((-1.0 * p20_x) < -3/4)
-		((-1.0 * p4_x) < -3/4)
-		((-1.0 * p22_x) < 5/4)
-		((-1.0 * p22_x) < -3/4)
-		((-1.0 * p13_x) < -3/4)
-		((-1.0 * p8_x) < 5/4)
-		((-1.0 * p23_x) < -3/4)
-		((-1.0 * p13_x) < 5/4)
-		((-1.0 * p6_x) < -3/4)
-		((-1.0 * p7_x) < -3/4)
-		((-1.0 * p12_x) < 5/4)
-		((-1.0 * p17_x) < -3/4)
-		((-1.0 * p15_x) < 5/4)
-		((-1.0 * p10_x) < -3/4)
-		((-1.0 * p1_x) < -3/4)
-		((-1.0 * p23_x) < 5/4)
-		((-1.0 * p11_x) < -3/4)
-		((-1.0 * max_prop) < -1/4)
-		((-1.0 * p16_x) < 5/4)
-		((-1.0 * p14_x) < -3/4)
-		((-1.0 * p21_x) < 5/4)
-		((-1.0 * p6_x) < 5/4)
-		((-1.0 * p2_x) < 5/4)
-		((-1.0 * p0_x) < 5/4)
-		((-1.0 * p7_x) < 5/4)
-		((-1.0 * p25_x) < 5/4)
-		((-1.0 * p9_x) < 5/4)
-		((-1.0 * p17_x) < 5/4)
+		p14_l1 = False
+		p14_l0 = False
+		((-1.0 * p6_x) < 366033/185440)
+		((-1.0 * p24_x) < 366033/185440)
+		((-1.0 * p4_x) < 180593/185440)
+		((-1.0 * p2_x) < 366033/185440)
+		((-1.0 * p18_x) < 366033/185440)
+		((-1.0 * p19_x) < 180593/185440)
+		((-1.0 * p5_x) < 180593/185440)
+		((-1.0 * p22_x) < 180593/185440)
+		((-1.0 * p12_x) < 180593/185440)
+		((-1.0 * p7_x) < 180593/185440)
+		((-1.0 * p23_x) < 180593/185440)
+		((-1.0 * p13_x) < 180593/185440)
+		((-1.0 * p8_x) < 180593/185440)
+		((-1.0 * p24_x) < 180593/185440)
+		((-1.0 * p14_x) < 180593/185440)
+		((-1.0 * p9_x) < 180593/185440)
+		((-1.0 * p0_x) < 180593/185440)
+		((-1.0 * p15_x) < 180593/185440)
+		((-1.0 * p25_x) < 180593/185440)
+		((-1.0 * p16_x) < 180593/185440)
+		((-1.0 * p10_x) < 180593/185440)
+		((-1.0 * p1_x) < 180593/185440)
+		((-1.0 * p20_x) < 180593/185440)
+		((-1.0 * p11_x) < 180593/185440)
+		((-1.0 * proposed17) <= -4847/185440)
+		((-1.0 * p2_x) < 180593/185440)
+		((-1.0 * p21_x) < 180593/185440)
+		((-1.0 * p3_x) < 180593/185440)
+		((-1.0 * proposed17) <= 0.0)
+		((-1.0 * max_prop) <= -4847/185440)
+		(((-1.0 * proposed17) + max_prop) = 0.0)
+		((-1.0 * p16_x) < -4847/185440)
+		((-1.0 * p10_x) < -4847/185440)
+		((-1.0 * p1_x) < -4847/185440)
+		((-1.0 * p20_x) < -4847/185440)
+		((-1.0 * p11_x) < -4847/185440)
+		((-1.0 * p2_x) < -4847/185440)
+		((-1.0 * p21_x) < -4847/185440)
+		((-1.0 * max_prop) < -4847/185440)
+		((-1.0 * p3_x) < -4847/185440)
+		((-1.0 * p6_x) < -4847/185440)
+		((-1.0 * p14_x) < 366033/185440)
+		((-1.0 * p18_x) < -4847/185440)
+		((-1.0 * p4_x) < -4847/185440)
+		(max_prop < 4847/46360)
+		((-1.0 * p21_x) < 366033/185440)
+		((-1.0 * p4_x) < 366033/185440)
+		((-1.0 * p19_x) < -4847/185440)
+		((-1.0 * p9_x) < 366033/185440)
+		((-1.0 * p5_x) < -4847/185440)
+		((-1.0 * p22_x) < -4847/185440)
+		((-1.0 * p3_x) < 366033/185440)
+		((-1.0 * p12_x) < -4847/185440)
+		((-1.0 * p19_x) < 366033/185440)
+		((-1.0 * p7_x) < -4847/185440)
+		((-1.0 * p23_x) < -4847/185440)
+		((-1.0 * p0_x) < 366033/185440)
+		((-1.0 * p13_x) < -4847/185440)
+		((-1.0 * p5_x) < 366033/185440)
+		((-1.0 * p8_x) < -4847/185440)
+		((-1.0 * p24_x) < -4847/185440)
+		((-1.0 * p15_x) < 366033/185440)
+		((-1.0 * p14_x) < -4847/185440)
+		((-1.0 * p22_x) < 366033/185440)
+		((-1.0 * p9_x) < -4847/185440)
+		((-1.0 * p0_x) < -4847/185440)
+		((-1.0 * p25_x) < 366033/185440)
+		((-1.0 * p15_x) < -4847/185440)
+		((-1.0 * p12_x) < 366033/185440)
+		((-1.0 * p25_x) < -4847/185440)
+		((-1.0 * p16_x) < 366033/185440)
+		((-1.0 * p7_x) < 366033/185440)
+		((-1.0 * p10_x) < 366033/185440)
+		((-1.0 * p23_x) < 366033/185440)
+		((-1.0 * p1_x) < 366033/185440)
+		((-1.0 * p13_x) < 366033/185440)
+		((-1.0 * p20_x) < 366033/185440)
+		((-1.0 * p6_x) < 180593/185440)
+		((-1.0 * p8_x) < 366033/185440)
+		((-1.0 * p11_x) < 366033/185440)
+		((-1.0 * p18_x) < 180593/185440)
 	Trans 6 -- 7
-		_x_p15_x = p15_x
-		_x_p6_x = p6_x
-		_x_p11_x = p11_x
-		_x_p12_x = p12_x
-		_x_p16_x = p16_x
-		_x_p1_x = p1_x
-		_x_p19_x = p19_x
-		_x_p18_x = p18_x
-		_x_p25_x = p25_x
-		_x_p22_x = p22_x
-		_x_p20_x = p20_x
-		_x_p5_saved_max = max_prop
-		_x_p10_x = p10_x
 		_x_p13_x = p13_x
 		_x_p14_x = p14_x
+		_x_p9_x = p9_x
+		_x_p18_x = p18_x
+		_x_p6_x = p6_x
+		_x_p16_x = p16_x
+		_x_p8_x = p8_x
+		_x_proposed17 = proposed17
+		_x_p24_x = p24_x
+		_x_p19_x = p19_x
+		_x_p20_x = p20_x
+		_x_p15_x = p15_x
+		_x_p21_x = p21_x
+		_x_p5_x = p5_x
 		_x_p23_x = p23_x
 		_x_p0_x = p0_x
-		_x_p24_x = p24_x
-		_x_p17_x = p17_x
-		_x_p3_x = p3_x
-		_x_p8_x = p8_x
+		_x_p1_x = p1_x
 		_x_p4_x = p4_x
+		_x_p22_x = p22_x
+		_x_p25_x = p25_x
+		_x_p3_x = p3_x
 		_x_p2_x = p2_x
+		_x_p17_saved_max = max_prop
 		_x_p7_x = p7_x
-		_x_p21_x = p21_x
-		_x_p9_x = p9_x
-		_x_proposed5 = proposed5
-		_x_max_prop = proposed5
+		_x_p12_x = p12_x
+		_x_p11_x = p11_x
+		_x_p10_x = p10_x
+		_x_max_prop = proposed17
 	State 7
+		proposed0 = 4847/185440
 		_diverge_delta = 0.0
+		p5_saved_max = 4847/46360
 		delta = 1.0
-		p5_x = 0.0
+		p25_saved_max = 4847/46360
+		proposed7 = 4847/185440
+		p15_saved_max = 4847/46360
+		p17_x = 0.0
+		proposed20 = 4847/185440
+		proposed10 = 4847/185440
+		p8_saved_max = 4847/46360
+		p18_saved_max = 4847/46360
+		p1_saved_max = 4847/46360
+		proposed3 = 4847/185440
+		proposed23 = 4847/185440
+		p21_saved_max = 4847/46360
+		proposed13 = 4847/185440
+		p11_saved_max = 4847/46360
+		p4_saved_max = 4847/46360
+		proposed6 = 4847/185440
+		p24_saved_max = 4847/46360
+		proposed16 = 4847/185440
+		p14_saved_max = 4847/46360
+		proposed9 = 4847/185440
+		p0_saved_max = 4847/46360
+		p7_saved_max = 4847/46360
+		proposed19 = 4847/185440
+		proposed2 = 4847/185440
+		proposed22 = 4847/185440
+		proposed12 = 4847/185440
+		p10_saved_max = 4847/46360
+		p20_saved_max = 4847/46360
+		p3_saved_max = 4847/46360
+		proposed5 = 4847/185440
+		proposed25 = 4847/185440
+		p23_saved_max = 4847/46360
+		proposed15 = 4847/185440
+		p13_saved_max = 4847/46360
+		p6_saved_max = 4847/46360
+		proposed18 = 4847/185440
+		proposed1 = 4847/185440
+		proposed8 = 4847/185440
+		p16_saved_max = 4847/46360
+		proposed21 = 4847/185440
+		proposed11 = 4847/185440
+		p9_saved_max = 4847/46360
+		p19_saved_max = 4847/46360
+		p2_saved_max = 4847/46360
+		proposed4 = 4847/185440
+		proposed24 = 4847/185440
+		p22_saved_max = 4847/46360
+		proposed14 = 4847/185440
+		p12_saved_max = 4847/46360
+		p0_l1 = False
 		p7_l1 = False
 		p7_l0 = False
-		proposed7 = 3/4
-		p15_saved_max = 187/36
+		turn4 = True
+		p0_l0 = False
+		p17_l1 = False
+		turn3 = False
+		p17_l0 = True
+		turn2 = False
+		turn1 = False
+		p20_l1 = False
+		p20_l0 = False
+		turn0 = True
 		p10_l1 = False
 		p10_l0 = False
-		proposed10 = 3/4
-		p18_saved_max = 187/36
-		p1_saved_max = 187/36
+		p3_l1 = False
+		p3_l0 = False
+		id4 = True
+		id3 = False
+		p23_l1 = False
+		p23_l0 = False
+		id2 = False
 		p13_l1 = False
 		p13_l0 = False
-		p21_saved_max = 187/36
-		proposed13 = 3/4
+		id1 = False
+		id0 = True
 		_J3445 = False
 		_J3439 = False
 		_J3433 = False
+		p6_l1 = False
 		_J3427 = False
+		p6_l0 = False
 		p16_l1 = False
 		p16_l0 = False
-		p24_saved_max = 187/36
 		_EL_U_3400 = True
 		_EL_U_3402 = False
-		p4_saved_max = 187/36
 		_EL_U_3405 = True
-		proposed16 = 3/4
 		_EL_U_3407 = False
 		p19_l1 = False
 		p19_l0 = False
-		p2_l1 = False
-		p2_l0 = False
-		p7_saved_max = 187/36
-		proposed19 = 3/4
-		proposed2 = 3/4
-		p22_l1 = False
-		p22_l0 = False
-		proposed22 = 3/4
-		p10_saved_max = 187/36
-		p25_l1 = False
-		p25_l0 = False
-		p5_l1 = False
-		p5_l0 = True
-		proposed25 = 3/4
-		p13_saved_max = 187/36
-		p8_l1 = False
-		p8_l0 = False
-		proposed8 = 3/4
-		p16_saved_max = 187/36
-		p11_l1 = False
-		p11_l0 = False
-		proposed11 = 3/4
-		p19_saved_max = 187/36
-		p2_saved_max = 187/36
-		p14_l1 = False
-		p14_l0 = False
-		p22_saved_max = 187/36
-		proposed14 = 3/4
-		p0_l1 = False
-		p0_l0 = False
-		turn4 = False
-		p17_l1 = False
-		p25_saved_max = 187/36
-		turn3 = False
-		p17_l0 = False
-		proposed0 = 3/4
-		turn2 = True
-		proposed17 = 3/4
-		turn1 = False
-		p20_l1 = False
-		p20_l0 = False
-		turn0 = True
-		proposed20 = 3/4
-		p3_l1 = False
-		p3_l0 = False
-		id4 = False
-		p8_saved_max = 187/36
-		id3 = False
-		proposed3 = 3/4
-		p23_l1 = False
-		id2 = True
-		p23_l0 = False
-		proposed23 = 3/4
-		id1 = False
-		id0 = True
-		p11_saved_max = 187/36
-		p6_l1 = False
-		p6_l0 = False
-		proposed6 = 3/4
-		p14_saved_max = 187/36
 		p9_l1 = False
 		p9_l0 = False
-		proposed9 = 3/4
-		p0_saved_max = 187/36
-		p17_saved_max = 187/36
-		p12_l1 = False
-		p12_l0 = False
-		p20_saved_max = 187/36
-		proposed12 = 3/4
-		p3_saved_max = 187/36
-		p15_l1 = False
-		p15_l0 = False
-		p23_saved_max = 187/36
-		proposed15 = 3/4
-		p18_l1 = False
-		p18_l0 = False
-		p1_l1 = False
-		p1_l0 = False
-		p6_saved_max = 187/36
-		proposed18 = 1/4
-		proposed1 = 3/4
-		p21_l1 = False
-		p21_l0 = False
-		proposed21 = 3/4
-		p9_saved_max = 187/36
-		p4_l1 = False
-		p4_l0 = False
-		inc_max_prop = True
-		p24_l1 = False
-		p24_l0 = False
-		proposed4 = 3/4
-		proposed24 = 3/4
-		p12_saved_max = 187/36
-	Trans 7 -- 8
-		_x_p21_x = (p21_x + 1.0)
-		_x_p17_x = (p17_x + 1.0)
-		_x_p3_x = (p3_x + 1.0)
-		_x_p25_x = (p25_x + 1.0)
-		_x_p6_x = (p6_x + 1.0)
-		_x_p20_x = (p20_x + 1.0)
-		_x_p12_x = (p12_x + 1.0)
-		_x_p4_x = (p4_x + 1.0)
-		_x_p13_x = (p13_x + 1.0)
-		_x_p1_x = (p1_x + 1.0)
-		_x_p7_x = (p7_x + 1.0)
-		_x_p23_x = (p23_x + 1.0)
-		_x_p18_x = (p18_x + 1.0)
-		_x_p24_x = (p24_x + 1.0)
-		_x_p15_x = (p15_x + 1.0)
-		_x_p22_x = (p22_x + 1.0)
-		_x_p8_x = (p8_x + 1.0)
-		_x_p11_x = (p11_x + 1.0)
-		_x_p10_x = (p10_x + 1.0)
-		_x_p2_x = (p2_x + 1.0)
-		_x_p16_x = (p16_x + 1.0)
-		_x_p14_x = (p14_x + 1.0)
-		_x_p9_x = (p9_x + 1.0)
-		_x_p19_x = (p19_x + 1.0)
-		_x_proposed5 = proposed5
-		_x_p5_saved_max = p5_saved_max
-		_x_p0_x = (p0_x + 1.0)
-		_x_max_prop = proposed5
-	State 8
-		_diverge_delta = 1.0
-		delta = 0.0
-		p5_x = 1.0
-		p7_l1 = False
-		p7_l0 = False
-		proposed7 = 3/4
-		p15_saved_max = 187/36
-		p10_l1 = False
-		p10_l0 = False
-		proposed10 = 3/4
-		p18_saved_max = 187/36
-		p1_saved_max = 187/36
-		p13_l1 = False
-		p13_l0 = False
-		p21_saved_max = 187/36
-		proposed13 = 3/4
-		_J3445 = True
-		_J3439 = False
-		_J3433 = True
-		_J3427 = False
-		p16_l1 = False
-		p16_l0 = False
-		p24_saved_max = 187/36
-		_EL_U_3400 = True
-		_EL_U_3402 = False
-		p4_saved_max = 187/36
-		_EL_U_3405 = True
-		proposed16 = 3/4
-		_EL_U_3407 = False
-		p19_l1 = False
-		p19_l0 = False
 		p2_l1 = False
 		p2_l0 = False
-		p7_saved_max = 187/36
-		proposed19 = 3/4
-		proposed2 = 3/4
 		p22_l1 = False
 		p22_l0 = False
-		proposed22 = 3/4
-		p10_saved_max = 187/36
-		p25_l1 = False
-		p25_l0 = False
-		p5_l1 = False
-		p5_l0 = True
-		proposed25 = 3/4
-		p13_saved_max = 187/36
-		p8_l1 = False
-		p8_l0 = False
-		proposed8 = 3/4
-		p16_saved_max = 187/36
-		p11_l1 = False
-		p11_l0 = False
-		proposed11 = 3/4
-		p19_saved_max = 187/36
-		p2_saved_max = 187/36
-		p14_l1 = False
-		p14_l0 = False
-		p22_saved_max = 187/36
-		proposed14 = 3/4
-		p0_l1 = False
-		p0_l0 = False
-		turn4 = False
-		p17_l1 = False
-		p25_saved_max = 187/36
-		turn3 = False
-		p17_l0 = False
-		proposed0 = 3/4
-		turn2 = True
-		proposed17 = 3/4
-		turn1 = False
-		p20_l1 = False
-		p20_l0 = False
-		turn0 = True
-		proposed20 = 3/4
-		p3_l1 = False
-		p3_l0 = False
-		id4 = False
-		p8_saved_max = 187/36
-		id3 = False
-		proposed3 = 3/4
-		p23_l1 = False
-		id2 = True
-		p23_l0 = False
-		proposed23 = 3/4
-		id1 = False
-		id0 = True
-		p11_saved_max = 187/36
-		p6_l1 = False
-		p6_l0 = False
-		proposed6 = 3/4
-		p14_saved_max = 187/36
-		p9_l1 = False
-		p9_l0 = False
-		proposed9 = 3/4
-		p0_saved_max = 187/36
-		p17_saved_max = 187/36
 		p12_l1 = False
 		p12_l0 = False
-		p20_saved_max = 187/36
-		proposed12 = 3/4
-		p3_saved_max = 187/36
-		p15_l1 = False
-		p15_l0 = False
-		p23_saved_max = 187/36
-		proposed15 = 3/4
-		p18_l1 = False
-		p18_l0 = False
-		p1_l1 = False
-		p1_l0 = False
-		p6_saved_max = 187/36
-		proposed18 = 1/4
-		proposed1 = 3/4
-		p21_l1 = False
-		p21_l0 = False
-		proposed21 = 3/4
-		p9_saved_max = 187/36
-		p4_l1 = False
-		p4_l0 = False
-		inc_max_prop = True
-		p24_l1 = False
-		p24_l0 = False
-		proposed4 = 3/4
-		proposed24 = 3/4
-		p12_saved_max = 187/36
-	Trans 8 -- 9
-		_x_p15_x = p15_x
-		_x_p6_x = p6_x
-		_x_p11_x = p11_x
-		_x_p12_x = p12_x
-		_x_p16_x = p16_x
-		_x_p1_x = p1_x
-		_x_p19_x = p19_x
-		_x_p18_x = p18_x
-		_x_p25_x = p25_x
-		_x_p22_x = p22_x
-		_x_p20_x = p20_x
-		_x_p5_saved_max = max_prop
-		_x_p10_x = p10_x
-		_x_p13_x = p13_x
-		_x_p14_x = p14_x
-		_x_p23_x = p23_x
-		_x_p0_x = p0_x
-		_x_p24_x = p24_x
-		_x_p17_x = p17_x
-		_x_p3_x = p3_x
-		_x_p8_x = p8_x
-		_x_p4_x = p4_x
-		_x_p2_x = p2_x
-		_x_p7_x = p7_x
-		_x_p21_x = p21_x
-		_x_p9_x = p9_x
-		_x_proposed5 = proposed5
-		_x_max_prop = proposed5
-	State 9
-		_diverge_delta = 0.0
-		delta = 0.0
-		p5_x = 1.0
-		p7_l1 = False
-		p7_l0 = False
-		proposed7 = 3/4
-		p15_saved_max = 187/36
-		p10_l1 = False
-		p10_l0 = False
-		proposed10 = 3/4
-		p18_saved_max = 187/36
-		p1_saved_max = 187/36
-		p13_l1 = False
-		p13_l0 = False
-		p21_saved_max = 187/36
-		proposed13 = 3/4
-		_J3445 = True
-		_J3439 = True
-		_J3433 = True
-		_J3427 = False
-		p16_l1 = False
-		p16_l0 = False
-		p24_saved_max = 187/36
-		_EL_U_3400 = True
-		_EL_U_3402 = False
-		p4_saved_max = 187/36
-		_EL_U_3405 = True
-		proposed16 = 3/4
-		_EL_U_3407 = False
-		p19_l1 = False
-		p19_l0 = False
-		p2_l1 = False
-		p2_l0 = False
-		p7_saved_max = 187/36
-		proposed19 = 3/4
-		proposed2 = 3/4
-		p22_l1 = False
-		p22_l0 = False
-		proposed22 = 3/4
-		p10_saved_max = 187/36
-		p25_l1 = False
-		p25_l0 = False
-		p5_l1 = True
-		p5_l0 = True
-		proposed25 = 3/4
-		p13_saved_max = 187/36
-		p8_l1 = False
-		p8_l0 = False
-		proposed8 = 3/4
-		p16_saved_max = 187/36
-		p11_l1 = False
-		p11_l0 = False
-		proposed11 = 3/4
-		p19_saved_max = 187/36
-		p2_saved_max = 187/36
-		p14_l1 = False
-		p14_l0 = False
-		p22_saved_max = 187/36
-		proposed14 = 3/4
-		p0_l1 = False
-		p0_l0 = False
-		turn4 = False
-		p17_l1 = False
-		p25_saved_max = 187/36
-		turn3 = False
-		p17_l0 = False
-		proposed0 = 3/4
-		turn2 = True
-		proposed17 = 3/4
-		turn1 = False
-		p20_l1 = False
-		p20_l0 = False
-		turn0 = True
-		proposed20 = 3/4
-		p3_l1 = False
-		p3_l0 = False
-		id4 = False
-		p8_saved_max = 187/36
-		id3 = False
-		proposed3 = 3/4
-		p23_l1 = False
-		id2 = True
-		p23_l0 = False
-		proposed23 = 3/4
-		id1 = False
-		id0 = True
-		p11_saved_max = 187/36
-		p6_l1 = False
-		p6_l0 = False
-		proposed6 = 3/4
-		p14_saved_max = 187/36
-		p9_l1 = False
-		p9_l0 = False
-		proposed9 = 3/4
-		p0_saved_max = 187/36
-		p17_saved_max = 187/36
-		p12_l1 = False
-		p12_l0 = False
-		p20_saved_max = 187/36
-		proposed12 = 3/4
-		p3_saved_max = 187/36
-		p15_l1 = False
-		p15_l0 = False
-		p23_saved_max = 187/36
-		proposed15 = 3/4
-		p18_l1 = False
-		p18_l0 = False
-		p1_l1 = False
-		p1_l0 = False
-		p6_saved_max = 187/36
-		proposed18 = 1/4
-		proposed1 = 3/4
-		p21_l1 = False
-		p21_l0 = False
-		proposed21 = 3/4
-		p9_saved_max = 187/36
-		p4_l1 = False
-		p4_l0 = False
-		inc_max_prop = True
-		p24_l1 = False
-		p24_l0 = False
-		proposed4 = 3/4
-		proposed24 = 3/4
-		p12_saved_max = 187/36
-	Trans 9 -- 10
-		_x_p15_x = p15_x
-		_x_p6_x = p6_x
-		_x_p11_x = p11_x
-		_x_p12_x = p12_x
-		_x_p16_x = p16_x
-		_x_p1_x = p1_x
-		_x_p19_x = p19_x
-		_x_p18_x = p18_x
-		_x_p25_x = p25_x
-		_x_p22_x = p22_x
-		_x_p20_x = p20_x
-		_x_p5_saved_max = max_prop
-		_x_p10_x = p10_x
-		_x_p13_x = p13_x
-		_x_p14_x = p14_x
-		_x_p23_x = p23_x
-		_x_p0_x = p0_x
-		_x_p24_x = p24_x
-		_x_p17_x = p17_x
-		_x_p3_x = p3_x
-		_x_p8_x = p8_x
-		_x_p4_x = p4_x
-		_x_p2_x = p2_x
-		_x_p7_x = p7_x
-		_x_p21_x = p21_x
-		_x_p9_x = p9_x
-		_x_max_prop = _x_proposed5
-		_x_proposed5 = (((p5_saved_max * 1/4) + (proposed5 * 1/4) + 15/32) - (max_prop * 1/8))
-	State 10
-		_diverge_delta = 0.0
-		delta = 0.0
-		p5_x = 1.0
-		p7_l1 = False
-		p7_l0 = False
-		proposed7 = 3/4
-		p15_saved_max = 187/36
-		p10_l1 = False
-		p10_l0 = False
-		proposed10 = 3/4
-		p18_saved_max = 187/36
-		p1_saved_max = 187/36
-		p13_l1 = False
-		p13_l0 = False
-		p21_saved_max = 187/36
-		proposed13 = 3/4
-		_J3445 = True
-		_J3439 = True
-		_J3433 = True
-		_J3427 = False
-		p16_l1 = False
-		p16_l0 = False
-		p24_saved_max = 187/36
-		_EL_U_3400 = True
-		_EL_U_3402 = False
-		p4_saved_max = 187/36
-		_EL_U_3405 = True
-		proposed16 = 3/4
-		_EL_U_3407 = False
-		p19_l1 = False
-		p19_l0 = False
-		p2_l1 = False
-		p2_l0 = False
-		p7_saved_max = 187/36
-		proposed19 = 3/4
-		proposed2 = 3/4
-		p22_l1 = False
-		p22_l0 = False
-		proposed22 = 3/4
-		p10_saved_max = 187/36
 		p25_l1 = False
 		p25_l0 = False
 		p5_l1 = False
 		p5_l0 = False
-		proposed25 = 3/4
-		p13_saved_max = 187/36
-		p8_l1 = False
-		p8_l0 = False
-		proposed8 = 3/4
-		p16_saved_max = 187/36
-		p11_l1 = False
-		p11_l0 = False
-		proposed11 = 3/4
-		p19_saved_max = 187/36
-		p2_saved_max = 187/36
-		p14_l1 = False
-		p14_l0 = False
-		p22_saved_max = 187/36
-		proposed14 = 3/4
-		p0_l1 = False
-		p0_l0 = False
-		turn4 = False
-		p17_l1 = False
-		p25_saved_max = 187/36
-		turn3 = False
-		p17_l0 = False
-		proposed0 = 3/4
-		turn2 = True
-		proposed17 = 3/4
-		turn1 = False
-		p20_l1 = False
-		p20_l0 = False
-		turn0 = True
-		proposed20 = 3/4
-		p3_l1 = False
-		p3_l0 = False
-		id4 = True
-		p8_saved_max = 187/36
-		id3 = True
-		proposed3 = 3/4
-		p23_l1 = False
-		id2 = False
-		p23_l0 = False
-		proposed23 = 3/4
-		id1 = True
-		id0 = False
-		p11_saved_max = 187/36
-		p6_l1 = False
-		p6_l0 = False
-		proposed6 = 3/4
-		p14_saved_max = 187/36
-		p9_l1 = False
-		p9_l0 = False
-		proposed9 = 3/4
-		p0_saved_max = 187/36
-		p17_saved_max = 187/36
-		p12_l1 = False
-		p12_l0 = False
-		p20_saved_max = 187/36
-		proposed12 = 3/4
-		p3_saved_max = 187/36
 		p15_l1 = False
 		p15_l0 = False
-		p23_saved_max = 187/36
-		proposed15 = 3/4
+		p8_l1 = False
+		p8_l0 = False
 		p18_l1 = False
 		p18_l0 = False
 		p1_l1 = False
 		p1_l0 = False
-		p6_saved_max = 187/36
-		proposed18 = 1/4
-		proposed1 = 3/4
 		p21_l1 = False
 		p21_l0 = False
-		proposed21 = 3/4
-		p9_saved_max = 187/36
+		p11_l1 = False
+		p11_l0 = False
+		p4_l1 = False
+		p4_l0 = False
+		inc_max_prop = True
+		p24_l1 = False
+		p24_l0 = False
+		p14_l1 = False
+		p14_l0 = False
+	Trans 7 -- 8
+		_x_p23_x = (p23_x + 1.0)
+		_x_p3_x = (p3_x + 1.0)
+		_x_p16_x = (p16_x + 1.0)
+		_x_p0_x = (p0_x + 1.0)
+		_x_p7_x = (p7_x + 1.0)
+		_x_p24_x = (p24_x + 1.0)
+		_x_p4_x = (p4_x + 1.0)
+		_x_p11_x = (p11_x + 1.0)
+		_x_proposed17 = proposed17
+		_x_p20_x = (p20_x + 1.0)
+		_x_p17_saved_max = p17_saved_max
+		_x_p25_x = (p25_x + 1.0)
+		_x_p13_x = (p13_x + 1.0)
+		_x_p5_x = (p5_x + 1.0)
+		_x_p2_x = (p2_x + 1.0)
+		_x_p9_x = (p9_x + 1.0)
+		_x_p12_x = (p12_x + 1.0)
+		_x_p8_x = (p8_x + 1.0)
+		_x_p1_x = (p1_x + 1.0)
+		_x_p10_x = (p10_x + 1.0)
+		_x_p19_x = (p19_x + 1.0)
+		_x_p21_x = (p21_x + 1.0)
+		_x_p6_x = (p6_x + 1.0)
+		_x_p14_x = (p14_x + 1.0)
+		_x_p15_x = (p15_x + 1.0)
+		_x_p22_x = (p22_x + 1.0)
+		_x_p18_x = (p18_x + 1.0)
+		_x_max_prop = proposed17
+	State 8
+		proposed0 = 4847/185440
+		_diverge_delta = 1.0
+		p5_saved_max = 4847/46360
+		delta = 0.0
+		p25_saved_max = 4847/46360
+		proposed7 = 4847/185440
+		p15_saved_max = 4847/46360
+		p17_x = 1.0
+		proposed20 = 4847/185440
+		proposed10 = 4847/185440
+		p8_saved_max = 4847/46360
+		p18_saved_max = 4847/46360
+		p1_saved_max = 4847/46360
+		proposed3 = 4847/185440
+		proposed23 = 4847/185440
+		p21_saved_max = 4847/46360
+		proposed13 = 4847/185440
+		p11_saved_max = 4847/46360
+		p4_saved_max = 4847/46360
+		proposed6 = 4847/185440
+		p24_saved_max = 4847/46360
+		proposed16 = 4847/185440
+		p14_saved_max = 4847/46360
+		proposed9 = 4847/185440
+		p0_saved_max = 4847/46360
+		p7_saved_max = 4847/46360
+		proposed19 = 4847/185440
+		proposed2 = 4847/185440
+		proposed22 = 4847/185440
+		proposed12 = 4847/185440
+		p10_saved_max = 4847/46360
+		p20_saved_max = 4847/46360
+		p3_saved_max = 4847/46360
+		proposed5 = 4847/185440
+		proposed25 = 4847/185440
+		p23_saved_max = 4847/46360
+		proposed15 = 4847/185440
+		p13_saved_max = 4847/46360
+		p6_saved_max = 4847/46360
+		proposed18 = 4847/185440
+		proposed1 = 4847/185440
+		proposed8 = 4847/185440
+		p16_saved_max = 4847/46360
+		proposed21 = 4847/185440
+		proposed11 = 4847/185440
+		p9_saved_max = 4847/46360
+		p19_saved_max = 4847/46360
+		p2_saved_max = 4847/46360
+		proposed4 = 4847/185440
+		proposed24 = 4847/185440
+		p22_saved_max = 4847/46360
+		proposed14 = 4847/185440
+		p12_saved_max = 4847/46360
+		p0_l1 = False
+		p7_l1 = False
+		p7_l0 = False
+		turn4 = True
+		p0_l0 = False
+		p17_l1 = False
+		turn3 = False
+		p17_l0 = True
+		turn2 = False
+		turn1 = False
+		p20_l1 = False
+		p20_l0 = False
+		turn0 = True
+		p10_l1 = False
+		p10_l0 = False
+		p3_l1 = False
+		p3_l0 = False
+		id4 = True
+		id3 = False
+		p23_l1 = False
+		p23_l0 = False
+		id2 = False
+		p13_l1 = False
+		p13_l0 = False
+		id1 = False
+		id0 = True
+		_J3445 = True
+		_J3439 = False
+		_J3433 = True
+		p6_l1 = False
+		_J3427 = False
+		p6_l0 = False
+		p16_l1 = False
+		p16_l0 = False
+		_EL_U_3400 = True
+		_EL_U_3402 = False
+		_EL_U_3405 = True
+		_EL_U_3407 = False
+		p19_l1 = False
+		p19_l0 = False
+		p9_l1 = False
+		p9_l0 = False
+		p2_l1 = False
+		p2_l0 = False
+		p22_l1 = False
+		p22_l0 = False
+		p12_l1 = False
+		p12_l0 = False
+		p25_l1 = False
+		p25_l0 = False
+		p5_l1 = False
+		p5_l0 = False
+		p15_l1 = False
+		p15_l0 = False
+		p8_l1 = False
+		p8_l0 = False
+		p18_l1 = False
+		p18_l0 = False
+		p1_l1 = False
+		p1_l0 = False
+		p21_l1 = False
+		p21_l0 = False
+		p11_l1 = False
+		p11_l0 = False
+		p4_l1 = False
+		p4_l0 = False
+		inc_max_prop = True
+		p24_l1 = False
+		p24_l0 = False
+		p14_l1 = False
+		p14_l0 = False
+	Trans 8 -- 9
+		_x_p13_x = p13_x
+		_x_p14_x = p14_x
+		_x_p9_x = p9_x
+		_x_p18_x = p18_x
+		_x_p6_x = p6_x
+		_x_p16_x = p16_x
+		_x_p8_x = p8_x
+		_x_proposed17 = proposed17
+		_x_p24_x = p24_x
+		_x_p19_x = p19_x
+		_x_p20_x = p20_x
+		_x_p15_x = p15_x
+		_x_p21_x = p21_x
+		_x_p5_x = p5_x
+		_x_p23_x = p23_x
+		_x_p0_x = p0_x
+		_x_p1_x = p1_x
+		_x_p4_x = p4_x
+		_x_p22_x = p22_x
+		_x_p25_x = p25_x
+		_x_p3_x = p3_x
+		_x_p2_x = p2_x
+		_x_p17_saved_max = max_prop
+		_x_p7_x = p7_x
+		_x_p12_x = p12_x
+		_x_p11_x = p11_x
+		_x_p10_x = p10_x
+		_x_max_prop = proposed17
+	State 9
+		proposed0 = 4847/185440
+		_diverge_delta = 0.0
+		p5_saved_max = 4847/46360
+		delta = 0.0
+		p25_saved_max = 4847/46360
+		proposed7 = 4847/185440
+		p15_saved_max = 4847/46360
+		p17_x = 1.0
+		proposed20 = 4847/185440
+		proposed10 = 4847/185440
+		p8_saved_max = 4847/46360
+		p18_saved_max = 4847/46360
+		p1_saved_max = 4847/46360
+		proposed3 = 4847/185440
+		proposed23 = 4847/185440
+		p21_saved_max = 4847/46360
+		proposed13 = 4847/185440
+		p11_saved_max = 4847/46360
+		p4_saved_max = 4847/46360
+		proposed6 = 4847/185440
+		p24_saved_max = 4847/46360
+		proposed16 = 4847/185440
+		p14_saved_max = 4847/46360
+		proposed9 = 4847/185440
+		p0_saved_max = 4847/46360
+		p7_saved_max = 4847/46360
+		proposed19 = 4847/185440
+		proposed2 = 4847/185440
+		proposed22 = 4847/185440
+		proposed12 = 4847/185440
+		p10_saved_max = 4847/46360
+		p20_saved_max = 4847/46360
+		p3_saved_max = 4847/46360
+		proposed5 = 4847/185440
+		proposed25 = 4847/185440
+		p23_saved_max = 4847/46360
+		proposed15 = 4847/185440
+		p13_saved_max = 4847/46360
+		p6_saved_max = 4847/46360
+		proposed18 = 4847/185440
+		proposed1 = 4847/185440
+		proposed8 = 4847/185440
+		p16_saved_max = 4847/46360
+		proposed21 = 4847/185440
+		proposed11 = 4847/185440
+		p9_saved_max = 4847/46360
+		p19_saved_max = 4847/46360
+		p2_saved_max = 4847/46360
+		proposed4 = 4847/185440
+		proposed24 = 4847/185440
+		p22_saved_max = 4847/46360
+		proposed14 = 4847/185440
+		p12_saved_max = 4847/46360
+		p0_l1 = False
+		p7_l1 = False
+		p7_l0 = False
+		turn4 = True
+		p0_l0 = False
+		p17_l1 = True
+		turn3 = False
+		p17_l0 = True
+		turn2 = False
+		turn1 = False
+		p20_l1 = False
+		p20_l0 = False
+		turn0 = True
+		p10_l1 = False
+		p10_l0 = False
+		p3_l1 = False
+		p3_l0 = False
+		id4 = True
+		id3 = False
+		p23_l1 = False
+		p23_l0 = False
+		id2 = False
+		p13_l1 = False
+		p13_l0 = False
+		id1 = False
+		id0 = True
+		_J3445 = True
+		_J3439 = True
+		_J3433 = True
+		p6_l1 = False
+		_J3427 = False
+		p6_l0 = False
+		p16_l1 = False
+		p16_l0 = False
+		_EL_U_3400 = True
+		_EL_U_3402 = False
+		_EL_U_3405 = True
+		_EL_U_3407 = False
+		p19_l1 = False
+		p19_l0 = False
+		p9_l1 = False
+		p9_l0 = False
+		p2_l1 = False
+		p2_l0 = False
+		p22_l1 = False
+		p22_l0 = False
+		p12_l1 = False
+		p12_l0 = False
+		p25_l1 = False
+		p25_l0 = False
+		p5_l1 = False
+		p5_l0 = False
+		p15_l1 = False
+		p15_l0 = False
+		p8_l1 = False
+		p8_l0 = False
+		p18_l1 = False
+		p18_l0 = False
+		p1_l1 = False
+		p1_l0 = False
+		p21_l1 = False
+		p21_l0 = False
+		p11_l1 = False
+		p11_l0 = False
+		p4_l1 = False
+		p4_l0 = False
+		inc_max_prop = True
+		p24_l1 = False
+		p24_l0 = False
+		p14_l1 = False
+		p14_l0 = False
+	Trans 9 -- 10
+		_x_p13_x = p13_x
+		_x_p14_x = p14_x
+		_x_p9_x = p9_x
+		_x_p18_x = p18_x
+		_x_p6_x = p6_x
+		_x_p16_x = p16_x
+		_x_p8_x = p8_x
+		_x_p24_x = p24_x
+		_x_p19_x = p19_x
+		_x_p20_x = p20_x
+		_x_p15_x = p15_x
+		_x_p21_x = p21_x
+		_x_p5_x = p5_x
+		_x_p23_x = p23_x
+		_x_p0_x = p0_x
+		_x_p1_x = p1_x
+		_x_p4_x = p4_x
+		_x_p22_x = p22_x
+		_x_p25_x = p25_x
+		_x_p3_x = p3_x
+		_x_p2_x = p2_x
+		_x_p17_saved_max = max_prop
+		_x_p7_x = p7_x
+		_x_p12_x = p12_x
+		_x_p11_x = p11_x
+		_x_p10_x = p10_x
+		_x_max_prop = _x_proposed17
+		_x_proposed17 = (((proposed17 * 1/4) + (p17_saved_max * 1/2) + 4847/370880) - (max_prop * 1/4))
+	State 10
+		proposed0 = 4847/185440
+		_diverge_delta = 0.0
+		p5_saved_max = 4847/46360
+		delta = 0.0
+		p25_saved_max = 4847/46360
+		proposed7 = 4847/185440
+		p15_saved_max = 4847/46360
+		p17_x = 1.0
+		proposed20 = 4847/185440
+		proposed10 = 4847/185440
+		p8_saved_max = 4847/46360
+		p18_saved_max = 4847/46360
+		p1_saved_max = 4847/46360
+		proposed3 = 4847/185440
+		proposed23 = 4847/185440
+		p21_saved_max = 4847/46360
+		proposed13 = 4847/185440
+		p11_saved_max = 4847/46360
+		p4_saved_max = 4847/46360
+		proposed6 = 4847/185440
+		p24_saved_max = 4847/46360
+		proposed16 = 4847/185440
+		p14_saved_max = 4847/46360
+		proposed9 = 4847/185440
+		p0_saved_max = 4847/46360
+		p7_saved_max = 4847/46360
+		proposed19 = 4847/185440
+		proposed2 = 4847/185440
+		proposed22 = 4847/185440
+		proposed12 = 4847/185440
+		p10_saved_max = 4847/46360
+		p20_saved_max = 4847/46360
+		p3_saved_max = 4847/46360
+		proposed5 = 4847/185440
+		proposed25 = 4847/185440
+		p23_saved_max = 4847/46360
+		proposed15 = 4847/185440
+		p13_saved_max = 4847/46360
+		p6_saved_max = 4847/46360
+		proposed18 = 4847/185440
+		proposed1 = 4847/185440
+		proposed8 = 4847/185440
+		p16_saved_max = 4847/46360
+		proposed21 = 4847/185440
+		proposed11 = 4847/185440
+		p9_saved_max = 4847/46360
+		p19_saved_max = 4847/46360
+		p2_saved_max = 4847/46360
+		proposed4 = 4847/185440
+		proposed24 = 4847/185440
+		p22_saved_max = 4847/46360
+		proposed14 = 4847/185440
+		p12_saved_max = 4847/46360
+		p0_l1 = False
+		p7_l1 = False
+		p7_l0 = False
+		turn4 = True
+		p0_l0 = False
+		p17_l1 = False
+		turn3 = False
+		p17_l0 = False
+		turn2 = False
+		turn1 = False
+		p20_l1 = False
+		p20_l0 = False
+		turn0 = True
+		p10_l1 = False
+		p10_l0 = False
+		p3_l1 = False
+		p3_l0 = False
+		id4 = True
+		id3 = True
+		p23_l1 = False
+		p23_l0 = False
+		id2 = False
+		p13_l1 = False
+		p13_l0 = False
+		id1 = True
+		id0 = False
+		_J3445 = True
+		_J3439 = True
+		_J3433 = True
+		p6_l1 = False
+		_J3427 = False
+		p6_l0 = False
+		p16_l1 = False
+		p16_l0 = False
+		_EL_U_3400 = True
+		_EL_U_3402 = False
+		_EL_U_3405 = True
+		_EL_U_3407 = False
+		p19_l1 = False
+		p19_l0 = False
+		p9_l1 = False
+		p9_l0 = False
+		p2_l1 = False
+		p2_l0 = False
+		p22_l1 = False
+		p22_l0 = False
+		p12_l1 = False
+		p12_l0 = False
+		p25_l1 = False
+		p25_l0 = False
+		p5_l1 = False
+		p5_l0 = False
+		p15_l1 = False
+		p15_l0 = False
+		p8_l1 = False
+		p8_l0 = False
+		p18_l1 = False
+		p18_l0 = False
+		p1_l1 = False
+		p1_l0 = False
+		p21_l1 = False
+		p21_l0 = False
+		p11_l1 = False
+		p11_l0 = False
 		p4_l1 = False
 		p4_l0 = False
 		inc_max_prop = False
 		p24_l1 = False
 		p24_l0 = False
-		proposed4 = 3/4
-		proposed24 = 3/4
-		p12_saved_max = 187/36
-		(((-1.0 * max_prop) + proposed5) = 0.0)
-		((-1.0 * proposed5) < -3/4)
-		((-1.0 * proposed5) < -1/4)
-		((-1.0 * proposed5) <= -1/4)
-		(proposed5 < 187/36)
-		((-1.0 * proposed5) <= -3/4)
+		p14_l1 = False
+		p14_l0 = False
+		((-1.0 * proposed17) < -4847/185440)
+		((-1.0 * proposed17) <= -4847/185440)
+		(proposed17 < 4847/46360)
+		((-1.0 * proposed17) <= 0.0)
 	Trans 10 -- 11
-		_x_p15_x = p15_x
-		_x_p6_x = p6_x
-		_x_p11_x = p11_x
-		_x_p12_x = p12_x
-		_x_p16_x = p16_x
-		_x_p1_x = p1_x
-		_x_p19_x = p19_x
-		_x_p18_x = p18_x
-		_x_p25_x = p25_x
-		_x_p22_x = p22_x
-		_x_p20_x = p20_x
-		_x_p5_saved_max = max_prop
-		_x_p10_x = p10_x
 		_x_p13_x = p13_x
 		_x_p14_x = p14_x
+		_x_p9_x = p9_x
+		_x_p18_x = p18_x
+		_x_p6_x = p6_x
+		_x_p16_x = p16_x
+		_x_p8_x = p8_x
+		_x_proposed17 = proposed17
+		_x_p24_x = p24_x
+		_x_p19_x = p19_x
+		_x_p20_x = p20_x
+		_x_p15_x = p15_x
+		_x_p21_x = p21_x
+		_x_p5_x = p5_x
 		_x_p23_x = p23_x
 		_x_p0_x = p0_x
-		_x_p24_x = p24_x
-		_x_p17_x = p17_x
-		_x_p3_x = p3_x
-		_x_p8_x = p8_x
+		_x_p1_x = p1_x
 		_x_p4_x = p4_x
+		_x_p22_x = p22_x
+		_x_p25_x = p25_x
+		_x_p3_x = p3_x
 		_x_p2_x = p2_x
+		_x_p17_saved_max = max_prop
 		_x_p7_x = p7_x
-		_x_p21_x = p21_x
-		_x_p9_x = p9_x
-		_x_proposed5 = proposed5
-		_x_max_prop = proposed5
-	starting from: p7_l1 : False, p7_l0 : False, proposed7 : 3/4, _diverge_delta : 0.0, delta : 0.0, p7_x : 187/36, max_prop : 5/4, p18_saved_max : 187/36, p1_saved_max : 187/36, p13_l1 : False, p13_l0 : False, proposed13 : 3/4, p13_x : 187/36, p24_saved_max : 187/36, p19_l1 : False, p19_l0 : False, p2_l1 : False, proposed19 : 3/4, p2_l0 : False, p7_saved_max : 187/36, proposed2 : 3/4, p19_x : 187/36, p2_x : 187/36, p25_l1 : False, p25_l0 : False, proposed25 : 3/4, p25_x : 187/36, p13_saved_max : 187/36, p8_l1 : False, p8_l0 : False, proposed8 : 3/4, p8_x : 187/36, p19_saved_max : 187/36, p2_saved_max : 187/36, p14_l1 : False, p14_l0 : False, proposed14 : 3/4, p14_x : 187/36, turn4 : False, p25_saved_max : 187/36, turn3 : False, turn2 : True, turn1 : False, p20_l1 : False, p20_l0 : False, turn0 : True, proposed20 : 3/4, p8_saved_max : 187/36, p3_l1 : False, p3_l0 : False, p20_x : 187/36, id4 : True, id3 : True, proposed3 : 3/4, id2 : False, p3_x : 187/36, id1 : True, id0 : False, p14_saved_max : 187/36, p9_l1 : False, p9_l0 : False, proposed9 : 3/4, p9_x : 187/36, p20_saved_max : 187/36, p3_saved_max : 187/36, p15_l1 : False, p15_l0 : False, proposed15 : 3/4, p15_x : 187/36, p21_l1 : False, p21_l0 : False, proposed21 : 3/4, p9_saved_max : 187/36, p4_l1 : False, p21_x : 187/36, p4_l0 : False, inc_max_prop : True, proposed4 : 3/4, p4_x : 187/36, p15_saved_max : 187/36, p10_l1 : False, p10_l0 : False, proposed10 : 3/4, p10_x : 187/36, p21_saved_max : 187/36, _J3445 : True, _J3439 : True, _J3433 : True, _J3427 : True, p16_l1 : False, p16_l0 : False, p4_saved_max : 187/36, _EL_U_3400 : True, _EL_U_3402 : False, proposed16 : 3/4, _EL_U_3405 : True, _EL_U_3407 : False, p16_x : 187/36, p22_l1 : False, p22_l0 : False, proposed22 : 3/4, p10_saved_max : 187/36, p22_x : 187/36, p5_l1 : True, p5_l0 : False, proposed5 : 5/4, p5_x : 0.0, p16_saved_max : 187/36, p11_l1 : False, p11_l0 : False, proposed11 : 3/4, p11_x : 187/36, p22_saved_max : 187/36, p0_l1 : False, p0_l0 : False, p17_l1 : False, p17_l0 : False, p5_saved_max : 5/4, proposed0 : 3/4, proposed17 : 3/4, p0_x : 187/36, p17_x : 187/36, p23_l1 : False, p23_l0 : False, proposed23 : 3/4, p23_x : 187/36, p11_saved_max : 187/36, p6_l1 : False, p6_l0 : False, proposed6 : 3/4, p6_x : 187/36, p0_saved_max : 187/36, p17_saved_max : 187/36, p12_l1 : False, p12_l0 : False, proposed12 : 3/4, p12_x : 187/36, p23_saved_max : 187/36, p18_l1 : False, p18_l0 : False, p1_l1 : False, p1_l0 : False, p6_saved_max : 187/36, proposed18 : 1/4, proposed1 : 3/4, p18_x : 187/36, p1_x : 187/36, p24_l1 : False, p24_l0 : False, proposed24 : 3/4, p24_x : 187/36, p12_saved_max : 187/36
+		_x_p12_x = p12_x
+		_x_p11_x = p11_x
+		_x_p10_x = p10_x
+		_x_max_prop = proposed17
+	starting from: p7_l1 : False, p7_l0 : False, proposed7 : 4847/185440, _diverge_delta : 0.0, delta : 0.0, p7_x : 1/2, max_prop : 14541/185440, p18_saved_max : 4847/46360, p1_saved_max : 4847/46360, p13_l1 : False, p13_l0 : False, proposed13 : 4847/185440, p13_x : 1/2, p24_saved_max : 4847/46360, p19_l1 : False, p19_l0 : False, p2_l1 : False, proposed19 : 4847/185440, p2_l0 : False, p7_saved_max : 4847/46360, proposed2 : 4847/185440, p19_x : 1/2, p2_x : 1/2, p25_l1 : False, p25_l0 : False, proposed25 : 4847/185440, p25_x : 1/2, p13_saved_max : 4847/46360, p8_l1 : False, p8_l0 : False, proposed8 : 4847/185440, p8_x : 1/2, p19_saved_max : 4847/46360, p2_saved_max : 4847/46360, p14_l1 : False, p14_l0 : False, proposed14 : 4847/185440, p14_x : 1/2, turn4 : True, p25_saved_max : 4847/46360, turn3 : False, turn2 : False, turn1 : False, p20_l1 : False, p20_l0 : False, turn0 : True, proposed20 : 4847/185440, p8_saved_max : 4847/46360, p3_l1 : False, p3_l0 : False, p20_x : 1/2, id4 : True, id3 : True, proposed3 : 4847/185440, id2 : False, p3_x : 1/2, id1 : True, id0 : False, p14_saved_max : 4847/46360, p9_l1 : False, p9_l0 : False, proposed9 : 4847/185440, p9_x : 1/2, p20_saved_max : 4847/46360, p3_saved_max : 4847/46360, p15_l1 : False, p15_l0 : False, proposed15 : 4847/185440, p15_x : 1/2, p21_l1 : False, p21_l0 : False, proposed21 : 4847/185440, p9_saved_max : 4847/46360, p4_l1 : False, p21_x : 1/2, p4_l0 : False, inc_max_prop : True, proposed4 : 4847/185440, p4_x : 1/2, p15_saved_max : 4847/46360, p10_l1 : False, p10_l0 : False, proposed10 : 4847/185440, p10_x : 1/2, p21_saved_max : 4847/46360, _J3445 : True, _J3439 : True, _J3433 : True, _J3427 : True, p16_l1 : False, p16_l0 : False, p4_saved_max : 4847/46360, _EL_U_3400 : True, _EL_U_3402 : False, proposed16 : 4847/185440, _EL_U_3405 : True, _EL_U_3407 : False, p16_x : 1/2, p22_l1 : False, p22_l0 : False, proposed22 : 4847/185440, p10_saved_max : 4847/46360, p22_x : 1/2, p5_l1 : False, p5_l0 : False, proposed5 : 4847/185440, p5_x : 1/2, p16_saved_max : 4847/46360, p11_l1 : False, p11_l0 : False, proposed11 : 4847/185440, p11_x : 1/2, p22_saved_max : 4847/46360, p0_l1 : False, p0_l0 : False, p17_l1 : True, p17_l0 : False, p5_saved_max : 4847/46360, proposed0 : 4847/185440, proposed17 : 14541/185440, p0_x : 1/2, p17_x : 0.0, p23_l1 : False, p23_l0 : False, proposed23 : 4847/185440, p23_x : 1/2, p11_saved_max : 4847/46360, p6_l1 : False, p6_l0 : False, proposed6 : 4847/185440, p6_x : 1/2, p0_saved_max : 4847/46360, p17_saved_max : 14541/185440, p12_l1 : False, p12_l0 : False, proposed12 : 4847/185440, p12_x : 1/2, p23_saved_max : 4847/46360, p18_l1 : False, p18_l0 : False, p1_l1 : False, p1_l0 : False, p6_saved_max : 4847/46360, proposed18 : 4847/185440, proposed1 : 4847/185440, p18_x : 1/2, p1_x : 1/2, p24_l1 : False, p24_l0 : False, proposed24 : 4847/185440, p24_x : 1/2, p12_saved_max : 4847/46360
 
-end of `dynamic_fischer_0026`: SUCCESS in 3037.052057504654s
+end of `dynamic_fischer_0026`: SUCCESS in 1160.32168507576s

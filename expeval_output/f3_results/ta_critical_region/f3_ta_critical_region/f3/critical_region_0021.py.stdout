@@ -2,6 +2,7 @@ F3 run `critical_region_0021`
 
 	Found non-termination argument:
 	State 1
+		id = 19
 		pc12_l0 = False
 		pc12_l2 = False
 		c_initial = True
@@ -9,20 +10,20 @@ F3 run `critical_region_0021`
 		pc19_l0 = False
 		pc19_l2 = False
 		a14_l = False
-		pc20_evt1 = False
-		pc20_evt0 = False
+		pc20_evt1 = True
+		pc20_evt0 = True
 		a20_evt1 = False
 		a20_evt0 = True
-		pc19_evt1 = False
+		pc19_evt1 = True
 		a0_l = False
-		pc19_evt0 = False
+		pc19_evt0 = True
 		a19_evt1 = False
 		a19_evt0 = True
 		a15_l = False
 		pc2_l1 = False
-		pc18_evt1 = False
+		pc18_evt1 = True
 		pc2_l0 = False
-		pc18_evt0 = False
+		pc18_evt0 = True
 		pc2_l2 = False
 		a18_evt1 = False
 		a18_evt0 = True
@@ -43,45 +44,45 @@ F3 run `critical_region_0021`
 		a16_evt1 = False
 		a16_evt0 = True
 		pc15_evt1 = False
-		pc15_evt0 = False
+		pc15_evt0 = True
 		a15_evt1 = False
 		a15_evt0 = True
 		a2_l = False
-		pc14_evt1 = False
-		pc14_evt0 = False
+		pc14_evt1 = True
+		pc14_evt0 = True
 		a14_evt1 = False
 		a17_l = False
 		a14_evt0 = True
 		pc6_l1 = False
-		pc13_evt1 = False
+		pc13_evt1 = True
 		pc6_l0 = False
-		pc13_evt0 = False
+		pc13_evt0 = True
 		pc6_l2 = False
-		a13_evt1 = False
-		a13_evt0 = True
+		a13_evt1 = True
+		a13_evt0 = False
 		a3_l = False
 		pc13_l1 = False
 		pc13_l0 = False
 		pc13_l2 = False
-		pc12_evt1 = False
-		pc12_evt0 = False
+		pc12_evt1 = True
+		pc12_evt0 = True
 		a12_evt1 = False
 		a12_evt0 = True
 		pc20_l1 = False
 		a18_l = False
 		pc20_l0 = False
 		pc20_l2 = False
-		pc11_evt1 = False
-		pc11_evt0 = False
+		pc11_evt1 = True
+		pc11_evt0 = True
 		a11_evt1 = False
 		a11_evt0 = True
 		a4_l = False
-		pc10_evt1 = False
-		pc10_evt0 = False
+		pc10_evt1 = True
+		pc10_evt0 = True
 		a10_evt1 = False
 		a10_evt0 = True
 		a19_l = False
-		pc9_evt1 = False
+		pc9_evt1 = True
 		pc9_evt0 = False
 		pc3_l1 = False
 		a9_evt1 = False
@@ -89,28 +90,28 @@ F3 run `critical_region_0021`
 		a9_evt0 = True
 		pc3_l2 = False
 		pc10_l1 = False
-		pc8_evt1 = False
+		pc8_evt1 = True
 		pc10_l0 = False
 		a5_l = False
 		pc10_l2 = False
-		pc8_evt0 = False
+		pc8_evt0 = True
 		a8_evt1 = False
 		a8_evt0 = True
 		pc17_l1 = False
 		pc17_l0 = False
 		a20_l = False
 		pc17_l2 = False
-		pc7_evt1 = False
-		pc7_evt0 = False
+		pc7_evt1 = True
+		pc7_evt0 = True
 		a7_evt1 = False
 		a7_evt0 = True
 		_J4945 = True
 		_J4939 = True
 		_J4932 = True
 		_J4923 = True
-		pc6_evt1 = False
+		pc6_evt1 = True
 		_J4917 = True
-		pc6_evt0 = False
+		pc6_evt0 = True
 		a6_l = False
 		a6_evt1 = False
 		_EL_U_4884 = True
@@ -118,16 +119,16 @@ F3 run `critical_region_0021`
 		_EL_U_4886 = False
 		_EL_U_4889 = False
 		_EL_U_4891 = False
-		pc5_evt1 = False
+		pc5_evt1 = True
 		pc0_l1 = False
-		pc5_evt0 = False
+		pc5_evt0 = True
 		pc0_l0 = False
 		a5_evt1 = False
 		pc0_l2 = False
 		a5_evt0 = True
 		_EL_U_4893 = True
-		pc4_evt1 = False
-		pc4_evt0 = False
+		pc4_evt1 = True
+		pc4_evt0 = True
 		pc7_l1 = False
 		a4_evt1 = False
 		pc7_l0 = False
@@ -135,30 +136,30 @@ F3 run `critical_region_0021`
 		pc7_l2 = False
 		a4_evt0 = True
 		pc14_l1 = False
-		pc3_evt1 = False
+		pc3_evt1 = True
 		pc14_l0 = False
-		pc3_evt0 = False
+		pc3_evt0 = True
 		pc14_l2 = False
 		a3_evt1 = False
 		a3_evt0 = True
-		pc2_evt1 = False
-		pc2_evt0 = False
+		pc2_evt1 = True
+		pc2_evt0 = True
 		a2_evt1 = False
 		a2_evt0 = True
 		a8_l = False
-		pc1_evt1 = False
-		pc1_evt0 = False
+		pc1_evt1 = True
+		pc1_evt0 = True
 		a1_evt1 = False
 		a1_evt0 = True
-		pc0_evt1 = False
-		pc0_evt0 = False
+		pc0_evt1 = True
+		pc0_evt0 = True
 		a0_evt1 = False
 		a0_evt0 = True
 		pc4_l1 = False
 		pc4_l0 = False
 		pc4_l2 = False
 		a9_l = False
-		c_move = False
+		c_move = True
 		pc11_l1 = False
 		pc11_l0 = False
 		pc11_l2 = False
@@ -176,28 +177,22 @@ F3 run `critical_region_0021`
 		pc15_l1 = False
 		pc15_l0 = False
 		pc15_l2 = False
-		id = 3
 		a12_l = False
 		a13_l = False
 		pc5_l1 = False
 		pc5_l0 = False
 		pc5_l2 = False
 		pc12_l1 = False
-		((-1.0 * pc10_x) < -50.0)
-		((-1.0 * pc18_x) < -50.0)
-		((-1.0 * pc12_x) < -50.0)
-		((-1.0 * pc13_x) < -50.0)
-		((-1.0 * pc14_x) < -50.0)
 		((-1.0 * pc0_x) < -50.0)
-		((-1.0 * pc11_x) < -50.0)
-		((-1.0 * delta) <= -1.0)
-		((-1.0 * _diverge_delta) <= -1.0)
 		(((-1.0 * delta) + _diverge_delta) < 0.0)
+		((-1.0 * pc4_x) <= -50.0)
 		((-1.0 * pc1_x) < -50.0)
-		((-1.0 * pc15_x) < -50.0)
 		((-1.0 * pc2_x) < -50.0)
+		((-1.0 * pc15_x) < -50.0)
 		((-1.0 * pc16_x) < -50.0)
 		((-1.0 * pc3_x) < -50.0)
+		((-1.0 * delta) <= -1.0)
+		((-1.0 * _diverge_delta) <= -1.0)
 		((-1.0 * pc17_x) < -50.0)
 		((-1.0 * pc4_x) < -50.0)
 		((-1.0 * pc5_x) < -50.0)
@@ -207,16 +202,25 @@ F3 run `critical_region_0021`
 		((-1.0 * pc9_x) < -50.0)
 		((-1.0 * pc20_x) < -50.0)
 		((-1.0 * pc7_x) < -50.0)
+		((-1.0 * pc10_x) < -50.0)
+		((-1.0 * pc18_x) < -50.0)
+		((-1.0 * pc11_x) < -50.0)
+		((-1.0 * pc12_x) < -50.0)
+		((-1.0 * pc13_x) < -50.0)
+		((-1.0 * pc14_x) < -50.0)
 	Trans 1 -- 2
+		_x_pc10_x = (pc10_x + delta)
+		_x__diverge_delta = delta
+		_x_pc20_x = (pc20_x + delta)
 		_x_pc9_x = (pc9_x + delta)
 		_x_pc6_x = (pc6_x + delta)
 		_x_pc19_x = (pc19_x + delta)
-		_x_pc8_x = (pc8_x + delta)
 		_x_pc5_x = (pc5_x + delta)
 		_x_pc18_x = (pc18_x + delta)
 		_x_pc7_x = (pc7_x + delta)
-		_x_pc17_x = (delta + pc17_x)
+		_x_pc8_x = (pc8_x + delta)
 		_x_pc4_x = (pc4_x + delta)
+		_x_pc17_x = (delta + pc17_x)
 		_x_pc3_x = (pc3_x + delta)
 		_x_pc16_x = (pc16_x + delta)
 		_x_pc2_x = (pc2_x + delta)
@@ -227,11 +231,9 @@ F3 run `critical_region_0021`
 		_x_pc13_x = (pc13_x + delta)
 		_x_pc12_x = (pc12_x + delta)
 		_x_pc11_x = (delta + pc11_x)
-		_x__diverge_delta = delta
-		_x_pc10_x = (pc10_x + delta)
-		_x_pc20_x = (pc20_x + delta)
-		_x_delta = (pc14_x + delta + pc8_x + (pc10_x * 21/20))
+		_x_delta = (pc15_x + (pc19_x * 203/204) + pc4_x)
 	State 2
+		id = 19
 		pc12_l0 = False
 		pc12_l2 = False
 		c_initial = True
@@ -269,7 +271,7 @@ F3 run `critical_region_0021`
 		pc16_l2 = False
 		pc16_evt1 = True
 		a16_l = False
-		pc16_evt0 = False
+		pc16_evt0 = True
 		a16_evt1 = False
 		a16_evt0 = False
 		pc15_evt1 = False
@@ -374,7 +376,7 @@ F3 run `critical_region_0021`
 		pc2_evt1 = True
 		pc2_evt0 = True
 		a2_evt1 = False
-		a2_evt0 = True
+		a2_evt0 = False
 		a8_l = False
 		pc1_evt1 = True
 		pc1_evt0 = False
@@ -388,7 +390,7 @@ F3 run `critical_region_0021`
 		pc4_l0 = False
 		pc4_l2 = False
 		a9_l = False
-		c_move = False
+		c_move = True
 		pc11_l1 = False
 		pc11_l0 = False
 		pc11_l2 = False
@@ -406,45 +408,49 @@ F3 run `critical_region_0021`
 		pc15_l1 = False
 		pc15_l0 = False
 		pc15_l2 = False
-		id = 3
 		a12_l = False
 		a13_l = False
 		pc5_l1 = False
 		pc5_l0 = False
 		pc5_l2 = False
 		pc12_l1 = False
+		(((-1.0 * pc12_x) + (-1.0 * delta)) < -50.0)
+		(((-1.0 * pc6_x) + (-1.0 * delta)) < -50.0)
+		(((-1.0 * pc16_x) + (-1.0 * delta)) < -50.0)
+		(((-1.0 * pc13_x) + (-1.0 * delta)) < -50.0)
+		(((-1.0 * pc9_x) + (-1.0 * delta)) < -50.0)
 		(((-1.0 * pc3_x) + (-1.0 * delta)) < -50.0)
+		((-1.0 * delta) <= -1.0)
+		(((-1.0 * pc14_x) + (-1.0 * delta)) < -50.0)
 		(((-1.0 * pc0_x) + (-1.0 * delta)) < -50.0)
 		(((-1.0 * pc20_x) + (-1.0 * delta)) < -50.0)
+		((-1.0 * delta) < 0.0)
 		(((-1.0 * pc17_x) + (-1.0 * delta)) < -50.0)
-		(((-1.0 * pc11_x) + (-1.0 * delta)) < -50.0)
-		((-1.0 * delta) <= -1.0)
 		(((-1.0 * pc7_x) + (-1.0 * delta)) < -50.0)
 		(((-1.0 * pc4_x) + (-1.0 * delta)) < -50.0)
+		(((-1.0 * pc4_x) + (-1.0 * delta)) <= -50.0)
 		(((-1.0 * pc10_x) + (-1.0 * delta)) < -50.0)
 		(((-1.0 * pc5_x) + (-1.0 * delta)) < -50.0)
 		(((-1.0 * pc1_x) + (-1.0 * delta)) < -50.0)
 		(((-1.0 * pc18_x) + (-1.0 * delta)) < -50.0)
 		(((-1.0 * pc8_x) + (-1.0 * delta)) < -50.0)
-		(((-1.0 * pc15_x) + (-1.0 * delta)) < -50.0)
-		(((-1.0 * pc12_x) + (-1.0 * delta)) < -50.0)
-		(((-1.0 * pc19_x) + (-1.0 * delta)) < -50.0)
 		(((-1.0 * pc2_x) + (-1.0 * delta)) < -50.0)
-		(((-1.0 * pc13_x) + (-1.0 * delta)) < -50.0)
-		(((-1.0 * pc6_x) + (-1.0 * delta)) < -50.0)
-		(((-1.0 * pc16_x) + (-1.0 * delta)) < -50.0)
-		(((-1.0 * pc14_x) + (-1.0 * delta)) < -50.0)
-		(((-1.0 * pc9_x) + (-1.0 * delta)) < -50.0)
+		(((-1.0 * pc11_x) + (-1.0 * delta)) < -50.0)
+		(((-1.0 * pc19_x) + (-1.0 * delta)) < -50.0)
+		(((-1.0 * pc15_x) + (-1.0 * delta)) < -50.0)
 	Trans 2 -- 3
+		_x_pc10_x = (pc10_x + delta)
+		_x__diverge_delta = delta
+		_x_pc20_x = (pc20_x + delta)
 		_x_pc9_x = (pc9_x + delta)
 		_x_pc6_x = (pc6_x + delta)
 		_x_pc19_x = (pc19_x + delta)
-		_x_pc8_x = (pc8_x + delta)
 		_x_pc5_x = (pc5_x + delta)
 		_x_pc18_x = (pc18_x + delta)
 		_x_pc7_x = (pc7_x + delta)
-		_x_pc17_x = (delta + pc17_x)
+		_x_pc8_x = (pc8_x + delta)
 		_x_pc4_x = (pc4_x + delta)
+		_x_pc17_x = (delta + pc17_x)
 		_x_pc3_x = (pc3_x + delta)
 		_x_pc16_x = (pc16_x + delta)
 		_x_pc2_x = (pc2_x + delta)
@@ -455,10 +461,7 @@ F3 run `critical_region_0021`
 		_x_pc13_x = (pc13_x + delta)
 		_x_pc12_x = (pc12_x + delta)
 		_x_pc11_x = (delta + pc11_x)
-		_x__diverge_delta = delta
-		_x_pc10_x = (pc10_x + delta)
-		_x_pc20_x = (pc20_x + delta)
-		_x_delta = ((pc14_x * 1/10) + (pc11_x * 1/10) + (delta * 41/20) + (pc8_x * 1/10) + (pc20_x * 1/10) + 1.0)
-	starting from: pc12_l0 : False, pc12_l2 : False, c_initial : True, _diverge_delta : 26326/3, delta : 131030/3, pc19_l1 : False, pc19_l0 : False, pc19_l2 : False, pc5_x : 26326/3, a14_l : False, pc20_evt1 : False, pc20_evt0 : False, a20_evt1 : False, a20_evt0 : True, pc12_x : 26326/3, pc19_evt1 : False, pc19_x : 26326/3, pc19_evt0 : False, a0_l : False, a19_evt1 : False, a19_evt0 : True, a15_l : False, pc2_l1 : False, pc18_evt1 : False, pc2_l0 : False, pc18_evt0 : False, pc2_l2 : False, a18_evt1 : False, a18_evt0 : True, pc9_l1 : False, pc9_l0 : False, pc9_l2 : False, pc17_evt1 : False, pc17_evt0 : False, a17_evt1 : False, a1_l : False, a17_evt0 : True, pc16_l1 : False, pc16_l0 : False, pc16_l2 : False, pc2_x : 26326/3, pc16_evt1 : True, a16_l : False, pc16_evt0 : True, a16_evt1 : False, a16_evt0 : True, pc9_x : 26326/3, pc15_evt1 : False, pc15_evt0 : False, a15_evt1 : False, pc16_x : 26326/3, a15_evt0 : True, a2_l : False, pc14_evt1 : False, pc14_evt0 : False, a17_l : False, a14_evt1 : False, a14_evt0 : True, pc6_l1 : False, pc13_evt1 : False, pc6_l0 : False, pc13_evt0 : False, pc6_l2 : False, a13_evt1 : False, a13_evt0 : True, a3_l : False, pc13_l1 : False, pc13_l0 : False, pc13_l2 : False, pc12_evt1 : False, pc12_evt0 : False, a12_evt1 : False, a12_evt0 : True, pc20_l1 : False, a18_l : False, pc20_l0 : False, pc20_l2 : False, pc6_x : 26326/3, pc11_evt1 : False, pc11_evt0 : False, a11_evt1 : False, a11_evt0 : True, pc13_x : 26326/3, a4_l : False, pc10_evt1 : False, pc10_evt0 : False, a10_evt1 : False, pc20_x : 26326/3, a10_evt0 : True, a19_l : False, pc9_evt1 : False, pc9_evt0 : False, pc3_l1 : False, a9_evt1 : False, pc3_l0 : False, a9_evt0 : True, pc3_l2 : False, pc10_l1 : False, pc8_evt1 : False, pc10_l0 : False, a5_l : False, pc10_l2 : False, pc8_evt0 : False, a8_evt1 : False, a8_evt0 : True, pc17_l1 : False, pc17_l0 : False, a20_l : False, pc17_l2 : False, pc7_evt1 : False, pc3_x : 26326/3, pc7_evt0 : False, a7_evt1 : False, a7_evt0 : True, _J4945 : True, _J4939 : True, pc10_x : 26326/3, _J4932 : True, _J4923 : True, pc6_evt1 : False, _J4917 : True, pc6_evt0 : False, a6_l : False, a6_evt1 : False, _EL_U_4884 : True, a6_evt0 : True, _EL_U_4886 : False, _EL_U_4889 : False, pc17_x : 26326/3, _EL_U_4891 : False, pc5_evt1 : False, pc0_l1 : False, pc5_evt0 : False, pc0_l0 : False, a5_evt1 : False, pc0_l2 : False, a5_evt0 : True, _EL_U_4893 : True, pc4_evt1 : False, pc4_evt0 : False, pc7_l1 : False, a4_evt1 : False, pc7_l0 : False, a7_l : False, pc7_l2 : False, a4_evt0 : True, pc14_l1 : False, pc3_evt1 : False, pc14_l0 : False, pc0_x : 26326/3, pc14_l2 : False, pc3_evt0 : False, a3_evt1 : False, a3_evt0 : True, pc2_evt1 : False, pc7_x : 26326/3, pc2_evt0 : False, a2_evt1 : False, a2_evt0 : True, a8_l : False, pc14_x : 26326/3, pc1_evt1 : False, pc1_evt0 : False, a1_evt1 : False, a1_evt0 : True, pc0_evt1 : False, pc0_evt0 : False, a0_evt1 : False, a0_evt0 : True, pc4_l1 : False, pc4_l0 : False, pc4_l2 : False, a9_l : False, c_move : False, pc11_l1 : False, pc11_l0 : False, pc11_l2 : False, pc18_l1 : False, pc18_l0 : False, pc18_l2 : False, pc4_x : 26326/3, a10_l : False, pc11_x : 26326/3, pc18_x : 26326/3, pc1_l1 : False, pc1_l0 : False, pc1_l2 : False, a11_l : False, pc8_l1 : False, pc8_l0 : False, pc8_l2 : False, pc15_l1 : False, pc15_l0 : False, pc15_l2 : False, id : 3, pc1_x : 26326/3, pc8_x : 26326/3, a12_l : False, pc15_x : 26326/3, a13_l : False, pc5_l1 : False, pc5_l0 : False, pc5_l2 : False, pc12_l1 : False
+		_x_delta = (delta + (pc10_x * 413/21012) + -413/412)
+	starting from: pc12_l0 : False, pc12_l2 : False, c_initial : True, _diverge_delta : 107935/1998, delta : 57985/999, pc19_l1 : False, pc19_l0 : False, pc19_l2 : False, pc5_x : 107935/1998, a14_l : False, pc20_evt1 : True, pc20_evt0 : True, a20_evt1 : False, a20_evt0 : True, pc12_x : 107935/1998, pc19_evt1 : True, pc19_x : 107935/1998, pc19_evt0 : True, a0_l : False, a19_evt1 : False, a19_evt0 : True, a15_l : False, pc2_l1 : False, pc18_evt1 : True, pc2_l0 : False, pc18_evt0 : True, pc2_l2 : False, a18_evt1 : False, a18_evt0 : True, pc9_l1 : False, pc9_l0 : False, pc9_l2 : False, pc17_evt1 : False, pc17_evt0 : False, a17_evt1 : False, a1_l : False, a17_evt0 : True, pc16_l1 : False, pc16_l0 : False, pc16_l2 : False, pc2_x : 107935/1998, pc16_evt1 : True, a16_l : False, pc16_evt0 : True, a16_evt1 : False, a16_evt0 : True, pc9_x : 107935/1998, pc15_evt1 : False, pc15_evt0 : True, a15_evt1 : False, pc16_x : 107935/1998, a15_evt0 : True, a2_l : False, pc14_evt1 : True, pc14_evt0 : True, a17_l : False, a14_evt1 : False, a14_evt0 : True, pc6_l1 : False, pc13_evt1 : True, pc6_l0 : False, pc13_evt0 : True, pc6_l2 : False, a13_evt1 : True, a13_evt0 : False, a3_l : False, pc13_l1 : False, pc13_l0 : False, pc13_l2 : False, pc12_evt1 : True, pc12_evt0 : True, a12_evt1 : False, a12_evt0 : True, pc20_l1 : False, a18_l : False, pc20_l0 : False, pc20_l2 : False, pc6_x : 107935/1998, pc11_evt1 : True, pc11_evt0 : True, a11_evt1 : False, a11_evt0 : True, pc13_x : 107935/1998, a4_l : False, pc10_evt1 : True, pc10_evt0 : True, a10_evt1 : False, pc20_x : 107935/1998, a10_evt0 : True, a19_l : False, pc9_evt1 : True, pc9_evt0 : False, pc3_l1 : False, a9_evt1 : False, pc3_l0 : False, a9_evt0 : True, pc3_l2 : False, pc10_l1 : False, pc8_evt1 : True, pc10_l0 : False, a5_l : False, pc10_l2 : False, pc8_evt0 : True, a8_evt1 : False, a8_evt0 : True, pc17_l1 : False, pc17_l0 : False, a20_l : False, pc17_l2 : False, pc7_evt1 : True, pc3_x : 107935/1998, pc7_evt0 : True, a7_evt1 : False, a7_evt0 : True, _J4945 : True, _J4939 : True, pc10_x : 107935/1998, _J4932 : True, _J4923 : True, pc6_evt1 : True, _J4917 : True, pc6_evt0 : True, a6_l : False, a6_evt1 : False, _EL_U_4884 : True, a6_evt0 : True, _EL_U_4886 : False, _EL_U_4889 : False, pc17_x : 107935/1998, _EL_U_4891 : False, pc5_evt1 : True, pc0_l1 : False, pc5_evt0 : True, pc0_l0 : False, a5_evt1 : False, pc0_l2 : False, a5_evt0 : True, _EL_U_4893 : True, pc4_evt1 : True, pc4_evt0 : True, pc7_l1 : False, a4_evt1 : False, pc7_l0 : False, a7_l : False, pc7_l2 : False, a4_evt0 : True, pc14_l1 : False, pc3_evt1 : True, pc14_l0 : False, pc0_x : 107935/1998, pc14_l2 : False, pc3_evt0 : True, a3_evt1 : False, a3_evt0 : True, pc2_evt1 : True, pc7_x : 107935/1998, pc2_evt0 : True, a2_evt1 : False, a2_evt0 : True, a8_l : False, pc14_x : 107935/1998, pc1_evt1 : True, pc1_evt0 : True, a1_evt1 : False, a1_evt0 : True, pc0_evt1 : True, pc0_evt0 : True, a0_evt1 : False, a0_evt0 : True, pc4_l1 : False, pc4_l0 : False, pc4_l2 : False, a9_l : False, c_move : True, pc11_l1 : False, pc11_l0 : False, pc11_l2 : False, pc18_l1 : False, pc18_l0 : False, pc18_l2 : False, pc4_x : 107935/1998, a10_l : False, pc11_x : 107935/1998, pc18_x : 107935/1998, pc1_l1 : False, pc1_l0 : False, pc1_l2 : False, a11_l : False, pc8_l1 : False, pc8_l0 : False, pc8_l2 : False, pc15_l1 : False, pc15_l0 : False, pc15_l2 : False, id : 19, pc1_x : 107935/1998, pc8_x : 107935/1998, a12_l : False, pc15_x : 107935/1998, a13_l : False, pc5_l1 : False, pc5_l0 : False, pc5_l2 : False, pc12_l1 : False
 
-end of `critical_region_0021`: SUCCESS in 50.455242395401s
+end of `critical_region_0021`: SUCCESS in 46.42912793159485s

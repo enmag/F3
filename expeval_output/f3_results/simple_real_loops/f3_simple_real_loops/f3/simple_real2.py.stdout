@@ -12,4 +12,4 @@ F3 run `simple_real2`
 		_x_x = ((-1.0 * x) + 29/27)
 	starting from: b : True, x : 1.0
 
-end of `simple_real2`: SUCCESS in 0.9867808818817139s
+end of `simple_real2`: SUCCESS in 0.9579215049743652s

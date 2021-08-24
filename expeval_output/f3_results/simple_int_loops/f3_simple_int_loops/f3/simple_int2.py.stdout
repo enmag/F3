@@ -5,11 +5,11 @@ F3 run `simple_int2`
 		b = True
 		((-1 * x) <= 0)
 	Trans 0 -- 1
-		_x_x = (-2 - (x * 2))
+		_x_x = ((-1 * x) + -2)
 	State 1
 		b = False
 	Trans 1 -- 2
-		_x_x = ((-1 * x) + 2)
+		_x_x = (-1 * (x * 2))
 	starting from: b : True, x : 1
 
-end of `simple_int2`: SUCCESS in 1.7154755592346191s
+end of `simple_int2`: SUCCESS in 1.519869327545166s

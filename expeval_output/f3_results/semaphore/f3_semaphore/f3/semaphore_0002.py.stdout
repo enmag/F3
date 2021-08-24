@@ -2,7 +2,10 @@ F3 run `semaphore_0002`
 
 	Found non-termination argument:
 	State 2
+		sm0_loop_len = 1
 		run = -1
+		sm1_loop_len = 1
+		semaphore = 0
 		_J218 = True
 		sm1_state = True
 		_J212 = True
@@ -12,14 +15,11 @@ F3 run `semaphore_0002`
 		_J194 = True
 		_J188 = True
 		_EL_U_150 = True
-		semaphore = 0
 		_EL_U_152 = False
 		_EL_U_154 = True
-		sm0_loop_len = 1
 		_EL_U_156 = False
 		_EL_U_160 = True
 		_EL_U_162 = False
-		sm1_loop_len = 1
 		(sm0_l < 0)
 		(sm0_l < 6)
 		(sm0_l < 3)
@@ -31,7 +31,10 @@ F3 run `semaphore_0002`
 		_x_sm1_l = (sm1_l + -1)
 		_x_sm0_l = (sm0_l + -1)
 	State 3
+		sm0_loop_len = 1
 		run = 0
+		sm1_loop_len = 1
+		semaphore = 0
 		_J218 = False
 		sm1_state = True
 		_J212 = False
@@ -41,19 +44,19 @@ F3 run `semaphore_0002`
 		_J194 = False
 		_J188 = False
 		_EL_U_150 = True
-		semaphore = 0
 		_EL_U_152 = False
 		_EL_U_154 = True
-		sm0_loop_len = 1
 		_EL_U_156 = False
 		_EL_U_160 = True
 		_EL_U_162 = False
-		sm1_loop_len = 1
 	Trans 3 -- 4
 		_x_sm1_l = (sm1_l + -1)
 		_x_sm0_l = (sm0_l + -1)
 	State 4
+		sm0_loop_len = 1
 		run = 1
+		sm1_loop_len = 1
+		semaphore = 0
 		_J218 = True
 		sm1_state = True
 		_J212 = False
@@ -63,17 +66,14 @@ F3 run `semaphore_0002`
 		_J194 = True
 		_J188 = True
 		_EL_U_150 = True
-		semaphore = 0
 		_EL_U_152 = False
 		_EL_U_154 = True
-		sm0_loop_len = 1
 		_EL_U_156 = False
 		_EL_U_160 = True
 		_EL_U_162 = False
-		sm1_loop_len = 1
 	Trans 4 -- 5
 		_x_sm1_l = (sm1_l + -1)
 		_x_sm0_l = (sm0_l + -1)
 	starting from: _J218 : True, sm1_state : True, _J212 : True, run : -1, _J206 : True, _J200 : True, _J194 : True, _J188 : True, _EL_U_150 : True, semaphore : 0, _EL_U_152 : False, _EL_U_154 : True, _EL_U_156 : False, _EL_U_160 : True, _EL_U_162 : False, sm1_l : -2, sm1_loop_len : 1, sm0_state : True, sm0_l : -2, sm0_loop_len : 1
 
-end of `semaphore_0002`: SUCCESS in 2.281327962875366s
+end of `semaphore_0002`: SUCCESS in 3.762366533279419s

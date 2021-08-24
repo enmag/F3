@@ -2,80 +2,108 @@ F3 run `dynamic_fischer_0030`
 
 	Found non-termination argument:
 	State 6
+		proposed28 = 15/128
+		p26_saved_max = 3/16
+		proposed8 = 15/128
+		proposed18 = 15/128
 		_diverge_delta = 0.0
+		proposed1 = 15/128
 		delta = 0.0
-		p6_x = 0.0
+		p6_saved_max = 3/16
+		p16_saved_max = 3/16
+		p29_saved_max = 3/16
+		proposed21 = 15/128
+		proposed11 = 15/128
+		p9_saved_max = 3/16
+		p19_saved_max = 3/16
+		p2_saved_max = 3/16
+		proposed4 = 15/128
+		proposed24 = 15/128
+		p22_saved_max = 3/16
+		p12_saved_max = 3/16
+		p14_x = 0.0
+		proposed27 = 15/128
+		proposed0 = 15/128
+		p5_saved_max = 3/16
+		p25_saved_max = 3/16
+		proposed17 = 15/128
+		proposed7 = 15/128
+		p15_saved_max = 3/16
+		p28_saved_max = 3/16
+		proposed20 = 15/128
+		proposed10 = 15/128
+		p8_saved_max = 3/16
+		p18_saved_max = 3/16
+		p1_saved_max = 3/16
+		proposed3 = 15/128
+		proposed23 = 15/128
+		p21_saved_max = 3/16
+		proposed13 = 15/128
+		p11_saved_max = 3/16
+		proposed26 = 15/128
+		p4_saved_max = 3/16
+		proposed6 = 15/128
+		p24_saved_max = 3/16
+		proposed16 = 15/128
+		proposed29 = 15/128
+		p27_saved_max = 3/16
+		proposed9 = 15/128
+		p0_saved_max = 3/16
+		p7_saved_max = 3/16
+		p17_saved_max = 3/16
+		proposed2 = 15/128
+		proposed19 = 15/128
+		proposed22 = 15/128
+		proposed12 = 15/128
+		p10_saved_max = 3/16
+		p20_saved_max = 3/16
+		p3_saved_max = 3/16
+		proposed5 = 15/128
+		proposed25 = 15/128
+		p23_saved_max = 3/16
+		proposed15 = 15/128
+		p13_saved_max = 3/16
 		p18_l1 = False
 		p18_l0 = False
 		p1_l1 = False
 		p1_l0 = False
-		proposed18 = 1271397/237194
-		proposed1 = 1271397/237194
-		p29_saved_max = 1495487/237194
 		p24_l1 = False
 		p24_l0 = False
-		proposed24 = 6552/118597
-		p12_saved_max = 1495487/237194
 		p7_l1 = False
 		p7_l0 = False
-		proposed7 = 1271397/237194
-		p18_saved_max = 1495487/237194
-		p1_saved_max = 1495487/237194
 		p13_l1 = False
 		p13_l0 = False
-		proposed13 = 1271397/237194
-		p24_saved_max = 1495487/237194
 		p19_l1 = False
 		p19_l0 = False
 		p2_l1 = False
 		p2_l0 = False
-		p7_saved_max = 1495487/237194
-		proposed19 = 6552/118597
-		proposed2 = 1271397/237194
 		p25_l1 = False
 		p25_l0 = False
-		proposed25 = 1271397/237194
-		p13_saved_max = 1495487/237194
 		p8_l1 = False
 		p8_l0 = False
-		proposed8 = 1271397/237194
 		inc_max_prop = True
 		turn4 = False
-		p19_saved_max = 1495487/237194
-		turn3 = False
-		p2_saved_max = 1495487/237194
+		turn3 = True
 		turn2 = True
-		p14_l1 = False
+		p14_l1 = True
 		p14_l0 = False
 		turn1 = True
 		turn0 = False
-		proposed14 = 1271397/237194
 		id4 = True
 		id3 = True
-		p25_saved_max = 1495487/237194
 		id2 = True
 		id1 = True
 		p20_l1 = False
 		p20_l0 = False
 		id0 = False
-		proposed20 = 1271397/237194
 		p3_l1 = False
 		p3_l0 = False
-		p8_saved_max = 1495487/237194
-		proposed3 = 6552/118597
 		p26_l1 = False
 		p26_l0 = False
-		proposed26 = 1271397/237194
-		p14_saved_max = 1495487/237194
 		p9_l1 = False
 		p9_l0 = False
-		proposed9 = 1271397/237194
-		p20_saved_max = 1495487/237194
-		p3_saved_max = 1495487/237194
 		p15_l1 = False
 		p15_l0 = False
-		proposed15 = 1271397/237194
-		p26_saved_max = 1495487/237194
 		_J3933 = True
 		_J3927 = True
 		_J3921 = True
@@ -83,272 +111,273 @@ F3 run `dynamic_fischer_0030`
 		p21_l0 = False
 		_J3915 = True
 		_EL_U_3888 = True
-		proposed21 = 1271397/237194
 		_EL_U_3890 = False
 		_EL_U_3893 = True
 		p4_l1 = False
 		p4_l0 = False
-		p9_saved_max = 1495487/237194
 		_EL_U_3895 = False
-		proposed4 = 1271397/237194
 		p27_l1 = False
 		p27_l0 = False
-		proposed27 = 1271397/237194
-		p15_saved_max = 1495487/237194
 		p10_l1 = False
 		p10_l0 = False
-		proposed10 = 1271397/237194
-		p21_saved_max = 1495487/237194
 		p16_l1 = False
 		p16_l0 = False
-		p4_saved_max = 1495487/237194
-		proposed16 = 1271397/237194
-		p27_saved_max = 1495487/237194
 		p22_l1 = False
 		p22_l0 = False
-		proposed22 = 1271397/237194
-		p10_saved_max = 1495487/237194
 		p5_l1 = False
 		p5_l0 = False
-		proposed5 = 1271397/237194
 		p28_l1 = False
 		p28_l0 = False
-		proposed28 = 1271397/237194
-		p16_saved_max = 1495487/237194
 		p11_l1 = False
 		p11_l0 = False
-		proposed11 = 1271397/237194
-		p22_saved_max = 1495487/237194
 		p0_l1 = False
 		p0_l0 = False
 		p17_l1 = False
 		p17_l0 = False
-		proposed0 = 1271397/237194
-		p5_saved_max = 1495487/237194
-		proposed17 = 1271397/237194
-		p28_saved_max = 1495487/237194
 		p23_l1 = False
 		p23_l0 = False
-		proposed23 = 1271397/237194
-		p11_saved_max = 1495487/237194
-		p6_l1 = True
+		p6_l1 = False
 		p6_l0 = False
 		p29_l1 = False
 		p29_l0 = False
-		proposed29 = 6552/118597
-		p0_saved_max = 1495487/237194
-		p17_saved_max = 1495487/237194
 		p12_l1 = False
 		p12_l0 = False
-		proposed12 = 1271397/237194
-		p23_saved_max = 1495487/237194
-		((-1.0 * p18_x) < -1271397/237194)
-		((-1.0 * max_prop) < -6552/118597)
-		((-1.0 * p10_x) < -1271397/237194)
-		((-1.0 * p11_x) < -797009/237194)
-		((-1.0 * p19_x) < 230642/118597)
-		((-1.0 * p18_x) < -1034203/237194)
-		((-1.0 * p5_x) < -797009/237194)
-		((-1.0 * p13_x) < -797009/237194)
-		((-1.0 * p10_x) < -1034203/237194)
-		((-1.0 * p14_x) < -797009/237194)
-		((-1.0 * p7_x) < -797009/237194)
-		((-1.0 * p8_x) < -797009/237194)
-		((-1.0 * p26_x) < -797009/237194)
-		((-1.0 * p29_x) < 112045/118597)
-		((-1.0 * p27_x) < -797009/237194)
-		((-1.0 * p1_x) < -797009/237194)
-		((-1.0 * p4_x) < -1034203/237194)
-		((-1.0 * p2_x) < -797009/237194)
-		((-1.0 * p16_x) < -797009/237194)
-		((-1.0 * p12_x) < -1034203/237194)
-		((-1.0 * p18_x) < -797009/237194)
-		((-1.0 * p21_x) < -797009/237194)
-		((-1.0 * p23_x) < -1034203/237194)
-		((-1.0 * p10_x) < -797009/237194)
-		((-1.0 * p20_x) < -797009/237194)
-		((-1.0 * p25_x) < -1034203/237194)
-		((-1.0 * p15_x) < -797009/237194)
-		((-1.0 * p29_x) < 230642/118597)
-		((-1.0 * p17_x) < -1034203/237194)
-		((-1.0 * p9_x) < -797009/237194)
-		((-1.0 * p4_x) < -797009/237194)
-		((-1.0 * p0_x) < -1034203/237194)
-		((-1.0 * p28_x) < -797009/237194)
-		((-1.0 * p12_x) < -797009/237194)
-		((-1.0 * p11_x) < -1034203/237194)
-		((-1.0 * p9_x) < 2.0)
-		((-1.0 * p23_x) < -797009/237194)
-		((-1.0 * p19_x) < 112045/118597)
-		((-1.0 * p3_x) < 230642/118597)
-		((-1.0 * p25_x) < -797009/237194)
-		((-1.0 * p5_x) < -1034203/237194)
-		((-1.0 * p22_x) < -797009/237194)
-		((-1.0 * p17_x) < -797009/237194)
-		((-1.0 * p13_x) < -1034203/237194)
-		((-1.0 * p24_x) < 230642/118597)
-		((-1.0 * p0_x) < -797009/237194)
-		((-1.0 * p14_x) < -1034203/237194)
-		((-1.0 * p7_x) < -1034203/237194)
-		((-1.0 * p8_x) < -1034203/237194)
-		((-1.0 * p26_x) < -1034203/237194)
-		((-1.0 * p27_x) < -1034203/237194)
-		((-1.0 * p1_x) < -1034203/237194)
-		((-1.0 * max_prop) <= -1271397/237194)
-		((-1.0 * proposed6) <= -1271397/237194)
-		((-1.0 * max_prop) <= -6552/118597)
-		((-1.0 * p2_x) < -1034203/237194)
-		((-1.0 * proposed6) <= -6552/118597)
-		(((-1.0 * proposed6) + max_prop) = 0.0)
-		((-1.0 * p16_x) < -1034203/237194)
-		((-1.0 * p29_x) < -6552/118597)
-		((-1.0 * p4_x) < -1271397/237194)
-		((-1.0 * p12_x) < -1271397/237194)
-		((-1.0 * p21_x) < -1034203/237194)
-		((-1.0 * p23_x) < -1271397/237194)
-		((-1.0 * p25_x) < -1271397/237194)
-		((-1.0 * p17_x) < -1271397/237194)
-		((-1.0 * p20_x) < -1034203/237194)
-		((-1.0 * p0_x) < -1271397/237194)
-		((-1.0 * p11_x) < -1271397/237194)
-		((-1.0 * p19_x) < -6552/118597)
-		((-1.0 * p15_x) < -1034203/237194)
-		((-1.0 * p5_x) < -1271397/237194)
-		((-1.0 * p13_x) < -1271397/237194)
-		((-1.0 * p14_x) < -1271397/237194)
-		((-1.0 * proposed6) <= 0.0)
-		((-1.0 * p9_x) < -1034203/237194)
-		((-1.0 * p7_x) < -1271397/237194)
-		((-1.0 * p3_x) < -6552/118597)
-		((-1.0 * p8_x) < -1271397/237194)
-		((-1.0 * p26_x) < -1271397/237194)
-		((-1.0 * p28_x) < -1034203/237194)
-		((-1.0 * p27_x) < -1271397/237194)
-		((-1.0 * p9_x) < 1.0)
-		((-1.0 * p1_x) < -1271397/237194)
-		((-1.0 * p2_x) < -1271397/237194)
-		((-1.0 * p16_x) < -1271397/237194)
-		((-1.0 * p3_x) < 112045/118597)
-		((-1.0 * p21_x) < -1271397/237194)
-		((-1.0 * p20_x) < -1271397/237194)
-		((-1.0 * p15_x) < -1271397/237194)
-		((-1.0 * p22_x) < -1034203/237194)
-		((-1.0 * p9_x) < -1271397/237194)
-		((-1.0 * p28_x) < -1271397/237194)
-		((-1.0 * p9_x) < 0.0)
-		((-1.0 * p24_x) < 112045/118597)
-		((-1.0 * p22_x) < -1271397/237194)
-		((-1.0 * p24_x) < -6552/118597)
-		((-1.0 * max_prop) < -1271397/237194)
-		(max_prop < 1495487/237194)
+		((-1.0 * p12_x) < -15/128)
+		((-1.0 * p22_x) < -15/128)
+		((-1.0 * p27_x) < 113/128)
+		((-1.0 * p15_x) < -15/128)
+		((-1.0 * p9_x) < 241/128)
+		((-1.0 * p23_x) < 113/128)
+		((-1.0 * p3_x) < 113/128)
+		((-1.0 * p20_x) < 113/128)
+		((-1.0 * proposed14) <= -15/128)
+		((-1.0 * p28_x) < 113/128)
+		((-1.0 * p4_x) < 113/128)
+		((-1.0 * p29_x) < 113/128)
+		((-1.0 * p6_x) < 113/128)
+		((-1.0 * p7_x) < 113/128)
+		((-1.0 * p5_x) < 113/128)
+		((-1.0 * p9_x) < 113/128)
+		((-1.0 * p10_x) < 113/128)
+		((-1.0 * p8_x) < 113/128)
+		((-1.0 * p21_x) < 113/128)
+		((-1.0 * p11_x) < 113/128)
+		((-1.0 * p24_x) < 113/128)
+		((-1.0 * p10_x) < 241/128)
+		((-1.0 * p27_x) < 241/128)
+		((-1.0 * p13_x) < 2.0)
+		((-1.0 * p13_x) < 241/128)
+		((-1.0 * p12_x) < 113/128)
+		((-1.0 * p8_x) < 241/128)
+		((-1.0 * p23_x) < 241/128)
+		((-1.0 * p22_x) < 113/128)
+		((-1.0 * p26_x) < 241/128)
+		((-1.0 * p21_x) < 241/128)
+		((-1.0 * p15_x) < 113/128)
+		((-1.0 * p3_x) < 241/128)
+		((-1.0 * max_prop) <= -15/128)
+		((-1.0 * p16_x) < 241/128)
+		((-1.0 * p25_x) < 113/128)
+		(((-1.0 * proposed14) + max_prop) = 0.0)
+		((-1.0 * p11_x) < 241/128)
+		((-1.0 * p20_x) < 241/128)
+		((-1.0 * p25_x) < -15/128)
+		((-1.0 * p25_x) < 241/128)
+		((-1.0 * p13_x) < 0.0)
+		((-1.0 * p13_x) < -15/128)
+		((-1.0 * p13_x) < 1.0)
+		((-1.0 * p26_x) < -15/128)
+		((-1.0 * p13_x) < 113/128)
+		((-1.0 * p16_x) < -15/128)
+		((-1.0 * p0_x) < 241/128)
+		((-1.0 * p0_x) < -15/128)
+		((-1.0 * p24_x) < 241/128)
+		((-1.0 * p17_x) < -15/128)
+		((-1.0 * p26_x) < 113/128)
+		((-1.0 * p1_x) < -15/128)
+		((-1.0 * p28_x) < 241/128)
+		((-1.0 * p10_x) <= 0.0)
+		((-1.0 * p17_x) < 241/128)
+		((-1.0 * p18_x) < -15/128)
+		((-1.0 * p16_x) < 113/128)
+		((-1.0 * p2_x) < -15/128)
+		((-1.0 * p4_x) < 241/128)
+		((-1.0 * p19_x) < -15/128)
+		((-1.0 * p1_x) < 241/128)
+		((-1.0 * p27_x) < -15/128)
+		((-1.0 * p0_x) < 113/128)
+		((-1.0 * p23_x) < -15/128)
+		((-1.0 * p29_x) < 241/128)
+		((-1.0 * p3_x) < -15/128)
+		((-1.0 * p10_x) <= 2.0)
+		((-1.0 * p20_x) < -15/128)
+		((-1.0 * p17_x) < 113/128)
+		((-1.0 * p28_x) < -15/128)
+		((-1.0 * proposed14) <= 0.0)
+		((-1.0 * p12_x) < 241/128)
+		((-1.0 * p4_x) < -15/128)
+		((-1.0 * p1_x) < 113/128)
+		((-1.0 * p29_x) < -15/128)
+		((-1.0 * p6_x) < 241/128)
+		((-1.0 * p6_x) < -15/128)
+		((-1.0 * p18_x) < 241/128)
+		((-1.0 * p7_x) < -15/128)
+		((-1.0 * p10_x) <= 1.0)
+		((-1.0 * p22_x) < 241/128)
+		(((-1.0 * p14_saved_max) + max_prop) = 0.0)
+		((-1.0 * p7_x) < 241/128)
+		((-1.0 * p5_x) < -15/128)
+		((-1.0 * p2_x) < 241/128)
+		((-1.0 * p9_x) < -15/128)
+		((-1.0 * max_prop) < -15/128)
+		((-1.0 * p10_x) < -15/128)
+		(max_prop < 3/16)
+		((-1.0 * p18_x) < 113/128)
+		((-1.0 * p15_x) < 241/128)
+		((-1.0 * p2_x) < 113/128)
+		((-1.0 * p8_x) < -15/128)
+		((-1.0 * p5_x) < 241/128)
+		((-1.0 * p21_x) < -15/128)
+		((-1.0 * p19_x) < 241/128)
+		((-1.0 * p11_x) < -15/128)
+		((-1.0 * p19_x) < 113/128)
+		((-1.0 * p24_x) < -15/128)
 	Trans 6 -- 7
-		_x_p18_x = p18_x
-		_x_p25_x = p25_x
-		_x_p2_x = p2_x
-		_x_p3_x = p3_x
+		_x_p16_x = p16_x
 		_x_p21_x = p21_x
-		_x_p22_x = p22_x
-		_x_p11_x = p11_x
-		_x_p29_x = p29_x
+		_x_p17_x = p17_x
+		_x_p20_x = p20_x
 		_x_p15_x = p15_x
-		_x_p14_x = p14_x
-		_x_p28_x = p28_x
-		_x_p13_x = p13_x
-		_x_p10_x = p10_x
+		_x_p22_x = p22_x
+		_x_p2_x = p2_x
 		_x_p1_x = p1_x
-		_x_p6_saved_max = max_prop
-		_x_p4_x = p4_x
-		_x_p0_x = p0_x
-		_x_p12_x = p12_x
+		_x_p27_x = p27_x
 		_x_p26_x = p26_x
-		_x_p9_x = p9_x
+		_x_p23_x = p23_x
 		_x_p24_x = p24_x
 		_x_p8_x = p8_x
-		_x_p20_x = p20_x
-		_x_p27_x = p27_x
-		_x_p23_x = p23_x
-		_x_p16_x = p16_x
 		_x_p7_x = p7_x
-		_x_proposed6 = proposed6
-		_x_p19_x = p19_x
-		_x_p17_x = p17_x
+		_x_p0_x = p0_x
+		_x_p14_saved_max = max_prop
 		_x_p5_x = p5_x
-		_x_max_prop = proposed6
+		_x_p25_x = p25_x
+		_x_p3_x = p3_x
+		_x_p29_x = p29_x
+		_x_proposed14 = proposed14
+		_x_p6_x = p6_x
+		_x_p18_x = p18_x
+		_x_p28_x = p28_x
+		_x_p4_x = p4_x
+		_x_p10_x = p10_x
+		_x_p11_x = p11_x
+		_x_p9_x = p9_x
+		_x_p12_x = p12_x
+		_x_p13_x = p13_x
+		_x_p19_x = p19_x
+		_x_max_prop = proposed14
 	State 7
+		proposed28 = 15/128
+		p26_saved_max = 3/16
+		proposed8 = 15/128
+		proposed18 = 15/128
 		_diverge_delta = 0.0
-		delta = 0.0
-		p6_x = 0.0
+		proposed1 = 15/128
+		delta = 1.0
+		p6_saved_max = 3/16
+		p16_saved_max = 3/16
+		p29_saved_max = 3/16
+		proposed21 = 15/128
+		proposed11 = 15/128
+		p9_saved_max = 3/16
+		p19_saved_max = 3/16
+		p2_saved_max = 3/16
+		proposed4 = 15/128
+		proposed24 = 15/128
+		p22_saved_max = 3/16
+		p12_saved_max = 3/16
+		p14_x = 0.0
+		proposed27 = 15/128
+		proposed0 = 15/128
+		p5_saved_max = 3/16
+		p25_saved_max = 3/16
+		proposed17 = 15/128
+		proposed7 = 15/128
+		p15_saved_max = 3/16
+		p28_saved_max = 3/16
+		proposed20 = 15/128
+		proposed10 = 15/128
+		p8_saved_max = 3/16
+		p18_saved_max = 3/16
+		p1_saved_max = 3/16
+		proposed3 = 15/128
+		proposed23 = 15/128
+		p21_saved_max = 3/16
+		proposed13 = 15/128
+		p11_saved_max = 3/16
+		proposed26 = 15/128
+		p4_saved_max = 3/16
+		proposed6 = 15/128
+		p24_saved_max = 3/16
+		proposed16 = 15/128
+		proposed29 = 15/128
+		p27_saved_max = 3/16
+		proposed9 = 15/128
+		p0_saved_max = 3/16
+		p7_saved_max = 3/16
+		p17_saved_max = 3/16
+		proposed2 = 15/128
+		proposed19 = 15/128
+		proposed22 = 15/128
+		proposed12 = 15/128
+		p10_saved_max = 3/16
+		p20_saved_max = 3/16
+		p3_saved_max = 3/16
+		proposed5 = 15/128
+		proposed25 = 15/128
+		p23_saved_max = 3/16
+		proposed15 = 15/128
+		p13_saved_max = 3/16
 		p18_l1 = False
 		p18_l0 = False
 		p1_l1 = False
 		p1_l0 = False
-		proposed18 = 1271397/237194
-		proposed1 = 1271397/237194
-		p29_saved_max = 1495487/237194
 		p24_l1 = False
 		p24_l0 = False
-		proposed24 = 6552/118597
-		p12_saved_max = 1495487/237194
 		p7_l1 = False
 		p7_l0 = False
-		proposed7 = 1271397/237194
-		p18_saved_max = 1495487/237194
-		p1_saved_max = 1495487/237194
 		p13_l1 = False
 		p13_l0 = False
-		proposed13 = 1271397/237194
-		p24_saved_max = 1495487/237194
 		p19_l1 = False
 		p19_l0 = False
 		p2_l1 = False
 		p2_l0 = False
-		p7_saved_max = 1495487/237194
-		proposed19 = 6552/118597
-		proposed2 = 1271397/237194
 		p25_l1 = False
 		p25_l0 = False
-		proposed25 = 1271397/237194
-		p13_saved_max = 1495487/237194
 		p8_l1 = False
 		p8_l0 = False
-		proposed8 = 1271397/237194
 		inc_max_prop = True
 		turn4 = False
-		p19_saved_max = 1495487/237194
-		turn3 = False
-		p2_saved_max = 1495487/237194
+		turn3 = True
 		turn2 = True
 		p14_l1 = False
-		p14_l0 = False
+		p14_l0 = True
 		turn1 = True
 		turn0 = False
-		proposed14 = 1271397/237194
 		id4 = False
-		id3 = False
-		p25_saved_max = 1495487/237194
+		id3 = True
 		id2 = True
 		id1 = True
 		p20_l1 = False
 		p20_l0 = False
 		id0 = False
-		proposed20 = 1271397/237194
 		p3_l1 = False
 		p3_l0 = False
-		p8_saved_max = 1495487/237194
-		proposed3 = 6552/118597
 		p26_l1 = False
 		p26_l0 = False
-		proposed26 = 1271397/237194
-		p14_saved_max = 1495487/237194
 		p9_l1 = False
 		p9_l0 = False
-		proposed9 = 1271397/237194
-		p20_saved_max = 1495487/237194
-		p3_saved_max = 1495487/237194
 		p15_l1 = False
 		p15_l0 = False
-		proposed15 = 1271397/237194
-		p26_saved_max = 1495487/237194
 		_J3933 = False
 		_J3927 = False
 		_J3921 = False
@@ -356,626 +385,598 @@ F3 run `dynamic_fischer_0030`
 		p21_l0 = False
 		_J3915 = False
 		_EL_U_3888 = True
-		proposed21 = 1271397/237194
 		_EL_U_3890 = False
 		_EL_U_3893 = True
 		p4_l1 = False
 		p4_l0 = False
-		p9_saved_max = 1495487/237194
 		_EL_U_3895 = False
-		proposed4 = 1271397/237194
 		p27_l1 = False
 		p27_l0 = False
-		proposed27 = 1271397/237194
-		p15_saved_max = 1495487/237194
 		p10_l1 = False
 		p10_l0 = False
-		proposed10 = 1271397/237194
-		p21_saved_max = 1495487/237194
 		p16_l1 = False
 		p16_l0 = False
-		p4_saved_max = 1495487/237194
-		proposed16 = 1271397/237194
-		p27_saved_max = 1495487/237194
 		p22_l1 = False
 		p22_l0 = False
-		proposed22 = 1271397/237194
-		p10_saved_max = 1495487/237194
 		p5_l1 = False
 		p5_l0 = False
-		proposed5 = 1271397/237194
 		p28_l1 = False
 		p28_l0 = False
-		proposed28 = 1271397/237194
-		p16_saved_max = 1495487/237194
 		p11_l1 = False
 		p11_l0 = False
-		proposed11 = 1271397/237194
-		p22_saved_max = 1495487/237194
 		p0_l1 = False
 		p0_l0 = False
 		p17_l1 = False
 		p17_l0 = False
-		proposed0 = 1271397/237194
-		p5_saved_max = 1495487/237194
-		proposed17 = 1271397/237194
-		p28_saved_max = 1495487/237194
 		p23_l1 = False
 		p23_l0 = False
-		proposed23 = 1271397/237194
-		p11_saved_max = 1495487/237194
-		p6_l1 = False
-		p6_l0 = True
-		p29_l1 = False
-		p29_l0 = False
-		proposed29 = 6552/118597
-		p0_saved_max = 1495487/237194
-		p17_saved_max = 1495487/237194
-		p12_l1 = False
-		p12_l0 = False
-		proposed12 = 1271397/237194
-		p23_saved_max = 1495487/237194
-	Trans 7 -- 8
-		_x_p18_x = p18_x
-		_x_p2_x = p2_x
-		_x_p22_x = p22_x
-		_x_p15_x = p15_x
-		_x_p13_x = p13_x
-		_x_p1_x = p1_x
-		_x_p6_saved_max = max_prop
-		_x_p0_x = p0_x
-		_x_p26_x = p26_x
-		_x_p8_x = p8_x
-		_x_p23_x = p23_x
-		_x_p7_x = p7_x
-		_x_p5_x = p5_x
-		_x_p25_x = p25_x
-		_x_p3_x = p3_x
-		_x_p21_x = p21_x
-		_x_p11_x = p11_x
-		_x_p29_x = p29_x
-		_x_p14_x = p14_x
-		_x_p28_x = p28_x
-		_x_p10_x = p10_x
-		_x_p4_x = p4_x
-		_x_p12_x = p12_x
-		_x_p9_x = p9_x
-		_x_p24_x = p24_x
-		_x_p20_x = p20_x
-		_x_p27_x = p27_x
-		_x_p16_x = p16_x
-		_x_proposed6 = proposed6
-		_x_p19_x = p19_x
-		_x_p17_x = p17_x
-		_x_max_prop = proposed6
-	State 8
-		_diverge_delta = 0.0
-		delta = 0.0
-		p6_x = 0.0
-		p18_l1 = False
-		p18_l0 = False
-		p1_l1 = False
-		p1_l0 = False
-		proposed18 = 1271397/237194
-		proposed1 = 1271397/237194
-		p29_saved_max = 1495487/237194
-		p24_l1 = False
-		p24_l0 = False
-		proposed24 = 6552/118597
-		p12_saved_max = 1495487/237194
-		p7_l1 = False
-		p7_l0 = False
-		proposed7 = 1271397/237194
-		p18_saved_max = 1495487/237194
-		p1_saved_max = 1495487/237194
-		p13_l1 = False
-		p13_l0 = False
-		proposed13 = 1271397/237194
-		p24_saved_max = 1495487/237194
-		p19_l1 = False
-		p19_l0 = False
-		p2_l1 = False
-		p2_l0 = False
-		p7_saved_max = 1495487/237194
-		proposed19 = 6552/118597
-		proposed2 = 1271397/237194
-		p25_l1 = False
-		p25_l0 = False
-		proposed25 = 1271397/237194
-		p13_saved_max = 1495487/237194
-		p8_l1 = False
-		p8_l0 = False
-		proposed8 = 1271397/237194
-		inc_max_prop = True
-		turn4 = False
-		p19_saved_max = 1495487/237194
-		turn3 = False
-		p2_saved_max = 1495487/237194
-		turn2 = True
-		p14_l1 = False
-		p14_l0 = False
-		turn1 = True
-		turn0 = False
-		proposed14 = 1271397/237194
-		id4 = False
-		id3 = False
-		p25_saved_max = 1495487/237194
-		id2 = True
-		id1 = True
-		p20_l1 = False
-		p20_l0 = False
-		id0 = False
-		proposed20 = 1271397/237194
-		p3_l1 = False
-		p3_l0 = False
-		p8_saved_max = 1495487/237194
-		proposed3 = 6552/118597
-		p26_l1 = False
-		p26_l0 = False
-		proposed26 = 1271397/237194
-		p14_saved_max = 1495487/237194
-		p9_l1 = False
-		p9_l0 = False
-		proposed9 = 1271397/237194
-		p20_saved_max = 1495487/237194
-		p3_saved_max = 1495487/237194
-		p15_l1 = False
-		p15_l0 = False
-		proposed15 = 1271397/237194
-		p26_saved_max = 1495487/237194
-		_J3933 = True
-		_J3927 = False
-		_J3921 = True
-		p21_l1 = False
-		p21_l0 = False
-		_J3915 = False
-		_EL_U_3888 = True
-		proposed21 = 1271397/237194
-		_EL_U_3890 = False
-		_EL_U_3893 = True
-		p4_l1 = False
-		p4_l0 = False
-		p9_saved_max = 1495487/237194
-		_EL_U_3895 = False
-		proposed4 = 1271397/237194
-		p27_l1 = False
-		p27_l0 = False
-		proposed27 = 1271397/237194
-		p15_saved_max = 1495487/237194
-		p10_l1 = False
-		p10_l0 = False
-		proposed10 = 1271397/237194
-		p21_saved_max = 1495487/237194
-		p16_l1 = False
-		p16_l0 = False
-		p4_saved_max = 1495487/237194
-		proposed16 = 1271397/237194
-		p27_saved_max = 1495487/237194
-		p22_l1 = False
-		p22_l0 = False
-		proposed22 = 1271397/237194
-		p10_saved_max = 1495487/237194
-		p5_l1 = False
-		p5_l0 = False
-		proposed5 = 1271397/237194
-		p28_l1 = False
-		p28_l0 = False
-		proposed28 = 1271397/237194
-		p16_saved_max = 1495487/237194
-		p11_l1 = False
-		p11_l0 = False
-		proposed11 = 1271397/237194
-		p22_saved_max = 1495487/237194
-		p0_l1 = False
-		p0_l0 = False
-		p17_l1 = False
-		p17_l0 = False
-		proposed0 = 1271397/237194
-		p5_saved_max = 1495487/237194
-		proposed17 = 1271397/237194
-		p28_saved_max = 1495487/237194
-		p23_l1 = False
-		p23_l0 = False
-		proposed23 = 1271397/237194
-		p11_saved_max = 1495487/237194
-		p6_l1 = True
-		p6_l0 = True
-		p29_l1 = False
-		p29_l0 = False
-		proposed29 = 6552/118597
-		p0_saved_max = 1495487/237194
-		p17_saved_max = 1495487/237194
-		p12_l1 = False
-		p12_l0 = False
-		proposed12 = 1271397/237194
-		p23_saved_max = 1495487/237194
-	Trans 8 -- 9
-		_x_p18_x = p18_x
-		_x_p25_x = p25_x
-		_x_p2_x = p2_x
-		_x_p3_x = p3_x
-		_x_p21_x = p21_x
-		_x_p22_x = p22_x
-		_x_p11_x = p11_x
-		_x_p29_x = p29_x
-		_x_p15_x = p15_x
-		_x_p14_x = p14_x
-		_x_p28_x = p28_x
-		_x_p13_x = p13_x
-		_x_p10_x = p10_x
-		_x_p1_x = p1_x
-		_x_p6_saved_max = max_prop
-		_x_p4_x = p4_x
-		_x_p0_x = p0_x
-		_x_p12_x = p12_x
-		_x_p26_x = p26_x
-		_x_p9_x = p9_x
-		_x_p24_x = p24_x
-		_x_p8_x = p8_x
-		_x_p20_x = p20_x
-		_x_p27_x = p27_x
-		_x_p23_x = p23_x
-		_x_p16_x = p16_x
-		_x_p7_x = p7_x
-		_x_p19_x = p19_x
-		_x_p17_x = p17_x
-		_x_p5_x = p5_x
-		_x_max_prop = _x_proposed6
-		_x_proposed6 = (((p6_saved_max * 1034203/1271397) + (max_prop * 1/4) + 1.0) - (proposed6 * 1/4))
-	State 9
-		_diverge_delta = 0.0
-		delta = 1.0
-		p6_x = 0.0
-		p18_l1 = False
-		p18_l0 = False
-		p1_l1 = False
-		p1_l0 = False
-		proposed18 = 1271397/237194
-		proposed1 = 1271397/237194
-		p29_saved_max = 1495487/237194
-		p24_l1 = False
-		p24_l0 = False
-		proposed24 = 6552/118597
-		p12_saved_max = 1495487/237194
-		p7_l1 = False
-		p7_l0 = False
-		proposed7 = 1271397/237194
-		p18_saved_max = 1495487/237194
-		p1_saved_max = 1495487/237194
-		p13_l1 = False
-		p13_l0 = False
-		proposed13 = 1271397/237194
-		p24_saved_max = 1495487/237194
-		p19_l1 = False
-		p19_l0 = False
-		p2_l1 = False
-		p2_l0 = False
-		p7_saved_max = 1495487/237194
-		proposed19 = 6552/118597
-		proposed2 = 1271397/237194
-		p25_l1 = False
-		p25_l0 = False
-		proposed25 = 1271397/237194
-		p13_saved_max = 1495487/237194
-		p8_l1 = False
-		p8_l0 = False
-		proposed8 = 1271397/237194
-		inc_max_prop = False
-		turn4 = False
-		p19_saved_max = 1495487/237194
-		turn3 = False
-		p2_saved_max = 1495487/237194
-		turn2 = True
-		p14_l1 = False
-		p14_l0 = False
-		turn1 = True
-		turn0 = False
-		proposed14 = 1271397/237194
-		id4 = True
-		id3 = True
-		p25_saved_max = 1495487/237194
-		id2 = True
-		id1 = True
-		p20_l1 = False
-		p20_l0 = False
-		id0 = False
-		proposed20 = 1271397/237194
-		p3_l1 = False
-		p3_l0 = False
-		p8_saved_max = 1495487/237194
-		proposed3 = 6552/118597
-		p26_l1 = False
-		p26_l0 = False
-		proposed26 = 1271397/237194
-		p14_saved_max = 1495487/237194
-		p9_l1 = False
-		p9_l0 = False
-		proposed9 = 1271397/237194
-		p20_saved_max = 1495487/237194
-		p3_saved_max = 1495487/237194
-		p15_l1 = False
-		p15_l0 = False
-		proposed15 = 1271397/237194
-		p26_saved_max = 1495487/237194
-		_J3933 = True
-		_J3927 = False
-		_J3921 = True
-		p21_l1 = False
-		p21_l0 = False
-		_J3915 = False
-		_EL_U_3888 = True
-		proposed21 = 1271397/237194
-		_EL_U_3890 = False
-		_EL_U_3893 = True
-		p4_l1 = False
-		p4_l0 = False
-		p9_saved_max = 1495487/237194
-		_EL_U_3895 = False
-		proposed4 = 1271397/237194
-		p27_l1 = False
-		p27_l0 = False
-		proposed27 = 1271397/237194
-		p15_saved_max = 1495487/237194
-		p10_l1 = False
-		p10_l0 = False
-		proposed10 = 1271397/237194
-		p21_saved_max = 1495487/237194
-		p16_l1 = False
-		p16_l0 = False
-		p4_saved_max = 1495487/237194
-		proposed16 = 1271397/237194
-		p27_saved_max = 1495487/237194
-		p22_l1 = False
-		p22_l0 = False
-		proposed22 = 1271397/237194
-		p10_saved_max = 1495487/237194
-		p5_l1 = False
-		p5_l0 = False
-		proposed5 = 1271397/237194
-		p28_l1 = False
-		p28_l0 = False
-		proposed28 = 1271397/237194
-		p16_saved_max = 1495487/237194
-		p11_l1 = False
-		p11_l0 = False
-		proposed11 = 1271397/237194
-		p22_saved_max = 1495487/237194
-		p0_l1 = False
-		p0_l0 = False
-		p17_l1 = False
-		p17_l0 = False
-		proposed0 = 1271397/237194
-		p5_saved_max = 1495487/237194
-		proposed17 = 1271397/237194
-		p28_saved_max = 1495487/237194
-		p23_l1 = False
-		p23_l0 = False
-		proposed23 = 1271397/237194
-		p11_saved_max = 1495487/237194
 		p6_l1 = False
 		p6_l0 = False
 		p29_l1 = False
 		p29_l0 = False
-		proposed29 = 6552/118597
-		p0_saved_max = 1495487/237194
-		p17_saved_max = 1495487/237194
 		p12_l1 = False
 		p12_l0 = False
-		proposed12 = 1271397/237194
-		p23_saved_max = 1495487/237194
-		((-1.0 * proposed6) <= -6552/118597)
-		((-1.0 * proposed6) < -6552/118597)
-		((-1.0 * proposed6) < -1271397/237194)
-		((-1.0 * proposed6) <= 0.0)
-		((-1.0 * proposed6) <= -1271397/237194)
-		(proposed6 < 1495487/237194)
-	Trans 9 -- 10
-		_x_p28_x = (p28_x + 1.0)
-		_x_p18_x = (p18_x + 1.0)
-		_x_p14_x = (p14_x + 1.0)
-		_x_p2_x = (p2_x + 1.0)
-		_x_p10_x = (p10_x + 1.0)
-		_x_p23_x = (p23_x + 1.0)
-		_x_p22_x = (p22_x + 1.0)
-		_x_p4_x = (p4_x + 1.0)
-		_x_p7_x = (p7_x + 1.0)
-		_x_p15_x = (p15_x + 1.0)
-		_x_p12_x = (p12_x + 1.0)
+	Trans 7 -- 8
 		_x_p5_x = (p5_x + 1.0)
-		_x_p13_x = (p13_x + 1.0)
-		_x_p9_x = (p9_x + 1.0)
-		_x_p25_x = (p25_x + 1.0)
-		_x_p1_x = (p1_x + 1.0)
-		_x_p20_x = (p20_x + 1.0)
+		_x_p2_x = (p2_x + 1.0)
+		_x_p12_x = (p12_x + 1.0)
 		_x_p3_x = (p3_x + 1.0)
-		_x_p0_x = (p0_x + 1.0)
 		_x_p27_x = (p27_x + 1.0)
-		_x_p19_x = (p19_x + 1.0)
-		_x_p8_x = (p8_x + 1.0)
-		_x_p26_x = (p26_x + 1.0)
 		_x_p16_x = (p16_x + 1.0)
+		_x_p18_x = (p18_x + 1.0)
+		_x_p23_x = (p23_x + 1.0)
+		_x_p20_x = (p20_x + 1.0)
+		_x_p28_x = (p28_x + 1.0)
+		_x_p8_x = (p8_x + 1.0)
+		_x_p22_x = (p22_x + 1.0)
+		_x_p11_x = (p11_x + 1.0)
+		_x_p0_x = (p0_x + 1.0)
+		_x_p4_x = (p4_x + 1.0)
+		_x_p1_x = (p1_x + 1.0)
+		_x_p13_x = (p13_x + 1.0)
+		_x_p25_x = (p25_x + 1.0)
+		_x_p9_x = (p9_x + 1.0)
+		_x_p26_x = (p26_x + 1.0)
 		_x_p21_x = (p21_x + 1.0)
 		_x_p29_x = (p29_x + 1.0)
-		_x_p17_x = (p17_x + 1.0)
-		_x_proposed6 = proposed6
+		_x_proposed14 = proposed14
+		_x_p19_x = (p19_x + 1.0)
+		_x_p14_saved_max = p14_saved_max
 		_x_p24_x = (p24_x + 1.0)
-		_x_p11_x = (p11_x + 1.0)
-		_x_p6_saved_max = p6_saved_max
-		_x_max_prop = proposed6
-	State 10
+		_x_p6_x = (p6_x + 1.0)
+		_x_p17_x = (p17_x + 1.0)
+		_x_p10_x = (p10_x + 1.0)
+		_x_p7_x = (p7_x + 1.0)
+		_x_p15_x = (p15_x + 1.0)
+		_x_max_prop = proposed14
+	State 8
+		proposed28 = 15/128
+		p26_saved_max = 3/16
+		proposed8 = 15/128
+		proposed18 = 15/128
 		_diverge_delta = 1.0
+		proposed1 = 15/128
 		delta = 0.0
-		p6_x = 1.0
+		p6_saved_max = 3/16
+		p16_saved_max = 3/16
+		p29_saved_max = 3/16
+		proposed21 = 15/128
+		proposed11 = 15/128
+		p9_saved_max = 3/16
+		p19_saved_max = 3/16
+		p2_saved_max = 3/16
+		proposed4 = 15/128
+		proposed24 = 15/128
+		p22_saved_max = 3/16
+		p12_saved_max = 3/16
+		p14_x = 1.0
+		proposed27 = 15/128
+		proposed0 = 15/128
+		p5_saved_max = 3/16
+		p25_saved_max = 3/16
+		proposed17 = 15/128
+		proposed7 = 15/128
+		p15_saved_max = 3/16
+		p28_saved_max = 3/16
+		proposed20 = 15/128
+		proposed10 = 15/128
+		p8_saved_max = 3/16
+		p18_saved_max = 3/16
+		p1_saved_max = 3/16
+		proposed3 = 15/128
+		proposed23 = 15/128
+		p21_saved_max = 3/16
+		proposed13 = 15/128
+		p11_saved_max = 3/16
+		proposed26 = 15/128
+		p4_saved_max = 3/16
+		proposed6 = 15/128
+		p24_saved_max = 3/16
+		proposed16 = 15/128
+		proposed29 = 15/128
+		p27_saved_max = 3/16
+		proposed9 = 15/128
+		p0_saved_max = 3/16
+		p7_saved_max = 3/16
+		p17_saved_max = 3/16
+		proposed2 = 15/128
+		proposed19 = 15/128
+		proposed22 = 15/128
+		proposed12 = 15/128
+		p10_saved_max = 3/16
+		p20_saved_max = 3/16
+		p3_saved_max = 3/16
+		proposed5 = 15/128
+		proposed25 = 15/128
+		p23_saved_max = 3/16
+		proposed15 = 15/128
+		p13_saved_max = 3/16
 		p18_l1 = False
 		p18_l0 = False
 		p1_l1 = False
 		p1_l0 = False
-		proposed18 = 1271397/237194
-		proposed1 = 1271397/237194
-		p29_saved_max = 1495487/237194
 		p24_l1 = False
 		p24_l0 = False
-		proposed24 = 6552/118597
-		p12_saved_max = 1495487/237194
 		p7_l1 = False
 		p7_l0 = False
-		proposed7 = 1271397/237194
-		p18_saved_max = 1495487/237194
-		p1_saved_max = 1495487/237194
 		p13_l1 = False
 		p13_l0 = False
-		proposed13 = 1271397/237194
-		p24_saved_max = 1495487/237194
 		p19_l1 = False
 		p19_l0 = False
 		p2_l1 = False
 		p2_l0 = False
-		p7_saved_max = 1495487/237194
-		proposed19 = 6552/118597
-		proposed2 = 1271397/237194
 		p25_l1 = False
 		p25_l0 = False
-		proposed25 = 1271397/237194
-		p13_saved_max = 1495487/237194
 		p8_l1 = False
 		p8_l0 = False
-		proposed8 = 1271397/237194
 		inc_max_prop = True
 		turn4 = False
-		p19_saved_max = 1495487/237194
-		turn3 = False
-		p2_saved_max = 1495487/237194
+		turn3 = True
 		turn2 = True
 		p14_l1 = False
-		p14_l0 = False
+		p14_l0 = True
 		turn1 = True
 		turn0 = False
-		proposed14 = 1271397/237194
-		id4 = True
+		id4 = False
 		id3 = True
-		p25_saved_max = 1495487/237194
 		id2 = True
 		id1 = True
 		p20_l1 = False
 		p20_l0 = False
 		id0 = False
-		proposed20 = 1271397/237194
 		p3_l1 = False
 		p3_l0 = False
-		p8_saved_max = 1495487/237194
-		proposed3 = 6552/118597
 		p26_l1 = False
 		p26_l0 = False
-		proposed26 = 1271397/237194
-		p14_saved_max = 1495487/237194
 		p9_l1 = False
 		p9_l0 = False
-		proposed9 = 1271397/237194
-		p20_saved_max = 1495487/237194
-		p3_saved_max = 1495487/237194
 		p15_l1 = False
 		p15_l0 = False
-		proposed15 = 1271397/237194
-		p26_saved_max = 1495487/237194
 		_J3933 = True
 		_J3927 = False
 		_J3921 = True
 		p21_l1 = False
 		p21_l0 = False
-		_J3915 = True
+		_J3915 = False
 		_EL_U_3888 = True
-		proposed21 = 1271397/237194
 		_EL_U_3890 = False
 		_EL_U_3893 = True
 		p4_l1 = False
 		p4_l0 = False
-		p9_saved_max = 1495487/237194
 		_EL_U_3895 = False
-		proposed4 = 1271397/237194
 		p27_l1 = False
 		p27_l0 = False
-		proposed27 = 1271397/237194
-		p15_saved_max = 1495487/237194
 		p10_l1 = False
 		p10_l0 = False
-		proposed10 = 1271397/237194
-		p21_saved_max = 1495487/237194
 		p16_l1 = False
 		p16_l0 = False
-		p4_saved_max = 1495487/237194
-		proposed16 = 1271397/237194
-		p27_saved_max = 1495487/237194
 		p22_l1 = False
 		p22_l0 = False
-		proposed22 = 1271397/237194
-		p10_saved_max = 1495487/237194
 		p5_l1 = False
 		p5_l0 = False
-		proposed5 = 1271397/237194
 		p28_l1 = False
 		p28_l0 = False
-		proposed28 = 1271397/237194
-		p16_saved_max = 1495487/237194
 		p11_l1 = False
 		p11_l0 = False
-		proposed11 = 1271397/237194
-		p22_saved_max = 1495487/237194
 		p0_l1 = False
 		p0_l0 = False
 		p17_l1 = False
 		p17_l0 = False
-		proposed0 = 1271397/237194
-		p5_saved_max = 1495487/237194
-		proposed17 = 1271397/237194
-		p28_saved_max = 1495487/237194
 		p23_l1 = False
 		p23_l0 = False
-		proposed23 = 1271397/237194
-		p11_saved_max = 1495487/237194
 		p6_l1 = False
 		p6_l0 = False
 		p29_l1 = False
 		p29_l0 = False
-		proposed29 = 6552/118597
-		p0_saved_max = 1495487/237194
-		p17_saved_max = 1495487/237194
 		p12_l1 = False
 		p12_l0 = False
-		proposed12 = 1271397/237194
-		p23_saved_max = 1495487/237194
-	Trans 10 -- 11
-		_x_p18_x = p18_x
-		_x_p25_x = p25_x
-		_x_p2_x = p2_x
-		_x_p3_x = p3_x
+	Trans 8 -- 9
+		_x_p16_x = p16_x
 		_x_p21_x = p21_x
-		_x_p22_x = p22_x
-		_x_p11_x = p11_x
-		_x_p29_x = p29_x
+		_x_p17_x = p17_x
+		_x_p20_x = p20_x
 		_x_p15_x = p15_x
-		_x_p14_x = p14_x
-		_x_p28_x = p28_x
-		_x_p13_x = p13_x
-		_x_p10_x = p10_x
+		_x_p22_x = p22_x
+		_x_p2_x = p2_x
 		_x_p1_x = p1_x
-		_x_p6_saved_max = max_prop
-		_x_p4_x = p4_x
-		_x_p0_x = p0_x
-		_x_p12_x = p12_x
+		_x_p27_x = p27_x
 		_x_p26_x = p26_x
-		_x_p9_x = p9_x
+		_x_p23_x = p23_x
 		_x_p24_x = p24_x
 		_x_p8_x = p8_x
-		_x_p20_x = p20_x
-		_x_p27_x = p27_x
-		_x_p23_x = p23_x
-		_x_p16_x = p16_x
 		_x_p7_x = p7_x
-		_x_proposed6 = proposed6
-		_x_p19_x = p19_x
-		_x_p17_x = p17_x
+		_x_p0_x = p0_x
+		_x_p14_saved_max = max_prop
 		_x_p5_x = p5_x
-		_x_max_prop = proposed6
-	starting from: p18_l1 : False, p1_l1 : False, p18_l0 : False, p1_l0 : False, p6_saved_max : 1297605/237194, proposed18 : 1271397/237194, proposed1 : 1271397/237194, _diverge_delta : 0.0, delta : 0.0, p18_x : 1495487/237194, p1_x : 1495487/237194, p29_saved_max : 1495487/237194, max_prop : 1297605/237194, p24_l1 : False, p24_l0 : False, proposed24 : 6552/118597, p24_x : 1495487/237194, p12_saved_max : 1495487/237194, p7_l1 : False, p7_l0 : False, proposed7 : 1271397/237194, p7_x : 1495487/237194, p18_saved_max : 1495487/237194, p1_saved_max : 1495487/237194, p13_l1 : False, p13_l0 : False, proposed13 : 1271397/237194, p13_x : 1495487/237194, p24_saved_max : 1495487/237194, p19_l1 : False, p19_l0 : False, p2_l1 : False, proposed19 : 6552/118597, p2_l0 : False, p7_saved_max : 1495487/237194, proposed2 : 1271397/237194, p19_x : 1495487/237194, p2_x : 1495487/237194, p25_l1 : False, p25_l0 : False, proposed25 : 1271397/237194, p25_x : 1495487/237194, p13_saved_max : 1495487/237194, p8_l1 : False, p8_l0 : False, proposed8 : 1271397/237194, inc_max_prop : True, p8_x : 1495487/237194, p19_saved_max : 1495487/237194, turn4 : False, turn3 : False, p2_saved_max : 1495487/237194, turn2 : True, p14_l1 : False, p14_l0 : False, turn1 : True, turn0 : False, proposed14 : 1271397/237194, p14_x : 1495487/237194, id4 : True, p25_saved_max : 1495487/237194, id3 : True, id2 : True, id1 : True, p20_l1 : False, p20_l0 : False, id0 : False, proposed20 : 1271397/237194, p8_saved_max : 1495487/237194, p3_l1 : False, p3_l0 : False, p20_x : 1495487/237194, proposed3 : 6552/118597, p3_x : 1495487/237194, p26_l1 : False, p26_l0 : False, proposed26 : 1271397/237194, p26_x : 1495487/237194, p14_saved_max : 1495487/237194, p9_l1 : False, p9_l0 : False, proposed9 : 1271397/237194, p9_x : 1495487/237194, p20_saved_max : 1495487/237194, p3_saved_max : 1495487/237194, p15_l1 : False, p15_l0 : False, proposed15 : 1271397/237194, p15_x : 1495487/237194, p26_saved_max : 1495487/237194, _J3933 : True, _J3927 : True, _J3921 : True, p21_l1 : False, p21_l0 : False, _J3915 : True, _EL_U_3888 : True, proposed21 : 1271397/237194, _EL_U_3890 : False, p9_saved_max : 1495487/237194, p4_l1 : False, p21_x : 1495487/237194, p4_l0 : False, _EL_U_3893 : True, _EL_U_3895 : False, proposed4 : 1271397/237194, p4_x : 1495487/237194, p27_l1 : False, p27_l0 : False, proposed27 : 1271397/237194, p27_x : 1495487/237194, p15_saved_max : 1495487/237194, p10_l1 : False, p10_l0 : False, proposed10 : 1271397/237194, p10_x : 1495487/237194, p21_saved_max : 1495487/237194, p16_l1 : False, p16_l0 : False, p4_saved_max : 1495487/237194, proposed16 : 1271397/237194, p16_x : 1495487/237194, p27_saved_max : 1495487/237194, p22_l1 : False, p22_l0 : False, proposed22 : 1271397/237194, p10_saved_max : 1495487/237194, p22_x : 1495487/237194, p5_l1 : False, p5_l0 : False, proposed5 : 1271397/237194, p5_x : 1495487/237194, p28_l1 : False, p28_l0 : False, proposed28 : 1271397/237194, p28_x : 1495487/237194, p16_saved_max : 1495487/237194, p11_l1 : False, p11_l0 : False, proposed11 : 1271397/237194, p11_x : 1495487/237194, p22_saved_max : 1495487/237194, p0_l1 : False, p0_l0 : False, p17_l1 : False, p17_l0 : False, p5_saved_max : 1495487/237194, proposed0 : 1271397/237194, proposed17 : 1271397/237194, p0_x : 1495487/237194, p17_x : 1495487/237194, p28_saved_max : 1495487/237194, p23_l1 : False, p23_l0 : False, proposed23 : 1271397/237194, p23_x : 1495487/237194, p11_saved_max : 1495487/237194, p6_l1 : True, p6_l0 : False, proposed6 : 1297605/237194, p29_l1 : False, p29_l0 : False, p6_x : 0.0, proposed29 : 6552/118597, p29_x : 1495487/237194, p0_saved_max : 1495487/237194, p17_saved_max : 1495487/237194, p12_l1 : False, p12_l0 : False, proposed12 : 1271397/237194, p12_x : 1495487/237194, p23_saved_max : 1495487/237194
+		_x_p25_x = p25_x
+		_x_p3_x = p3_x
+		_x_p29_x = p29_x
+		_x_proposed14 = proposed14
+		_x_p6_x = p6_x
+		_x_p18_x = p18_x
+		_x_p28_x = p28_x
+		_x_p4_x = p4_x
+		_x_p10_x = p10_x
+		_x_p11_x = p11_x
+		_x_p9_x = p9_x
+		_x_p12_x = p12_x
+		_x_p13_x = p13_x
+		_x_p19_x = p19_x
+		_x_max_prop = proposed14
+	State 9
+		proposed28 = 15/128
+		p26_saved_max = 3/16
+		proposed8 = 15/128
+		proposed18 = 15/128
+		_diverge_delta = 0.0
+		proposed1 = 15/128
+		delta = 0.0
+		p6_saved_max = 3/16
+		p16_saved_max = 3/16
+		p29_saved_max = 3/16
+		proposed21 = 15/128
+		proposed11 = 15/128
+		p9_saved_max = 3/16
+		p19_saved_max = 3/16
+		p2_saved_max = 3/16
+		proposed4 = 15/128
+		proposed24 = 15/128
+		p22_saved_max = 3/16
+		p12_saved_max = 3/16
+		p14_x = 1.0
+		proposed27 = 15/128
+		proposed0 = 15/128
+		p5_saved_max = 3/16
+		p25_saved_max = 3/16
+		proposed17 = 15/128
+		proposed7 = 15/128
+		p15_saved_max = 3/16
+		p28_saved_max = 3/16
+		proposed20 = 15/128
+		proposed10 = 15/128
+		p8_saved_max = 3/16
+		p18_saved_max = 3/16
+		p1_saved_max = 3/16
+		proposed3 = 15/128
+		proposed23 = 15/128
+		p21_saved_max = 3/16
+		proposed13 = 15/128
+		p11_saved_max = 3/16
+		proposed26 = 15/128
+		p4_saved_max = 3/16
+		proposed6 = 15/128
+		p24_saved_max = 3/16
+		proposed16 = 15/128
+		proposed29 = 15/128
+		p27_saved_max = 3/16
+		proposed9 = 15/128
+		p0_saved_max = 3/16
+		p7_saved_max = 3/16
+		p17_saved_max = 3/16
+		proposed2 = 15/128
+		proposed19 = 15/128
+		proposed22 = 15/128
+		proposed12 = 15/128
+		p10_saved_max = 3/16
+		p20_saved_max = 3/16
+		p3_saved_max = 3/16
+		proposed5 = 15/128
+		proposed25 = 15/128
+		p23_saved_max = 3/16
+		proposed15 = 15/128
+		p13_saved_max = 3/16
+		p18_l1 = False
+		p18_l0 = False
+		p1_l1 = False
+		p1_l0 = False
+		p24_l1 = False
+		p24_l0 = False
+		p7_l1 = False
+		p7_l0 = False
+		p13_l1 = False
+		p13_l0 = False
+		p19_l1 = False
+		p19_l0 = False
+		p2_l1 = False
+		p2_l0 = False
+		p25_l1 = False
+		p25_l0 = False
+		p8_l1 = False
+		p8_l0 = False
+		inc_max_prop = True
+		turn4 = False
+		turn3 = True
+		turn2 = True
+		p14_l1 = True
+		p14_l0 = True
+		turn1 = True
+		turn0 = False
+		id4 = False
+		id3 = True
+		id2 = True
+		id1 = True
+		p20_l1 = False
+		p20_l0 = False
+		id0 = False
+		p3_l1 = False
+		p3_l0 = False
+		p26_l1 = False
+		p26_l0 = False
+		p9_l1 = False
+		p9_l0 = False
+		p15_l1 = False
+		p15_l0 = False
+		_J3933 = True
+		_J3927 = True
+		_J3921 = True
+		p21_l1 = False
+		p21_l0 = False
+		_J3915 = False
+		_EL_U_3888 = True
+		_EL_U_3890 = False
+		_EL_U_3893 = True
+		p4_l1 = False
+		p4_l0 = False
+		_EL_U_3895 = False
+		p27_l1 = False
+		p27_l0 = False
+		p10_l1 = False
+		p10_l0 = False
+		p16_l1 = False
+		p16_l0 = False
+		p22_l1 = False
+		p22_l0 = False
+		p5_l1 = False
+		p5_l0 = False
+		p28_l1 = False
+		p28_l0 = False
+		p11_l1 = False
+		p11_l0 = False
+		p0_l1 = False
+		p0_l0 = False
+		p17_l1 = False
+		p17_l0 = False
+		p23_l1 = False
+		p23_l0 = False
+		p6_l1 = False
+		p6_l0 = False
+		p29_l1 = False
+		p29_l0 = False
+		p12_l1 = False
+		p12_l0 = False
+	Trans 9 -- 10
+		_x_p16_x = p16_x
+		_x_p21_x = p21_x
+		_x_p17_x = p17_x
+		_x_p20_x = p20_x
+		_x_p15_x = p15_x
+		_x_p22_x = p22_x
+		_x_p2_x = p2_x
+		_x_p1_x = p1_x
+		_x_p27_x = p27_x
+		_x_p26_x = p26_x
+		_x_p23_x = p23_x
+		_x_p24_x = p24_x
+		_x_p8_x = p8_x
+		_x_p7_x = p7_x
+		_x_p0_x = p0_x
+		_x_p14_saved_max = max_prop
+		_x_p5_x = p5_x
+		_x_p25_x = p25_x
+		_x_p3_x = p3_x
+		_x_p29_x = p29_x
+		_x_p6_x = p6_x
+		_x_p18_x = p18_x
+		_x_p28_x = p28_x
+		_x_p4_x = p4_x
+		_x_p10_x = p10_x
+		_x_p11_x = p11_x
+		_x_p9_x = p9_x
+		_x_p12_x = p12_x
+		_x_p13_x = p13_x
+		_x_p19_x = p19_x
+		_x_proposed14 = (((max_prop * 1/2) + (proposed14 * 7/15) + 1/16) - (p14_saved_max * 1/2))
+		_x_max_prop = (((proposed14 * 22/15) + 1/16) - ((max_prop * 1/2) + (p14_saved_max * 1/2)))
+	State 10
+		proposed28 = 15/128
+		p26_saved_max = 3/16
+		proposed8 = 15/128
+		proposed18 = 15/128
+		_diverge_delta = 0.0
+		proposed1 = 15/128
+		delta = 0.0
+		p6_saved_max = 3/16
+		p16_saved_max = 3/16
+		p29_saved_max = 3/16
+		proposed21 = 15/128
+		proposed11 = 15/128
+		p9_saved_max = 3/16
+		p19_saved_max = 3/16
+		p2_saved_max = 3/16
+		proposed4 = 15/128
+		proposed24 = 15/128
+		p22_saved_max = 3/16
+		p12_saved_max = 3/16
+		p14_x = 1.0
+		proposed27 = 15/128
+		proposed0 = 15/128
+		p5_saved_max = 3/16
+		p25_saved_max = 3/16
+		proposed17 = 15/128
+		proposed7 = 15/128
+		p15_saved_max = 3/16
+		p28_saved_max = 3/16
+		proposed20 = 15/128
+		proposed10 = 15/128
+		p8_saved_max = 3/16
+		p18_saved_max = 3/16
+		p1_saved_max = 3/16
+		proposed3 = 15/128
+		proposed23 = 15/128
+		p21_saved_max = 3/16
+		proposed13 = 15/128
+		p11_saved_max = 3/16
+		proposed26 = 15/128
+		p4_saved_max = 3/16
+		proposed6 = 15/128
+		p24_saved_max = 3/16
+		proposed16 = 15/128
+		proposed29 = 15/128
+		p27_saved_max = 3/16
+		proposed9 = 15/128
+		p0_saved_max = 3/16
+		p7_saved_max = 3/16
+		p17_saved_max = 3/16
+		proposed2 = 15/128
+		proposed19 = 15/128
+		proposed22 = 15/128
+		proposed12 = 15/128
+		p10_saved_max = 3/16
+		p20_saved_max = 3/16
+		p3_saved_max = 3/16
+		proposed5 = 15/128
+		proposed25 = 15/128
+		p23_saved_max = 3/16
+		proposed15 = 15/128
+		p13_saved_max = 3/16
+		p18_l1 = False
+		p18_l0 = False
+		p1_l1 = False
+		p1_l0 = False
+		p24_l1 = False
+		p24_l0 = False
+		p7_l1 = False
+		p7_l0 = False
+		p13_l1 = False
+		p13_l0 = False
+		p19_l1 = False
+		p19_l0 = False
+		p2_l1 = False
+		p2_l0 = False
+		p25_l1 = False
+		p25_l0 = False
+		p8_l1 = False
+		p8_l0 = False
+		inc_max_prop = False
+		turn4 = False
+		turn3 = True
+		turn2 = True
+		p14_l1 = False
+		p14_l0 = False
+		turn1 = True
+		turn0 = False
+		id4 = True
+		id3 = True
+		id2 = True
+		id1 = True
+		p20_l1 = False
+		p20_l0 = False
+		id0 = False
+		p3_l1 = False
+		p3_l0 = False
+		p26_l1 = False
+		p26_l0 = False
+		p9_l1 = False
+		p9_l0 = False
+		p15_l1 = False
+		p15_l0 = False
+		_J3933 = True
+		_J3927 = True
+		_J3921 = True
+		p21_l1 = False
+		p21_l0 = False
+		_J3915 = False
+		_EL_U_3888 = True
+		_EL_U_3890 = False
+		_EL_U_3893 = True
+		p4_l1 = False
+		p4_l0 = False
+		_EL_U_3895 = False
+		p27_l1 = False
+		p27_l0 = False
+		p10_l1 = False
+		p10_l0 = False
+		p16_l1 = False
+		p16_l0 = False
+		p22_l1 = False
+		p22_l0 = False
+		p5_l1 = False
+		p5_l0 = False
+		p28_l1 = False
+		p28_l0 = False
+		p11_l1 = False
+		p11_l0 = False
+		p0_l1 = False
+		p0_l0 = False
+		p17_l1 = False
+		p17_l0 = False
+		p23_l1 = False
+		p23_l0 = False
+		p6_l1 = False
+		p6_l0 = False
+		p29_l1 = False
+		p29_l0 = False
+		p12_l1 = False
+		p12_l0 = False
+		((-1.0 * proposed14) <= 0.0)
+		(((-1.0 * max_prop) + proposed14) = 0.0)
+		((-1.0 * proposed14) < -15/128)
+		((-1.0 * proposed14) <= -15/128)
+		((-1.0 * max_prop) <= -15/128)
+		(proposed14 < 3/16)
+	Trans 10 -- 11
+		_x_p16_x = p16_x
+		_x_p21_x = p21_x
+		_x_p17_x = p17_x
+		_x_p20_x = p20_x
+		_x_p15_x = p15_x
+		_x_p22_x = p22_x
+		_x_p2_x = p2_x
+		_x_p1_x = p1_x
+		_x_p27_x = p27_x
+		_x_p26_x = p26_x
+		_x_p23_x = p23_x
+		_x_p24_x = p24_x
+		_x_p8_x = p8_x
+		_x_p7_x = p7_x
+		_x_p0_x = p0_x
+		_x_p14_saved_max = max_prop
+		_x_p5_x = p5_x
+		_x_p25_x = p25_x
+		_x_p3_x = p3_x
+		_x_p29_x = p29_x
+		_x_proposed14 = proposed14
+		_x_p6_x = p6_x
+		_x_p18_x = p18_x
+		_x_p28_x = p28_x
+		_x_p4_x = p4_x
+		_x_p10_x = p10_x
+		_x_p11_x = p11_x
+		_x_p9_x = p9_x
+		_x_p12_x = p12_x
+		_x_p13_x = p13_x
+		_x_p19_x = p19_x
+		_x_max_prop = proposed14
+	starting from: p18_l1 : False, p1_l1 : False, p18_l0 : False, p1_l0 : False, p6_saved_max : 3/16, proposed18 : 15/128, proposed1 : 15/128, _diverge_delta : 0.0, delta : 0.0, p18_x : 1/2, p1_x : 1/2, p29_saved_max : 3/16, max_prop : 21/128, p24_l1 : False, p24_l0 : False, proposed24 : 15/128, p24_x : 1/2, p12_saved_max : 3/16, p7_l1 : False, p7_l0 : False, proposed7 : 15/128, p7_x : 1/2, p18_saved_max : 3/16, p1_saved_max : 3/16, p13_l1 : False, p13_l0 : False, proposed13 : 15/128, p13_x : 1/2, p24_saved_max : 3/16, p19_l1 : False, p19_l0 : False, p2_l1 : False, proposed19 : 15/128, p2_l0 : False, p7_saved_max : 3/16, proposed2 : 15/128, p19_x : 1/2, p2_x : 1/2, p25_l1 : False, p25_l0 : False, proposed25 : 15/128, p25_x : 1/2, p13_saved_max : 3/16, p8_l1 : False, p8_l0 : False, proposed8 : 15/128, inc_max_prop : True, p8_x : 1/2, p19_saved_max : 3/16, turn4 : False, turn3 : True, p2_saved_max : 3/16, turn2 : True, p14_l1 : True, p14_l0 : False, turn1 : True, turn0 : False, proposed14 : 21/128, p14_x : 0.0, id4 : True, p25_saved_max : 3/16, id3 : True, id2 : True, id1 : True, p20_l1 : False, p20_l0 : False, id0 : False, proposed20 : 15/128, p8_saved_max : 3/16, p3_l1 : False, p3_l0 : False, p20_x : 1/2, proposed3 : 15/128, p3_x : 1/2, p26_l1 : False, p26_l0 : False, proposed26 : 15/128, p26_x : 1/2, p14_saved_max : 21/128, p9_l1 : False, p9_l0 : False, proposed9 : 15/128, p9_x : 1/2, p20_saved_max : 3/16, p3_saved_max : 3/16, p15_l1 : False, p15_l0 : False, proposed15 : 15/128, p15_x : 1/2, p26_saved_max : 3/16, _J3933 : True, _J3927 : True, _J3921 : True, p21_l1 : False, p21_l0 : False, _J3915 : True, _EL_U_3888 : True, proposed21 : 15/128, _EL_U_3890 : False, p9_saved_max : 3/16, p4_l1 : False, p21_x : 1/2, p4_l0 : False, _EL_U_3893 : True, _EL_U_3895 : False, proposed4 : 15/128, p4_x : 1/2, p27_l1 : False, p27_l0 : False, proposed27 : 15/128, p27_x : 1/2, p15_saved_max : 3/16, p10_l1 : False, p10_l0 : False, proposed10 : 15/128, p10_x : 1/2, p21_saved_max : 3/16, p16_l1 : False, p16_l0 : False, p4_saved_max : 3/16, proposed16 : 15/128, p16_x : 1/2, p27_saved_max : 3/16, p22_l1 : False, p22_l0 : False, proposed22 : 15/128, p10_saved_max : 3/16, p22_x : 1/2, p5_l1 : False, p5_l0 : False, proposed5 : 15/128, p5_x : 1/2, p28_l1 : False, p28_l0 : False, proposed28 : 15/128, p28_x : 1/2, p16_saved_max : 3/16, p11_l1 : False, p11_l0 : False, proposed11 : 15/128, p11_x : 1/2, p22_saved_max : 3/16, p0_l1 : False, p0_l0 : False, p17_l1 : False, p17_l0 : False, p5_saved_max : 3/16, proposed0 : 15/128, proposed17 : 15/128, p0_x : 1/2, p17_x : 1/2, p28_saved_max : 3/16, p23_l1 : False, p23_l0 : False, proposed23 : 15/128, p23_x : 1/2, p11_saved_max : 3/16, p6_l1 : False, p6_l0 : False, proposed6 : 15/128, p29_l1 : False, p29_l0 : False, p6_x : 1/2, proposed29 : 15/128, p29_x : 1/2, p0_saved_max : 3/16, p17_saved_max : 3/16, p12_l1 : False, p12_l0 : False, proposed12 : 15/128, p12_x : 1/2, p23_saved_max : 3/16
 
-end of `dynamic_fischer_0030`: SUCCESS in 210.0444736480713s
+end of `dynamic_fischer_0030`: SUCCESS in 224.87460231781006s

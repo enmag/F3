@@ -1,8 +1,8 @@
 group: f3_ta_lynch
-platform: Linux node4 5.4.0-54-generic #60-Ubuntu SMP Fri Nov 6 10:37:59 UTC 2020 x86_64 x86_64
-timestamp: 1629481388
-time: 2021-08-20 19:43:08
+platform: Linux node3 5.4.0-56-generic #62-Ubuntu SMP Mon Nov 23 19:20:19 UTC 2020 x86_64 x86_64
+timestamp: 1629580163
+time: 2021-08-21 23:09:23
 exitcode: 0
-real: 9.23
-user: 7.42
-sys: 0.72
+real: 12.29
+user: 10.58
+sys: 0.71

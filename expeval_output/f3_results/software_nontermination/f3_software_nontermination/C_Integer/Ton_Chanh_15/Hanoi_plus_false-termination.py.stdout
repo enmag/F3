@@ -6,7 +6,7 @@ F3 run `Hanoi_plus_false-termination`
 		((((-1 * z) + (-1 * x)) - (y * 2)) < 0)
 		(((-1 * y) + (-1 * x)) < 0)
 		((-1 * x) < 0)
-		((-1 * z) <= 0)
+		((-1 * (z * 3)) <= 0)
 	Trans 0 -- 1
 		_x_y = y
 		_x_x = x
@@ -31,4 +31,4 @@ F3 run `Hanoi_plus_false-termination`
 		_x_z = (z + x)
 	starting from: z : 0, pc : 0, x : 1, y : 0
 
-end of `Hanoi_plus_false-termination`: SUCCESS in 2.054868698120117s
+end of `Hanoi_plus_false-termination`: SUCCESS in 3.3791489601135254s

@@ -31,4 +31,4 @@ F3 run `LeikeHeizmann-WST2014-Ex5_false-termination`
 		_x_olda = olda
 	starting from: olda : 7, pc : 0, a : 7, b : 7
 
-end of `LeikeHeizmann-WST2014-Ex5_false-termination`: SUCCESS in 2.008178472518921s
+end of `LeikeHeizmann-WST2014-Ex5_false-termination`: SUCCESS in 3.1893372535705566s

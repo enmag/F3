@@ -1,8 +1,8 @@
 group: f3_tts
-platform: Linux node4 5.4.0-54-generic #60-Ubuntu SMP Fri Nov 6 10:37:59 UTC 2020 x86_64 x86_64
-timestamp: 1629483335
-time: 2021-08-20 20:15:35
+platform: Linux node3 5.4.0-56-generic #62-Ubuntu SMP Mon Nov 23 19:20:19 UTC 2020 x86_64 x86_64
+timestamp: 1629581643
+time: 2021-08-21 23:34:03
 exitcode: 0
-real: 8.18
-user: 6.61
-sys: 0.64
+real: 77.82
+user: 76.27
+sys: 0.62

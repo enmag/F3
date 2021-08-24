@@ -30,4 +30,4 @@ F3 run `factorial`
 		_x_fact = (fact * i)
 	starting from: pc : 5, fact : 4, i : 2, n : 5
 
-end of `factorial`: SUCCESS in 2.0267937183380127s
+end of `factorial`: SUCCESS in 3.1961803436279297s

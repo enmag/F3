@@ -2,6 +2,7 @@ F3 run `lynch_protocol_0008`
 
 	Found non-termination argument:
 	State 1
+		v1 = 1
 		_EL_U_1809 = True
 		p7_l1 = False
 		p7_l0 = False
@@ -26,7 +27,6 @@ F3 run `lynch_protocol_0008`
 		p5_evt = True
 		p6_evt = True
 		p7_evt = True
-		v1 = 1
 		v2 = True
 		p6_l1 = False
 		p6_l0 = False
@@ -61,25 +61,26 @@ F3 run `lynch_protocol_0008`
 		((-1.0 * delta) <= -1.0)
 		((-1.0 * p7_c) < -16.0)
 		((-1.0 * p3_c) < -16.0)
-		((-1.0 * _diverge_delta) <= -1.0)
-		((-1.0 * delta) < 0.0)
 		((-1.0 * p6_c) < -16.0)
+		((-1.0 * _diverge_delta) <= -1.0)
+		((-1.0 * p6_c) <= 0.0)
+		(((-1.0 * delta) + _diverge_delta) < 0.0)
 		((-1.0 * p2_c) < -16.0)
-		(((-1.0 * _diverge_delta) + delta) < 0.0)
 		((-1.0 * p5_c) < -16.0)
 		((-1.0 * p1_c) < -16.0)
 	Trans 1 -- 2
+		_x_p2_c = (delta + p2_c)
+		_x_p6_c = (p6_c + delta)
+		_x__diverge_delta = delta
+		_x_p3_c = (delta + p3_c)
 		_x_p7_c = (p7_c + delta)
+		_x_p0_c = (delta + p0_c)
 		_x_p4_c = (delta + p4_c)
 		_x_p1_c = (delta + p1_c)
 		_x_p5_c = (p5_c + delta)
-		_x_p6_c = (p6_c + delta)
-		_x_p2_c = (delta + p2_c)
-		_x__diverge_delta = delta
-		_x_p3_c = (delta + p3_c)
-		_x_p0_c = (delta + p0_c)
-		_x_delta = (p4_c + p3_c + p0_c + p2_c + p1_c + _diverge_delta + delta + p7_c + p6_c + p5_c + -1.0)
+		_x_delta = (p4_c + p3_c + p0_c + p2_c + p1_c + (-1.0 * _diverge_delta) + delta + p7_c + p6_c + p5_c + -1.0)
 	State 2
+		v1 = 1
 		_EL_U_1809 = True
 		p7_l1 = False
 		p7_l0 = False
@@ -104,7 +105,6 @@ F3 run `lynch_protocol_0008`
 		p5_evt = True
 		p6_evt = True
 		p7_evt = True
-		v1 = 1
 		v2 = True
 		p6_l1 = False
 		p6_l0 = False
@@ -138,22 +138,23 @@ F3 run `lynch_protocol_0008`
 		(((-1.0 * p5_c) + (-1.0 * delta)) < -16.0)
 		(((-1.0 * p7_c) + (-1.0 * delta)) < -16.0)
 		(((-1.0 * p1_c) + (-1.0 * delta)) < -16.0)
-		(((-1.0 * p6_c) + (-1.0 * delta)) < -16.0)
+		(((-1.0 * delta) + (-1.0 * p6_c)) <= 0.0)
 		(((-1.0 * p3_c) + (-1.0 * delta)) < -16.0)
+		(((-1.0 * delta) + (-1.0 * p6_c)) < -16.0)
 		(((-1.0 * p4_c) + (-1.0 * delta)) < -16.0)
 		(((-1.0 * p2_c) + (-1.0 * delta)) < -16.0)
 		(((-1.0 * p0_c) + (-1.0 * delta)) < -16.0)
 	Trans 2 -- 3
+		_x_p2_c = (delta + p2_c)
+		_x_p6_c = (p6_c + delta)
+		_x__diverge_delta = delta
+		_x_p3_c = (delta + p3_c)
 		_x_p7_c = (p7_c + delta)
+		_x_p0_c = (delta + p0_c)
 		_x_p4_c = (delta + p4_c)
 		_x_p1_c = (delta + p1_c)
 		_x_p5_c = (p5_c + delta)
-		_x_p6_c = (p6_c + delta)
-		_x_p2_c = (delta + p2_c)
-		_x__diverge_delta = delta
-		_x_p3_c = (delta + p3_c)
-		_x_p0_c = (delta + p0_c)
-		_x_delta = (delta * 128/16383)
-	starting from: _EL_U_1809 : True, p0_evt : True, _diverge_delta : 65/4, delta : 1.0, p7_l1 : False, p7_l0 : False, p5_l1 : False, p7_l2 : False, p5_l0 : False, p7_l3 : False, p5_l2 : False, p3_l1 : False, p3_l0 : False, p1_l1 : False, p5_l3 : False, p1_l0 : False, p7_c : 65/4, p3_l2 : False, p3_l3 : False, p5_c : 65/4, p1_l2 : False, p1_l3 : False, p3_c : 65/4, p2_evt : True, p3_evt : True, p5_evt : True, p1_c : 65/4, p4_evt : True, p6_evt : True, p7_evt : True, v1 : 1, v2 : True, p6_l1 : False, p6_l0 : False, p4_l1 : False, p6_l2 : False, p4_l0 : False, p0_l1 : False, p6_l3 : False, p2_l1 : False, p4_l2 : False, p0_l0 : False, p2_l0 : False, p6_c : 65/4, p4_l3 : False, p0_l2 : False, p2_l2 : False, p0_l3 : False, p2_l3 : False, p4_c : 65/4, p0_c : 65/4, p2_c : 65/4, _J1866 : True, _J1860 : True, _J1853 : True, _J1847 : True, _J1842 : True, _J1836 : True, _EL_U_1799 : True, _EL_U_1801 : False, p1_evt : True, _EL_U_1803 : True, _EL_U_1805 : False, _EL_U_1807 : False
+		_x_delta = (p4_c + p3_c + p0_c + p2_c + p1_c + (-1.0 * _diverge_delta) + delta + p7_c + p6_c + p5_c + -1.0)
+	starting from: _EL_U_1809 : True, p0_evt : True, _diverge_delta : 33/2, delta : 17.0, p7_l1 : False, p7_l0 : False, p5_l1 : False, p7_l2 : False, p5_l0 : False, p7_l3 : False, p5_l2 : False, p3_l1 : False, p3_l0 : False, p1_l1 : False, p5_l3 : False, p1_l0 : False, p7_c : 33/2, p3_l2 : False, p3_l3 : False, p5_c : 33/2, p1_l2 : False, p1_l3 : False, p3_c : 33/2, p2_evt : True, p3_evt : True, p5_evt : True, p1_c : 33/2, p4_evt : True, p6_evt : True, p7_evt : True, v1 : 1, v2 : True, p6_l1 : False, p6_l0 : False, p4_l1 : False, p6_l2 : False, p4_l0 : False, p0_l1 : False, p6_l3 : False, p2_l1 : False, p4_l2 : False, p0_l0 : False, p2_l0 : False, p6_c : 33/2, p4_l3 : False, p0_l2 : False, p2_l2 : False, p0_l3 : False, p2_l3 : False, p4_c : 33/2, p0_c : 33/2, p2_c : 33/2, _J1866 : True, _J1860 : True, _J1853 : True, _J1847 : True, _J1842 : True, _J1836 : True, _EL_U_1799 : True, _EL_U_1801 : False, p1_evt : True, _EL_U_1803 : True, _EL_U_1805 : False, _EL_U_1807 : False
 
-end of `lynch_protocol_0008`: SUCCESS in 5.885223388671875s
+end of `lynch_protocol_0008`: SUCCESS in 6.822587013244629s

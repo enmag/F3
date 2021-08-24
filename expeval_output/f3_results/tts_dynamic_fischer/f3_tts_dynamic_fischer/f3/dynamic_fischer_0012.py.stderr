@@ -17,9 +17,9 @@ Traceback (most recent call last):
     _, arg0, arg1 = search_funnel_bmc(env, symbols, init, trans,
   File "/home/F3/src/main.py", line 250, in search_funnel_bmc
     is_rf, args = rf_or_funnel_from_trace(env, symbols, trace, abst_path,
-  File "/home/F3/src/main.py", line 631, in rf_or_funnel_from_trace
+  File "/home/F3/src/main.py", line 675, in rf_or_funnel_from_trace
     model = instantiate_funnel_template(nontermarg)
-  File "/home/F3/src/main.py", line 703, in instantiate_funnel_template
+  File "/home/F3/src/main.py", line 747, in instantiate_funnel_template
     model = funnel_t.motzkin_instantiate(extra=learn if get_fun_learn_ef()
   File "/home/F3/src/funnel.py", line 709, in motzkin_instantiate
     res = solver.solve()
@@ -36,6 +36,6 @@ Traceback (most recent call last):
   File "/usr/local/lib/python3.8/dist-packages/mathsat.py", line 1437, in msat_solve
     return _mathsat.msat_solve(e)
 SystemError: <built-in function msat_solve> returned a result with an error set
-real 3602.39
+real 3602.87
 user 0.00
 sys 0.00

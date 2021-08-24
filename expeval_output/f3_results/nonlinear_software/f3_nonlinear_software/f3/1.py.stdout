@@ -5,4 +5,4 @@ F3 run `1`
 	z : 2, pc : 1, x : 0, y : 0
 	z : -1, pc : 0, x : 0, y : 0
 
-end of `1`: SUCCESS in 0.21217894554138184s
+end of `1`: SUCCESS in 0.24664592742919922s

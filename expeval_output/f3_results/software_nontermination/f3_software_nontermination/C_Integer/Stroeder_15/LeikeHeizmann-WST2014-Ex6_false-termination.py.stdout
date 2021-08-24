@@ -36,4 +36,4 @@ F3 run `LeikeHeizmann-WST2014-Ex6_false-termination`
 		_x_a = a
 	starting from: pc : 0, a : 1, b : 1
 
-end of `LeikeHeizmann-WST2014-Ex6_false-termination`: SUCCESS in 1.897733211517334s
+end of `LeikeHeizmann-WST2014-Ex6_false-termination`: SUCCESS in 2.8199164867401123s

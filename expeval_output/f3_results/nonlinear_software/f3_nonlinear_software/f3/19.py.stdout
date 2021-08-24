@@ -16,8 +16,8 @@ F3 run `19`
 		pc = 3
 		z = 1
 	Trans 3 -- 4
-		_x_y = y
 		_x_x = (y + -1)
+		_x_y = y
 	State 4
 		pc = 4
 		z = 1
@@ -26,4 +26,4 @@ F3 run `19`
 		_x_y = (y + 1)
 	starting from: z : 1, pc : 2, x : 0, y : 1
 
-end of `19`: SUCCESS in 1.6079914569854736s
+end of `19`: SUCCESS in 4.534808158874512s

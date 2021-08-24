@@ -1,8 +1,8 @@
 group: f3_nonlinear_software
-platform: Linux node4 5.4.0-54-generic #60-Ubuntu SMP Fri Nov 6 10:37:59 UTC 2020 x86_64 x86_64
-timestamp: 1629475985
-time: 2021-08-20 18:13:05
+platform: Linux node3 5.4.0-56-generic #62-Ubuntu SMP Mon Nov 23 19:20:19 UTC 2020 x86_64 x86_64
+timestamp: 1629574452
+time: 2021-08-21 21:34:12
 exitcode: 0
-real: 3.07
-user: 1.79
-sys: 0.63
+real: 6.15
+user: 4.79
+sys: 0.87

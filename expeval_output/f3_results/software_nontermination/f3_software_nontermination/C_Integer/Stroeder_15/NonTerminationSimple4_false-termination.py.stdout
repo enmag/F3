@@ -21,4 +21,4 @@ F3 run `NonTerminationSimple4_false-termination`
 		_x_y = (y + -1)
 	starting from: pc : 1, x : 5, y : 0
 
-end of `NonTerminationSimple4_false-termination`: SUCCESS in 1.9936752319335938s
+end of `NonTerminationSimple4_false-termination`: SUCCESS in 2.327089548110962s

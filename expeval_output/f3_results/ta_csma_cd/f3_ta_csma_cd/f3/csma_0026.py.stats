@@ -1,8 +1,8 @@
 group: f3_ta_csma_cd
-platform: Linux node4 5.4.0-54-generic #60-Ubuntu SMP Fri Nov 6 10:37:59 UTC 2020 x86_64 x86_64
-timestamp: 1629476781
-time: 2021-08-20 18:26:21
+platform: Linux node3 5.4.0-56-generic #62-Ubuntu SMP Mon Nov 23 19:20:19 UTC 2020 x86_64 x86_64
+timestamp: 1629575654
+time: 2021-08-21 21:54:14
 exitcode: 0
-real: 421.9
-user: 419.6
-sys: 2.1
+real: 845.87
+user: 843.02
+sys: 2.65

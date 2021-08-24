@@ -1,6 +1,17 @@
-SystemError: ../Objects/longobject.c:482: bad argument to internal function
+Traceback (most recent call last):
+  File "/home/F3/src/multisolver.py", line 103, in solve
+    res = self._c_solver.timeout_solve(assumptions=assumptions)
+  File "/home/F3/src/multisolver.py", line 197, in solver_timeout_solve
+    return self.solve(assumptions)
+  File "/usr/local/lib/python3.8/dist-packages/PySMT-0.9.1.dev332-py3.8.egg/pysmt/solvers/solver.py", line 351, in solve
+    res = self._solve(assumptions=assumptions)
+  File "/usr/local/lib/python3.8/dist-packages/PySMT-0.9.1.dev332-py3.8.egg/pysmt/decorators.py", line 64, in clear_pending_pop_wrap
+    return f(self, *args, **kwargs)
+  File "/usr/local/lib/python3.8/dist-packages/PySMT-0.9.1.dev332-py3.8.egg/pysmt/solvers/msat.py", line 271, in _solve
+    raise SolverReturnedUnknownResultError(msat_msg)
+pysmt.exceptions.SolverReturnedUnknownResultError: user-requested termination
 
-The above exception was the direct cause of the following exception:
+During handling of the above exception, another exception occurred:
 
 Traceback (most recent call last):
   File "/home/F3/src/run_f3.py", line 444, in <module>
@@ -19,19 +30,17 @@ Traceback (most recent call last):
     for i, (trace, lback_idx, abst_path, hints) in \
   File "/home/F3/src/abstract_loops.py", line 292, in gen_loops
     sat = solver.solve()
-  File "/home/F3/src/multisolver.py", line 103, in solve
-    res = self._c_solver.timeout_solve(assumptions=assumptions)
-  File "/home/F3/src/multisolver.py", line 197, in solver_timeout_solve
-    return self.solve(assumptions)
-  File "/usr/local/lib/python3.8/dist-packages/PySMT-0.9.1.dev332-py3.8.egg/pysmt/solvers/solver.py", line 351, in solve
-    res = self._solve(assumptions=assumptions)
+  File "/home/F3/src/multisolver.py", line 106, in solve
+    self._c_solver.reset_assertions()
+  File "/usr/local/lib/python3.8/dist-packages/PySMT-0.9.1.dev332-py3.8.egg/pysmt/solvers/solver.py", line 325, in reset_assertions
+    self._reset_assertions()
   File "/usr/local/lib/python3.8/dist-packages/PySMT-0.9.1.dev332-py3.8.egg/pysmt/decorators.py", line 64, in clear_pending_pop_wrap
     return f(self, *args, **kwargs)
-  File "/usr/local/lib/python3.8/dist-packages/PySMT-0.9.1.dev332-py3.8.egg/pysmt/solvers/msat.py", line 266, in _solve
-    res = mathsat.msat_solve(self.msat_env())
-  File "/usr/local/lib/python3.8/dist-packages/mathsat.py", line 1437, in msat_solve
-    return _mathsat.msat_solve(e)
-SystemError: <built-in function msat_solve> returned a result with an error set
-real 3603.25
+  File "/usr/local/lib/python3.8/dist-packages/PySMT-0.9.1.dev332-py3.8.egg/pysmt/solvers/msat.py", line 201, in _reset_assertions
+    mathsat.msat_reset_env(self.msat_env())
+  File "/usr/local/lib/python3.8/dist-packages/mathsat.py", line 1421, in msat_reset_env
+    return _mathsat.msat_reset_env(e)
+KeyboardInterrupt
+real 3602.44
 user 0.00
 sys 0.00

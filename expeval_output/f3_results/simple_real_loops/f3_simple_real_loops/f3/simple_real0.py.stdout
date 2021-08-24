@@ -3,12 +3,12 @@ F3 run `simple_real0`
 	Found non-termination argument:
 	State 0
 		((-1.0 * x) < 0.0)
+		((-1.0 * x) <= 0.0)
 	Trans 0 -- 1
-		_x_x = (-3/2 - (x * 3/2))
+		_x_x = ((-1.0 * x) + -3/2)
 	State 1
-		(x <= 0.0)
 	Trans 1 -- 2
-		_x_x = (3/2 - (x * 3/2))
+		_x_x = ((-1.0 * x) + 47/45)
 	starting from: x : 1.0
 
-end of `simple_real0`: SUCCESS in 1.9846608638763428s
+end of `simple_real0`: SUCCESS in 0.9494054317474365s

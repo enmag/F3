@@ -6,19 +6,17 @@ F3 run `14`
 		y = -10
 		((-1 * x) <= 40)
 		((-1 * x) <= 0)
-		((-1 * x) <= 1)
-		((-1 * x) <= 21)
 		((-1 * x) <= 20)
-		(((-1 * x) + (z * 2)) <= 0)
+		((x + z + -21) <= 0)
 	Trans 2 -- 3
-		_x_z = z
 		_x_x = x
+		_x_z = z
 	State 3
 		pc = 3
 		y = -10
 	Trans 3 -- 4
-		_x_z = z
 		_x_x = x
+		_x_z = z
 	State 4
 		pc = 4
 		y = -10
@@ -29,8 +27,8 @@ F3 run `14`
 		pc = 5
 		y = -10
 	Trans 5 -- 6
-		_x_z = z
 		_x_x = (x + 20)
+		_x_z = z
 	starting from: z : 0, pc : 2, x : 0, y : -10
 
-end of `14`: SUCCESS in 1.7702553272247314s
+end of `14`: SUCCESS in 9.091261386871338s

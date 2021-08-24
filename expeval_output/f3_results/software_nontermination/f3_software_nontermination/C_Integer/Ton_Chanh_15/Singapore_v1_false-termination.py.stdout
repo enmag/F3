@@ -25,4 +25,4 @@ F3 run `Singapore_v1_false-termination`
 		_x_y = (y + -1)
 	starting from: pc : 1, x : 1, y : 0
 
-end of `Singapore_v1_false-termination`: SUCCESS in 7.770632743835449s
+end of `Singapore_v1_false-termination`: SUCCESS in 8.86800217628479s

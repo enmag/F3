@@ -2,8 +2,8 @@ F3 run `NonTerminationSimple8a_false-termination`
 
 	Found non-termination argument:
 	State 0
-		nondet = -1
 		pc = 0
+		nondet = -1
 		((-1 * x) < 3)
 		((-1 * x) <= 1)
 		((-1 * x) <= 2)
@@ -14,15 +14,15 @@ F3 run `NonTerminationSimple8a_false-termination`
 	Trans 0 -- 1
 		_x_x = x
 	State 1
-		nondet = -1
 		pc = 1
+		nondet = -1
 	Trans 1 -- 2
 		_x_x = x
 	State 2
-		nondet = 0
 		pc = 2
+		nondet = 0
 	Trans 2 -- 3
 		_x_x = (x + 1)
 	starting from: pc : 0, x : 0, nondet : -1
 
-end of `NonTerminationSimple8a_false-termination`: SUCCESS in 2.460110664367676s
+end of `NonTerminationSimple8a_false-termination`: SUCCESS in 3.5082287788391113s

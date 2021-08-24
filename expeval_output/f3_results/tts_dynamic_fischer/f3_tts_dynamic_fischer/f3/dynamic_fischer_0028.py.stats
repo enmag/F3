@@ -1,8 +1,8 @@
 group: f3_tts_dynamic_fischer
-platform: Linux node4 5.4.0-54-generic #60-Ubuntu SMP Fri Nov 6 10:37:59 UTC 2020 x86_64 x86_64
-timestamp: 1629488636
-time: 2021-08-20 21:43:56
+platform: Linux node3 5.4.0-56-generic #62-Ubuntu SMP Mon Nov 23 19:20:19 UTC 2020 x86_64 x86_64
+timestamp: 1629587275
+time: 2021-08-22 01:07:55
 exitcode: 0
-real: 3603.19
-user: 0.0
-sys: 0.0
+real: 3580.46
+user: 3572.01
+sys: 7.51

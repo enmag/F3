@@ -2,15 +2,22 @@ F3 run `semaphore_0009`
 
 	Found non-termination argument:
 	State 9
-		run = -1
-		sm8_state = True
+		sm3_loop_len = 1
 		sm1_loop_len = 1
+		run = -1
+		sm8_loop_len = 1
+		sm6_loop_len = 1
+		sm4_loop_len = 1
+		semaphore = 0
+		sm2_loop_len = 1
+		sm0_loop_len = 1
+		sm7_loop_len = 1
+		sm5_loop_len = 1
+		sm8_state = True
 		_J806 = True
 		sm3_state = True
 		_J800 = True
-		sm6_loop_len = 1
 		_J793 = True
-		semaphore = 0
 		_J787 = True
 		_J780 = True
 		_J774 = True
@@ -20,26 +27,22 @@ F3 run `semaphore_0009`
 		_J748 = True
 		_J741 = True
 		_J735 = True
-		sm3_loop_len = 1
-		_J728 = True
 		sm0_state = True
+		_J728 = True
 		_J722 = True
-		sm8_loop_len = 1
 		_J715 = True
-		_J709 = True
 		sm5_state = True
+		_J709 = True
 		_J703 = True
 		_J697 = True
 		_J691 = True
 		_J685 = True
 		_EL_U_570 = True
 		_EL_U_572 = False
-		sm0_loop_len = 1
 		_EL_U_574 = True
 		_EL_U_576 = False
 		sm2_state = True
 		_EL_U_578 = True
-		sm5_loop_len = 1
 		_EL_U_580 = False
 		sm7_state = True
 		_EL_U_582 = True
@@ -47,10 +50,8 @@ F3 run `semaphore_0009`
 		_EL_U_586 = True
 		_EL_U_588 = False
 		_EL_U_590 = True
-		sm2_loop_len = 1
 		_EL_U_592 = False
 		_EL_U_594 = True
-		sm7_loop_len = 1
 		_EL_U_596 = False
 		sm4_state = True
 		_EL_U_598 = True
@@ -58,58 +59,64 @@ F3 run `semaphore_0009`
 		_EL_U_602 = True
 		_EL_U_604 = False
 		sm1_state = True
-		sm4_loop_len = 1
 		_EL_U_615 = True
 		_EL_U_617 = False
 		sm6_state = True
-		(sm4_l < 10)
-		(sm7_l < 10)
+		(sm6_l < 10)
+		(sm1_l < 10)
+		(sm5_l < 20)
+		(sm0_l < 20)
 		(sm8_l < 20)
 		(sm3_l < 20)
 		(sm6_l < 20)
 		(sm1_l < 20)
-		(sm4_l < 20)
-		(sm7_l < 20)
+		(sm3_l < 0)
+		(sm6_l < 0)
 		(sm1_l < 0)
 		(sm4_l < 0)
-		(sm7_l < 0)
 		(sm2_l < 0)
+		(sm7_l < 0)
 		(sm5_l < 0)
 		(sm0_l < 0)
 		(sm8_l < 0)
-		(sm3_l < 0)
-		(sm6_l < 0)
+		(sm4_l < 20)
 		(sm2_l < 20)
-		(sm5_l < 20)
-		(sm0_l < 20)
+		(sm7_l < 20)
+		(sm4_l < 10)
 		(sm2_l < 10)
+		(sm7_l < 10)
 		(sm5_l < 10)
 		(sm0_l < 10)
 		(sm8_l < 10)
 		(sm3_l < 10)
-		(sm6_l < 10)
-		(sm1_l < 10)
 		((sm3_l + 2) <= 0)
 	Trans 9 -- 10
-		_x_sm2_l = (sm2_l + -1)
-		_x_sm8_l = (sm8_l + -1)
-		_x_sm3_l = (sm3_l + -1)
-		_x_sm0_l = (sm0_l + -1)
-		_x_sm4_l = (sm4_l + -1)
-		_x_sm1_l = (sm1_l + -1)
-		_x_sm7_l = (sm7_l + -1)
 		_x_sm5_l = (sm5_l + -1)
+		_x_sm0_l = (sm0_l + -1)
 		_x_sm6_l = (sm6_l + -1)
+		_x_sm7_l = (sm7_l + -1)
+		_x_sm1_l = (sm1_l + -1)
+		_x_sm2_l = (sm2_l + -1)
+		_x_sm3_l = (sm3_l + -1)
+		_x_sm8_l = (sm8_l + -1)
+		_x_sm4_l = (sm4_l + -1)
 	State 10
-		run = 0
-		sm8_state = True
+		sm3_loop_len = 1
 		sm1_loop_len = 1
+		run = 0
+		sm8_loop_len = 1
+		sm6_loop_len = 1
+		sm4_loop_len = 1
+		semaphore = 0
+		sm2_loop_len = 1
+		sm0_loop_len = 1
+		sm7_loop_len = 1
+		sm5_loop_len = 1
+		sm8_state = True
 		_J806 = False
 		sm3_state = True
 		_J800 = False
-		sm6_loop_len = 1
 		_J793 = False
-		semaphore = 0
 		_J787 = False
 		_J780 = False
 		_J774 = False
@@ -119,26 +126,22 @@ F3 run `semaphore_0009`
 		_J748 = False
 		_J741 = False
 		_J735 = False
-		sm3_loop_len = 1
-		_J728 = False
 		sm0_state = True
+		_J728 = False
 		_J722 = False
-		sm8_loop_len = 1
 		_J715 = False
-		_J709 = False
 		sm5_state = True
+		_J709 = False
 		_J703 = False
 		_J697 = False
 		_J691 = False
 		_J685 = False
 		_EL_U_570 = True
 		_EL_U_572 = False
-		sm0_loop_len = 1
 		_EL_U_574 = True
 		_EL_U_576 = False
 		sm2_state = True
 		_EL_U_578 = True
-		sm5_loop_len = 1
 		_EL_U_580 = False
 		sm7_state = True
 		_EL_U_582 = True
@@ -146,10 +149,8 @@ F3 run `semaphore_0009`
 		_EL_U_586 = True
 		_EL_U_588 = False
 		_EL_U_590 = True
-		sm2_loop_len = 1
 		_EL_U_592 = False
 		_EL_U_594 = True
-		sm7_loop_len = 1
 		_EL_U_596 = False
 		sm4_state = True
 		_EL_U_598 = True
@@ -157,30 +158,36 @@ F3 run `semaphore_0009`
 		_EL_U_602 = True
 		_EL_U_604 = False
 		sm1_state = True
-		sm4_loop_len = 1
 		_EL_U_615 = True
 		_EL_U_617 = False
 		sm6_state = True
 	Trans 10 -- 11
-		_x_sm2_l = (sm2_l + -1)
-		_x_sm8_l = (sm8_l + -1)
-		_x_sm3_l = (sm3_l + -1)
-		_x_sm0_l = (sm0_l + -1)
-		_x_sm4_l = (sm4_l + -1)
-		_x_sm1_l = (sm1_l + -1)
-		_x_sm7_l = (sm7_l + -1)
 		_x_sm5_l = (sm5_l + -1)
+		_x_sm0_l = (sm0_l + -1)
 		_x_sm6_l = (sm6_l + -1)
+		_x_sm7_l = (sm7_l + -1)
+		_x_sm1_l = (sm1_l + -1)
+		_x_sm2_l = (sm2_l + -1)
+		_x_sm3_l = (sm3_l + -1)
+		_x_sm8_l = (sm8_l + -1)
+		_x_sm4_l = (sm4_l + -1)
 	State 11
-		run = 1
-		sm8_state = True
+		sm3_loop_len = 1
 		sm1_loop_len = 1
+		run = 1
+		sm8_loop_len = 1
+		sm6_loop_len = 1
+		sm4_loop_len = 1
+		semaphore = 0
+		sm2_loop_len = 1
+		sm0_loop_len = 1
+		sm7_loop_len = 1
+		sm5_loop_len = 1
+		sm8_state = True
 		_J806 = True
 		sm3_state = True
 		_J800 = False
-		sm6_loop_len = 1
 		_J793 = True
-		semaphore = 0
 		_J787 = False
 		_J780 = True
 		_J774 = False
@@ -190,26 +197,22 @@ F3 run `semaphore_0009`
 		_J748 = False
 		_J741 = True
 		_J735 = False
-		sm3_loop_len = 1
-		_J728 = True
 		sm0_state = True
+		_J728 = True
 		_J722 = False
-		sm8_loop_len = 1
 		_J715 = True
-		_J709 = False
 		sm5_state = True
+		_J709 = False
 		_J703 = True
 		_J697 = True
 		_J691 = True
 		_J685 = True
 		_EL_U_570 = True
 		_EL_U_572 = False
-		sm0_loop_len = 1
 		_EL_U_574 = True
 		_EL_U_576 = False
 		sm2_state = True
 		_EL_U_578 = True
-		sm5_loop_len = 1
 		_EL_U_580 = False
 		sm7_state = True
 		_EL_U_582 = True
@@ -217,10 +220,8 @@ F3 run `semaphore_0009`
 		_EL_U_586 = True
 		_EL_U_588 = False
 		_EL_U_590 = True
-		sm2_loop_len = 1
 		_EL_U_592 = False
 		_EL_U_594 = True
-		sm7_loop_len = 1
 		_EL_U_596 = False
 		sm4_state = True
 		_EL_U_598 = True
@@ -228,30 +229,36 @@ F3 run `semaphore_0009`
 		_EL_U_602 = True
 		_EL_U_604 = False
 		sm1_state = True
-		sm4_loop_len = 1
 		_EL_U_615 = True
 		_EL_U_617 = False
 		sm6_state = True
 	Trans 11 -- 12
-		_x_sm2_l = (sm2_l + -1)
-		_x_sm8_l = (sm8_l + -1)
-		_x_sm3_l = (sm3_l + -1)
-		_x_sm0_l = (sm0_l + -1)
-		_x_sm4_l = (sm4_l + -1)
-		_x_sm1_l = (sm1_l + -1)
-		_x_sm7_l = (sm7_l + -1)
 		_x_sm5_l = (sm5_l + -1)
+		_x_sm0_l = (sm0_l + -1)
 		_x_sm6_l = (sm6_l + -1)
+		_x_sm7_l = (sm7_l + -1)
+		_x_sm1_l = (sm1_l + -1)
+		_x_sm2_l = (sm2_l + -1)
+		_x_sm3_l = (sm3_l + -1)
+		_x_sm8_l = (sm8_l + -1)
+		_x_sm4_l = (sm4_l + -1)
 	State 12
-		run = 4
-		sm8_state = True
+		sm3_loop_len = 1
 		sm1_loop_len = 1
+		run = 4
+		sm8_loop_len = 1
+		sm6_loop_len = 1
+		sm4_loop_len = 1
+		semaphore = 0
+		sm2_loop_len = 1
+		sm0_loop_len = 1
+		sm7_loop_len = 1
+		sm5_loop_len = 1
+		sm8_state = True
 		_J806 = True
 		sm3_state = True
 		_J800 = False
-		sm6_loop_len = 1
 		_J793 = True
-		semaphore = 0
 		_J787 = False
 		_J780 = True
 		_J774 = False
@@ -261,26 +268,22 @@ F3 run `semaphore_0009`
 		_J748 = False
 		_J741 = True
 		_J735 = False
-		sm3_loop_len = 1
-		_J728 = True
 		sm0_state = True
+		_J728 = True
 		_J722 = False
-		sm8_loop_len = 1
 		_J715 = True
-		_J709 = True
 		sm5_state = True
+		_J709 = True
 		_J703 = True
 		_J697 = True
 		_J691 = True
 		_J685 = True
 		_EL_U_570 = True
 		_EL_U_572 = False
-		sm0_loop_len = 1
 		_EL_U_574 = True
 		_EL_U_576 = False
 		sm2_state = True
 		_EL_U_578 = True
-		sm5_loop_len = 1
 		_EL_U_580 = False
 		sm7_state = True
 		_EL_U_582 = True
@@ -288,10 +291,8 @@ F3 run `semaphore_0009`
 		_EL_U_586 = True
 		_EL_U_588 = False
 		_EL_U_590 = True
-		sm2_loop_len = 1
 		_EL_U_592 = False
 		_EL_U_594 = True
-		sm7_loop_len = 1
 		_EL_U_596 = False
 		sm4_state = True
 		_EL_U_598 = True
@@ -299,30 +300,36 @@ F3 run `semaphore_0009`
 		_EL_U_602 = True
 		_EL_U_604 = False
 		sm1_state = True
-		sm4_loop_len = 1
 		_EL_U_615 = True
 		_EL_U_617 = False
 		sm6_state = True
 	Trans 12 -- 13
-		_x_sm2_l = (sm2_l + -1)
-		_x_sm8_l = (sm8_l + -1)
-		_x_sm3_l = (sm3_l + -1)
-		_x_sm0_l = (sm0_l + -1)
-		_x_sm4_l = (sm4_l + -1)
-		_x_sm1_l = (sm1_l + -1)
-		_x_sm7_l = (sm7_l + -1)
 		_x_sm5_l = (sm5_l + -1)
+		_x_sm0_l = (sm0_l + -1)
 		_x_sm6_l = (sm6_l + -1)
+		_x_sm7_l = (sm7_l + -1)
+		_x_sm1_l = (sm1_l + -1)
+		_x_sm2_l = (sm2_l + -1)
+		_x_sm3_l = (sm3_l + -1)
+		_x_sm8_l = (sm8_l + -1)
+		_x_sm4_l = (sm4_l + -1)
 	State 13
-		run = 3
-		sm8_state = True
+		sm3_loop_len = 1
 		sm1_loop_len = 1
+		run = 3
+		sm8_loop_len = 1
+		sm6_loop_len = 1
+		sm4_loop_len = 1
+		semaphore = 0
+		sm2_loop_len = 1
+		sm0_loop_len = 1
+		sm7_loop_len = 1
+		sm5_loop_len = 1
+		sm8_state = True
 		_J806 = True
 		sm3_state = True
 		_J800 = False
-		sm6_loop_len = 1
 		_J793 = True
-		semaphore = 0
 		_J787 = False
 		_J780 = True
 		_J774 = False
@@ -332,26 +339,22 @@ F3 run `semaphore_0009`
 		_J748 = True
 		_J741 = True
 		_J735 = False
-		sm3_loop_len = 1
-		_J728 = True
 		sm0_state = True
+		_J728 = True
 		_J722 = False
-		sm8_loop_len = 1
 		_J715 = True
-		_J709 = True
 		sm5_state = True
+		_J709 = True
 		_J703 = True
 		_J697 = True
 		_J691 = True
 		_J685 = True
 		_EL_U_570 = True
 		_EL_U_572 = False
-		sm0_loop_len = 1
 		_EL_U_574 = True
 		_EL_U_576 = False
 		sm2_state = True
 		_EL_U_578 = True
-		sm5_loop_len = 1
 		_EL_U_580 = False
 		sm7_state = True
 		_EL_U_582 = True
@@ -359,10 +362,8 @@ F3 run `semaphore_0009`
 		_EL_U_586 = True
 		_EL_U_588 = False
 		_EL_U_590 = True
-		sm2_loop_len = 1
 		_EL_U_592 = False
 		_EL_U_594 = True
-		sm7_loop_len = 1
 		_EL_U_596 = False
 		sm4_state = True
 		_EL_U_598 = True
@@ -370,30 +371,36 @@ F3 run `semaphore_0009`
 		_EL_U_602 = True
 		_EL_U_604 = False
 		sm1_state = True
-		sm4_loop_len = 1
 		_EL_U_615 = True
 		_EL_U_617 = False
 		sm6_state = True
 	Trans 13 -- 14
-		_x_sm2_l = (sm2_l + -1)
-		_x_sm8_l = (sm8_l + -1)
-		_x_sm3_l = (sm3_l + -1)
-		_x_sm0_l = (sm0_l + -1)
-		_x_sm4_l = (sm4_l + -1)
-		_x_sm1_l = (sm1_l + -1)
-		_x_sm7_l = (sm7_l + -1)
 		_x_sm5_l = (sm5_l + -1)
+		_x_sm0_l = (sm0_l + -1)
 		_x_sm6_l = (sm6_l + -1)
+		_x_sm7_l = (sm7_l + -1)
+		_x_sm1_l = (sm1_l + -1)
+		_x_sm2_l = (sm2_l + -1)
+		_x_sm3_l = (sm3_l + -1)
+		_x_sm8_l = (sm8_l + -1)
+		_x_sm4_l = (sm4_l + -1)
 	State 14
-		run = 7
-		sm8_state = True
+		sm3_loop_len = 1
 		sm1_loop_len = 1
+		run = 7
+		sm8_loop_len = 1
+		sm6_loop_len = 1
+		sm4_loop_len = 1
+		semaphore = 0
+		sm2_loop_len = 1
+		sm0_loop_len = 1
+		sm7_loop_len = 1
+		sm5_loop_len = 1
+		sm8_state = True
 		_J806 = True
 		sm3_state = True
 		_J800 = False
-		sm6_loop_len = 1
 		_J793 = True
-		semaphore = 0
 		_J787 = False
 		_J780 = True
 		_J774 = False
@@ -403,26 +410,22 @@ F3 run `semaphore_0009`
 		_J748 = True
 		_J741 = True
 		_J735 = True
-		sm3_loop_len = 1
-		_J728 = True
 		sm0_state = True
+		_J728 = True
 		_J722 = False
-		sm8_loop_len = 1
 		_J715 = True
-		_J709 = True
 		sm5_state = True
+		_J709 = True
 		_J703 = True
 		_J697 = True
 		_J691 = True
 		_J685 = True
 		_EL_U_570 = True
 		_EL_U_572 = False
-		sm0_loop_len = 1
 		_EL_U_574 = True
 		_EL_U_576 = False
 		sm2_state = True
 		_EL_U_578 = True
-		sm5_loop_len = 1
 		_EL_U_580 = False
 		sm7_state = True
 		_EL_U_582 = True
@@ -430,10 +433,8 @@ F3 run `semaphore_0009`
 		_EL_U_586 = True
 		_EL_U_588 = False
 		_EL_U_590 = True
-		sm2_loop_len = 1
 		_EL_U_592 = False
 		_EL_U_594 = True
-		sm7_loop_len = 1
 		_EL_U_596 = False
 		sm4_state = True
 		_EL_U_598 = True
@@ -441,30 +442,36 @@ F3 run `semaphore_0009`
 		_EL_U_602 = True
 		_EL_U_604 = False
 		sm1_state = True
-		sm4_loop_len = 1
 		_EL_U_615 = True
 		_EL_U_617 = False
 		sm6_state = True
 	Trans 14 -- 15
-		_x_sm2_l = (sm2_l + -1)
-		_x_sm8_l = (sm8_l + -1)
-		_x_sm3_l = (sm3_l + -1)
-		_x_sm0_l = (sm0_l + -1)
-		_x_sm4_l = (sm4_l + -1)
-		_x_sm1_l = (sm1_l + -1)
-		_x_sm7_l = (sm7_l + -1)
 		_x_sm5_l = (sm5_l + -1)
+		_x_sm0_l = (sm0_l + -1)
 		_x_sm6_l = (sm6_l + -1)
+		_x_sm7_l = (sm7_l + -1)
+		_x_sm1_l = (sm1_l + -1)
+		_x_sm2_l = (sm2_l + -1)
+		_x_sm3_l = (sm3_l + -1)
+		_x_sm8_l = (sm8_l + -1)
+		_x_sm4_l = (sm4_l + -1)
 	State 15
-		run = 5
-		sm8_state = True
+		sm3_loop_len = 1
 		sm1_loop_len = 1
+		run = 5
+		sm8_loop_len = 1
+		sm6_loop_len = 1
+		sm4_loop_len = 1
+		semaphore = 0
+		sm2_loop_len = 1
+		sm0_loop_len = 1
+		sm7_loop_len = 1
+		sm5_loop_len = 1
+		sm8_state = True
 		_J806 = True
 		sm3_state = True
 		_J800 = False
-		sm6_loop_len = 1
 		_J793 = True
-		semaphore = 0
 		_J787 = True
 		_J780 = True
 		_J774 = False
@@ -474,26 +481,22 @@ F3 run `semaphore_0009`
 		_J748 = True
 		_J741 = True
 		_J735 = True
-		sm3_loop_len = 1
-		_J728 = True
 		sm0_state = True
+		_J728 = True
 		_J722 = False
-		sm8_loop_len = 1
 		_J715 = True
-		_J709 = True
 		sm5_state = True
+		_J709 = True
 		_J703 = True
 		_J697 = True
 		_J691 = True
 		_J685 = True
 		_EL_U_570 = True
 		_EL_U_572 = False
-		sm0_loop_len = 1
 		_EL_U_574 = True
 		_EL_U_576 = False
 		sm2_state = True
 		_EL_U_578 = True
-		sm5_loop_len = 1
 		_EL_U_580 = False
 		sm7_state = True
 		_EL_U_582 = True
@@ -501,10 +504,8 @@ F3 run `semaphore_0009`
 		_EL_U_586 = True
 		_EL_U_588 = False
 		_EL_U_590 = True
-		sm2_loop_len = 1
 		_EL_U_592 = False
 		_EL_U_594 = True
-		sm7_loop_len = 1
 		_EL_U_596 = False
 		sm4_state = True
 		_EL_U_598 = True
@@ -512,30 +513,36 @@ F3 run `semaphore_0009`
 		_EL_U_602 = True
 		_EL_U_604 = False
 		sm1_state = True
-		sm4_loop_len = 1
 		_EL_U_615 = True
 		_EL_U_617 = False
 		sm6_state = True
 	Trans 15 -- 16
-		_x_sm2_l = (sm2_l + -1)
-		_x_sm8_l = (sm8_l + -1)
-		_x_sm3_l = (sm3_l + -1)
-		_x_sm0_l = (sm0_l + -1)
-		_x_sm4_l = (sm4_l + -1)
-		_x_sm1_l = (sm1_l + -1)
-		_x_sm7_l = (sm7_l + -1)
 		_x_sm5_l = (sm5_l + -1)
+		_x_sm0_l = (sm0_l + -1)
 		_x_sm6_l = (sm6_l + -1)
+		_x_sm7_l = (sm7_l + -1)
+		_x_sm1_l = (sm1_l + -1)
+		_x_sm2_l = (sm2_l + -1)
+		_x_sm3_l = (sm3_l + -1)
+		_x_sm8_l = (sm8_l + -1)
+		_x_sm4_l = (sm4_l + -1)
 	State 16
-		run = 2
-		sm8_state = True
+		sm3_loop_len = 1
 		sm1_loop_len = 1
+		run = 2
+		sm8_loop_len = 1
+		sm6_loop_len = 1
+		sm4_loop_len = 1
+		semaphore = 0
+		sm2_loop_len = 1
+		sm0_loop_len = 1
+		sm7_loop_len = 1
+		sm5_loop_len = 1
+		sm8_state = True
 		_J806 = True
 		sm3_state = True
 		_J800 = False
-		sm6_loop_len = 1
 		_J793 = True
-		semaphore = 0
 		_J787 = True
 		_J780 = True
 		_J774 = False
@@ -545,26 +552,22 @@ F3 run `semaphore_0009`
 		_J748 = True
 		_J741 = True
 		_J735 = True
-		sm3_loop_len = 1
-		_J728 = True
 		sm0_state = True
+		_J728 = True
 		_J722 = False
-		sm8_loop_len = 1
 		_J715 = True
-		_J709 = True
 		sm5_state = True
+		_J709 = True
 		_J703 = True
 		_J697 = True
 		_J691 = True
 		_J685 = True
 		_EL_U_570 = True
 		_EL_U_572 = False
-		sm0_loop_len = 1
 		_EL_U_574 = True
 		_EL_U_576 = False
 		sm2_state = True
 		_EL_U_578 = True
-		sm5_loop_len = 1
 		_EL_U_580 = False
 		sm7_state = True
 		_EL_U_582 = True
@@ -572,10 +575,8 @@ F3 run `semaphore_0009`
 		_EL_U_586 = True
 		_EL_U_588 = False
 		_EL_U_590 = True
-		sm2_loop_len = 1
 		_EL_U_592 = False
 		_EL_U_594 = True
-		sm7_loop_len = 1
 		_EL_U_596 = False
 		sm4_state = True
 		_EL_U_598 = True
@@ -583,30 +584,36 @@ F3 run `semaphore_0009`
 		_EL_U_602 = True
 		_EL_U_604 = False
 		sm1_state = True
-		sm4_loop_len = 1
 		_EL_U_615 = True
 		_EL_U_617 = False
 		sm6_state = True
 	Trans 16 -- 17
-		_x_sm2_l = (sm2_l + -1)
-		_x_sm8_l = (sm8_l + -1)
-		_x_sm3_l = (sm3_l + -1)
-		_x_sm0_l = (sm0_l + -1)
-		_x_sm4_l = (sm4_l + -1)
-		_x_sm1_l = (sm1_l + -1)
-		_x_sm7_l = (sm7_l + -1)
 		_x_sm5_l = (sm5_l + -1)
+		_x_sm0_l = (sm0_l + -1)
 		_x_sm6_l = (sm6_l + -1)
+		_x_sm7_l = (sm7_l + -1)
+		_x_sm1_l = (sm1_l + -1)
+		_x_sm2_l = (sm2_l + -1)
+		_x_sm3_l = (sm3_l + -1)
+		_x_sm8_l = (sm8_l + -1)
+		_x_sm4_l = (sm4_l + -1)
 	State 17
-		run = 6
-		sm8_state = True
+		sm3_loop_len = 1
 		sm1_loop_len = 1
+		run = 6
+		sm8_loop_len = 1
+		sm6_loop_len = 1
+		sm4_loop_len = 1
+		semaphore = 0
+		sm2_loop_len = 1
+		sm0_loop_len = 1
+		sm7_loop_len = 1
+		sm5_loop_len = 1
+		sm8_state = True
 		_J806 = True
 		sm3_state = True
 		_J800 = False
-		sm6_loop_len = 1
 		_J793 = True
-		semaphore = 0
 		_J787 = True
 		_J780 = True
 		_J774 = False
@@ -616,26 +623,22 @@ F3 run `semaphore_0009`
 		_J748 = True
 		_J741 = True
 		_J735 = True
-		sm3_loop_len = 1
-		_J728 = True
 		sm0_state = True
+		_J728 = True
 		_J722 = True
-		sm8_loop_len = 1
 		_J715 = True
-		_J709 = True
 		sm5_state = True
+		_J709 = True
 		_J703 = True
 		_J697 = True
 		_J691 = True
 		_J685 = True
 		_EL_U_570 = True
 		_EL_U_572 = False
-		sm0_loop_len = 1
 		_EL_U_574 = True
 		_EL_U_576 = False
 		sm2_state = True
 		_EL_U_578 = True
-		sm5_loop_len = 1
 		_EL_U_580 = False
 		sm7_state = True
 		_EL_U_582 = True
@@ -643,10 +646,8 @@ F3 run `semaphore_0009`
 		_EL_U_586 = True
 		_EL_U_588 = False
 		_EL_U_590 = True
-		sm2_loop_len = 1
 		_EL_U_592 = False
 		_EL_U_594 = True
-		sm7_loop_len = 1
 		_EL_U_596 = False
 		sm4_state = True
 		_EL_U_598 = True
@@ -654,30 +655,36 @@ F3 run `semaphore_0009`
 		_EL_U_602 = True
 		_EL_U_604 = False
 		sm1_state = True
-		sm4_loop_len = 1
 		_EL_U_615 = True
 		_EL_U_617 = False
 		sm6_state = True
 	Trans 17 -- 18
-		_x_sm2_l = (sm2_l + -1)
-		_x_sm8_l = (sm8_l + -1)
-		_x_sm3_l = (sm3_l + -1)
-		_x_sm0_l = (sm0_l + -1)
-		_x_sm4_l = (sm4_l + -1)
-		_x_sm1_l = (sm1_l + -1)
-		_x_sm7_l = (sm7_l + -1)
 		_x_sm5_l = (sm5_l + -1)
+		_x_sm0_l = (sm0_l + -1)
 		_x_sm6_l = (sm6_l + -1)
+		_x_sm7_l = (sm7_l + -1)
+		_x_sm1_l = (sm1_l + -1)
+		_x_sm2_l = (sm2_l + -1)
+		_x_sm3_l = (sm3_l + -1)
+		_x_sm8_l = (sm8_l + -1)
+		_x_sm4_l = (sm4_l + -1)
 	State 18
-		run = 8
-		sm8_state = True
+		sm3_loop_len = 1
 		sm1_loop_len = 1
+		run = 8
+		sm8_loop_len = 1
+		sm6_loop_len = 1
+		sm4_loop_len = 1
+		semaphore = 0
+		sm2_loop_len = 1
+		sm0_loop_len = 1
+		sm7_loop_len = 1
+		sm5_loop_len = 1
+		sm8_state = True
 		_J806 = True
 		sm3_state = True
 		_J800 = False
-		sm6_loop_len = 1
 		_J793 = True
-		semaphore = 0
 		_J787 = True
 		_J780 = True
 		_J774 = True
@@ -687,26 +694,22 @@ F3 run `semaphore_0009`
 		_J748 = True
 		_J741 = True
 		_J735 = True
-		sm3_loop_len = 1
-		_J728 = True
 		sm0_state = True
+		_J728 = True
 		_J722 = True
-		sm8_loop_len = 1
 		_J715 = True
-		_J709 = True
 		sm5_state = True
+		_J709 = True
 		_J703 = True
 		_J697 = True
 		_J691 = True
 		_J685 = True
 		_EL_U_570 = True
 		_EL_U_572 = False
-		sm0_loop_len = 1
 		_EL_U_574 = True
 		_EL_U_576 = False
 		sm2_state = True
 		_EL_U_578 = True
-		sm5_loop_len = 1
 		_EL_U_580 = False
 		sm7_state = True
 		_EL_U_582 = True
@@ -714,10 +717,8 @@ F3 run `semaphore_0009`
 		_EL_U_586 = True
 		_EL_U_588 = False
 		_EL_U_590 = True
-		sm2_loop_len = 1
 		_EL_U_592 = False
 		_EL_U_594 = True
-		sm7_loop_len = 1
 		_EL_U_596 = False
 		sm4_state = True
 		_EL_U_598 = True
@@ -725,20 +726,19 @@ F3 run `semaphore_0009`
 		_EL_U_602 = True
 		_EL_U_604 = False
 		sm1_state = True
-		sm4_loop_len = 1
 		_EL_U_615 = True
 		_EL_U_617 = False
 		sm6_state = True
 	Trans 18 -- 19
-		_x_sm2_l = (sm2_l + -1)
-		_x_sm8_l = (sm8_l + -1)
-		_x_sm3_l = (sm3_l + -1)
-		_x_sm0_l = (sm0_l + -1)
-		_x_sm4_l = (sm4_l + -1)
-		_x_sm1_l = (sm1_l + -1)
-		_x_sm7_l = (sm7_l + -1)
 		_x_sm5_l = (sm5_l + -1)
+		_x_sm0_l = (sm0_l + -1)
 		_x_sm6_l = (sm6_l + -1)
+		_x_sm7_l = (sm7_l + -1)
+		_x_sm1_l = (sm1_l + -1)
+		_x_sm2_l = (sm2_l + -1)
+		_x_sm3_l = (sm3_l + -1)
+		_x_sm8_l = (sm8_l + -1)
+		_x_sm4_l = (sm4_l + -1)
 	starting from: sm8_state : True, sm1_l : -9, run : -1, sm1_loop_len : 1, _J806 : True, sm3_state : True, _J800 : True, sm6_l : -9, _J793 : True, semaphore : 0, _J787 : True, sm6_loop_len : 1, _J780 : True, _J774 : True, _J767 : True, _J761 : True, _J754 : True, _J748 : True, _J741 : True, sm3_l : -9, sm3_loop_len : 1, _J735 : True, _J728 : True, _J722 : True, sm8_l : -9, sm8_loop_len : 1, _J715 : True, _J709 : True, sm0_state : True, _J703 : True, sm5_state : True, _J697 : True, _J691 : True, _J685 : True, _EL_U_570 : True, sm0_l : -9, _EL_U_572 : False, sm0_loop_len : 1, _EL_U_574 : True, _EL_U_576 : False, sm5_l : -9, sm2_state : True, _EL_U_578 : True, sm5_loop_len : 1, _EL_U_580 : False, sm7_state : True, _EL_U_582 : True, _EL_U_584 : False, _EL_U_586 : True, _EL_U_588 : False, _EL_U_590 : True, sm2_l : -9, sm2_loop_len : 1, _EL_U_592 : False, _EL_U_594 : True, sm7_l : -9, sm7_loop_len : 1, _EL_U_596 : False, sm4_state : True, _EL_U_598 : True, _EL_U_600 : False, _EL_U_602 : True, _EL_U_604 : False, sm4_l : -9, sm1_state : True, sm4_loop_len : 1, _EL_U_615 : True, _EL_U_617 : False, sm6_state : True
 
-end of `semaphore_0009`: SUCCESS in 17.778209447860718s
+end of `semaphore_0009`: SUCCESS in 21.29961633682251s
