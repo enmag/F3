@@ -83,6 +83,7 @@ def symb_to_next(mgr: FormulaManager, s: FNode) -> FNode:
     """Get monitor for next(s)"""
     assert isinstance(mgr, FormulaManager)
     assert isinstance(s, FNode)
+    assert s.is_symbol()
     assert s in mgr.get_all_symbols()
     assert not name_is_next(s.symbol_name())
     return mgr.Symbol(name_next(s.symbol_name()), s.symbol_type())

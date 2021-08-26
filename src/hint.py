@@ -4,7 +4,7 @@ from enum import IntEnum, unique
 from itertools import chain
 
 from pysmt.environment import Environment as PysmtEnv
-from pysmt.typing import PySMTType
+import pysmt.typing as types
 from pysmt.fnode import FNode
 from pysmt.exceptions import SolverReturnedUnknownResultError
 
@@ -122,7 +122,7 @@ class Location():
     def get_trans(self, idx: int, lvals: List[FNode], x_lvals: List[FNode],
                   symbs: FrozenSet[FNode], locs: List[Location],
                   is_stutter: FNode, is_ranked: FNode,
-                  is_progress: FNode) -> Iterator[FNode]:
+                  is_progress: FNode, is_rank_decr: FNode) -> Iterator[FNode]:
         assert isinstance(idx, int)
         assert isinstance(lvals, list)
         assert all(isinstance(val, FNode) for val in lvals)
@@ -147,6 +147,11 @@ class Location():
         assert isinstance(is_progress, FNode)
         assert is_progress in self.env.formula_manager.formulae.values()
         assert not is_progress.is_false()
+        assert isinstance(is_rank_decr, FNode)
+        assert is_rank_decr.is_false() or is_rank_decr.is_symbol()
+        assert is_rank_decr in self.env.formula_manager.formulae.values()
+        assert not is_ranked.is_false() or is_rank_decr.is_false()
+        assert is_ranked.is_false() or not is_rank_decr.is_false()
 
         mgr = self.env.formula_manager
         # cfg: loc -> \/ (x_loc & \/ trans_types)
@@ -154,10 +159,12 @@ class Location():
         t_type = []
         if not self.stutterT.is_false():
             t_type.append(is_stutter)
-        pos_rf = self.rf.is_ranked if self.rf is not None else None
+        pos_rf = None
         if not self.rankT.is_false():
             assert not is_ranked.is_false()
-            t_type.append(mgr.And(is_ranked, pos_rf) if pos_rf else is_ranked)
+            assert self.rf is not None
+            pos_rf = self.rf.is_ranked
+            t_type.append(mgr.And(is_ranked, pos_rf))
         if self.progress(idx) is not None:
             t_type.append(mgr.And(is_progress, mgr.Not(pos_rf)) if pos_rf
                           else is_progress)
@@ -188,6 +195,19 @@ class Location():
             assert not progress_t.is_false()
             yield mgr.Implies(mgr.And(lvals[idx], x_lvals[dst], is_progress),
                               progress_t)
+
+        if not is_rank_decr.is_false() and not is_ranked.is_false():
+            assert self.rf is not None
+            x_is_rank_decr = symb_to_next(mgr, is_rank_decr)
+            # is_ranked -> x_is_rank_decr
+            yield mgr.Implies(is_ranked, x_is_rank_decr)
+            # is_rank_decr & rf > 0 -> x_is_rank_decr
+            c_ranked = self.rf.is_ranked
+            yield mgr.Implies(mgr.And(is_rank_decr, c_ranked),
+                              x_is_rank_decr)
+            # is_rank_decr & rf = 0 -> !x_is_rank_dect
+            yield mgr.Implies(mgr.And(is_rank_decr, mgr.Not(c_ranked)),
+                              mgr.Not(x_is_rank_decr))
 
     def to_env(self, new_env: PysmtEnv) -> Location:
         """Return copy of self in the give environment"""
@@ -249,10 +269,15 @@ class Hint():
         for h in hints:
             assert h.t_is_stutter is not None
             assert h.t_is_ranked is not None
+            assert h.is_rank_decr is not None
             if h.t_is_ranked.is_false():
                 continue
+            assert not h.is_rank_decr.is_false()
             yield mgr.Implies(h.t_is_ranked,
                               mgr.And(o.t_is_stutter for o in hints if o != h))
+            yield mgr.Implies(h.is_rank_decr,
+                              mgr.And(mgr.Not(o.is_rank_decr) for o in hints
+                                      if o != h and not o.is_rank_decr.is_false()))
 
     def __init__(self, name: str, env: PysmtEnv,
                  owned_symbs: FrozenSet[FNode],
@@ -287,6 +312,7 @@ class Hint():
         self.t_is_stutter = None
         self.t_is_ranked = None
         self.t_progress = None
+        self.is_rank_decr = None
 
     def __str__(self) -> str:
         return self.name
@@ -348,10 +374,15 @@ class Hint():
         assert self.t_is_ranked is not None
         assert self.t_is_progress is not None
 
+        new_symbs = set(chain(self.ts_loc_symbs, self.trans_type_symbs))
         if all(loc.rf is None for loc in self):
             assert all(loc.rankT.is_false() for loc in self)
             self.t_is_ranked = mgr.FALSE()
-        new_symbs = frozenset(chain(self.ts_loc_symbs, self.trans_type_symbs))
+            self.is_rank_decr = mgr.FALSE()
+        else:
+            self.is_rank_decr = mgr.Symbol(f"_{self.name}_dec_rank", types.BOOL)
+            new_symbs.add(self.is_rank_decr)
+        new_symbs = frozenset(new_symbs)
         lvals = self.ts_lvals
         x_lvals = [to_next(mgr, lval, new_symbs) for lval in lvals]
         symbs = frozenset.union(self.all_symbs, new_symbs)
@@ -379,7 +410,7 @@ class Hint():
         trans.extend(chain.from_iterable(
             loc.get_trans(idx, lvals, x_lvals, symbs, self.locs,
                           self.t_is_stutter, self.t_is_ranked,
-                          self.t_is_progress)
+                          self.t_is_progress, self.is_rank_decr)
             for idx, loc in enumerate(self.locs)))
 
         return new_symbs, init, trans, mgr.Not(inactive)
