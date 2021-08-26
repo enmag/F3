@@ -189,41 +189,6 @@ class Tank:
         return [env.formula_manager.Symbol(f"{name}{Tank._VOL_NAME}",
                                            types.REAL)]
 
-    @staticmethod
-    def hints(env: PysmtEnv, name: str, delta, flow, d_flow, max_flow,
-              symbs):
-        mgr = env.formula_manager
-        vol = mgr.Symbol(f"{name}{Tank._VOL_NAME}", types.REAL)
-        x_vol = symb_to_next(mgr, vol)
-        res = []
-        # if name == "tank0":
-        #     m_1 = mgr.Real(-1)
-        #     r_0 = mgr.Real(0)
-        #     r_5 = mgr.Real(5)
-        #     r_6 = mgr.Real(6)
-        #     r_7 = mgr.Real(7)
-        #     r_35 = mgr.Real(35)
-        #     r_40 = mgr.Real(40)
-        #     r_45_2 = mgr.Div(mgr.Real(45), mgr.Real(2))
-        #     loc0 = Location(env, mgr.Equals(vol, r_5),
-        #                     mgr.And(mgr.Equals(flow, mgr.Times(m_1, max_flow)),
-        #                             mgr.Equals(delta, r_7)))
-        #     loc0.set_progress(1, mgr.Equals(x_vol, r_45_2))
-        #     loc1 = Location(env, mgr.Equals(vol, r_45_2),
-        #                     mgr.And(mgr.Equals(flow, r_6),
-        #                             mgr.Equals(d_flow, m_1),
-        #                             mgr.Equals(delta, r_7)))
-        #     loc1.set_progress(2, mgr.Equals(x_vol, r_40))
-        #     loc2 = Location(env, mgr.Equals(vol, r_40),
-        #                     mgr.And(mgr.Equals(flow, mgr.Times(m_1, max_flow)),
-        #                             mgr.Equals(d_flow, r_0),
-        #                             mgr.Equals(delta, r_35)))
-        #     loc2.set_progress(0, mgr.Equals(x_vol, r_5))
-        #     hint = Hint("h_vol0", env, frozenset([vol]), symbs)
-        #     hint.set_locs([loc0, loc1, loc2])
-        #     res.append(hint)
-        return res
-
     def __init__(self, menv: msat_env, name: str, delta,
                  x_delta, max_vol, flow, d_flow):
         real_type = msat_get_rational_type(menv)
@@ -297,43 +262,6 @@ class Pipe:
         return [mgr.Symbol(f"{name}{Pipe._MODE_NAME}", types.INT),
                 mgr.Symbol(f"{name}{Pipe._FLOW_NAME}", types.REAL),
                 mgr.Symbol(f"{name}{Pipe._DFLOW_NAME}", types.REAL)]
-
-    @staticmethod
-    def hints(env: PysmtEnv, name: str, delta, symbs):
-        mgr = env.formula_manager
-        mode = mgr.Symbol(f"{name}{Pipe._MODE_NAME}", types.INT)
-        flow = mgr.Symbol(f"{name}{Pipe._FLOW_NAME}", types.REAL)
-        dflow = mgr.Symbol(f"{name}{Pipe._DFLOW_NAME}", types.REAL)
-        res = []
-        if name == "pipe0":
-            r_0 = mgr.Real(0)
-            r_7 = mgr.Real(7)
-            r_35 = mgr.Real(35)
-            x_mode = symb_to_next(mgr, mode)
-            x_flow = symb_to_next(mgr, flow)
-            opening = mgr.Equals(mode, mgr.Int(Pipe._OPENING))
-            x_opening = mgr.Equals(x_mode, mgr.Int(Pipe._OPENING))
-            closing = mgr.Equals(mode, mgr.Int(Pipe._CLOSING))
-            x_closing = mgr.Equals(x_mode, mgr.Int(Pipe._CLOSING))
-            close = mgr.Equals(mode, mgr.Int(Pipe._CLOSE))
-            x_close = mgr.Equals(x_mode, mgr.Int(Pipe._CLOSE))
-            loc0 = Location(env,
-                            mgr.And(opening, mgr.Equals(flow, r_0)),
-                            mgr.Equals(delta, r_7))
-            loc0.set_progress(1, mgr.And(x_closing,
-                                              mgr.Equals(x_flow, r_7)))
-            loc1 = Location(env, mgr.And(closing, mgr.Equals(flow, r_7)),
-                            mgr.Equals(delta, r_7))
-            loc1.set_progress(2, mgr.And(x_close, mgr.Equals(x_flow, r_0)))
-            loc2 = Location(env, mgr.And(close, mgr.Equals(flow, r_0)),
-                            mgr.Equals(delta, r_35))
-            loc2.set_progress(0, mgr.And(x_opening, mgr.Equals(x_flow, r_0)))
-            hint = Hint("h_modeflow0", env, frozenset([mode, flow]), symbs)
-            hint.set_locs([loc0, loc1, loc2])
-            res.append(hint)
-
-        return res
-
 
     def __init__(self, menv: msat_env, name: str, delta,
                  x_delta, max_flow, speed):
@@ -552,23 +480,16 @@ def hints(env: PysmtEnv):
         symbs.update(Tank.pysmt_symbs(env, f"tank{i}"))
     symbs = frozenset(symbs)
 
-    r_7 = mgr.Real(7)
-    r_35 = mgr.Real(35)
+    r_0 = mgr.Real(0)
+    r_1 = mgr.Real(1)
 
     x_delta = symb_to_next(mgr, delta)
-    loc0 = Location(env, mgr.Equals(delta, r_7))
-    loc0.set_progress(1, mgr.Equals(x_delta, r_7))
-    loc1 = Location(env, mgr.Equals(delta, r_7))
-    loc1.set_progress(2, mgr.Equals(x_delta, r_35))
-    loc2 = Location(env, mgr.Equals(delta, r_35))
-    loc2.set_progress(0, mgr.Equals(x_delta, r_7))
+    loc0 = Location(env, mgr.Equals(delta, r_1))
+    loc0.set_progress(1, mgr.Equals(x_delta, r_0))
+    loc1 = Location(env, mgr.Equals(delta, r_0))
+    loc1.set_progress(0, mgr.Equals(x_delta, r_1))
     hint_delta = Hint("h_delta", env, frozenset([delta]), symbs)
-    hint_delta.set_locs([loc0, loc1, loc2])
-
+    hint_delta.set_locs([loc0, loc1])
     res = [hint_delta]
-    for i in range(len(max_speeds)):
-        res.extend(Pipe.hints(env, f"pipe{i}", delta, symbs))
-    for i in range(len(max_vols)):
-        res.extend(Tank.hints(env, f"tank{i}", delta, symbs))
 
     return frozenset(res)
