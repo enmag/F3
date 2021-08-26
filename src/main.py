@@ -352,7 +352,7 @@ def rf_or_funnel_from_trace(env: PysmtEnv,
     del hints
 
     _hints_symbs = frozenset.union(
-        *chain.from_iterable(h.owned_symbs for h in _hints)) if _hints else frozenset()
+        *chain(h.owned_symbs for h in _hints)) if _hints else frozenset()
     bool_symbs = frozenset(s for s in chain(_symbs, _hints_symbs)
                            if s.symbol_type().is_bool_type())
     # all finite state symbols follow a concrete lasso.

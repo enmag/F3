@@ -32,10 +32,9 @@ def get_timeout() -> int:
 
 @unique
 class TransType(IntEnum):
-    GT_0 = 0
-    EQ_0 = 1
-    STUTTER = 2
-    RANKED = 3
+    PROGRESS = 0
+    STUTTER = 1
+    RANKED = 2
 
 
 class Location():
@@ -55,7 +54,7 @@ class Location():
                  stutterT: Optional[FNode] = None,
                  rankT: Optional[FNode] = None,
                  rf: Optional[RankFun] = None,
-                 progressT: Optional[Dict[int, Tuple[FNode, FNode]]] = None):
+                 progressT: Optional[Dict[int, FNode]] = None):
         assert isinstance(env, PysmtEnv)
         assert isinstance(region, FNode)
         assert region in env.formula_manager.formulae.values()
@@ -75,8 +74,7 @@ class Location():
         self.stutterT = stutterT if stutterT else mgr.FALSE()
         self.rankT = rankT if rankT else mgr.FALSE()
         self.rf = rf
-        self.progressT: Dict[int, Tuple[FNode, FNode]] = progressT \
-            if progressT is not None else {}
+        self.progressT = progressT if progressT is not None else {}
 
     @property
     def ranked_region(self) -> FNode:
@@ -95,6 +93,7 @@ class Location():
     @property
     def dsts(self) -> FrozenSet[int]:
         assert isinstance(self.progressT, dict)
+        assert all(isinstance(k, int) for k in self.progressT)
         return frozenset(self.progressT.keys())
 
     def set_rank(self, trans: FNode, rf: RankFun) -> None:
@@ -106,37 +105,24 @@ class Location():
         self._rankT = trans
         self._rf = rf
 
-    def progress_gt_0(self, dst: int) -> Optional[FNode]:
-        """Return progress transition such that rf' > 0"""
-        el = self.progressT.get(dst)
-        return el[TransType.GT_0] if el else None
+    def progress(self, dst: int) -> Optional[FNode]:
+        """Return progress transition reaching location dst"""
+        return self.progressT.get(dst)
 
-    def progress_eq_0(self, dst: int) -> Optional[FNode]:
-        """Return progress transition such that rf' = 0"""
-        el = self.progressT.get(dst)
-        return el[TransType.EQ_0] if el else None
-
-    def set_progress(self, dst: int,
-                     gt_0: Optional[FNode] = None,
-                     eq_0: Optional[FNode] = None) -> None:
+    def set_progress(self, dst: int, t: FNode) -> None:
         assert isinstance(dst, int)
         assert dst >= 0
-        assert gt_0 is not None or eq_0 is not None
-        assert gt_0 is None or isinstance(gt_0, FNode)
-        assert gt_0 is None or \
-            gt_0 in self.env.formula_manager.formulae.values()
-        assert eq_0 is None or isinstance(eq_0, FNode)
-        assert eq_0 is None or \
-            eq_0 in self.env.formula_manager.formulae.values()
-        assert TransType.GT_0 == 0
-        assert TransType.EQ_0 == 1
-        self.progressT[dst] = (gt_0, eq_0)
+        assert isinstance(t, FNode)
+        assert t in self.env.formula_manager.formulae.values()
+        if t.is_false():
+            self.progressT.pop(t, None)
+        else:
+            self.progressT[dst] = t
 
     def get_trans(self, idx: int, lvals: List[FNode], x_lvals: List[FNode],
-                  symbs: FrozenSet[FNode],
-                  locs: List[Location],
+                  symbs: FrozenSet[FNode], locs: List[Location],
                   is_stutter: FNode, is_ranked: FNode,
-                  is_gt0: FNode, is_eq0: FNode) -> Iterator[FNode]:
+                  is_progress: FNode) -> Iterator[FNode]:
         assert isinstance(idx, int)
         assert isinstance(lvals, list)
         assert all(isinstance(val, FNode) for val in lvals)
@@ -154,12 +140,13 @@ class Location():
         assert all(isinstance(loc, Location) for loc in locs)
         assert isinstance(is_stutter, FNode)
         assert is_stutter in self.env.formula_manager.formulae.values()
+        assert not is_stutter.is_false()
         assert isinstance(is_ranked, FNode)
         assert is_ranked in self.env.formula_manager.formulae.values()
-        assert isinstance(is_gt0, FNode)
-        assert is_gt0 in self.env.formula_manager.formulae.values()
-        assert isinstance(is_eq0, FNode)
-        assert is_eq0 in self.env.formula_manager.formulae.values()
+        assert self.rf is None or not is_ranked.is_false()
+        assert isinstance(is_progress, FNode)
+        assert is_progress in self.env.formula_manager.formulae.values()
+        assert not is_progress.is_false()
 
         mgr = self.env.formula_manager
         # cfg: loc -> \/ (x_loc & \/ trans_types)
@@ -167,86 +154,53 @@ class Location():
         t_type = []
         if not self.stutterT.is_false():
             t_type.append(is_stutter)
+        pos_rf = self.rf.is_ranked if self.rf is not None else None
         if not self.rankT.is_false():
-            t_type.append(is_ranked)
-
-        t_pair = self.progressT.get(idx)
-        if t_pair is not None:
-            assert isinstance(t_pair, tuple)
-            assert len(t_pair) == 2
-            if t_pair[TransType.EQ_0] is not None:
-                t_type.append(is_eq0)
-            if t_pair[TransType.GT_0] is not None:
-                t_type.append(is_gt0)
+            assert not is_ranked.is_false()
+            t_type.append(mgr.And(is_ranked, pos_rf) if pos_rf else is_ranked)
+        if self.progress(idx) is not None:
+            t_type.append(mgr.And(is_progress, mgr.Not(pos_rf)) if pos_rf
+                          else is_progress)
         x_locs.append(mgr.And(x_lvals[idx], mgr.Or(t_type)))
 
-        for dst, t_pair in self.progressT.items():
-            t_type = []
-            assert t_pair[TransType.EQ_0] is not None or \
-                t_pair[TransType.GT_0] is not None
-            if dst != idx:
-                if t_pair[TransType.EQ_0] is not None:
-                    t_type.append(is_eq0)
-                if t_pair[TransType.GT_0] is not None:
-                    t_type.append(is_gt0)
-                if len(t_type) > 0:
-                    x_locs.append(mgr.And(x_lvals[dst], mgr.Or(t_type)))
+        for dst in (dst for dst in self.progressT if dst != idx):
+            x_locs.append(mgr.And(x_lvals[dst], is_progress))
 
         yield mgr.Implies(lvals[idx], mgr.Or(x_locs))
         del x_locs, t_type
 
         # loc & loc' & is_stutter -> stutterT & rf' = rf
         if not self.stutterT.is_false():
-            lhs = mgr.And(lvals[idx], x_lvals[idx], is_stutter)
-            rhs = self.stutterT
-            if self.rf is not None:
-                rhs = mgr.And(rhs, self.rf.constant_pred())
-            yield mgr.Implies(lhs, rhs)
+            yield mgr.Implies(mgr.And(lvals[idx], x_lvals[idx], is_stutter),
+                              mgr.And(self.stutterT, self.rf.constant_pred())
+                              if self.rf is not None else self.stutterT)
 
         # loc & loc' & is_ranked -> rankT & rf' < rf
         if not self.rankT.is_false():
+            assert not is_ranked.is_false()
             assert self.rf is not None
-            lhs = mgr.And(lvals[idx], x_lvals[idx], is_ranked)
-            rhs = mgr.And(self.rankT, self.rf.progress_pred())
-            yield mgr.Implies(lhs, rhs)
+            yield mgr.Implies(mgr.And(lvals[idx], x_lvals[idx], is_ranked),
+                              mgr.And(self.rankT, self.rf.progress_pred()))
 
-        # progress: gt_0 or eq_0
-        _lhs = lvals[idx]
-        if self.rf is not None:
-            _lhs = mgr.And(lhs, mgr.Not(self.rf.is_ranked))
-        for dst, t_pair in self.progressT.items():
-            gt_0 = t_pair[TransType.GT_0]
-            eq_0 = t_pair[TransType.EQ_0]
-            assert gt_0 is not None or eq_0 is not None
-            assert locs[dst].rf is not None or eq_0 is not None
-            if gt_0 is not None:
-                assert locs[dst].rf is not None
-                x_ranked = to_next(mgr, locs[dst].rf.is_ranked, symbs)
-                yield mgr.Implies(mgr.And(_lhs, x_lvals[dst], is_gt0),
-                                  mgr.And(gt_0, x_ranked))
-            if eq_0 is not None:
-                rhs = eq_0
-                if locs[dst].rf is not None:
-                    x_ranked = to_next(mgr, locs[dst].rf.is_ranked, symbs)
-                    rhs = mgr.And(rhs, mgr.Not(x_ranked))
-                yield mgr.Implies(mgr.And(_lhs, is_eq0), rhs)
+        # loc & loc' & is_progress -> progressT
+        for dst, progress_t in self.progressT.items():
+            assert progress_t is not None
+            assert not progress_t.is_false()
+            yield mgr.Implies(mgr.And(lvals[idx], x_lvals[dst], is_progress),
+                              progress_t)
 
     def to_env(self, new_env: PysmtEnv) -> Location:
         """Return copy of self in the give environment"""
         assert isinstance(new_env, PysmtEnv)
 
         norm = new_env.formula_manager.normalize
-        new_region = norm(self.region)
-        new_assume = norm(self.assume)
-        new_stutterT = norm(self.stutterT)
-        new_rankT = norm(self.rankT)
-        new_rf = self.rf.to_env(new_env) if self.rf is not None else None
-        new_progressT = {idx: (norm(gt_0) if gt_0 is not None else None,
-                               norm(eq_0) if eq_0 is not None else None)
-                         for idx, (gt_0, eq_0) in self.progressT.items()}
-        return Location(new_env, new_region, new_assume,
-                        stutterT=new_stutterT, rankT=new_rankT, rf=new_rf,
-                        progressT=new_progressT)
+        return Location(new_env, norm(self.region), norm(self.assume),
+                        stutterT=norm(self.stutterT),
+                        rankT=norm(self.rankT),
+                        rf=self.rf.to_env(new_env) if self.rf is not None
+                        else None,
+                        progressT={idx: norm(prog_t)
+                                   for idx, prog_t in self.progressT.items()})
 
 
 class Hint():
@@ -278,6 +232,27 @@ class Hint():
                 yield mgr.Implies(h0_active,
                                   mgr.And(mgr.Not(p) for p in h_lst))
 
+    @staticmethod
+    def at_most_1_ranked(env: PysmtEnv, hints: List[Hint],
+                         active: List[FNode]) -> Iterator[FNode]:
+        """Return sequence of formulae that allow at most 1
+        ranking function at a time"""
+        assert isinstance(env, PysmtEnv)
+        assert isinstance(hints, list)
+        assert all(isinstance(h, Hint) for h in hints)
+        assert all(h.env == env for h in hints)
+        assert isinstance(active, list)
+        assert all(isinstance(p, FNode) for p in active)
+        assert all(p in env.formula_manager.formulae.values()
+                   for p in active)
+        mgr = env.formula_manager
+        for h in hints:
+            assert h.t_is_stutter is not None
+            assert h.t_is_ranked is not None
+            if h.t_is_ranked.is_false():
+                continue
+            yield mgr.Implies(h.t_is_ranked,
+                              mgr.And(o.t_is_stutter for o in hints if o != h))
 
     def __init__(self, name: str, env: PysmtEnv,
                  owned_symbs: FrozenSet[FNode],
@@ -311,8 +286,7 @@ class Hint():
         self.trans_type_symbs = None
         self.t_is_stutter = None
         self.t_is_ranked = None
-        self.t_is_eq0 = None
-        self.t_is_gt0 = None
+        self.t_progress = None
 
     def __str__(self) -> str:
         return self.name
@@ -364,16 +338,19 @@ class Hint():
             self.trans_type_symbs, trans_type_vals = new_enum(
                 self.env, f"{self.name}_type_", len(TransType))
             assert len(trans_type_vals) == len(TransType)
+            assert len(TransType) == 3
             (self.t_is_stutter, self.t_is_ranked,
-             self.t_is_gt0, self.t_is_eq0) = trans_type_vals
+             self.t_is_progress) = trans_type_vals
         assert self.ts_loc_symbs is not None
         assert self.ts_lvals is not None
         assert self.trans_type_symbs is not None
         assert self.t_is_stutter is not None
         assert self.t_is_ranked is not None
-        assert self.t_is_gt0 is not None
-        assert self.t_is_eq0 is not None
+        assert self.t_is_progress is not None
 
+        if all(loc.rf is None for loc in self):
+            assert all(loc.rankT.is_false() for loc in self)
+            self.t_is_ranked = mgr.FALSE()
         new_symbs = frozenset(chain(self.ts_loc_symbs, self.trans_type_symbs))
         lvals = self.ts_lvals
         x_lvals = [to_next(mgr, lval, new_symbs) for lval in lvals]
@@ -402,7 +379,7 @@ class Hint():
         trans.extend(chain.from_iterable(
             loc.get_trans(idx, lvals, x_lvals, symbs, self.locs,
                           self.t_is_stutter, self.t_is_ranked,
-                          self.t_is_gt0, self.t_is_eq0)
+                          self.t_is_progress)
             for idx, loc in enumerate(self.locs)))
 
         return new_symbs, init, trans, mgr.Not(inactive)
@@ -431,13 +408,12 @@ class Hint():
                     return False, f"unknown destination {dst_idx} of " \
                         f"{src_idx}: out of bound"
         generalise = Generaliser(self.env, Canonizer(env=self.env),
-                                  ExprAtTime(env=self.env))
+                                 ExprAtTime(env=self.env))
         msgs = []
         correct = True
-        for check in [# self._is_stutter_correct,
-                      # self._is_rank_correct,
-                      # self._is_progress0_correct,
-                      self._is_progress1_correct]:
+        for check in [self._is_stutter_correct,
+                      self._is_rank_correct,
+                      self._is_progress_correct]:
             res, msg = check(generalise=generalise)
             if not res:
                 correct = correct if correct is False else res
@@ -479,9 +455,9 @@ class Hint():
                                     mgr.Not(constr),
                                     generalise=generalise)
                 if model is None:
-                    return None, f"{self.name}: stutter trans hyp on {src_idx} unknown"
+                    return None, f"{self.name}: stutter condition on {src_idx} unknown"
                 if model is not False:
-                    return False, f"{self.name}: stutter trans hyp on {src_idx} violated"
+                    return False, f"{self.name}: stutter condition on {src_idx} violated"
         return True, None
 
     def _is_rank_correct(self, generalise=None) -> Tuple[Optional[bool],
@@ -522,14 +498,14 @@ class Hint():
                                     mgr.Not(constr),
                                     generalise=generalise)
                 if model is None:
-                    return None, f"{self.name}: ranked trans hyp on {src_idx} unknown"
+                    return None, f"{self.name}: ranked condition on {src_idx} unknown"
                 if model is not False:
-                    return False, f"{self.name}: ranked trans hyp on {src_idx} violated"
+                    return False, f"{self.name}: ranked condition on {src_idx} violated"
         return True, None
 
-    def _is_progress0_correct(self, generalise=None) -> Tuple[Optional[bool],
-                                                              Optional[str]]:
-        """Check progress transition reaching rf > 0."""
+    def _is_progress_correct(self, generalise=None) -> Tuple[Optional[bool],
+                                                             Optional[str]]:
+        """Check progress transitions reaching."""
         mgr = self.env.formula_manager
         other_symbs = self.all_symbs - self.owned_symbs
         x_own_symbs = frozenset(symb_to_next(mgr, s)
@@ -542,60 +518,10 @@ class Hint():
                 src.append(mgr.Not(src_l.rf.is_ranked))
             src = mgr.And(src)
             for dst_idx in src_l.dsts:
-                progressT = src_l.progress_gt_0(dst_idx)
-                dst_l = self[dst_idx]
-                if dst_l.rf is None:
-                    continue
-                x_region = to_next(mgr, dst_l.region, self.all_symbs)
-                x_assume = to_next(mgr, dst_l.assume, self.all_symbs)
-                x_ranked = to_next(mgr, dst_l.rf.is_ranked, self.all_symbs)
-                exists = False
-                with MultiSolver(self.env, get_timeout()) as solver:
-                    solver.add_assertions([src, progressT, x_region,
-                                           x_assume, x_ranked])
-                    try:
-                        exists = solver.solve()
-                    except SolverReturnedUnknownResultError:
-                        return None, "{self.name}: progress0 trans " \
-                            f"{src_idx} - {dst_idx} might be empty"
-                if exists:
-                    constr = mgr.Implies(mgr.And(src, x_assume),
-                                         mgr.And(progressT, x_region, x_ranked))
-                    model, _ = efesolve(self.env, self.all_symbs, x_own_symbs,
-                                        x_other_symbs,
-                                        mgr.Not(constr),
-                                        generalise=generalise)
-                    if model is None:
-                        return None, f"{self.name}: progress0 hyp {src_idx} -> " \
-                            f"{dst_idx} unknown"
-                    if model is not False:
-                        return False, f"{self.name}: progress0 hyp {src_idx} -> " \
-                            f"{dst_idx} violated"
-        return True, None
-
-    def _is_progress1_correct(self, generalise=None) -> Tuple[Optional[bool],
-                                                              Optional[str]]:
-        """Check progress transition reaching rf = 0."""
-        mgr = self.env.formula_manager
-        other_symbs = self.all_symbs - self.owned_symbs
-        x_own_symbs = frozenset(symb_to_next(mgr, s)
-                                for s in self.owned_symbs)
-        x_other_symbs = frozenset(symb_to_next(mgr, s)
-                                  for s in other_symbs)
-        for src_idx, src_l in enumerate(self):
-            src = [src_l.region, src_l.assume]
-            if src_l.rf is not None:
-                src.append(mgr.Not(src_l.rf.is_ranked))
-            src = mgr.And(src)
-            for dst_idx in src_l.dsts:
-                progressT = src_l.progress_eq_0(dst_idx)
+                progressT = src_l.progress(dst_idx)
                 dst_l = self[dst_idx]
                 x_region = to_next(mgr, dst_l.region, self.all_symbs)
                 x_assume = to_next(mgr, dst_l.assume, self.all_symbs)
-                if dst_l.rf is not None:
-                    x_not_ranked = to_next(mgr, mgr.Not(dst_l.rf.is_ranked),
-                                           self.all_symbs)
-                    x_region = mgr.And(x_region, x_not_ranked)
                 exists = False
                 with MultiSolver(self.env, get_timeout()) as solver:
                     solver.add_assertions([src, progressT, x_region,
@@ -603,18 +529,19 @@ class Hint():
                     try:
                         exists = solver.solve()
                     except SolverReturnedUnknownResultError:
-                        return None, "{self.name}: progress1 trans " \
+                        return None, "{self.name}: progress trans " \
                             f"{src_idx} - {dst_idx} might be empty"
                 if exists:
                     constr = mgr.Implies(mgr.And(src, x_assume),
                                          mgr.And(progressT, x_region))
                     model, _ = efesolve(self.env, self.all_symbs, x_own_symbs,
-                                        x_other_symbs, mgr.Not(constr),
+                                        x_other_symbs,
+                                        mgr.Not(constr),
                                         generalise=generalise)
                     if model is None:
-                        return None, f"{self.name}: progress1 hyp {src_idx} -> " \
-                            f"{dst_idx} unknown"
+                        return None, f"{self.name}: progress condition " \
+                            f"{src_idx} -> {dst_idx} validity unknown"
                     if model is not False:
-                        return False, f"{self.name}: progress1 hyp {src_idx} -> " \
-                            f"{dst_idx} violated"
+                        return False, f"{self.name}: progress condition " \
+                            f"{src_idx} -> {dst_idx} violated"
         return True, None

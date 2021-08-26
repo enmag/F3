@@ -208,17 +208,17 @@ class Tank:
         #     loc0 = Location(env, mgr.Equals(vol, r_5),
         #                     mgr.And(mgr.Equals(flow, mgr.Times(m_1, max_flow)),
         #                             mgr.Equals(delta, r_7)))
-        #     loc0.set_progress(1, eq_0=mgr.Equals(x_vol, r_45_2))
+        #     loc0.set_progress(1, mgr.Equals(x_vol, r_45_2))
         #     loc1 = Location(env, mgr.Equals(vol, r_45_2),
         #                     mgr.And(mgr.Equals(flow, r_6),
         #                             mgr.Equals(d_flow, m_1),
         #                             mgr.Equals(delta, r_7)))
-        #     loc1.set_progress(2, eq_0=mgr.Equals(x_vol, r_40))
+        #     loc1.set_progress(2, mgr.Equals(x_vol, r_40))
         #     loc2 = Location(env, mgr.Equals(vol, r_40),
         #                     mgr.And(mgr.Equals(flow, mgr.Times(m_1, max_flow)),
         #                             mgr.Equals(d_flow, r_0),
         #                             mgr.Equals(delta, r_35)))
-        #     loc2.set_progress(0, eq_0=mgr.Equals(x_vol, r_5))
+        #     loc2.set_progress(0, mgr.Equals(x_vol, r_5))
         #     hint = Hint("h_vol0", env, frozenset([vol]), symbs)
         #     hint.set_locs([loc0, loc1, loc2])
         #     res.append(hint)
@@ -320,14 +320,14 @@ class Pipe:
             loc0 = Location(env,
                             mgr.And(opening, mgr.Equals(flow, r_0)),
                             mgr.Equals(delta, r_7))
-            loc0.set_progress(1, eq_0=mgr.And(x_closing,
+            loc0.set_progress(1, mgr.And(x_closing,
                                               mgr.Equals(x_flow, r_7)))
             loc1 = Location(env, mgr.And(closing, mgr.Equals(flow, r_7)),
                             mgr.Equals(delta, r_7))
-            loc1.set_progress(2, eq_0=mgr.And(x_close, mgr.Equals(x_flow, r_0)))
+            loc1.set_progress(2, mgr.And(x_close, mgr.Equals(x_flow, r_0)))
             loc2 = Location(env, mgr.And(close, mgr.Equals(flow, r_0)),
                             mgr.Equals(delta, r_35))
-            loc2.set_progress(0, eq_0=mgr.And(x_opening, mgr.Equals(x_flow, r_0)))
+            loc2.set_progress(0, mgr.And(x_opening, mgr.Equals(x_flow, r_0)))
             hint = Hint("h_modeflow0", env, frozenset([mode, flow]), symbs)
             hint.set_locs([loc0, loc1, loc2])
             res.append(hint)
@@ -557,11 +557,11 @@ def hints(env: PysmtEnv):
 
     x_delta = symb_to_next(mgr, delta)
     loc0 = Location(env, mgr.Equals(delta, r_7))
-    loc0.set_progress(1, eq_0=mgr.Equals(x_delta, r_7))
+    loc0.set_progress(1, mgr.Equals(x_delta, r_7))
     loc1 = Location(env, mgr.Equals(delta, r_7))
-    loc1.set_progress(2, eq_0=mgr.Equals(x_delta, r_35))
+    loc1.set_progress(2, mgr.Equals(x_delta, r_35))
     loc2 = Location(env, mgr.Equals(delta, r_35))
-    loc2.set_progress(0, eq_0=mgr.Equals(x_delta, r_7))
+    loc2.set_progress(0, mgr.Equals(x_delta, r_7))
     hint_delta = Hint("h_delta", env, frozenset([delta]), symbs)
     hint_delta.set_locs([loc0, loc1, loc2])
 

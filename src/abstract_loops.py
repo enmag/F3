@@ -127,7 +127,8 @@ class BMC:
         lback_atms = set()
         for pred in chain(i_get_atoms(fair),
                           (self.cn(p) for c_init in self.init
-                           for p in i_get_atoms(c_init))):
+                           for p in i_get_atoms(c_init)
+                           if i_get_free_vars(p) <= self.orig_symbs)):
             assert i_get_free_vars(pred) <= self.orig_symbs
             assert self.cn(pred) == pred
             lback_atms.add(pred)
@@ -153,10 +154,16 @@ class BMC:
                    (a.is_symbol() and a.symbol_type().is_bool_type())
                    for a in lback_atms)
 
-        # active Hints must have disjoint symbols.
-        self.init.extend(Hint.disjoint_symbs(self.i_env, self.hints,
-                                             self.hint_active))
-        if hints:
+        if self.hints:
+            # active Hints must have disjoint symbols.
+            self.init.extend(Hint.disjoint_symbs(self.i_env, self.hints,
+                                                 self.hint_active))
+            at_most_1_ranked = list(Hint.at_most_1_ranked(self.i_env, self.hints,
+                                                          self.hint_active))
+            self.init.extend(at_most_1_ranked)
+            self.trans.extend(to_next(self.i_mgr, pred, self.all_symbs)
+                              for pred in at_most_1_ranked)
+            # add constraint corresponding to hint encoding mode.
             if BMC.get_hints_mode() is HintMode.MUST:
                 self.init.append(self.i_mgr.Or(self.hint_active))
             elif BMC.get_hints_mode() is HintMode.ALL:
@@ -224,7 +231,7 @@ class BMC:
         self._new_rank_fun = True
         self.bad.extend(self.cn(self.i_mgr.Not(
             to_curr(self.i_mgr,
-                    self.i_env.substituter.substitute(self.i_norm(r.progress_pred),
+                    self.i_env.substituter.substitute(self.i_norm(r.progress_pred()),
                                                       self.symb2monitor),
                     self.all_symbs)))
                         for r in ranks)
@@ -588,11 +595,9 @@ class BMC:
                 elif model.get_value(self.totime(h.t_is_ranked, step)).is_true():
                     trans_type = TransType.RANKED
                     is_ranked = True
-                elif model.get_value(self.totime(h.t_is_gt0, step)).is_true():
-                    trans_type = TransType.GT_0
                 else:
-                    assert model.get_value(self.totime(h.t_is_eq0, step)).is_true()
-                    trans_type = TransType.EQ_0
+                    assert model.get_value(self.totime(h.t_is_progress, step)).is_true()
+                    trans_type = TransType.PROGRESS
 
                 curr.append((loc_idx, is_ranked, trans_type))
                 if __debug__:
@@ -606,7 +611,7 @@ class BMC:
                     assert model.get_value(formula).is_true()
                     formula = self.totime(h[x_loc_idx].assume, step + 1)
                     assert model.get_value(formula).is_true()
-                    # check the identified transition holds in model.
+                    # check that the identified transition holds in model.
                     if trans_type == TransType.STUTTER:
                         assert x_loc_idx == loc_idx
                         trans = h[loc_idx].stutterT
@@ -626,26 +631,16 @@ class BMC:
                         assert model.get_value(formula).is_true()
                         formula = self.totime(h[loc_idx].rf.progress_pred, step)
                         assert model.get_value(formula).is_true()
-                    elif trans_type == TransType.EQ_0:
-                        assert x_loc_idx in h[loc_idx].dsts
-                        trans = h[loc_idx].progress_eq_0(x_loc_idx)
-                        formula = self.totime(trans, step)
-                        assert model.get_value(formula).is_true()
-                        if h[x_loc_idx].rf is not None:
-                            formula = self.totime(
-                                self.i_mgr.Not(h[x_loc_idx].rf.is_ranked),
-                                step + 1)
-                            assert model.get_value(formula).is_true()
                     else:
-                        assert trans_type == TransType.GT_0
+                        assert trans_type == TransType.PROGRESS
                         assert x_loc_idx in h[loc_idx].dsts
-                        trans = h[loc_idx].progress_gt_0(x_loc_idx)
-                        formula = self.totime(trans, step)
-                        assert model.get_value(formula).is_true()
-                        assert h[x_loc_idx].rf is not None
-                        formula = self.totime(h.locs[x_loc_idx].rf.is_ranked,
-                                              step + 1)
-                        assert model.get_value(formula).is_true()
+                        trans = self.totime(h[loc_idx].progress(x_loc_idx), step)
+                        assert model.get_value(trans).is_true()
+                        if h[x_loc_idx].rf is not None:
+                            ranked = self.totime(
+                                self.i_mgr.Not(h[loc_idx].rf.is_ranked),
+                                step)
+                            assert model.get_value(ranked).is_true()
                 # end debug
 
         return (active_hints, hints_steps)
@@ -723,16 +718,17 @@ class BMC:
                                      res_regions_trans)
                 x_loc_idx = steps[x_step_idx][hint_idx][0]
                 assert isinstance(x_loc_idx, int)
-                if trans_t == TransType.EQ_0:
-                    trans = loc.progress_eq_0(x_loc_idx)
-                elif trans_t == TransType.GT_0:
-                    trans = loc.progress_gt_0(x_loc_idx)
+                if trans_t == TransType.PROGRESS:
+                    trans = loc.progress(x_loc_idx)
                 elif trans_t == TransType.STUTTER:
                     trans = loc.stutterT
                 else:
                     assert trans_t == TransType.RANKED
                     trans = loc.rankT
                 assert trans is not None
+                assert isinstance(trans, FNode)
+                assert not trans.is_false()
+                assert trans in self.i_mgr.formulae.values()
                 assign_true(self.totime(trans, c_time), res_regions_trans)
 
         return res_regions_trans, res_assumes

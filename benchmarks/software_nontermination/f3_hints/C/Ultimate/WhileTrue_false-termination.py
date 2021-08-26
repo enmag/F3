@@ -53,7 +53,7 @@ def hints(env: PysmtEnv) -> FrozenSet[Hint]:
     x_pc = symb_to_next(mgr, pc)
     i_0 = mgr.Int(0)
     l0 = Location(env, mgr.Equals(pc, i_0), mgr.TRUE())
-    l0.set_progress(0, eq_0=mgr.Equals(x_pc, i_0))
+    l0.set_progress(0, mgr.Equals(x_pc, i_0))
     h_pc = Hint("h_pc", env, frozenset([pc]), symbs)
     h_pc.set_locs([l0])
 

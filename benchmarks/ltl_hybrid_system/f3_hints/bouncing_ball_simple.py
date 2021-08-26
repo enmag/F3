@@ -155,17 +155,17 @@ def hints(env: PysmtEnv):
     x_h_val = mgr.Equals(x_h,
                          mgr.Plus(h, mgr.Minus(mgr.Times(v, d),
                                                mgr.Times(half, g, d, d))))
-    loc.set_progress(0, eq_0=x_h_val)
+    loc.set_progress(0, x_h_val)
     hint_h = Hint("h_h", env, frozenset([h]), symbs)
     hint_h.set_locs([loc])
 
     x_d = symb_to_next(mgr, d)
     loc0 = Location(env, mgr.TRUE())
-    loc0.set_progress(1, eq_0=mgr.Equals(x_d, r_0))
+    loc0.set_progress(1, mgr.Equals(x_d, r_0))
     loc1 = Location(env, mgr.Equals(d, r_0))
-    loc1.set_progress(2, eq_0=mgr.Equals(x_d, r_0))
+    loc1.set_progress(2, mgr.Equals(x_d, r_0))
     loc2 = Location(env, mgr.Equals(d, r_0))
-    loc2.set_progress(0, eq_0=mgr.Equals(x_d, mgr.Times(mgr.Div(r_2, g), v)))
+    loc2.set_progress(0, mgr.Equals(x_d, mgr.Times(mgr.Div(r_2, g), v)))
     hint_d = Hint("h_d", env, frozenset([d]), symbs)
     hint_d.set_locs([loc0, loc1, loc2])
 

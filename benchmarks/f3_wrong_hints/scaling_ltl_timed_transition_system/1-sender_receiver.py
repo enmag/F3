@@ -374,7 +374,7 @@ def hints(env: PysmtEnv) -> FrozenSet[Hint]:
     r0 = mgr.Real(0)
 
     loc0 = Location(env, mgr.Equals(delta, r0))
-    loc0.set_progress(0, eq_0=mgr.Equals(x_delta, r0))
+    loc0.set_progress(0, mgr.Equals(x_delta, r0))
     h_delta = Hint("h_delta0", env, frozenset([delta]), symbs)
     h_delta.set_locs([loc0])
     res.append(h_delta)

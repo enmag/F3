@@ -107,7 +107,7 @@ def hints(env: PysmtEnv) -> FrozenSet[Hint]:
     stutter = mgr.Equals(x_a, a)
     loc = Location(env, mgr.GE(a, i_7), mgr.GE(b, i_7),
                    stutterT=stutter)
-    loc.set_progress(0, eq_0=mgr.Equals(x_a, b))
+    loc.set_progress(0, mgr.Equals(x_a, b))
     h_a = Hint("h_a", env, frozenset([a]), symbs)
     h_a.set_locs([loc])
 
@@ -115,7 +115,7 @@ def hints(env: PysmtEnv) -> FrozenSet[Hint]:
     stutter = mgr.Equals(x_b, b)
     loc = Location(env, mgr.GE(b, i_7), mgr.GE(olda, i_7),
                    stutterT=stutter)
-    loc.set_progress(0, eq_0=mgr.Equals(x_b, mgr.Plus(olda, i_1)))
+    loc.set_progress(0, mgr.Equals(x_b, mgr.Plus(olda, i_1)))
     h_b = Hint("h_b", env, frozenset([b]), symbs)
     h_b.set_locs([loc])
 
@@ -123,7 +123,7 @@ def hints(env: PysmtEnv) -> FrozenSet[Hint]:
     stutter = mgr.Equals(x_olda, olda)
     loc = Location(env, mgr.GE(olda, i_7), mgr.GE(a, i_7),
                    stutterT=stutter)
-    loc.set_progress(0, eq_0=mgr.Equals(x_olda, a))
+    loc.set_progress(0, mgr.Equals(x_olda, a))
     h_olda = Hint("h_olda", env, frozenset([olda]), symbs)
     h_olda.set_locs([loc])
 

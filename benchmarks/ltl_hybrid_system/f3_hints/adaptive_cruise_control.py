@@ -187,13 +187,13 @@ class Leader:
         x_a = symb_to_next(mgr, a)
         invar = mgr.And(mgr.LE(r_0, a), mgr.LE(a, max_acc))
         loc0 = Location(env, invar, stutterT=mgr.Equals(x_a, a))
-        loc0.set_progress(0, eq_0=mgr.And(mgr.LE(r_0, x_a),
+        loc0.set_progress(0, mgr.And(mgr.LE(r_0, x_a),
                                           mgr.LE(x_a, max_acc)))
-        loc0.set_progress(1, eq_0=mgr.Equals(x_a, r_0))
+        loc0.set_progress(1, mgr.Equals(x_a, r_0))
         loc1 = Location(env, mgr.Equals(a, r_0), stutterT=mgr.Equals(x_a, a))
-        loc1.set_progress(0, eq_0=mgr.And(mgr.LE(r_0, x_a),
+        loc1.set_progress(0, mgr.And(mgr.LE(r_0, x_a),
                                           mgr.LE(x_a, max_acc)))
-        loc0.set_progress(1, eq_0=mgr.Equals(x_a, r_0))
+        loc0.set_progress(1, mgr.Equals(x_a, r_0))
         hint_a = Hint("h_a", env, frozenset([a]), symbs)
         hint_a.set_locs([loc0, loc1])
         yield hint_a
@@ -202,7 +202,7 @@ class Leader:
         assume = mgr.And(mgr.GE(delta, r_0), mgr.GE(a, r_0))
         loc = Location(env, mgr.LE(r_0, v), assume)
         loc.set_progress(0,
-                         eq_0=mgr.Equals(x_v, mgr.Plus(v, mgr.Times(delta, a))))
+                         mgr.Equals(x_v, mgr.Plus(v, mgr.Times(delta, a))))
         hint_v = Hint("h_v", env, frozenset([v]), symbs)
         hint_v.set_locs([loc])
         yield hint_v
@@ -377,7 +377,7 @@ class Follower:
 
         x_a = symb_to_next(mgr, a)
         loc = Location(env, mgr.Equals(a, r_0))
-        loc.set_progress(0, eq_0=mgr.Equals(x_a, r_0))
+        loc.set_progress(0, mgr.Equals(x_a, r_0))
         hint_a = Hint(f"h{i}_a", env, frozenset([a]), symbs)
         hint_a.set_locs([loc])
         yield hint_a
@@ -396,7 +396,7 @@ class Follower:
             dist, mgr.Times(other_v, delta),
             mgr.Div(mgr.Times(other_a, delta, delta), r_2),
             mgr.Times(m_1, v, delta))
-        loc.set_progress(0, eq_0=mgr.And(mgr.Equals(x_v, v),
+        loc.set_progress(0, mgr.And(mgr.Equals(x_v, v),
                                          mgr.Equals(x_dist, x_dist_val)))
         hint_dist = Hint(f"h{i}_v_dist", env, frozenset([v, dist]), symbs)
         hint_dist.set_locs([loc])
@@ -612,12 +612,12 @@ def delta_c_hint(env: PysmtEnv, delta: FNode, symbs: FrozenSet[FNode]) -> Hint:
                                      clock_x_value(mgr, c_time,
                                                    period, c))
                           for c, period in zip(comps_c, PERIODS))
-        c_loc.set_progress(2 * idx + 1, eq_0=mgr.And(disc_trans))
+        c_loc.set_progress(2 * idx + 1, mgr.And(disc_trans))
         xx_loc_idx = (2 * idx + 2) % (2 * len(times))
         timed_trans = [mgr.Equals(x_delta, r_0)]
         timed_trans.extend(mgr.Equals(symb_to_next(mgr, c), mgr.Plus(c, delta))
                            for c in comps_c)
-        x_loc.set_progress(xx_loc_idx, eq_0=mgr.And(timed_trans))
+        x_loc.set_progress(xx_loc_idx, mgr.And(timed_trans))
 
     h_delta = Hint("h_deltac", env, frozenset(owned_symbs), symbs)
     h_delta.set_locs(locs)

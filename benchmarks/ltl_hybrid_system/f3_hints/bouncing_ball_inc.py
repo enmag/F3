@@ -155,10 +155,10 @@ def hints(env: PysmtEnv):
     x_d_neq_0 = mgr.Equals(x_d, mgr.Times(mgr.Div(r_2, g), v))
     bounce = mgr.And(mgr.Equals(h, r_0), mgr.LT(v, r_0))
     loc0 = Location(env, mgr.TRUE(), assume=mgr.Not(bounce))
-    loc0.set_progress(1, eq_0=x_d_eq_0)
+    loc0.set_progress(1, x_d_eq_0)
 
     loc1 = Location(env, d_eq_0, stutterT=x_d_eq_0)
-    loc1.set_progress(0, eq_0=x_d_neq_0)
+    loc1.set_progress(0, x_d_neq_0)
 
     hint_d = Hint("h_d", env, frozenset([d]), symbs)
     hint_d.set_locs([loc0, loc1])

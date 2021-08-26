@@ -100,7 +100,7 @@ def hints(env: PysmtEnv) -> FrozenSet[Hint]:
     i_1 = mgr.Int(1)
     stutter = mgr.Equals(x_x, x)
     l0 = Location(env, mgr.GE(x, i_1), mgr.TRUE(), stutterT=stutter)
-    l0.set_progress(0, eq_0=mgr.Equals(x_x, mgr.Plus(x, i_1)))
+    l0.set_progress(0, mgr.Equals(x_x, mgr.Plus(x, i_1)))
     h_x = Hint("h_x", env, frozenset([x]), symbs)
     h_x.set_locs([l0])
 

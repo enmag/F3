@@ -104,17 +104,17 @@ def hints(env: PysmtEnv) -> FrozenSet[Hint]:
     x_y = symb_to_next(mgr, y)
     stutter = mgr.And(mgr.Equals(x_x, x), mgr.Equals(x_y, y))
     loc = Location(env, mgr.GT(x, i_0), mgr.GE(x, y), stutterT=stutter)
-    loc.set_progress(1, eq_0=mgr.And(mgr.Equals(x_x, mgr.Plus(x, x, y)),
-                                     mgr.Equals(x_y, y)))
+    loc.set_progress(1, mgr.And(mgr.Equals(x_x, mgr.Plus(x, x, y)),
+                                mgr.Equals(x_y, y)))
     loc1 = Location(env, mgr.GT(x, i_0), mgr.GE(x, y), stutterT=stutter)
-    loc1.set_progress(0, eq_0=mgr.And(mgr.Equals(x_x, x),
-                                      mgr.Equals(x_y, mgr.Minus(y, i_1))))
+    loc1.set_progress(0, mgr.And(mgr.Equals(x_x, x),
+                                 mgr.Equals(x_y, mgr.Minus(y, i_1))))
     h_xy = Hint("h_xy", env, frozenset([x, y]), symbs)
     h_xy.set_locs([loc, loc1])
 
     stutter = mgr.Equals(x_y, y)
     loc = Location(env, mgr.GE(y, i_0), stutterT=stutter)
-    loc.set_progress(0, eq_0=mgr.Equals(x_y, mgr.Minus(y, i_1)))
+    loc.set_progress(0, mgr.Equals(x_y, mgr.Minus(y, i_1)))
     h_y = Hint("h_y", env, frozenset([y]), symbs)
     h_y.set_locs([loc])
 

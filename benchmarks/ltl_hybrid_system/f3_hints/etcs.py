@@ -271,9 +271,9 @@ def hints(env: PysmtEnv):
 
     x_t_c = symb_to_next(mgr, t_c)
     loc0 = Location(env, mgr.Equals(t_c, r_0), mgr.Equals(d, period))
-    loc0.set_progress(1, eq_0=mgr.Equals(x_t_c, period))
+    loc0.set_progress(1, mgr.Equals(x_t_c, period))
     loc1 = Location(env, mgr.Equals(t_c, period), mgr.Equals(d, r_0))
-    loc1.set_progress(0, eq_0=mgr.Equals(x_t_c, r_0))
+    loc1.set_progress(0, mgr.Equals(x_t_c, r_0))
     hint_t_c = Hint("h_train_c", env, frozenset([t_c]), symbs)
     hint_t_c.set_locs([loc0, loc1])
 
@@ -281,14 +281,14 @@ def hints(env: PysmtEnv):
     assume = mgr.And(mgr.Equals(t_a, r_0), mgr.GE(d, r_0))
     invar = mgr.And(mgr.GT(t_v, r_0), mgr.LE(t_v, r_4))
     loc = Location(env, invar, assume)
-    loc.set_progress(0, eq_0=mgr.Equals(x_t_v,
+    loc.set_progress(0, mgr.Equals(x_t_v,
                                         mgr.Plus(t_v, mgr.Times(t_a, d))))
     hint_t_v = Hint("h_train_v", env, frozenset([t_v]), symbs)
     hint_t_v.set_locs([loc])
 
     x_t_a = symb_to_next(mgr, t_a)
     loc = Location(env, mgr.Equals(t_a, r_0))
-    loc.set_progress(0, eq_0=mgr.Equals(x_t_a, r_0))
+    loc.set_progress(0, mgr.Equals(x_t_a, r_0))
     hint_t_a = Hint("h_train_a", env, frozenset([t_a]), symbs)
     hint_t_a.set_locs([loc])
 
@@ -307,7 +307,7 @@ def hints(env: PysmtEnv):
                               mgr.Plus(t_z, mgr.Times(t_v, d),
                                        mgr.Div(mgr.Times(t_a, d, d), r_2))))
     loc = Location(env, invar, assume)
-    loc.set_progress(0, eq_0=eq_0)
+    loc.set_progress(0, eq_0)
     hint_rbcm_tz = Hint("hint_rbc_m_t_z", env, frozenset([rbc_m, t_z]), symbs)
     hint_rbcm_tz.set_locs([loc])
 
