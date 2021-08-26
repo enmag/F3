@@ -44,6 +44,19 @@ if __debug__:
     import faulthandler
     faulthandler.enable()
 
+_CHECK_HINTS = False
+
+
+def get_check_hints() -> bool:
+    global _CHECK_HINTS
+    return _CHECK_HINTS
+
+
+def set_check_hints(val: bool) -> None:
+    assert isinstance(val, bool)
+    global _CHECK_HINTS
+    _CHECK_HINTS = val
+
 
 def run_ltl_test(test, env: PysmtEnv, label: str, out_dir=None) -> bool:
     assert hasattr(test, "check_ltl")
@@ -99,12 +112,14 @@ def run_ltl_test(test, env: PysmtEnv, label: str, out_dir=None) -> bool:
         hints = test.hints(env)
         assert isinstance(hints, frozenset)
         assert all(isinstance(h, Hint) for h in hints)
-        # if __debug__:
-        #     for h in hints:
-        #         correct, msgs = h.is_correct()
-        #         assert correct is not False, msgs
-        #         if correct is None:
-        #             print("\n".join(msgs))
+        if get_check_hints():
+            for h in hints:
+                correct, msgs = h.is_correct()
+                if correct is not True:
+                    log(f"{'ERROR' if correct is False else 'UNKNOWN'}"
+                        "\n".join(msgs), 0)
+                if correct is False:
+                    return False
         for h in hints:
             symbols |= h.all_symbs
     else:
@@ -131,12 +146,14 @@ def run_test(test, env: PysmtEnv, label: str, out_dir=None) -> bool:
         hints = test.hints(env)
         assert isinstance(hints, frozenset)
         assert all(isinstance(h, Hint) for h in hints)
-        if __debug__:
+        if get_check_hints():
             for h in hints:
                 correct, msgs = h.is_correct()
-                assert correct is not False, msgs
-                if correct is None:
-                    print(msgs)
+                if correct is not True:
+                    log(f"{'ERROR' if correct is False else 'UNKNOWN'}"
+                        "\n".join(msgs), 0)
+                if correct is False:
+                    return False
         for h in hints:
             symbols |= h.all_symbs
 
@@ -231,6 +248,8 @@ def set_options(opts):
 
     set_solvers(opts.solvers)
     set_solver_name(opts.solvers[0])
+
+    set_check_hints(bool(opts.check_hints))
 
 
 def load_problem(test_file):
@@ -423,6 +442,12 @@ def config_args():
     other.add_argument('-smv-out', '--smv-out', type=str, default=None,
                        help="write smv representation of nontermination argument "
                        "in the given directory.")
+    other.add_argument('-check-h', '--check-hints', type=int,
+                       default=int(get_check_hints()),
+                       choices=[0, 1],
+                       help="1: check hints correctness, "
+                       "0: assume hints are correct. "
+                       f"({int(get_check_hints())})")
     return p
 
 
