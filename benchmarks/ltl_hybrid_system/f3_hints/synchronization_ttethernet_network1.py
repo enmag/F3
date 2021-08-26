@@ -144,11 +144,6 @@ class ComprMaster:
                 mgr.Symbol(f"{name}{ComprMaster._CM_NAME}", types.REAL),
                 mgr.Symbol(f"{name}{ComprMaster._X_NAME}", types.REAL)]
 
-    @staticmethod
-    def hints(env: PysmtEnv, name: str, delta, symbs):
-        return []
-
-
     def __init__(self, menv: msat_env, name: str, delay,
                  delta, x_delta):
         self.menv = menv
@@ -321,48 +316,6 @@ class SyncMaster:
         mgr = env.formula_manager
         return [mgr.Symbol(f"{name}{SyncMaster._MODE_NAME}", types.INT),
                 mgr.Symbol(f"{name}{SyncMaster._SM_NAME}", types.REAL)]
-
-    @staticmethod
-    def hints(env: PysmtEnv, name: str, delta, symbs):
-        res = []
-        mgr = env.formula_manager
-        mode = mgr.Symbol(f"{name}{SyncMaster._MODE_NAME}", types.INT)
-        x_mode = symb_to_next(mgr, mode)
-        work = mgr.Equals(mode, mgr.Int(SyncMaster._WORK))
-        x_work = mgr.Equals(x_mode, mgr.Int(SyncMaster._WORK))
-        send = mgr.Equals(mode, mgr.Int(SyncMaster._SEND))
-        x_send = mgr.Equals(x_mode, mgr.Int(SyncMaster._SEND))
-        sync1 = mgr.Equals(mode, mgr.Int(SyncMaster._SYNC1))
-        x_sync1 = mgr.Equals(x_mode, mgr.Int(SyncMaster._SYNC1))
-        sync2 = mgr.Equals(mode, mgr.Int(SyncMaster._SYNC2))
-        x_sync2 = mgr.Equals(x_mode, mgr.Int(SyncMaster._SYNC2))
-
-        stutter = mgr.Equals(x_mode, mode)
-        cm_modes = [mgr.Symbol(f"cm{i}{ComprMaster._MODE_NAME}",
-                               types.INT)
-                    for i in range(NUM_COMPR_MASTER)]
-        cms_waiting = mgr.And(mgr.Equals(cm_mode, mgr.Int(ComprMaster._WAITING))
-                              for cm_mode in cm_modes)
-        loc0 = Location(env, work, cms_waiting, stutterT=stutter)
-        loc0.set_progress(1, x_send)
-        cms_receive = mgr.And(mgr.Equals(cm_mode, mgr.Int(ComprMaster._RECEIVE))
-                              for cm_mode in cm_modes)
-        loc1 = Location(env, send, cms_receive, stutterT=stutter)
-        loc1.set_progress(2, x_sync1)
-        cms_correct1 = mgr.And(mgr.Equals(cm_mode, mgr.Int(ComprMaster._CORRECT1))
-                               for cm_mode in cm_modes)
-        loc2 = Location(env, sync1, cms_correct1, stutterT=stutter)
-        loc2.set_progress(3, x_sync2)
-        cms_correct2 = mgr.And(mgr.Equals(cm_mode, mgr.Int(ComprMaster._CORRECT2))
-                               for cm_mode in cm_modes)
-        loc3 = Location(env, sync2, cms_correct2, stutterT=stutter)
-        loc3.set_progress(0, x_work)
-
-        hint = Hint(f"h_{name}", env, frozenset([mode]), symbs)
-        hint.set_locs([loc0, loc1, loc2, loc3])
-        res.append(hint)
-
-        return res
 
     def __init__(self, menv: msat_env, name: str, drift,
                  delta, x_delta):
@@ -587,10 +540,4 @@ def hints(env: PysmtEnv):
     hint_delta = Hint("h_delta", env, frozenset([delta]), symbs)
     hint_delta.set_locs([loc0, loc1])
 
-    res = [hint_delta]
-    for i in range(NUM_COMPR_MASTER):
-        res.extend(ComprMaster.hints(env, f"cm{i}", delta, symbs))
-    for i in range(NUM_SYNC_MASTER):
-        res.extend(SyncMaster.hints(env, f"sm{i}", delta, symbs))
-
-    return frozenset(res)
+    return frozenset([hint_delta])
