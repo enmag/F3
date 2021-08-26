@@ -13,6 +13,7 @@ tool2name = {"anant": "Anant",
              "mitlbmc": "MitlBMC",
              "nuxmv": "nuXmv",
              "f3": "F3",
+             "oldf3": "OldF3",
              "t2": "T2",
              "ultimate_term": "ULTIMATE-Term",
              "ultimate_ltl": "ULTIMATE-LTL",
@@ -24,7 +25,8 @@ def plot_comparison(results, bench_names,
                     show_x_timeout=False, show_y_timeout=False,
                     x_label=True, y_label=True,
                     title_size=12, labels_size=60, marks_size=400,
-                    ticks_size=60, legend_size=40, line_width=3):
+                    ticks_size=60, legend_size=40, line_width=3,
+                    verbose=False):
     marker_colors = ['g', 'darkorange', 'm', 'r']
     marker_types = ['o', 'v', '<', 'P']
     # collect benchmarks names
@@ -70,15 +72,22 @@ def plot_comparison(results, bench_names,
         print("{} solved: {}".format(tool2name[t],
                                      len(list(t_s for (t_t, t_s) in t_data
                                               if t_t == "correct"))))
+    if "f3" in tools and "oldf3" in tools:
+        f3_solved = frozenset(b for b in benchmarks
+                              if tool_results["f3"][b][0] == "correct")
+        oldf3_solved = frozenset(b for b in benchmarks
+                                 if tool_results["oldf3"][b][0] == "correct")
+        if f3_solved == oldf3_solved:
+            print("F3 and OldF3 solved the same problems")
+        else:
+            print(f"OldF3 additionally solved: {oldf3_solved - f3_solved}")
+            print(f"F3 additionally solved: {f3_solved - oldf3_solved}")
     x_data = [tool_results[x_tool][b] for b in benchmarks]
     min_v = 0.5
     max_v = 1.3 * TO
     for t in [t for t in tools if t != x_tool]:
         print(f"\n\nComparing {tool2name[x_tool]} with {t} on {len(benchmarks)} benchmarks\n")
         y_data = [tool_results[t][b] for b in benchmarks]
-        if len(x_data) != len(y_data):
-            import pdb
-            pdb.set_trace()
         assert len(x_data) == len(y_data), t
         corr_x = []
         corr_y = []
@@ -94,7 +103,8 @@ def plot_comparison(results, bench_names,
             assert isinstance(y_t, str)
             assert isinstance(x_s, float)
             assert isinstance(y_s, float)
-            print(f"{bench_label} - {x_tool}: {x_t}, {x_s} - {t}: {y_t}, {y_s}")
+            if verbose:
+                print(f"{bench_label} - {x_tool}: {x_t}, {x_s} - {t}: {y_t}, {y_s}")
             if x_t == "correct" and y_t == "correct":
                 assert x_s > 0
                 assert y_s > 0
@@ -201,12 +211,15 @@ def getopts():
                    help="plot results of timed transition systems benchmarks")
     p.add_argument("-hs", "--hybrid-systems", action="store_true",
                    help="plot results of hybrid systems benchmarks")
+    p.add_argument("-v", "--verbose", action="store_true",
+                   help="verbosly print single points")
     return p.parse_args()
 
 
 def main(opts):
     in_dir = opts.in_results
     all_tools = opts.tools if opts.tools else list(tool2name.keys())
+    verbose = opts.verbose
     results = {}
     _tools = set()
     for t_name in all_tools:
@@ -222,57 +235,61 @@ def main(opts):
     if opts.software:
         print("\nLINEAR SOFTWARE TERMINATION\n")
         c_tools = all_tools & frozenset(["anant", "aprove", "irankfinder",
-                                         "nuxmv", "f3", "t2", "ultimate_term"])
+                                         "nuxmv", "f3", "oldf3", "t2", "ultimate_term"])
         res = {t_name: results[t_name] for t_name in c_tools}
-        plot_comparison(res, ["software_nontermination"])
+        plot_comparison(res, ["software_nontermination"], verbose=verbose)
 
         print("\nNON-LINEAR SOFTWARE TERMINATION\n")
         # ultimate does not support non-linear expressions.
         c_tools = all_tools & frozenset(["anant", "aprove", "irankfinder",
-                                         "nuxmv", "f3", "t2"])
+                                         "nuxmv", "f3", "oldf3", "t2"])
         res = {t_name: results[t_name] for t_name in c_tools}
-        plot_comparison(res, ["nonlinear_software"])
+        plot_comparison(res, ["nonlinear_software"], verbose=verbose)
 
     if opts.max_plus:
         print("\nMAX-PLUS\n")
         c_tools = all_tools & frozenset(["anant", "aprove", "irankfinder",
-                                         "nuxmv", "f3", "t2", "ultimate_term"])
+                                         "nuxmv", "f3", "oldf3", "t2", "ultimate_term"])
         res = {t_name: results[t_name] for t_name in c_tools}
-        plot_comparison(res, ["maxplus"])
+        plot_comparison(res, ["maxplus"], verbose=verbose)
 
     if opts.inf_state_ts:
         print("\nLTL INFINITE STATE TRANSITION SYSTEMS\n")
         c_tools = all_tools & frozenset(["aprove", "irankfinder",
-                                         "nuxmv", "f3",
+                                         "nuxmv", "f3", "oldf3",
                                          "ultimate_term", "ultimate_ltl"])
         res = {t_name: results[t_name] for t_name in c_tools}
         plot_comparison(res, ["airbag", "bakery_simple_bug", "bounded_counter",
-                              "semaphore", "simple_int_loops", "simple_real_loops"])
+                              "semaphore", "simple_int_loops", "simple_real_loops"],
+                        verbose=verbose)
 
     if opts.timed_automata:
         print("\nLTL TIMED AUTOMATA\n")
         c_tools = all_tools & frozenset(["aprove", "divine", "irankfinder",
-                                         "mitlbmc", "nuxmv", "f3",
+                                         "mitlbmc", "nuxmv", "f3", "oldf3",
                                          "ultimate_term", "ultimate_ltl",
                                          "uppaal"])
         res = {t_name: results[t_name] for t_name in c_tools}
         plot_comparison(res, ["ta_critical_region", "ta_csma_cd", "ta_fddi",
-                              "ta_fischer", "ta_lynch", "ta_train"])
+                              "ta_fischer", "ta_lynch", "ta_train"],
+                        verbose=verbose)
 
     if opts.timed_transition_systems:
         print("\nLTL TIMED TRANSITION SYSTEMS\n")
         c_tools = all_tools & frozenset(["aprove", "irankfinder", "nuxmv", "f3",
-                                         "ultimate_term", "ultimate_ltl"])
+                                         "oldf3", "ultimate_term", "ultimate_ltl"])
         res = {t_name: results[t_name] for t_name in c_tools}
         plot_comparison(res, ["tts_csma_backoff", "tts_dynamic_fischer",
-                              "tts_dynamic_lynch", "tts_token_ring", "tts"])
+                              "tts_dynamic_lynch", "tts_token_ring", "tts"],
+                        verbose=verbose)
 
     if opts.hybrid_systems:
         print("\nLTL HYBRID SYSTEMS\n")
         # ultimate does not support non-linear expressions.
-        c_tools = all_tools & frozenset(["aprove", "irankfinder", "nuxmv", "f3"])
+        c_tools = all_tools & frozenset(["aprove", "irankfinder", "nuxmv", "f3",
+                                         "oldf3"])
         res = {t_name: results[t_name] for t_name in c_tools}
-        plot_comparison(res, ["hybrid_system"])
+        plot_comparison(res, ["hybrid_system"], verbose=verbose)
 
 
 if __name__ == "__main__":

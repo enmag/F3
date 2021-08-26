@@ -1,0 +1,14 @@
+F3 run `simple_int0`
+
+	Found non-termination argument:
+	State 0
+		((-1 * x) < 0)
+		((-1 * x) <= 0)
+	Trans 0 -- 1
+		_x_x = (1 - (x * 4))
+	State 1
+	Trans 1 -- 2
+		_x_x = ((-1 * x) + 2)
+	starting from: x : 1
+
+end of `simple_int0`: SUCCESS in 1.7800076007843018s
