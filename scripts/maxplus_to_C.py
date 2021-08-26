@@ -8,10 +8,10 @@ pp.ParserElement.enablePackrat()
 sys.setrecursionlimit(3000)
 
 C_ULT_TEMPLATE = """//@ ltl invariant negative: {ltl};
-
+{decl_vars}
 int main()
 {{
-{decl_vars}
+{decl_x_vars}
   while(1) {{
 {x_vars_assignments}
 {step_assignments}
@@ -84,7 +84,7 @@ def op(x):
 
 def rewrite_formula(ltl):
     if isinstance(ltl, str):  # atom
-        return f'({ltl})'
+        return f"AP({ltl})"
     if len(ltl) == 2:  # unary op
         return f"({op(ltl[0])} {rewrite_formula(ltl[1])})"
 
@@ -111,22 +111,25 @@ def encode_max(c):
 
 def encode(matrix, ltl):
     decl_vars = []
+    decl_x_vars = []
     x_vars_assignments = []
     step_assignments = []
     for i, row in enumerate(matrix):
-        vi = f"v{i}"
-        x_vi = f"_x_{vi}"
-        decl_vars.append(f"  float {vi}, {x_vi};")
+        vi = f"x_{i}"
+        x_vi = f"{vi}_"
+        decl_vars.append(f"float {vi};")
+        decl_x_vars.append(f"  float {x_vi};")
         step_assignments.append(f"{vi} = {x_vi};")
         c = []
         for j, e in enumerate(row):
             if e is not None:
-                c.append(f"({e} + v{j})")
+                c.append(f"({e} + x_{j})")
         assert len(c) > 0
         x_vars_assignments.append(f"{x_vi} = {encode_max(c)};")
 
     return C_ULT_TEMPLATE.format(ltl=ltl,
                                  decl_vars="\n".join(decl_vars),
+                                 decl_x_vars="\n".join(decl_x_vars),
                                  x_vars_assignments="\n".join(x_vars_assignments),
                                  step_assignments="\n".join(step_assignments))
 
