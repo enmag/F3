@@ -46,8 +46,6 @@ class Location():
     - ranked transition: self-loop on location with decreasing ranking function.
     - progress: <idx, prog0, prog1> index of next location.
     """
-    # TODO allow list of stutterT, rankT and progressT. Each should satisfy the hypotheses.
-    # at the moment a similar result can be achieved by providing multiple Hints.
 
     def __init__(self, env: PysmtEnv, region: FNode,
                  assume: Optional[FNode] = None,
@@ -166,12 +164,15 @@ class Location():
             pos_rf = self.rf.is_ranked
             t_type.append(mgr.And(is_ranked, pos_rf))
         if self.progress(idx) is not None:
-            t_type.append(mgr.And(is_progress, mgr.Not(pos_rf)) if pos_rf
+            t_type.append(mgr.And(is_progress, mgr.Not(pos_rf)) if pos_rf is not None
                           else is_progress)
         x_locs.append(mgr.And(x_lvals[idx], mgr.Or(t_type)))
 
         for dst in (dst for dst in self.progressT if dst != idx):
-            x_locs.append(mgr.And(x_lvals[dst], is_progress))
+            if pos_rf is None:
+                x_locs.append(mgr.And(x_lvals[dst], is_progress))
+            else:
+                x_locs.append(mgr.And(x_lvals[dst], is_progress, mgr.Not(pos_rf)))
 
         yield mgr.Implies(lvals[idx], mgr.Or(x_locs))
         del x_locs, t_type
@@ -199,14 +200,13 @@ class Location():
         if not is_rank_decr.is_false() and not is_ranked.is_false():
             assert self.rf is not None
             x_is_rank_decr = symb_to_next(mgr, is_rank_decr)
-            # is_ranked -> x_is_rank_decr
-            yield mgr.Implies(is_ranked, x_is_rank_decr)
-            # is_rank_decr & rf > 0 -> x_is_rank_decr
+            # loc & is_rank_decr & rf > 0 -> x_is_rank_decr
             c_ranked = self.rf.is_ranked
-            yield mgr.Implies(mgr.And(is_rank_decr, c_ranked),
+            yield mgr.Implies(mgr.And(lvals[idx], is_rank_decr, c_ranked),
                               x_is_rank_decr)
-            # is_rank_decr & rf = 0 -> !x_is_rank_dect
-            yield mgr.Implies(mgr.And(is_rank_decr, mgr.Not(c_ranked)),
+            # loc & is_rank_decr & rf = 0 -> !x_is_rank_dect
+            yield mgr.Implies(mgr.And(lvals[idx], is_rank_decr,
+                                      mgr.Not(c_ranked)),
                               mgr.Not(x_is_rank_decr))
 
     def to_env(self, new_env: PysmtEnv) -> Location:
@@ -397,16 +397,23 @@ class Hint():
         trans = [to_next(mgr, pred, symbs) for pred in init]
 
         n_active = mgr.Not(active)
-        # init: ! active -> inactive
-        init.append(mgr.Implies(n_active, inactive))
-        # init: trans_type = stutter
-        init.append(self.t_is_stutter)
+        # init: ! active -> inactive & trans_type = stutter
+        init.append(mgr.Implies(n_active, mgr.And(inactive, self.t_is_stutter)))
+        if not self.is_rank_decr.is_false():
+            init.append(mgr.Iff(self.is_rank_decr, self.t_is_ranked))
         # trans: ! active -> inactive' & t_is_stutter'
         trans.append(mgr.Implies(n_active, mgr.And(x_inactive, x_t_is_stutter)))
         if not self.init.is_true():
             # loc = -1 & loc' != -1 -> init
             trans.append(mgr.Implies(mgr.And(inactive, mgr.Not(x_inactive)),
                                      self.init))
+        if not self.is_rank_decr.is_false():
+            x_is_rank_decr = symb_to_next(mgr, self.is_rank_decr)
+            # is_ranked -> x_is_rank_decr
+            trans.append(mgr.Implies(self.t_is_ranked, x_is_rank_decr))
+            # x_is_rank_decr -> rank_decr | is_ranked
+            trans.append(mgr.Implies(x_is_rank_decr, mgr.Or(self.is_rank_decr,
+                                                            self.t_is_ranked)))
         trans.extend(chain.from_iterable(
             loc.get_trans(idx, lvals, x_lvals, symbs, self.locs,
                           self.t_is_stutter, self.t_is_ranked,

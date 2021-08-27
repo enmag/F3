@@ -205,9 +205,10 @@ class BMC:
         self.bad.append(fair)
         self.bad.append(self._in_loop)
 
-        # learn ranking functions provided with the hints.
+        # learn ranking functions provided by the hints.
         if hints is not None:
-            self._add_ranking_funs([loc.rf for h in hints for loc in h.locs
+            self._add_ranking_funs([loc.rf.to_env(self.i_env)
+                                    for h in hints for loc in h.locs
                                     if loc.rf is not None])
 
     def _fresh_symb(self, base: str, m_type=types.BOOL) -> FNode:
@@ -228,7 +229,6 @@ class BMC:
         assert isinstance(ranks, list)
         assert all(isinstance(rank, RankFun) for rank in ranks)
         assert all(rank.env == self.i_env for rank in ranks)
-        # self.rank_funs.extend(ranks)
         self._new_rank_fun = True
         self.bad.extend(self.cn(self.i_mgr.Not(
             to_curr(self.i_mgr,
@@ -415,7 +415,7 @@ class BMC:
                             hints_states, hints_trans = \
                                 self.generaliser.curr_next_preds(
                                     frozenset(
-                                        k if v.is_true() else self.i_mgr.Not(k)
+                                        k if v.is_true() else self.cn(self.i_mgr.Not(k))
                                         for k, v in hints_region_trans.items()),
                                     lback_idx, k + 1, model)
 
@@ -626,10 +626,10 @@ class BMC:
                     elif trans_type == TransType.RANKED:
                         assert h[loc_idx].rf is not None
                         assert x_loc_idx == loc_idx
-                        trans = h[loc_idx].stutterT
+                        trans = h[loc_idx].rankT
                         formula = self.totime(trans, step)
                         assert model.get_value(formula).is_true()
-                        formula = self.totime(h[loc_idx].rf.progress_pred, step)
+                        formula = self.totime(h[loc_idx].rf.progress_pred(), step)
                         assert model.get_value(formula).is_true()
                     else:
                         assert trans_type == TransType.PROGRESS
