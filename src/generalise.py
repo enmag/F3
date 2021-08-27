@@ -98,8 +98,7 @@ class Generaliser:
 
         return self.env.simplifier.simplify(f)
 
-    def curr_next_preds(self, symbs: FrozenSet[FNode],
-                        preds: Union[FrozenSet[FNode], List[FNode]],
+    def curr_next_preds(self, preds: Union[FrozenSet[FNode], List[FNode]],
                         first: int, last: int,
                         model) -> Tuple[List[FrozenSet[FNode]],
                                         List[FrozenSet[FNode]]]:
@@ -111,13 +110,6 @@ class Generaliser:
         assert all(not p.is_false() for p in preds)
         assert all(p.is_literal() or p.is_lt() or p.is_le() or p.is_equals()
                    for p in preds)
-        assert isinstance(symbs, frozenset)
-        assert all(isinstance(s, FNode) for s in symbs)
-        assert all(s.is_symbol() for s in symbs)
-        assert all(s in self.env.formula_manager.get_all_symbols()
-                   for s in symbs)
-        assert all(len(ExprAtTime.collect_times(self.env.formula_manager, s)) == 0
-                   for s in symbs)
         assert 0 <= first < last
         assert isinstance(first, int)
         assert isinstance(last, int)
@@ -156,52 +148,12 @@ class Generaliser:
                 curr_only[idx].add(p)
             else:
                 curr_next[idx].add(p)
-        del preds
         assert all(len(self.env.ao.get_atoms(p)) == 1
                    for preds in curr_only
                    for p in preds)
         assert all(len(self.env.ao.get_atoms(p)) == 1
                    for preds in curr_next
                    for p in preds)
-        if Generaliser.get_merge_ineqs() and symbs:
-            with MultiSolver(env=self.env,
-                             timeout=Generaliser.get_timeout()) as solver:
-                for idx, curr in enumerate(curr_only):
-                    solver.reset_assertions()
-                    solver.add_assertions(curr)
-                    symbs_eqs = {}
-                    c_time = idx + first
-                    assert all(model.get_value(self.totime(p, c_time)).is_true()
-                               for p in curr)
-                    for s in symbs:
-                        val = model.get_value(self.totime(s, c_time))
-                        eq = mgr.Equals(s, val)
-                        if eq in curr:
-                            symbs_eqs[s] = val
-                        else:
-                            solver.push()
-                            solver.add_assertion(mgr.Not(eq))
-                            try:
-                                sat = solver.solve()
-                            except SolverReturnedUnknownResultError:
-                                sat = None
-                                solver.reset_assertions()
-                                solver.add_assertions(curr)
-                                solver.push()
-                            solver.pop()
-                            if sat is False:
-                                assert s not in symbs_eqs
-                                symbs_eqs[s] = val
-                    for p in list(curr):
-                        p_vars = get_free_vars(p)
-                        if len(p_vars) == 1 and p_vars <= symbs_eqs.keys():
-                            curr.discard(p)
-                    assert all(not self.simpl(self.subst(p, symbs_eqs)).is_true()
-                               for p in curr)
-                    curr.update(mgr.Equals(s, val)
-                                for s, val in symbs_eqs.items())
-                    assert curr_only[idx] == curr
-
         return ([frozenset(preds) for preds in curr_only],
                 [frozenset(preds) for preds in curr_next])
 
@@ -264,22 +216,38 @@ class Generaliser:
         assert all(isinstance(pred, FNode) for pred in formulae)
 
         mgr = self.env.formula_manager
+        get_type = self.env.stc.get_type
         res = set()
         fms = set(formulae)
         while fms:
             curr = fms.pop()
             assert self.cn(curr) == curr
-            if not curr.is_le():
-                res.add(curr)
-            else:
+            assert not curr.is_and()
+            if curr.is_le():
+                # (a <= b & a >= b) <-> a = b
                 neg_curr = self.cn(mgr.GE(curr.arg(0), curr.arg(1)))
                 try:
                     fms.remove(neg_curr)
-                    eq = self.cn(mgr.Equals(curr.arg(0), curr.arg(1)))
-                    res.add(eq)
+                    res.add(self.cn(mgr.Equals(curr.arg(0), curr.arg(1))))
                 except KeyError:
                     # neg_curr not in set.
                     res.add(curr)
+            elif curr.is_lt() and get_type(curr.arg(0)).is_int_type():
+                # (a < b & a > b - 2) <-> a = b - 1
+                assert get_type(curr.arg(1)).is_int_type()
+                neg_curr = self.cn(mgr.GT(curr.arg(0), mgr.Minus(curr.arg(1),
+                                                                 mgr.Int(2))))
+                try:
+                    fms.remove(neg_curr)
+                    res.add(self.cn(mgr.Equals(curr.arg(0),
+                                               mgr.Minus(curr.arg(1),
+                                                         mgr.Int(1)))))
+                except KeyError:
+                    # neg_curr not in set.
+                    res.add(curr)
+            else:
+                res.add(curr)
+
         if __debug__:
             from solver import Solver
             # res is sat
@@ -320,6 +288,8 @@ class Generaliser:
         # compute implicant of res.
         if Generaliser.get_use_bool_impl():
             res = self.bool_impl(res, model)
+            assert all(len(self.env.ao.get_atoms(p)) == 1
+                       for p in res)
 
         if Generaliser.get_use_unsat_cores():
             res = self.unsat_core_impl(res, model, symbs, assume=assume)
