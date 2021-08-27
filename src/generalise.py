@@ -4,10 +4,12 @@ from random import Random
 
 from pysmt.environment import Environment as PysmtEnv
 from pysmt.fnode import FNode
+from pysmt.exceptions import SolverReturnedUnknownResultError
 
 from canonize import Canonizer
 from expr_at_time import ExprAtTime
-from solver import UnsatCoreSolver, Solver
+from multisolver import MultiSolver
+from solver import UnsatCoreSolver
 from utils import assign2fnodes
 
 
@@ -15,6 +17,7 @@ class Generaliser:
     """Find formula implicant from model"""
 
     _LOG_LVL = 3
+    _TIMEOUT = 5
     _KEEP_PREF = "a"
     _DISC_PREF = "_a"
     _FM_PREF = "_nf"
@@ -59,45 +62,67 @@ class Generaliser:
     def get_minimal_core() -> bool:
         return Generaliser._MINIMAL_CORE
 
+    @staticmethod
+    def set_timeout(val: int) -> None:
+        assert isinstance(val, int)
+        assert val > 0
+        Generaliser._TIMEOUT = val
+
+    @staticmethod
+    def get_timeout() -> int:
+        return Generaliser._TIMEOUT
+
+
     def __init__(self, env: PysmtEnv, cn: Canonizer, totime: ExprAtTime):
         assert isinstance(env, PysmtEnv)
         assert isinstance(cn, Canonizer)
         assert isinstance(totime, ExprAtTime)
         self.env = env
-        self.mgr = env.formula_manager
         self.cn = cn
         self.totime = totime
 
     def subst(self, f: FNode, s: Dict[FNode, FNode]) -> FNode:
         assert isinstance(f, FNode)
-        assert f in self.mgr.formulae.values()
+        assert f in self.env.formula_manager.formulae.values()
         assert isinstance(s, dict)
         assert all(isinstance(k, FNode) for k in s)
         assert all(isinstance(v, FNode) for v in s.values())
-        assert all(k in self.mgr.formulae.values() for k in s)
-        assert all(v in self.mgr.formulae.values() for v in s.values())
+        assert all(k in self.env.formula_manager.formulae.values() for k in s)
+        assert all(v in self.env.formula_manager.formulae.values() for v in s.values())
 
         return self.env.substituter.substitute(f, s)
 
     def simpl(self, f: FNode) -> FNode:
         assert isinstance(f, FNode)
-        assert f in self.mgr.formulae.values()
+        assert f in self.env.formula_manager.formulae.values()
 
         return self.env.simplifier.simplify(f)
 
-    def curr_next_preds(self, preds: Union[FrozenSet[FNode], List[FNode]],
-                        first: int, last: int) -> Tuple[List[FrozenSet[FNode]],
-                                                        List[FrozenSet[FNode]]]:
+    def curr_next_preds(self, symbs: FrozenSet[FNode],
+                        preds: Union[FrozenSet[FNode], List[FNode]],
+                        first: int, last: int,
+                        model) -> Tuple[List[FrozenSet[FNode]],
+                                        List[FrozenSet[FNode]]]:
         assert isinstance(preds, (frozenset, list))
         assert all(isinstance(p, FNode) for p in preds)
-        assert all(p in self.mgr.formulae.values() for p in preds)
-        assert all(not p.is_true() for p in preds), preds
-        assert all(not p.is_false() for p in preds), preds
+        assert all(p in self.env.formula_manager.formulae.values()
+                   for p in preds)
+        assert all(not p.is_true() for p in preds)
+        assert all(not p.is_false() for p in preds)
         assert all(p.is_literal() or p.is_lt() or p.is_le() or p.is_equals()
-                   for p in preds), preds
+                   for p in preds)
+        assert isinstance(symbs, frozenset)
+        assert all(isinstance(s, FNode) for s in symbs)
+        assert all(s.is_symbol() for s in symbs)
+        assert all(s in self.env.formula_manager.get_all_symbols()
+                   for s in symbs)
+        assert all(len(ExprAtTime.collect_times(self.env.formula_manager, s)) == 0
+                   for s in symbs)
         assert 0 <= first < last
         assert isinstance(first, int)
         assert isinstance(last, int)
+        assert hasattr(model, "get_value")
+        mgr = self.env.formula_manager
         get_free_vars = self.env.fvo.walk
         curr_only: List[Set[FNode]] = [set() for _ in range(first, last + 1)]
         curr_next: List[Set[FNode]] = [set() for _ in range(first, last)]
@@ -108,7 +133,7 @@ class Generaliser:
                 preds.extend(p.args()[1:])
                 p = p.arg(0)
             assert len(self.env.ao.get_atoms(p)) == 1
-            is_next = ExprAtTime.collect_times(self.mgr, p)
+            is_next = ExprAtTime.collect_times(mgr, p)
             assert len(get_free_vars(p)) >= 1, p.serialze()
             assert len(is_next) in {1, 2}
             assert min(is_next) >= first
@@ -125,18 +150,57 @@ class Generaliser:
                 idx -= 1
                 is_next = True
             p = self.cn(self.totime(p, -c_time - 1))
-            assert len(ExprAtTime.collect_times(self.mgr, p)) == 0
+            assert len(ExprAtTime.collect_times(mgr, p)) == 0
             assert self.cn(p) == p
             if not is_next:
                 curr_only[idx].add(p)
             else:
                 curr_next[idx].add(p)
+        del preds
         assert all(len(self.env.ao.get_atoms(p)) == 1
                    for preds in curr_only
                    for p in preds)
         assert all(len(self.env.ao.get_atoms(p)) == 1
                    for preds in curr_next
                    for p in preds)
+        if Generaliser.get_merge_ineqs() and symbs:
+            with MultiSolver(env=self.env,
+                             timeout=Generaliser.get_timeout()) as solver:
+                for idx, curr in enumerate(curr_only):
+                    solver.reset_assertions()
+                    solver.add_assertions(curr)
+                    symbs_eqs = {}
+                    c_time = idx + first
+                    assert all(model.get_value(self.totime(p, c_time)).is_true()
+                               for p in curr)
+                    for s in symbs:
+                        val = model.get_value(self.totime(s, c_time))
+                        eq = mgr.Equals(s, val)
+                        if eq in curr:
+                            symbs_eqs[s] = val
+                        else:
+                            solver.push()
+                            solver.add_assertion(mgr.Not(eq))
+                            try:
+                                sat = solver.solve()
+                            except SolverReturnedUnknownResultError:
+                                sat = None
+                                solver.reset_assertions()
+                                solver.add_assertions(curr)
+                                solver.push()
+                            solver.pop()
+                            if sat is False:
+                                assert s not in symbs_eqs
+                                symbs_eqs[s] = val
+                    for p in list(curr):
+                        p_vars = get_free_vars(p)
+                        if len(p_vars) == 1 and p_vars <= symbs_eqs.keys():
+                            curr.discard(p)
+                    assert all(not self.simpl(self.subst(p, symbs_eqs)).is_true()
+                               for p in curr)
+                    curr.update(mgr.Equals(s, val)
+                                for s, val in symbs_eqs.items())
+                    assert curr_only[idx] == curr
 
         return ([frozenset(preds) for preds in curr_only],
                 [frozenset(preds) for preds in curr_next])
@@ -153,21 +217,22 @@ class Generaliser:
                    for symbs in timed_symbs for s in symbs)
         assert all(s.is_symbol()
                    for symbs in timed_symbs for s in symbs)
-        assert all(s in self.mgr.get_all_symbols()
+        assert all(s in self.env.formula_manager.get_all_symbols()
                    for symbs in timed_symbs for s in symbs)
         assert isinstance(first, int)
         assert isinstance(last, int)
         assert 0 <= first < last
-        assert all(min(ExprAtTime.collect_times(self.mgr, s)) >= first
+        assert all(min(ExprAtTime.collect_times(self.env.formula_manager, s)) >= first
                    for symbs in timed_symbs for s in symbs)
-        assert all(max(ExprAtTime.collect_times(self.mgr, s)) <= last
+        assert all(max(ExprAtTime.collect_times(self.env.formula_manager, s)) <= last
                    for symbs in timed_symbs for s in symbs)
+        mgr = self.env.formula_manager
         get_free_vars = self.env.fvo.walk
         symbs = frozenset(chain.from_iterable(timed_symbs))
         # discard formulae that contain no interesting symbol.
         formula = [f for f in formula if len(get_free_vars(f) & symbs) > 0]
         assert all(isinstance(f, FNode) for f in formula)
-        assert all(f in self.mgr.formulae.values() for f in formula)
+        assert all(f in self.env.formula_manager.formulae.values() for f in formula)
 
         # substitute prefix predicates with their truth assignment
         substs = {**(assume if assume is not None else {}),
@@ -179,19 +244,56 @@ class Generaliser:
                   }
         # substitute preds with time < lback with their truth assignment.
         res = set(self.simpl(self.subst(f, substs)) for f in formula)
-        res.discard(self.mgr.TRUE())
+        res.discard(mgr.TRUE())
         assert all(get_free_vars(f) <= symbs for f in res)
         assert all(last >= t
                    for fm in res
-                   for t in ExprAtTime.collect_times(self.mgr, fm))
-        assert all(len(ExprAtTime.collect_times(self.mgr, a)) == 0 or
-                   min(ExprAtTime.collect_times(self.mgr, a)) >= first
+                   for t in ExprAtTime.collect_times(mgr, fm))
+        assert all(len(ExprAtTime.collect_times(mgr, a)) == 0 or
+                   min(ExprAtTime.collect_times(mgr, a)) >= first
                    for fm in res for a in self.env.ao.get_atoms(fm))
-        assert all(len(ExprAtTime.collect_times(self.mgr, a)) == 0 or
-                   min(ExprAtTime.collect_times(self.mgr, a)) <= last
+        assert all(len(ExprAtTime.collect_times(mgr, a)) == 0 or
+                   min(ExprAtTime.collect_times(mgr, a)) <= last
                    for fm in res for a in self.env.ao.get_atoms(fm))
 
         return self.generalise(res, model, symbs, assume=assume)
+
+    def merge_ineqs(self, formulae: Union[FrozenSet[FNode],
+                                          Set[FNode]]) -> FrozenSet[FNode]:
+        assert isinstance(formulae, (set, frozenset))
+        assert all(isinstance(pred, FNode) for pred in formulae)
+
+        mgr = self.env.formula_manager
+        res = set()
+        fms = set(formulae)
+        while fms:
+            curr = fms.pop()
+            assert self.cn(curr) == curr
+            if not curr.is_le():
+                res.add(curr)
+            else:
+                neg_curr = self.cn(mgr.GE(curr.arg(0), curr.arg(1)))
+                try:
+                    fms.remove(neg_curr)
+                    eq = self.cn(mgr.Equals(curr.arg(0), curr.arg(1)))
+                    res.add(eq)
+                except KeyError:
+                    # neg_curr not in set.
+                    res.add(curr)
+        if __debug__:
+            from solver import Solver
+            # res is sat
+            with Solver(env=self.env) as _solver:
+                _solver.add_assertions(res)
+                assert _solver.solve() is True
+            # Valid(res <-> formulae)
+            with Solver(env=self.env) as _solver:
+                _solver.add_assertion(mgr.Not(mgr.Iff(mgr.And(res),
+                                                      mgr.And(formulae))))
+                assert _solver.solve() is False
+        assert isinstance(res, set)
+        assert all(isinstance(pred, FNode) for pred in res)
+        return frozenset(res)
 
     def __call__(self, res: Union[FrozenSet[FNode], Set[FNode]], model,
                  symbs: FrozenSet[FNode],
@@ -215,7 +317,7 @@ class Generaliser:
         assert assume is None or all(isinstance(k, FNode) for k in assume)
         assert assume is None or all(isinstance(v, FNode)
                                      for v in assume.values())
-        # compute boolean implicant of resulting formula.
+        # compute implicant of res.
         if Generaliser.get_use_bool_impl():
             res = self.bool_impl(res, model)
 
@@ -224,38 +326,8 @@ class Generaliser:
 
         # merge inequalities a <= b & b <= a into a = b
         if Generaliser.get_merge_ineqs():
-            new_res = set()
-            if __debug__:
-                prev_res = frozenset(r for r in res)
-            res = set(res)
-            while res:
-                curr = res.pop()
-                assert self.cn(curr) == curr
-                if not curr.is_le():
-                    new_res.add(curr)
-                else:
-                    neg_curr = self.cn(self.mgr.GE(curr.arg(0), curr.arg(1)))
-                    try:
-                        res.remove(neg_curr)
-                        eq = self.cn(self.mgr.Equals(curr.arg(0), curr.arg(1)))
-                        new_res.add(eq)
-                    except KeyError:
-                        # neg_curr not in set.
-                        new_res.add(curr)
-            res = new_res
-            if __debug__:
-                from solver import Solver
-                # res is sat
-                with Solver(env=self.env) as _solver:
-                    for constr in res:
-                        _solver.add_assertion(constr)
-                    assert _solver.solve() is True
-                # check res <-> prev_res
-                constr = self.mgr.Iff(self.mgr.And(res),
-                                      self.mgr.And(prev_res))
-                with Solver(env=self.env) as _solver:
-                    _solver.add_assertion(self.mgr.Not(constr))
-                    assert _solver.solve() is False
+            res = self.merge_ineqs(res)
+
         assert isinstance(res, (set, frozenset))
         assert all(isinstance(pred, FNode) for pred in res)
         return frozenset(res)
@@ -265,8 +337,9 @@ class Generaliser:
         assert hasattr(model, "get_value")
         assert all(model.get_value(f).is_true() for f in fm)
 
-        cache = {self.mgr.TRUE(): [None, frozenset()],
-                 self.mgr.FALSE(): [frozenset(), None]}
+        mgr = self.env.formula_manager
+        cache = {mgr.TRUE(): [None, frozenset()],
+                 mgr.FALSE(): [frozenset(), None]}
         res: Set[FNode] = set()
         for f in fm:
             self._bool_impl_rec(f, model, True, cache)
@@ -279,14 +352,14 @@ class Generaliser:
             with Solver(env=self.env) as _solver:
                 for c in res:
                     _solver.add_assertion(c)
-                _solver.add_assertion(self.mgr.Not(self.mgr.And(fm)))
+                _solver.add_assertion(mgr.Not(mgr.And(fm)))
                 assert _solver.solve() is False
             # res is satisfiable
             with Solver(env=self.env) as _solver:
                 for pred in res:
                     _solver.add_assertion(pred)
                 assert _solver.solve() is True
-            assert model.get_value(self.mgr.And(res)).is_true()
+            assert model.get_value(mgr.And(res)).is_true()
 
         return frozenset(res)
 
@@ -302,10 +375,13 @@ class Generaliser:
         assert assume is None or all(isinstance(k, FNode) for k in assume)
         assert assume is None or all(isinstance(v, FNode)
                                      for v in assume.values())
-        assert assume is None or all(k in self.mgr.formulae.values()
-                                     for k in assume)
-        assert assume is None or all(v in self.mgr.formulae.values()
-                                     for v in assume.values())
+        assert assume is None or \
+            all(k in self.env.formula_manager.formulae.values()
+                for k in assume)
+        assert assume is None or \
+            all(v in self.env.formula_manager.formulae.values()
+                for v in assume.values())
+        mgr = self.env.formula_manager
         assume = list(assign2fnodes(self.env, assume)) if assume else []
 
         # canonize formula atoms.
@@ -319,8 +395,7 @@ class Generaliser:
                              unsat_cores_mode="named") as solver:
             assert len(solver.assertions) == 0
             # ! (& formulae)
-            solver.add_assertion(self.mgr.Or(self.mgr.Not(f)
-                                             for f in formulae),
+            solver.add_assertion(mgr.Or(mgr.Not(f) for f in formulae),
                                  named="_nf")
             # counter is used to create new names for cores
             for counter, a in enumerate(f_atoms):
@@ -335,18 +410,15 @@ class Generaliser:
                 if model.get_value(a).is_false():
                     if not a.is_equals() and not a.is_le() and \
                        not a.is_lt():
-                        a = self.mgr.Not(a)
+                        a = mgr.Not(a)
                     elif a.is_le():
-                        a = self.mgr.GT(a.arg(0), a.arg(1))
+                        a = mgr.GT(a.arg(0), a.arg(1))
                     elif a.is_lt():
-                        a = self.mgr.GE(a.arg(0), a.arg(1))
+                        a = mgr.GE(a.arg(0), a.arg(1))
                     else:
-                        # TODO: here we rewrite the != as either > or <.
-                        # Not clear the pros and cons.
-                        # a = self.i_mgr.Not(a)
-                        _gt = self.mgr.GT(a.arg(0), a.arg(1))
+                        _gt = mgr.GT(a.arg(0), a.arg(1))
                         a = _gt if model.get_value(_gt).is_true() \
-                            else self.mgr.LT(a.arg(0), a.arg(1))
+                            else mgr.LT(a.arg(0), a.arg(1))
                     a = self.cn(a)
 
                 assert a == self.cn(a)
@@ -404,8 +476,8 @@ class Generaliser:
                 lhs.extend(assume)
             with Solver(env=self.env) as _solver:
                 # Valid(lhs -> formula) => Unsat(lhs & !formula)
-                n_formula = self.mgr.Not(self.mgr.And(formulae))
-                _solver.add_assertion(self.mgr.And(lhs))
+                n_formula = mgr.Not(mgr.And(formulae))
+                _solver.add_assertion(mgr.And(lhs))
                 _solver.add_assertion(n_formula)
                 assert _solver.solve() is False
 
@@ -426,7 +498,7 @@ class Generaliser:
         assert idx >= 0
         if not self.env.fvo.get_free_variables(atm) <= keep_symbs:
             return True
-        atm_times = ExprAtTime.collect_times(self.mgr, atm)
+        atm_times = ExprAtTime.collect_times(self.env.formula_manager, atm)
         if not atm_times:
             return False
         # max_time = max(atm_times)
@@ -451,6 +523,7 @@ class Generaliser:
         assert not fm.is_true()
         assert not fm.is_false()
 
+        mgr = self.env.formula_manager
         if res is None:
             res = [None, None]
 
@@ -565,22 +638,22 @@ class Generaliser:
             curr_impl = frozenset([self.cn(fm)])
         # negative <
         elif not pol and fm.is_lt():
-            curr_impl = frozenset([self.cn(self.mgr.GE(fm.arg(0),
-                                                       fm.arg(1)))])
+            curr_impl = frozenset([self.cn(mgr.GE(fm.arg(0),
+                                                  fm.arg(1)))])
         # negative <=
         elif not pol and fm.is_le():
-            curr_impl = frozenset([self.cn(self.mgr.GT(fm.arg(0),
-                                                       fm.arg(1)))])
+            curr_impl = frozenset([self.cn(mgr.GT(fm.arg(0),
+                                                  fm.arg(1)))])
         # negative literal
         elif not pol and fm.is_literal():
-            curr_impl = frozenset([self.cn(self.mgr.Not(fm))])
+            curr_impl = frozenset([self.cn(mgr.Not(fm))])
         # negative equality
         elif not pol and fm.is_equals():
-            gt = self.mgr.GT(fm.arg(0), fm.arg(1))
+            gt = mgr.GT(fm.arg(0), fm.arg(1))
             if model.get_value(gt).is_true():
                 curr_impl = frozenset([self.cn(gt)])
             else:
-                lt = self.mgr.LT(fm.arg(0), fm.arg(1))
+                lt = mgr.LT(fm.arg(0), fm.arg(1))
                 curr_impl = frozenset([self.cn(lt)])
         else:
             assert False
@@ -594,8 +667,7 @@ class Generaliser:
 
     @staticmethod
     def _fixpoint_unsat_cores(env: PysmtEnv, cores: Dict[str, FNode],
-                              rand: Random,
-                              assume: List[FNode],
+                              rand: Random, assume: List[FNode],
                               key: str) -> Dict[str, FNode]:
         assert isinstance(env, PysmtEnv)
         assert isinstance(cores, dict)
@@ -620,7 +692,7 @@ class Generaliser:
                 for k, c in name_core_lst:
                     solver.add_assertion(c, named=k)
                 sat = solver.solve(assume)
-                assert sat is False, (solver.assertions, solver.get_model())
+                assert sat is False
                 cores = solver.get_named_unsat_core()
                 if __debug__:
                     from solver import Solver
@@ -638,6 +710,8 @@ class Generaliser:
                 if k is not None:
                     assert k in cores
                     cores.pop(k)
+        # assert not Generaliser.get_minimal_core() or \
+        #     _core_find_redundant_ineq(env, cores, key=key) is None
         return cores
 
 
@@ -663,15 +737,17 @@ def _core_find_redundant_ineq(env: PysmtEnv, cores: Dict[str, FNode],
                               key: str):
     """Possibly expensive check, consider only subset of predicates.
     Find ineq in cores with id starting with key that can be safely removed."""
-    with Solver(env=env) as solver:
+    with MultiSolver(env=env, timeout=Generaliser.get_timeout()) as solver:
         for curr_k, curr_v in cores.items():
             if curr_k.startswith(key) and (curr_v.is_lt() or curr_v.is_le()):
                 solver.reset_assertions()
                 for other_k, other_v in cores.items():
                     if curr_k != other_k:
                         solver.add_assertion(other_v)
-                sat = solver.solve()
-                assert sat in {True, False}
+                try:
+                    sat = solver.solve()
+                except SolverReturnedUnknownResultError:
+                    sat = None
                 if sat is False:
                     return curr_k
     return None
