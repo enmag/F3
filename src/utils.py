@@ -139,6 +139,21 @@ def is_not_true(p: FNode) -> bool:
     return not p.is_true()
 
 
+def not_rel(env: PysmtEnv, rel: FNode) -> FNode:
+    assert isinstance(env, PysmtEnv)
+    assert isinstance(rel, FNode)
+    assert rel in env.formula_manager.formulae.values()
+    mgr = env.formula_manager
+    if rel.is_true():
+        return mgr.FALSE()
+    if rel.is_false():
+        return mgr.TRUE()
+
+    assert rel.is_le() or rel.is_lt()
+    return mgr.GT(rel.arg(0), rel.arg(1)) if rel.is_le() else \
+        mgr.GE(rel.arg(0), rel.arg(1))
+
+
 def assign2fnode(env: PysmtEnv, k: FNode, v: FNode) -> FNode:
     assert isinstance(env, PysmtEnv)
     assert isinstance(k, FNode)

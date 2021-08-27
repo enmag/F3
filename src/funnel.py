@@ -19,7 +19,7 @@ from motzkin import motzkin_transpose
 from efsolver import efsolve
 from utils import log, symb_is_next, symb_to_next, to_next, \
     symb_to_curr, symb_is_curr, assign2fnodes, new_symb, linear_comb, \
-    is_not_true
+    is_not_true, not_rel
 # from utils import eq2assign
 
 
@@ -1329,30 +1329,7 @@ class Funnel:
         return self.env.substituter.substitute(formula, subs)
 
     def not_rel(self, rel: FNode) -> FNode:
-        assert rel in self.mgr.formulae.values()
-        if rel.is_true():
-            return self.mgr.FALSE()
-        if rel.is_false():
-            return self.mgr.TRUE()
-
-        assert rel.is_le() or rel.is_lt()
-        lhs = rel.arg(0)
-        rhs = rel.arg(1)
-        rv = rel
-        if rel.is_le():
-            rv = self.mgr.GT(lhs, rhs)
-        elif rel.is_lt():
-            rv = self.mgr.GE(lhs, rhs)
-        if __debug__:
-            from solver import Solver
-            with Solver(env=self.env) as _solver:
-                n_rv = self.mgr.Not(rv)
-                equals = self.mgr.Iff(rel, n_rv)
-                n_equals = self.mgr.Not(equals)
-                _solver.add_assertion(n_equals)
-                if _solver.solve():
-                    assert False, f"{equals}: {_solver.get_model()}"
-        return rv
+        return not_rel(self.env, rel)
 
     def split_eq(self, fm: FNode) -> List[FNode]:
         assert isinstance(fm, FNode)
