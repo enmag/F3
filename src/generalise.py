@@ -178,13 +178,15 @@ class Generaliser:
                    for symbs in timed_symbs for s in symbs)
         assert all(max(ExprAtTime.collect_times(self.env.formula_manager, s)) <= last
                    for symbs in timed_symbs for s in symbs)
+        assert assume is None or all(not k.is_not() for k in assume)
         mgr = self.env.formula_manager
         get_free_vars = self.env.fvo.walk
         symbs = frozenset(chain.from_iterable(timed_symbs))
         # discard formulae that contain no interesting symbol.
         formula = [f for f in formula if len(get_free_vars(f) & symbs) > 0]
         assert all(isinstance(f, FNode) for f in formula)
-        assert all(f in self.env.formula_manager.formulae.values() for f in formula)
+        assert all(f in self.env.formula_manager.formulae.values()
+                   for f in formula)
 
         # substitute prefix predicates with their truth assignment
         substs = {**(assume if assume is not None else {}),
@@ -209,59 +211,6 @@ class Generaliser:
                    for fm in res for a in self.env.ao.get_atoms(fm))
 
         return self.generalise(res, model, symbs, assume=assume)
-
-    def merge_ineqs(self, formulae: Union[FrozenSet[FNode],
-                                          Set[FNode]]) -> FrozenSet[FNode]:
-        assert isinstance(formulae, (set, frozenset))
-        assert all(isinstance(pred, FNode) for pred in formulae)
-
-        mgr = self.env.formula_manager
-        get_type = self.env.stc.get_type
-        res = set()
-        fms = set(formulae)
-        while fms:
-            curr = fms.pop()
-            assert self.cn(curr) == curr
-            assert not curr.is_and()
-            if curr.is_le():
-                # (a <= b & a >= b) <-> a = b
-                neg_curr = self.cn(mgr.GE(curr.arg(0), curr.arg(1)))
-                try:
-                    fms.remove(neg_curr)
-                    res.add(self.cn(mgr.Equals(curr.arg(0), curr.arg(1))))
-                except KeyError:
-                    # neg_curr not in set.
-                    res.add(curr)
-            elif curr.is_lt() and get_type(curr.arg(0)).is_int_type():
-                # (a < b & a > b - 2) <-> a = b - 1
-                assert get_type(curr.arg(1)).is_int_type()
-                neg_curr = self.cn(mgr.GT(curr.arg(0), mgr.Minus(curr.arg(1),
-                                                                 mgr.Int(2))))
-                try:
-                    fms.remove(neg_curr)
-                    res.add(self.cn(mgr.Equals(curr.arg(0),
-                                               mgr.Minus(curr.arg(1),
-                                                         mgr.Int(1)))))
-                except KeyError:
-                    # neg_curr not in set.
-                    res.add(curr)
-            else:
-                res.add(curr)
-
-        if __debug__:
-            from solver import Solver
-            # res is sat
-            with Solver(env=self.env) as _solver:
-                _solver.add_assertions(res)
-                assert _solver.solve() is True
-            # Valid(res <-> formulae)
-            with Solver(env=self.env) as _solver:
-                _solver.add_assertion(mgr.Not(mgr.Iff(mgr.And(res),
-                                                      mgr.And(formulae))))
-                assert _solver.solve() is False
-        assert isinstance(res, set)
-        assert all(isinstance(pred, FNode) for pred in res)
-        return frozenset(res)
 
     def __call__(self, res: Union[FrozenSet[FNode], Set[FNode]], model,
                  symbs: FrozenSet[FNode],
@@ -460,6 +409,59 @@ class Generaliser:
                 assert _solver.solve() is True
 
         return res
+
+    def merge_ineqs(self, formulae: Union[FrozenSet[FNode],
+                                          Set[FNode]]) -> FrozenSet[FNode]:
+        assert isinstance(formulae, (set, frozenset))
+        assert all(isinstance(pred, FNode) for pred in formulae)
+
+        mgr = self.env.formula_manager
+        get_type = self.env.stc.get_type
+        res = set()
+        fms = set(formulae)
+        while fms:
+            curr = fms.pop()
+            assert self.cn(curr) == curr
+            assert not curr.is_and()
+            if curr.is_le():
+                # (a <= b & a >= b) <-> a = b
+                neg_curr = self.cn(mgr.GE(curr.arg(0), curr.arg(1)))
+                try:
+                    fms.remove(neg_curr)
+                    res.add(self.cn(mgr.Equals(curr.arg(0), curr.arg(1))))
+                except KeyError:
+                    # neg_curr not in set.
+                    res.add(curr)
+            elif curr.is_lt() and get_type(curr.arg(0)).is_int_type():
+                # (a < b & a > b - 2) <-> a = b - 1
+                assert get_type(curr.arg(1)).is_int_type()
+                neg_curr = self.cn(mgr.GT(curr.arg(0), mgr.Minus(curr.arg(1),
+                                                                 mgr.Int(2))))
+                try:
+                    fms.remove(neg_curr)
+                    res.add(self.cn(mgr.Equals(curr.arg(0),
+                                               mgr.Minus(curr.arg(1),
+                                                         mgr.Int(1)))))
+                except KeyError:
+                    # neg_curr not in set.
+                    res.add(curr)
+            else:
+                res.add(curr)
+
+        if __debug__:
+            from solver import Solver
+            # res is sat
+            with Solver(env=self.env) as _solver:
+                _solver.add_assertions(res)
+                assert _solver.solve() is True
+            # Valid(res <-> formulae)
+            with Solver(env=self.env) as _solver:
+                _solver.add_assertion(mgr.Not(mgr.Iff(mgr.And(res),
+                                                      mgr.And(formulae))))
+                assert _solver.solve() is False
+        assert isinstance(res, set)
+        assert all(isinstance(pred, FNode) for pred in res)
+        return frozenset(res)
 
     def _should_substitute(self, atm: FNode, idx: int,
                            keep_symbs: frozenset) -> bool:
