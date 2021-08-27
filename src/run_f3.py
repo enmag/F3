@@ -116,8 +116,7 @@ def run_ltl_test(test, env: PysmtEnv, label: str, out_dir=None) -> bool:
             for h in hints:
                 correct, msgs = h.is_correct()
                 if correct is not True:
-                    log(f"{'ERROR' if correct is False else 'UNKNOWN'}"
-                        "\n".join(msgs), 0)
+                    log("\n".join(msgs), 0)
                 if correct is False:
                     return False
         for h in hints:
@@ -150,8 +149,7 @@ def run_test(test, env: PysmtEnv, label: str, out_dir=None) -> bool:
             for h in hints:
                 correct, msgs = h.is_correct()
                 if correct is not True:
-                    log(f"{'ERROR' if correct is False else 'UNKNOWN'}"
-                        "\n".join(msgs), 0)
+                    log("\n".join(msgs), 0)
                 if correct is False:
                     return False
         for h in hints:
