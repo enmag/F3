@@ -28,7 +28,6 @@ _RF_LEARN_EF = False
 _FUN_LEARN_EF = False
 _USE_MOTZKIN = True
 _USE_MOTZKIN_RF = True
-# _SYNTH_RF = True
 _USE_GENERALISED_LASSO = False
 _EXTRACT_CONST_SYMBS_TIMEOUT = 5
 _LOG_LVL = 1
@@ -377,7 +376,7 @@ def rf_or_funnel_from_trace(env: PysmtEnv,
     assert all(len(env.fvo.get_free_variables(p) & bool_symbs) == 0
                for t in _hints_trans for p in t)
 
-    # last state implies first state : safe to copy predicates.
+    # last state implies first state.
     _abst_states[-1] = _abst_states[0] | _abst_states[-1]
     _hints_states[-1] = _hints_states[0] | _hints_states[-1]
 
