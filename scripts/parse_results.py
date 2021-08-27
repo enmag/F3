@@ -588,7 +588,7 @@ def check_ultimate(stdout, stderr) -> str:
                 # assert res is None or res == "correct", (res, stdout)
                 res = "correct"
             elif wrong.match(line):
-                assert res is None, res
+                assert res in {None, "error"}, res
                 res = "error"
             elif unknown.match(line):
                 # assert res is None, (res, stdout)
