@@ -101,6 +101,8 @@ class BMC:
         self.orig_symbs = frozenset(self.i_norm(s) for s in all_symbs)
         self.all_symbs = frozenset.union(self.hint_symbs, self.orig_symbs,
                                          self.hint_active)
+        self.int_symbs = frozenset(s for s in self.all_symbs
+                                   if self.i_env.stc.get_type(s).is_int_type())
         # init of transition system.
         self.init = [self.i_norm(init)]
         # init of Hints encoding
@@ -409,15 +411,16 @@ class BMC:
                                     assert sat is False
 
                             abst_states, abst_trans = \
-                                self.generaliser.curr_next_preds(loop_core,
-                                                                 lback_idx,
-                                                                 k + 1)
+                                self.generaliser.curr_next_preds(
+                                    self.int_symbs, loop_core, lback_idx,
+                                    k + 1, model)
                             hints_states, hints_trans = \
                                 self.generaliser.curr_next_preds(
+                                    self.int_symbs,
                                     frozenset(
                                         k if v.is_true() else self.i_mgr.Not(k)
                                         for k, v in hints_region_trans.items()),
-                                    lback_idx, k + 1)
+                                    lback_idx, k + 1, model)
 
                             abst_states = \
                                 [frozenset(self.o_norm(s)
