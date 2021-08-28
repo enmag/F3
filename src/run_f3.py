@@ -206,8 +206,8 @@ def search_nonterm(env, symbols: FrozenSet[FNode],
         with open(out_f, "w") as out:
             if orig_trans is None:
                 orig_trans = trans
-            arg.to_smv(orig_trans, fairness, arg1, out,
-                       orig_ltl=orig_ltl)
+            arg0.to_smv(orig_trans, fairness, arg1, out,
+                        orig_ltl=orig_ltl)
     return success
 
 
