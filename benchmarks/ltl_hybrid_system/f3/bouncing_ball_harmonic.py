@@ -83,8 +83,10 @@ def check_ltl(menv: msat_env, enc: LTLEncoder):
                          msat_make_and(menv,
                                        msat_make_equal(menv, c, _1),
                                        msat_make_equal(menv, h, _0)),
-                         msat_make_equal(menv, v,
-                                         msat_make_divide(menv, g, _2)))
+                         msat_make_and(menv,
+                                       msat_make_equal(menv, v,
+                                                       msat_make_divide(menv, g, _2)),
+                                       msat_make_geq(menv, d, _0)))
     # transition relation
     # c' = c + 1 if h = 0 & v < 0 else c
     cond = msat_make_and(menv,
@@ -124,7 +126,7 @@ def check_ltl(menv: msat_env, enc: LTLEncoder):
     cond1 = msat_make_and(menv, msat_make_not(menv, stop),
                           msat_make_and(menv, msat_make_equal(menv, h, _0),
                                         msat_make_leq(menv, v, _0)))
-    cond2 = msat_make_not(menv, msat_make_and(menv, cond0, cond1))
+    cond2 = msat_make_not(menv, msat_make_or(menv, cond0, cond1))
     m_vc_d_cp1 = msat_make_divide(menv,
                                   msat_make_times(menv, v, c),
                                   msat_make_plus(menv, c, _1))
@@ -138,6 +140,18 @@ def check_ltl(menv: msat_env, enc: LTLEncoder):
                                      msat_make_equal(menv, x_v, m_vc_d_cp1)),
                       msat_make_impl(menv, cond2,
                                      msat_make_equal(menv, x_v, v_m_gd))))
+    trans = msat_make_and(menv, trans, curr)
+
+    # invar: h >= 0, delta >= 0, h = 0 & v < 0 -> delta = 0
+    curr = msat_make_and(
+        menv,
+        msat_make_and(menv, msat_make_geq(menv, x_h, _0),
+                      msat_make_geq(menv, x_d, _0)),
+        msat_make_impl(menv,
+                       msat_make_and(menv,
+                                     msat_make_equal(menv, x_h, _0),
+                                     msat_make_lt(menv, x_v, _0)),
+                       msat_make_equal(menv, x_d, _0)))
     trans = msat_make_and(menv, trans, curr)
 
     # LTL: F G !(h = 0 & v > 0)
