@@ -20,7 +20,6 @@ from efsolver import efsolve
 from utils import log, symb_is_next, symb_to_next, to_next, \
     symb_to_curr, symb_is_curr, assign2fnodes, new_symb, linear_comb, \
     is_not_true, not_rel
-# from utils import eq2assign
 
 
 class FunnelLoop:
@@ -119,7 +118,6 @@ class FunnelLoop:
                    for s in _symbs)
         assert isinstance(_trace, List)
         assert all(isinstance(s, dict) for s in _trace)
-        # assert all(s in _symbs for curr in _trace for s in curr)
         assert all(s in curr for curr in _trace for s in _symbs)
         assert all(not ExprAtTime.is_timed_symb(o_env.formula_manager, s)
                    for curr in _trace for s in curr)
@@ -130,8 +128,6 @@ class FunnelLoop:
         assert all(v.is_constant() for curr in _trace for v in curr.values())
         assert isinstance(_conc_assigns, list)
         assert all(isinstance(assign, dict) for assign in _conc_assigns)
-        # assert all(k in _symbs for assign in _conc_assigns
-        #            for k in assign)
         assert all(isinstance(v, FNode)
                    for assign in _conc_assigns for v in assign.values())
         assert all(v.is_constant() for assign in _conc_assigns
@@ -377,7 +373,6 @@ class FunnelLoop:
                     last_end = end
 
                 if last_end < len(abst_states) - 1:
-                    # assert all(idx2concfunnel[last_end + offset + 1:])
                     nonterm_arg.append(ConcFunnel(
                         env, first + last_end, first + len(abst_states) - 1,
                         symbs,
@@ -536,8 +531,6 @@ class FunnelLoop:
         first_f = self._funnels[0]
         last_f = self._funnels[-1]
         assert last_f.last - first_f.first >= 1
-        # assert all(s in last_f.states[-1] for s in first_f.states[0]), \
-        #     (last_f.states[-1], first_f.states[0])
         assert last_f.assigns[-1] == first_f.assigns[0]
 
         # strengthen first state with last state
@@ -582,9 +575,6 @@ class FunnelLoop:
                                             first_f.first_ineqs))
                        for p in preds)
             assert all(p in first_f.hint_states[0] for p in h_preds)
-            # preds = preds - frozenset(first_f.first_ineqs)
-            # first_f.strengthen_state(0, *preds)
-            # first_f.strengthen_hint_state(0, *h_preds)
         last_f.last_ineqs.extend(first_f.first_ineqs)
         # last_f must imply first state.
         last_f.strengthen_state(-1, *first_f.states[0])
@@ -709,8 +699,6 @@ class FunnelLoop:
                 res = solver.solve()
             except SolverReturnedUnknownResultError:
                 log("\t\tMotzkinUnranker timeout", FunnelLoop._LOG_LVL)
-                # log(f"\n{to_smt2(self.env, solver.assertions)}\n",
-                #     FunnelLoop._LOG_LVL + 1)
                 res = None
             if res is True:
                 return solver.get_values(self.parameters)
@@ -784,7 +772,6 @@ class FunnelLoop:
 
         first.extend(simpl(subst(abst_s, self._init))
                      for abst_s in first_f.states[0])
-        # print("First: {}".format([f.serialize() for f in first]))
         assert all(get_free_vars(constr) <= self.parameters
                    for constr in first)
 
@@ -891,6 +878,7 @@ class FunnelLoop:
         symbs = self._funnels[0].all_symbs
         expr_print = SMVPrinter(buf, env=self.env)
         mgr = self.env.formula_manager
+        serialize = self.env.serializer.serialize
         state_var = "_f_state_"
         orig_trans_symb = "_orig_trans_"
         first = self._funnels[0].first
@@ -955,11 +943,10 @@ class FunnelLoop:
 
         buf.write(f"  TRANS ({state_var} = {last} & "
                   f"next({state_var}) = {first}) -> "
-                  "{3};\n".format(" & ".join(f"next({s}) = {s}"
-                                             for s in symbs
-                                             if not s.symbol_name()
-                                             .startswith("_J"))))
-
+                  "{};\n".format(" & ".join(f"next({serialize(s)}) = {serialize(s)}"
+                                            for s in symbs
+                                            if not s.symbol_name()
+                                            .startswith("_J"))))
         for f in self._funnels:
             f.to_smv(model, state_var, buf, expr_print)
 
@@ -1094,8 +1081,6 @@ class Funnel:
         assert len(hint_eqs) == len(trans_eqs)
         assert all(len(t_eqs.keys() & h_eqs.keys()) == 0
                    for t_eqs, h_eqs in zip(trans_eqs, hint_eqs))
-        # assert all(len(h_eqs) == 0 or len(h_trans) == 0
-        #            for h_eqs, h_trans in zip(hint_eqs, hint_trans))
 
         self.env = env
         self.mgr = env.formula_manager
@@ -1106,7 +1091,6 @@ class Funnel:
         self.states: List[Union[Set[FNode], FrozenSet[FNode]]] = \
             [set(state) for state in states]
         self.assigns = conc_assigns
-        # self.hint_symbs = hint_symbs
         self._x_hint_symbs = frozenset(symb_to_next(self.mgr, s)
                                        for s in hint_symbs)
         get_free_vars = self.env.fvo.walk
@@ -1266,44 +1250,6 @@ class Funnel:
                 assert isinstance(r, FNode)
                 yield lhs, frozenset([r])
 
-        # with Solver(env=self.env) as solver:
-        #     for lhs, rhs in self._get_constr():
-        #         assert isinstance(lhs, frozenset)
-        #         assert isinstance(rhs, frozenset)
-        #         assert all(isinstance(l, FNode) for l in lhs)
-        #         assert all(isinstance(r, FNode) for r in rhs)
-        #         assert all(l in mgr.formulae.values() for l in lhs)
-        #         assert all(r in mgr.formulae.values() for r in rhs)
-        #         solver.reset_assertions()
-        #         assert len(solver.assertions) == 0
-        #         # check if lhs -> rhs is VALID: unsat(lhs & !rhs)
-        #         for l in lhs:
-        #             solver.add_assertion(l)
-        #         # elements of lhs purely conjunctive
-        #         # elements of rhs purely disjunctive
-        #         for r in (atm for it in rhs
-        #                   if not it.is_true() and it not in lhs
-        #                   for atm in self.split_eq(it)
-        #                   if atm not in lhs):
-        #             assert isinstance(r, FNode)
-        #             solver.push()
-        #             solver.add_assertion(mgr.Not(r))
-        #             try:
-        #                 res = solve_with_timeout(FunnelLoop.get_filter_timeout(),
-        #                                          solver)
-        #             except SolverReturnedUnknownResultError:
-        #                 log("\t\tFunnel constraint filtering timeout",
-        #                     FunnelLoop._LOG_LVL)
-        #                 log(f"\n{to_smt2(self.env, solver.assertions)}\n",
-        #                     FunnelLoop._LOG_LVL + 1)
-        #                 res = None
-        #             if res is False:
-        #                 print(f"\t\tFILTERED CONSTRAINT:\n\t\t{lhs} -> {rhs}")
-        #             assert res in {True, False, None}
-        #             if res in {True, None}:
-        #                 yield lhs, frozenset([r])
-        #             solver.pop()
-
     def strengthen_state(self, idx: int, *args) -> None:
         assert all(self.cn(s) == s for s in self.states[idx])
         assert isinstance(self.states[idx], set)
@@ -1345,14 +1291,6 @@ class Funnel:
         for idx in range(len(self.states[:-1])):
             res.append((self.first + idx + 1, None))
         return res
-
-    # def to_smv(self, model, state_var, buf, expr_print):
-    #     for idx, state in enumerate(self.states):
-    #         if state:
-    #             c_time = idx + self.first
-    #             buf.write("INVAR ({} = {}) -> ".format(state_var, c_time))
-    #             expr_print.printer(self.mgr.And(state))
-    #             buf.write(";\n")
 
     def _new_symb(self, base: str, s_type) -> FNode:
         """Return fresh symbol of the given type"""
@@ -1591,7 +1529,7 @@ class ConcFunnel(Funnel):
         assert len(eqs) == len(self.hint_trans)
 
         buf.write("\n-- ConcFunnel\n")
-        for idx, trans, h_eqs, h_trans, x_h_state in enumerate(
+        for idx, (trans, h_eqs, h_trans, x_h_state) in enumerate(
                 zip(eqs, self.hint_eqs, self.hint_trans, self.hint_states[1:])):
             c_time = idx + self.first
             x_time = c_time + 1
@@ -1832,8 +1770,6 @@ class RFFunnel(Funnel):
                               if not pred.is_true())
             h_state.clear()
 
-        # res = res | self.states[0]
-        # self.states[0].clear()
         assert isinstance(res, frozenset)
         assert all(symb_is_curr(s) for p in res
                    for s in self.env.fvo.walk(p))
@@ -1974,9 +1910,8 @@ class RFFunnel(Funnel):
         buf.write(f"{indent}End do-while\n")
 
     def cfg(self, model) -> List[Tuple[int, Union[FrozenSet[FNode], FNode]]]:
-        res = []
-        for idx in range(len(self.states) - 1):
-            res.append((self.first + idx + 1, frozenset()))
+        res = [(self.first + idx + 1, frozenset())
+               for idx in range(len(self.states) - 1)]
         rf_ineq = self.simpl(self.subst(self._rf_pred, model))
         res.append((self.first, rf_ineq))
         return res
@@ -1992,7 +1927,7 @@ class RFFunnel(Funnel):
         assert len(self.assigns) == len(self.hint_trans)
 
         buf.write("\n-- RFFunnel\n")
-        for idx, trans, h_eqs, h_trans, x_h_state in enumerate(
+        for idx, (trans, h_eqs, h_trans, x_h_state) in enumerate(
                 zip(eqs[:-1], self.hint_eqs[:-1], self.hint_trans[:-1],
                     self.hint_states[1:])):
             c_time = idx + self.first
