@@ -273,11 +273,8 @@ class Hint():
             if h.t_is_ranked.is_false():
                 continue
             assert not h.is_rank_decr.is_false()
-            yield mgr.Implies(h.t_is_ranked,
+            yield mgr.Implies(mgr.Or(h.t_is_ranked, h.is_rank_decr),
                               mgr.And(o.t_is_stutter for o in hints if o != h))
-            yield mgr.Implies(h.is_rank_decr,
-                              mgr.And(mgr.Not(o.is_rank_decr) for o in hints
-                                      if o != h and not o.is_rank_decr.is_false()))
 
     def __init__(self, name: str, env: PysmtEnv,
                  owned_symbs: FrozenSet[FNode],
