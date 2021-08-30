@@ -241,7 +241,7 @@ def search_funnel_bmc(env: PysmtEnv, symbols: FrozenSet[FNode],
                                          for _, s, _ in hints[3])
         assert abst_path is False or all(isinstance(e, int)
                                          for _, _, e in hints[3])
-        assert abst_path is False or all(0 <= s < e < len(trace) - lback_idx
+        assert abst_path is False or all(0 <= s <= e < len(trace) - lback_idx
                                          for _, s, e in hints[3])
 
         log(f"\n\tBMC: found trace {i}, len {len(trace)}, lback {lback_idx}",
@@ -348,7 +348,7 @@ def rf_or_funnel_from_trace(env: PysmtEnv,
     assert all(len(rf.params) == 0 for rf, _, _ in hints[3])
     assert all(isinstance(s, int) for _, s, _ in hints[3])
     assert all(isinstance(e, int) for _, _, e in hints[3])
-    assert all(0 <= s < e < len(trace) - first for _, s, e in hints[3])
+    assert all(0 <= s <= e < len(trace) - first for _, s, e in hints[3])
 
     assert isinstance(fair, FNode)
     assert fair in env.formula_manager.formulae.values()
@@ -378,12 +378,15 @@ def rf_or_funnel_from_trace(env: PysmtEnv,
                      for step in trace[first:]]
     # replace all boolean symbols with their assignment
     _symbs = _symbs - bool_symbs
-    _abst_states, _abst_trans = _apply_assigns(env, _symbs, _conc_assigns,
-                                               _abst_states, _abst_trans, cn)
     _hints_symbs = _hints_symbs - bool_symbs
     _hints_states, _hints_trans = _apply_assigns(env, _symbs, _conc_assigns,
                                                  _hints_states, _hints_trans,
                                                  cn)
+    _abst_states, _abst_trans = _apply_assigns(env, _symbs, _conc_assigns,
+                                               _abst_states, _abst_trans, cn)
+    assert len(trace) - first == len(_abst_states)
+    assert len(_abst_states) == len(_hints_states)
+    assert len(_abst_trans) == len(_hints_trans)
     assert len(_hints_symbs & bool_symbs) == 0
     assert len(_symbs & bool_symbs) == 0
     assert all(len(env.fvo.get_free_variables(p) & bool_symbs) == 0
@@ -394,7 +397,13 @@ def rf_or_funnel_from_trace(env: PysmtEnv,
                for s in _hints_states for p in s)
     assert all(len(env.fvo.get_free_variables(p) & bool_symbs) == 0
                for t in _hints_trans for p in t)
+    assert all(cn(p) == p for preds in _abst_states for p in preds)
+    assert all(cn(p) == p for preds in _abst_trans for p in preds)
+    assert all(cn(p) == p for preds in _hints_states for p in preds)
+    assert all(cn(p) == p for preds in _hints_trans for p in preds)
 
+    _abst_states = [s - h_s for s, h_s in zip(_abst_states, _hints_states)]
+    _abst_trans = [t - h_t for t, h_t in zip(_abst_trans, _hints_trans)]
     # last state implies first state.
     _abst_states[-1] = _abst_states[0] | _abst_states[-1]
     _hints_states[-1] = _hints_states[0] | _hints_states[-1]
@@ -461,11 +470,6 @@ def rf_or_funnel_from_trace(env: PysmtEnv,
                 log(f"\tFound ranking relation: {rank_rel}", get_log_lvl())
                 return True, rank_rel
 
-    # canonize transition relations
-    # increases chance of detecting constant symbols syntactically.
-    _abst_trans = [frozenset(cn(t) for t in trans) for trans in _abst_trans]
-    _hints_trans = [frozenset(cn(t) for t in trans) for trans in _hints_trans]
-
     constant_symbs = _extract_constant_symbs(
         env, _symbs, trace, first,
         [s0 | s1 for s0, s1 in zip(_abst_states, _hints_states)],
@@ -526,9 +530,6 @@ def rf_or_funnel_from_trace(env: PysmtEnv,
             conc_assigns = [{s: step[s]
                              for s in chain(lasso_symbs, bool_symbs)}
                             for step in trace[first:]]
-            abst_states, abst_trans = _apply_assigns(env, symbs, conc_assigns,
-                                                     _abst_states, _abst_trans,
-                                                     cn)
             hints_symbs = _hints_symbs - lasso_symbs
             hints_states, hints_trans = _apply_assigns(env, symbs, conc_assigns,
                                                        _hints_states,
@@ -536,6 +537,14 @@ def rf_or_funnel_from_trace(env: PysmtEnv,
             assert all(len(rf.params) == 0 for rf, _, _ in _hints_rfs)
             hints_rfs = [(rf, s, f)
                          for rf, s, f in _hints_rfs]
+            abst_states, abst_trans = _apply_assigns(env, symbs, conc_assigns,
+                                                     _abst_states, _abst_trans,
+                                                     cn)
+            abst_states = [s - h_s for s, h_s in zip(abst_states, hints_states)]
+            abst_trans = [t - h_t for t, h_t in zip(abst_trans, hints_trans)]
+            # last state implies first state.
+            abst_states[-1] = abst_states[0] | abst_states[-1]
+            hints_states[-1] = hints_states[0] | hints_states[-1]
         else:
             symbs, hints_symbs = _symbs, _hints_symbs
             conc_assigns = _conc_assigns
@@ -544,6 +553,12 @@ def rf_or_funnel_from_trace(env: PysmtEnv,
             hints_rfs = _hints_rfs
         assert len(hints_symbs & lasso_symbs) == 0
         assert len(symbs & lasso_symbs) == 0
+        assert len(trace) - first == len(abst_states)
+        assert len(abst_states) == len(hints_states)
+        assert len(abst_trans) == len(abst_states) - 1
+        assert len(abst_trans) == len(hints_trans)
+        assert abst_states[0] <= abst_states[-1]
+        assert hints_states[0] <= hints_states[-1]
         assert all(len(env.fvo.get_free_variables(p) & lasso_symbs) == 0
                    for s in abst_states for p in s)
         assert all(len(env.fvo.get_free_variables(p) & lasso_symbs) == 0
