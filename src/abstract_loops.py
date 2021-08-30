@@ -585,7 +585,7 @@ class BMC:
                         assert last_rf_start_idx is not None
                         assert 0 <= last_rf_start_idx <= step - first
                         hints_rfs.append((last_rf, last_rf_start_idx,
-                                          step - first + 1))
+                                          step - first))
                         last_rf = None
                         last_rf_start_idx = None
                     else:
