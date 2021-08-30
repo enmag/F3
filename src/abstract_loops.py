@@ -1,4 +1,4 @@
-from typing import Iterator, Tuple, List, Optional, Union, Dict, FrozenSet
+from typing import Iterator, Tuple, List, Optional, Union, Dict, FrozenSet, Set
 from itertools import count, chain
 from enum import IntEnum
 
@@ -7,7 +7,8 @@ import pysmt.typing as types
 from pysmt.environment import Environment as PysmtEnv
 from pysmt.exceptions import SolverReturnedUnknownResultError
 
-from utils import symb_to_next, to_next, to_curr, log, assign2fnodes, new_symb
+from utils import (symb_to_next, to_next, to_curr, log, assign2fnodes, new_symb,
+                   not_rel)
 from multisolver import MultiSolver
 from canonize import Canonizer
 from rewritings import TimesDistributor
@@ -245,7 +246,8 @@ class BMC:
                         bool],
                   Union[Optional[Tuple[List[Hint],
                                        List[FrozenSet[FNode]],
-                                       List[FrozenSet[FNode]]]],
+                                       List[FrozenSet[FNode]],
+                                       List[Tuple[RankFun, int, int]]]],
                         bool]]]:
         assert all(pred in self.i_mgr.formulae.values() for pred in self.init)
         assert all(t in self.i_mgr.formulae.values() for t in self.trans)
@@ -314,15 +316,14 @@ class BMC:
                         yield None, None, None, None
                     elif sat is True:
                         model = solver.get_model()
-
                         lback_idx = self._get_lback_index(model, k + 1)
                         assert isinstance(lback_idx, int)
                         assert lback_idx >= 0
                         assert lback_idx < k + 1
 
-                        loop_core: Optional[FrozenSet[FNode]] = None
-                        hints_region_trans, hints_assume = None, None
-
+                        loop_core: FrozenSet[FNode] = frozenset()
+                        hints_region_trans: FrozenSet[FNode] = frozenset()
+                        hints_assume: FrozenSet[FNode] = frozenset()
                         try:
                             conc_model = self._try_concretize(solver, k + 1,
                                                               lback_idx)
@@ -343,52 +344,38 @@ class BMC:
                                                       True)
                             yield (trace, lback_idx, False, False)
                         else:
-                            hint_comp = \
-                                self._model2hint_comp(model,
-                                                      lback_idx, k + 1)
-                            assert len(hint_comp) == 2
-                            assert len(hint_comp[0]) == 0 or \
-                                len(hint_comp[1]) == k - lback_idx + 1
+                            active_hints, hints_steps, hints_rfs = \
+                                self._model2hint_comp(model, lback_idx, k + 1)
+                            assert len(active_hints) == 0 or \
+                                len(hints_steps) == k - lback_idx + 1
                             hints_region_trans, hints_assume = \
-                                self._hint_comp2assume(hint_comp, lback_idx)
-                            assert isinstance(hints_region_trans, dict)
+                                self._hint_comp2assume(active_hints, hints_steps,
+                                                       lback_idx)
+                            assert isinstance(hints_region_trans, frozenset)
                             assert all(isinstance(k, FNode)
                                        for k in hints_region_trans)
-                            assert all(isinstance(v, FNode)
-                                       for v in hints_region_trans.values())
                             assert all(k in self.i_mgr.formulae.values()
                                        for k in hints_region_trans)
-                            assert all(v in self.i_mgr.formulae.values()
-                                       for v in hints_region_trans.values())
-                            assert all(v.is_true() or v.is_false()
-                                       for v in hints_region_trans.values())
-                            assert isinstance(hints_assume, dict)
+                            assert isinstance(hints_assume, frozenset)
                             assert all(isinstance(k, FNode)
                                        for k in hints_assume)
-                            assert all(isinstance(v, FNode)
-                                       for v in hints_assume.values())
                             assert all(k in self.i_mgr.formulae.values()
                                        for k in hints_assume)
-                            assert all(v in self.i_mgr.formulae.values()
-                                       for v in hints_assume.values())
-                            assert all(v.is_true() or v.is_false()
-                                       for v in hints_assume.values())
 
-                            hint_symbs_assign = {k: model.get_value(k)
-                                                 for k in self.hint_active}
+                            hint_assigns = {**{k: model.get_value(k)
+                                               for k in self.hint_active},
+                                            **{k if not k.is_not() else k.arg(0):
+                                               self.i_mgr.TRUE() if not k.is_not()
+                                               else self.i_mgr.FALSE()
+                                               for k in hints_region_trans}}
                             for step in range(lback_idx, k+2):
                                 for s in self.hint_symbs:
                                     timed_s = self.totime(s, step)
-                                    hint_symbs_assign[timed_s] = model.get_value(timed_s)
+                                    hint_assigns[timed_s] = model.get_value(timed_s)
                             loop_core = self.generaliser.generalise_path(
-                                chain(solver.assertions,
-                                      (k if v.is_true() else self.i_mgr.Not(k)
-                                       for k, v in hints_assume.items())),
-                                model,
-                                timed_symbs[lback_idx:],
-                                lback_idx, k + 1,
-                                assume={**hints_region_trans,
-                                        **hint_symbs_assign})
+                                chain(solver.assertions, hints_assume),
+                                model, timed_symbs[lback_idx:],
+                                lback_idx, k + 1, assume=hint_assigns)
                             assert isinstance(loop_core, frozenset)
                             assert all(c in self.i_mgr.formulae.values()
                                        for c in loop_core)
@@ -403,9 +390,9 @@ class BMC:
                                     for c in loop_core:
                                         _solver.add_assertion(c)
                                     for pred in assign2fnodes(self.i_env,
-                                                              hint_symbs_assign,
-                                                              hints_region_trans):
+                                                              hint_assigns):
                                         _solver.add_assertion(pred)
+                                    _solver.add_assertions(hints_region_trans)
                                     sat = _solver.solve()
                                     assert sat is False
 
@@ -414,30 +401,10 @@ class BMC:
                                     loop_core, lback_idx, k + 1, model)
                             hints_states, hints_trans = \
                                 self.generaliser.curr_next_preds(
-                                    frozenset(
-                                        k if v.is_true() else self.cn(self.i_mgr.Not(k))
-                                        for k, v in hints_region_trans.items()),
-                                    lback_idx, k + 1, model)
+                                    hints_region_trans, lback_idx, k + 1,
+                                    model)
 
-                            abst_states = \
-                                [frozenset(self.o_norm(s)
-                                           for s in state)
-                                 for state in abst_states]
-                            abst_trans = \
-                                [frozenset(self.o_norm(t)
-                                           for t in trans)
-                                 for trans in abst_trans]
-                            hints_states = \
-                                [frozenset(self.o_norm(s)
-                                           for s in state)
-                                 for state in hints_states]
-                            hints_trans = \
-                                [frozenset(self.o_norm(t)
-                                           for t in trans)
-                                 for trans in hints_trans]
-
-                            trace = self._model2trace(model, 0, k + 1,
-                                                      True)
+                            trace = self._model2trace(model, 0, k + 1, True)
                             assert isinstance(trace, list), trace
                             assert len(trace) == k + 2
                             assert isinstance(abst_states, list)
@@ -452,16 +419,25 @@ class BMC:
                             assert len(hints_trans) == len(hints_states) - 1
 
                             yield (trace, lback_idx,
-                                   (abst_states, abst_trans),
+                                   # abst states and trans
+                                   ([frozenset(self.o_norm(s) for s in state)
+                                     for state in abst_states],
+                                    [frozenset(self.o_norm(t) for t in trans)
+                                     for trans in abst_trans]),
+                                   # hints, hints states, trans and rf.
                                    ([h.to_env(self.o_env)
-                                     for h in hint_comp[0]],
-                                    hints_states, hints_trans))
+                                     for h in active_hints],
+                                    [frozenset(self.o_norm(s) for s in state)
+                                     for state in hints_states],
+                                    [frozenset(self.o_norm(t) for t in trans)
+                                     for trans in hints_trans],
+                                    [(rf.to_env(self.o_env), s, e)
+                                     for rf, s, e in hints_rfs]))
                             del trace
 
                         ref = self._compute_refinement(model, lback_idx, k + 1,
                                                        hints_region_trans,
-                                                       hints_assume,
-                                                       loop_core)
+                                                       hints_assume, loop_core)
                         refinements.append(ref)
                         solver.add_assertion(ref)
                 solver.pop()
@@ -525,7 +501,8 @@ class BMC:
 
     def _model2hint_comp(self, model, first: int, last: int) \
             -> Tuple[List[Hint],
-                     List[List[Tuple[int, bool, TransType]]]]:
+                     List[List[Tuple[int, bool, TransType]]],
+                     List[Tuple[RankFun, int, int]]]:
         """returns list of active Hints and sequence of `states`.
          For each state reports location of each active hint and type of
         the transition to reach the following state"""
@@ -551,10 +528,9 @@ class BMC:
 
         # No hints used in the current trace.
         if len(active_hints) == 0:
-            return [], []
+            return [], [], []
 
-        locval2idx_lst = [{val: idx
-                           for idx, val in enumerate(h.ts_lvals)}
+        locval2idx_lst = [{val: idx for idx, val in enumerate(h.ts_lvals)}
                           for h in active_hints]
 
         x_loc_idxs: List[int] = []
@@ -567,6 +543,9 @@ class BMC:
             x_loc_idxs.append(locval2idx[val])
 
         hints_steps = [[] for _ in range(first, last)]
+        hints_rfs = []
+        last_rf = None
+        last_rf_start_idx = None
         for curr, step in zip(hints_steps, range(first, last)):
             # fill curr with info of active_hints
             loc_idxs = x_loc_idxs
@@ -577,9 +556,8 @@ class BMC:
                                               loc_idxs):
                 # find location of h at next step
                 val = self.i_mgr.And(
-                    s if model.get_value(self.totime(s, step + 1)).is_true() else
-                    self.i_mgr.Not(s)
-                    for s in h.ts_loc_symbs)
+                    s if model.get_value(self.totime(s, step + 1)).is_true()
+                    else self.i_mgr.Not(s) for s in h.ts_loc_symbs)
                 assert val in locval2idx
                 x_loc_idx = locval2idx[val]
                 assert isinstance(x_loc_idx, int)
@@ -595,6 +573,25 @@ class BMC:
                 elif model.get_value(self.totime(h.t_is_ranked, step)).is_true():
                     trans_type = TransType.RANKED
                     is_ranked = True
+                    rf = h[loc_idx].rf
+                    assert rf is not None
+                    if model.get_value(self.totime(self.i_mgr.Not(rf.is_ranked),
+                                                   step + 1)).is_true():
+                        if not last_rf:
+                            assert last_rf_start_idx is None
+                            last_rf = rf
+                            last_rf_start_idx = step - first
+                        assert last_rf is not None
+                        assert last_rf_start_idx is not None
+                        assert 0 <= last_rf_start_idx <= step - first
+                        hints_rfs.append((last_rf, last_rf_start_idx,
+                                          step - first + 1))
+                        last_rf = None
+                        last_rf_start_idx = None
+                    else:
+                        assert last_rf is None or last_rf == rf
+                        last_rf = rf
+                        last_rf_start_idx = step - first + 1
                 else:
                     assert model.get_value(self.totime(h.t_is_progress, step)).is_true()
                     trans_type = TransType.PROGRESS
@@ -642,22 +639,14 @@ class BMC:
                                 step)
                             assert model.get_value(ranked).is_true()
                 # end debug
+        return active_hints, hints_steps, hints_rfs
 
-        return (active_hints, hints_steps)
-
-    def _hint_comp2assume(self, hint_comp:
-                          Tuple[List[Hint],
-                                List[List[Tuple[int, bool, TransType]]]],
-                          first: int) -> Tuple[Dict[FNode, FNode],
-                                               Dict[FNode, FNode]]:
+    def _hint_comp2assume(self, hints: List[Hint],
+                          steps: List[List[Tuple[int, bool, TransType]]],
+                          first: int) -> Tuple[FrozenSet[FNode],
+                                               FrozenSet[FNode]]:
         """Build dictionary from predicates to the corresponding truth assignment
         as prescribed by the selected hints."""
-        assert isinstance(hint_comp, tuple)
-        assert len(hint_comp) == 2
-        assert isinstance(first, int)
-        assert first >= 0
-
-        hints, steps = hint_comp
         assert all(isinstance(h, Hint) for h in hints)
         assert all(isinstance(s, list) for s in steps)
         assert all(len(s) == len(hints) for s in steps)
@@ -666,11 +655,15 @@ class BMC:
         assert all(isinstance(s[0], int) for step in steps for s in step)
         assert all(isinstance(s[1], bool) for step in steps for s in step)
         assert all(isinstance(s[2], TransType) for step in steps for s in step)
-        if len(hints) == 0:
-            return {}, {}
+        assert isinstance(first, int)
+        assert first >= 0
 
-        def assign_true(pred: FNode, res: dict):
+        if len(hints) == 0:
+            return frozenset(), frozenset()
+
+        def assign_true(pred: FNode, res: Set[FNode]):
             assert isinstance(pred, FNode)
+            assert isinstance(res, set)
             preds = [pred]
             while preds:
                 pred = preds.pop()
@@ -680,10 +673,11 @@ class BMC:
                     assign_false(pred.arg(0), res)
                 elif not pred.is_true():
                     assert not pred.is_false()
-                    res[pred] = self.i_mgr.TRUE()
+                    res.add(self.cn(pred))
 
-        def assign_false(pred: FNode, res: dict):
+        def assign_false(pred: FNode, res: Set[FNode]):
             assert isinstance(pred, FNode)
+            assert isinstance(res, set)
             preds = [pred]
             while preds:
                 pred = preds.pop()
@@ -693,10 +687,13 @@ class BMC:
                     assign_true(pred.arg(0), res)
                 elif not pred.is_false():
                     assert not pred.is_true()
-                    res[pred] = self.i_mgr.FALSE()
+                    if pred.is_lt() or pred.is_le():
+                        res.add(self.cn(not_rel(self.i_env, pred)))
+                    else:
+                        res.add(self.cn(self.i_mgr.Not(pred)))
 
-        res_regions_trans: Dict[FNode, FNode] = {}
-        res_assumes: Dict[FNode, FNode] = {}
+        res_regions_trans: Set[FNode] = set()
+        res_assumes: Set[FNode] = set()
         for step_idx, step in enumerate(steps):
             c_time = step_idx + first
             x_step_idx = (step_idx + 1) % len(steps)
@@ -731,87 +728,82 @@ class BMC:
                 assert trans in self.i_mgr.formulae.values()
                 assign_true(self.totime(trans, c_time), res_regions_trans)
 
-        return res_regions_trans, res_assumes
+        assert all(self.cn(p) == p for p in res_regions_trans)
+        assert all(self.cn(p) == p for p in res_assumes)
+        return frozenset(res_regions_trans), frozenset(res_assumes)
 
-    def _compute_refinement(self, model,
-                            lback_idx: int, last_idx: int,
-                            hints_region_trans: Optional[Dict[FNode, FNode]],
-                            hints_assume: Optional[Dict[FNode, FNode]],
-                            loop_core: Optional[FrozenSet[FNode]]) -> FNode:
+    def _compute_refinement(self, model, lback_idx: int, last_idx: int,
+                            hints_region_trans: FrozenSet[FNode],
+                            hints_assume: FrozenSet[FNode],
+                            loop_core: FrozenSet[FNode]) -> FNode:
         assert hasattr(model, "get_value")
         assert isinstance(lback_idx, int)
         assert isinstance(last_idx, int)
         assert 0 <= lback_idx < last_idx
-        res = set()
-        if hints_region_trans:
-            assert isinstance(hints_region_trans, dict)
-            assert isinstance(hints_assume, dict)
-            for pred, v in chain(hints_region_trans.items(),
-                                 hints_assume.items()):
-                assert isinstance(pred, FNode)
-                assert isinstance(v, FNode)
-                assert v.is_true() or v.is_false()
-                if __debug__:
-                    pred_times = \
-                        ExprAtTime.collect_times(self.i_mgr,
-                                                 pred)
-                    assert 1 <= len(pred_times) <= 2, pred
-                    assert max(pred_times) <= last_idx, pred
-                if v.is_false():
-                    assert model.get_value(pred).is_false()
-                    pred = self.i_mgr.Not(pred)
-                assert model.get_value(pred).is_true()
-                res.add(self.cn(pred))
-        else:
-            for pred in self.hint_active:
-                assert isinstance(pred, FNode)
-                if model.get_value(pred).is_false():
-                    pred = self.i_mgr.Not(pred)
-                assert model.get_value(pred).is_true()
-                res.add(pred)
+        assert isinstance(hints_region_trans, frozenset)
+        assert isinstance(hints_assume, frozenset)
+        assert all(isinstance(p, FNode) for p in hints_region_trans)
+        assert all(p in self.i_mgr.formulae.values()
+                   for p in hints_region_trans)
+        assert all(self.cn(p) == p for p in hints_region_trans)
+        assert all(1 <= len(ExprAtTime.collect_times(self.i_mgr, p)) <= 2
+                   for p in hints_region_trans)
+        assert all(max(ExprAtTime.collect_times(self.i_mgr, p)) <= last_idx
+                   for p in hints_region_trans)
+        assert all(model.get_value(p).is_true() for p in hints_region_trans)
+        assert all(isinstance(p, FNode) for p in hints_assume)
+        assert all(p in self.i_mgr.formulae.values() for p in hints_assume)
+        assert all(self.cn(p) == p for p in hints_assume)
+        assert all(1 <= len(ExprAtTime.collect_times(self.i_mgr, p)) <= 2
+                   for p in hints_assume)
+        assert all(max(ExprAtTime.collect_times(self.i_mgr, p)) <= last_idx
+                   for p in hints_assume)
+        assert all(model.get_value(p).is_true() for p in hints_assume)
+        assert isinstance(loop_core, frozenset)
+        assert all(isinstance(p, FNode) for p in loop_core)
+        assert all(p in self.i_mgr.formulae.values() for p in loop_core)
+        assert all(self.cn(p) == p for p in loop_core)
+        assert all(1 <= len(ExprAtTime.collect_times(self.i_mgr, p)) <= 2
+                   for p in loop_core)
+        assert all(max(ExprAtTime.collect_times(self.i_mgr, p)) <= last_idx
+                   for p in loop_core)
+        assert all(model.get_value(p).is_true() for p in loop_core)
 
-        if loop_core:
-            assert isinstance(loop_core, frozenset)
-            assert all(isinstance(pred, FNode) for pred in loop_core)
-            for pred in loop_core:
-                pred = pred.arg(0) if pred.is_not() else pred
-                assert not pred.is_not()
-                assert pred == self.cn(pred)
-                if __debug__:
-                    _times = \
-                        ExprAtTime.collect_times(self.i_mgr, pred)
-                    assert 1 <= len(_times) <= 2
-                    assert max(_times) <= last_idx, pred
-                # skip LTL tableau symbols.
-                if pred.is_symbol() and (pred.symbol_name().startswith("_J") or
-                                         pred.symbol_name().startswith("_EL_")):
-                    continue
+        def to_ignore(s: FNode):
+            if s.is_not():
+                s = s.arg(0)
+            assert not s.is_not()
+            return s.is_symbol() and (s.symbol_name().startswith("_J") or
+                s.symbol_name().startswith("_EL_"))
 
-                if model.get_value(pred).is_false():
-                    pred = self.i_mgr.Not(pred)
-                assert model.get_value(pred).is_true()
-                res.add(pred)
-        else:
+        res = set(hints_region_trans | hints_assume)
+        res.update(p for p in loop_core if not to_ignore(p))
+
+        if not loop_core:
             i_get_atoms = self.i_env.ao.get_atoms
-            for idx in range(lback_idx, last_idx + 1):
-                for pred in i_get_atoms(self._orig_trans):
-                    assert not pred.is_not()
-                    # skip LTL tableau symbols.
-                    if pred.is_symbol() and (pred.symbol_name().startswith("_J") or
-                                             pred.symbol_name().startswith("_EL_")):
-                        continue
+            atms = frozenset(atm for atm in i_get_atoms(self._orig_trans)
+                             if not to_ignore(atm))
+            for idx in range(lback_idx, last_idx):
+                for atm in atms:
+                    assert not atm.is_not()
+                    atm = self.totime(atm, idx)
+                    assert 1 <= len(ExprAtTime.collect_times(self.i_mgr, atm)) <= 2
+                    assert max(ExprAtTime.collect_times(self.i_mgr, atm)) <= last_idx
+                    if model.get_value(atm).is_false():
+                        atm = self.i_mgr.Not(atm)
+                    assert model.get_value(atm).is_true()
+                    res.add(atm)
+            for atm in atms:
+                atm = self.totime(atm, last_idx)
+                if max(ExprAtTime.collect_times(self.i_mgr, atm)) <= last_idx:
+                    if model.get_value(atm).is_false():
+                        atm = self.i_mgr.Not(atm)
+                    assert model.get_value(atm).is_true()
+                    res.add(atm)
 
-                    pred = self.totime(pred, idx)
-                    _times = \
-                        ExprAtTime.collect_times(self.i_mgr, pred)
-                    assert 1 <= len(_times) <= 2, pred
-                    if max(_times) <= last_idx:
-                        if model.get_value(pred).is_false():
-                            pred = self.i_mgr.Not(pred)
-                        assert model.get_value(pred).is_true()
-                        res.add(pred)
         assert all(not s.symbol_name().startswith("_J") and
                    not s.symbol_name().startswith("_EL_")
                    for pred in res
                    for s in self.i_env.fvo.get_free_variables(pred))
+        assert all(model.get_value(p).is_true() for p in res)
         return self.i_mgr.Not(self.i_mgr.And(res))

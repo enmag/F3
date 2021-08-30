@@ -143,16 +143,12 @@ def search_funnel_bmc(env: PysmtEnv, symbols: FrozenSet[FNode],
     assert all(isinstance(h, Hint) for h in all_hints)
     assert all(h.env == env for h in all_hints)
 
-    mgr = env.formula_manager
     simpl = env.simplifier.simplify
     serialize = env.serializer.serialize
-    init = simpl(init)
-    trans = simpl(trans)
     fair = simpl(fair)
     totime = ExprAtTime(env=env)
-    loop_gen = BMC(env, init, trans, fair, all_hints, symbols)
-    for i, (trace, lback_idx, abst_path, hints) in \
-            enumerate(loop_gen.gen_loops()):
+    loop_gen = BMC(env, simpl(init), simpl(trans), fair, all_hints, symbols)
+    for i, (trace, lback_idx, abst_path, hints) in enumerate(loop_gen.gen_loops()):
         if trace is None:
             assert lback_idx is None
             assert abst_path is None
@@ -162,14 +158,14 @@ def search_funnel_bmc(env: PysmtEnv, symbols: FrozenSet[FNode],
 
         assert isinstance(trace, list)
         assert all(isinstance(state, dict) for state in trace)
-        assert all(s in mgr.get_all_symbols()
+        assert all(s in env.formula_manager.get_all_symbols()
                    for state in trace for s in state.keys())
-        assert all(v in mgr.formulae.values()
+        assert all(v in env.formula_manager.formulae.values()
                    for state in trace for v in state.values())
-        assert all(s in mgr.get_all_symbols()
+        assert all(s in env.formula_manager.get_all_symbols()
                    for state in trace for v in state.values()
                    for s in env.fvo.walk(v))
-        assert all(len(ExprAtTime.collect_times(mgr, k)) == 0
+        assert all(len(ExprAtTime.collect_times(env.formula_manager, k)) == 0
                    for state in trace for k in state)
         assert all(env.stc.walk(s) == env.stc.walk(v)
                    for state in trace for s, v in state.items())
@@ -196,17 +192,18 @@ def search_funnel_bmc(env: PysmtEnv, symbols: FrozenSet[FNode],
         assert abst_path is False or all(isinstance(t, FNode)
                                          for abst_t in abst_path[1]
                                          for t in abst_t)
-        assert abst_path is False or all(s in mgr.formulae.values()
+        assert abst_path is False or all(s in env.formula_manager.formulae.values()
                                          for abst_s in abst_path[0]
                                          for s in abst_s)
-        assert abst_path is False or all(t in mgr.formulae.values()
+        assert abst_path is False or all(t in env.formula_manager.formulae.values()
                                          for abst_t in abst_path[1]
                                          for t in abst_t)
         assert hints is False or isinstance(hints, tuple)
-        assert hints is False or len(hints) == 3
+        assert hints is False or len(hints) == 4
         assert hints is False or isinstance(hints[0], list)
         assert hints is False or isinstance(hints[1], list)
         assert hints is False or isinstance(hints[2], list)
+        assert hints is False or isinstance(hints[3], list)
         assert hints is False or all(isinstance(h, Hint) for h in hints[0])
         assert hints is False or all(h.env == env for h in hints[0])
         assert abst_path is False or len(hints[2]) == len(hints[1]) - 1
@@ -226,12 +223,26 @@ def search_funnel_bmc(env: PysmtEnv, symbols: FrozenSet[FNode],
         assert abst_path is False or all(isinstance(t, FNode)
                                          for hint_t in hints[2]
                                          for t in hint_t)
-        assert abst_path is False or all(s in mgr.formulae.values()
+        assert abst_path is False or all(s in env.formula_manager.formulae.values()
                                          for hint_s in hints[1]
                                          for s in hint_s)
-        assert abst_path is False or all(t in mgr.formulae.values()
+        assert abst_path is False or all(t in env.formula_manager.formulae.values()
                                          for hint_t in hints[2]
                                          for t in hint_t)
+        assert abst_path is False or all(isinstance(hint_rfs, tuple)
+                                         for hint_rfs in hints[3])
+        assert abst_path is False or all(len(hint_rfs) == 3
+                                         for hint_rfs in hints[3])
+        assert abst_path is False or all(isinstance(rf, RankFun)
+                                         for (rf, _, _) in hints[3])
+        assert abst_path is False or all(rf.env == env
+                                         for rf, _, _ in hints[3])
+        assert abst_path is False or all(isinstance(s, int)
+                                         for _, s, _ in hints[3])
+        assert abst_path is False or all(isinstance(e, int)
+                                         for _, _, e in hints[3])
+        assert abst_path is False or all(0 <= s < e < len(trace) - lback_idx
+                                         for _, s, e in hints[3])
 
         log(f"\n\tBMC: found trace {i}, len {len(trace)}, lback {lback_idx}",
             get_log_lvl())
@@ -247,8 +258,7 @@ def search_funnel_bmc(env: PysmtEnv, symbols: FrozenSet[FNode],
             return trace[:lback_idx], trace[lback_idx:], None
 
         is_rf, args = rf_or_funnel_from_trace(env, symbols, trace, abst_path,
-                                              hints, fair, lback_idx, totime,
-                                              trans)
+                                              hints, fair, lback_idx, totime)
         assert isinstance(is_rf, bool)
         assert is_rf or isinstance(args, tuple)
         assert is_rf or len(args) == 3
@@ -274,10 +284,10 @@ def rf_or_funnel_from_trace(env: PysmtEnv,
                             abst_path: Tuple[List[FrozenSet[FNode]],
                                              List[FrozenSet[FNode]]],
                             hints: Tuple[List[Hint], List[FrozenSet[FNode]],
-                                         List[FrozenSet[FNode]]],
+                                         List[FrozenSet[FNode]],
+                                         List[Tuple[RankFun, int, int]]],
                             fair: FNode, first: int,
-                            totime: ExprAtTime,
-                            orig_trans: FNode) \
+                            totime: ExprAtTime) \
         -> Union[Tuple[bool, List[Dict[FNode, FNode]],
                        FrozenSet[FNode], FrozenSet[FNode]],
                  Tuple[bool, Optional[RankFun]],
@@ -318,19 +328,28 @@ def rf_or_funnel_from_trace(env: PysmtEnv,
                for abst_t in abst_path[1] for t in abst_t
                for s in env.fvo.walk(t))
     assert isinstance(hints, tuple)
-    assert len(hints) == 3
+    assert len(hints) == 4
     assert all(isinstance(hints_el, list) for hints_el in hints)
     assert all(isinstance(h, Hint) for h in hints[0])
     assert all(h.env == env for h in hints[0])
-    assert all(isinstance(it, frozenset) for hints_el in hints[1:]
+    assert all(isinstance(it, frozenset) for hints_el in hints[1:-1]
                for it in hints_el)
-    assert all(isinstance(s, FNode) for hints_el in hints[1:]
+    assert all(isinstance(s, FNode) for hints_el in hints[1:-1]
                for it in hints_el for s in it)
     assert all(s in env.formula_manager.formulae.values()
-               for hints_el in hints[1:] for it in hints_el for s in it)
+               for hints_el in hints[1:-1] for it in hints_el for s in it)
     assert all(s in env.formula_manager.get_all_symbols()
-               for hints_el in hints[1:] for it in hints_el
+               for hints_el in hints[1:-1] for it in hints_el
                for el in it for s in env.fvo.walk(el))
+    assert all(isinstance(hint_rf, tuple) for hint_rf in hints[3])
+    assert all(len(hint_rf) == 3 for hint_rf in hints[3])
+    assert all(isinstance(rf, RankFun) for (rf, _, _) in hints[3])
+    assert all(rf.env == env for rf, _, _ in hints[3])
+    assert all(len(rf.params) == 0 for rf, _, _ in hints[3])
+    assert all(isinstance(s, int) for _, s, _ in hints[3])
+    assert all(isinstance(e, int) for _, _, e in hints[3])
+    assert all(0 <= s < e < len(trace) - first for _, s, e in hints[3])
+
     assert isinstance(fair, FNode)
     assert fair in env.formula_manager.formulae.values()
     assert isinstance(totime, ExprAtTime)
@@ -346,7 +365,7 @@ def rf_or_funnel_from_trace(env: PysmtEnv,
     cn = Canonizer(env=env)
     td = TimesDistributor(env=env)
     _abst_states, _abst_trans = abst_path
-    _hints, _hints_states, _hints_trans = hints
+    _hints, _hints_states, _hints_trans, _hints_rfs = hints
     del abst_path
     del hints
 
@@ -498,6 +517,7 @@ def rf_or_funnel_from_trace(env: PysmtEnv,
     hints_symbs_lst = []
     hints_states_lst = []
     hints_trans_lst = []
+    hints_rfs_lst = []
     rank_rel = None
     # first try synth ranking functions from most general loop to most specific.
     for lasso_symbs in lasso_symbs_lst:
@@ -507,16 +527,21 @@ def rf_or_funnel_from_trace(env: PysmtEnv,
                              for s in chain(lasso_symbs, bool_symbs)}
                             for step in trace[first:]]
             abst_states, abst_trans = _apply_assigns(env, symbs, conc_assigns,
-                                                     _abst_states, _abst_trans, cn)
+                                                     _abst_states, _abst_trans,
+                                                     cn)
             hints_symbs = _hints_symbs - lasso_symbs
             hints_states, hints_trans = _apply_assigns(env, symbs, conc_assigns,
                                                        _hints_states,
                                                        _hints_trans, cn)
+            assert all(len(rf.params) == 0 for rf, _, _ in _hints_rfs)
+            hints_rfs = [(rf, s, f)
+                         for rf, s, f in _hints_rfs]
         else:
             symbs, hints_symbs = _symbs, _hints_symbs
             conc_assigns = _conc_assigns
             abst_states, abst_trans = _abst_states, _abst_trans
             hints_states, hints_trans = _hints_states, _hints_trans
+            hints_rfs = _hints_rfs
         assert len(hints_symbs & lasso_symbs) == 0
         assert len(symbs & lasso_symbs) == 0
         assert all(len(env.fvo.get_free_variables(p) & lasso_symbs) == 0
@@ -606,6 +631,7 @@ def rf_or_funnel_from_trace(env: PysmtEnv,
         hints_symbs_lst.append(hints_symbs)
         hints_states_lst.append(hints_states)
         hints_trans_lst.append(hints_trans)
+        hints_rfs_lst.append(hints_rfs)
 
     assert len(symbs_lst) == len(conc_assigns_lst)
     assert len(symbs_lst) == len(abst_states_lst)
@@ -617,12 +643,12 @@ def rf_or_funnel_from_trace(env: PysmtEnv,
         len(symbs_lst) == len(lasso_symbs_lst[:len(symbs_lst)])
     # try synth FunnelLoop for remaining loop candidates, from most specific to most general.
     for (lasso_symbs, symbs, conc_assigns, abst_states, abst_trans,
-         hints_symbs, hints_states, hints_trans) in zip(
+         hints_symbs, hints_states, hints_trans, hints_rfs) in zip(
              reversed(lasso_symbs_lst[:len(symbs_lst)]),
              reversed(symbs_lst), reversed(conc_assigns_lst),
              reversed(abst_states_lst), reversed(abst_trans_lst),
              reversed(hints_symbs_lst), reversed(hints_states_lst),
-             reversed(hints_trans_lst)):
+             reversed(hints_trans_lst), reversed(hints_rfs_lst)):
         # extract regions, equalities and transitions from hints.
         hints_states, hints_eqs, hints_trans = \
             _get_loop_components(env, symbs, hints_states, hints_trans,
@@ -665,9 +691,8 @@ def rf_or_funnel_from_trace(env: PysmtEnv,
         for nontermarg, num_ineqs in \
             FunnelLoop.factory(env, symbs, trace[first:], conc_assigns,
                                abst_states, abst_eqs, abst_trans,
-                               hints_symbs,
-                               hints_states, hints_eqs, hints_trans,
-                               first, orig_trans):
+                               hints_symbs, hints_states, hints_eqs, hints_trans,
+                               hints_rfs, first):
             log(f"\n\tUsing template: {nontermarg.desc_template()}, "
                 f"num ineqs: {num_ineqs}", get_log_lvl())
             log(nontermarg.describe(indent="\t"), get_log_lvl() + 1)

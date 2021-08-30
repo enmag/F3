@@ -17,6 +17,7 @@ from multisolver import MultiSolver
 from solver import get_solvers
 from motzkin import motzkin_transpose
 from efsolver import efsolve
+from rankfun import RankFun
 from utils import log, symb_is_next, symb_to_next, to_next, \
     symb_to_curr, symb_is_curr, assign2fnodes, new_symb, linear_comb, \
     is_not_true, not_rel
@@ -101,8 +102,8 @@ class FunnelLoop:
                 _hints_states: List[FrozenSet[FNode]],
                 _hints_eqs: List[Dict[FNode, FNode]],
                 _hints_trans:  List[FrozenSet[FNode]],
-                first: int,
-                *args, **kwargs):
+                _hints_rfs: List[Tuple[RankFun, int, int]],
+                first: int) -> Iterator[Tuple[FunnelLoop, int]]:
         """Generate different nontermination templates.
 
         Does not perform any heuristic reasoning,
@@ -188,6 +189,16 @@ class FunnelLoop:
                    _symbs | frozenset(symb_to_next(o_env.formula_manager, s)
                                       for s in _symbs)
                    for trans in _hints_trans for t in trans)
+        assert isinstance(_hints_rfs, list)
+        assert all(isinstance(el, tuple) for el in _hints_rfs)
+        assert all(len(el) == 3 for el in _hints_rfs)
+        assert all(isinstance(rf, RankFun) for rf, _, _ in _hints_rfs)
+        assert all(rf.env == o_env for rf, _, _ in _hints_rfs)
+        assert all(isinstance(s, int) for _, s, _ in _hints_rfs)
+        assert all(isinstance(e, int) for _, _, e in _hints_rfs)
+        assert all(s0 != s1 and e0 != e1
+                   for idx, (_, s0, e0) in enumerate(_hints_rfs[:-1])
+                   for _, s1, e1 in _hints_rfs[idx+1:])
         assert isinstance(first, int)
         assert first >= 0
         assert len(_trace) == len(_abst_states)
@@ -202,8 +213,10 @@ class FunnelLoop:
         idx2key = [frozenset((_k, _v) for _k, _v in conc.items()
                              if not _k.symbol_name().startswith("_J"))
                    for conc in _conc_assigns]
+        _hints_rfs = {(s, e): rf for rf, s, e in _hints_rfs}
         _idx2rffunnel = [[c - 1 for c in range(idx+1, len(_abst_states))
-                          if idx2key[c] == idx2key[idx]]
+                          if idx2key[c] == idx2key[idx]
+                          or (idx, c) in _hints_rfs]
                          for idx in range(len(_abst_states))]
         del idx2key
         for num_ineqs in range(FunnelLoop.get_min_ineqs(),
@@ -233,7 +246,8 @@ class FunnelLoop:
                          for eq in _hints_eqs]
             hints_trans = [frozenset(cn(norm(t)) for t in abst_t)
                            for abst_t in _hints_trans]
-
+            hints_rfs = {(s, e): rf.to_env(env)
+                         for (s, e), rf in _hints_rfs.items()}
             idx2rffunnel = [[(i, abst_eqs[i], abst_trans[i],
                               hints_eqs[i], hints_trans[i])
                              for i in lst]
@@ -256,7 +270,7 @@ class FunnelLoop:
                     env, first, symbs, trace, conc_assigns,
                     abst_states, abst_eqs, abst_trans,
                     hints_symbs,
-                    hints_states, hints_eqs, hints_trans,
+                    hints_states, hints_eqs, hints_trans, hints_rfs,
                     num_ineqs, idx2concfunnel, idx2rffunnel,
                     totime, td, cn)
 
@@ -272,12 +286,14 @@ class FunnelLoop:
             _hints_states: List[FrozenSet[FNode]],
             _hints_eqs: List[Dict[FNode, FNode]],
             _hints_trans: List[FrozenSet[FNode]],
+            hints_rfs: Dict[Tuple[int, int], RankFun],
             num_ineqs: int,
             idx2concfunnel: List[bool],
             idx2rffunnel: List[List[Tuple[int,
                                           Dict[FNode, FNode], FrozenSet[FNode],
                                           Dict[FNode, FNode], FrozenSet[FNode]]]],
-            totime: ExprAtTime, td: TimesDistributor, cn: Canonizer):
+            totime: ExprAtTime, td: TimesDistributor,
+            cn: Canonizer) -> Iterator[Tuple[FunnelLoop, int]]:
         assert len(trace) == len(_abst_states)
         assert _conc_assigns[0] == _conc_assigns[-1]
 
@@ -333,6 +349,7 @@ class FunnelLoop:
                 nonterm_arg = FunnelLoop(env, td, cn, totime, offset=offset)
                 nonterm_arg.set_init(trace[offset])
                 for start, end, a_eqs, a_ineqs, h_eqs, h_ineqs in lst:
+                    rf = hints_rfs.get((start, end), None)
                     start -= offset
                     end -= offset
                     assert start >= 0
@@ -369,7 +386,8 @@ class FunnelLoop:
                                  hints_states[start: end + 1],
                                  rf_t_hints_eqs,
                                  rf_t_hints_ineqs,
-                                 num_ineqs, totime, cn))
+                                 num_ineqs, totime, cn,
+                                 rf=rf))
                     last_end = end
 
                 if last_end < len(abst_states) - 1:
@@ -1568,30 +1586,27 @@ class RFFunnel(Funnel):
     Finally last and not ranking funciton.
     """
 
-    def __init__(self, *args, **kwargs):
+    def __init__(self, *args, rf: Optional[RankFun] = None, **kwargs):
         super().__init__(*args, **kwargs)
         assert len(self.trans) == len(self.states)
         assert len(self.trans) >= 1
         assert len(self.trans) == self.last - self.first + 1
-
-        get_free_vars = self.env.fvo.walk
-        self._rf_expr, params = \
-            self._linear_comb(self.symbs_to_real)
-        self._rf_expr = self.cn(self._rf_expr)
-        rf_type = self.env.stc.get_type(self._rf_expr)
-        self._rf_zero = self.mgr.Real(0) if rf_type.is_real_type() \
-            else self.mgr.Int(0)
-        self._rf_pred = self.cn(self.mgr.GT(self._rf_expr, self._rf_zero))
-        self._params.update(params)
-        assert all(p in self.mgr.get_all_symbols() for p in self._params)
-        self._delta = self._new_symb("_d", rf_type)
-        self._params.add(self._delta)
+        self.rf: RankFun = rf
+        if rf is None:
+            real_symbs = self.symbs_to_real
+            expr, params = self._linear_comb(real_symbs)
+            delta = self._new_symb("_d", types.REAL)
+            params.append(delta)
+            self.rf = RankFun(self.env, self.cn(expr), delta, real_symbs,
+                              frozenset(params))
+            self._params.update(self.rf.params)
 
         assert len(self.last_ineqs) == 0
-        self.last_ineqs.append(self.cn(self.not_rel(self._rf_pred)))
+        self.last_ineqs.append(self.cn(self.not_rel(self.rf.is_ranked)))
         x_symbs = frozenset(symb_to_next(self.mgr, s) for s in self.symbs)
         self._u_trans = [{**eqs} for eqs in self.trans_eqs]
         # create parametric next-assignment for missing symbols.
+        get_free_vars = self.env.fvo.walk
         for u_eqs, h_eqs, h_trans in zip(self._u_trans, self.hint_eqs,
                                          self.hint_trans):
             # symbols already handled by other expressions.
@@ -1615,7 +1630,7 @@ class RFFunnel(Funnel):
         assert len(self._u_trans) == len(self.states)
         # delta >= 0
         yield (frozenset([self.mgr.TRUE()]),
-               frozenset([self.mgr.GE(self._delta, self._rf_zero)]))
+               frozenset([self.mgr.GE(self.rf.delta, self.rf.min_el)]))
 
         # ineqs & state[0] & hint_states[:i+1] & u_trans[:i] & hint_trans[:i] ->
         # trans[i-1] & state[i]
@@ -1652,11 +1667,12 @@ class RFFunnel(Funnel):
 
         c_time = self.last
         # first_ineqs & states & u_trans & h_trans & rf < 0 -> last_ineqs
-        not_ranked = self.cn(self.totime(self.not_rel(self._rf_pred),
+        is_ranked = self.rf.is_ranked
+        not_ranked = self.cn(self.totime(self.not_rel(is_ranked),
                                          c_time))
         assert not not_ranked.is_true()
         lhs.add(not_ranked)
-        assert self.last_ineqs[0] == self.cn(self.not_rel(self._rf_pred))
+        assert self.last_ineqs[0] == self.cn(self.not_rel(is_ranked))
         rhs = set(self.totime(l_ineq, c_time)
                   for l_ineq in self.last_ineqs[1:])
         rhs -= lhs
@@ -1677,7 +1693,7 @@ class RFFunnel(Funnel):
         # rf >= 0
         _lhs = set(lhs)
         assert _lhs is not lhs
-        _lhs.add(self.totime(self._rf_pred, c_time))
+        _lhs.add(self.totime(is_ranked, c_time))
         # last_t
         _lhs.update(self.totime(self.mgr.Equals(u_symb, u_expr), c_time)
                     for u_symb, u_expr in self._u_trans[-1].items())
@@ -1707,7 +1723,7 @@ class RFFunnel(Funnel):
         start_t = self.last + 3  # cannot use self.first - 1 (first might be 0)
         end_t = self.first
         # rf >= 0
-        lhs.add(self.totime(self._rf_pred, start_t, x_idx=end_t))
+        lhs.add(self.totime(is_ranked, start_t, x_idx=end_t))
         # last_t: u_trans[-1] & hint_eqs[-1] & hint_trans[-1]
         lhs.update(self.totime(self.mgr.Equals(symb, expr), start_t,
                                x_idx=end_t)
@@ -1716,10 +1732,10 @@ class RFFunnel(Funnel):
         lhs.update(self.totime(pred, start_t, x_idx=end_t)
                    for pred in self.hint_trans[-1])
 
-        dec_rf = self.mgr.Minus(self.totime(self._rf_expr, start_t,
+        dec_rf = self.mgr.Minus(self.totime(self.rf.expr, start_t,
                                             x_idx=end_t),
-                                self._delta)
-        dec_rf = self.mgr.LT(self.totime(self._rf_expr, self.last), dec_rf)
+                                self.rf.delta)
+        dec_rf = self.mgr.LT(self.totime(self.rf.expr, self.last), dec_rf)
         assert isinstance(dec_rf, FNode)
         assert all(isinstance(l, FNode) for l in lhs)
         assert all(not l.is_true() for l in lhs)
@@ -1884,7 +1900,7 @@ class RFFunnel(Funnel):
         eqs = [{u_s: self.simpl(self.subst(u_e, param2val))
                 for u_s, u_e in trans.items()}
                for trans in self._u_trans]
-        rf_ineq = self.simpl(self.subst(self._rf_pred, param2val))
+        rf_ineq = self.simpl(self.subst(self.rf.is_ranked, param2val))
         buf.write(f"{indent}Do states {self.first}..{self.last} while {serialize(rf_ineq)}\n")
         for c_time in range(self.first, self.last + 1):
             idx = c_time - self.first
@@ -1912,7 +1928,7 @@ class RFFunnel(Funnel):
     def cfg(self, model) -> List[Tuple[int, Union[FrozenSet[FNode], FNode]]]:
         res = [(self.first + idx + 1, frozenset())
                for idx in range(len(self.states) - 1)]
-        rf_ineq = self.simpl(self.subst(self._rf_pred, model))
+        rf_ineq = self.simpl(self.subst(self.rf.is_ranked, model))
         res.append((self.first, rf_ineq))
         return res
 
