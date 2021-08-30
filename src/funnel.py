@@ -142,6 +142,7 @@ class FunnelLoop:
                    for state in _abst_states for e in state)
         assert all(o_env.fvo.walk(e) <= _symbs
                    for state in _abst_states for e in state)
+        assert _abst_states[0] <= _abst_states[-1]
         assert isinstance(_abst_eqs, list)
         assert all(isinstance(eq, dict) for eq in _abst_eqs)
         assert all(k in frozenset(symb_to_next(o_env.formula_manager, s)
@@ -172,6 +173,7 @@ class FunnelLoop:
                    for state in _hints_states for e in state)
         assert all(o_env.fvo.walk(e) <= _symbs
                    for state in _hints_states for e in state)
+        assert _hints_states[0] <= _hints_states[-1]
         assert isinstance(_hints_eqs, list)
         assert all(isinstance(eq, dict) for eq in _hints_eqs)
         assert all(k in frozenset(symb_to_next(o_env.formula_manager, s)
@@ -294,16 +296,23 @@ class FunnelLoop:
                                           Dict[FNode, FNode], FrozenSet[FNode]]]],
             totime: ExprAtTime, td: TimesDistributor,
             cn: Canonizer) -> Iterator[Tuple[FunnelLoop, int]]:
+        assert len(trace) == len(_conc_assigns)
         assert len(trace) == len(_abst_states)
+        assert len(trace) == len(_hints_states)
+        assert len(trace) - 1 == len(_abst_trans)
+        assert len(trace) - 1 == len(_hints_trans)
         assert _conc_assigns[0] == _conc_assigns[-1]
-
-        for n_rffunnels in range(1, len(_abst_states)):
+        assert _abst_states[0] <= _abst_states[-1]
+        assert _hints_states[0] <= _hints_states[-1]
+        loop_len = len(trace)  # including lback
+        for n_rffunnels in range(1, loop_len):
             for lst in \
                 FunnelLoop._generate_start_end_idx(0, n_rffunnels,
-                                                   len(_abst_states),
+                                                   loop_len,
                                                    idx2concfunnel,
                                                    idx2rffunnel):
                 assert isinstance(lst, list)
+                assert len(lst) == n_rffunnels
                 assert all(isinstance(el, tuple) for el in lst)
                 assert all(len(el) == 6 for el in lst)
                 assert all(isinstance(el[0], int) for el in lst)
@@ -327,24 +336,29 @@ class FunnelLoop:
 
                 last_end = 0
                 # bring first RFFunnel at the beginning.
-                offset = lst[0][0] if lst else 0
-                conc_assigns = _conc_assigns[offset: -1] + \
-                    _conc_assigns[: offset + 1]
-                abst_states = _abst_states[offset:]
-                abst_states[-1] = abst_states[-1] | _abst_states[0]
-                abst_states += _abst_states[1: offset + 1]
-                hints_states = _hints_states[offset:]
-                hints_states[-1] = hints_states[-1] | _hints_states[0]
-                hints_states += _hints_states[1: offset + 1]
-                assert offset == 0 or abst_states[0] == abst_states[-1]
-                assert offset == 0 or hints_states[0] == hints_states[-1]
-                assert len(abst_states) == len(conc_assigns)
-                assert len(abst_states) == len(_abst_states)
-                assert len(hints_states) == len(abst_states)
+                offset = lst[0][0]
+                #  _conc_assigns[-1] <-> _conc_assigns[0]
+                conc_assigns = _conc_assigns[offset:] + \
+                    _conc_assigns[1: offset + 1]
+                # _abst_states[-1] -> _abst_states[0]
+                abst_states = _abst_states[offset:] + \
+                    _abst_states[1: offset + 1]
+                # _hints_states[-1] -> _hints_states[0]
+                hints_states = _hints_states[offset:] + \
+                    _hints_states[1: offset + 1]
                 abst_eqs = _abst_eqs[offset:] + _abst_eqs[: offset]
                 hints_eqs = _hints_eqs[offset:] + _hints_eqs[: offset]
                 abst_trans = _abst_trans[offset:] + _abst_trans[: offset]
                 hints_trans = _hints_trans[offset:] + _hints_trans[: offset]
+                assert abst_states[0] <= abst_states[-1]
+                assert hints_states[0] <= hints_states[-1]
+                assert loop_len == len(conc_assigns)
+                assert loop_len == len(abst_states)
+                assert loop_len == len(hints_states)
+                assert loop_len - 1 == len(abst_trans)
+                assert loop_len - 1 == len(hints_trans)
+                assert loop_len - 1 == len(abst_eqs)
+                assert loop_len - 1 == len(hints_eqs)
 
                 nonterm_arg = FunnelLoop(env, td, cn, totime, offset=offset)
                 nonterm_arg.set_init(trace[offset])
@@ -354,7 +368,7 @@ class FunnelLoop:
                     end -= offset
                     assert start >= 0
                     assert end >= 0
-                    assert end < len(abst_states)
+                    assert end < loop_len
                     assert end >= start
 
                     if start > last_end:
@@ -390,9 +404,9 @@ class FunnelLoop:
                                  rf=rf))
                     last_end = end
 
-                if last_end < len(abst_states) - 1:
+                if last_end < loop_len - 1:
                     nonterm_arg.append(ConcFunnel(
-                        env, first + last_end, first + len(abst_states) - 1,
+                        env, first + last_end, first + loop_len - 1,
                         symbs,
                         conc_assigns[last_end:],
                         abst_states[last_end:],
@@ -532,10 +546,10 @@ class FunnelLoop:
             # link funnels together.
             last = self._funnels[-1]
             assert last.last == funnel.first
-            assert last.states[-1] == funnel.states[0]
             assert last.assigns[-1] == funnel.assigns[0]
-            assert funnel.hint_states[-1] == last.hint_states[0]
-            funnel.strengthen_state(0, *last.last_ineqs)
+            assert last.states[-1] == funnel.states[0]
+            assert last.hint_states[-1] == funnel.hint_states[0]
+            funnel.strengthen_state(0, last.last_ineqs)
             last.last_ineqs.extend(funnel.first_ineqs)
         self._funnels.append(funnel)
         assert len(self._funnels) < 2 or \
@@ -550,10 +564,12 @@ class FunnelLoop:
         last_f = self._funnels[-1]
         assert last_f.last - first_f.first >= 1
         assert last_f.assigns[-1] == first_f.assigns[0]
+        assert first_f.states[0] <= last_f.states[-1]
+        assert first_f.hint_states[0] <= last_f.hint_states[-1]
 
         # strengthen first state with last state
-        first_f.strengthen_state(0, *last_f.states[-1])
-        first_f.strengthen_hint_state(0, *last_f.hint_states[-1])
+        first_f.strengthen_state(0, last_f.states[-1])
+        first_f.strengthen_hint_state(0, last_f.hint_states[-1])
 
         propagate_mode = FunnelLoop.get_propagate_mode()
         bound = FunnelLoop.get_propagate_max_it()
@@ -579,14 +595,19 @@ class FunnelLoop:
                     assert all(self.cn(p) == p for p in keep)
                     assert all(self.cn(p) == p for p in h_preds)
                     assert all(self.cn(p) == p for p in h_keep)
+                    assert all(self.cn(p) == p for s in f.states
+                               for p in s)
+                    assert all(self.cn(p) == p for s in f.hint_states
+                               for p in s)
 
-                    f.strengthen_state(0, *preds)
-                    f.strengthen_hint_state(0, *h_preds)
-                    prev_f.strengthen_state(0, *keep)
+                    f.strengthen_state(0, preds)
+                    f.strengthen_hint_state(0, h_preds)
+                    prev_f.strengthen_state(0, keep)
                     f.last_ineqs.extend(keep)
-                    prev_f.strengthen_hint_state(0, *h_keep)
+                    prev_f.strengthen_hint_state(0, h_keep)
                     prev_f = f
-                    if false in preds or false in h_preds:
+                    if false in preds or false in h_preds or \
+                       false in keep or false in h_keep:
                         return False
 
             assert all(p in frozenset(chain(first_f.states[0],
@@ -595,8 +616,8 @@ class FunnelLoop:
             assert all(p in first_f.hint_states[0] for p in h_preds)
         last_f.last_ineqs.extend(first_f.first_ineqs)
         # last_f must imply first state.
-        last_f.strengthen_state(-1, *first_f.states[0])
-        last_f.strengthen_hint_state(-1, *first_f.hint_states[0])
+        last_f.strengthen_state(-1, first_f.states[0])
+        last_f.strengthen_hint_state(-1, first_f.hint_states[0])
         return True
 
     def ef_instantiate(self, extra: Optional[Iterable[FNode]] = None):
@@ -1268,18 +1289,18 @@ class Funnel:
                 assert isinstance(r, FNode)
                 yield lhs, frozenset([r])
 
-    def strengthen_state(self, idx: int, *args) -> None:
+    def strengthen_state(self, idx: int, preds: Iterable[FNode]) -> None:
         assert all(self.cn(s) == s for s in self.states[idx])
         assert isinstance(self.states[idx], set)
-        self.states[idx].update(args)
+        self.states[idx].update(preds)
 
         assert all(isinstance(a, FNode) for a in self.states[idx])
         assert all(self.cn(s) == s for s in self.states[idx])
 
-    def strengthen_hint_state(self, idx: int, *args) -> None:
+    def strengthen_hint_state(self, idx: int, preds: Iterable[FNode]) -> None:
         assert all(self.cn(s) == s for s in self.hint_states[idx])
         assert isinstance(self.hint_states[idx], set)
-        self.hint_states[idx].update(args)
+        self.hint_states[idx].update(preds)
 
         assert all(isinstance(a, FNode) for a in self.hint_states[idx])
         assert all(self.cn(s) == s for s in self.hint_states[idx])
@@ -1442,7 +1463,8 @@ class ConcFunnel(Funnel):
                    for s in self.env.fvo.walk(p))
         assert all(self.cn(s) == s for s in h_res)
         assert all(not s.is_true() for s in h_res)
-        return (res, h_res), (frozenset(), frozenset())
+        empty = frozenset()
+        return (res, h_res), (empty, empty)
 
     def backward_propagate_partial(self, preds: Iterable[FNode],
                                    h_preds: Iterable[FNode]) \
@@ -1454,6 +1476,8 @@ class ConcFunnel(Funnel):
                    for s in self.env.fvo.walk(p))
         assert all(isinstance(s, set) for s in self.states)
         assert all(isinstance(s, set) for s in self.hint_states)
+
+        empty = frozenset()
         get_free_vars = self.env.fvo.walk
         res = frozenset(chain(preds, self.last_ineqs))
         h_res = frozenset(h_preds)
@@ -1473,6 +1497,9 @@ class ConcFunnel(Funnel):
             res = set()
             for p in c_preds:
                 assert not p.is_true()
+                if p.is_false():
+                    c_state.add(p)
+                    return (res, frozenset([p])), (empty, empty)
                 x_p = to_next(self.mgr, p, self.symbs)
                 if get_free_vars(x_p) <= keys:
                     p = self.cn(self.simpl(self.subst(x_p, eqs)))
@@ -1485,12 +1512,13 @@ class ConcFunnel(Funnel):
             h_state.clear()
             h_res = set()
             for p in c_preds:
-                assert not p.is_false()
                 assert not p.is_true()
+                if p.is_false():
+                    h_state.add(p)
+                    return (empty, frozenset([p])), (empty, empty)
                 x_p = to_next(self.mgr, p, self.symbs)
                 if get_free_vars(x_p) <= keys:
                     p = self.cn(self.simpl(self.subst(x_p, eqs)))
-                    assert not p.is_false()
                     if not p.is_true():
                         h_res.add(p)
                 else:
@@ -1501,7 +1529,7 @@ class ConcFunnel(Funnel):
         assert all(self.cn(p) == p for s in h_res)
         assert all(not p.is_true() for p in res)
         assert all(not p.is_true() for p in h_res)
-        return (frozenset(res), frozenset(h_res)), (frozenset(), frozenset())
+        return (frozenset(res), frozenset(h_res)), (empty, empty)
 
     def describe(self, param2val: Dict[FNode, FNode], indent: str,
                  buf: StringIO) -> None:
@@ -1790,21 +1818,17 @@ class RFFunnel(Funnel):
         assert all(symb_is_curr(s) for p in res
                    for s in self.env.fvo.walk(p))
         assert all(self.cn(p) == p for p in res)
-        assert all(not p.is_false() for p in res)
         assert all(not p.is_true() for p in res)
         assert isinstance(keep, frozenset)
         assert all(self.cn(p) == p for p in keep)
-        assert all(not p.is_false() for p in keep)
         assert all(not p.is_true() for p in keep)
         assert all(symb_is_curr(s) for p in h_res
                    for s in self.env.fvo.walk(p))
         assert isinstance(h_res, frozenset)
         assert all(self.cn(p) == p for p in h_res)
-        assert all(not p.is_false() for p in h_res)
         assert all(not p.is_true() for p in h_res)
         assert isinstance(h_keep, frozenset)
         assert all(self.cn(p) == p for p in h_keep)
-        assert all(not p.is_false() for p in h_keep)
         assert all(not p.is_true() for p in h_keep)
         return (res, h_res), (keep, h_keep)
 
@@ -1843,12 +1867,14 @@ class RFFunnel(Funnel):
             state.clear()
             res = set()
             for p in c_preds:
-                assert not p.is_false()
                 assert not p.is_true()
+                if p.is_false():
+                    state.add(p)
+                    empty = frozenset()
+                    return (frozenset([p]), empty), (empty, empty)
                 x_p = to_next(self.mgr, p, self.symbs)
                 if get_free_vars(x_p) <= keys:
                     p = self.cn(self.simpl(self.subst(x_p, eqs)))
-                    assert not p.is_false()
                     if not p.is_true():
                         res.add(p)
                 else:
@@ -1857,12 +1883,14 @@ class RFFunnel(Funnel):
             h_state.clear()
             h_res = set()
             for p in c_preds:
-                assert not p.is_false()
                 assert not p.is_true()
+                if p.is_false():
+                    state.add(p)
+                    empty = frozenset()
+                    return (empty, frozenset([p])), (empty, empty)
                 x_p = to_next(self.mgr, p, self.symbs)
                 if get_free_vars(x_p) <= keys:
                     p = self.cn(self.simpl(self.subst(x_p, eqs)))
-                    assert not p.is_false()
                     if not p.is_true():
                         h_res.add(p)
                 else:
@@ -1871,19 +1899,15 @@ class RFFunnel(Funnel):
         assert all(symb_is_curr(s) for p in res for s in get_free_vars(p))
         assert all(self.cn(p) == p for p in res)
         assert all(not p.is_true() for p in res)
-        assert all(not p.is_false() for p in res)
         assert all(symb_is_curr(s) for p in h_res for s in get_free_vars(p))
         assert all(self.cn(p) == p for p in h_res)
         assert all(not p.is_true() for p in h_res)
-        assert all(not p.is_false() for p in h_res)
         assert all(symb_is_curr(s) for p in keep for s in get_free_vars(p))
         assert all(self.cn(p) == p for p in keep)
         assert all(not p.is_true() for p in keep)
-        assert all(not p.is_false() for p in keep)
         assert all(symb_is_curr(s) for p in h_keep for s in get_free_vars(p))
         assert all(self.cn(p) == p for p in h_keep)
         assert all(not p.is_true() for p in h_keep)
-        assert all(not p.is_false() for p in h_keep)
         return (frozenset(res), frozenset(h_res)), (keep, h_keep)
 
     def describe(self, param2val: Dict[FNode, FNode], indent: str,
