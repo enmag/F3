@@ -16,6 +16,7 @@ class RankFun():
                  expr: FNode, delta: FNode,
                  symbols: FrozenSet[FNode],
                  params: Optional[FrozenSet[FNode]] = None):
+        # TODO: "optimise" special case of integer-type expr.
         assert isinstance(env, PysmtEnv)
         assert isinstance(expr, FNode)
         assert isinstance(delta, FNode)
