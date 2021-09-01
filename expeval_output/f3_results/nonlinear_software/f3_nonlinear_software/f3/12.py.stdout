@@ -7,4 +7,4 @@ F3 run `12`
 	a : 36, b : 18, pc : 9, x : 18, y : 3, z : 6
 	a : 36, b : 18, pc : 6, x : 18, y : 3, z : 6
 
-end of `12`: SUCCESS in 0.38173794746398926s
+end of `12`: SUCCESS in 0.4038105010986328s

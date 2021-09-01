@@ -14,4 +14,4 @@ F3 run `NonTerminationSimple2_false-termination`
 		_x_x = (x + 1)
 	starting from: pc : 0, x : 0
 
-end of `NonTerminationSimple2_false-termination`: SUCCESS in 1.9138543605804443s
+end of `NonTerminationSimple2_false-termination`: SUCCESS in 2.095477819442749s

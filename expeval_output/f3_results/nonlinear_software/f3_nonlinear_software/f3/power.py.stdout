@@ -10,22 +10,22 @@ F3 run `power`
 		((i - (e * 5)) <= -1)
 		((i - (e * 25)) <= -2)
 		((-1 * i) < 0)
-		(((-1 * e) + 2) <= 0)
+		((((-1 * i) + 87) - (e * 17)) <= 0)
 	Trans 6 -- 7
-		_x_e = e
 		_x_i = i
+		_x_e = e
 	State 7
 		n = 5
 		pc = 4
 	Trans 7 -- 8
-		_x_e = (e * 5)
 		_x_i = i
+		_x_e = (e * 5)
 	State 8
 		n = 5
 		pc = 5
 	Trans 8 -- 9
-		_x_e = e
 		_x_i = (i + 1)
+		_x_e = e
 	starting from: pc : 3, e : 5, i : 2, n : 5
 
-end of `power`: SUCCESS in 2.524899482727051s
+end of `power`: SUCCESS in 2.9036998748779297s

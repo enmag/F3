@@ -12,7 +12,7 @@ F3 run `factorial`
 		((-1 * i) < -1)
 		((-1 * i) < 1)
 		((-1 * i) < 0)
-		((7 - ((fact * 2) + (i * 2))) <= 0)
+		(((-1 * fact) + 4) <= 0)
 	Trans 8 -- 9
 		_x_i = (i + 1)
 		_x_fact = fact
@@ -26,8 +26,8 @@ F3 run `factorial`
 		n = 5
 		pc = 4
 	Trans 10 -- 11
-		_x_i = i
 		_x_fact = (fact * i)
+		_x_i = i
 	starting from: pc : 5, fact : 4, i : 2, n : 5
 
-end of `factorial`: SUCCESS in 3.1961803436279297s
+end of `factorial`: SUCCESS in 3.7574615478515625s

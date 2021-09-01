@@ -1,8 +1,8 @@
 group: f3_tts_dynamic_lynch
 platform: Linux node1 5.4.0-56-generic #62-Ubuntu SMP Mon Nov 23 19:20:19 UTC 2020 x86_64 x86_64
-timestamp: 1629592507
-time: 2021-08-22 02:35:07
+timestamp: 1630423597
+time: 2021-08-31 17:26:37
 exitcode: 0
-real: 3602.28
-user: 0.0
-sys: 0.0
+real: 3603.25
+user: 3599.54
+sys: 3.19

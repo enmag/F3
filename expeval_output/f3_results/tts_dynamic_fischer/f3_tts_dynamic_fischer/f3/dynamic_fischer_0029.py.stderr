@@ -1,41 +1,45 @@
-SystemError: ../Objects/longobject.c:482: bad argument to internal function
-
-The above exception was the direct cause of the following exception:
-
 Traceback (most recent call last):
-  File "/home/F3/src/run_f3.py", line 444, in <module>
+  File "/home/F3/src/run_f3.py", line 467, in <module>
     main(config_args().parse_args())
-  File "/home/F3/src/run_f3.py", line 440, in main
+  File "/home/F3/src/run_f3.py", line 463, in main
     run_f3(bench, out_dir)
-  File "/home/F3/src/run_f3.py", line 260, in run_f3
+  File "/home/F3/src/run_f3.py", line 277, in run_f3
     res = solve_problem(prob, label, out_dir)
-  File "/home/F3/src/run_f3.py", line 251, in solve_problem
+  File "/home/F3/src/run_f3.py", line 268, in solve_problem
     return run_ltl_test(problem, env, label, out_dir)
-  File "/home/F3/src/run_f3.py", line 113, in run_ltl_test
+  File "/home/F3/src/run_f3.py", line 127, in run_ltl_test
     return search_nonterm(env, symbols, init, trans, fairness,
-  File "/home/F3/src/run_f3.py", line 169, in search_nonterm
+  File "/home/F3/src/run_f3.py", line 184, in search_nonterm
     _, arg0, arg1 = search_funnel_bmc(env, symbols, init, trans,
-  File "/home/F3/src/main.py", line 250, in search_funnel_bmc
+  File "/home/F3/src/main.py", line 260, in search_funnel_bmc
     is_rf, args = rf_or_funnel_from_trace(env, symbols, trace, abst_path,
-  File "/home/F3/src/main.py", line 675, in rf_or_funnel_from_trace
+  File "/home/F3/src/main.py", line 714, in rf_or_funnel_from_trace
     model = instantiate_funnel_template(nontermarg)
-  File "/home/F3/src/main.py", line 736, in instantiate_funnel_template
-    model, learn = funnel_t.ef_instantiate()
-  File "/home/F3/src/funnel.py", line 621, in ef_instantiate
-    res, learn = efsolve(self.env, self.parameters, symbs,
-  File "/home/F3/src/efsolver.py", line 108, in efsolve
-    eres = solve_with_timeout(get_timeout(), esolver)
-  File "/home/F3/src/solver.py", line 117, in solve_with_timeout
-    return solver.solve(assumptions)
-  File "/usr/local/lib/python3.8/dist-packages/PySMT-0.9.1.dev332-py3.8.egg/pysmt/solvers/solver.py", line 351, in solve
-    res = self._solve(assumptions=assumptions)
-  File "/usr/local/lib/python3.8/dist-packages/PySMT-0.9.1.dev332-py3.8.egg/pysmt/decorators.py", line 64, in clear_pending_pop_wrap
-    return f(self, *args, **kwargs)
-  File "/usr/local/lib/python3.8/dist-packages/PySMT-0.9.1.dev332-py3.8.egg/pysmt/solvers/msat.py", line 266, in _solve
-    res = mathsat.msat_solve(self.msat_env())
-  File "/usr/local/lib/python3.8/dist-packages/mathsat.py", line 1437, in msat_solve
-    return _mathsat.msat_solve(e)
-SystemError: <built-in function msat_solve> returned a result with an error set
-real 3602.24
+  File "/home/F3/src/main.py", line 786, in instantiate_funnel_template
+    model = funnel_t.motzkin_instantiate(extra=learn if get_fun_learn_ef()
+  File "/home/F3/src/funnel.py", line 678, in motzkin_instantiate
+    for c in self.generate_motzkin_constr():
+  File "/home/F3/src/funnel.py", line 865, in generate_motzkin_constr
+    yield from motzkin_transpose(self.env, constrs,
+  File "/home/F3/src/motzkin.py", line 145, in motzkin_transpose
+    log(f"\t    {serialize(symb)}  <{ineq_type}>  {ineq}", _LOG_LVL)
+  File "/home/F3/src/ineq.py", line 216, in __repr__
+    buf.write(" + ".join(f"{repr(val)} * {serialize(key)}"
+  File "/home/F3/src/ineq.py", line 216, in <genexpr>
+    buf.write(" + ".join(f"{repr(val)} * {serialize(key)}"
+  File "/home/F3/src/ineq.py", line 557, in __repr__
+    return self.env.serializer.serialize(self.pysmt_expr())
+  File "/home/F3/src/ineq.py", line 518, in pysmt_expr
+    to_add = [self._fnode_times(k, self.symb2coef[k])
+  File "/home/F3/src/ineq.py", line 518, in <listcomp>
+    to_add = [self._fnode_times(k, self.symb2coef[k])
+  File "/home/F3/src/ineq.py", line 547, in _fnode_times
+    return self.mgr.Times(lhs, self.number(rhs))
+  File "/usr/local/lib/python3.8/dist-packages/PySMT-0.9.1.dev332-py3.8.egg/pysmt/formula.py", line 344, in Real
+    if value in self.real_constants:
+  File "/usr/lib/python3.8/fractions.py", line 570, in __hash__
+    dinv = pow(self._denominator, _PyHASH_MODULUS - 2, _PyHASH_MODULUS)
+KeyboardInterrupt
+real 3602.33
 user 0.00
 sys 0.00

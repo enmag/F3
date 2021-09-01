@@ -13,8 +13,8 @@ F3 run `ChenFlurMukhopadhyay-SAS2012-Ex2.02_false-termination`
 	State 1
 		pc = 1
 	Trans 1 -- 2
-		_x_x = (y + x)
 		_x_y = y
+		_x_x = (y + x)
 	State 2
 		pc = 2
 	Trans 2 -- 3
@@ -22,4 +22,4 @@ F3 run `ChenFlurMukhopadhyay-SAS2012-Ex2.02_false-termination`
 		_x_y = (y + -1)
 	starting from: pc : 0, x : -1, y : 0
 
-end of `ChenFlurMukhopadhyay-SAS2012-Ex2.02_false-termination`: SUCCESS in 3.9295947551727295s
+end of `ChenFlurMukhopadhyay-SAS2012-Ex2.02_false-termination`: SUCCESS in 4.061363220214844s

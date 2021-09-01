@@ -145,10 +145,10 @@ def hints(env: PysmtEnv) -> FrozenSet[Hint]:
     h_r.set_locs([loc])
     res.append(h_r)
 
-    loc = Location(env, mgr.GE(l, n0))
-    loc.set_progress(0, mgr.Equals(x_l, mgr.Plus(l, n1)))
-    h_l = Hint("h_l0", env, frozenset([l]), symbs)
-    h_l.set_locs([loc])
-    res.append(h_l)
+    loc = Location(env, inc_i)
+    loc.set_progress(0, x_inc_i)
+    h_inc = Hint("h_inc0", env, frozenset([inc_i]), symbs)
+    h_inc.set_locs([loc])
+    res.append(h_inc)
 
     return frozenset(res)

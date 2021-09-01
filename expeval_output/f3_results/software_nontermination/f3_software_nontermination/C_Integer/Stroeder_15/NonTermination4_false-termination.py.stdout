@@ -3,26 +3,26 @@ F3 run `NonTermination4_false-termination`
 	Found non-termination argument:
 	State 3
 		pc = 0
-		((y * -3) < -1)
-		((-1 * x) < -1)
+		((-1 * y) < -1)
+		((y * -9) < -1)
 		((x * -4) < -1)
 		((x * -2) < -1)
-		((y * -9) < -1)
-		((-1 * y) < -1)
+		((y * -3) < -1)
+		((-1 * x) < -1)
 		(((-1 * x) + (-1 * y) + 5) <= 0)
 	Trans 3 -- 4
-		_x_x = x
 		_x_y = y
+		_x_x = x
 	State 4
 		pc = 1
 	Trans 4 -- 5
-		_x_x = (x * 2)
 		_x_y = y
+		_x_x = (x * 2)
 	State 5
 		pc = 2
 	Trans 5 -- 6
-		_x_x = x
 		_x_y = (y * 3)
+		_x_x = x
 	starting from: pc : 0, x : 2, y : 3
 
-end of `NonTermination4_false-termination`: SUCCESS in 2.549351930618286s
+end of `NonTermination4_false-termination`: SUCCESS in 3.0389583110809326s

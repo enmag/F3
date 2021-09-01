@@ -1,26 +1,25 @@
 F3 run `example1`
 
 	Found non-termination argument:
-	State 2
-		pc = 2
-		((-1.0 * i) <= 0.0)
-		(((-1.0 * i) - ((j * j * j * j * j * j * j * j * j * 1/81) + (j * j * j * j * j * j * 1/9) + (j * j * j * 2/3))) <= 7/3)
-		(((-1.0 * i) - (j * j * j * 1/3)) <= 1.0)
-		(((-1.0 * j) + -129/64) <= 0.0)
-		(((-1.0 * j) + -2.0) <= 0.0)
-	Trans 2 -- 3
-		_x_i = i
-		_x_j = ((j * j * j * 1/3) + 1.0)
-	State 3
+	State 0
 		pc = 0
-	Trans 3 -- 4
+		((((-1.0 * j) + (-1.0 * i)) - (j * j * j * 1/3)) <= 1.0)
+		(((-1.0 * j) + (-1.0 * i)) <= 0.0)
+		((-1.0 * i) <= 0.0)
+		((-1.0 * (j * 1/2)) <= 0.0)
+	Trans 0 -- 1
 		_x_i = i
 		_x_j = j
-	State 4
+	State 1
 		pc = 1
-	Trans 4 -- 5
+	Trans 1 -- 2
 		_x_i = (j + i)
 		_x_j = j
-	starting from: pc : 2, i : 3.0, j : -2.0
+	State 2
+		pc = 2
+	Trans 2 -- 3
+		_x_j = ((j * j * j * 1/3) + 1.0)
+		_x_i = i
+	starting from: pc : 0, i : 0.0, j : 0.0
 
-end of `example1`: SUCCESS in 853.5024049282074s
+end of `example1`: SUCCESS in 66.89416265487671s

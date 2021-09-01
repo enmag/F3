@@ -251,7 +251,7 @@ def hints(env: PysmtEnv) -> FrozenSet[Hint]:
 
     loc0 = Location(env, mgr.GE(i, n0))
     loc0.set_progress(1, mgr.Equals(x_i, mgr.Plus(i, n1)))
-    loc1 = Location(env, mgr.GE(i, n0))
+    loc1 = Location(env, mgr.GE(i, n1))
     loc1.set_progress(2, mgr.Equals(x_i, i))
     loc2 = Location(env, mgr.GE(i, n0))
     loc2.set_progress(0, mgr.Equals(x_i, i))

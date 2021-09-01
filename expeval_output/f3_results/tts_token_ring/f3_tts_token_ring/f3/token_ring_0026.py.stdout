@@ -2,36 +2,36 @@ F3 run `token_ring_0026`
 
 	Found non-termination argument:
 	State 4
-		st22_req_time = 1.0
-		st19_req_time = 1.0
-		st16_req_time = 1.0
-		st13_req_time = 1.0
+		st22_req_time = 1/2
+		st19_req_time = 1/2
+		st16_req_time = 1/2
+		st13_req_time = 1/2
 		_diverge_delta = 0.0
-		st10_req_time = 1.0
+		st10_req_time = 1/2
 		delta = 0.0
-		st7_req_time = 10.0
-		st4_req_time = 1.0
-		st1_req_time = 10.0
-		st24_req_time = 1.0
-		st21_req_time = 1.0
-		st18_req_time = 1.0
-		st15_req_time = 1.0
-		st12_req_time = 10.0
+		st7_req_time = 1/2
+		st4_req_time = 1/2
+		st1_req_time = 1/2
+		st24_req_time = 1/2
+		st21_req_time = 1/2
+		st18_req_time = 1/2
+		st15_req_time = 1/2
+		st12_req_time = 1/2
 		mgr_c = 0.0
 		st9_req_time = 10.0
-		st6_req_time = 1.0
+		st6_req_time = 1/2
 		st3_req_time = 1.0
-		st0_req_time = 1.0
-		st23_req_time = 1.0
-		st20_req_time = 1.0
-		st17_req_time = 1.0
-		st14_req_time = 1.0
-		st11_req_time = 1.0
-		st8_req_time = 10.0
-		st5_req_time = 1.0
-		st2_req_time = 10.0
+		st0_req_time = 1/2
+		st23_req_time = 1/2
+		st20_req_time = 1/2
+		st17_req_time = 1/2
+		st14_req_time = 1/2
+		st11_req_time = 1/2
+		st8_req_time = 1/2
+		st5_req_time = 1/2
+		st2_req_time = 1/2
 		mgr_timeout = 0.0
-		st25_req_time = 1.0
+		st25_req_time = 1/2
 		st1_l = True
 		mgr_l = True
 		st1_evt1 = True
@@ -42,7 +42,7 @@ F3 run `token_ring_0026`
 		st2_evt1 = True
 		st2_l = True
 		st2_evt0 = False
-		st3_evt1 = True
+		st3_evt1 = False
 		st3_evt0 = False
 		st4_evt1 = True
 		st4_evt0 = False
@@ -86,7 +86,7 @@ F3 run `token_ring_0026`
 		st21_evt0 = False
 		st22_evt1 = True
 		st22_evt0 = False
-		st23_evt1 = False
+		st23_evt1 = True
 		st23_evt0 = False
 		st24_evt1 = True
 		st24_evt0 = False
@@ -126,43 +126,46 @@ F3 run `token_ring_0026`
 		st0_l = True
 		st25_l = True
 		st13_l = True
-		((-1.0 * tot_transm_time) <= -10.0)
-		((-1.0 * tot_transm_time) <= -8.0)
 		((-1.0 * tot_transm_time) <= -9.0)
-		((8.0 - (tot_transm_time * 4/5)) <= 0.0)
+		((-1.0 * tot_transm_time) <= -8.0)
+		((-1.0 * tot_transm_time) < 1.0)
+		((-1.0 * tot_transm_time) <= -10.0)
+		((-1.0 * tot_transm_time) < 0.0)
+		((-1.0 * tot_transm_time) < 2.0)
+		((4.0 - (tot_transm_time * 2/5)) <= 0.0)
 	Trans 4 -- 5
 		_x_tot_transm_time = tot_transm_time
 	State 5
-		st22_req_time = 1.0
-		st19_req_time = 1.0
-		st16_req_time = 1.0
-		st13_req_time = 1.0
+		st22_req_time = 1/2
+		st19_req_time = 1/2
+		st16_req_time = 1/2
+		st13_req_time = 1/2
 		_diverge_delta = 0.0
-		st10_req_time = 1.0
+		st10_req_time = 1/2
 		delta = 1.0
-		st7_req_time = 10.0
-		st4_req_time = 1.0
-		st1_req_time = 10.0
-		st24_req_time = 1.0
-		st21_req_time = 1.0
-		st18_req_time = 1.0
-		st15_req_time = 1.0
-		st12_req_time = 10.0
+		st7_req_time = 1/2
+		st4_req_time = 1/2
+		st1_req_time = 1/2
+		st24_req_time = 1/2
+		st21_req_time = 1/2
+		st18_req_time = 1/2
+		st15_req_time = 1/2
+		st12_req_time = 1/2
 		mgr_c = 0.0
 		st9_req_time = 10.0
-		st6_req_time = 1.0
+		st6_req_time = 1/2
 		st3_req_time = 1.0
-		st0_req_time = 1.0
-		st23_req_time = 1.0
-		st20_req_time = 1.0
-		st17_req_time = 1.0
-		st14_req_time = 1.0
-		st11_req_time = 1.0
-		st8_req_time = 10.0
-		st5_req_time = 1.0
-		st2_req_time = 10.0
+		st0_req_time = 1/2
+		st23_req_time = 1/2
+		st20_req_time = 1/2
+		st17_req_time = 1/2
+		st14_req_time = 1/2
+		st11_req_time = 1/2
+		st8_req_time = 1/2
+		st5_req_time = 1/2
+		st2_req_time = 1/2
 		mgr_timeout = 1.0
-		st25_req_time = 1.0
+		st25_req_time = 1/2
 		st1_l = True
 		mgr_l = False
 		st1_evt1 = True
@@ -173,7 +176,7 @@ F3 run `token_ring_0026`
 		st2_evt1 = True
 		st2_l = True
 		st2_evt0 = False
-		st3_evt1 = True
+		st3_evt1 = False
 		st3_evt0 = False
 		st4_evt1 = True
 		st4_evt0 = False
@@ -190,7 +193,7 @@ F3 run `token_ring_0026`
 		st9_evt0 = False
 		st10_evt1 = True
 		st10_evt0 = False
-		st3_l = True
+		st3_l = False
 		st11_evt1 = True
 		st11_evt0 = False
 		st12_evt1 = True
@@ -217,7 +220,7 @@ F3 run `token_ring_0026`
 		st21_evt0 = False
 		st22_evt1 = True
 		st22_evt0 = False
-		st23_evt1 = False
+		st23_evt1 = True
 		st23_evt0 = False
 		st24_evt1 = True
 		st24_evt0 = False
@@ -250,7 +253,7 @@ F3 run `token_ring_0026`
 		st9_l = True
 		st22_l = True
 		st10_l = True
-		st23_l = False
+		st23_l = True
 		st11_l = True
 		st24_l = True
 		st12_l = True
@@ -260,36 +263,36 @@ F3 run `token_ring_0026`
 	Trans 5 -- 6
 		_x_tot_transm_time = tot_transm_time
 	State 6
-		st22_req_time = 1.0
-		st19_req_time = 1.0
-		st16_req_time = 1.0
-		st13_req_time = 1.0
+		st22_req_time = 1/2
+		st19_req_time = 1/2
+		st16_req_time = 1/2
+		st13_req_time = 1/2
 		_diverge_delta = 1.0
-		st10_req_time = 1.0
+		st10_req_time = 1/2
 		delta = 0.0
-		st7_req_time = 10.0
-		st4_req_time = 1.0
-		st1_req_time = 10.0
-		st24_req_time = 1.0
-		st21_req_time = 1.0
-		st18_req_time = 1.0
-		st15_req_time = 1.0
-		st12_req_time = 10.0
+		st7_req_time = 1/2
+		st4_req_time = 1/2
+		st1_req_time = 1/2
+		st24_req_time = 1/2
+		st21_req_time = 1/2
+		st18_req_time = 1/2
+		st15_req_time = 1/2
+		st12_req_time = 1/2
 		mgr_c = 1.0
 		st9_req_time = 10.0
-		st6_req_time = 1.0
+		st6_req_time = 1/2
 		st3_req_time = 1.0
-		st0_req_time = 1.0
-		st23_req_time = 1.0
-		st20_req_time = 1.0
-		st17_req_time = 1.0
-		st14_req_time = 1.0
-		st11_req_time = 1.0
-		st8_req_time = 10.0
-		st5_req_time = 1.0
-		st2_req_time = 10.0
+		st0_req_time = 1/2
+		st23_req_time = 1/2
+		st20_req_time = 1/2
+		st17_req_time = 1/2
+		st14_req_time = 1/2
+		st11_req_time = 1/2
+		st8_req_time = 1/2
+		st5_req_time = 1/2
+		st2_req_time = 1/2
 		mgr_timeout = 1.0
-		st25_req_time = 1.0
+		st25_req_time = 1/2
 		st1_l = True
 		mgr_l = False
 		st1_evt1 = True
@@ -300,8 +303,8 @@ F3 run `token_ring_0026`
 		st2_evt1 = True
 		st2_l = True
 		st2_evt0 = False
-		st3_evt1 = True
-		st3_evt0 = False
+		st3_evt1 = False
+		st3_evt0 = True
 		st4_evt1 = True
 		st4_evt0 = False
 		st5_evt1 = True
@@ -317,7 +320,7 @@ F3 run `token_ring_0026`
 		st9_evt0 = False
 		st10_evt1 = True
 		st10_evt0 = False
-		st3_l = True
+		st3_l = False
 		st11_evt1 = True
 		st11_evt0 = False
 		st12_evt1 = True
@@ -344,8 +347,8 @@ F3 run `token_ring_0026`
 		st21_evt0 = False
 		st22_evt1 = True
 		st22_evt0 = False
-		st23_evt1 = False
-		st23_evt0 = True
+		st23_evt1 = True
+		st23_evt0 = False
 		st24_evt1 = True
 		st24_evt0 = False
 		st25_evt1 = True
@@ -377,7 +380,7 @@ F3 run `token_ring_0026`
 		st9_l = True
 		st22_l = True
 		st10_l = True
-		st23_l = False
+		st23_l = True
 		st11_l = True
 		st24_l = True
 		st12_l = True
@@ -386,6 +389,6 @@ F3 run `token_ring_0026`
 		st13_l = True
 	Trans 6 -- 7
 		_x_tot_transm_time = (tot_transm_time + 1.0)
-	starting from: st1_l : True, st13_req_time : 1.0, _diverge_delta : 0.0, delta : 0.0, st1_req_time : 10.0, tot_transm_time : 10.0, mgr_l : True, mgr_c : 0.0, st1_evt1 : True, st14_l : True, st1_evt0 : False, st0_evt1 : True, st0_evt0 : False, st2_evt1 : True, st2_l : True, st2_evt0 : False, st14_req_time : 1.0, st3_evt1 : True, st3_evt0 : False, st4_evt1 : True, st2_req_time : 10.0, st4_evt0 : False, st5_evt1 : True, st5_evt0 : False, st6_evt1 : True, st6_evt0 : False, st7_evt1 : True, st7_evt0 : False, st8_evt1 : True, st8_evt0 : False, st15_l : True, st9_evt1 : True, st9_evt0 : False, st10_evt1 : True, st10_evt0 : False, st3_l : True, st15_req_time : 1.0, st11_evt1 : True, st11_evt0 : False, st12_evt1 : True, st12_evt0 : False, st3_req_time : 1.0, st13_evt1 : True, st13_evt0 : False, st14_evt1 : True, st14_evt0 : False, st15_evt1 : True, st15_evt0 : False, st16_evt1 : True, st16_evt0 : False, st17_evt1 : True, st16_l : True, st17_evt0 : False, st18_evt1 : True, st18_evt0 : False, st19_evt1 : True, st4_l : True, st19_evt0 : False, st16_req_time : 1.0, st20_evt1 : True, st20_evt0 : False, st21_evt1 : True, st4_req_time : 1.0, st21_evt0 : False, st22_evt1 : True, st22_evt0 : False, st23_evt1 : False, st23_evt0 : False, st24_evt1 : True, st24_evt0 : False, st25_evt1 : True, st25_evt0 : False, st17_l : True, mgr_evt1 : False, mgr_evt0 : False, st5_l : True, st17_req_time : 1.0, st5_req_time : 1.0, _J2344 : True, _J2338 : True, _J2331 : True, st18_l : True, _J2325 : True, _J2317 : True, _J2311 : True, _EL_U_2270 : True, st6_l : True, _EL_U_2272 : False, st18_req_time : 1.0, _EL_X_2237 : False, _EL_U_2274 : True, _EL_U_2276 : False, st6_req_time : 1.0, _EL_U_2278 : False, _EL_U_2280 : True, st19_l : True, st7_l : True, st19_req_time : 1.0, st7_req_time : 10.0, st20_l : True, st8_l : True, st20_req_time : 1.0, st8_req_time : 10.0, st21_l : True, st9_l : True, st21_req_time : 1.0, st9_req_time : 10.0, st22_l : True, st10_l : True, st22_req_time : 1.0, st10_req_time : 1.0, st23_l : True, st11_l : True, st23_req_time : 1.0, st11_req_time : 1.0, mgr_timeout : 0.0, st24_l : True, st12_l : True, st24_req_time : 1.0, st0_l : True, st12_req_time : 10.0, st0_req_time : 1.0, st25_l : True, st13_l : True, st25_req_time : 1.0
+	starting from: st1_l : True, st13_req_time : 1/2, _diverge_delta : 0.0, delta : 0.0, st1_req_time : 1/2, tot_transm_time : 10.0, mgr_l : True, mgr_c : 0.0, st1_evt1 : True, st14_l : True, st1_evt0 : False, st0_evt1 : True, st0_evt0 : False, st2_evt1 : True, st2_l : True, st2_evt0 : False, st14_req_time : 1/2, st3_evt1 : False, st3_evt0 : False, st4_evt1 : True, st2_req_time : 1/2, st4_evt0 : False, st5_evt1 : True, st5_evt0 : False, st6_evt1 : True, st6_evt0 : False, st7_evt1 : True, st7_evt0 : False, st8_evt1 : True, st8_evt0 : False, st15_l : True, st9_evt1 : True, st9_evt0 : False, st10_evt1 : True, st10_evt0 : False, st3_l : True, st15_req_time : 1/2, st11_evt1 : True, st11_evt0 : False, st12_evt1 : True, st12_evt0 : False, st3_req_time : 1.0, st13_evt1 : True, st13_evt0 : False, st14_evt1 : True, st14_evt0 : False, st15_evt1 : True, st15_evt0 : False, st16_evt1 : True, st16_evt0 : False, st17_evt1 : True, st16_l : True, st17_evt0 : False, st18_evt1 : True, st18_evt0 : False, st19_evt1 : True, st4_l : True, st19_evt0 : False, st16_req_time : 1/2, st20_evt1 : True, st20_evt0 : False, st21_evt1 : True, st4_req_time : 1/2, st21_evt0 : False, st22_evt1 : True, st22_evt0 : False, st23_evt1 : True, st23_evt0 : False, st24_evt1 : True, st24_evt0 : False, st25_evt1 : True, st25_evt0 : False, st17_l : True, mgr_evt1 : False, mgr_evt0 : False, st5_l : True, st17_req_time : 1/2, st5_req_time : 1/2, _J2344 : True, _J2338 : True, _J2331 : True, st18_l : True, _J2325 : True, _J2317 : True, _J2311 : True, _EL_U_2270 : True, st6_l : True, _EL_U_2272 : False, st18_req_time : 1/2, _EL_X_2237 : False, _EL_U_2274 : True, _EL_U_2276 : False, st6_req_time : 1/2, _EL_U_2278 : False, _EL_U_2280 : True, st19_l : True, st7_l : True, st19_req_time : 1/2, st7_req_time : 1/2, st20_l : True, st8_l : True, st20_req_time : 1/2, st8_req_time : 1/2, st21_l : True, st9_l : True, st21_req_time : 1/2, st9_req_time : 10.0, st22_l : True, st10_l : True, st22_req_time : 1/2, st10_req_time : 1/2, st23_l : True, st11_l : True, st23_req_time : 1/2, st11_req_time : 1/2, mgr_timeout : 0.0, st24_l : True, st12_l : True, st24_req_time : 1/2, st0_l : True, st12_req_time : 1/2, st0_req_time : 1/2, st25_l : True, st13_l : True, st25_req_time : 1/2
 
-end of `token_ring_0026`: SUCCESS in 8.039747953414917s
+end of `token_ring_0026`: SUCCESS in 9.339962482452393s

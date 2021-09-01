@@ -25,4 +25,4 @@ F3 run `20`
 		_x_y = (y + 1)
 	starting from: z : 1, pc : 1, x : 2, y : 2
 
-end of `20`: SUCCESS in 30.61326289176941s
+end of `20`: SUCCESS in 4.613250494003296s

@@ -25,4 +25,4 @@ F3 run `NonTerminationSimple8a_false-termination`
 		_x_x = (x + 1)
 	starting from: pc : 0, x : 0, nondet : -1
 
-end of `NonTerminationSimple8a_false-termination`: SUCCESS in 3.5082287788391113s
+end of `NonTerminationSimple8a_false-termination`: SUCCESS in 3.87477445602417s

@@ -26,7 +26,7 @@ F3 run `fischer_0005`
 		_EL_U_593 = True
 		p2_l1 = False
 		p2_l0 = False
-		((-1.0 * p4_x) < -2.0)
+		((-1.0 * delta) < 0.0)
 		((-1.0 * delta) <= -1.0)
 		((-1.0 * _diverge_delta) <= -1.0)
 		((-1.0 * p0_x) < -2.0)
@@ -34,12 +34,12 @@ F3 run `fischer_0005`
 		(((-1.0 * _diverge_delta) + delta) < 0.0)
 		((-1.0 * p3_x) < -2.0)
 		((-1.0 * p2_x) < -2.0)
-		((-1.0 * delta) < 0.0)
+		((-1.0 * p4_x) < -2.0)
 	Trans 4 -- 5
 		_x_p4_x = (delta + p4_x)
 		_x__diverge_delta = delta
-		_x_p2_x = (p2_x + delta)
 		_x_p3_x = (p3_x + delta)
+		_x_p2_x = (p2_x + delta)
 		_x_p0_x = (delta + p0_x)
 		_x_p1_x = (p1_x + delta)
 		_x_delta = (p4_x + p0_x + _diverge_delta + delta + p3_x + p2_x + p1_x + -1.0)
@@ -68,20 +68,20 @@ F3 run `fischer_0005`
 		_EL_U_593 = True
 		p2_l1 = False
 		p2_l0 = False
-		((-1.0 * delta) <= -1.0)
-		(((-1.0 * delta) + (-1.0 * p0_x)) < -2.0)
-		(((-1.0 * delta) + (-1.0 * p2_x)) < -2.0)
-		(((-1.0 * p4_x) + (-1.0 * delta)) < -2.0)
 		(((-1.0 * delta) + (-1.0 * p3_x)) < -2.0)
+		((-1.0 * delta) <= -1.0)
+		(((-1.0 * delta) + (-1.0 * p4_x)) < -2.0)
+		(((-1.0 * delta) + (-1.0 * p0_x)) < -2.0)
 		(((-1.0 * delta) + (-1.0 * p1_x)) < -2.0)
+		(((-1.0 * delta) + (-1.0 * p2_x)) < -2.0)
 	Trans 5 -- 6
 		_x_p4_x = (delta + p4_x)
 		_x__diverge_delta = delta
-		_x_p2_x = (p2_x + delta)
 		_x_p3_x = (p3_x + delta)
+		_x_p2_x = (p2_x + delta)
 		_x_p0_x = (delta + p0_x)
 		_x_p1_x = (p1_x + delta)
-		_x_delta = (((p4_x * 1/62) + (delta * 75/682) + -1/62) - ((p0_x * 1/62) + (_diverge_delta * 1/62) + (p3_x * 1/62) + (p2_x * 1/62) + (p1_x * 1/62)))
-	starting from: _diverge_delta : 9/4, delta : 1.0, turn : 1, p1_l1 : False, p1_l0 : False, id : 1, p4_l1 : False, p1_x : 13/4, p4_l0 : False, p4_x : 13/4, _J650 : True, _J644 : True, _J637 : True, _J631 : True, _J626 : True, _J620 : True, _EL_U_583 : True, _EL_U_585 : False, p0_l0 : True, _EL_U_587 : True, p0_l1 : False, _EL_U_589 : False, p0_x : 9/4, p3_l1 : False, p3_l0 : False, _EL_U_591 : False, _EL_U_593 : True, p3_x : 13/4, p2_l1 : False, p2_l0 : False, p2_x : 13/4
+		_x_delta = (((delta * 75/682) + (p3_x * 1/62) + -1/62) - ((p4_x * 1/62) + (p0_x * 1/62) + (_diverge_delta * 1/62) + (p2_x * 1/62) + (p1_x * 1/62)))
+	starting from: _diverge_delta : 5/2, delta : 2.0, turn : 1, p1_l1 : False, p1_l0 : False, id : 1, p4_l1 : False, p1_x : 9/2, p4_l0 : False, p4_x : 9/2, _J650 : True, _J644 : True, _J637 : True, _J631 : True, _J626 : True, _J620 : True, _EL_U_583 : True, _EL_U_585 : False, p0_l0 : True, _EL_U_587 : True, p0_l1 : False, _EL_U_589 : False, p0_x : 5/2, p3_l1 : False, p3_l0 : False, _EL_U_591 : False, _EL_U_593 : True, p3_x : 9/2, p2_l1 : False, p2_l0 : False, p2_x : 9/2
 
-end of `fischer_0005`: SUCCESS in 5.164689064025879s
+end of `fischer_0005`: SUCCESS in 5.683020353317261s

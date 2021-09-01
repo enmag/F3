@@ -1,8 +1,8 @@
 group: f3_bakery_simple_bug
-platform: Linux node3 5.4.0-56-generic #62-Ubuntu SMP Mon Nov 23 19:20:19 UTC 2020 x86_64 x86_64
-timestamp: 1629574507
-time: 2021-08-21 21:35:07
+platform: Linux node4 5.4.0-54-generic #60-Ubuntu SMP Fri Nov 6 10:37:59 UTC 2020 x86_64 x86_64
+timestamp: 1630404346
+time: 2021-08-31 12:05:46
 exitcode: 0
-real: 119.83
-user: 118.2
-sys: 0.99
+real: 116.77
+user: 115.37
+sys: 1.02

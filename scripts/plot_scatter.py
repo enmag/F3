@@ -2,6 +2,7 @@
 
 import os
 import argparse
+import re
 from parse_results import parse_results, TO
 import matplotlib.pyplot as plt
 
@@ -211,6 +212,8 @@ def getopts():
                    help="plot results of timed transition systems benchmarks")
     p.add_argument("-hs", "--hybrid-systems", action="store_true",
                    help="plot results of hybrid systems benchmarks")
+    p.add_argument("-hints", "--wrong-hints", action="store_true",
+                   help="plot results on F3 scaling w.r.t. wrong hints")
     p.add_argument("-v", "--verbose", action="store_true",
                    help="verbosly print single points")
     return p.parse_args()
@@ -290,6 +293,84 @@ def main(opts):
                                          "oldf3"])
         res = {t_name: results[t_name] for t_name in c_tools}
         plot_comparison(res, ["hybrid_system"], verbose=verbose)
+
+    if opts.wrong_hints:
+        print("\nSCALING WRONG HINTS\n")
+        wrong_hints_benchs = frozenset([
+            "wrong_hints_ltl_infinite_state",
+            "wrong_hints_ltl_timed_transition_system",
+            "wrong_hints_nonlinear_software", "wrong_hints_software"])
+        t_name = "f3"
+        assert all(bench in results[t_name] for bench in wrong_hints_benchs)
+        name_re = re.compile("(?P<num>\d+)-(?P<name>\S+)")
+        for bench_class in sorted(wrong_hints_benchs):
+            label = None
+            wrong_hints = {}
+            stack = [results[t_name][bench_class]]
+            while stack:
+                curr = stack.pop()
+                assert isinstance(curr, dict)
+                assert all(isinstance(v, (dict, tuple)) for v in curr.values())
+                for k, v in curr.items():
+                    if isinstance(v, dict):
+                        stack.append(v)
+                    else:
+                        assert isinstance(k, str)
+                        assert isinstance(v, tuple)
+                        assert len(v) == 2
+                        assert v[0] in {"timeout", "correct", "unknown", "memout"}, (t_name, v[0], k)
+                        assert isinstance(v[1], float)
+                        m = name_re.match(k)
+                        assert m is not None
+                        label = m.group("name")
+                        assert label is None or label == m.group("name")
+                        bench_size = int(m.group("num"))
+                        assert bench_size not in wrong_hints, k
+                        wrong_hints[bench_size] = v
+            assert label is not None
+            f3_res = None
+            stack = [v for k, v in results[t_name].items()
+                     if k not in wrong_hints_benchs]
+            while stack:
+                curr = stack.pop()
+                assert isinstance(curr, dict)
+                assert all(isinstance(v, (dict, tuple)) for v in curr.values())
+                for k, v in curr.items():
+                    if isinstance(v, dict):
+                        stack.append(v)
+                    elif k == label:
+                        assert isinstance(k, str)
+                        assert isinstance(v, tuple)
+                        assert len(v) == 2
+                        assert v[0] == "correct", (t_name, v[0], k)
+                        assert isinstance(v[1], float)
+                        assert f3_res is None
+                        f3_res = v[1]
+            assert f3_res is not None
+            success_xs = []
+            success_ys = []
+            failed_xs = []
+            failed_ys = []
+            for x in sorted(wrong_hints.keys()):
+                y = wrong_hints[x]
+                if y[0] == "correct":
+                    success_xs.append(int(x))
+                    success_ys.append(y[1]/f3_res)
+                else:
+                    failed_xs.append(x)
+                    failed_ys.append(y[1]/f3_res)
+            print(f"Wrong hints `{label}`, "
+                  f"correct: {len(success_xs)}, failed: {len(failed_xs)}")
+            ax = plt.gca()
+            ax.scatter(success_xs, success_ys, c='g', marker='o', s=400)
+            ax.scatter(failed_xs, failed_ys, c='r', marker='P', s=400)
+            ax.plot((min(success_xs), max(success_xs)), (1, 1), color="gray",
+                    linewidth=3, linestyle='--', alpha=0.5)
+            plt.ylim([0, max(success_ys) + 3])
+            plt.subplots_adjust(top=0.99, bottom=0.176, right=1, left=0.051,
+                                hspace=0, wspace=0)
+            plt.xticks(range(1, len(success_xs) + len(failed_xs)))
+            plt.show(block=True)
 
 
 if __name__ == "__main__":

@@ -2,19 +2,18 @@ F3 run `token_ring_0002`
 
 	Found non-termination argument:
 	State 4
-		st0_req_time = 10.0
+		st1_req_time = 10.0
 		_diverge_delta = 0.0
 		delta = 0.0
-		mgr_c = 0.0
 		mgr_timeout = 0.0
-		st1_req_time = 10.0
+		mgr_c = 0.0
 		_EL_U_262 = False
 		_EL_U_264 = True
 		mgr_l = True
-		st1_evt1 = False
+		st1_evt1 = True
 		st1_l = True
 		st1_evt0 = False
-		st0_evt1 = True
+		st0_evt1 = False
 		st0_evt0 = False
 		mgr_evt1 = False
 		mgr_evt0 = False
@@ -30,31 +29,34 @@ F3 run `token_ring_0002`
 		_EL_X_221 = False
 		_EL_U_258 = True
 		_EL_U_260 = False
+		((-1.0 * tot_transm_time) <= -8.0)
+		((-1.0 * tot_transm_time) < 1.0)
+		(st0_req_time = 10.0)
+		((-1.0 * tot_transm_time) < 2.0)
 		((-1.0 * tot_transm_time) <= -10.0)
+		((-1.0 * st0_req_time) < 0.0)
 		((-1.0 * tot_transm_time) < 0.0)
 		((-1.0 * tot_transm_time) <= -9.0)
-		((-1.0 * tot_transm_time) < 1.0)
-		((-1.0 * tot_transm_time) < 2.0)
-		((9/2 - (tot_transm_time * 9/20)) <= 0.0)
+		(((-1.0 * st0_req_time) + (-1.0 * tot_transm_time) + 20.0) <= 0.0)
 	Trans 4 -- 5
 		_x_tot_transm_time = tot_transm_time
+		_x_st0_req_time = st0_req_time
 	State 5
-		st0_req_time = 10.0
+		st1_req_time = 10.0
 		_diverge_delta = 0.0
 		delta = 1.0
-		mgr_c = 0.0
 		mgr_timeout = 10.0
-		st1_req_time = 10.0
+		mgr_c = 0.0
 		_EL_U_262 = False
 		_EL_U_264 = True
 		mgr_l = False
-		st1_evt1 = False
-		st1_l = False
-		st1_evt0 = True
+		st1_evt1 = True
+		st1_l = True
+		st1_evt0 = False
 		st0_evt1 = True
 		st0_evt0 = False
-		mgr_evt1 = False
-		mgr_evt0 = True
+		mgr_evt1 = True
+		mgr_evt0 = False
 		_J328 = False
 		_J322 = False
 		_J315 = False
@@ -63,27 +65,27 @@ F3 run `token_ring_0002`
 		_J295 = False
 		_EL_U_254 = True
 		_EL_U_256 = False
-		st0_l = True
+		st0_l = False
 		_EL_X_221 = False
 		_EL_U_258 = True
 		_EL_U_260 = False
 	Trans 5 -- 6
 		_x_tot_transm_time = tot_transm_time
+		_x_st0_req_time = st0_req_time
 	State 6
-		st0_req_time = 10.0
+		st1_req_time = 10.0
 		_diverge_delta = 1.0
 		delta = 0.0
-		mgr_c = 1.0
 		mgr_timeout = 10.0
-		st1_req_time = 10.0
+		mgr_c = 1.0
 		_EL_U_262 = False
 		_EL_U_264 = True
 		mgr_l = False
-		st1_evt1 = False
-		st1_l = False
-		st1_evt0 = True
-		st0_evt1 = True
-		st0_evt0 = False
+		st1_evt1 = True
+		st1_l = True
+		st1_evt0 = False
+		st0_evt1 = False
+		st0_evt0 = True
 		mgr_evt1 = False
 		mgr_evt0 = True
 		_J328 = True
@@ -94,12 +96,13 @@ F3 run `token_ring_0002`
 		_J295 = True
 		_EL_U_254 = True
 		_EL_U_256 = False
-		st0_l = True
+		st0_l = False
 		_EL_X_221 = True
 		_EL_U_258 = True
 		_EL_U_260 = False
 	Trans 6 -- 7
 		_x_tot_transm_time = (tot_transm_time + 1.0)
-	starting from: _EL_U_262 : False, st0_req_time : 10.0, _diverge_delta : 0.0, _EL_U_264 : True, delta : 0.0, tot_transm_time : 10.0, mgr_l : True, mgr_c : 0.0, st1_evt1 : False, st1_l : True, st1_evt0 : False, st0_evt1 : True, st0_evt0 : False, mgr_evt1 : False, st1_req_time : 10.0, mgr_evt0 : False, mgr_timeout : 0.0, _J328 : True, _J322 : True, _J315 : True, _J309 : True, _J301 : True, _J295 : True, _EL_U_254 : True, _EL_U_256 : False, st0_l : True, _EL_X_221 : False, _EL_U_258 : True, _EL_U_260 : False
+		_x_st0_req_time = 10.0
+	starting from: _EL_U_262 : False, st0_req_time : 10.0, _diverge_delta : 0.0, _EL_U_264 : True, delta : 0.0, tot_transm_time : 10.0, mgr_l : True, mgr_c : 0.0, st1_evt1 : True, st1_l : True, st1_evt0 : False, st0_evt1 : False, st0_evt0 : False, mgr_evt1 : False, st1_req_time : 10.0, mgr_evt0 : False, mgr_timeout : 0.0, _J328 : True, _J322 : True, _J315 : True, _J309 : True, _J301 : True, _J295 : True, _EL_U_254 : True, _EL_U_256 : False, st0_l : True, _EL_X_221 : False, _EL_U_258 : True, _EL_U_260 : False
 
-end of `token_ring_0002`: SUCCESS in 3.4602861404418945s
+end of `token_ring_0002`: SUCCESS in 4.2076499462127686s

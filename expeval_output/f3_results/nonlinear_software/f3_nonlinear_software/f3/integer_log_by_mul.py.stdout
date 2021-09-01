@@ -28,4 +28,4 @@ F3 run `integer_log_by_mul`
 		_x_log = (log + 1)
 	starting from: d : 1, f_mul : 1, log : 1, n : 8, pc : 7
 
-end of `integer_log_by_mul`: SUCCESS in 15.720783233642578s
+end of `integer_log_by_mul`: SUCCESS in 5.112752914428711s

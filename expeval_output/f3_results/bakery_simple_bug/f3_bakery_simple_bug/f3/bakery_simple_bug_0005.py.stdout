@@ -29,13 +29,17 @@ F3 run `bakery_simple_bug_0005`
 		_EL_U_524 = True
 		_EL_U_525 = True
 		_EL_U_528 = False
-		((-1 * num0) < 0)
+		((-1 * max_num) <= 0)
+		((-1 * num0) < 1)
 		((-1 * num0) <= 1)
 		(((-1 * num0) + max_num) = 0)
-		((-1 * num0) < 1)
-		(((-1 * min_num) + num0) = 0)
 		((-1 * num0) <= 0)
-		(((-1 * min_num) + (-1 * num0) + (-1 * max_num) + 6) <= 0)
+		(((-1 * min_num) + num0) = 0)
+		((-1 * num0) < 0)
+		((-1 * max_num) < 0)
+		((-1 * num0) <= 2)
+		((-1 * num0) < 2)
+		(((min_num + (-1 * num0) + 12) - (max_num * 6)) <= 0)
 	Trans 5 -- 6
 		_x_num0 = num0
 		_x_min_num = num0
@@ -138,4 +142,4 @@ F3 run `bakery_simple_bug_0005`
 		_x_max_num = (max_num + 1)
 	starting from: _EL_U_530 : False, _EL_U_532 : True, max_num : 2, p3_l1 : False, p3_l0 : False, p1_l1 : False, p1_l0 : False, num3 : 0, num1 : 0, p4_l1 : False, p4_l0 : False, p0_l1 : False, num4 : 0, p0_l0 : True, p2_l1 : False, p2_l0 : False, run0 : False, run1 : False, num2 : 0, run2 : False, num0 : 2, _J581 : True, _J572 : True, _J566 : True, _J561 : True, _J555 : True, _EL_U_524 : True, _EL_U_525 : True, min_num : 2, _EL_U_528 : False
 
-end of `bakery_simple_bug_0005`: SUCCESS in 105.08541917800903s
+end of `bakery_simple_bug_0005`: SUCCESS in 105.57018685340881s

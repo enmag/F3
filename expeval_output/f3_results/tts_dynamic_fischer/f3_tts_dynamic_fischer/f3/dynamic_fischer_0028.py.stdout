@@ -15,15 +15,14 @@ F3 run `dynamic_fischer_0028`
 		proposed14 = 7/8
 		p12_saved_max = 5/4
 		proposed27 = 7/8
+		proposed0 = 7/8
 		p5_saved_max = 5/4
 		p25_saved_max = 5/4
-		proposed7 = 7/8
 		proposed17 = 7/8
-		p0_x = 0.0
+		proposed7 = 7/8
 		p15_saved_max = 5/4
 		proposed20 = 7/8
 		proposed10 = 7/8
-		p8_saved_max = 5/4
 		p18_saved_max = 5/4
 		p1_saved_max = 5/4
 		proposed3 = 7/8
@@ -39,10 +38,11 @@ F3 run `dynamic_fischer_0028`
 		p14_saved_max = 5/4
 		p27_saved_max = 5/4
 		proposed9 = 7/8
+		p0_saved_max = 5/4
 		p7_saved_max = 5/4
-		proposed19 = 7/8
 		p17_saved_max = 5/4
 		proposed2 = 7/8
+		proposed19 = 7/8
 		proposed22 = 7/8
 		proposed12 = 7/8
 		p10_saved_max = 5/4
@@ -57,8 +57,8 @@ F3 run `dynamic_fischer_0028`
 		p6_saved_max = 5/4
 		proposed18 = 7/8
 		proposed1 = 7/8
-		proposed8 = 7/8
 		p16_saved_max = 5/4
+		p8_x = 0.0
 		p4_l1 = False
 		p4_l0 = False
 		p24_l1 = False
@@ -66,11 +66,11 @@ F3 run `dynamic_fischer_0028`
 		p14_l1 = False
 		p14_l0 = False
 		turn4 = False
-		turn3 = False
+		turn3 = True
 		p27_l1 = False
 		p27_l0 = False
 		turn2 = False
-		p0_l1 = True
+		p0_l1 = False
 		p7_l1 = False
 		p7_l0 = False
 		_J3689 = True
@@ -124,7 +124,7 @@ F3 run `dynamic_fischer_0028`
 		p5_l0 = False
 		p15_l1 = False
 		p15_l0 = False
-		p8_l1 = False
+		p8_l1 = True
 		p8_l0 = False
 		p18_l1 = False
 		p18_l0 = False
@@ -134,125 +134,129 @@ F3 run `dynamic_fischer_0028`
 		p21_l0 = False
 		p11_l1 = False
 		p11_l0 = False
-		((-1.0 * p13_x) < 1/8)
-		((-1.0 * p6_x) < 1/8)
-		((-1.0 * p14_x) < 1/8)
-		((-1.0 * p7_x) < 1/8)
-		((-1.0 * p15_x) < 1/8)
-		((-1.0 * p11_x) < 9/8)
-		((-1.0 * p13_x) < 9/8)
-		((-1.0 * p16_x) < 9/8)
-		((-1.0 * p23_x) < 9/8)
 		((-1.0 * p6_x) < 9/8)
-		((-1.0 * p9_x) < 9/8)
-		((-1.0 * p24_x) < 9/8)
-		((-1.0 * p14_x) < 9/8)
-		((-1.0 * p17_x) < 9/8)
-		((-1.0 * p25_x) < 9/8)
-		((-1.0 * p7_x) < 9/8)
-		((-1.0 * p10_x) < 9/8)
-		((-1.0 * p27_x) < 9/8)
-		((-1.0 * p15_x) < 9/8)
-		((-1.0 * p8_x) < 1/8)
-		((-1.0 * p19_x) < 9/8)
-		((-1.0 * p26_x) < 9/8)
-		((-1.0 * p16_x) < 1/8)
 		((-1.0 * p12_x) < 9/8)
+		((-1.0 * p25_x) < 9/8)
 		((-1.0 * p2_x) < 9/8)
-		((-1.0 * p9_x) < 1/8)
 		((-1.0 * p20_x) < 9/8)
-		((-1.0 * p3_x) < 9/8)
-		((-1.0 * p17_x) < 1/8)
-		((-1.0 * p18_x) < 9/8)
+		((-1.0 * p9_x) < 2.0)
+		((-1.0 * p15_x) < 9/8)
 		((-1.0 * p1_x) < 9/8)
-		((-1.0 * p10_x) < 1/8)
+		((-1.0 * p7_x) < 9/8)
+		((-1.0 * p27_x) < 9/8)
 		((-1.0 * p21_x) < 9/8)
-		((-1.0 * p4_x) < 9/8)
-		((-1.0 * p19_x) < 1/8)
+		((-1.0 * p17_x) < 9/8)
+		((-1.0 * p9_x) < 1/8)
 		((-1.0 * p22_x) < 9/8)
-		((-1.0 * p5_x) < 9/8)
-		((-1.0 * p12_x) < 1/8)
-		((-1.0 * p8_x) < 9/8)
-		((-1.0 * p20_x) < 1/8)
-		((-1.0 * p18_x) < 1/8)
-		(((-1.0 * proposed0) + max_prop) = 0.0)
-		((-1.0 * max_prop) <= -7/8)
-		((-1.0 * p21_x) < 1/8)
-		((-1.0 * p13_x) < -7/8)
-		((-1.0 * p6_x) < -7/8)
-		((-1.0 * p14_x) < -7/8)
-		((-1.0 * p22_x) < 1/8)
-		((-1.0 * p7_x) < -7/8)
-		((-1.0 * p15_x) < -7/8)
-		((-1.0 * p8_x) < -7/8)
+		((-1.0 * p26_x) < 9/8)
+		((-1.0 * p10_x) < 1/8)
+		((-1.0 * p23_x) < 9/8)
+		((-1.0 * p18_x) < 9/8)
 		((-1.0 * p11_x) < 1/8)
-		((-1.0 * p16_x) < -7/8)
-		((-1.0 * p9_x) < -7/8)
-		((-1.0 * p17_x) < -7/8)
-		((-1.0 * p23_x) < 1/8)
-		((-1.0 * p10_x) < -7/8)
-		((-1.0 * p19_x) < -7/8)
-		((-1.0 * p12_x) < -7/8)
-		((-1.0 * p24_x) < 1/8)
-		((-1.0 * p20_x) < -7/8)
-		((-1.0 * p18_x) < -7/8)
-		((-1.0 * p21_x) < -7/8)
-		((-1.0 * p25_x) < 1/8)
-		((-1.0 * p22_x) < -7/8)
-		((-1.0 * p11_x) < -7/8)
-		((-1.0 * p23_x) < -7/8)
-		((-1.0 * p27_x) < 1/8)
-		((-1.0 * p24_x) < -7/8)
-		((-1.0 * p25_x) < -7/8)
-		((-1.0 * p27_x) < -7/8)
-		((-1.0 * p26_x) < 1/8)
-		((-1.0 * p26_x) < -7/8)
-		(((-1.0 * p0_saved_max) + max_prop) = 0.0)
-		((-1.0 * p2_x) < 1/8)
-		((-1.0 * p2_x) < -7/8)
-		((-1.0 * proposed0) <= 0.0)
-		((-1.0 * p3_x) < -7/8)
-		((-1.0 * p1_x) < -7/8)
-		((-1.0 * max_prop) < -7/8)
-		((-1.0 * p3_x) < 1/8)
-		((-1.0 * p4_x) < -7/8)
-		(max_prop < 5/4)
+		((-1.0 * p13_x) < 9/8)
+		((-1.0 * p3_x) < 9/8)
+		((-1.0 * p12_x) < 1/8)
+		((-1.0 * p24_x) < 9/8)
+		((-1.0 * p19_x) < 9/8)
+		((-1.0 * p20_x) < 1/8)
+		((-1.0 * p9_x) < 9/8)
+		((-1.0 * p14_x) < 9/8)
 		((-1.0 * p1_x) < 1/8)
-		((-1.0 * p5_x) < -7/8)
-		((-1.0 * proposed0) <= -7/8)
+		((-1.0 * p4_x) < 9/8)
+		((-1.0 * p10_x) < 9/8)
+		((-1.0 * p21_x) < 1/8)
+		((-1.0 * p0_x) < 9/8)
+		((-1.0 * p5_x) < 9/8)
+		((-1.0 * p22_x) < 1/8)
+		((-1.0 * p11_x) < 9/8)
+		((-1.0 * p16_x) < 9/8)
+		((-1.0 * p23_x) < 1/8)
+		((-1.0 * p13_x) < 1/8)
+		((-1.0 * p24_x) < 1/8)
+		((-1.0 * p14_x) < 1/8)
+		((-1.0 * p0_x) < 1/8)
+		((-1.0 * p16_x) < 1/8)
+		((-1.0 * p25_x) < 1/8)
+		((-1.0 * p15_x) < 1/8)
+		((-1.0 * p27_x) < 1/8)
+		((-1.0 * p17_x) < 1/8)
+		((-1.0 * p26_x) < 1/8)
+		((-1.0 * proposed8) <= -7/8)
+		((-1.0 * p18_x) < 1/8)
+		((-1.0 * p3_x) < 1/8)
+		((-1.0 * p19_x) < 1/8)
+		(((-1.0 * proposed8) + max_prop) = 0.0)
+		((-1.0 * max_prop) <= -7/8)
 		((-1.0 * p4_x) < 1/8)
+		((-1.0 * p5_x) < -7/8)
+		((-1.0 * p6_x) < -7/8)
+		((-1.0 * p2_x) < -7/8)
 		((-1.0 * p5_x) < 1/8)
+		((-1.0 * p9_x) < 0.0)
+		((-1.0 * p7_x) < -7/8)
+		((-1.0 * p9_x) < -7/8)
+		((-1.0 * proposed8) <= 0.0)
+		((-1.0 * p6_x) < 1/8)
+		((-1.0 * p10_x) < -7/8)
+		((-1.0 * p11_x) < -7/8)
+		((-1.0 * p2_x) < 1/8)
+		(((-1.0 * p8_saved_max) + max_prop) = 0.0)
+		((-1.0 * p12_x) < -7/8)
+		((-1.0 * p9_x) < 1.0)
+		((-1.0 * p20_x) < -7/8)
+		((-1.0 * p1_x) < -7/8)
+		((-1.0 * p21_x) < -7/8)
+		((-1.0 * max_prop) < -7/8)
+		((-1.0 * p7_x) < 1/8)
+		((-1.0 * p22_x) < -7/8)
+		(((-1.0 * max_prop) + proposed8) <= 0.0)
+		(max_prop < 5/4)
+		((-1.0 * p23_x) < -7/8)
+		((-1.0 * p13_x) < -7/8)
+		((-1.0 * p24_x) < -7/8)
+		((-1.0 * p14_x) < -7/8)
+		((-1.0 * p0_x) < -7/8)
+		((-1.0 * p16_x) < -7/8)
+		((-1.0 * p25_x) < -7/8)
+		((-1.0 * p15_x) < -7/8)
+		((-1.0 * p27_x) < -7/8)
+		((-1.0 * p17_x) < -7/8)
+		((-1.0 * p26_x) < -7/8)
+		((-1.0 * p18_x) < -7/8)
+		((-1.0 * p3_x) < -7/8)
+		((-1.0 * p19_x) < -7/8)
+		((-1.0 * p4_x) < -7/8)
 	Trans 6 -- 7
+		_x_p3_x = p3_x
+		_x_p4_x = p4_x
+		_x_p11_x = p11_x
+		_x_p27_x = p27_x
+		_x_p8_saved_max = max_prop
+		_x_p7_x = p7_x
+		_x_p6_x = p6_x
+		_x_p9_x = p9_x
+		_x_p10_x = p10_x
+		_x_p14_x = p14_x
+		_x_p5_x = p5_x
 		_x_p15_x = p15_x
-		_x_proposed0 = proposed0
+		_x_p18_x = p18_x
 		_x_p13_x = p13_x
-		_x_p16_x = p16_x
 		_x_p17_x = p17_x
 		_x_p12_x = p12_x
-		_x_p2_x = p2_x
-		_x_p20_x = p20_x
-		_x_p0_saved_max = max_prop
-		_x_p21_x = p21_x
-		_x_p24_x = p24_x
-		_x_p18_x = p18_x
-		_x_p23_x = p23_x
-		_x_p3_x = p3_x
-		_x_p19_x = p19_x
-		_x_p22_x = p22_x
-		_x_p26_x = p26_x
-		_x_p25_x = p25_x
 		_x_p1_x = p1_x
-		_x_p4_x = p4_x
-		_x_p5_x = p5_x
-		_x_p6_x = p6_x
-		_x_p11_x = p11_x
-		_x_p8_x = p8_x
-		_x_p7_x = p7_x
-		_x_p10_x = p10_x
-		_x_p27_x = p27_x
-		_x_p9_x = p9_x
-		_x_p14_x = p14_x
-		_x_max_prop = proposed0
+		_x_p21_x = p21_x
+		_x_p20_x = p20_x
+		_x_proposed8 = proposed8
+		_x_p23_x = p23_x
+		_x_p24_x = p24_x
+		_x_p19_x = p19_x
+		_x_p0_x = p0_x
+		_x_p22_x = p22_x
+		_x_p25_x = p25_x
+		_x_p2_x = p2_x
+		_x_p26_x = p26_x
+		_x_p16_x = p16_x
+		_x_max_prop = proposed8
 	State 7
 		proposed21 = 7/8
 		proposed11 = 7/8
@@ -267,15 +271,14 @@ F3 run `dynamic_fischer_0028`
 		proposed14 = 7/8
 		p12_saved_max = 5/4
 		proposed27 = 7/8
+		proposed0 = 7/8
 		p5_saved_max = 5/4
 		p25_saved_max = 5/4
-		proposed7 = 7/8
 		proposed17 = 7/8
-		p0_x = 0.0
+		proposed7 = 7/8
 		p15_saved_max = 5/4
 		proposed20 = 7/8
 		proposed10 = 7/8
-		p8_saved_max = 5/4
 		p18_saved_max = 5/4
 		p1_saved_max = 5/4
 		proposed3 = 7/8
@@ -291,10 +294,11 @@ F3 run `dynamic_fischer_0028`
 		p14_saved_max = 5/4
 		p27_saved_max = 5/4
 		proposed9 = 7/8
+		p0_saved_max = 5/4
 		p7_saved_max = 5/4
-		proposed19 = 7/8
 		p17_saved_max = 5/4
 		proposed2 = 7/8
+		proposed19 = 7/8
 		proposed22 = 7/8
 		proposed12 = 7/8
 		p10_saved_max = 5/4
@@ -309,8 +313,8 @@ F3 run `dynamic_fischer_0028`
 		p6_saved_max = 5/4
 		proposed18 = 7/8
 		proposed1 = 7/8
-		proposed8 = 7/8
 		p16_saved_max = 5/4
+		p8_x = 0.0
 		p4_l1 = False
 		p4_l0 = False
 		p24_l1 = False
@@ -318,7 +322,7 @@ F3 run `dynamic_fischer_0028`
 		p14_l1 = False
 		p14_l0 = False
 		turn4 = False
-		turn3 = False
+		turn3 = True
 		p27_l1 = False
 		p27_l0 = False
 		turn2 = False
@@ -331,7 +335,7 @@ F3 run `dynamic_fischer_0028`
 		_J3677 = False
 		turn0 = False
 		_J3671 = False
-		p0_l0 = True
+		p0_l0 = False
 		_EL_U_3644 = True
 		p17_l1 = False
 		id4 = False
@@ -339,7 +343,7 @@ F3 run `dynamic_fischer_0028`
 		p20_l1 = False
 		_EL_U_3649 = True
 		p20_l0 = False
-		id3 = False
+		id3 = True
 		id2 = False
 		_EL_U_3651 = False
 		p10_l1 = False
@@ -377,7 +381,7 @@ F3 run `dynamic_fischer_0028`
 		p15_l1 = False
 		p15_l0 = False
 		p8_l1 = False
-		p8_l0 = False
+		p8_l0 = True
 		p18_l1 = False
 		p18_l0 = False
 		p1_l1 = False
@@ -387,36 +391,36 @@ F3 run `dynamic_fischer_0028`
 		p11_l1 = False
 		p11_l0 = False
 	Trans 7 -- 8
-		_x_p24_x = (p24_x + 1.0)
-		_x_p27_x = (p27_x + 1.0)
-		_x_p2_x = (p2_x + 1.0)
-		_x_proposed0 = proposed0
-		_x_p0_saved_max = p0_saved_max
-		_x_p22_x = (p22_x + 1.0)
-		_x_p6_x = (p6_x + 1.0)
-		_x_p13_x = (p13_x + 1.0)
-		_x_p26_x = (p26_x + 1.0)
-		_x_p10_x = (p10_x + 1.0)
-		_x_p17_x = (p17_x + 1.0)
-		_x_p1_x = (p1_x + 1.0)
 		_x_p14_x = (p14_x + 1.0)
-		_x_p21_x = (p21_x + 1.0)
-		_x_p3_x = (p3_x + 1.0)
-		_x_p8_x = (p8_x + 1.0)
 		_x_p23_x = (p23_x + 1.0)
-		_x_p5_x = (p5_x + 1.0)
-		_x_p12_x = (p12_x + 1.0)
+		_x_p26_x = (p26_x + 1.0)
 		_x_p19_x = (p19_x + 1.0)
+		_x_p3_x = (p3_x + 1.0)
+		_x_p18_x = (p18_x + 1.0)
+		_x_p0_x = (p0_x + 1.0)
 		_x_p11_x = (p11_x + 1.0)
 		_x_p16_x = (p16_x + 1.0)
-		_x_p18_x = (p18_x + 1.0)
-		_x_p7_x = (p7_x + 1.0)
 		_x_p25_x = (p25_x + 1.0)
+		_x_p7_x = (p7_x + 1.0)
+		_x_p12_x = (p12_x + 1.0)
+		_x_p2_x = (p2_x + 1.0)
 		_x_p9_x = (p9_x + 1.0)
 		_x_p20_x = (p20_x + 1.0)
+		_x_p8_saved_max = p8_saved_max
+		_x_p24_x = (p24_x + 1.0)
 		_x_p4_x = (p4_x + 1.0)
 		_x_p15_x = (p15_x + 1.0)
-		_x_max_prop = proposed0
+		_x_proposed8 = proposed8
+		_x_p27_x = (p27_x + 1.0)
+		_x_p13_x = (p13_x + 1.0)
+		_x_p22_x = (p22_x + 1.0)
+		_x_p6_x = (p6_x + 1.0)
+		_x_p17_x = (p17_x + 1.0)
+		_x_p5_x = (p5_x + 1.0)
+		_x_p10_x = (p10_x + 1.0)
+		_x_p21_x = (p21_x + 1.0)
+		_x_p1_x = (p1_x + 1.0)
+		_x_max_prop = proposed8
 	State 8
 		proposed21 = 7/8
 		proposed11 = 7/8
@@ -431,15 +435,14 @@ F3 run `dynamic_fischer_0028`
 		proposed14 = 7/8
 		p12_saved_max = 5/4
 		proposed27 = 7/8
+		proposed0 = 7/8
 		p5_saved_max = 5/4
 		p25_saved_max = 5/4
-		proposed7 = 7/8
 		proposed17 = 7/8
-		p0_x = 1.0
+		proposed7 = 7/8
 		p15_saved_max = 5/4
 		proposed20 = 7/8
 		proposed10 = 7/8
-		p8_saved_max = 5/4
 		p18_saved_max = 5/4
 		p1_saved_max = 5/4
 		proposed3 = 7/8
@@ -455,10 +458,11 @@ F3 run `dynamic_fischer_0028`
 		p14_saved_max = 5/4
 		p27_saved_max = 5/4
 		proposed9 = 7/8
+		p0_saved_max = 5/4
 		p7_saved_max = 5/4
-		proposed19 = 7/8
 		p17_saved_max = 5/4
 		proposed2 = 7/8
+		proposed19 = 7/8
 		proposed22 = 7/8
 		proposed12 = 7/8
 		p10_saved_max = 5/4
@@ -473,8 +477,8 @@ F3 run `dynamic_fischer_0028`
 		p6_saved_max = 5/4
 		proposed18 = 7/8
 		proposed1 = 7/8
-		proposed8 = 7/8
 		p16_saved_max = 5/4
+		p8_x = 1.0
 		p4_l1 = False
 		p4_l0 = False
 		p24_l1 = False
@@ -482,7 +486,7 @@ F3 run `dynamic_fischer_0028`
 		p14_l1 = False
 		p14_l0 = False
 		turn4 = False
-		turn3 = False
+		turn3 = True
 		p27_l1 = False
 		p27_l0 = False
 		turn2 = False
@@ -495,7 +499,7 @@ F3 run `dynamic_fischer_0028`
 		_J3677 = True
 		turn0 = False
 		_J3671 = False
-		p0_l0 = True
+		p0_l0 = False
 		_EL_U_3644 = True
 		p17_l1 = False
 		id4 = False
@@ -503,7 +507,7 @@ F3 run `dynamic_fischer_0028`
 		p20_l1 = False
 		_EL_U_3649 = True
 		p20_l0 = False
-		id3 = False
+		id3 = True
 		id2 = False
 		_EL_U_3651 = False
 		p10_l1 = False
@@ -541,7 +545,7 @@ F3 run `dynamic_fischer_0028`
 		p15_l1 = False
 		p15_l0 = False
 		p8_l1 = False
-		p8_l0 = False
+		p8_l0 = True
 		p18_l1 = False
 		p18_l0 = False
 		p1_l1 = False
@@ -551,36 +555,36 @@ F3 run `dynamic_fischer_0028`
 		p11_l1 = False
 		p11_l0 = False
 	Trans 8 -- 9
+		_x_p3_x = p3_x
+		_x_p4_x = p4_x
+		_x_p11_x = p11_x
+		_x_p27_x = p27_x
+		_x_p8_saved_max = max_prop
+		_x_p7_x = p7_x
+		_x_p6_x = p6_x
+		_x_p9_x = p9_x
+		_x_p10_x = p10_x
+		_x_p14_x = p14_x
+		_x_p5_x = p5_x
 		_x_p15_x = p15_x
-		_x_proposed0 = proposed0
+		_x_p18_x = p18_x
 		_x_p13_x = p13_x
-		_x_p16_x = p16_x
 		_x_p17_x = p17_x
 		_x_p12_x = p12_x
-		_x_p2_x = p2_x
-		_x_p20_x = p20_x
-		_x_p0_saved_max = max_prop
-		_x_p21_x = p21_x
-		_x_p24_x = p24_x
-		_x_p18_x = p18_x
-		_x_p23_x = p23_x
-		_x_p3_x = p3_x
-		_x_p19_x = p19_x
-		_x_p22_x = p22_x
-		_x_p26_x = p26_x
-		_x_p25_x = p25_x
 		_x_p1_x = p1_x
-		_x_p4_x = p4_x
-		_x_p5_x = p5_x
-		_x_p6_x = p6_x
-		_x_p11_x = p11_x
-		_x_p8_x = p8_x
-		_x_p7_x = p7_x
-		_x_p10_x = p10_x
-		_x_p27_x = p27_x
-		_x_p9_x = p9_x
-		_x_p14_x = p14_x
-		_x_max_prop = proposed0
+		_x_p21_x = p21_x
+		_x_p20_x = p20_x
+		_x_proposed8 = proposed8
+		_x_p23_x = p23_x
+		_x_p24_x = p24_x
+		_x_p19_x = p19_x
+		_x_p0_x = p0_x
+		_x_p22_x = p22_x
+		_x_p25_x = p25_x
+		_x_p2_x = p2_x
+		_x_p26_x = p26_x
+		_x_p16_x = p16_x
+		_x_max_prop = proposed8
 	State 9
 		proposed21 = 7/8
 		proposed11 = 7/8
@@ -595,15 +599,14 @@ F3 run `dynamic_fischer_0028`
 		proposed14 = 7/8
 		p12_saved_max = 5/4
 		proposed27 = 7/8
+		proposed0 = 7/8
 		p5_saved_max = 5/4
 		p25_saved_max = 5/4
-		proposed7 = 7/8
 		proposed17 = 7/8
-		p0_x = 1.0
+		proposed7 = 7/8
 		p15_saved_max = 5/4
 		proposed20 = 7/8
 		proposed10 = 7/8
-		p8_saved_max = 5/4
 		p18_saved_max = 5/4
 		p1_saved_max = 5/4
 		proposed3 = 7/8
@@ -619,10 +622,11 @@ F3 run `dynamic_fischer_0028`
 		p14_saved_max = 5/4
 		p27_saved_max = 5/4
 		proposed9 = 7/8
+		p0_saved_max = 5/4
 		p7_saved_max = 5/4
-		proposed19 = 7/8
 		p17_saved_max = 5/4
 		proposed2 = 7/8
+		proposed19 = 7/8
 		proposed22 = 7/8
 		proposed12 = 7/8
 		p10_saved_max = 5/4
@@ -637,8 +641,8 @@ F3 run `dynamic_fischer_0028`
 		p6_saved_max = 5/4
 		proposed18 = 7/8
 		proposed1 = 7/8
-		proposed8 = 7/8
 		p16_saved_max = 5/4
+		p8_x = 1.0
 		p4_l1 = False
 		p4_l0 = False
 		p24_l1 = False
@@ -646,11 +650,11 @@ F3 run `dynamic_fischer_0028`
 		p14_l1 = False
 		p14_l0 = False
 		turn4 = False
-		turn3 = False
+		turn3 = True
 		p27_l1 = False
 		p27_l0 = False
 		turn2 = False
-		p0_l1 = True
+		p0_l1 = False
 		p7_l1 = False
 		p7_l0 = False
 		_J3689 = True
@@ -659,7 +663,7 @@ F3 run `dynamic_fischer_0028`
 		_J3677 = True
 		turn0 = False
 		_J3671 = False
-		p0_l0 = True
+		p0_l0 = False
 		_EL_U_3644 = True
 		p17_l1 = False
 		id4 = False
@@ -667,7 +671,7 @@ F3 run `dynamic_fischer_0028`
 		p20_l1 = False
 		_EL_U_3649 = True
 		p20_l0 = False
-		id3 = False
+		id3 = True
 		id2 = False
 		_EL_U_3651 = False
 		p10_l1 = False
@@ -704,8 +708,8 @@ F3 run `dynamic_fischer_0028`
 		p5_l0 = False
 		p15_l1 = False
 		p15_l0 = False
-		p8_l1 = False
-		p8_l0 = False
+		p8_l1 = True
+		p8_l0 = True
 		p18_l1 = False
 		p18_l0 = False
 		p1_l1 = False
@@ -715,36 +719,36 @@ F3 run `dynamic_fischer_0028`
 		p11_l1 = False
 		p11_l0 = False
 	Trans 9 -- 10
-		_x_p15_x = p15_x
-		_x_p12_x = p12_x
-		_x_p13_x = p13_x
-		_x_p16_x = p16_x
-		_x_p17_x = p17_x
-		_x_p2_x = p2_x
-		_x_p20_x = p20_x
-		_x_p0_saved_max = max_prop
-		_x_p21_x = p21_x
-		_x_p24_x = p24_x
-		_x_p18_x = p18_x
-		_x_p23_x = p23_x
 		_x_p3_x = p3_x
-		_x_p19_x = p19_x
-		_x_p22_x = p22_x
-		_x_p26_x = p26_x
-		_x_p25_x = p25_x
-		_x_p1_x = p1_x
 		_x_p4_x = p4_x
-		_x_p5_x = p5_x
-		_x_p6_x = p6_x
 		_x_p11_x = p11_x
-		_x_p8_x = p8_x
-		_x_p7_x = p7_x
-		_x_p10_x = p10_x
 		_x_p27_x = p27_x
+		_x_p8_saved_max = max_prop
+		_x_p7_x = p7_x
+		_x_p6_x = p6_x
 		_x_p9_x = p9_x
+		_x_p10_x = p10_x
 		_x_p14_x = p14_x
-		_x_max_prop = ((p0_saved_max + 21/32) - ((max_prop * 1/2) + (proposed0 * 1/4)))
-		_x_proposed0 = ((-1.0 * max_prop) + (proposed0 * 1/4) + p0_saved_max + 21/32)
+		_x_p5_x = p5_x
+		_x_p15_x = p15_x
+		_x_p18_x = p18_x
+		_x_p13_x = p13_x
+		_x_p17_x = p17_x
+		_x_p12_x = p12_x
+		_x_p1_x = p1_x
+		_x_p21_x = p21_x
+		_x_p20_x = p20_x
+		_x_p23_x = p23_x
+		_x_p24_x = p24_x
+		_x_p19_x = p19_x
+		_x_p0_x = p0_x
+		_x_p22_x = p22_x
+		_x_p25_x = p25_x
+		_x_p2_x = p2_x
+		_x_p26_x = p26_x
+		_x_p16_x = p16_x
+		_x_max_prop = _x_proposed8
+		_x_proposed8 = ((max_prop + 21/64) - ((p8_saved_max * 1/8) + (proposed8 * 1/4)))
 	State 10
 		proposed21 = 7/8
 		proposed11 = 7/8
@@ -759,15 +763,14 @@ F3 run `dynamic_fischer_0028`
 		proposed14 = 7/8
 		p12_saved_max = 5/4
 		proposed27 = 7/8
+		proposed0 = 7/8
 		p5_saved_max = 5/4
 		p25_saved_max = 5/4
-		proposed7 = 7/8
 		proposed17 = 7/8
-		p0_x = 1.0
+		proposed7 = 7/8
 		p15_saved_max = 5/4
 		proposed20 = 7/8
 		proposed10 = 7/8
-		p8_saved_max = 5/4
 		p18_saved_max = 5/4
 		p1_saved_max = 5/4
 		proposed3 = 7/8
@@ -783,10 +786,11 @@ F3 run `dynamic_fischer_0028`
 		p14_saved_max = 5/4
 		p27_saved_max = 5/4
 		proposed9 = 7/8
+		p0_saved_max = 5/4
 		p7_saved_max = 5/4
-		proposed19 = 7/8
 		p17_saved_max = 5/4
 		proposed2 = 7/8
+		proposed19 = 7/8
 		proposed22 = 7/8
 		proposed12 = 7/8
 		p10_saved_max = 5/4
@@ -801,8 +805,8 @@ F3 run `dynamic_fischer_0028`
 		p6_saved_max = 5/4
 		proposed18 = 7/8
 		proposed1 = 7/8
-		proposed8 = 7/8
 		p16_saved_max = 5/4
+		p8_x = 1.0
 		p4_l1 = False
 		p4_l0 = False
 		p24_l1 = False
@@ -810,7 +814,7 @@ F3 run `dynamic_fischer_0028`
 		p14_l1 = False
 		p14_l0 = False
 		turn4 = False
-		turn3 = False
+		turn3 = True
 		p27_l1 = False
 		p27_l0 = False
 		turn2 = False
@@ -878,43 +882,42 @@ F3 run `dynamic_fischer_0028`
 		p21_l0 = False
 		p11_l1 = False
 		p11_l0 = False
-		((-1.0 * max_prop) <= -7/8)
-		(((-1.0 * max_prop) + proposed0) = 0.0)
-		((-1.0 * proposed0) <= -7/8)
-		((-1.0 * proposed0) < -7/8)
-		((-1.0 * proposed0) <= 0.0)
-		(proposed0 < 5/4)
+		((-1.0 * proposed8) <= -7/8)
+		((-1.0 * proposed8) <= 0.0)
+		(((-1.0 * max_prop) + proposed8) = 0.0)
+		(proposed8 < 5/4)
+		((-1.0 * proposed8) < -7/8)
 	Trans 10 -- 11
+		_x_p3_x = p3_x
+		_x_p4_x = p4_x
+		_x_p11_x = p11_x
+		_x_p27_x = p27_x
+		_x_p8_saved_max = max_prop
+		_x_p7_x = p7_x
+		_x_p6_x = p6_x
+		_x_p9_x = p9_x
+		_x_p10_x = p10_x
+		_x_p14_x = p14_x
+		_x_p5_x = p5_x
 		_x_p15_x = p15_x
-		_x_proposed0 = proposed0
+		_x_p18_x = p18_x
 		_x_p13_x = p13_x
-		_x_p16_x = p16_x
 		_x_p17_x = p17_x
 		_x_p12_x = p12_x
-		_x_p2_x = p2_x
-		_x_p20_x = p20_x
-		_x_p0_saved_max = max_prop
-		_x_p21_x = p21_x
-		_x_p24_x = p24_x
-		_x_p18_x = p18_x
-		_x_p23_x = p23_x
-		_x_p3_x = p3_x
-		_x_p19_x = p19_x
-		_x_p22_x = p22_x
-		_x_p26_x = p26_x
-		_x_p25_x = p25_x
 		_x_p1_x = p1_x
-		_x_p4_x = p4_x
-		_x_p5_x = p5_x
-		_x_p6_x = p6_x
-		_x_p11_x = p11_x
-		_x_p8_x = p8_x
-		_x_p7_x = p7_x
-		_x_p10_x = p10_x
-		_x_p27_x = p27_x
-		_x_p9_x = p9_x
-		_x_p14_x = p14_x
-		_x_max_prop = proposed0
-	starting from: p24_l1 : False, p24_l0 : False, _diverge_delta : 0.0, delta : 0.0, proposed24 : 7/8, p24_x : 55/4, p12_saved_max : 5/4, p7_l1 : False, p7_l0 : False, max_prop : 9/8, _J3683 : True, _J3689 : True, _J3677 : True, proposed7 : 7/8, _J3671 : True, _EL_U_3644 : True, p7_x : 55/4, _EL_U_3646 : False, _EL_U_3649 : True, _EL_U_3651 : False, p18_saved_max : 5/4, p1_saved_max : 5/4, p13_l1 : False, p13_l0 : False, proposed13 : 7/8, p13_x : 55/4, p24_saved_max : 5/4, p19_l1 : False, p19_l0 : False, p2_l1 : False, proposed19 : 7/8, p2_l0 : False, p7_saved_max : 5/4, proposed2 : 7/8, p19_x : 55/4, p2_x : 55/4, p25_l1 : False, p25_l0 : False, proposed25 : 7/8, p25_x : 55/4, p13_saved_max : 5/4, p8_l1 : False, p8_l0 : False, proposed8 : 7/8, p8_x : 55/4, p19_saved_max : 5/4, p2_saved_max : 5/4, p14_l1 : False, p14_l0 : False, turn4 : False, proposed14 : 7/8, turn3 : False, turn2 : False, p14_x : 55/4, turn1 : False, p25_saved_max : 5/4, turn0 : False, id4 : True, p20_l1 : False, p20_l0 : False, id3 : True, id2 : True, proposed20 : 7/8, p8_saved_max : 5/4, p3_l1 : False, p3_l0 : False, p20_x : 55/4, id0 : False, proposed3 : 7/8, id1 : False, p3_x : 55/4, p26_l1 : False, p26_l0 : False, proposed26 : 7/8, p26_x : 55/4, p14_saved_max : 5/4, p9_l1 : False, p9_l0 : False, proposed9 : 7/8, p9_x : 55/4, p20_saved_max : 5/4, p3_saved_max : 5/4, p15_l1 : False, p15_l0 : False, proposed15 : 7/8, p15_x : 55/4, p26_saved_max : 5/4, p21_l1 : False, p21_l0 : False, proposed21 : 7/8, p9_saved_max : 5/4, p4_l1 : False, p21_x : 55/4, p4_l0 : False, proposed4 : 7/8, p4_x : 55/4, p27_l1 : False, p27_l0 : False, proposed27 : 7/8, p27_x : 55/4, p15_saved_max : 5/4, p10_l1 : False, p10_l0 : False, proposed10 : 7/8, p10_x : 55/4, p21_saved_max : 5/4, p16_l1 : False, p16_l0 : False, p4_saved_max : 5/4, proposed16 : 7/8, p16_x : 55/4, p27_saved_max : 5/4, p22_l1 : False, p22_l0 : False, proposed22 : 7/8, p10_saved_max : 5/4, p22_x : 55/4, p5_l1 : False, p5_l0 : False, proposed5 : 7/8, p5_x : 55/4, p16_saved_max : 5/4, p11_l1 : False, p11_l0 : False, proposed11 : 7/8, p11_x : 55/4, p22_saved_max : 5/4, p0_l1 : True, p0_l0 : False, p17_l1 : False, p17_l0 : False, p5_saved_max : 5/4, proposed0 : 9/8, proposed17 : 7/8, p0_x : 0.0, p17_x : 55/4, p23_l1 : False, p23_l0 : False, proposed23 : 7/8, p23_x : 55/4, p11_saved_max : 5/4, p6_l1 : False, p6_l0 : False, inc_max_prop : True, proposed6 : 7/8, p6_x : 55/4, p0_saved_max : 9/8, p17_saved_max : 5/4, p12_l1 : False, p12_l0 : False, proposed12 : 7/8, p12_x : 55/4, p23_saved_max : 5/4, p18_l1 : False, p18_l0 : False, p1_l1 : False, p1_l0 : False, p6_saved_max : 5/4, proposed18 : 7/8, proposed1 : 7/8, p18_x : 55/4, p1_x : 55/4
+		_x_p21_x = p21_x
+		_x_p20_x = p20_x
+		_x_proposed8 = proposed8
+		_x_p23_x = p23_x
+		_x_p24_x = p24_x
+		_x_p19_x = p19_x
+		_x_p0_x = p0_x
+		_x_p22_x = p22_x
+		_x_p25_x = p25_x
+		_x_p2_x = p2_x
+		_x_p26_x = p26_x
+		_x_p16_x = p16_x
+		_x_max_prop = proposed8
+	starting from: p24_l1 : False, p24_l0 : False, _diverge_delta : 0.0, delta : 0.0, proposed24 : 7/8, p24_x : 115/16, p12_saved_max : 5/4, p7_l1 : False, p7_l0 : False, max_prop : 9/8, _J3683 : True, _J3689 : True, _J3677 : True, proposed7 : 7/8, _J3671 : True, _EL_U_3644 : True, p7_x : 115/16, _EL_U_3646 : False, _EL_U_3649 : True, _EL_U_3651 : False, p18_saved_max : 5/4, p1_saved_max : 5/4, p13_l1 : False, p13_l0 : False, proposed13 : 7/8, p13_x : 115/16, p24_saved_max : 5/4, p19_l1 : False, p19_l0 : False, p2_l1 : False, proposed19 : 7/8, p2_l0 : False, p7_saved_max : 5/4, proposed2 : 7/8, p19_x : 115/16, p2_x : 115/16, p25_l1 : False, p25_l0 : False, proposed25 : 7/8, p25_x : 115/16, p13_saved_max : 5/4, p8_l1 : True, p8_l0 : False, proposed8 : 9/8, p8_x : 0.0, p19_saved_max : 5/4, p2_saved_max : 5/4, p14_l1 : False, p14_l0 : False, turn4 : False, proposed14 : 7/8, turn3 : True, turn2 : False, p14_x : 115/16, turn1 : False, p25_saved_max : 5/4, turn0 : False, id4 : True, p20_l1 : False, p20_l0 : False, id3 : True, id2 : True, proposed20 : 7/8, p8_saved_max : 9/8, p3_l1 : False, p3_l0 : False, p20_x : 115/16, id0 : False, proposed3 : 7/8, id1 : False, p3_x : 115/16, p26_l1 : False, p26_l0 : False, proposed26 : 7/8, p26_x : 115/16, p14_saved_max : 5/4, p9_l1 : False, p9_l0 : False, proposed9 : 7/8, p9_x : 115/16, p20_saved_max : 5/4, p3_saved_max : 5/4, p15_l1 : False, p15_l0 : False, proposed15 : 7/8, p15_x : 115/16, p26_saved_max : 5/4, p21_l1 : False, p21_l0 : False, proposed21 : 7/8, p9_saved_max : 5/4, p4_l1 : False, p21_x : 115/16, p4_l0 : False, proposed4 : 7/8, p4_x : 115/16, p27_l1 : False, p27_l0 : False, proposed27 : 7/8, p27_x : 115/16, p15_saved_max : 5/4, p10_l1 : False, p10_l0 : False, proposed10 : 7/8, p10_x : 115/16, p21_saved_max : 5/4, p16_l1 : False, p16_l0 : False, p4_saved_max : 5/4, proposed16 : 7/8, p16_x : 115/16, p27_saved_max : 5/4, p22_l1 : False, p22_l0 : False, proposed22 : 7/8, p10_saved_max : 5/4, p22_x : 115/16, p5_l1 : False, p5_l0 : False, proposed5 : 7/8, p5_x : 115/16, p16_saved_max : 5/4, p11_l1 : False, p11_l0 : False, proposed11 : 7/8, p11_x : 115/16, p22_saved_max : 5/4, p0_l1 : False, p0_l0 : False, p17_l1 : False, p17_l0 : False, p5_saved_max : 5/4, proposed0 : 7/8, proposed17 : 7/8, p0_x : 115/16, p17_x : 115/16, p23_l1 : False, p23_l0 : False, proposed23 : 7/8, p23_x : 115/16, p11_saved_max : 5/4, p6_l1 : False, p6_l0 : False, inc_max_prop : True, proposed6 : 7/8, p6_x : 115/16, p0_saved_max : 5/4, p17_saved_max : 5/4, p12_l1 : False, p12_l0 : False, proposed12 : 7/8, p12_x : 115/16, p23_saved_max : 5/4, p18_l1 : False, p18_l0 : False, p1_l1 : False, p1_l0 : False, p6_saved_max : 5/4, proposed18 : 7/8, proposed1 : 7/8, p18_x : 115/16, p1_x : 115/16
 
-end of `dynamic_fischer_0028`: SUCCESS in 3576.526634454727s
+end of `dynamic_fischer_0028`: SUCCESS in 3233.687896966934s

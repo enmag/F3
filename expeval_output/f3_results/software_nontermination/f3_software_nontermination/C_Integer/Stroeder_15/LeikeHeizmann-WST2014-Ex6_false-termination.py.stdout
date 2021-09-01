@@ -16,8 +16,8 @@ F3 run `LeikeHeizmann-WST2014-Ex6_false-termination`
 	State 1
 		pc = 1
 	Trans 1 -- 2
-		_x_a : (a * 2)	
 		_x_b : b	
+		_x_a : (a * 2)	
 	State 2
 		pc = 2
 	Trans 2 -- 0
@@ -28,12 +28,12 @@ F3 run `LeikeHeizmann-WST2014-Ex6_false-termination`
 		pc = 2
 		((-1 * a) <= -1)
 		((a * -2) <= -1)
-		((b * -3) <= -1)
-		((b * -9) <= -1)
 		True
+		((b * -9) <= -1)
+		((b * -3) <= -1)
 	Trans 2 -- 3
 		_x_b = (b * 3)
 		_x_a = a
 	starting from: pc : 0, a : 1, b : 1
 
-end of `LeikeHeizmann-WST2014-Ex6_false-termination`: SUCCESS in 2.8199164867401123s
+end of `LeikeHeizmann-WST2014-Ex6_false-termination`: SUCCESS in 3.582371473312378s

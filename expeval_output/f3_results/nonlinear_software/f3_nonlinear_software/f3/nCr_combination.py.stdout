@@ -76,4 +76,4 @@ F3 run `nCr_combination`
 		_x_dmul = dmul
 	starting from: den : 0, dmul : -1, nCr : 1, n_num : 1, nmul : -1, num : 0, pc : 18, r_num : 0
 
-end of `nCr_combination`: SUCCESS in 59.86023139953613s
+end of `nCr_combination`: SUCCESS in 35.632747411727905s

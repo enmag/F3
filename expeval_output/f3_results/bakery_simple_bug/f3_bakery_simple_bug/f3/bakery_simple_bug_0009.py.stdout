@@ -195,4 +195,4 @@ F3 run `bakery_simple_bug_0009`
 		_x_min_num = (max_num + 1)
 	starting from: _J999 : True, _J990 : True, _J984 : True, _J979 : True, _J973 : True, _EL_U_942 : True, _EL_U_943 : True, _EL_U_946 : False, _EL_U_948 : False, _EL_U_950 : True, p6_l1 : False, p6_l0 : False, p0_l1 : False, p8_l1 : False, p8_l0 : False, p2_l1 : False, run0 : False, p2_l0 : False, p4_l1 : False, num8 : 0, p4_l0 : False, num6 : 0, num4 : 0, run2 : False, run3 : False, num2 : 0, num0 : 2, p0_l0 : True, run1 : False, min_num : 2, max_num : 2, p5_l1 : False, p7_l1 : False, p3_l1 : False, p3_l0 : False, p7_l0 : False, p5_l0 : False, num5 : 0, p1_l1 : False, p1_l0 : False, num3 : 0, num7 : 0, num1 : 0
 
-end of `bakery_simple_bug_0009`: SUCCESS in 105.67178177833557s
+end of `bakery_simple_bug_0009`: SUCCESS in 106.32052373886108s

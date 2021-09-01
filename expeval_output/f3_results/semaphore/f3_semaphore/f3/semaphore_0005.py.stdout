@@ -2,7 +2,7 @@ F3 run `semaphore_0005`
 
 	Found non-termination argument:
 	State 5
-		run = -1
+		run = 5
 		sm4_loop_len = 1
 		sm3_loop_len = 1
 		sm2_loop_len = 1
@@ -39,32 +39,29 @@ F3 run `semaphore_0005`
 		_EL_U_357 = False
 		sm2_state = True
 		(sm4_l < 0)
-		(sm2_l < 0)
-		(sm2_l < 6)
-		(sm1_l < 6)
-		(sm0_l < 7)
-		(sm4_l < 6)
-		(sm0_l < 12)
-		(sm0_l < 13)
-		(sm4_l < 12)
-		(sm3_l < 12)
-		(sm0_l < 0)
-		(sm2_l < 12)
-		(sm1_l < 12)
-		(sm0_l < 1)
-		(sm0_l < 6)
-		(sm1_l < 0)
-		(sm3_l < 0)
 		(sm3_l < 6)
+		(sm1_l < 6)
+		(sm4_l < 12)
+		(sm2_l < 6)
+		(sm3_l < 12)
+		(sm0_l < 6)
+		(sm1_l < 12)
+		(sm2_l < 12)
+		(sm0_l < 12)
+		(sm2_l < 0)
+		(sm4_l < 6)
+		(sm0_l < 0)
+		(sm3_l < 0)
+		(sm1_l < 0)
 		((sm4_l + 2) <= 0)
 	Trans 5 -- 6
 		_x_sm3_l = (sm3_l + -1)
 		_x_sm4_l = (sm4_l + -1)
-		_x_sm1_l = (sm1_l + -1)
-		_x_sm0_l = (sm0_l + -1)
 		_x_sm2_l = (sm2_l + -1)
+		_x_sm0_l = (sm0_l + -1)
+		_x_sm1_l = (sm1_l + -1)
 	State 6
-		run = 0
+		run = 4
 		sm4_loop_len = 1
 		sm3_loop_len = 1
 		sm2_loop_len = 1
@@ -103,11 +100,11 @@ F3 run `semaphore_0005`
 	Trans 6 -- 7
 		_x_sm3_l = (sm3_l + -1)
 		_x_sm4_l = (sm4_l + -1)
-		_x_sm1_l = (sm1_l + -1)
-		_x_sm0_l = (sm0_l + -1)
 		_x_sm2_l = (sm2_l + -1)
+		_x_sm0_l = (sm0_l + -1)
+		_x_sm1_l = (sm1_l + -1)
 	State 7
-		run = 3
+		run = 0
 		sm4_loop_len = 1
 		sm3_loop_len = 1
 		sm2_loop_len = 1
@@ -117,7 +114,7 @@ F3 run `semaphore_0005`
 		sm4_state = True
 		sm1_state = True
 		_J470 = True
-		_J464 = False
+		_J464 = True
 		_J457 = True
 		_J451 = False
 		_J444 = True
@@ -125,7 +122,7 @@ F3 run `semaphore_0005`
 		_J431 = True
 		_J425 = False
 		_J419 = True
-		_J413 = True
+		_J413 = False
 		_J407 = True
 		_J401 = True
 		_EL_U_330 = True
@@ -146,9 +143,9 @@ F3 run `semaphore_0005`
 	Trans 7 -- 8
 		_x_sm3_l = (sm3_l + -1)
 		_x_sm4_l = (sm4_l + -1)
-		_x_sm1_l = (sm1_l + -1)
-		_x_sm0_l = (sm0_l + -1)
 		_x_sm2_l = (sm2_l + -1)
+		_x_sm0_l = (sm0_l + -1)
+		_x_sm1_l = (sm1_l + -1)
 	State 8
 		run = 1
 		sm4_loop_len = 1
@@ -160,9 +157,9 @@ F3 run `semaphore_0005`
 		sm4_state = True
 		sm1_state = True
 		_J470 = True
-		_J464 = False
+		_J464 = True
 		_J457 = True
-		_J451 = True
+		_J451 = False
 		_J444 = True
 		_J438 = False
 		_J431 = True
@@ -189,11 +186,11 @@ F3 run `semaphore_0005`
 	Trans 8 -- 9
 		_x_sm3_l = (sm3_l + -1)
 		_x_sm4_l = (sm4_l + -1)
-		_x_sm1_l = (sm1_l + -1)
-		_x_sm0_l = (sm0_l + -1)
 		_x_sm2_l = (sm2_l + -1)
+		_x_sm0_l = (sm0_l + -1)
+		_x_sm1_l = (sm1_l + -1)
 	State 9
-		run = 2
+		run = 3
 		sm4_loop_len = 1
 		sm3_loop_len = 1
 		sm2_loop_len = 1
@@ -203,9 +200,9 @@ F3 run `semaphore_0005`
 		sm4_state = True
 		sm1_state = True
 		_J470 = True
-		_J464 = False
+		_J464 = True
 		_J457 = True
-		_J451 = True
+		_J451 = False
 		_J444 = True
 		_J438 = False
 		_J431 = True
@@ -232,11 +229,11 @@ F3 run `semaphore_0005`
 	Trans 9 -- 10
 		_x_sm3_l = (sm3_l + -1)
 		_x_sm4_l = (sm4_l + -1)
-		_x_sm1_l = (sm1_l + -1)
-		_x_sm0_l = (sm0_l + -1)
 		_x_sm2_l = (sm2_l + -1)
+		_x_sm0_l = (sm0_l + -1)
+		_x_sm1_l = (sm1_l + -1)
 	State 10
-		run = 4
+		run = 2
 		sm4_loop_len = 1
 		sm3_loop_len = 1
 		sm2_loop_len = 1
@@ -246,11 +243,11 @@ F3 run `semaphore_0005`
 		sm4_state = True
 		sm1_state = True
 		_J470 = True
-		_J464 = False
+		_J464 = True
 		_J457 = True
 		_J451 = True
 		_J444 = True
-		_J438 = True
+		_J438 = False
 		_J431 = True
 		_J425 = True
 		_J419 = True
@@ -275,9 +272,9 @@ F3 run `semaphore_0005`
 	Trans 10 -- 11
 		_x_sm3_l = (sm3_l + -1)
 		_x_sm4_l = (sm4_l + -1)
-		_x_sm1_l = (sm1_l + -1)
-		_x_sm0_l = (sm0_l + -1)
 		_x_sm2_l = (sm2_l + -1)
-	starting from: sm4_state : True, run : -1, sm2_l : -5, sm2_loop_len : 1, semaphore : 0, sm4_l : -5, sm4_loop_len : 1, sm1_state : True, _J470 : True, _J464 : True, _J457 : True, _J451 : True, _J444 : True, _J438 : True, _J431 : True, _J425 : True, _J419 : True, sm1_l : -5, sm1_loop_len : 1, _J413 : True, _J407 : True, _J401 : True, _EL_U_330 : True, sm3_state : True, _EL_U_332 : False, _EL_U_334 : True, _EL_U_336 : False, _EL_U_338 : True, _EL_U_340 : False, _EL_U_342 : True, _EL_U_344 : False, sm3_l : -5, sm0_state : True, sm3_loop_len : 1, _EL_U_346 : True, _EL_U_348 : False, _EL_U_355 : True, _EL_U_357 : False, sm0_l : -5, sm0_loop_len : 1, sm2_state : True
+		_x_sm0_l = (sm0_l + -1)
+		_x_sm1_l = (sm1_l + -1)
+	starting from: sm4_state : True, run : 5, sm2_l : -5, sm2_loop_len : 1, semaphore : 0, sm4_l : -5, sm4_loop_len : 1, sm1_state : True, _J470 : True, _J464 : True, _J457 : True, _J451 : True, _J444 : True, _J438 : True, _J431 : True, _J425 : True, _J419 : True, sm1_l : -5, sm1_loop_len : 1, _J413 : True, _J407 : True, _J401 : True, _EL_U_330 : True, sm3_state : True, _EL_U_332 : False, _EL_U_334 : True, _EL_U_336 : False, _EL_U_338 : True, _EL_U_340 : False, _EL_U_342 : True, _EL_U_344 : False, sm3_l : -5, sm0_state : True, sm3_loop_len : 1, _EL_U_346 : True, _EL_U_348 : False, _EL_U_355 : True, _EL_U_357 : False, sm0_l : -5, sm0_loop_len : 1, sm2_state : True
 
-end of `semaphore_0005`: SUCCESS in 6.601384162902832s
+end of `semaphore_0005`: SUCCESS in 7.572633981704712s

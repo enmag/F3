@@ -1,3 +1,45 @@
-real 601.08
-user 598.63
-sys 2.14
+Traceback (most recent call last):
+  File "/home/F3/src/run_f3.py", line 467, in <module>
+    main(config_args().parse_args())
+  File "/home/F3/src/run_f3.py", line 463, in main
+    run_f3(bench, out_dir)
+  File "/home/F3/src/run_f3.py", line 277, in run_f3
+    res = solve_problem(prob, label, out_dir)
+  File "/home/F3/src/run_f3.py", line 268, in solve_problem
+    return run_ltl_test(problem, env, label, out_dir)
+  File "/home/F3/src/run_f3.py", line 127, in run_ltl_test
+    return search_nonterm(env, symbols, init, trans, fairness,
+  File "/home/F3/src/run_f3.py", line 184, in search_nonterm
+    _, arg0, arg1 = search_funnel_bmc(env, symbols, init, trans,
+  File "/home/F3/src/main.py", line 260, in search_funnel_bmc
+    is_rf, args = rf_or_funnel_from_trace(env, symbols, trace, abst_path,
+  File "/home/F3/src/main.py", line 714, in rf_or_funnel_from_trace
+    model = instantiate_funnel_template(nontermarg)
+  File "/home/F3/src/main.py", line 775, in instantiate_funnel_template
+    model, learn = funnel_t.ef_instantiate()
+  File "/home/F3/src/funnel.py", line 659, in ef_instantiate
+    res, c_learn = efsolve(self.env, self.parameters, symbs,
+  File "/home/F3/src/efsolver.py", line 159, in efsolve
+    fsolver.add_assertion(mgr.Not(simplify(substitute(phi, x1_model))))
+  File "/usr/local/lib/python3.8/dist-packages/PySMT-0.9.1.dev332-py3.8.egg/pysmt/simplifier.py", line 59, in simplify
+    return self.walk(formula)
+  File "/usr/local/lib/python3.8/dist-packages/PySMT-0.9.1.dev332-py3.8.egg/pysmt/walkers/dag.py", line 106, in walk
+    res = self.iter_walk(formula, **kwargs)
+  File "/usr/local/lib/python3.8/dist-packages/PySMT-0.9.1.dev332-py3.8.egg/pysmt/walkers/dag.py", line 98, in iter_walk
+    self._process_stack(**kwargs)
+  File "/usr/local/lib/python3.8/dist-packages/PySMT-0.9.1.dev332-py3.8.egg/pysmt/walkers/dag.py", line 91, in _process_stack
+    self._compute_node_result(formula, **kwargs)
+  File "/usr/local/lib/python3.8/dist-packages/PySMT-0.9.1.dev332-py3.8.egg/pysmt/walkers/dag.py", line 75, in _compute_node_result
+    self.memoization[key] = f(formula, args=args, **kwargs)
+  File "/usr/local/lib/python3.8/dist-packages/PySMT-0.9.1.dev332-py3.8.egg/pysmt/simplifier.py", line 330, in walk_plus
+    const = self.manager.Real(constant_add)
+  File "/usr/local/lib/python3.8/dist-packages/PySMT-0.9.1.dev332-py3.8.egg/pysmt/formula.py", line 357, in Real
+    n = self.create_node(node_type=op.REAL_CONSTANT,
+  File "/usr/local/lib/python3.8/dist-packages/PySMT-0.9.1.dev332-py3.8.egg/pysmt/formula.py", line 96, in create_node
+    self.formulae[content] = n
+  File "/usr/lib/python3.8/fractions.py", line 570, in __hash__
+    dinv = pow(self._denominator, _PyHASH_MODULUS - 2, _PyHASH_MODULUS)
+KeyboardInterrupt
+real 3602.17
+user 0.00
+sys 0.00

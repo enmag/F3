@@ -41,4 +41,4 @@ F3 run `airbag_2`
 		_x_link_out_counter = sensor_counter
 	starting from: link_out_message : 1, o_collision : True, link_valid_crc : True, link_new_data_available : True, fault_deletion : True, _J133 : True, link_out_counter : 0, _J127 : True, fault_corruption : True, _J121 : True, _EL_U_96 : True, sensor_counter : 1, sensor_message : 0, _EL_U_98 : False, _EL_U_101 : False, o_valid_explode : True, device_exploded : True
 
-end of `airbag_2`: SUCCESS in 3.1719353199005127s
+end of `airbag_2`: SUCCESS in 3.8810133934020996s

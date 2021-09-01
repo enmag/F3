@@ -2,21 +2,21 @@ F3 run `dynamic_lynch_0003`
 
 	Found non-termination argument:
 	State 27
-		proposed0 = 125/8
-		v1 = 2
-		proposed2 = 1/8
-		p1_c = 0.0
+		p0_c = 0.0
+		v1 = 1
+		proposed2 = 1/4
+		proposed1 = 1/4
 		_diverge_delta = 0.0
 		delta = 0.0
-		p1_evt = True
-		p0_evt = False
+		p1_evt = False
+		p0_evt = True
 		p2_evt = False
 		p1_l1 = False
 		_J873 = True
 		p1_l0 = False
 		_J867 = True
 		_J861 = True
-		p1_l2 = True
+		p1_l2 = False
 		_J855 = True
 		v2 = False
 		p1_l3 = False
@@ -26,45 +26,45 @@ F3 run `dynamic_lynch_0003`
 		_EL_U_835 = False
 		p0_l1 = False
 		p0_l0 = False
-		p0_l2 = False
+		p0_l2 = True
 		p0_l3 = False
 		inc_max_prop = True
 		p2_l1 = False
 		p2_l0 = False
 		p2_l2 = False
 		p2_l3 = False
-		((-1.0 * proposed1) <= -1/8)
-		((-1.0 * proposed1) <= 0.0)
-		((-1.0 * max_prop) < -125/8)
+		(proposed0 < 16.0)
+		((-1.0 * p1_c) < -1/4)
+		(((-1.0 * p1_c) + max_prop) < 0.0)
 		((-1.0 * max_prop) <= 0.0)
-		(proposed1 < 16.0)
-		((-1.0 * max_prop) < -1/8)
-		(((-1.0 * p0_c) + max_prop) < 0.0)
-		((-1.0 * proposed1) <= -125/8)
 		(((-1.0 * p2_c) + max_prop) < 0.0)
-		((-1.0 * max_prop) <= -125/8)
-		(((-1.0 * proposed1) + max_prop) = 0.0)
+		((-1.0 * max_prop) < -1/4)
+		((-1.0 * p1_c) < 63/4)
+		((-1.0 * proposed0) <= -1/4)
+		((-1.0 * p1_c) < 127/4)
+		(((-1.0 * proposed0) + max_prop) = 0.0)
+		((-1.0 * proposed0) <= 0.0)
 	Trans 27 -- 28
 		_x_p2_c = p2_c
-		_x_p0_c = p0_c
-		_x_proposed1 = proposed1
-		_x_max_prop = proposed1
+		_x_p1_c = p1_c
+		_x_proposed0 = proposed0
+		_x_max_prop = proposed0
 	State 28
-		proposed0 = 125/8
-		v1 = 2
-		proposed2 = 1/8
-		p1_c = 0.0
+		p0_c = 0.0
+		v1 = 1
+		proposed2 = 1/4
+		proposed1 = 1/4
 		_diverge_delta = 0.0
 		delta = 0.0
-		p1_evt = True
-		p0_evt = False
+		p1_evt = False
+		p0_evt = True
 		p2_evt = False
 		p1_l1 = False
 		_J873 = False
-		p1_l0 = True
+		p1_l0 = False
 		_J867 = False
 		_J861 = False
-		p1_l2 = True
+		p1_l2 = False
 		_J855 = False
 		v2 = True
 		p1_l3 = False
@@ -73,8 +73,8 @@ F3 run `dynamic_lynch_0003`
 		_EL_U_833 = True
 		_EL_U_835 = False
 		p0_l1 = False
-		p0_l0 = False
-		p0_l2 = False
+		p0_l0 = True
+		p0_l2 = True
 		p0_l3 = False
 		inc_max_prop = True
 		p2_l1 = False
@@ -83,25 +83,25 @@ F3 run `dynamic_lynch_0003`
 		p2_l3 = False
 	Trans 28 -- 29
 		_x_p2_c = p2_c
-		_x_p0_c = p0_c
-		_x_proposed1 = proposed1
-		_x_max_prop = proposed1
+		_x_p1_c = p1_c
+		_x_proposed0 = proposed0
+		_x_max_prop = proposed0
 	State 29
-		proposed0 = 125/8
-		v1 = 2
-		proposed2 = 1/8
-		p1_c = 0.0
+		p0_c = 0.0
+		v1 = 1
+		proposed2 = 1/4
+		proposed1 = 1/4
 		_diverge_delta = 0.0
 		delta = 0.0
-		p1_evt = True
-		p0_evt = False
+		p1_evt = False
+		p0_evt = True
 		p2_evt = False
-		p1_l1 = True
+		p1_l1 = False
 		_J873 = True
 		p1_l0 = False
 		_J867 = False
 		_J861 = True
-		p1_l2 = True
+		p1_l2 = False
 		_J855 = False
 		v2 = True
 		p1_l3 = False
@@ -109,9 +109,9 @@ F3 run `dynamic_lynch_0003`
 		_EL_U_830 = False
 		_EL_U_833 = True
 		_EL_U_835 = False
-		p0_l1 = False
+		p0_l1 = True
 		p0_l0 = False
-		p0_l2 = False
+		p0_l2 = True
 		p0_l3 = False
 		inc_max_prop = True
 		p2_l1 = False
@@ -120,25 +120,25 @@ F3 run `dynamic_lynch_0003`
 		p2_l3 = False
 	Trans 29 -- 30
 		_x_p2_c = p2_c
-		_x_p0_c = p0_c
-		_x_proposed1 = proposed1
-		_x_max_prop = proposed1
+		_x_p1_c = p1_c
+		_x_proposed0 = proposed0
+		_x_max_prop = proposed0
 	State 30
-		proposed0 = 125/8
-		v1 = 2
-		proposed2 = 1/8
-		p1_c = 0.0
+		p0_c = 0.0
+		v1 = 1
+		proposed2 = 1/4
+		proposed1 = 1/4
 		_diverge_delta = 0.0
 		delta = 0.0
-		p1_evt = True
-		p0_evt = False
+		p1_evt = False
+		p0_evt = True
 		p2_evt = False
-		p1_l1 = True
+		p1_l1 = False
 		_J873 = True
-		p1_l0 = True
+		p1_l0 = False
 		_J867 = False
 		_J861 = True
-		p1_l2 = True
+		p1_l2 = False
 		_J855 = False
 		v2 = True
 		p1_l3 = False
@@ -146,9 +146,9 @@ F3 run `dynamic_lynch_0003`
 		_EL_U_830 = False
 		_EL_U_833 = True
 		_EL_U_835 = False
-		p0_l1 = False
-		p0_l0 = False
-		p0_l2 = False
+		p0_l1 = True
+		p0_l0 = True
+		p0_l2 = True
 		p0_l3 = False
 		inc_max_prop = True
 		p2_l1 = False
@@ -157,18 +157,18 @@ F3 run `dynamic_lynch_0003`
 		p2_l3 = False
 	Trans 30 -- 31
 		_x_p2_c = p2_c
-		_x_p0_c = p0_c
-		_x_proposed1 = proposed1
-		_x_max_prop = proposed1
+		_x_p1_c = p1_c
+		_x_proposed0 = proposed0
+		_x_max_prop = ((proposed0 * 5/4) - (max_prop * 1/4))
 	State 31
-		proposed0 = 125/8
-		v1 = 2
-		proposed2 = 1/8
-		p1_c = 0.0
+		p0_c = 0.0
+		v1 = 1
+		proposed2 = 1/4
+		proposed1 = 1/4
 		_diverge_delta = 0.0
 		delta = 0.0
-		p1_evt = True
-		p0_evt = False
+		p1_evt = False
+		p0_evt = True
 		p2_evt = False
 		p1_l1 = False
 		_J873 = True
@@ -178,7 +178,7 @@ F3 run `dynamic_lynch_0003`
 		p1_l2 = False
 		_J855 = False
 		v2 = False
-		p1_l3 = True
+		p1_l3 = False
 		_EL_U_828 = True
 		_EL_U_830 = False
 		_EL_U_833 = True
@@ -186,26 +186,27 @@ F3 run `dynamic_lynch_0003`
 		p0_l1 = False
 		p0_l0 = False
 		p0_l2 = False
-		p0_l3 = False
+		p0_l3 = True
 		inc_max_prop = True
 		p2_l1 = False
 		p2_l0 = False
 		p2_l2 = False
 		p2_l3 = False
+		((-1.0 * max_prop) <= -1/4)
 	Trans 31 -- 32
 		_x_p2_c = p2_c
-		_x_p0_c = p0_c
-		_x_proposed1 = proposed1
-		_x_max_prop = proposed1
+		_x_p1_c = p1_c
+		_x_proposed0 = proposed0
+		_x_max_prop = proposed0
 	State 32
-		proposed0 = 125/8
+		p0_c = 0.0
 		v1 = 0
-		proposed2 = 1/8
-		p1_c = 0.0
+		proposed2 = 1/4
+		proposed1 = 1/4
 		_diverge_delta = 0.0
 		delta = 0.0
-		p1_evt = True
-		p0_evt = False
+		p1_evt = False
+		p0_evt = True
 		p2_evt = False
 		p1_l1 = False
 		_J873 = True
@@ -231,22 +232,22 @@ F3 run `dynamic_lynch_0003`
 		p2_l3 = False
 	Trans 32 -- 33
 		_x_p2_c = p2_c
-		_x_p0_c = p0_c
-		_x_proposed1 = proposed1
-		_x_max_prop = proposed1
+		_x_p1_c = p1_c
+		_x_proposed0 = proposed0
+		_x_max_prop = proposed0
 	State 33
-		proposed0 = 125/8
+		p0_c = 0.0
 		v1 = 0
-		proposed2 = 1/8
-		p1_c = 0.0
+		proposed2 = 1/4
+		proposed1 = 1/4
 		_diverge_delta = 0.0
 		delta = 0.0
-		p1_evt = True
-		p0_evt = False
+		p1_evt = False
+		p0_evt = True
 		p2_evt = False
 		p1_l1 = False
 		_J873 = True
-		p1_l0 = True
+		p1_l0 = False
 		_J867 = False
 		_J861 = True
 		p1_l2 = False
@@ -258,7 +259,7 @@ F3 run `dynamic_lynch_0003`
 		_EL_U_833 = True
 		_EL_U_835 = False
 		p0_l1 = False
-		p0_l0 = False
+		p0_l0 = True
 		p0_l2 = False
 		p0_l3 = False
 		inc_max_prop = True
@@ -268,20 +269,20 @@ F3 run `dynamic_lynch_0003`
 		p2_l3 = False
 	Trans 33 -- 34
 		_x_p2_c = p2_c
-		_x_p0_c = p0_c
-		_x_proposed1 = proposed1
-		_x_max_prop = proposed1
+		_x_p1_c = p1_c
+		_x_proposed0 = proposed0
+		_x_max_prop = proposed0
 	State 34
-		proposed0 = 125/8
-		v1 = 2
-		proposed2 = 1/8
-		p1_c = 0.0
+		p0_c = 0.0
+		v1 = 1
+		proposed2 = 1/4
+		proposed1 = 1/4
 		_diverge_delta = 0.0
 		delta = 16.0
-		p1_evt = True
-		p0_evt = False
+		p1_evt = False
+		p0_evt = True
 		p2_evt = False
-		p1_l1 = True
+		p1_l1 = False
 		_J873 = True
 		p1_l0 = False
 		_J867 = False
@@ -294,7 +295,7 @@ F3 run `dynamic_lynch_0003`
 		_EL_U_830 = False
 		_EL_U_833 = True
 		_EL_U_835 = False
-		p0_l1 = False
+		p0_l1 = True
 		p0_l0 = False
 		p0_l2 = False
 		p0_l3 = False
@@ -304,21 +305,21 @@ F3 run `dynamic_lynch_0003`
 		p2_l2 = False
 		p2_l3 = False
 	Trans 34 -- 35
-		_x_p0_c = (p0_c + 16.0)
 		_x_p2_c = (p2_c + 16.0)
-		_x_proposed1 = proposed1
-		_x_max_prop = proposed1
+		_x_p1_c = (p1_c + 16.0)
+		_x_proposed0 = proposed0
+		_x_max_prop = proposed0
 	State 35
-		proposed0 = 125/8
-		v1 = 2
-		proposed2 = 1/8
-		p1_c = 16.0
+		p0_c = 16.0
+		v1 = 1
+		proposed2 = 1/4
+		proposed1 = 1/4
 		_diverge_delta = 16.0
 		delta = 0.0
-		p1_evt = True
-		p0_evt = False
+		p1_evt = False
+		p0_evt = True
 		p2_evt = False
-		p1_l1 = True
+		p1_l1 = False
 		_J873 = True
 		p1_l0 = False
 		_J867 = False
@@ -331,7 +332,7 @@ F3 run `dynamic_lynch_0003`
 		_EL_U_830 = False
 		_EL_U_833 = True
 		_EL_U_835 = False
-		p0_l1 = False
+		p0_l1 = True
 		p0_l0 = False
 		p0_l2 = False
 		p0_l3 = False
@@ -342,22 +343,22 @@ F3 run `dynamic_lynch_0003`
 		p2_l3 = False
 	Trans 35 -- 36
 		_x_p2_c = p2_c
-		_x_p0_c = p0_c
-		_x_max_prop = _x_proposed1
-		_x_proposed1 = ((proposed1 + 125/16) - (max_prop * 1/2))
+		_x_p1_c = p1_c
+		_x_max_prop = _x_proposed0
+		_x_proposed0 = ((-1.0 * max_prop) + (proposed0 * 3/2) + 1/8)
 	State 36
-		proposed0 = 125/8
-		v1 = 2
-		proposed2 = 1/8
-		p1_c = 16.0
+		p0_c = 16.0
+		v1 = 1
+		proposed2 = 1/4
+		proposed1 = 1/4
 		_diverge_delta = 0.0
 		delta = 0.0
-		p1_evt = True
-		p0_evt = False
+		p1_evt = False
+		p0_evt = True
 		p2_evt = False
-		p1_l1 = True
+		p1_l1 = False
 		_J873 = True
-		p1_l0 = True
+		p1_l0 = False
 		_J867 = True
 		_J861 = True
 		p1_l2 = False
@@ -368,8 +369,8 @@ F3 run `dynamic_lynch_0003`
 		_EL_U_830 = False
 		_EL_U_833 = True
 		_EL_U_835 = False
-		p0_l1 = False
-		p0_l0 = False
+		p0_l1 = True
+		p0_l0 = True
 		p0_l2 = False
 		p0_l3 = False
 		inc_max_prop = False
@@ -377,19 +378,17 @@ F3 run `dynamic_lynch_0003`
 		p2_l0 = False
 		p2_l2 = False
 		p2_l3 = False
-		(((-1.0 * p0_c) + proposed1) < 0.0)
-		((-1.0 * proposed1) <= -1/8)
-		((-1.0 * proposed1) <= 0.0)
-		(proposed1 < 16.0)
-		(((-1.0 * p2_c) + proposed1) < 0.0)
-		((-1.0 * proposed1) <= -125/8)
-		((-1.0 * proposed1) < -125/8)
-		((-1.0 * proposed1) < -1/8)
+		(proposed0 < 16.0)
+		(((-1.0 * p1_c) + proposed0) < 0.0)
+		(((-1.0 * p2_c) + proposed0) < 0.0)
+		((-1.0 * proposed0) <= 0.0)
+		((-1.0 * proposed0) <= -1/4)
+		((-1.0 * proposed0) < -1/4)
 	Trans 36 -- 37
 		_x_p2_c = p2_c
-		_x_p0_c = p0_c
-		_x_proposed1 = proposed1
-		_x_max_prop = proposed1
-	starting from: p2_c : 65/4, _diverge_delta : 0.0, delta : 0.0, proposed2 : 1/8, max_prop : 127/8, p1_evt : True, p0_evt : False, p2_evt : False, p1_l1 : False, v1 : 2, p1_l0 : False, _J873 : True, _J867 : True, p1_l2 : True, _J861 : True, _J855 : True, p1_l3 : False, _EL_U_828 : True, v2 : False, _EL_U_830 : False, p1_c : 0.0, _EL_U_833 : True, _EL_U_835 : False, proposed1 : 127/8, p0_l1 : False, p0_l0 : False, p0_l2 : False, p0_l3 : False, p0_c : 65/2, inc_max_prop : True, proposed0 : 125/8, p2_l1 : False, p2_l0 : False, p2_l2 : False, p2_l3 : False
+		_x_p1_c = p1_c
+		_x_proposed0 = proposed0
+		_x_max_prop = proposed0
+	starting from: p2_c : 131/4, _diverge_delta : 0.0, delta : 0.0, proposed2 : 1/4, max_prop : 63/4, p1_evt : False, p0_evt : True, p2_evt : False, p1_l1 : False, v1 : 1, p1_l0 : False, _J873 : True, _J867 : True, p1_l2 : False, _J861 : True, _J855 : True, p1_l3 : False, _EL_U_828 : True, v2 : False, _EL_U_830 : False, p1_c : 65/4, _EL_U_833 : True, _EL_U_835 : False, proposed1 : 1/4, p0_l1 : False, p0_l0 : False, p0_l2 : True, p0_l3 : False, p0_c : 0.0, inc_max_prop : True, proposed0 : 63/4, p2_l1 : False, p2_l0 : False, p2_l2 : False, p2_l3 : False
 
-end of `dynamic_lynch_0003`: SUCCESS in 397.7347822189331s
+end of `dynamic_lynch_0003`: SUCCESS in 452.6006226539612s

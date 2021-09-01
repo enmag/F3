@@ -10,39 +10,39 @@ F3 run `15`
 		(((y * 4) + (-1 * x)) <= 1)
 		(y <= -8)
 		((-1 * x) <= -1)
-		(y <= -20)
-		(((y * 2) + (-1 * x)) <= -1)
-		(((y * 2) + (-1 * x)) <= 1)
 		(y <= -10)
-		True
+		(y <= -20)
+		(((y * 2) + (-1 * x)) <= 1)
+		(((y * 2) + (-1 * x)) <= -1)
+		(((-1 * x) + 2) <= 0)
 	Trans 2 -- 3
+		_x_y = y
 		_x_z = z
 		_x_x = x
-		_x_y = y
 	State 3
 		pc = 3
 	Trans 3 -- 4
+		_x_y = y
 		_x_z = z
 		_x_x = x
-		_x_y = y
 	State 4
 		pc = 5
 	Trans 4 -- 5
+		_x_y = y
 		_x_z = (x * y)
 		_x_x = x
-		_x_y = y
 	State 5
 		pc = 6
 	Trans 5 -- 6
+		_x_y = y
 		_x_z = z
 		_x_x = (x - (y * 2))
-		_x_y = y
 	State 6
 		pc = 7
 	Trans 6 -- 7
 		_x_z = z
-		_x_x = x
 		_x_y = (y + -1)
+		_x_x = x
 	starting from: z : -39, pc : 2, x : 2, y : -20
 
-end of `15`: SUCCESS in 42.018553018569946s
+end of `15`: SUCCESS in 4.9017064571380615s

@@ -11,4 +11,4 @@ F3 run `simple_int0`
 		_x_x = ((-1 * x) + 2)
 	starting from: x : 1
 
-end of `simple_int0`: SUCCESS in 1.7800076007843018s
+end of `simple_int0`: SUCCESS in 2.0652096271514893s

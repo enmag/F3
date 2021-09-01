@@ -36,20 +36,22 @@ F3 run `lynch_protocol_0004`
 		p0_l3 = False
 		p2_l3 = False
 		p3_l1 = False
-		((-1.0 * p1_c) < -16.0)
-		((-1.0 * p3_c) < -16.0)
-		((-1.0 * _diverge_delta) <= -1.0)
-		((-1.0 * p2_c) < -16.0)
 		(((-1.0 * delta) + _diverge_delta) < 0.0)
 		((-1.0 * delta) <= -1.0)
 		((-1.0 * p0_c) < -16.0)
+		((-1.0 * p1_c) < -16.0)
+		((-1.0 * p1_c) <= 0.0)
+		((-1.0 * p3_c) < -16.0)
+		((-1.0 * delta) < 0.0)
+		((-1.0 * _diverge_delta) <= -1.0)
+		((-1.0 * p2_c) < -16.0)
 	Trans 1 -- 2
-		_x_p0_c = (p0_c + delta)
 		_x_p3_c = (p3_c + delta)
-		_x_p2_c = (p2_c + delta)
 		_x__diverge_delta = delta
+		_x_p2_c = (p2_c + delta)
 		_x_p1_c = (p1_c + delta)
-		_x_delta = ((-1.0 * _diverge_delta) + delta + p3_c + p0_c + p2_c + p1_c + -1.0)
+		_x_p0_c = (p0_c + delta)
+		_x_delta = (_diverge_delta + delta + (p3_c * 127/126) + p0_c + p2_c + p1_c + 1.0)
 	State 2
 		v1 = 1
 		p3_l0 = False
@@ -86,18 +88,19 @@ F3 run `lynch_protocol_0004`
 		p2_l3 = False
 		p3_l1 = False
 		(((-1.0 * p1_c) + (-1.0 * delta)) < -16.0)
-		(((-1.0 * p2_c) + (-1.0 * delta)) < -16.0)
-		(((-1.0 * p0_c) + (-1.0 * delta)) < -16.0)
-		((-1.0 * delta) < 0.0)
 		((-1.0 * delta) <= -1.0)
+		((-1.0 * delta) < 0.0)
+		(((-1.0 * p1_c) + (-1.0 * delta)) <= 0.0)
+		(((-1.0 * p0_c) + (-1.0 * delta)) < -16.0)
+		(((-1.0 * p2_c) + (-1.0 * delta)) < -16.0)
 		(((-1.0 * p3_c) + (-1.0 * delta)) < -16.0)
 	Trans 2 -- 3
-		_x_p0_c = (p0_c + delta)
 		_x_p3_c = (p3_c + delta)
-		_x_p2_c = (p2_c + delta)
 		_x__diverge_delta = delta
+		_x_p2_c = (p2_c + delta)
 		_x_p1_c = (p1_c + delta)
-		_x_delta = (((_diverge_delta * 13/12) + (delta * 7/6) + -1/12) - (p3_c * 1/12))
+		_x_p0_c = (p0_c + delta)
+		_x_delta = ((-1.0 * _diverge_delta) + (p3_c * 64/63) + (p0_c * 127/126) + (p2_c * 127/126) + (p1_c * 127/126))
 	starting from: p3_l0 : False, p1_l1 : False, p3_l2 : False, p1_l0 : False, p3_l3 : False, p1_l2 : False, _diverge_delta : 33/2, p1_l3 : False, p3_c : 33/2, delta : 17.0, _J1002 : True, p1_c : 33/2, _J996 : True, _J989 : True, _J983 : True, _J978 : True, _J972 : True, p1_evt : True, _EL_U_935 : True, p0_evt : True, _EL_U_937 : False, p2_evt : True, _EL_U_939 : True, p3_evt : True, _EL_U_941 : False, _EL_U_943 : False, v1 : 1, _EL_U_945 : True, v2 : True, p0_l1 : False, p2_l1 : False, p0_l0 : False, p2_l0 : False, p0_l2 : False, p2_l2 : False, p0_l3 : False, p2_l3 : False, p0_c : 33/2, p2_c : 33/2, p3_l1 : False
 
-end of `lynch_protocol_0004`: SUCCESS in 3.8240644931793213s
+end of `lynch_protocol_0004`: SUCCESS in 4.688989162445068s
