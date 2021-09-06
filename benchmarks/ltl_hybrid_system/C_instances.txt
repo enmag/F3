@@ -4,5 +4,6 @@
 ./C/synchronization_ttethernet_network0.c
 ./C/bouncing_ball_harmonic.c
 ./C/synchronization_ttethernet_network1.c
+./C/bouncing_ball_dec.c
 ./C/bouncing_ball_inc.c
 ./C/etcs.c

@@ -1,4 +1,5 @@
 ./f3/tanks.py
+./f3/bouncing_ball_dec.py
 ./f3/synchronization_ttethernet_network0.py
 ./f3/bouncing_ball_simple.py
 ./f3/bouncing_ball_inc.py

@@ -6,3 +6,4 @@
 ./nuxmv/bouncing_ball_simple.smv
 ./nuxmv/synchronization_ttethernet_network0.smv
 ./nuxmv/synchronization_ttethernet_network1.smv
+./nuxmv/bouncing_ball_dec.smv
