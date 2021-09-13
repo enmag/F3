@@ -88,7 +88,8 @@ class BMC:
         self.td = TimesDistributor(self.i_env)
         self.cn = Canonizer(env=self.i_env)
         self.generaliser = Generaliser(self.i_env, self.cn, self.totime)
-        self.hints = [h.to_env(self.i_env) for h in hints]
+        self.hints = sorted((h.to_env(self.i_env) for h in hints),
+                            key=lambda h: h.name)
         self.hint_active = [self._fresh_symb(f"{BMC._PRED_MONITOR_STR}_{h.name}")
                             for h in self.hints]
         hints_ts = [h.get_trans_system(active)
