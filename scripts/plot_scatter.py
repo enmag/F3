@@ -3,8 +3,11 @@
 import os
 import argparse
 import re
+from math import sqrt
+from collections import defaultdict
 from parse_results import parse_results, TO
 import matplotlib.pyplot as plt
+from matplotlib.ticker import MaxNLocator
 
 
 tool2name = {"anant": "Anant",
@@ -192,6 +195,102 @@ def plot_comparison(results, bench_names,
         plt.show(block=True)
 
 
+def plot_scaling_hints(results, wrong_hints_benchs):
+    t_name = "f3"
+    assert all(bench in results[t_name] for bench in wrong_hints_benchs)
+    name_re = re.compile("(?P<nhint>\d+)-(?P<name>\S+)_(?P<num>\d+)")
+    for bench_class in sorted(wrong_hints_benchs):
+        label = None
+        wrong_hints = defaultdict(list)
+        stack = [results[t_name][bench_class]]
+        while stack:
+            curr = stack.pop()
+            assert isinstance(curr, dict)
+            assert all(isinstance(v, (dict, tuple)) for v in curr.values())
+            for k, v in curr.items():
+                if isinstance(v, dict):
+                    stack.append(v)
+                else:
+                    assert isinstance(k, str)
+                    assert isinstance(v, tuple)
+                    assert len(v) == 2
+                    assert v[0] in {"timeout", "correct", "unknown",
+                                    "memout"}, (t_name, v[0], k)
+                    assert isinstance(v[1], float)
+                    m = name_re.match(k)
+                    assert m is not None
+                    label = m.group("name")
+                    assert label is None or label == m.group("name")
+                    bench_size = int(m.group("nhint"))
+                    wrong_hints[bench_size].append(v)
+        assert label is not None
+        f3_res = None
+        # get time required without hints
+        stack = [v for k, v in results[t_name].items()
+                 if k not in wrong_hints_benchs]
+        while stack:
+            curr = stack.pop()
+            assert isinstance(curr, dict)
+            assert all(isinstance(v, (dict, tuple)) for v in curr.values())
+            for k, v in curr.items():
+                if isinstance(v, dict):
+                    stack.append(v)
+                elif k == label:
+                    assert isinstance(k, str)
+                    assert isinstance(v, tuple)
+                    assert len(v) == 2
+                    assert v[0] == "correct", (t_name, v[0], k)
+                    assert isinstance(v[1], float)
+                    assert f3_res is None
+                    f3_res = v[1]
+        assert f3_res is not None
+        success_xs = [0]
+        success_ys = [f3_res]
+        failed_xs = []
+        failed_ys = []
+        sizes = sorted([int(x) for x in wrong_hints])
+        for x in sizes:
+            x = int(x)
+            for y in wrong_hints[x]:
+                if y[0] == "correct":
+                    success_xs.append(x)
+                    success_ys.append(y[1])
+                else:
+                    failed_xs.append(x)
+                    failed_ys.append(y[1])
+        print(f"Wrong hints `{label}`, "
+              f"correct: {len(success_xs)}, failed: {len(failed_xs)}")
+        labels_size = 45
+        ticks_size = 45
+        ax = plt.gca()
+        min_x, max_x = min(success_xs), max(success_xs)
+        min_y, max_y = min(success_ys), max(success_ys)
+        if failed_xs:
+            max_x = max(max_x, max(failed_xs))
+            min_x = min(min_x, min(failed_xs))
+        if failed_ys:
+            max_y = max(max_y, max(failed_ys))
+            min_y = min(min_y, min(failed_ys))
+
+        ax.scatter(success_xs, success_ys, c='g', marker='o', s=400)
+        ax.scatter(failed_xs, failed_ys, c='r', marker='P', s=400)
+        ax.set_yscale('log')
+        # ax.plot((0.5, 20.5), (1, 1), color="gray",
+        #         linewidth=3, linestyle='--', alpha=0.5)
+        plt.xlim([min_x - 0.5, max_x + 0.5])
+        plt.ylim([min_y - 0.2, max_y + 0.2])
+        plt.xlabel("Number of hints", fontsize=labels_size)
+        plt.ylabel("F3 (s)", fontsize=labels_size)
+        plt.yticks([10, 100, 1000])
+        plt.subplots_adjust(top=0.995, bottom=0.126, right=0.995,
+                            left=0.098,
+                            hspace=0, wspace=0)
+        ax.xaxis.set_major_locator(MaxNLocator(integer=True))
+        plt.xticks(fontsize=ticks_size)
+        plt.yticks(fontsize=ticks_size)
+        plt.show(block=True)
+
+
 def getopts():
     p = argparse.ArgumentParser()
     p.add_argument("-ts", "--tools", type=str, nargs='+', default=None,
@@ -199,9 +298,11 @@ def getopts():
     p.add_argument("-in", "--in-results", type=str,
                    required=True,
                    help="results directory")
-    p.add_argument("-software", "--software", action="store_true",
-                   help="plot results of software benchmarks")
-    p.add_argument("-inf-ts", "--inf-state-ts", action="store_true",
+    p.add_argument("-ls", "--linear-software", action="store_true",
+                   help="plot results of linear software benchmarks")
+    p.add_argument("-ns", "--nonlinear-software", action="store_true",
+                   help="plot results of nonlinear software benchmarks")
+    p.add_argument("-its", "--inf-state-ts", action="store_true",
                    help="plot results of infinite-state transition systems "
                    "benchmarks")
     p.add_argument("-maxp", "--max-plus", action="store_true",
@@ -212,8 +313,10 @@ def getopts():
                    help="plot results of timed transition systems benchmarks")
     p.add_argument("-hs", "--hybrid-systems", action="store_true",
                    help="plot results of hybrid systems benchmarks")
-    p.add_argument("-hints", "--wrong-hints", action="store_true",
-                   help="plot results on F3 scaling w.r.t. wrong hints")
+    p.add_argument("-c-hints", "--comb-hints", action="store_true",
+                   help="plot results on F3 scaling w.r.t. combinations of wrong hints")
+    p.add_argument("-p-hints", "--perm-hints", action="store_true",
+                   help="plot results on F3 scaling w.r.t. permutations of wrong hints")
     p.add_argument("-v", "--verbose", action="store_true",
                    help="verbosly print single points")
     return p.parse_args()
@@ -235,13 +338,14 @@ def main(opts):
     all_tools = frozenset(_tools)
     del _tools
 
-    if opts.software:
+    if opts.linear_software:
         print("\nLINEAR SOFTWARE TERMINATION\n")
         c_tools = all_tools & frozenset(["anant", "aprove", "irankfinder",
                                          "nuxmv", "f3", "oldf3", "t2", "ultimate_term"])
         res = {t_name: results[t_name] for t_name in c_tools}
         plot_comparison(res, ["software_nontermination"], verbose=verbose)
 
+    if opts.nonlinear_software:
         print("\nNON-LINEAR SOFTWARE TERMINATION\n")
         # ultimate does not support non-linear expressions.
         c_tools = all_tools & frozenset(["anant", "aprove", "irankfinder",
@@ -294,83 +398,22 @@ def main(opts):
         res = {t_name: results[t_name] for t_name in c_tools}
         plot_comparison(res, ["hybrid_system"], verbose=verbose)
 
-    if opts.wrong_hints:
-        print("\nSCALING WRONG HINTS\n")
-        wrong_hints_benchs = frozenset([
+    if opts.comb_hints:
+        print("\nSCALING WRONG HINTS COMBINATIONS\n")
+        benchs = frozenset([
             "wrong_hints_ltl_infinite_state",
             "wrong_hints_ltl_timed_transition_system",
             "wrong_hints_nonlinear_software", "wrong_hints_software"])
-        t_name = "f3"
-        assert all(bench in results[t_name] for bench in wrong_hints_benchs)
-        name_re = re.compile("(?P<num>\d+)-(?P<name>\S+)")
-        for bench_class in sorted(wrong_hints_benchs):
-            label = None
-            wrong_hints = {}
-            stack = [results[t_name][bench_class]]
-            while stack:
-                curr = stack.pop()
-                assert isinstance(curr, dict)
-                assert all(isinstance(v, (dict, tuple)) for v in curr.values())
-                for k, v in curr.items():
-                    if isinstance(v, dict):
-                        stack.append(v)
-                    else:
-                        assert isinstance(k, str)
-                        assert isinstance(v, tuple)
-                        assert len(v) == 2
-                        assert v[0] in {"timeout", "correct", "unknown", "memout"}, (t_name, v[0], k)
-                        assert isinstance(v[1], float)
-                        m = name_re.match(k)
-                        assert m is not None
-                        label = m.group("name")
-                        assert label is None or label == m.group("name")
-                        bench_size = int(m.group("num"))
-                        assert bench_size not in wrong_hints, k
-                        wrong_hints[bench_size] = v
-            assert label is not None
-            f3_res = None
-            stack = [v for k, v in results[t_name].items()
-                     if k not in wrong_hints_benchs]
-            while stack:
-                curr = stack.pop()
-                assert isinstance(curr, dict)
-                assert all(isinstance(v, (dict, tuple)) for v in curr.values())
-                for k, v in curr.items():
-                    if isinstance(v, dict):
-                        stack.append(v)
-                    elif k == label:
-                        assert isinstance(k, str)
-                        assert isinstance(v, tuple)
-                        assert len(v) == 2
-                        assert v[0] == "correct", (t_name, v[0], k)
-                        assert isinstance(v[1], float)
-                        assert f3_res is None
-                        f3_res = v[1]
-            assert f3_res is not None
-            success_xs = []
-            success_ys = []
-            failed_xs = []
-            failed_ys = []
-            for x in sorted(wrong_hints.keys()):
-                y = wrong_hints[x]
-                if y[0] == "correct":
-                    success_xs.append(int(x))
-                    success_ys.append(y[1]/f3_res)
-                else:
-                    failed_xs.append(x)
-                    failed_ys.append(y[1]/f3_res)
-            print(f"Wrong hints `{label}`, "
-                  f"correct: {len(success_xs)}, failed: {len(failed_xs)}")
-            ax = plt.gca()
-            ax.scatter(success_xs, success_ys, c='g', marker='o', s=400)
-            ax.scatter(failed_xs, failed_ys, c='r', marker='P', s=400)
-            ax.plot((min(success_xs), max(success_xs)), (1, 1), color="gray",
-                    linewidth=3, linestyle='--', alpha=0.5)
-            plt.ylim([0, max(success_ys) + 3])
-            plt.subplots_adjust(top=0.99, bottom=0.176, right=1, left=0.051,
-                                hspace=0, wspace=0)
-            plt.xticks(range(1, len(success_xs) + len(failed_xs)))
-            plt.show(block=True)
+        plot_scaling_hints(results, benchs)
+
+    if opts.perm_hints:
+        print("\nSCALING WRONG HINTS PERMUTATIONS\n")
+        benchs = frozenset([
+            "wrong_hints_permutations_ltl_infinite_state",
+            "wrong_hints_permutations_ltl_timed_transition_system",
+            "wrong_hints_permutations_nonlinear_software",
+            "wrong_hints_permutations_software"])
+        plot_scaling_hints(results, benchs)
 
 
 if __name__ == "__main__":

@@ -39,32 +39,38 @@ Inputs that declare the `check_ltl` function can optionally define another funct
 ## F3 command line options
 Every command line option supported by F3 comes with a default value, hence you can "just run it" without specifying anything special.
 Here we briefly describe the main command line options supported by F3.
-* `-h, --help`: writes on stdout the list of available options and a description for each of them.
-* `-v, --verbose`: control the amount of messages that F3 writes on stdout.
-* `-motzkin, --use-motzkin`: enable/disable the use of Motzkin's transposition theorem for funnel synthesis.
-* `-motzkin-rf, --use-motzkin-rf`: enable/disable the use of Motzkin's transposition theorem for ranking function synthesis.
-* `-rf-motzkin-t, --synth-rf-motzkin-timeout`: set the timeout of the SMT-queries used to solve the Motzkin transpose problem.
-* `-ef, --use-ef`: use EF-solve procedure for funnel synthesis.
-* `-ef-rf, --use-ef-rf`: use EF-solve procedure for ranking function synthesis.
-* `-learn-ef, --motzkin-learn-ef`: enable/disable carrying of statements learned in EF-solve to the Motzkin transpose problem.
-* `-ef-t, --efsolver-timeout`: set the timeout of the SMT-queries in the EF-solve procedure.
-* `-ef-its, --efsolver-iterations`: set the maximum number of iterations of the EF-solve procedure.
-* `-approx-prec, --approx-precision`: set precision to be used to simplify EF-solve models.
-* `-approx-max-val, --approx-max-val`: EF-solve model simplification will try and keep the constants below the given value.
-* `-bmc-t, --bmc-timeout`: set the BMC SMT-query timeout.
-* `-bmc-k, --bmc-length`: set maximum path length to be considered in the BMC unrolling.
-* `-max-extend, --loop_extension_bound`: discard all candiate loop that cannot be exetended by the given factor.
-* `-bool-impl, --use-bool-impl`: enable/disable boolean implicant computation.
-* `-unsat-cores, --use-unsat-cores`: enable/disable usage of unsat-cores for implicant computation.
-* `-min-core', --minimal-core`: requires enabled unsat-cores, enable/disable computation of minimal unsat core.
-* `-merge-ineqs, --merge-ineqs`: enable/disable merging of inequalities `a >= b & b <= a` into `a = b`.
-* `-s, --solvers`: set sequence of SMT-solvers to be used.
-* `-min-ineqs, --min-inequalities`: set minimum number of inequalities to be synthesised for each funnel.
-* `-max-ineqs, --max-inequalities`: set minimum number of inequalities to be synthesised for each funnel.
-* `-propagate, --constr-propagate`: set mode of propagation of state inequalities through transition equalities.
-* `-generalised-lasso, --generalised-lasso`: enable/disable detection of generalised lassos.
-* `-det-div, --deterministic-diverging-monitor`: enable/disable deterministic reset of diverging symbol monitor.
-* `-smv-out, --smv-out`: write SMV model representing the funnel-loop in the given directory.
+* `-h`, `--help`: print on stdout usage and command line options.
+* `-approx-prec`, `--approx-precision`: set precision of approximation of rational values to simplify constants in models.
+* `-approx-max-val`, `--approx-max-val`: try to keep constants below given number.
+* `-bmc-t`, `--bmc-timeout`: set timeout for each BMC SMT query.
+* `-bmc-k`, `--bmc-length`: set max BMC unrolling, 0 or negative for unbounded.
+* `-h-mode`, `--hint-mode`: type of hint choice encoding; 0: may enable; 1: must enable at least 1; 2: must enable all.
+* `-ef-t`, `--efsolver-timeout`: set timeout for each SMT query in EF-solver.
+* `-ef-its`, `--efsolver-iterations`: set max number of iteration in EF-solver.
+* `-ef-approx`, `--ef-approx-model`: enable/disable simplification of constants in EF-models.
+* `-motzkin`, `--use-motzkin`: enable/disable motzkin transposition to solve EF quantified queries.
+* `-motzkin-t`, `--motzkin-timeout`: set timeout for each Motzkin-generated SMT query.
+* `-fun-learn-ef`, `--fun-learn-ef`: add constraints learned by EF-solver to motzkin SMT-query in Funnel synthesis.
+* `-ef`, `--use-ef`: enable/disable EF-solver for EF quantified queries.
+* `-min-ineqs`, `--min-inequalities`: set minimum number of inequalities in nontermination argument.
+* `-max-ineqs`, `--max-inequalities`: set max number of inequalities in nontermination argument.
+* `-propagate`, `--propagate-mode`: set predicate propagation mode inFunnels 0: no; 1: partial; 2: full.
+* `-propagate-max-it`, `--propagate-max-iterations`: set max number of backward propagations.
+* `-bool-impl`, `--use-bool-impl`: enable/disable model-based boolean implicant.
+* `-unsat-cores`, `--use-unsat-cores`: enable/disable unsat-cores to compute implicant.
+* `-min-core`, `--minimal-core`: shrink unsat-core to obtain a minimal one w.r.t inequalities.
+* `-merge-ineqs`, `--merge-ineqs`: merge a <= b & b >= a into a = b in implicant computation.
+* `-rf-motzkin-t`, `--synth-rf-motzkin-timeout`: set timeout for Motzkin SMT queries for RF synthesis.
+* `-motzkin-rf`, `--use-motzkin-rf`: enable/disable motzkin transposition to solve EF quantified queries for ranking function.
+* `-rank-approx`, `--rank-approx-model`: enable/disable parameter assignment simplification for ranking functions.
+* `-rf-learn-ef`, `--rf-learn-ef`: enable/disable addition of constraints learned by EF-solver to motzkin SMT-query in Ranking Function synthesis.
+* `-ef-rf`, `--use-ef-rf`: enable/disable EF-solver for EF quantified queries for Ranking Funciton.
+* `-v`, `--verbose`: set verbosity level.
+* `-s`, `--solvers`: set list of available solvers, see `pysmt-install --check`.
+* `-generalised-lasso`, `--generalised-lasso`: enable/disable detection of generalised lasso using pattern described in Timed-nuXmv paper CAV 2019.
+* `-det-div`, `--deterministic-diverging-monitor`: 1: use deterministic diverging monitor, 0: use nondeterministic reset for diverging monitor.
+* `-smv-out`, `--smv-out`: write smv representation of nontermination argument in the given directory.
+* `-check-h`, `--check-hints`: 1: check hints correctness, 0: assume hints are correct.
 
 
 ## F3 output

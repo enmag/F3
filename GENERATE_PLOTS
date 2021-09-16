@@ -12,6 +12,6 @@ Run the following command as sudo:
 The python script "scripts/plot_scatter.py" generates the plots.
 Each plot compares F3 with one other tool on the benchmarks of one category.
 The following command generates the plots for all categories.
-  $> python3 ./scripts/plot_scatter.py -software -inf-ts -ta -tts -hs -in ./expeval_output/
+  $> python3 ./scripts/plot_scatter.py -ls -ns -its -ta -tts -hs -in ./expeval_output/
 
-The script prints on stdout the name of the category being shown, the number of instances solved by each tool and the single data points.
+The script prints on stdout the name of the category being shown and the number of instances solved by each tool.

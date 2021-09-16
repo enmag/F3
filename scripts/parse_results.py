@@ -53,6 +53,7 @@ known_errors["aprove"] = frozenset(chain(
     ["adaptive_cruise_control", "airbag_1", "airbag_2",
      "csma_backoff_single_station",
      "bouncing_ball_harmonic", "bouncing_ball_inc", "bouncing_ball_simple",
+     "bouncing_ball_dec",
      "etcs", "extending_bound", "extending_bound_no_stutter", "nonlinear_reset",
      "sender_receiver",
      "synchronization_ttethernet_network0", "synchronization_ttethernet_network1",
