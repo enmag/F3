@@ -1,8 +1,0 @@
-group: aprove_software_nontermination
-platform: Linux node4 5.4.0-54-generic #60-Ubuntu SMP Fri Nov 6 10:37:59 UTC 2020 x86_64 x86_64
-timestamp: 1627969681
-time: 2021-08-03 07:48:01
-exitcode: 0
-real: 24.88
-user: 204.43
-sys: 9.6

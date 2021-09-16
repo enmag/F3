@@ -1,6 +1,0 @@
- input: /home/magnago/benchmarks/ltl_timed_automata/critical_region/divine/critical_region_0023.xml
- property { 0 }: (G !( pc0_error && pc1_error)) -> (G F id0)
- ------------------- OWCTY -------------------
- initialise...		    real 3602.32
-user 3589.45
-sys 12.41

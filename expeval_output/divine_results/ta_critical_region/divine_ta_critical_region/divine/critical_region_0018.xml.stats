@@ -1,8 +1,0 @@
-group: divine_ta_critical_region
-platform: Linux node4 5.4.0-54-generic #60-Ubuntu SMP Fri Nov 6 10:37:59 UTC 2020 x86_64 x86_64
-timestamp: 1616098300
-time: 2021-03-18 21:11:40
-exitcode: 0
-real: 528.33
-user: 511.63
-sys: 16.16

@@ -1,8 +1,0 @@
-Exception ignored in: <function msat_config.<lambda> at 0x7f4e3c1ff550>
-Traceback (most recent call last):
-  File "/usr/local/lib/python3.8/dist-packages/mathsat.py", line 119, in <lambda>
-    __del__ = lambda self: None
-KeyboardInterrupt: 
-real 3602.34
-user 0.00
-sys 0.00

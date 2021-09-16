@@ -1,5 +1,0 @@
-Warning: NuSMV status may be not consistent. Use 'reset' command if needed.
-aborting 'source /home/magnago/nuxmv_check_ltlspec_bmc.cmd'
-real 3602.15
-user 3600.18
-sys 1.34

@@ -1,8 +1,0 @@
-F3 run `NonTerminationSimple7_false-termination`
-
-	Found non-termination argument:
-	pc : 1, x : 0, c : 0
-	pc : 2, x : 0, c : 0
-	pc : 1, x : 0, c : 0
-
-end of `NonTerminationSimple7_false-termination`: SUCCESS in 0.20456862449645996s

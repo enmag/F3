@@ -1,8 +1,0 @@
-group: mitlbmc_ta_fddi
-platform: Linux node1 5.4.0-56-generic #62-Ubuntu SMP Mon Nov 23 19:20:19 UTC 2020 x86_64 x86_64
-timestamp: 1616108504
-time: 2021-03-19 00:01:44
-exitcode: 0
-real: 3603.09
-user: 0.0
-sys: 0.0

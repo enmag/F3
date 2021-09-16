@@ -1,5 +1,0 @@
-Warning: NuSMV status may be not consistent. Use 'reset' command if needed.
-/home/magnago/run_nuxmv_cluster.sh: line 2: 2643222 Segmentation fault      (core dumped) /home/magnago/nuXmv $BENCHTOOLS_PARAMS $BENCHTOOLS_INSTANCE
-real 3602.46
-user 3600.93
-sys 0.51

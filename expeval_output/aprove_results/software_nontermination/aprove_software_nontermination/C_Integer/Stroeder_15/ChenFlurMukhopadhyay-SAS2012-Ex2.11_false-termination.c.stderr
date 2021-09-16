@@ -1,7 +1,0 @@
-Graph finished, checking  consistency
-Graph finished, checked consistency, took 0.007s
-Running T2 finished with non-zero exit code 1 when running command: 
-[mono, /home/T2/src/bin/Release/T2.exe, --try_nonterm=1, --print_proof, --termination, /tmp/aprove.InputModules.Programs.t26282607584010519171.t2]
-real 2537.20
-user 3594.93
-sys 6.32

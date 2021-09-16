@@ -1,6 +1,0 @@
-Result : Non-Terminating
-sat for numRecurrentSetEqs = 2
-Closed Recurrent Set is
--1 * z +  <= -13
-1 * w + -1 * x +  <= -64
-

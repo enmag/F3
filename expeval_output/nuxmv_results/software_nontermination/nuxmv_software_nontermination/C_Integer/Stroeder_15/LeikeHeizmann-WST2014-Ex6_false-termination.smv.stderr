@@ -1,6 +1,0 @@
-Warning: NuSMV status may be not consistent. Use 'reset' command if needed.
-free(): double free detected in tcache 2
-/home/magnago/run_nuxmv_cluster.sh: line 2: 1945721 Aborted                 (core dumped) /home/magnago/nuXmv $BENCHTOOLS_PARAMS $BENCHTOOLS_INSTANCE
-real 3602.56
-user 3601.29
-sys 0.35

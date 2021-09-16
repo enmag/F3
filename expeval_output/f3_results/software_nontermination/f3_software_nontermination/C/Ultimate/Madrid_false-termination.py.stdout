@@ -1,8 +1,0 @@
-F3 run `Madrid_false-termination`
-
-	Found non-termination argument:
-	pc : 1, x : 2
-	pc : 2, x : 2
-	pc : 1, x : 2
-
-end of `Madrid_false-termination`: SUCCESS in 0.2105708122253418s

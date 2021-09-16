@@ -1,8 +1,0 @@
-F3 run `Division_false-termination`
-
-	Found non-termination argument:
-	pc : 0, y : 0
-	pc : 1, y : 0
-	pc : 0, y : 0
-
-end of `Division_false-termination`: SUCCESS in 0.28326869010925293s

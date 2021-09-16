@@ -1,6 +1,0 @@
-Warning: NuSMV status may be not consistent. Use 'reset' command if needed.
-corrupted double-linked list
-/home/magnago/run_nuxmv_cluster.sh: line 2: 2660014 Aborted                 (core dumped) /home/magnago/nuXmv $BENCHTOOLS_PARAMS $BENCHTOOLS_INSTANCE
-real 3603.11
-user 3601.86
-sys 0.29

@@ -1,5 +1,0 @@
-Result : Non-Terminating
-sat for numRecurrentSetEqs = 1
-Closed Recurrent Set is
--1 * x +  <= 0
-

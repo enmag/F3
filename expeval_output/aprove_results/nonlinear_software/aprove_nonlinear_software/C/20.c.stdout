@@ -1,5 +1,0 @@
-#
-# There is insufficient memory for the Java Runtime Environment to continue.
-# Native memory allocation (malloc) failed to allocate 24 bytes for AllocateHeap
-# An error report file with more information is saved as:
-# /home/magnago/benchtools/hs_err_pid2136665.log

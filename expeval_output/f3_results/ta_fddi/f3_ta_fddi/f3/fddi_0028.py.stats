@@ -1,8 +1,0 @@
-group: f3_ta_fddi
-platform: Linux node2 5.4.0-56-generic #62-Ubuntu SMP Mon Nov 23 19:20:19 UTC 2020 x86_64 x86_64
-timestamp: 1630406529
-time: 2021-08-31 12:42:09
-exitcode: 0
-real: 3604.12
-user: 0.0
-sys: 0.0

@@ -1,9 +1,0 @@
-F3 run `ChenFlurMukhopadhyay-SAS2012-Ex2.04_false-termination`
-
-	Found non-termination argument:
-	pc : 0, x : -1, y : 0
-	pc : 1, x : -1, y : 0
-	pc : 2, x : -1, y : 0
-	pc : 0, x : -1, y : 0
-
-end of `ChenFlurMukhopadhyay-SAS2012-Ex2.04_false-termination`: SUCCESS in 0.2224419116973877s

@@ -1,6 +1,0 @@
-Result : Non-Terminating
-sat for numRecurrentSetEqs = 2
-Closed Recurrent Set is
-4 * vy_0 + 2 * vx_0 +  <= 0
--4 * vy_0 + -3 * vx_0 +  <= -6
-

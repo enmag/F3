@@ -1,6 +1,0 @@
- input: /home/magnago/benchmarks/ltl_timed_automata/fischer/divine/fischer_0023.xml
- property { 0 }: (G F proc_wait) -> (G F proc_cs)
- ------------------- OWCTY -------------------
- initialise...		    real 3602.80
-user 3592.07
-sys 10.21

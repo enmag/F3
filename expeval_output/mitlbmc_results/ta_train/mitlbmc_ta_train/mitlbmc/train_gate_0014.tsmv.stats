@@ -1,8 +1,0 @@
-group: mitlbmc_ta_train
-platform: Linux node1 5.4.0-56-generic #62-Ubuntu SMP Mon Nov 23 19:20:19 UTC 2020 x86_64 x86_64
-timestamp: 1616183667
-time: 2021-03-19 20:54:27
-exitcode: 0
-real: 2.05
-user: 0.82
-sys: 0.29

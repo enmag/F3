@@ -1,7 +1,0 @@
-F3 run `simple_int1`
-
-	Found non-termination argument:
-	b : False, x : 1
-	b : False, x : 1
-
-end of `simple_int1`: SUCCESS in 0.2524857521057129s

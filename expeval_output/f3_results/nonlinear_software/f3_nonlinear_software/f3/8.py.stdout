@@ -1,8 +1,0 @@
-F3 run `8`
-
-	Found non-termination argument:
-	pc : 1, z : 3
-	pc : 2, z : 3
-	pc : 1, z : 3
-
-end of `8`: SUCCESS in 0.24246859550476074s

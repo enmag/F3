@@ -1,8 +1,0 @@
-group: nuxmv_ta_critical_region
-platform: Linux node1 5.4.0-56-generic #62-Ubuntu SMP Mon Nov 23 19:20:19 UTC 2020 x86_64 x86_64
-timestamp: 1616126470
-time: 2021-03-19 05:01:10
-exitcode: 0
-real: 327.55
-user: 326.33
-sys: 0.96

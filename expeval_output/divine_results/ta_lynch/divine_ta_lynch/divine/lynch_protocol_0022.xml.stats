@@ -1,8 +1,0 @@
-group: divine_ta_lynch
-platform: Linux node1 5.4.0-56-generic #62-Ubuntu SMP Mon Nov 23 19:20:19 UTC 2020 x86_64 x86_64
-timestamp: 1616104126
-time: 2021-03-18 22:48:46
-exitcode: 0
-real: 2721.47
-user: 2698.07
-sys: 22.41

@@ -1,8 +1,0 @@
-group: nuxmv_ta_csma_cd
-platform: Linux node1 5.4.0-56-generic #62-Ubuntu SMP Mon Nov 23 19:20:19 UTC 2020 x86_64 x86_64
-timestamp: 1616129252
-time: 2021-03-19 05:47:32
-exitcode: 0
-real: 3602.74
-user: 3591.25
-sys: 10.47

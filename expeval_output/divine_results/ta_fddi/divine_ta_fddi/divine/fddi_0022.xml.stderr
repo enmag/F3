@@ -1,7 +1,0 @@
- input: /home/magnago/benchmarks/ltl_timed_automata/fddi/divine/fddi_0022.xml
- property { 0 }: (G F st0_y_async)
- ------------------- OWCTY -------------------
- initialise...		    /home/run_divine.sh: line 4: 1859523 Segmentation fault      (core dumped) /home/divine-3.3.3/_build/tools/divine verify -w 1 -p 0 -f -d $1
-real 1.02
-user 0.12
-sys 0.32

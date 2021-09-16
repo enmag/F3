@@ -1,7 +1,0 @@
-F3 run `simple_real1`
-
-	Found non-termination argument:
-	b : False, x : 1.0
-	b : False, x : 1.0
-
-end of `simple_real1`: SUCCESS in 0.18851327896118164s
