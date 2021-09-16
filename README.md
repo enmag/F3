@@ -106,6 +106,4 @@ By increasing the verbosity (option `-v`) it is possible to obtain more informat
 
 
 ## Generating the plots
-The directory `expeval_output` contains the outputs obtained by executing of F3 and other tools on the benchmarks contained in the `benchmarks` directory.
-The `script` directory contains 2 python scripts that can be used to parse and plot such outputs.
 Please, refer to the file `GENERATE_PLOTS` for a more detailed description of the commands that can be used to generate such plots.

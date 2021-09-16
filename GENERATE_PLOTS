@@ -8,10 +8,19 @@ Otherwise, matplotlib fails to open the windows in which the plots are shown.
 Run the following command as sudo:
   $> apt -y install python3-matplotlib
 
+## Download data
+The archive containing the output of each tool can be downloaded from:
+  https://drive.google.com/file/d/1TLCOi7E_NEoH_KWgh1SZWIgzK0akWuR4/view?usp=sharing
+
+Extract the content of such archive using:
+  $> tar -xzpf infocomp2021_expeval_output.tar.gz
+This should create a directory named "infocomp2021_expeval_output" of size 713 MB.
+
 ## Generate the plots.
+Let $OUTPUT be the directory created at the previous point.
 The python script "scripts/plot_scatter.py" generates the plots.
 Each plot compares F3 with one other tool on the benchmarks of one category.
 The following command generates the plots for all categories.
-  $> python3 ./scripts/plot_scatter.py -ls -ns -its -ta -tts -hs -in ./expeval_output/
+  $> python3 ./scripts/plot_scatter.py -ls -ns -its -ta -tts -hs -in $OUTPUT
 
 The script prints on stdout the name of the category being shown and the number of instances solved by each tool.
