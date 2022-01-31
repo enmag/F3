@@ -4,7 +4,7 @@ from pysmt.environment import Environment as PysmtEnv
 from pysmt.fnode import FNode
 import pysmt.typing as types
 
-from utils import symb_to_next
+from expr_utils import symb2next
 from hint import Hint, Location
 
 
@@ -14,8 +14,8 @@ def transition_system(env: PysmtEnv) -> Tuple[FrozenSet[FNode], FNode, FNode,
     mgr = env.formula_manager
     pc = mgr.Symbol("pc", types.INT)
     x = mgr.Symbol("x", types.INT)
-    x_pc = symb_to_next(mgr, pc)
-    x_x = symb_to_next(mgr, x)
+    x_pc = symb2next(env, pc)
+    x_x = symb2next(env, x)
 
     symbols = frozenset([pc, x])
 
@@ -88,7 +88,7 @@ def hints(env: PysmtEnv) -> FrozenSet[Hint]:
     i_0 = mgr.Int(0)
     i_2 = mgr.Int(2)
 
-    x_x = symb_to_next(mgr, x)
+    x_x = symb2next(env, x)
     stutter = mgr.Equals(x_x, x)
     loc = Location(env, mgr.LT(x, i_0), stutterT=stutter)
     loc.set_progress(0, mgr.Equals(x_x, mgr.Minus(x, i_2)))

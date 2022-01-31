@@ -15,7 +15,7 @@ from mathsat import msat_make_number, msat_make_plus, msat_make_times, \
     msat_make_divide
 
 from ltl.ltl import TermMap, LTLEncoder
-from utils import name_next, symb_to_next
+from expr_utils import name2next, symb2next
 from hint import Hint, Location
 
 DELTA_NAME = "delta"
@@ -33,7 +33,7 @@ def decl_consts(menv: msat_env, name: str, c_type):
     assert not name.startswith("_"), name
     s = msat_declare_function(menv, name, c_type)
     s = msat_make_constant(menv, s)
-    x_s = msat_declare_function(menv, name_next(name), c_type)
+    x_s = msat_declare_function(menv, name2next(name), c_type)
     x_s = msat_make_constant(menv, x_s)
     return s, x_s
 
@@ -184,7 +184,7 @@ class Leader:
 
         r_0 = mgr.Real(0)
 
-        x_a = symb_to_next(mgr, a)
+        x_a = symb2next(env, a)
         invar = mgr.And(mgr.LE(r_0, a), mgr.LE(a, max_acc))
         loc0 = Location(env, invar, stutterT=mgr.Equals(x_a, a))
         loc0.set_progress(0, mgr.And(mgr.LE(r_0, x_a),
@@ -198,7 +198,7 @@ class Leader:
         hint_a.set_locs([loc0, loc1])
         yield hint_a
 
-        x_v = symb_to_next(mgr, v)
+        x_v = symb2next(env, v)
         assume = mgr.And(mgr.GE(delta, r_0), mgr.GE(a, r_0))
         loc = Location(env, mgr.LE(r_0, v), assume)
         loc.set_progress(0,
@@ -375,15 +375,15 @@ class Follower:
         r_0 = mgr.Real(0)
         r_2 = mgr.Real(2)
 
-        x_a = symb_to_next(mgr, a)
+        x_a = symb2next(env, a)
         loc = Location(env, mgr.Equals(a, r_0))
         loc.set_progress(0, mgr.Equals(x_a, r_0))
         hint_a = Hint(f"h{i}_a", env, frozenset([a]), symbs)
         hint_a.set_locs([loc])
         yield hint_a
 
-        x_v = symb_to_next(mgr, v)
-        x_dist = symb_to_next(mgr, dist)
+        x_v = symb2next(env, v)
+        x_dist = symb2next(env, dist)
         invar = mgr.And(mgr.GT(v, r_0),
                         mgr.GT(dist,
                                mgr.Minus(mgr.Times(period, v),
@@ -574,7 +574,7 @@ def delta_c_hint(env: PysmtEnv, delta: FNode, symbs: FrozenSet[FNode]) -> Hint:
              if any((s % p) == 0 for s in PERIODS)]
     mgr = env.formula_manager
     r_0 = mgr.Real(0)
-    x_delta = symb_to_next(mgr, delta)
+    x_delta = symb2next(env, delta)
     comps_c = [mgr.Symbol(Leader.C_NAME.format("leader"),
                           types.REAL)]
     comps_c.extend(mgr.Symbol(Leader.C_NAME.format(f"follower{i}"),
@@ -608,14 +608,14 @@ def delta_c_hint(env: PysmtEnv, delta: FNode, symbs: FrozenSet[FNode]) -> Hint:
         # transitions
         assert len(locs) == 2 * idx + 2
         disc_trans = [mgr.Equals(x_delta, x_delta_val)]
-        disc_trans.extend(mgr.Equals(symb_to_next(mgr, c),
+        disc_trans.extend(mgr.Equals(symb2next(env, c),
                                      clock_x_value(mgr, c_time,
                                                    period, c))
                           for c, period in zip(comps_c, PERIODS))
         c_loc.set_progress(2 * idx + 1, mgr.And(disc_trans))
         xx_loc_idx = (2 * idx + 2) % (2 * len(times))
         timed_trans = [mgr.Equals(x_delta, r_0)]
-        timed_trans.extend(mgr.Equals(symb_to_next(mgr, c), mgr.Plus(c, delta))
+        timed_trans.extend(mgr.Equals(symb2next(env, c), mgr.Plus(c, delta))
                            for c in comps_c)
         x_loc.set_progress(xx_loc_idx, mgr.And(timed_trans))
 

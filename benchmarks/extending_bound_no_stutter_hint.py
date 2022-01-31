@@ -11,9 +11,9 @@ from mathsat import msat_make_and, msat_make_not, msat_make_or
 from mathsat import msat_make_leq, msat_make_equal
 from mathsat import msat_make_number, msat_make_plus
 
-from utils import name_next, symb_to_next
+from expr_utils import symb2next
 from hint import Hint, Location
-from rankfun import RankFun
+from rankfun import RRankFun
 
 
 def transition_system(env: PysmtEnv) -> Tuple[FrozenSet[FNode], FNode,
@@ -26,9 +26,9 @@ def transition_system(env: PysmtEnv) -> Tuple[FrozenSet[FNode], FNode,
     inc_i = mgr.Symbol("inc_i", types.BOOL)
     symbs = frozenset([i, r, l, inc_i])
 
-    x_i = symb_to_next(mgr, i)
-    x_r = symb_to_next(mgr, r)
-    x_l = symb_to_next(mgr, l)
+    x_i = symb2next(env, i)
+    x_r = symb2next(env, r)
+    x_l = symb2next(env, l)
 
     n0 = mgr.Real(0)
     n1 = mgr.Real(1)
@@ -61,9 +61,9 @@ def hints(env: PysmtEnv) -> FrozenSet[Hint]:
     inc_i = mgr.Symbol("inc_i", types.BOOL)
     l = mgr.Symbol("l", types.REAL)
     symbs = frozenset([i, r, l, inc_i])
-    x_i = symb_to_next(mgr, i)
-    x_r = symb_to_next(mgr, r)
-    x_l = symb_to_next(mgr, l)
+    x_i = symb2next(env, i)
+    x_r = symb2next(env, r)
+    x_l = symb2next(env, l)
 
     n0 = mgr.Real(0)
     n1 = mgr.Real(1)
@@ -74,13 +74,13 @@ def hints(env: PysmtEnv) -> FrozenSet[Hint]:
                     mgr.Equals(x_r, r),
                     mgr.Equals(x_l, l))
     rf0 = mgr.Minus(r, i)
-    rf0 = RankFun(env, rf0, delta, frozenset([i, r]))
+    rf0 = RRankFun(env, frozenset([i, r]), rf0, delta, frozenset())
     loc0 = Location(env, mgr.And(mgr.LT(i, mgr.Plus(r, n1)),
                                  mgr.LE(mgr.Plus(r, n2), l)),
                     rankT=rankT, rf=rf0)
     loc0.set_progress(1, rankT)
     rf1 = mgr.Minus(l, i)
-    rf1 = RankFun(env, rf1, delta, frozenset([i, r]))
+    rf1 = RRankFun(env, frozenset([i, l]), rf1, delta, frozenset())
     loc1 = Location(env, mgr.And(mgr.LE(i, l), mgr.LT(r, i),
                                  mgr.LE(mgr.Plus(r, n2), l)),
                     rankT=rankT, rf=rf1)

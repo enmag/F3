@@ -1,4 +1,4 @@
-from collections import Iterable
+from typing import Iterable, Tuple
 from math import log, ceil
 
 from mathsat import msat_term, msat_env
@@ -9,7 +9,7 @@ from mathsat import msat_make_leq, msat_make_equal, msat_make_true
 from mathsat import msat_make_number, msat_make_plus, msat_make_times
 
 from ltl.ltl import TermMap, LTLEncoder
-from utils import name_next
+from expr_utils import name2next
 
 num_procs = 12
 
@@ -18,7 +18,7 @@ def decl_consts(menv: msat_env, name: str, c_type) -> tuple:
     assert not name.startswith("_"), name
     s = msat_declare_function(menv, name, c_type)
     s = msat_make_constant(menv, s)
-    x_s = msat_declare_function(menv, name_next(name), c_type)
+    x_s = msat_declare_function(menv, name2next(name), c_type)
     x_s = msat_make_constant(menv, x_s)
     return s, x_s
 
@@ -77,8 +77,8 @@ def msat_make_impl(menv: msat_env, arg0: msat_term, arg1: msat_term):
     return msat_make_or(menv, n_arg0, arg1)
 
 
-def check_ltl(menv: msat_env, enc: LTLEncoder) -> (Iterable, msat_term,
-                                                   msat_term, msat_term):
+def check_ltl(menv: msat_env, enc: LTLEncoder) -> Tuple[Iterable, msat_term,
+                                                   msat_term, msat_term]:
     assert menv
     assert isinstance(menv, msat_env)
     assert enc

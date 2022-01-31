@@ -4,7 +4,7 @@ from pysmt.environment import Environment as PysmtEnv
 from pysmt.fnode import FNode
 import pysmt.typing as types
 
-from utils import symb_to_next
+from expr_utils import symb2next
 from hint import Hint, Location
 
 
@@ -13,15 +13,15 @@ def transition_system(env: PysmtEnv) -> Tuple[FrozenSet[FNode], FNode, FNode,
     assert isinstance(env, PysmtEnv)
     mgr = env.formula_manager
     pc = mgr.Symbol("pc", types.INT)
-    x_pc = symb_to_next(mgr, pc)
+    x_pc = symb2next(env, pc)
     lock = mgr.Symbol("LOCK", types.INT)
-    x_lock = symb_to_next(mgr, lock)
+    x_lock = symb2next(env, lock)
     got_lock = mgr.Symbol("got_lock", types.INT)
-    x_got_lock = symb_to_next(mgr, got_lock)
+    x_got_lock = symb2next(env, got_lock)
     old = mgr.Symbol("old", types.INT)
-    x_old = symb_to_next(mgr, old)
+    x_old = symb2next(env, old)
     new = mgr.Symbol("new", types.INT)
-    x_new = symb_to_next(mgr, new)
+    x_new = symb2next(env, new)
 
     symbols = frozenset([pc, lock, got_lock, old, new])
 
@@ -172,28 +172,28 @@ def hints(env: PysmtEnv) -> FrozenSet[Hint]:
 
     i_0 = mgr.Int(0)
 
-    x_lock = symb_to_next(mgr, lock)
+    x_lock = symb2next(env, lock)
     stutter = mgr.Equals(x_lock, lock)
     l0 = Location(env, mgr.Equals(lock, i_0), stutterT=stutter)
     l0.set_progress(0, mgr.Equals(x_lock, i_0))
     h_lock = Hint("h_lock", env, frozenset([lock]), symbs)
     h_lock.set_locs([l0])
 
-    x_got_lock = symb_to_next(mgr, got_lock)
+    x_got_lock = symb2next(env, got_lock)
     stutter = mgr.Equals(x_got_lock, got_lock)
     l0 = Location(env, mgr.Equals(got_lock, i_0), stutterT=stutter)
     l0.set_progress(0, mgr.Equals(x_got_lock, i_0))
     h_got_lock = Hint("h_got_lock", env, frozenset([got_lock]), symbs)
     h_got_lock.set_locs([l0])
 
-    x_old = symb_to_next(mgr, old)
+    x_old = symb2next(env, old)
     stutter = mgr.Equals(x_old, old)
     l0 = Location(env, mgr.Equals(old, i_0), stutterT=stutter)
     l0.set_progress(0, mgr.Equals(x_old, i_0))
     h_old = Hint("h_old", env, frozenset([old]), symbs)
     h_old.set_locs([l0])
 
-    x_new = symb_to_next(mgr, new)
+    x_new = symb2next(env, new)
     stutter = mgr.Equals(x_new, new)
     l0 = Location(env, mgr.Equals(new, i_0), stutterT=stutter)
     l0.set_progress(0, mgr.Equals(x_new, i_0))

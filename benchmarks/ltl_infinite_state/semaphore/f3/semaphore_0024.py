@@ -1,4 +1,4 @@
-from collections import Iterable
+from typing import Iterable, Tuple
 from mathsat import msat_term, msat_env
 from mathsat import msat_make_constant, msat_declare_function
 from mathsat import msat_get_integer_type, msat_get_bool_type
@@ -6,7 +6,7 @@ from mathsat import msat_make_and, msat_make_not, msat_make_or, msat_make_iff
 from mathsat import msat_make_leq, msat_make_equal
 from mathsat import msat_make_number, msat_make_plus
 from ltl.ltl import TermMap, LTLEncoder
-from utils import name_next
+from expr_utils import name2next
 
 num_procs = 24
 
@@ -29,8 +29,8 @@ def msat_make_impl(menv: msat_env, arg0: msat_term, arg1: msat_term):
     return msat_make_or(menv, n_arg0, arg1)
 
 
-def check_ltl(menv: msat_env, enc: LTLEncoder) -> (Iterable, msat_term,
-                                                   msat_term, msat_term):
+def check_ltl(menv: msat_env, enc: LTLEncoder) -> Tuple[Iterable, msat_term,
+                                                   msat_term, msat_term]:
     assert menv
     assert isinstance(menv, msat_env)
     assert enc
@@ -40,9 +40,9 @@ def check_ltl(menv: msat_env, enc: LTLEncoder) -> (Iterable, msat_term,
     semaphore = msat_declare_function(menv, "semaphore", int_type)
     run = msat_make_constant(menv, run)
     semaphore = msat_make_constant(menv, semaphore)
-    x_run = msat_declare_function(menv, name_next("run"), int_type)
+    x_run = msat_declare_function(menv, name2next("run"), int_type)
     x_run = msat_make_constant(menv, x_run)
-    x_semaphore = msat_declare_function(menv, name_next("semaphore"), int_type)
+    x_semaphore = msat_declare_function(menv, name2next("semaphore"), int_type)
     x_semaphore = msat_make_constant(menv, x_semaphore)
 
     nums = [msat_make_number(menv, str(i)) for i in range(num_procs + 1)]
@@ -89,7 +89,7 @@ def semaphore_constrs(name, menv, run, sem, x_sem, cont):
     bool_type = msat_get_bool_type(menv)
     state = msat_declare_function(menv, "{}_state".format(name), bool_type)
     state = msat_make_constant(menv, state)
-    x_state = msat_declare_function(menv, name_next("{}_state".format(name)),
+    x_state = msat_declare_function(menv, name2next("{}_state".format(name)),
                                     bool_type)
     x_state = msat_make_constant(menv, x_state)
     # state = work
@@ -103,13 +103,13 @@ def semaphore_constrs(name, menv, run, sem, x_sem, cont):
                                      int_type)
     loop_len = msat_make_constant(menv, loop_len)
     x_loop_len = msat_declare_function(menv,
-                                       name_next("{}_loop_len".format(name)),
+                                       name2next("{}_loop_len".format(name)),
                                        int_type)
     x_loop_len = msat_make_constant(menv, x_loop_len)
 
     l = msat_declare_function(menv, "{}_l".format(name), int_type)
     l = msat_make_constant(menv, l)
-    x_l = msat_declare_function(menv, name_next("{}_l".format(name)), int_type)
+    x_l = msat_declare_function(menv, name2next("{}_l".format(name)), int_type)
     x_l = msat_make_constant(menv, x_l)
 
     curr2next = {state: x_state, loop_len: x_loop_len, l: x_l}

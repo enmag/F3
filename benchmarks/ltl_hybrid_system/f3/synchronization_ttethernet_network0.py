@@ -8,7 +8,7 @@ from mathsat import msat_make_number, msat_make_plus, msat_make_times, \
     msat_make_divide
 
 from ltl.ltl import TermMap, LTLEncoder
-from utils import name_next
+from expr_utils import name2next
 
 
 delta_name = "delta"
@@ -18,7 +18,7 @@ def decl_consts(menv: msat_env, name: str, c_type):
     assert not name.startswith("_"), name
     s = msat_declare_function(menv, name, c_type)
     s = msat_make_constant(menv, s)
-    x_s = msat_declare_function(menv, name_next(name), c_type)
+    x_s = msat_declare_function(menv, name2next(name), c_type)
     x_s = msat_make_constant(menv, x_s)
     return s, x_s
 

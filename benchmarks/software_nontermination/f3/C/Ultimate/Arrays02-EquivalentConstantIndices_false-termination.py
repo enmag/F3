@@ -1,17 +1,20 @@
+from typing import Tuple, FrozenSet
+from typing import Tuple, FrozenSet
 from pysmt.environment import Environment as PysmtEnv
 from pysmt.fnode import FNode
 import pysmt.typing as types
 
-from utils import symb_to_next
+from expr_utils import symb2next
 
 
-def transition_system(env: PysmtEnv) -> (frozenset, FNode, FNode, FNode):
+def transition_system(env: PysmtEnv) -> Tuple[FrozenSet[FNode],
+                                              FNode, FNode, FNode]:
     assert isinstance(env, PysmtEnv)
     mgr = env.formula_manager
     pc = mgr.Symbol("pc", types.INT)
     a_lst = [mgr.Symbol("a{}".format(i), types.INT) for i in range(1048)]
-    x_pc = symb_to_next(mgr, pc)
-    x_a_lst = [symb_to_next(mgr, a) for a in a_lst]
+    x_pc = symb2next(env, pc)
+    x_a_lst = [symb2next(env, a) for a in a_lst]
 
     m_1 = mgr.Int(-1)
     i_0 = mgr.Int(0)

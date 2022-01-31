@@ -1,10 +1,11 @@
 import pysmt.typing as types
+from typing import Tuple, FrozenSet
 from pysmt.environment import Environment as PysmtEnv
 from pysmt.fnode import FNode
-from utils import symb_to_next
+from expr_utils import symb2next
 
 
-def transition_system(env: PysmtEnv) -> (frozenset, FNode, FNode, FNode):
+def transition_system(env: PysmtEnv) -> Tuple[FrozenSet[FNode], FNode, FNode, FNode]:
     assert isinstance(env, PysmtEnv)
     mgr = env.formula_manager
     den = mgr.Symbol("den", types.INT)
@@ -15,14 +16,14 @@ def transition_system(env: PysmtEnv) -> (frozenset, FNode, FNode, FNode):
     num = mgr.Symbol("num", types.INT)
     pc = mgr.Symbol("pc", types.INT)
     r_num = mgr.Symbol("r_num", types.INT)
-    x_den = symb_to_next(mgr, den)
-    x_dmul = symb_to_next(mgr, dmul)
-    x_nCr = symb_to_next(mgr, nCr)
-    x_n_num = symb_to_next(mgr, n_num)
-    x_nmul = symb_to_next(mgr, nmul)
-    x_num = symb_to_next(mgr, num)
-    x_pc = symb_to_next(mgr, pc)
-    x_r_num = symb_to_next(mgr, r_num)
+    x_den = symb2next(env, den)
+    x_dmul = symb2next(env, dmul)
+    x_nCr = symb2next(env, nCr)
+    x_n_num = symb2next(env, n_num)
+    x_nmul = symb2next(env, nmul)
+    x_num = symb2next(env, num)
+    x_pc = symb2next(env, pc)
+    x_r_num = symb2next(env, r_num)
     symbols = frozenset([den, dmul, nCr, n_num, nmul, num, pc, r_num])
 
     n_locs = 25

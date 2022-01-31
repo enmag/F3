@@ -1,4 +1,4 @@
-from collections import Iterable
+from typing import Tuple, Iterable
 from mathsat import msat_term, msat_env
 from mathsat import msat_make_constant, msat_declare_function
 from mathsat import msat_get_integer_type, msat_get_rational_type
@@ -6,7 +6,7 @@ from mathsat import msat_make_and, msat_make_not, msat_make_or
 from mathsat import msat_make_leq, msat_make_equal
 from mathsat import msat_make_number, msat_make_plus
 from ltl.ltl import TermMap, LTLEncoder
-from utils import name_next
+from expr_utils import name2next
 
 
 def msat_make_lt(menv: msat_env, arg0: msat_term, arg1: msat_term):
@@ -28,8 +28,8 @@ def msat_make_impl(menv: msat_env, arg0: msat_term, arg1: msat_term):
     return msat_make_or(menv, n_arg0, arg1)
 
 
-def check_ltl(menv: msat_env, enc: LTLEncoder) -> (Iterable, msat_term,
-                                                   msat_term, msat_term):
+def check_ltl(menv: msat_env, enc: LTLEncoder) -> Tuple[Iterable, msat_term,
+                                                        msat_term, msat_term]:
     assert menv
     assert isinstance(menv, msat_env)
     assert enc
@@ -42,11 +42,11 @@ def check_ltl(menv: msat_env, enc: LTLEncoder) -> (Iterable, msat_term,
     m_x_i = msat_declare_function(menv, "m_x_i", real_type)
     m_x_i = msat_make_constant(menv, m_x_i)
 
-    x_m_x_i = msat_declare_function(menv, name_next("m_x_i"), real_type)
+    x_m_x_i = msat_declare_function(menv, name2next("m_x_i"), real_type)
     x_m_x_i = msat_make_constant(menv, x_m_x_i)
-    x_i = msat_declare_function(menv, name_next("i"), real_type)
+    x_i = msat_declare_function(menv, name2next("i"), real_type)
     x_i = msat_make_constant(menv, x_i)
-    x_r = msat_declare_function(menv, name_next("r"), real_type)
+    x_r = msat_declare_function(menv, name2next("r"), real_type)
     x_r = msat_make_constant(menv, x_r)
 
     curr2next = {i: x_i, r: x_r, m_x_i: x_m_x_i}

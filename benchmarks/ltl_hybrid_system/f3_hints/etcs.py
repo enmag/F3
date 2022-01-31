@@ -11,7 +11,7 @@ from mathsat import msat_make_number, msat_make_plus, msat_make_times, \
     msat_make_divide
 
 from ltl.ltl import TermMap, LTLEncoder
-from utils import name_next, symb_to_next
+from expr_utils import name2next, symb2next
 from hint import Hint, Location
 
 
@@ -22,7 +22,7 @@ def decl_consts(menv: msat_env, name: str, c_type):
     assert not name.startswith("_"), name
     s = msat_declare_function(menv, name, c_type)
     s = msat_make_constant(menv, s)
-    x_s = msat_declare_function(menv, name_next(name), c_type)
+    x_s = msat_declare_function(menv, name2next(name), c_type)
     x_s = msat_make_constant(menv, x_s)
     return s, x_s
 
@@ -269,7 +269,7 @@ def hints(env: PysmtEnv):
                                                mgr.Times(r_2, period, period)),
                                        mgr.Times(period, t_v))))
 
-    # x_t_c = symb_to_next(mgr, t_c)
+    # x_t_c = symb2next(env, t_c)
     # loc0 = Location(env, mgr.Equals(t_c, r_0), mgr.Equals(d, period))
     # loc0.set_progress(1, mgr.Equals(x_t_c, period))
     # loc1 = Location(env, mgr.Equals(t_c, period), mgr.Equals(d, r_0))
@@ -277,7 +277,7 @@ def hints(env: PysmtEnv):
     # hint_t_c = Hint("h_train_c", env, frozenset([t_c]), symbs)
     # hint_t_c.set_locs([loc0, loc1])
 
-    # x_t_v = symb_to_next(mgr, t_v)
+    # x_t_v = symb2next(env, t_v)
     # assume = mgr.And(mgr.Equals(t_a, r_0), mgr.GE(d, r_0))
     # invar = mgr.And(mgr.GT(t_v, r_0), mgr.LE(t_v, r_4))
     # loc = Location(env, invar, assume)
@@ -286,14 +286,14 @@ def hints(env: PysmtEnv):
     # hint_t_v = Hint("h_train_v", env, frozenset([t_v]), symbs)
     # hint_t_v.set_locs([loc])
 
-    # x_t_a = symb_to_next(mgr, t_a)
+    # x_t_a = symb2next(env, t_a)
     # loc = Location(env, mgr.Equals(t_a, r_0))
     # loc.set_progress(0, mgr.Equals(x_t_a, r_0))
     # hint_t_a = Hint("h_train_a", env, frozenset([t_a]), symbs)
     # hint_t_a.set_locs([loc])
 
-    x_rbc_m = symb_to_next(mgr, rbc_m)
-    x_t_z = symb_to_next(mgr, t_z)
+    x_rbc_m = symb2next(env, rbc_m)
+    x_t_z = symb2next(env, t_z)
     assume = mgr.And(mgr.GE(d, r_0), mgr.GE(t_v, r_0), mgr.GE(t_a, r_0),
                      mgr.Equals(rbc_d, r_0), mgr.LE(rbc_d, t_v),
                      mgr.Equals(rbc_d, r_0), mgr.LE(t_v, r_4))

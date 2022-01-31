@@ -4,7 +4,7 @@ from pysmt.environment import Environment as PysmtEnv
 from pysmt.fnode import FNode
 import pysmt.typing as types
 
-from utils import symb_to_next
+from expr_utils import symb2next
 from hint import Hint, Location
 
 
@@ -15,9 +15,9 @@ def transition_system(env: PysmtEnv) -> Tuple[FrozenSet[FNode], FNode, FNode,
     pc = mgr.Symbol("pc", types.INT)
     x = mgr.Symbol("x", types.INT)
     nondet = mgr.Symbol("nondet", types.INT)
-    x_pc = symb_to_next(mgr, pc)
-    x_x = symb_to_next(mgr, x)
-    x_nondet = symb_to_next(mgr, nondet)
+    x_pc = symb2next(env, pc)
+    x_x = symb2next(env, x)
+    x_nondet = symb2next(env, nondet)
 
     symbols = frozenset([pc, x, nondet])
 
@@ -93,14 +93,14 @@ def hints(env: PysmtEnv) -> FrozenSet[Hint]:
     i_0 = mgr.Int(0)
     i_1 = mgr.Int(1)
 
-    x_x = symb_to_next(mgr, x)
+    x_x = symb2next(env, x)
     stutter = mgr.Equals(x_x, x)
     loc = Location(env, mgr.LT(x, i_0), stutterT=stutter)
     loc.set_progress(0, mgr.Equals(x_x, mgr.Minus(x, i_1)))
     h_x = Hint("h_x", env, frozenset([x]), symbs)
     h_x.set_locs([loc])
 
-    x_nondet = symb_to_next(mgr, nondet)
+    x_nondet = symb2next(env, nondet)
     loc = Location(env, mgr.Equals(nondet, i_0))
     loc.set_progress(0, mgr.Equals(x_nondet, nondet))
     h_nondet = Hint("h_nondet", env, frozenset([nondet]), symbs)

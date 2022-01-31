@@ -1,4 +1,4 @@
-from collections import Iterable
+from typing import Iterable, Tuple
 from mathsat import msat_term, msat_env
 from mathsat import msat_make_constant, msat_declare_function
 from mathsat import msat_get_integer_type, msat_get_bool_type
@@ -6,7 +6,7 @@ from mathsat import msat_make_and, msat_make_not, msat_make_or, msat_make_iff
 from mathsat import msat_make_leq, msat_make_equal
 from mathsat import msat_make_number, msat_make_plus, msat_make_times
 from ltl.ltl import TermMap, LTLEncoder
-from utils import name_next
+from expr_utils import name2next
 
 
 def msat_make_minus(menv: msat_env, arg0: msat_term, arg1: msat_term):
@@ -34,8 +34,8 @@ def msat_make_impl(menv: msat_env, arg0: msat_term, arg1: msat_term):
     return msat_make_or(menv, n_arg0, arg1)
 
 
-def check_ltl(menv: msat_env, enc: LTLEncoder) -> (Iterable, msat_term,
-                                                   msat_term, msat_term):
+def check_ltl(menv: msat_env, enc: LTLEncoder) -> Tuple[Iterable, msat_term,
+                                                        msat_term, msat_term]:
     assert menv
     assert isinstance(menv, msat_env)
     assert enc
@@ -47,7 +47,7 @@ def check_ltl(menv: msat_env, enc: LTLEncoder) -> (Iterable, msat_term,
     name = "fault_corruption"
     fault_corruption = msat_declare_function(menv, name, bool_type)
     fault_corruption = msat_make_constant(menv, fault_corruption)
-    x_fault_corruption = msat_declare_function(menv, name_next(name),
+    x_fault_corruption = msat_declare_function(menv, name2next(name),
                                                bool_type)
     x_fault_corruption = msat_make_constant(menv, x_fault_corruption)
     curr2next[fault_corruption] = x_fault_corruption
@@ -55,7 +55,7 @@ def check_ltl(menv: msat_env, enc: LTLEncoder) -> (Iterable, msat_term,
     name = "fault_deletion"
     fault_deletion = msat_declare_function(menv, name, bool_type)
     fault_deletion = msat_make_constant(menv, fault_deletion)
-    x_fault_deletion = msat_declare_function(menv, name_next(name),
+    x_fault_deletion = msat_declare_function(menv, name2next(name),
                                              bool_type)
     x_fault_deletion = msat_make_constant(menv, x_fault_deletion)
     curr2next[fault_deletion] = x_fault_deletion
@@ -63,7 +63,7 @@ def check_ltl(menv: msat_env, enc: LTLEncoder) -> (Iterable, msat_term,
     name = "o_collision"
     o_collision = msat_declare_function(menv, name, bool_type)
     o_collision = msat_make_constant(menv, o_collision)
-    x_o_collision = msat_declare_function(menv, name_next(name),
+    x_o_collision = msat_declare_function(menv, name2next(name),
                                           bool_type)
     x_o_collision = msat_make_constant(menv, x_o_collision)
     curr2next[o_collision] = x_o_collision
@@ -71,7 +71,7 @@ def check_ltl(menv: msat_env, enc: LTLEncoder) -> (Iterable, msat_term,
     name = "o_valid_explode"
     o_explode = msat_declare_function(menv, name, bool_type)
     o_explode = msat_make_constant(menv, o_explode)
-    x_o_explode = msat_declare_function(menv, name_next(name),
+    x_o_explode = msat_declare_function(menv, name2next(name),
                                         bool_type)
     x_o_explode = msat_make_constant(menv, x_o_explode)
     curr2next[o_explode] = x_o_explode
@@ -79,7 +79,7 @@ def check_ltl(menv: msat_env, enc: LTLEncoder) -> (Iterable, msat_term,
     name = "device_exploded"
     exploded = msat_declare_function(menv, name, bool_type)
     exploded = msat_make_constant(menv, exploded)
-    x_exploded = msat_declare_function(menv, name_next(name),
+    x_exploded = msat_declare_function(menv, name2next(name),
                                        bool_type)
     x_exploded = msat_make_constant(menv, x_exploded)
     curr2next[exploded] = x_exploded
@@ -87,7 +87,7 @@ def check_ltl(menv: msat_env, enc: LTLEncoder) -> (Iterable, msat_term,
     name = "link_new_data_available"
     new_data = msat_declare_function(menv, name, bool_type)
     new_data = msat_make_constant(menv, new_data)
-    x_new_data = msat_declare_function(menv, name_next(name),
+    x_new_data = msat_declare_function(menv, name2next(name),
                                        bool_type)
     x_new_data = msat_make_constant(menv, x_new_data)
     curr2next[new_data] = x_new_data
@@ -95,7 +95,7 @@ def check_ltl(menv: msat_env, enc: LTLEncoder) -> (Iterable, msat_term,
     name = "link_valid_crc"
     valid_crc = msat_declare_function(menv, name, bool_type)
     valid_crc = msat_make_constant(menv, valid_crc)
-    x_valid_crc = msat_declare_function(menv, name_next(name),
+    x_valid_crc = msat_declare_function(menv, name2next(name),
                                         bool_type)
     x_valid_crc = msat_make_constant(menv, x_valid_crc)
     curr2next[valid_crc] = x_valid_crc
@@ -103,7 +103,7 @@ def check_ltl(menv: msat_env, enc: LTLEncoder) -> (Iterable, msat_term,
     name = "link_out_counter"
     out_count = msat_declare_function(menv, name, int_type)
     out_count = msat_make_constant(menv, out_count)
-    x_out_count = msat_declare_function(menv, name_next(name),
+    x_out_count = msat_declare_function(menv, name2next(name),
                                         int_type)
     x_out_count = msat_make_constant(menv, x_out_count)
     curr2next[out_count] = x_out_count
@@ -111,7 +111,7 @@ def check_ltl(menv: msat_env, enc: LTLEncoder) -> (Iterable, msat_term,
     name = "sensor_message"
     msg = msat_declare_function(menv, name, int_type)
     msg = msat_make_constant(menv, msg)
-    x_msg = msat_declare_function(menv, name_next(name),
+    x_msg = msat_declare_function(menv, name2next(name),
                                   int_type)
     x_msg = msat_make_constant(menv, x_msg)
     curr2next[msg] = x_msg
@@ -119,7 +119,7 @@ def check_ltl(menv: msat_env, enc: LTLEncoder) -> (Iterable, msat_term,
     name = "link_out_message"
     out_msg = msat_declare_function(menv, name, int_type)
     out_msg = msat_make_constant(menv, out_msg)
-    x_out_msg = msat_declare_function(menv, name_next(name),
+    x_out_msg = msat_declare_function(menv, name2next(name),
                                       int_type)
     x_out_msg = msat_make_constant(menv, x_out_msg)
     curr2next[out_msg] = x_out_msg
@@ -127,7 +127,7 @@ def check_ltl(menv: msat_env, enc: LTLEncoder) -> (Iterable, msat_term,
     name = "sensor_counter"
     count = msat_declare_function(menv, name, int_type)
     count = msat_make_constant(menv, count)
-    x_count = msat_declare_function(menv, name_next(name),
+    x_count = msat_declare_function(menv, name2next(name),
                                     int_type)
     x_count = msat_make_constant(menv, x_count)
     curr2next[count] = x_count

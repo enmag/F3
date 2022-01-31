@@ -4,7 +4,7 @@ from pysmt.environment import Environment as PysmtEnv
 from pysmt.fnode import FNode
 import pysmt.typing as types
 
-from utils import symb_to_next
+from expr_utils import symb2next
 from hint import Hint, Location
 
 
@@ -15,9 +15,9 @@ def transition_system(env: PysmtEnv) -> Tuple[FrozenSet[FNode], FNode, FNode,
     pc = mgr.Symbol("pc", types.INT)
     k = mgr.Symbol("k", types.INT)
     i = mgr.Symbol("i", types.INT)
-    x_pc = symb_to_next(mgr, pc)
-    x_k = symb_to_next(mgr, k)
-    x_i = symb_to_next(mgr, i)
+    x_pc = symb2next(env, pc)
+    x_k = symb2next(env, k)
+    x_i = symb2next(env, i)
 
     symbols = frozenset([pc, k, i])
 
@@ -100,7 +100,7 @@ def hints(env: PysmtEnv) -> FrozenSet[Hint]:
 
     symbs = frozenset([pc, k, i])
 
-    x_i = symb_to_next(mgr, i)
+    x_i = symb2next(env, i)
 
     i_0 = mgr.Int(0)
     stutter = mgr.Equals(x_i, i)

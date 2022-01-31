@@ -1,5 +1,5 @@
 
-from collections import Iterable
+from typing import Iterable, Tuple
 from mathsat import msat_term, msat_env
 from mathsat import msat_make_true, msat_make_false
 from mathsat import msat_make_constant, msat_declare_function
@@ -10,7 +10,7 @@ from mathsat import msat_make_not
 from mathsat import msat_make_leq, msat_make_equal
 from mathsat import msat_make_number, msat_make_plus, msat_make_times
 from ltl.ltl import TermMap, LTLEncoder
-from utils import name_next
+from expr_utils import name2next
 
 
 def msat_make_and(menv: msat_env, *args):
@@ -60,8 +60,8 @@ def msat_make_impl(menv: msat_env, arg0: msat_term, arg1: msat_term):
     return msat_make_or(menv, n_arg0, arg1)
 
 
-def check_ltl(menv: msat_env, enc: LTLEncoder) -> (Iterable, msat_term,
-                                                   msat_term, msat_term):
+def check_ltl(menv: msat_env, enc: LTLEncoder) -> Tuple[Iterable, msat_term,
+                                                   msat_term, msat_term]:
     assert menv
     assert isinstance(menv, msat_env)
     assert enc
@@ -73,7 +73,7 @@ def check_ltl(menv: msat_env, enc: LTLEncoder) -> (Iterable, msat_term,
           for name in names]
     xs = [msat_make_constant(menv, x) for x in xs]
 
-    x_xs = [msat_declare_function(menv, name_next(name), real_type)
+    x_xs = [msat_declare_function(menv, name2next(name), real_type)
             for name in names]
     x_xs = [msat_make_constant(menv, x_x) for x_x in x_xs]
 
