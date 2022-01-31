@@ -18,7 +18,7 @@ import mathsat
 from solver import Solver
 from encode_diverging import encode_diverging
 from ltl.ltl import LTLEncoder, Options
-from utils import symb_to_next, symb_is_curr, symb_to_curr
+from expr_utils import symb2next, symb2curr, symb_is_curr
 from c_like_printer import to_c
 
 
@@ -125,7 +125,7 @@ def translate(test_file: str, c_file: str,
                 symbols = frozenset(chain(get_free_vars(init),
                                           get_free_vars(fairness),
                                           (s if symb_is_curr(s)
-                                           else symb_to_curr(mgr, s)
+                                           else symb2curr(env, s)
                                            for s in get_free_vars(trans))))
                 fairness = to_c(env, fairness)
             else:
@@ -134,7 +134,7 @@ def translate(test_file: str, c_file: str,
                 symbols = frozenset(chain(get_free_vars(init),
                                           (convert(m_s) for m_s in msat_symbs),
                                           (s if symb_is_curr(s)
-                                           else symb_to_curr(mgr, s)
+                                           else symb2curr(env, s)
                                            for s in get_free_vars(trans))))
                 ltl = f"A ({transl_ltl(env, menv, enc, convert, msat_ltl)})"
                 ultimate_ltl = transl_ultimate_ltl(env, menv, enc, convert,
@@ -143,7 +143,7 @@ def translate(test_file: str, c_file: str,
     init = to_c(env, init)
     trans = to_c(env, trans)
     serialize = env.serializer.serialize
-    curr2next = {s: symb_to_next(mgr, s) for s in symbols}
+    curr2next = {s: symb2next(env, s) for s in symbols}
     # contains_real = False
     decls = ""
     for s, x_s in curr2next.items():

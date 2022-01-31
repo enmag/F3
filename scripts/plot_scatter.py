@@ -142,7 +142,6 @@ def plot_comparison(results, bench_names,
                    "{tool2name[t]} undef",
                    "both undef"] if legend else [None]*4
         ax = plt.gca()
-
         for idx, (xs, ys) in enumerate([(corr_x, corr_y),
                                         (undef_x_x, undef_x_y),
                                         (undef_y_x, undef_y_y),

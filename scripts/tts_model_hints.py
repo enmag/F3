@@ -1,8 +1,7 @@
 label = "sender_receiver"
 
 
-bench_template = """from typing import FrozenSet
-from collections import Iterable
+bench_template = """from typing import Tuple, FrozenSet, Iterable
 from math import log, ceil
 
 from mathsat import msat_term, msat_env
@@ -17,7 +16,7 @@ from pysmt.environment import Environment as PysmtEnv
 import pysmt.typing as types
 
 from ltl.ltl import TermMap, LTLEncoder
-from utils import name_next, symb_to_next
+from expr_utils import name2next, symb2next
 from hint import Hint, Location
 
 delta_name = "delta"
@@ -27,7 +26,7 @@ def decl_consts(menv: msat_env, name: str, c_type) -> tuple:
     assert not name.startswith("_"), name
     s = msat_declare_function(menv, name, c_type)
     s = msat_make_constant(menv, s)
-    x_s = msat_declare_function(menv, name_next(name), c_type)
+    x_s = msat_declare_function(menv, name2next(name), c_type)
     x_s = msat_make_constant(menv, x_s)
     return s, x_s
 
@@ -93,8 +92,8 @@ def diverging_symbs(menv: msat_env) -> frozenset:
     return frozenset([delta])
 
 
-def check_ltl(menv: msat_env, enc: LTLEncoder) -> (Iterable, msat_term,
-                                                   msat_term, msat_term):
+def check_ltl(menv: msat_env, enc: LTLEncoder) -> Tuple[Iterable, msat_term,
+                                                        msat_term, msat_term]:
     assert menv
     assert isinstance(menv, msat_env)
     assert enc
@@ -359,15 +358,15 @@ def hints(env: PysmtEnv) -> FrozenSet[Hint]:
     symbs = frozenset([delta, r2s, s2r, s_l, s_evt, s_msg_id, s_timeout, s_c,
                        r_l])
 
-    x_delta = symb_to_next(mgr, delta)
-    x_r2s = symb_to_next(mgr, r2s)
-    x_s2r = symb_to_next(mgr, s2r)
-    x_s_l = symb_to_next(mgr, s_l)
-    x_s_evt = symb_to_next(mgr, s_evt)
-    x_s_msg_id = symb_to_next(mgr, s_msg_id)
-    x_s_timeout = symb_to_next(mgr, s_timeout)
-    x_s_c = symb_to_next(mgr, s_c)
-    x_r_l = symb_to_next(mgr, r_l)
+    x_delta = symb2next(env, delta)
+    x_r2s = symb2next(env, r2s)
+    x_s2r = symb2next(env, s2r)
+    x_s_l = symb2next(env, s_l)
+    x_s_evt = symb2next(env, s_evt)
+    x_s_msg_id = symb2next(env, s_msg_id)
+    x_s_timeout = symb2next(env, s_timeout)
+    x_s_c = symb2next(env, s_c)
+    x_r_l = symb2next(env, r_l)
 
     res = []
 

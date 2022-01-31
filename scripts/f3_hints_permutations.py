@@ -4,7 +4,7 @@
 import os
 import argparse
 from math import factorial
-from itertools import permutations, islice
+from itertools import permutations
 from random import shuffle, randint
 
 

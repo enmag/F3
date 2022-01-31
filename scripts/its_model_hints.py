@@ -1,7 +1,6 @@
 label = "extending_bound"
 
-bench_template = """from typing import Tuple, FrozenSet
-from collections import Iterable
+bench_template = """from typing import Tuple, FrozenSet, Iterable
 
 from mathsat import msat_term, msat_env
 from mathsat import msat_make_constant, msat_declare_function
@@ -15,7 +14,7 @@ from pysmt.environment import Environment as PysmtEnv
 import pysmt.typing as types
 
 from ltl.ltl import TermMap, LTLEncoder
-from utils import name_next, symb_to_next
+from expr_utils import name2next, symb2next
 from hint import Hint, Location
 
 
@@ -55,13 +54,13 @@ def check_ltl(menv: msat_env, enc: LTLEncoder) -> Tuple[Iterable, msat_term,
     inc_i = msat_declare_function(menv, "inc_i", bool_type)
     inc_i = msat_make_constant(menv, inc_i)
 
-    x_i = msat_declare_function(menv, name_next("i"), real_type)
+    x_i = msat_declare_function(menv, name2next("i"), real_type)
     x_i = msat_make_constant(menv, x_i)
-    x_r = msat_declare_function(menv, name_next("r"), real_type)
+    x_r = msat_declare_function(menv, name2next("r"), real_type)
     x_r = msat_make_constant(menv, x_r)
-    x_l = msat_declare_function(menv, name_next("l"), real_type)
+    x_l = msat_declare_function(menv, name2next("l"), real_type)
     x_l = msat_make_constant(menv, x_l)
-    x_inc_i = msat_declare_function(menv, name_next("inc_i"), bool_type)
+    x_inc_i = msat_declare_function(menv, name2next("inc_i"), bool_type)
     x_inc_i = msat_make_constant(menv, x_inc_i)
 
     curr2next = {{i: x_i, r: x_r, l: x_l, inc_i: x_inc_i}}
@@ -124,10 +123,10 @@ def hints(env: PysmtEnv) -> FrozenSet[Hint]:
     l = mgr.Symbol("l", types.REAL)
     inc_i = mgr.Symbol("inc_i", types.BOOL)
     symbs = frozenset([i, r, l, inc_i])
-    x_i = symb_to_next(mgr, i)
-    x_r = symb_to_next(mgr, r)
-    x_l = symb_to_next(mgr, l)
-    x_inc_i = symb_to_next(mgr, inc_i)
+    x_i = symb2next(env, i)
+    x_r = symb2next(env, r)
+    x_l = symb2next(env, l)
+    x_inc_i = symb2next(env, inc_i)
 
     res = []
 
