@@ -11,10 +11,11 @@ from pysmt.exceptions import SolverReturnedUnknownResultError
 from rankfun import RankFun
 from multisolver import MultiSolver
 from efsolver import efesolve
-from utils import symb_is_curr, symb_to_next, to_next, new_enum
+from expr_utils import symb_is_curr, symb2next, to_next, new_enum
+from trans_system import TransSystem
 from canonize import Canonizer
 from expr_at_time import ExprAtTime
-from generalise import Generaliser
+# from generalise import Generaliser
 
 _TIMEOUT = 20
 
@@ -79,14 +80,14 @@ class Location():
         mgr = self.env.formula_manager
         if self.rf is None:
             return mgr.FALSE()
-        return mgr.And(self.region, self.rf.is_ranked)
+        return mgr.And(self.region, self.rf.is_ranked())
 
     @property
     def minrf_region(self) -> FNode:
         if self.rf is None:
             return self.region
         mgr = self.env.formula_manager
-        return mgr.And(self.region, mgr.Not(self.rf.is_ranked))
+        return mgr.And(self.region, self.rf.is_min())
 
     @property
     def dsts(self) -> FrozenSet[int]:
@@ -157,22 +158,22 @@ class Location():
         t_type = []
         if not self.stutterT.is_false():
             t_type.append(is_stutter)
-        pos_rf = None
+        min_rf = None
         if not self.rankT.is_false():
             assert not is_ranked.is_false()
             assert self.rf is not None
-            pos_rf = self.rf.is_ranked
-            t_type.append(mgr.And(is_ranked, pos_rf))
+            t_type.append(mgr.And(is_ranked, self.rf.is_ranked()))
+            min_rf = self.rf.is_min()
         if self.progress(idx) is not None:
-            t_type.append(mgr.And(is_progress, mgr.Not(pos_rf)) if pos_rf is not None
+            t_type.append(mgr.And(is_progress, min_rf) if min_rf is not None
                           else is_progress)
         x_locs.append(mgr.And(x_lvals[idx], mgr.Or(t_type)))
 
         for dst in (dst for dst in self.progressT if dst != idx):
-            if pos_rf is None:
+            if min_rf is None:
                 x_locs.append(mgr.And(x_lvals[dst], is_progress))
             else:
-                x_locs.append(mgr.And(x_lvals[dst], is_progress, mgr.Not(pos_rf)))
+                x_locs.append(mgr.And(x_lvals[dst], is_progress, min_rf))
 
         yield mgr.Implies(lvals[idx], mgr.Or(x_locs))
         del x_locs, t_type
@@ -180,7 +181,7 @@ class Location():
         # loc & loc' & is_stutter -> stutterT & rf' = rf
         if not self.stutterT.is_false():
             yield mgr.Implies(mgr.And(lvals[idx], x_lvals[idx], is_stutter),
-                              mgr.And(self.stutterT, self.rf.constant_pred())
+                              mgr.And(self.stutterT, self.rf.is_const())
                               if self.rf is not None else self.stutterT)
 
         # loc & loc' & is_ranked -> rankT & rf' < rf
@@ -188,7 +189,8 @@ class Location():
             assert not is_ranked.is_false()
             assert self.rf is not None
             yield mgr.Implies(mgr.And(lvals[idx], x_lvals[idx], is_ranked),
-                              mgr.And(self.rankT, self.rf.progress_pred()))
+                              mgr.And(self.rankT, self.rf.is_ranked(),
+                                      self.rf.is_decr()))
 
         # loc & loc' & is_progress -> progressT
         for dst, progress_t in self.progressT.items():
@@ -199,14 +201,14 @@ class Location():
 
         if not is_rank_decr.is_false() and not is_ranked.is_false():
             assert self.rf is not None
-            x_is_rank_decr = symb_to_next(mgr, is_rank_decr)
+            x_is_rank_decr = symb2next(self.env, is_rank_decr)
             # loc & is_rank_decr & rf > 0 -> x_is_rank_decr
-            c_ranked = self.rf.is_ranked
-            yield mgr.Implies(mgr.And(lvals[idx], is_rank_decr, c_ranked),
+            yield mgr.Implies(mgr.And(lvals[idx], is_rank_decr,
+                                      self.rf.is_ranked()),
                               x_is_rank_decr)
             # loc & is_rank_decr & rf = 0 -> !x_is_rank_dect
             yield mgr.Implies(mgr.And(lvals[idx], is_rank_decr,
-                                      mgr.Not(c_ranked)),
+                                      self.rf.is_min()),
                               mgr.Not(x_is_rank_decr))
 
     def to_env(self, new_env: PysmtEnv) -> Location:
@@ -245,7 +247,7 @@ class Hint():
         mgr = env.formula_manager
         for idx, (h0, h0_active) in enumerate(zip(hints, active)):
             h_lst = []
-            for h1, h1_active in zip(hints[idx+1:], active[idx+1: ]):
+            for h1, h1_active in zip(hints[idx + 1:], active[idx + 1:]):
                 if len(h0.owned_symbs & h1.owned_symbs) > 0:
                     h_lst.append(h1_active)
             if len(h_lst) > 0:
@@ -278,8 +280,7 @@ class Hint():
 
     def __init__(self, name: str, env: PysmtEnv,
                  owned_symbs: FrozenSet[FNode],
-                 all_symbs: FrozenSet[FNode],
-                 init: Optional[FNode] = None):
+                 all_symbs: FrozenSet[FNode]):
         assert isinstance(name, str)
         assert len(name) > 0
         assert isinstance(env, PysmtEnv)
@@ -294,15 +295,12 @@ class Hint():
                    for s in all_symbs)
         assert all(symb_is_curr(s) for s in all_symbs)
         assert owned_symbs <= all_symbs
-        assert init is None or isinstance(init, FNode)
-        assert init is None or init in env.formula_manager.formulae.values()
 
         self.name = name
         self.env = env
         self.owned_symbs = owned_symbs
         self.all_symbs = all_symbs
         self.locs: List[Location] = []
-        self.init = init if init is not None else env.formula_manager.TRUE()
         self.ts_loc_symbs = None
         self.ts_lvals = None
         self.trans_type_symbs = None
@@ -341,15 +339,14 @@ class Hint():
         assert self.ts_lvals is None
         self.locs = locs
 
-    def get_trans_system(self, active: FNode) -> Tuple[FrozenSet[FNode],
-                                                       List[FNode], List[FNode],
+    def get_trans_system(self, active: FNode) -> Tuple[TransSystem,
                                                        FNode]:
         """Return encoding of Hint as an activable transition system:
         Transition system with flag to enable/disable.
         Return <set of newly introduced symbols, Init, Trans, active>
         """
         assert isinstance(active, FNode)
-        assert active in self.env.formula_manager.formulae.values()
+        assert active in self.env.formula_manager.get_all_symbols()
 
         mgr = self.env.formula_manager
         if self.ts_loc_symbs is None:
@@ -371,111 +368,105 @@ class Hint():
         assert self.t_is_ranked is not None
         assert self.t_is_progress is not None
 
-        new_symbs = set(chain(self.ts_loc_symbs, self.trans_type_symbs))
+        symbs = set(chain(self.ts_loc_symbs, self.trans_type_symbs))
+        symbs.add(active)
         if all(loc.rf is None for loc in self):
             assert all(loc.rankT.is_false() for loc in self)
             self.t_is_ranked = mgr.FALSE()
             self.is_rank_decr = mgr.FALSE()
         else:
             self.is_rank_decr = mgr.Symbol(f"_{self.name}_dec_rank", types.BOOL)
-            new_symbs.add(self.is_rank_decr)
-        new_symbs = frozenset(new_symbs)
+            symbs.add(self.is_rank_decr)
         lvals = self.ts_lvals
-        x_lvals = [to_next(mgr, lval, new_symbs) for lval in lvals]
-        symbs = frozenset.union(self.all_symbs, new_symbs)
+        x_lvals = [to_next(self.env, lval, symbs) for lval in lvals]
+        symbs = frozenset.union(self.all_symbs, symbs)
+        res = TransSystem(self.env, symbs, [], [])
         inactive = lvals[-1]
         x_inactive = x_lvals[-1]
-        x_t_is_stutter = to_next(mgr, self.t_is_stutter, symbs)
+        x_t_is_stutter = to_next(self.env, self.t_is_stutter, symbs)
         # invar: loc = i -> region(i) & assume(i)
-        init = [mgr.Implies(l_val, mgr.And(loc.region, loc.assume))
-                for l_val, loc in zip(lvals, self.locs)]
+        res.ext_init(mgr.Implies(l_val, mgr.And(loc.region, loc.assume))
+                     for l_val, loc in zip(lvals, self.locs))
         # invar: inactive | (\/ loc = i)
-        init.append(mgr.Or(lvals))
-        trans = [to_next(mgr, pred, symbs) for pred in init]
+        res.add_init(mgr.Or(lvals))
+        res.ext_trans(to_next(self.env, pred, symbs) for pred in res.init)
 
         n_active = mgr.Not(active)
         # init: ! active -> inactive & trans_type = stutter
-        init.append(mgr.Implies(n_active, mgr.And(inactive, self.t_is_stutter)))
+        res.add_init(mgr.Implies(n_active, mgr.And(inactive, self.t_is_stutter)))
         if not self.is_rank_decr.is_false():
-            init.append(mgr.Iff(self.is_rank_decr, self.t_is_ranked))
+            res.add_init(mgr.Iff(self.is_rank_decr, self.t_is_ranked))
         # trans: ! active -> inactive' & t_is_stutter'
-        trans.append(mgr.Implies(n_active, mgr.And(x_inactive, x_t_is_stutter)))
-        if not self.init.is_true():
-            # loc = -1 & loc' != -1 -> init
-            trans.append(mgr.Implies(mgr.And(inactive, mgr.Not(x_inactive)),
-                                     self.init))
+        res.add_trans(mgr.Implies(n_active, mgr.And(x_inactive, x_t_is_stutter)))
         if not self.is_rank_decr.is_false():
-            x_is_rank_decr = symb_to_next(mgr, self.is_rank_decr)
+            x_is_rank_decr = symb2next(self.env, self.is_rank_decr)
             # is_ranked -> x_is_rank_decr
-            trans.append(mgr.Implies(self.t_is_ranked, x_is_rank_decr))
+            res.add_trans(mgr.Implies(self.t_is_ranked, x_is_rank_decr))
             # x_is_rank_decr -> rank_decr | is_ranked
-            trans.append(mgr.Implies(x_is_rank_decr, mgr.Or(self.is_rank_decr,
-                                                            self.t_is_ranked)))
-        trans.extend(chain.from_iterable(
+            res.add_trans(mgr.Implies(x_is_rank_decr, mgr.Or(self.is_rank_decr,
+                                                             self.t_is_ranked)))
+        res.ext_trans(chain.from_iterable(
             loc.get_trans(idx, lvals, x_lvals, symbs, self.locs,
                           self.t_is_stutter, self.t_is_ranked,
                           self.t_is_progress, self.is_rank_decr)
             for idx, loc in enumerate(self.locs)))
 
-        return new_symbs, init, trans, mgr.Not(inactive)
+        return res, mgr.Not(inactive)
 
     def to_env(self, new_env: PysmtEnv) -> Hint:
         """Return copy of self in the give environment"""
         assert isinstance(new_env, PysmtEnv)
 
         norm = new_env.formula_manager.normalize
-        new_owned = frozenset(norm(s) for s in self.owned_symbs)
-        new_all_symbs = frozenset(norm(s) for s in self.all_symbs)
-        new_init = norm(self.init)
-        new_locs = [loc.to_env(new_env) for loc in self.locs]
-        res = Hint(self.name, new_env, new_owned, new_all_symbs, new_init)
-        res.set_locs(new_locs)
+        res = Hint(self.name, new_env,
+                   frozenset(norm(s) for s in self.owned_symbs),
+                   frozenset(norm(s) for s in self.all_symbs))
+        res.set_locs([loc.to_env(new_env) for loc in self.locs])
         return res
 
-    def is_correct(self) -> Tuple[Optional[bool], List[str]]:
-        """Returns true iff current hint satisfies all required hypotheses.
-        In case some property is violated, the string contains a description
-        of the error."""
-        # Check indexes.
-        for src_idx, src_l in enumerate(self):
-            for dst_idx in src_l.dsts:
-                if dst_idx >= len(self):
-                    return False, f"unknown destination {dst_idx} of " \
-                        f"{src_idx}: out of bound"
-        generalise = Generaliser(self.env, Canonizer(env=self.env),
-                                 ExprAtTime(env=self.env))
-        msgs = []
-        correct = True
-        for check in [self._is_stutter_correct,
-                      self._is_rank_correct,
-                      self._is_progress_correct]:
-            res, msg = check(generalise=generalise)
-            if not res:
-                correct = correct if correct is False else res
-                msgs.append(msg)
-        return correct, msgs
+    # def is_correct(self) -> Tuple[Optional[bool], List[str]]:
+    #     """Returns true iff current hint satisfies all required hypotheses.
+    #     In case some property is violated, the string contains a description
+    #     of the error."""
+    #     # Check indexes.
+    #     for src_idx, src_l in enumerate(self):
+    #         for dst_idx in src_l.dsts:
+    #             if dst_idx >= len(self):
+    #                 return False, [f"unknown destination {dst_idx} of "
+    #                                f"{src_idx}: out of bound"]
+    #     generalise = Generaliser(self.env, Canonizer(env=self.env),
+    #                              ExprAtTime(env=self.env))
+    #     msgs = []
+    #     correct = True
+    #     for check in [self._is_stutter_correct,
+    #                   self._is_rank_correct,
+    #                   self._is_progress_correct]:
+    #         res, msg = check(generalise=generalise)
+    #         if not res:
+    #             correct = correct if correct is False else res
+    #             msgs.append(msg)
+    #     return correct, msgs
 
     def _is_stutter_correct(self, generalise=None) -> Tuple[Optional[bool],
                                                             Optional[str]]:
         """Check stutter transition of every location."""
         mgr = self.env.formula_manager
         other_symbs = self.all_symbs - self.owned_symbs
-        x_own_symbs = frozenset(symb_to_next(mgr, s)
+        x_own_symbs = frozenset(symb2next(self.env, s)
                                 for s in self.owned_symbs)
-        x_other_symbs = frozenset(symb_to_next(mgr, s)
+        x_other_symbs = frozenset(symb2next(self.env, s)
                                   for s in other_symbs)
         for src_idx, src_l in enumerate(self):
             region = src_l.region
-            x_region = to_next(mgr, region, self.all_symbs)
+            x_region = to_next(self.env, region, self.all_symbs)
             assume = src_l.assume
-            x_assume = to_next(mgr, assume, self.all_symbs)
+            x_assume = to_next(self.env, assume, self.all_symbs)
             stutterT = src_l.stutterT
             if src_l.rf is not None:
-                rf_expr = src_l.rf.expr
-                x_rf_expr = to_next(mgr, rf_expr, self.all_symbs)
-                stutterT = mgr.And(stutterT, mgr.Equals(x_rf_expr, rf_expr))
+                stutterT = mgr.And(stutterT, src_l.rf.is_const())
             exists = False
-            with MultiSolver(self.env, get_timeout()) as solver:
+            with MultiSolver(self.env, get_timeout(),
+                             solver_names=["msat"]) as solver:
                 solver.add_assertions([region, assume, stutterT,
                                        x_region, x_assume])
                 try:
@@ -500,25 +491,22 @@ class Hint():
         """Check ranked transition for every location."""
         mgr = self.env.formula_manager
         other_symbs = self.all_symbs - self.owned_symbs
-        x_own_symbs = frozenset(symb_to_next(mgr, s)
+        x_own_symbs = frozenset(symb2next(self.env, s)
                                 for s in self.owned_symbs)
-        x_other_symbs = frozenset(symb_to_next(mgr, s)
+        x_other_symbs = frozenset(symb2next(self.env, s)
                                   for s in other_symbs)
         for src_idx, src_l in enumerate(self):
             if src_l.rf is None:
                 continue
-            x_region = to_next(mgr, src_l.region, self.all_symbs)
+            x_region = to_next(self.env, src_l.region, self.all_symbs)
             region = src_l.ranked_region
             assume = src_l.assume
-            x_assume = to_next(mgr, assume, self.all_symbs)
-            rf_expr = src_l.rf.expr
-            rf_delta = src_l.rf.delta
-            x_rf_expr = to_next(mgr, rf_expr, self.all_symbs)
-            rankT = mgr.And(src_l.rankT,
-                            mgr.LE(x_rf_expr, mgr.Minus(rf_expr, rf_delta)))
+            x_assume = to_next(self.env, assume, self.all_symbs)
+            rankT = mgr.And(src_l.rankT, src_l.rf.is_decr())
 
             exists = False
-            with MultiSolver(self.env, get_timeout()) as solver:
+            with MultiSolver(self.env, get_timeout(),
+                             solver_names=["msat"]) as solver:
                 solver.add_assertions([region, assume, rankT,
                                        x_region, x_assume])
                 try:
@@ -543,22 +531,23 @@ class Hint():
         """Check progress transitions reaching."""
         mgr = self.env.formula_manager
         other_symbs = self.all_symbs - self.owned_symbs
-        x_own_symbs = frozenset(symb_to_next(mgr, s)
+        x_own_symbs = frozenset(symb2next(self.env, s)
                                 for s in self.owned_symbs)
-        x_other_symbs = frozenset(symb_to_next(mgr, s)
+        x_other_symbs = frozenset(symb2next(self.env, s)
                                   for s in other_symbs)
         for src_idx, src_l in enumerate(self):
             src = [src_l.region, src_l.assume]
             if src_l.rf is not None:
-                src.append(mgr.Not(src_l.rf.is_ranked))
+                src.append(mgr.Not(src_l.rf.is_ranked()))
             src = mgr.And(src)
             for dst_idx in src_l.dsts:
                 progressT = src_l.progress(dst_idx)
                 dst_l = self[dst_idx]
-                x_region = to_next(mgr, dst_l.region, self.all_symbs)
-                x_assume = to_next(mgr, dst_l.assume, self.all_symbs)
+                x_region = to_next(self.env, dst_l.region, self.all_symbs)
+                x_assume = to_next(self.env, dst_l.assume, self.all_symbs)
                 exists = False
-                with MultiSolver(self.env, get_timeout()) as solver:
+                with MultiSolver(self.env, get_timeout(),
+                                 solver_names=["msat"]) as solver:
                     solver.add_assertions([src, progressT, x_region,
                                            x_assume])
                     try:

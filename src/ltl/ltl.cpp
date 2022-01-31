@@ -212,7 +212,7 @@ TransitionSystem LTLEncoder::encode(const TermMap &statevars,
         TermMap sv = statevars;
         for (auto p : el2f_) {
             msat_term v = p.first;
-            msat_term n = vp_.fresh_var_pref(v, "_x_");
+            msat_term n = vp_.fresh_var_pref(v, "_x");
             sv[v] = n;
             nel2el_[n] = v;
         }
@@ -515,7 +515,7 @@ void LTLEncoder::make_single_justice(TermMap &sv, TermList &justice,
         auto l = vp_.fresh_var(std::string("J") +
                                std::to_string(msat_term_id(j)));
         fair2hist_.emplace_back(std::make_pair(j, l));
-        auto n = vp_.fresh_var_pref(l, "_x_");
+        auto n = vp_.fresh_var_pref(l, "_x");
         sv[l] = n;
 
         init = msat_make_and(env_, init, msat_make_not(env_, l));

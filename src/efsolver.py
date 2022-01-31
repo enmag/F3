@@ -1,4 +1,4 @@
-from typing import List, Optional, FrozenSet, Union, Tuple, Dict
+from typing import List, Optional, Set, FrozenSet, Union, Tuple, Dict
 from itertools import chain
 
 from pysmt.environment import Environment as PysmtEnv
@@ -11,15 +11,14 @@ try:
 except ImportError:
     from solver import Z3Solver
 
-from solver import Solver, solve_with_timeout
+from solver import Solver, solve_with_timeout, get_solvers
 from rationalapprox import RationalApprox
-from generalise import Generaliser
 from utils import log
 
 _TIMEOUT = 20
 _MAX_LOOPS = 20
 _EF_APPROX = True
-_LOG_LVL = 1
+_EF_SOLVER_LOG_LVL = 1
 
 
 def set_ef_approximate(val: bool) -> None:
@@ -57,38 +56,75 @@ def get_maxloops() -> int:
 
 def set_log_lvl(val: int) -> None:
     assert isinstance(val, int)
-    global _LOG_LVL
-    _LOG_LVL = val
+    global _EF_SOLVER_LOG_LVL
+    _EF_SOLVER_LOG_LVL = val
 
 
 def get_log_lvl() -> int:
-    global _LOG_LVL
-    return _LOG_LVL
+    global _EF_SOLVER_LOG_LVL
+    return _EF_SOLVER_LOG_LVL
 
 
+def efmultisolve(env, x1: Union[Set[FNode], FrozenSet[FNode]],
+                 x2: Optional[Union[Set[FNode], FrozenSet[FNode]]],
+                 phi: FNode, logic=AUTO, impl=None) \
+        -> Tuple[Union[Dict[FNode, FNode], Optional[bool]],
+                 List[FNode]]:
+    mgr = env.formula_manager
+    if x2 is None:
+        x2 = env.fvo.get_free_variables(phi) - x1
+    learn = []
+    for name in reversed(get_solvers()):
+        log(f"\tEF-SMT using solver: {name}.", get_log_lvl())
+        res, _learn = efsolve(env, x1, x2, phi, logic=logic,
+                              esolver_name=name, fsolver_name=name,
+                              impl=impl)
+        learn.extend(_learn)
+        if res is not None:
+            return res, learn
+        if len(_learn) > 0:
+            phi = mgr.And(phi, mgr.And(_learn))
+    return None, learn
 
 
-def efsolve(env, x1: FrozenSet[FNode], x2: FrozenSet[FNode],
+def efsolve(env, x1: Union[Set[FNode], FrozenSet[FNode]],
+            x2: Union[Set[FNode], FrozenSet[FNode]],
             phi: FNode, logic=AUTO,
             esolver_name: Optional[str] = None,
             fsolver_name: Optional[str] = None,
-            generalise: Optional[Generaliser] = None) \
+            impl=None) \
         -> Tuple[Union[Dict[FNode, FNode], Optional[bool]],
                  List[FNode]]:
     """Solves exists x1. forall x2. phi(x1, x2)"""
     assert isinstance(env, PysmtEnv)
-    assert isinstance(x1, frozenset)
-    assert isinstance(x2, frozenset)
+    assert isinstance(x1, (set, frozenset))
     assert all(s in env.formula_manager.get_all_symbols()
-               for s in x1 | x2)
-    assert x1 | x2 >= env.fvo.walk(phi)
+               for s in x1)
     assert isinstance(phi, FNode)
     assert esolver_name is None or isinstance(esolver_name, str)
     assert fsolver_name is None or isinstance(fsolver_name, str)
-    assert generalise is None or isinstance(generalise, Generaliser)
+    assert isinstance(x2, (set, frozenset))
+    assert all(s in env.formula_manager.get_all_symbols()
+               for s in x1 | x2)
+    assert x1 | x2 >= env.fvo.get_free_variables(phi)
 
-    all_symbs = x1 | x2
     mgr = env.formula_manager
+    if len(x1) == 0:
+        assert x2 >= env.fvo.get_free_variables(phi)
+        with Solver(env=env, logic=logic,
+                    name=fsolver_name) as solver:
+            solver.add_assertion(mgr.Not(phi))
+            try:
+                sat = solve_with_timeout(get_timeout(), solver)
+            except SolverReturnedUnknownResultError:
+                sat = None
+            if sat is None:
+                log("\t\tEF-SMT E-timeout.", get_log_lvl())
+                return None, []
+            if sat is False:
+                return {}, []
+            return False, []
+
     simplify = env.simplifier.simplify
     substitute = env.substituter.substitute
     learn: List[FNode] = []
@@ -111,16 +147,15 @@ def efsolve(env, x1: FrozenSet[FNode], x2: FrozenSet[FNode],
 
             if eres is not True:
                 if eres is None:
-                    log("\t\tEF-SMT E-timeout", get_log_lvl())
+                    log("\t\tEF-SMT E-timeout.", get_log_lvl())
                 else:
                     assert eres is False
-                    log("\t\tEF-SMT found UNSAT", get_log_lvl())
-                return eres, learn
+                    log("\t\tEF-SMT found UNSAT.", get_log_lvl())
+                return False, learn
 
             # eres is True
             assert eres is True
             emodel = esolver.get_model()
-
             if approx:
                 eval_phi: Optional[bool] = False
                 for x, val in esolver.get_values(chain(x1, x2)).items():
@@ -149,10 +184,11 @@ def efsolve(env, x1: FrozenSet[FNode], x2: FrozenSet[FNode],
                 if eval_phi is True:
                     emodel = esolver.get_model()
                 else:
-                    log(f"\t\tEF-SMT, iteration {loops}: E-model simplification failed",
-                        get_log_lvl() + 1)
+                    log(f"\t\tEF-SMT, iteration {loops}: "
+                        "E-model simplification failed.",
+                        get_log_lvl() + 2)
                     # complex model more `expensive`, quit sooner.
-                    loops += 2
+                    loops += 5
                     # return None, learn
 
             x1_model = emodel.get_values(x1)
@@ -164,7 +200,7 @@ def efsolve(env, x1: FrozenSet[FNode], x2: FrozenSet[FNode],
                 fres = None
 
             if fres is None:
-                log("\t\tEF-SMT F-timeout", get_log_lvl())
+                log("\t\tEF-SMT F-timeout.", get_log_lvl())
                 return None, learn
 
             if fres is False:
@@ -175,26 +211,33 @@ def efsolve(env, x1: FrozenSet[FNode], x2: FrozenSet[FNode],
             if isinstance(fsolver, Z3Solver):
                 x2_model = filter_irrationals(env, x2_model)
                 if x2_model is None:
-                    log("\t\tEF-solver cannot handle irrational in Z3 model",
+                    log("\t\tEF-solver cannot handle irrational in Z3 model.",
                         get_log_lvl())
                     return None, learn
+            if __debug__:
+                with Solver(env=env) as _solver:
+                    _solver.add_assertion(substitute(substitute(phi, x1_model),
+                                                     x2_model))
+                    assert _solver.solve() is False
+                del _solver
+
             sub_phi = simplify(substitute(phi, x2_model))
+            if sub_phi.is_false():
+                # There exist no x1 making phi true for x2_model.
+                return False, learn
             assert not sub_phi.is_true()
-            if not sub_phi.is_false() and generalise:
-                # sub_phi = generalise.bool_impl([mgr.Not(sub_phi)],
-                #                                emodel)
-                sub_phi = generalise(frozenset([mgr.Not(sub_phi)]), emodel,
-                                     all_symbs)
+            fsolver.reset_assertions()
+            assert len(fsolver.assertions) == 0
+            if impl is not None and \
+               simplify(substitute(phi, x1_model)).is_false():
+                sub_phi = impl([mgr.Not(sub_phi)], emodel, {})
                 sub_phi = mgr.Not(mgr.And(sub_phi))
             assert sub_phi in mgr.formulae.values()
-            learn.append(sub_phi)
-
-            fsolver.reset_assertions()
-
             esolver.pop()  # remove approximated assignments.
+            learn.append(sub_phi)
             esolver.add_assertion(sub_phi)
 
-        log("\t\tEF-solver reached max number of iterations", get_log_lvl())
+        log("\t\tEF-solver reached max number of iterations.", get_log_lvl())
         return None, learn
 
 
@@ -212,27 +255,27 @@ def filter_irrationals(env: PysmtEnv, model: dict) -> Optional[dict]:
 
 
 def efesolve(env,
-             x0: FrozenSet[FNode], x1: FrozenSet[FNode], x2: FrozenSet[FNode],
+             x0: Union[Set[FNode], FrozenSet[FNode]],
+             x1: Union[Set[FNode], FrozenSet[FNode]],
+             x2: Union[Set[FNode], FrozenSet[FNode]],
              phi: FNode, logic=AUTO,
              esolver_name: Optional[str] = None,
              fsolver_name: Optional[str] = None,
-             generalise: Optional[Generaliser] = None) \
+             impl=None) \
         -> Tuple[Union[Dict[FNode, FNode], Optional[bool]],
                  List[FNode]]:
     """Solves exists x0. forall x1. exists x2. phi(x1, x2)"""
     assert isinstance(env, PysmtEnv)
-    assert isinstance(x0, frozenset)
-    assert isinstance(x1, frozenset)
-    assert isinstance(x2, frozenset)
+    assert isinstance(x0, (set, frozenset))
+    assert isinstance(x1, (set, frozenset))
+    assert isinstance(x2, (set, frozenset))
     assert all(s in env.formula_manager.get_all_symbols()
                for s in x0 | x1 | x2)
     assert x0 | x1 | x2 >= env.fvo.walk(phi)
     assert isinstance(phi, FNode)
     assert esolver_name is None or isinstance(esolver_name, str)
     assert fsolver_name is None or isinstance(fsolver_name, str)
-    assert generalise is None or isinstance(generalise, Generaliser)
 
-    all_symbs = x0 | x1 | x2
     mgr = env.formula_manager
     simplify = env.simplifier.simplify
     substitute = env.substituter.substitute
@@ -257,10 +300,10 @@ def efesolve(env,
 
             if eres is not True:
                 if eres is None:
-                    log("\t\tEFE-SMT E-timeout", get_log_lvl())
+                    log("\t\tEFE-SMT E-timeout.", get_log_lvl())
                 else:
                     assert eres is False
-                    log("\t\tEFE-SMT found UNSAT", get_log_lvl())
+                    log("\t\tEFE-SMT found UNSAT.", get_log_lvl())
                 return eres, learn
 
             # eres is True
@@ -271,7 +314,7 @@ def efesolve(env,
             x1_model, _ = efsolve(env, x1, x2, mgr.Not(sub_phi), logic=logic,
                                   esolver_name=esolver_name,
                                   fsolver_name=fsolver_name,
-                                  generalise=generalise)
+                                  impl=impl)
             if x1_model is False:
                 return x0_model, learn  # found assignment.
             if x1_model is None:
@@ -281,18 +324,15 @@ def efesolve(env,
             # replace assignments x1 and x2 in phi.
             sub_phi = simplify(substitute(
                 phi,
-                {k: v for k, v in chain(x1_model.items(),
-                                        ((k, x2_model[k]) for k in x2))}))
+                dict(chain(x1_model.items(),
+                           ((k, x2_model[k]) for k in x2)))))
             assert not sub_phi.is_true()
-            if not sub_phi.is_false() and generalise:
-                # sub_phi = generalise.bool_impl([mgr.Not(sub_phi)],
-                #                                 esolver)
-                sub_phi = generalise(frozenset([mgr.Not(sub_phi)]), esolver,
-                                     all_symbs)
+            if not sub_phi.is_false() and impl:
+                sub_phi = impl([mgr.Not(sub_phi)], esolver, {})
                 sub_phi = mgr.Not(mgr.And(sub_phi))
             assert sub_phi in mgr.formulae.values()
             learn.append(sub_phi)
             esolver.add_assertion(sub_phi)
 
-        log("\t\tEFE-solver reached max number of iterations", get_log_lvl())
+        log("\t\tEFE-solver reached max number of iterations.", get_log_lvl())
         return None, learn

@@ -6,7 +6,7 @@ from pysmt.fnode import FNode
 
 from ineq import Ineq
 from rewritings import TimesDistributor
-from utils import default_key
+from expr_utils import fnode_key, flatten
 
 
 class Canonizer(IdentityDagWalker):
@@ -15,28 +15,27 @@ class Canonizer(IdentityDagWalker):
     Does not increase depth of the tree representing the formula.
     """
 
-    def __init__(self, key=None, env: PysmtEnv = None,
-                 inv_mem: Optional[bool] = None):
+    def __init__(self, env: PysmtEnv):
         assert isinstance(env, PysmtEnv)
-        assert inv_mem is None or isinstance(inv_mem, bool)
-        IdentityDagWalker.__init__(self, env=env,
-                                   invalidate_memoization=inv_mem)
-        if not key:
-            key = default_key
-        self._key = key
+        IdentityDagWalker.__init__(self, env=env)
         self.td = TimesDistributor(env=self.env)
 
     def _sort(self, args: Iterable[FNode]):
         assert isinstance(args, Iterable)
-        return sorted(args, key=self._key)
+        return sorted(args, key=fnode_key)
 
     def __call__(self, formula: FNode, **kwargs):
         return self.walk(formula, **kwargs)
 
-    if __debug__:
-        def walk(self, formula: FNode, **kwargs) -> FNode:
-            assert formula in self.env.formula_manager.formulae.values()
-            res = super().walk(formula, **kwargs)
+    def walk(self, formula: FNode, **kwargs) -> FNode:
+        assert formula in self.env.formula_manager.formulae.values()
+        res = super().walk(formula, **kwargs)
+        assert res in self.env.formula_manager.formulae.values()
+        assert formula in self.memoization
+        assert res == self.memoization[formula]
+        assert res not in self.memoization or res == self.memoization[res]
+        assert res == super().walk(res, **kwargs)
+        if __debug__:
             from solver import Solver
             mgr = self.env.formula_manager
             serialize = self.env.serializer.serialize
@@ -48,11 +47,10 @@ class Canonizer(IdentityDagWalker):
                 _solver.add_assertion(n_eqs)
                 assert _solver.solve() is False, \
                     f"{serialize(n_eqs)} has model: {_solver.get_model()}"
-            assert res in self.env.formula_manager.formulae.values()
-            return res
+        self.memoization[res] = res
+        return res
 
-    def walk_toreal(self, formula: FNode, args, **_) -> FNode:
-        assert isinstance(formula, FNode)
+    def walk_toreal(self, _: FNode, args, **__) -> FNode:
         assert len(args) == 1
         arg = args[0]
         if arg.is_symbol():
@@ -100,100 +98,74 @@ class Canonizer(IdentityDagWalker):
                 new_args.append(self.mgr.ToReal(curr))
         return self.mgr.Plus(self._sort(new_args))
 
-    def walk_not(self, formula: FNode, args, **_) -> FNode:
-        assert isinstance(formula, FNode)
+    def walk_not(self, _: FNode, args, **__) -> FNode:
         assert len(args) == 1
         arg = args[0]
+        c = False
         while arg.is_not():
             arg = arg.arg(0)
+            c = not c
+        if c:
+            return arg
         if len(arg.args()) == 2:
-            args = arg.args()
+            lhs, rhs = arg.args()
             if arg.is_lt():
-                return self.mgr.GE(args[0], args[1])
+                return self.walk_le(None, (rhs, lhs))
             if arg.is_le():
-                return self.mgr.GT(args[0], args[1])
+                return self.walk_lt(None, (rhs, lhs))
         return self.mgr.Not(arg)
 
-    def walk_and(self, formula: FNode, args, **_) -> FNode:
-        assert isinstance(formula, FNode)
+    def walk_and(self, _: FNode, args, **__) -> FNode:
         return self.mgr.And(
-            self._sort(Canonizer._flatten(args, lambda x: x.is_and())))
+            self._sort(flatten(args, lambda x: x.is_and())))
 
-    def walk_or(self, formula: FNode, args, **_) -> FNode:
-        assert isinstance(formula, FNode)
+    def walk_or(self, _: FNode, args, **__) -> FNode:
         return self.mgr.Or(
-            self._sort(Canonizer._flatten(args, lambda x: x.is_or())))
+            self._sort(flatten(args, lambda x: x.is_or())))
 
-    def walk_iff(self, formula: FNode, args, **_) -> FNode:
-        assert isinstance(formula, FNode)
+    def walk_iff(self, _: FNode, args, **__) -> FNode:
         return self.mgr.Iff(*self._sort(args))
 
-    def walk_equals(self, formula: FNode, args, **_) -> FNode:
-        assert isinstance(formula, FNode)
+    def walk_equals(self, _: FNode, args, **__) -> FNode:
         assert len(args) == 2
-        eq = self.mgr.Equals(*self._sort(args))
-        eq = Ineq(self.env, eq, frozenset(), self.td)
-        eq = eq.pysmt_ineq()
+        eq = Ineq(self.env, self.mgr.Equals(*self._sort(args)), frozenset(),
+                  self.td).pysmt_ineq()
         if eq.arg(0).is_constant() and eq.arg(1).is_constant():
             if eq.arg(0).constant_value() == eq.arg(1).constant_value():
                 return self.mgr.TRUE()
             return self.mgr.FALSE()
         return eq
 
-    def walk_lt(self, formula: FNode, args, **_) -> FNode:
-        assert isinstance(formula, FNode)
+    def walk_lt(self, _: FNode, args, **__) -> FNode:
         assert len(args) == 2
-        ineq = self.mgr.LT(args[0], args[1])
-        ineq = Ineq(self.env, ineq, frozenset(), self.td)
-        ineq = ineq.pysmt_ineq()
+        ineq = Ineq(self.env, self.mgr.LT(args[0], args[1]), frozenset(),
+                    self.td).pysmt_ineq()
         if ineq.arg(0).is_constant() and ineq.arg(1).is_constant():
             if ineq.arg(0).constant_value() < ineq.arg(1).constant_value():
                 return self.mgr.TRUE()
             return self.mgr.FALSE()
         return ineq
 
-    def walk_le(self, formula: FNode, args, **_) -> FNode:
-        assert isinstance(formula, FNode)
+    def walk_le(self, _: FNode, args, **__) -> FNode:
         assert len(args) == 2
-        ineq = self.mgr.LE(args[0], args[1])
-        ineq = Ineq(self.env, ineq, frozenset(), self.td)
-        ineq = ineq.pysmt_ineq()
+        ineq = Ineq(self.env, self.mgr.LE(args[0], args[1]), frozenset(),
+                    self.td).pysmt_ineq()
         if ineq.arg(0).is_constant() and ineq.arg(1).is_constant():
             if ineq.arg(0).constant_value() <= ineq.arg(1).constant_value():
                 return self.mgr.TRUE()
             return self.mgr.FALSE()
         return ineq
 
-    def walk_forall(self, formula: FNode, args, **kwargs) -> FNode:
-        assert isinstance(formula, FNode)
-        qvars = [self.walk_symbol(v, args, **kwargs)
-                 for v in formula.quantifier_vars()]
-        qvars = self._sort(qvars)
-        return self.mgr.ForAll(qvars, args[0])
+    def walk_forall(self, _: FNode, __, **___) -> FNode:
+        raise Exception("Not implemented")
 
-    def walk_exists(self, formula: FNode, args, **kwargs) -> FNode:
-        assert isinstance(formula, FNode)
-        qvars = [self.walk_symbol(v, args, **kwargs)
-                 for v in formula.quantifier_vars()]
-        qvars = self._sort(qvars)
-        return self.mgr.Exists(qvars, args[0])
+    def walk_exists(self, _: FNode, __, **___) -> FNode:
+        raise Exception("Not implemented")
 
-    def walk_plus(self, formula: FNode, args, **_) -> FNode:
-        assert isinstance(formula, FNode)
+    def walk_plus(self, _: FNode, args, **__) -> FNode:
         return self.mgr.Plus(
-            self._sort(Canonizer._flatten(args, lambda x: x.is_plus())))
+            self._sort(flatten(args, lambda x: x.is_plus())))
 
-    def walk_times(self, formula: FNode, args, **_) -> FNode:
-        assert isinstance(formula, FNode)
+    def walk_times(self, _: FNode, args, **__) -> FNode:
         return self.mgr.Times(
-            self._sort(Canonizer._flatten(args, lambda x: x.is_times())))
-
-    @staticmethod
-    def _flatten(fms: Iterable[FNode], acc) -> Iterator[FNode]:
-        args = list(fms)
-        while args:
-            curr = args.pop()
-            if acc(curr):
-                args.extend(curr.args())
-            else:
-                yield curr
+            self._sort(flatten(args, lambda x: x.is_times())))

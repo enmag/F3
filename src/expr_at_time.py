@@ -1,126 +1,86 @@
-from typing import Tuple, Optional
+from typing import Optional, Tuple, Dict
 from collections import defaultdict
 
 from pysmt.environment import Environment as PysmtEnv
 from pysmt.fnode import FNode
-from pysmt.formula import FormulaManager
 from pysmt.walkers import IdentityDagWalker
 
-from utils import name_is_next, name_next, name_next_to_curr
+from expr_utils import (name2timed, get_name_time,
+                        name2next, name2curr, name_is_next)
 
 
 class ExprAtTime(IdentityDagWalker):
-    """Rewrite each symbol in the s@time version"""
+    """Rewrite symbols in the s@time version and vice-versa"""
 
-    @staticmethod
-    def collect_times(mgr: FormulaManager, formula: FNode) -> set:
-        assert isinstance(mgr, FormulaManager)
-        assert isinstance(formula, FNode)
-        assert formula in mgr.formulae.values()
-        res = set()
-        for v in mgr.env.fvo.walk(formula):
-            if "@" in v.symbol_name():
-                _, num = ExprAtTime.get_symb_time(mgr, v)
-                res.add(num)
-        return res
-
-    @staticmethod
-    def is_timed_symb(mgr: FormulaManager, s: FNode) -> bool:
-        assert isinstance(mgr, FormulaManager)
-        assert isinstance(s, FNode)
-        assert s in mgr.formulae.values()
-        return "@" in s.symbol_name()
-
-    @staticmethod
-    def get_symb_time(mgr: FormulaManager, s: FNode) -> Tuple[str, int]:
-        assert isinstance(mgr, FormulaManager)
-        assert isinstance(s, FNode)
-        assert s.is_symbol(), s
-        assert "@" in s.symbol_name()
-        symb_name = s.symbol_name()
-        idx = symb_name.find("@")
-        name = symb_name[:idx]
-        num = int(symb_name[idx+1:])
-        return name, num
-
-    @staticmethod
-    def symb_untime(mgr: FormulaManager, s: FNode) -> FNode:
-        assert isinstance(mgr, FormulaManager)
-        assert isinstance(s, FNode)
-        assert s.is_symbol()
-        symb_name = s.symbol_name()
-        if "@" in s.symbol_name():
-            symb_name, _ = ExprAtTime.get_symb_time(mgr, s)
-        return mgr.Symbol(symb_name, s.symbol_type())
-
-    def __init__(self, env: PysmtEnv = None, idx: int = 0, x_idx: int = 1,
-                 ignore_pref: Optional[str] = None):
-        assert env is None or isinstance(env, PysmtEnv)
+    def __init__(self, env: PysmtEnv, idx: int = 0,
+                 x_idx: Optional[int] = None):
+        assert isinstance(env, PysmtEnv)
         assert isinstance(idx, int)
-        assert isinstance(x_idx, int)
-        assert ignore_pref is None or isinstance(ignore_pref, str)
-        IdentityDagWalker.__init__(self, env)
-        self.mgr = self.env.formula_manager
-        self.idx = idx
-        self.x_idx = x_idx
-        self.ignore_pref = ignore_pref
-        self.dict_mem = defaultdict(dict)
-        self.memoization = self.dict_mem[(self.idx, self.x_idx)]
+        assert x_idx is None or isinstance(x_idx, int)
+        super().__init__(env=env)
+        self.dict_cache: Dict[Tuple[int, Optional[int]],
+                              Dict[FNode, FNode]] = defaultdict(dict)
+        self._set_time(idx, x_idx)
+        assert self._idx is not None
+        assert self._x_idx is not None
 
     def _set_time(self, idx: int, x_idx: Optional[int] = None) -> None:
         assert isinstance(idx, int)
         assert x_idx is None or isinstance(x_idx, int)
         assert isinstance(self.memoization, dict)
-        self.idx = idx
+        self._idx = idx
         if x_idx is not None:
-            self.x_idx = x_idx
-        elif self.idx >= 0:
-            self.x_idx = idx + 1
+            self._x_idx = x_idx
+        elif self._idx >= 0:
+            self._x_idx = idx + 1
         else:
-            self.x_idx = idx - 1
+            self._x_idx = idx - 1
 
-        assert self.idx < 0 or self.x_idx >= 0
-        assert self.idx >= 0 or self.x_idx < 0
+        assert self._idx < 0 or self._x_idx >= 0
+        assert self._idx >= 0 or self._x_idx < 0
+        # override superclass
+        self.memoization = self.dict_cache[(self._idx, self._x_idx)]
+        self.handle_symb = self.symb2timed if self._idx >= 0 \
+            else self.symb2untimed
 
-        self.memoization = self.dict_mem[(idx, x_idx)]
-
-    def _at_time(self, s: FNode) -> FNode:
+    def symb2timed(self, s: FNode) -> FNode:
         assert isinstance(s, FNode)
         assert s.is_symbol()
-        assert "@" not in s.symbol_name() or self.idx < 0
-        symb_name = s.symbol_name()
-        if self.ignore_pref and symb_name.startswith(self.ignore_pref):
-            return self.mgr.Symbol(symb_name, s.symbol_type())
+        assert s in self.env.formula_manager.get_all_symbols()
+        assert self._idx >= 0
+        name = s.symbol_name()
+        t = self._idx
+        if name_is_next(name):
+            t = self._x_idx
+            name = name2curr(name)
+        name = name2timed(name, t)
+        return self.env.formula_manager.Symbol(name, s.symbol_type())
 
-        idx = self.idx
-        if name_is_next(symb_name):
-            assert (self.idx >= 0 and self.x_idx >= 0) or self.x_idx < self.idx
-            idx = self.x_idx
-            symb_name = name_next_to_curr(symb_name)
+    def symb2untimed(self, s: FNode) -> FNode:
+        assert isinstance(s, FNode)
+        assert s.is_symbol()
+        assert s in self.env.formula_manager.get_all_symbols()
+        assert self._idx < 0
+        assert not name_is_next(s.symbol_name())
+        name, num = get_name_time(s.symbol_name())
+        if num is not None:
+            assert num in {-self._idx - 1, -self._x_idx - 1}
+            if num == -self._x_idx - 1:
+                name = name2next(name)
+            return self.env.formula_manager.Symbol(name, s.symbol_type())
+        return s
 
-        name = None
-        if idx < 0:
-            assert self.x_idx < 0
-            name, num = ExprAtTime.get_symb_time(self.mgr, s)
-            assert num in {-idx - 1, -self.x_idx - 1}
-            if num == -self.x_idx - 1:
-                name = name_next(name)
-        else:
-            name = f"{symb_name}@{idx}"
+    def walk_symbol(self, fm: FNode, **_) -> FNode:
+        return self.handle_symb(fm)
 
-        return self.mgr.Symbol(name, s.symbol_type())
-
-    def walk(self, formula: FNode, idx: int, x_idx: Optional[int] = None,
-             **kwargs) -> FNode:
+    def walk(self, formula: FNode, idx: int,
+             x_idx: Optional[int] = None) -> FNode:
         assert isinstance(formula, FNode)
         assert isinstance(idx, int)
         assert x_idx is None or isinstance(x_idx, int)
         self._set_time(idx, x_idx=x_idx)
-        return IdentityDagWalker.walk(self, formula, **kwargs)
+        return IdentityDagWalker.walk(self, formula)
 
-    def __call__(self, formula: FNode, idx: int, x_idx: Optional[int] = None,
-                 **kwargs):
-        return self.walk(formula, idx, x_idx=x_idx, **kwargs)
-
-    def walk_symbol(self, formula: FNode, args, **kwargs):
-        return self._at_time(formula)
+    def __call__(self, formula: FNode, idx: int,
+                 x_idx: Optional[int] = None) -> FNode:
+        return self.walk(formula, idx, x_idx=x_idx)

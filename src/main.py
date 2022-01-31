@@ -1,991 +1,409 @@
-from typing import Tuple, Union, Optional, List, Set, Dict, FrozenSet, Iterable
+from typing import FrozenSet, Set, Dict, List, Tuple, Iterator, Optional
 from itertools import chain
-from collections import defaultdict
 
 from pysmt.environment import Environment as PysmtEnv
-from pysmt.formula import FormulaManager
 from pysmt.fnode import FNode
+from pysmt.solvers.solver import Model
 from pysmt.exceptions import SolverReturnedUnknownResultError
 
-from utils import log, default_key, symb_to_next, symb_to_curr, \
-    symb_is_next, symb_is_curr, to_next, assign2fnode, assign2fnodes, \
-    is_not_true
-from expr_at_time import ExprAtTime
-from canonize import Canonizer
-from rewritings import TimesDistributor
-from abstract_loops import BMC
-from funnel import FunnelLoop, Funnel
-from ranker import Ranker
-from generalised_lasso import is_generalised_lasso
-from ineq import eq2assign
+from trans_system import TransSystem
 from hint import Hint
+from bmc import BMC
+from implicant import Implicant
+from canonize import Canonizer
+from floop import FLoopGen, FLoop
 from rankfun import RankFun
+from expr_at_time import ExprAtTime
 from multisolver import MultiSolver
-
-_USE_EF = True
-_USE_EF_RF = True
-_RF_LEARN_EF = False
-_FUN_LEARN_EF = False
-_USE_MOTZKIN = True
-_USE_MOTZKIN_RF = True
-_USE_GENERALISED_LASSO = False
-_EXTRACT_CONST_SYMBS_TIMEOUT = 5
-_LOG_LVL = 1
+from expr_utils import (get_times, is_atom, assigns2fnodes, symb2next,
+                        assign2fnode)
+from utils import get_verbosity, log
 
 
-def set_use_ef(val: bool) -> None:
-    global _USE_EF
-    assert isinstance(val, bool)
-    _USE_EF = val
-
-
-def get_use_ef() -> bool:
-    global _USE_EF
-    return _USE_EF
-
-
-def set_use_ef_rf(val: bool) -> None:
-    global _USE_EF_RF
-    assert isinstance(val, bool)
-    _USE_EF_RF = val
-
-
-def get_use_ef_rf() -> bool:
-    global _USE_EF_RF
-    return _USE_EF_RF
-
-
-def set_rf_learn_ef(val: bool) -> None:
-    global _RF_LEARN_EF
-    assert isinstance(val, bool)
-    _RF_LEARN_EF = val
-
-
-def get_rf_learn_ef() -> bool:
-    global _RF_LEARN_EF
-    return _RF_LEARN_EF
-
-
-def set_fun_learn_ef(val: bool) -> None:
-    global _FUN_LEARN_EF
-    assert isinstance(val, bool)
-    _FUN_LEARN_EF = val
-
-
-def get_fun_learn_ef() -> bool:
-    global _FUN_LEARN_EF
-    return _FUN_LEARN_EF
-
-
-def set_use_motzkin(val: bool) -> None:
-    global _USE_MOTZKIN
-    assert isinstance(val, bool)
-    _USE_MOTZKIN = val
-
-
-def get_use_motzkin() -> bool:
-    global _USE_MOTZKIN
-    return _USE_MOTZKIN
-
-
-def set_use_motzkin_rf(val: bool) -> None:
-    global _USE_MOTZKIN_RF
-    assert isinstance(val, bool)
-    _USE_MOTZKIN_RF = val
-
-
-def get_use_motzkin_rf() -> bool:
-    global _USE_MOTZKIN_RF
-    return _USE_MOTZKIN_RF
-
-
-def get_use_rank_fun() -> bool:
-    return get_use_ef_rf() or get_use_motzkin_rf()
-
-
-def set_extract_const_symbs_timeout(val: int) -> None:
-    global _EXTRACT_CONST_SYMBS_TIMEOUT
-    _EXTRACT_CONST_SYMBS_TIMEOUT = val
-
-
-def get_extract_const_symbs_timeout() -> int:
-    global _EXTRACT_CONST_SYMBS_TIMEOUT
-    return _EXTRACT_CONST_SYMBS_TIMEOUT
-
-def set_use_generalised_lasso(val: bool) -> None:
-    global _USE_GENERALISED_LASSO
-    _USE_GENERALISED_LASSO = val
-
-
-def get_use_generalised_lasso() -> bool:
-    global _USE_GENERALISED_LASSO
-    return _USE_GENERALISED_LASSO
+_MAIN_LOG_LVL = 1
 
 
 def get_log_lvl() -> int:
-    global _LOG_LVL
-    return _LOG_LVL
+    return _MAIN_LOG_LVL
 
 
-def search_funnel_bmc(env: PysmtEnv, symbols: FrozenSet[FNode],
-                      init: FNode, trans: FNode, fair: FNode,
-                      all_hints: FrozenSet[Hint]) -> \
-                      Tuple[Optional[list],
-                            Optional[Union[FunnelLoop,
-                                           list, frozenset]],
-                            Optional[Union[dict, frozenset]]]:
-    assert isinstance(env, PysmtEnv)
-    assert isinstance(symbols, frozenset)
-    assert isinstance(init, FNode)
-    assert isinstance(trans, FNode)
+def set_log_lvl(val: int) -> None:
+    assert isinstance(val, int)
+    global _MAIN_LOG_LVL
+    _MAIN_LOG_LVL = val
+
+
+def search_floop(ts: TransSystem, fair: FNode,
+                 hints: FrozenSet[Hint]) -> Optional[FLoop]:
+    assert isinstance(ts, TransSystem)
+    assert isinstance(ts.env, PysmtEnv)
     assert isinstance(fair, FNode)
-    assert isinstance(all_hints, frozenset)
-    assert all(isinstance(h, Hint) for h in all_hints)
-    assert all(h.env == env for h in all_hints)
-
-    simpl = env.simplifier.simplify
-    serialize = env.serializer.serialize
-    fair = simpl(fair)
-    totime = ExprAtTime(env=env)
-    loop_gen = BMC(env, simpl(init), simpl(trans), fair, all_hints, symbols)
-    for i, (trace, lback_idx, abst_path, hints) in enumerate(loop_gen.gen_loops()):
-        if trace is None:
-            assert lback_idx is None
-            assert abst_path is None
-            assert hints is None
-            # We might have skipped some trace, not a problem.
+    assert fair in ts.env.formula_manager.formulae.values()
+    assert isinstance(hints, frozenset)
+    assert all(isinstance(h, Hint) for h in hints)
+    assert all(h.env == ts.env for h in hints)
+    env = ts.env
+    bmc = BMC(ts, fair, hints)
+    impl = Implicant(env, bmc.cn)
+    fgen = FLoopGen(env, bmc.totime, bmc.cn)
+    rfs: Set[RankFun] = set()
+    path_count = 0
+    floop_count = 0
+    while BMC.get_max_k() < 0 or bmc.k < BMC.get_max_k():
+        curr = bmc.next()
+        if curr is None:
+            # try generate longer path.
+            bmc.step()
             continue
-
-        assert isinstance(trace, list)
-        assert all(isinstance(state, dict) for state in trace)
-        assert all(s in env.formula_manager.get_all_symbols()
-                   for state in trace for s in state.keys())
-        assert all(v in env.formula_manager.formulae.values()
-                   for state in trace for v in state.values())
-        assert all(s in env.formula_manager.get_all_symbols()
-                   for state in trace for v in state.values()
-                   for s in env.fvo.walk(v))
-        assert all(len(ExprAtTime.collect_times(env.formula_manager, k)) == 0
-                   for state in trace for k in state)
-        assert all(env.stc.walk(s) == env.stc.walk(v)
-                   for state in trace for s, v in state.items())
-        assert (abst_path is False and hints is False) or \
-            (abst_path is not False and hints is not False)
-        assert abst_path is False or isinstance(abst_path, tuple)
-        assert abst_path is False or len(abst_path) == 2
-        assert abst_path is False or isinstance(abst_path[0], list)
-        assert abst_path is False or isinstance(abst_path[1], list)
-        assert abst_path is False or len(abst_path[1]) == len(abst_path[0]) - 1
-        assert abst_path is False or all(isinstance(abst_s, frozenset)
-                                         for abst_s in abst_path[0])
-        assert abst_path is False or all(isinstance(abst_t, frozenset)
-                                         for abst_t in abst_path[1])
-        assert abst_path is False or all(isinstance(s, FNode)
-                                         for abst_s in abst_path[0]
-                                         for s in abst_s)
-        assert abst_path is False or all(isinstance(t, FNode)
-                                         for abst_t in abst_path[1]
-                                         for t in abst_t)
-        assert abst_path is False or all(isinstance(s, FNode)
-                                         for abst_s in abst_path[0]
-                                         for s in abst_s)
-        assert abst_path is False or all(isinstance(t, FNode)
-                                         for abst_t in abst_path[1]
-                                         for t in abst_t)
-        assert abst_path is False or all(s in env.formula_manager.formulae.values()
-                                         for abst_s in abst_path[0]
-                                         for s in abst_s)
-        assert abst_path is False or all(t in env.formula_manager.formulae.values()
-                                         for abst_t in abst_path[1]
-                                         for t in abst_t)
-        assert hints is False or isinstance(hints, tuple)
-        assert hints is False or len(hints) == 4
-        assert hints is False or isinstance(hints[0], list)
-        assert hints is False or isinstance(hints[1], list)
-        assert hints is False or isinstance(hints[2], list)
-        assert hints is False or isinstance(hints[3], list)
-        assert hints is False or all(isinstance(h, Hint) for h in hints[0])
-        assert hints is False or all(h.env == env for h in hints[0])
-        assert abst_path is False or len(hints[2]) == len(hints[1]) - 1
-        assert abst_path is False or all(isinstance(hint_s, frozenset)
-                                         for hint_s in hints[1])
-        assert abst_path is False or all(isinstance(hint_t, frozenset)
-                                         for hint_t in hints[2])
-        assert abst_path is False or all(isinstance(s, FNode)
-                                         for hint_s in hints[1]
-                                         for s in hint_s)
-        assert abst_path is False or all(isinstance(t, FNode)
-                                         for hint_t in hints[2]
-                                         for t in hint_t)
-        assert abst_path is False or all(isinstance(s, FNode)
-                                         for hint_s in hints[1]
-                                         for s in hint_s)
-        assert abst_path is False or all(isinstance(t, FNode)
-                                         for hint_t in hints[2]
-                                         for t in hint_t)
-        assert abst_path is False or all(s in env.formula_manager.formulae.values()
-                                         for hint_s in hints[1]
-                                         for s in hint_s)
-        assert abst_path is False or all(t in env.formula_manager.formulae.values()
-                                         for hint_t in hints[2]
-                                         for t in hint_t)
-        assert abst_path is False or all(isinstance(hint_rfs, tuple)
-                                         for hint_rfs in hints[3])
-        assert abst_path is False or all(len(hint_rfs) == 3
-                                         for hint_rfs in hints[3])
-        assert abst_path is False or all(isinstance(rf, RankFun)
-                                         for (rf, _, _) in hints[3])
-        assert abst_path is False or all(rf.env == env
-                                         for rf, _, _ in hints[3])
-        assert abst_path is False or all(isinstance(s, int)
-                                         for _, s, _ in hints[3])
-        assert abst_path is False or all(isinstance(e, int)
-                                         for _, _, e in hints[3])
-        assert abst_path is False or all(0 <= s <= e < len(trace) - lback_idx
-                                         for _, s, e in hints[3])
-
-        log(f"\n\tBMC: found trace {i}, len {len(trace)}, lback {lback_idx}",
-            get_log_lvl())
-        for j, state in enumerate(trace):
-            log(f"\t    State {j} of trace {i}", get_log_lvl())
-            log("\n".join(f"\t      {serialize(k)} : {serialize(state[k])}"
-                          for k in sorted(state.keys(), key=default_key)),
-                get_log_lvl())
-        log(f"\tEnd of trace {i}\n", get_log_lvl())
-
-        if abst_path is False:
-            assert hints is False
-            return trace[:lback_idx], trace[lback_idx:], None
-
-        is_rf, args = rf_or_funnel_from_trace(env, symbols, trace, abst_path,
-                                              hints, fair, lback_idx, totime)
-        assert isinstance(is_rf, bool)
-        assert is_rf or isinstance(args, tuple)
-        assert is_rf or len(args) == 3
-
-        if is_rf and args is not None:
-            assert isinstance(args, RankFun)
-            loop_gen.add_ranking_fun(args)
-            # loop_gen.add_ranking_funs(args)
-
-        if not is_rf and args[1] is not None:
-            assert isinstance(args, tuple)
-            assert args[0] is not None
-            assert args[1] is not None
-            # either NontermArg or generalised lasso.
-            return args
-
-    return None, None, None
-
-
-def rf_or_funnel_from_trace(env: PysmtEnv,
-                            _symbs: FrozenSet[FNode],
-                            trace: List[Dict[FNode, FNode]],
-                            abst_path: Tuple[List[FrozenSet[FNode]],
-                                             List[FrozenSet[FNode]]],
-                            hints: Tuple[List[Hint], List[FrozenSet[FNode]],
-                                         List[FrozenSet[FNode]],
-                                         List[Tuple[RankFun, int, int]]],
-                            fair: FNode, first: int,
-                            totime: ExprAtTime) \
-        -> Union[Tuple[bool, List[Dict[FNode, FNode]],
-                       FrozenSet[FNode], FrozenSet[FNode]],
-                 Tuple[bool, Optional[RankFun]],
-                 Tuple[bool, Tuple[List[Dict[FNode, FNode]],
-                                   Funnel, Dict[FNode, FNode]]]]:
-    assert isinstance(env, PysmtEnv)
-    assert isinstance(_symbs, frozenset)
-    assert all(isinstance(s, FNode) for s in _symbs)
-    assert all(s in env.formula_manager.get_all_symbols() for s in _symbs)
-    assert isinstance(trace, list)
-    assert all(isinstance(state, dict) for state in trace)
-    assert all(isinstance(k, FNode) for state in trace for k in state)
-    assert all(isinstance(v, FNode) for state in trace for v in state.values())
-    assert all(k in env.formula_manager.get_all_symbols()
-               for state in trace for k in state)
-    assert all(v in env.formula_manager.formulae.values()
-               for state in trace for v in state.values())
-    assert all(env.stc.walk(s) == env.stc.walk(v)
-               for state in trace for s, v in state.items())
-    assert isinstance(abst_path, tuple)
-    assert len(abst_path) == 2
-    assert isinstance(abst_path[0], list)
-    assert isinstance(abst_path[1], list)
-    assert len(abst_path[0]) + first == len(trace)
-    assert len(abst_path[0]) == len(abst_path[1]) + 1
-    assert all(isinstance(abst_s, frozenset) for abst_s in abst_path[0])
-    assert all(isinstance(abst_t, frozenset) for abst_t in abst_path[1])
-    assert all(isinstance(s, FNode) for abst_s in abst_path[0] for s in abst_s)
-    assert all(isinstance(t, FNode) for abst_t in abst_path[1] for t in abst_t)
-    assert all(s in env.formula_manager.formulae.values()
-               for abst_s in abst_path[0] for s in abst_s)
-    assert all(t in env.formula_manager.formulae.values()
-               for abst_t in abst_path[1] for t in abst_t)
-    assert all(s in env.formula_manager.get_all_symbols()
-               for abst_s in abst_path[0] for c in abst_s
-               for s in env.fvo.walk(c))
-    assert all(s in env.formula_manager.get_all_symbols()
-               for abst_t in abst_path[1] for t in abst_t
-               for s in env.fvo.walk(t))
-    assert isinstance(hints, tuple)
-    assert len(hints) == 4
-    assert all(isinstance(hints_el, list) for hints_el in hints)
-    assert all(isinstance(h, Hint) for h in hints[0])
-    assert all(h.env == env for h in hints[0])
-    assert all(isinstance(it, frozenset) for hints_el in hints[1:-1]
-               for it in hints_el)
-    assert all(isinstance(s, FNode) for hints_el in hints[1:-1]
-               for it in hints_el for s in it)
-    assert all(s in env.formula_manager.formulae.values()
-               for hints_el in hints[1:-1] for it in hints_el for s in it)
-    assert all(s in env.formula_manager.get_all_symbols()
-               for hints_el in hints[1:-1] for it in hints_el
-               for el in it for s in env.fvo.walk(el))
-    assert all(isinstance(hint_rf, tuple) for hint_rf in hints[3])
-    assert all(len(hint_rf) == 3 for hint_rf in hints[3])
-    assert all(isinstance(rf, RankFun) for (rf, _, _) in hints[3])
-    assert all(rf.env == env for rf, _, _ in hints[3])
-    assert all(len(rf.params) == 0 for rf, _, _ in hints[3])
-    assert all(isinstance(s, int) for _, s, _ in hints[3])
-    assert all(isinstance(e, int) for _, _, e in hints[3])
-    assert all(0 <= s <= e < len(trace) - first for _, s, e in hints[3])
-
-    assert isinstance(fair, FNode)
-    assert fair in env.formula_manager.formulae.values()
-    assert isinstance(totime, ExprAtTime)
-    assert isinstance(first, int)
-    assert first >= 0
-    assert first < len(trace)
-    assert len(abst_path[1]) == len(hints[2])
-    assert len(abst_path[0]) == len(hints[1])
-
-    last = len(trace) - 1
-    mgr = env.formula_manager
-    serialize = env.serializer.serialize
-    cn = Canonizer(env=env)
-    td = TimesDistributor(env=env)
-    _abst_states, _abst_trans = abst_path
-    _hints, _hints_states, _hints_trans, _hints_rfs = hints
-    del abst_path
-    del hints
-
-    _hints_symbs = frozenset.union(
-        *chain(h.owned_symbs for h in _hints)) if _hints else frozenset()
-    bool_symbs = frozenset(s for s in chain(_symbs, _hints_symbs)
-                           if s.symbol_type().is_bool_type())
-    # all finite state symbols follow a concrete lasso.
-    _conc_assigns = [{s: step[s] for s in bool_symbs}
-                     for step in trace[first:]]
-    # replace all boolean symbols with their assignment
-    _symbs = _symbs - bool_symbs
-    _hints_symbs = _hints_symbs - bool_symbs
-    _hints_states, _hints_trans = _apply_assigns(env, _symbs, _conc_assigns,
-                                                 _hints_states, _hints_trans,
-                                                 cn)
-    _abst_states, _abst_trans = _apply_assigns(env, _symbs, _conc_assigns,
-                                               _abst_states, _abst_trans, cn)
-    assert len(trace) - first == len(_abst_states)
-    assert len(_abst_states) == len(_hints_states)
-    assert len(_abst_trans) == len(_hints_trans)
-    assert len(_hints_symbs & bool_symbs) == 0
-    assert len(_symbs & bool_symbs) == 0
-    assert all(len(env.fvo.get_free_variables(p) & bool_symbs) == 0
-               for s in _abst_states for p in s)
-    assert all(len(env.fvo.get_free_variables(p) & bool_symbs) == 0
-               for t in _abst_trans for p in t)
-    assert all(len(env.fvo.get_free_variables(p) & bool_symbs) == 0
-               for s in _hints_states for p in s)
-    assert all(len(env.fvo.get_free_variables(p) & bool_symbs) == 0
-               for t in _hints_trans for p in t)
-    assert all(cn(p) == p for preds in _abst_states for p in preds)
-    assert all(cn(p) == p for preds in _abst_trans for p in preds)
-    assert all(cn(p) == p for preds in _hints_states for p in preds)
-    assert all(cn(p) == p for preds in _hints_trans for p in preds)
-
-    _abst_states = [s - h_s for s, h_s in zip(_abst_states, _hints_states)]
-    _abst_trans = [t - h_t for t, h_t in zip(_abst_trans, _hints_trans)]
-    # last state implies first state.
-    _abst_states[-1] = _abst_states[0] | _abst_states[-1]
-    _hints_states[-1] = _hints_states[0] | _hints_states[-1]
-
-    if __debug__:
-        simpl = env.simplifier.simplify
-        subst = env.substituter.substitute
-        for idx, s in enumerate(_abst_states):
-            for p in s:
-                assert simpl(subst(p, trace[idx + first])).is_true()
-        for idx, t in enumerate(_abst_trans):
-            for p in t:
-                p = subst(p, {symb_to_next(mgr, k): v
-                              for k, v in trace[idx + first + 1].items()})
-                assert simpl(subst(p, trace[idx + first])).is_true()
-        for idx, s in enumerate(_hints_states):
-            for p in s:
-                assert simpl(subst(p, trace[idx + first])).is_true()
-        for idx, t in enumerate(_hints_trans):
-            for p in t:
-                p = subst(p, {symb_to_next(mgr, k): v
-                              for k, v in trace[idx + first + 1].items()})
-                assert simpl(subst(p, trace[idx + first])).is_true()
-
-    if get_use_generalised_lasso():
-        res, div_pos, div_neg = \
-            is_generalised_lasso(env, trace[first:], _symbs,
-                                 mgr.And(chain.from_iterable(chain(
-                                     _abst_states, _abst_trans,
-                                     _hints_states, _hints_trans))),
-                                 td)
-        if res:
-            return False, (trace[first:], div_pos, div_neg)
-
-    # Try synth ranking function, do this before substituting concrete values to obtain more general ranking function.
-    if get_use_rank_fun() and (get_use_ef_rf() or get_use_motzkin_rf()):
-        log("\n\tTry synth ranking function for abstract loop, using hints: "
-            f"{', '.join(str(h) for h in _hints) if _hints else None}",
-            get_log_lvl())
-        log("\n".join((f"\t\tState {idx + first}\n"
-                       f"\t\t  State assigns: {', '.join(f'{serialize(k)} : {serialize(v)}' for k, v in assign.items())}\n"
-                       f"\t\t  State: {', '.join(serialize(s) for s in state)}\n"
-                       f"\t\t  Hint state: {', '.join(serialize(s) for s in region)}\n"
-                       f"\t\t  Trans: {', '.join(serialize(t) for t in trans)}\n"
-                       f"\t\t  Hint trans: {', '.join(serialize(t) for t in hint_trans)}")
-                      for idx, (assign, state, trans, region, hint_trans) in
-                      enumerate(zip(_conc_assigns, _abst_states, _abst_trans,
-                                    _hints_states, _hints_trans))),
-            get_log_lvl())
-        log(f"\t\tState {len(_conc_assigns) + first - 1}\n"
-            f"\t\t  State assigns: {', '.join(f'{serialize(k)} : {serialize(v)}' for k, v in _conc_assigns[-1].items())}\n"
-            f"\t\t  State: {', '.join(serialize(s) for s in _abst_states[-1])}\n"
-            f"\t\t  Hint state: {', '.join(serialize(s) for s in _hints_states[-1])}",
-            get_log_lvl())
-        all_states = [s0 | s1 for s0, s1 in zip(_abst_states, _hints_states)]
-        all_trans = [t0 | t1 for t0, t1 in zip(_abst_trans, _hints_trans)]
-        ranker = Ranker(env, td, cn)
-        for rank_t in ranker.rank_templates(_symbs):
-            log(f"\n\tUsing ranking template: {rank_t}", get_log_lvl())
-            rank_rel = instantiate_rf_template(ranker, rank_t, all_states,
-                                               all_trans)
-            if rank_rel:
-                rank_rel = rank_t.instantiate(rank_rel)
-                log(f"\tFound ranking relation: {rank_rel}", get_log_lvl())
-                return True, rank_rel
-
-    constant_symbs = _extract_constant_symbs(
-        env, _symbs, trace, first,
-        [s0 | s1 for s0, s1 in zip(_abst_states, _hints_states)],
-        [t0 | t1 for t0, t1 in zip(_abst_trans, _hints_trans)],
-        cn, totime)
-
-    # list of symbols to consider with concrete lasso assignments: from smaller to bigger.
-    lasso_symbs_lst = [constant_symbs]
-
-    lasso_symbs = frozenset(s for s in _symbs - constant_symbs
-                            if trace[first][s] == trace[-1][s])
-    if lasso_symbs:
-        assert len(lasso_symbs & constant_symbs) == 0
-        depends = _extract_dependencies(mgr,
-                                        [abst_s | hint_s
-                                         for abst_s, hint_s in zip(_abst_states,
-                                                                   _hints_states)])
-        # remove all symbols that depend on non-lasso symbs
-        restr_lasso_symbs = lasso_symbs
-        _fixpoint = False
-        while not _fixpoint:
-            new = frozenset(s for s in restr_lasso_symbs
-                            if depends[symb_to_next(mgr, s)] <= restr_lasso_symbs)
-            _fixpoint = new == restr_lasso_symbs
-            if not _fixpoint:
-                restr_lasso_symbs = new
-        del depends
-        del _fixpoint
-
-        assert len(restr_lasso_symbs & constant_symbs) == 0
-        assert restr_lasso_symbs <= lasso_symbs
-        if restr_lasso_symbs and restr_lasso_symbs != lasso_symbs:
-            lasso_symbs_lst.append(restr_lasso_symbs | constant_symbs)
-        lasso_symbs_lst.append(lasso_symbs | constant_symbs)
-        del lasso_symbs
-        del restr_lasso_symbs
-
-    assert sorted(lasso_symbs_lst, key=len) == lasso_symbs_lst
-    if __debug__:
-        # each set should be contain all the following ones.
-        for i, _ in enumerate(lasso_symbs_lst):
-            for j in range(0, i):
-                assert lasso_symbs_lst[i] >= lasso_symbs_lst[j]
-    # save loop components for each set of lasso symbols.
-    symbs_lst = []
-    conc_assigns_lst = []
-    abst_states_lst = []
-    abst_trans_lst = []
-    hints_symbs_lst = []
-    hints_states_lst = []
-    hints_trans_lst = []
-    hints_rfs_lst = []
-    rank_rel = None
-    # first try synth ranking functions from most general loop to most specific.
-    for lasso_symbs in lasso_symbs_lst:
-        if lasso_symbs:
-            symbs = _symbs - lasso_symbs
-            conc_assigns = [{s: step[s]
-                             for s in chain(lasso_symbs, bool_symbs)}
-                            for step in trace[first:]]
-            hints_symbs = _hints_symbs - lasso_symbs
-            hints_states, hints_trans = _apply_assigns(env, symbs, conc_assigns,
-                                                       _hints_states,
-                                                       _hints_trans, cn)
-            assert all(len(rf.params) == 0 for rf, _, _ in _hints_rfs)
-            hints_rfs = [(rf, s, f)
-                         for rf, s, f in _hints_rfs]
-            abst_states, abst_trans = _apply_assigns(env, symbs, conc_assigns,
-                                                     _abst_states, _abst_trans,
-                                                     cn)
-            abst_states = [s - h_s for s, h_s in zip(abst_states, hints_states)]
-            abst_trans = [t - h_t for t, h_t in zip(abst_trans, hints_trans)]
-            # last state implies first state.
-            abst_states[-1] = abst_states[0] | abst_states[-1]
-            hints_states[-1] = hints_states[0] | hints_states[-1]
-        else:
-            symbs, hints_symbs = _symbs, _hints_symbs
-            conc_assigns = _conc_assigns
-            abst_states, abst_trans = _abst_states, _abst_trans
-            hints_states, hints_trans = _hints_states, _hints_trans
-            hints_rfs = _hints_rfs
-        assert len(hints_symbs & lasso_symbs) == 0
-        assert len(symbs & lasso_symbs) == 0
-        assert len(trace) - first == len(abst_states)
-        assert len(abst_states) == len(hints_states)
-        assert len(abst_trans) == len(abst_states) - 1
-        assert len(abst_trans) == len(hints_trans)
-        assert abst_states[0] <= abst_states[-1]
-        assert hints_states[0] <= hints_states[-1]
-        assert all(len(env.fvo.get_free_variables(p) & lasso_symbs) == 0
-                   for s in abst_states for p in s)
-        assert all(len(env.fvo.get_free_variables(p) & lasso_symbs) == 0
-                   for t in abst_trans for p in t)
-        assert all(len(env.fvo.get_free_variables(p) & lasso_symbs) == 0
-                   for s in hints_states for p in s)
-        assert all(len(env.fvo.get_free_variables(p) & lasso_symbs) == 0
-                   for t in hints_trans for p in t)
-        assert all(not c.is_false() for s in abst_states for c in s)
-        assert all(not c.is_false() for s in abst_trans for c in s)
-        assert all(not c.is_false() for s in hints_states for c in s)
-        assert all(not c.is_false() for s in hints_trans for c in s)
-        assert all(len(env.ao.get_atoms(p)) == 1 for state in abst_states
-                   for p in state), abst_states
-        assert all(len(env.ao.get_atoms(t)) == 1 for trans in abst_trans
-                   for t in trans), abst_trans
-        assert all(len(env.ao.get_atoms(p)) == 1 for state in hints_states
-                   for p in state), hints_states
-        assert all(len(env.ao.get_atoms(t)) == 1 for trans in hints_trans
-                   for t in trans), hints_trans
-        assert all(cn(p) == p for s in abst_states for p in s)
-        assert all(cn(p) == p for t in abst_trans for p in t)
-        assert all(cn(p) == p for s in hints_states for p in s)
-        assert all(cn(p) == p for t in hints_trans for p in t)
-
+        path_count += 1
+        # bmc.k and lback correspond to the same abstract state.
+        is_lasso, model, lback = curr
+        assert isinstance(is_lasso, bool)
+        assert isinstance(model, Model)
+        assert isinstance(lback, int)
+        assert 0 <= lback < bmc.k
         if __debug__:
-            simpl = env.simplifier.simplify
-            subst = env.substituter.substitute
-            for idx, s in enumerate(abst_states):
-                for p in s:
-                    assert simpl(subst(p, trace[idx + first])).is_true()
-            for idx, t in enumerate(abst_trans):
-                for p in t:
-                    p = subst(p, {symb_to_next(mgr, k): v
-                                  for k, v in trace[idx + first + 1].items()})
-                    assert simpl(subst(p, trace[idx + first])).is_true()
-            for idx, s in enumerate(hints_states):
-                for p in s:
-                    assert simpl(subst(p, trace[idx + first])).is_true()
-            for idx, t in enumerate(hints_trans):
-                for p in t:
-                    p = subst(p, {symb_to_next(mgr, k): v
-                                  for k, v in trace[idx + first + 1].items()})
-                    assert simpl(subst(p, trace[idx + first])).is_true()
+            # no learned ranking function should decrease in loop.
+            for rf in rfs:
+                _fm = env.formula_manager.And(rf.is_ranked(), rf.is_decr())
+                _fm = bmc.totime(_fm, lback, bmc.k)
+                assert model.get_value(_fm).is_false()
+        if is_lasso is True:
+            return fgen.make_lasso(ts.symbs, model, lback, bmc.k)
+        assigns, regions, trans, h_symbs, h_regions, h_trans, h_rfs = \
+            _loop_impl(bmc, fair, model, lback, impl)
+        assert all(assigns[0].keys() == assign.keys() for assign in assigns[1:])
+        trace = _model2trace(bmc.orig_ts.symbs, model, bmc.k, bmc.totime)
+        del model
+        _log_trace(env, trace, lback, bmc.k, bmc.totime,
+                   path_count)
+        # _log_candidate_loop(env, assigns, regions, trans, h_regions, h_trans,
+        #                     h_rfs)
+        floops: List[Tuple[int, FLoop]] = []
+        log(f"\n\tGenerate candidate loops for path {path_count} "
+            "and discard terminating.", get_log_lvl())
+        remove_loop = True
+        # compact reason for emptiness / possible unreachability of floop.
+        interp: Optional[Tuple[int, Optional[FNode]]] = None
+        # generate floops from most complex to simpler.
+        for floop in fgen.gen(trace[lback:-1],
+                              bmc.symbs - frozenset(assigns[0].keys()),
+                              assigns, regions, trans, h_regions,
+                              h_trans, h_rfs, rfs):
+            assert interp is None
+            floop_count += 1
+            _log_floop(floop, floop_count)
+            rf = floop.terminates(impl)
+            if rf is None and len(floop.repl_constants(trace[-1])) > 0:
+                rf = floop.terminates(impl)
+            if rf is not None:
+                assert rf not in rfs
+                if not rf.is_trivial():
+                    log(f"\tCandidate loop {floop_count} has ranking function: "
+                        f"{rf}.", get_log_lvl())
+                    if rf not in rfs:
+                        remove_loop = False
+                        bmc.refine_rf(rf)
+                        rfs.add(rf)
+                    break  # simpler floops share same rf.
+                # unrealisable path.
+                interp = floop.back_prop(impl)
+                if interp is None:
+                    interp = -1, None
+                assert interp is not None
 
-        rank_rel = None
-        if lasso_symbs and get_use_rank_fun() and (get_use_ef_rf() or
-                                                   get_use_motzkin_rf()):
-            log("\n\tTry synth ranking function for abstract loop, using hints: "
-                f"{', '.join(str(h) for h in _hints) if _hints else None}",
-                get_log_lvl())
-            log("\n".join((f"\t\tState {idx + first}\n"
-                           f"\t\t  State assigns: {', '.join(f'{serialize(k)} : {serialize(v)}' for k, v in assign.items())}\n"
-                           f"\t\t  State: {', '.join(serialize(s) for s in state)}\n"
-                           f"\t\t  Hint state: {', '.join(serialize(s) for s in region)}\n"
-                           f"\t\t  Trans: {', '.join(serialize(t) for t in trans)}\n"
-                           f"\t\t  Hint trans: {', '.join(serialize(t) for t in hint_trans)}")
-                          for idx, (assign, state, trans, region, hint_trans) in
-                          enumerate(zip(conc_assigns, abst_states, abst_trans,
-                                        hints_states, hints_trans))),
-                get_log_lvl())
-            log(f"\t\tState {len(conc_assigns) + first - 1}\n"
-                f"\t\t  State assigns: {', '.join(f'{serialize(k)} : {serialize(v)}' for k, v in conc_assigns[-1].items())}\n"
-                f"\t\t  State: {', '.join(serialize(s) for s in abst_states[-1])}\n"
-                f"\t\t  Hint state: {', '.join(serialize(s) for s in hints_states[-1])}",
-                get_log_lvl())
-            all_states = [s0 | s1 for s0, s1 in zip(abst_states, hints_states)]
-            all_trans = [t0 | t1 for t0, t1 in zip(abst_trans, hints_trans)]
-            ranker = Ranker(env, td, cn)
-            for rank_t in ranker.rank_templates(symbs):
-                log(f"\n\tUsing ranking template: {rank_t}", get_log_lvl())
-                rank_rel = instantiate_rf_template(ranker, rank_t, all_states,
-                                                   all_trans)
-                if rank_rel:
-                    rank_rel = rank_t.instantiate(rank_rel)
-                    log(f"\tFound ranking relation: {rank_rel}", get_log_lvl())
-                    break  # stop rf template iteration at first success.
-        if rank_rel:  # stop candidate loop iteration at first success.
-            break
-        # we failed to synth a ranking function for this configuration.
-        symbs_lst.append(symbs)
-        conc_assigns_lst.append(conc_assigns)
-        abst_states_lst.append(abst_states)
-        abst_trans_lst.append(abst_trans)
-        hints_symbs_lst.append(hints_symbs)
-        hints_states_lst.append(hints_states)
-        hints_trans_lst.append(hints_trans)
-        hints_rfs_lst.append(hints_rfs)
-
-    assert len(symbs_lst) == len(conc_assigns_lst)
-    assert len(symbs_lst) == len(abst_states_lst)
-    assert len(symbs_lst) == len(abst_trans_lst)
-    assert len(symbs_lst) == len(hints_symbs_lst)
-    assert len(symbs_lst) == len(hints_states_lst)
-    assert len(symbs_lst) == len(hints_trans_lst)
-    assert len(symbs_lst) == 0 or \
-        len(symbs_lst) == len(lasso_symbs_lst[:len(symbs_lst)])
-    # try synth FunnelLoop for remaining loop candidates, from most specific to most general.
-    for (lasso_symbs, symbs, conc_assigns, abst_states, abst_trans,
-         hints_symbs, hints_states, hints_trans, hints_rfs) in zip(
-             reversed(lasso_symbs_lst[:len(symbs_lst)]),
-             reversed(symbs_lst), reversed(conc_assigns_lst),
-             reversed(abst_states_lst), reversed(abst_trans_lst),
-             reversed(hints_symbs_lst), reversed(hints_states_lst),
-             reversed(hints_trans_lst), reversed(hints_rfs_lst)):
-        # extract regions, equalities and transitions from hints.
-        hints_states, hints_eqs, hints_trans = \
-            _get_loop_components(env, symbs, hints_states, hints_trans,
-                                 td, cn)
-        assert last == first + len(hints_trans)
-        assert len(hints_eqs) == len(hints_trans)
-        assert len(hints_states) == len(hints_trans) + 1
-        # extract regions, equalities and transitions from abstraction.
-        abst_states, abst_eqs, abst_trans = \
-            _get_loop_components(env, symbs, abst_states, abst_trans,
-                                 td, cn, known_eqs=hints_eqs)
-        assert last == first + len(abst_trans)
-        assert len(abst_eqs) == len(abst_trans)
-        assert len(abst_states) == len(abst_trans) + 1
-        assert len(abst_states) == len(hints_states)
-
-        log("\n\n\tTry synth FunnelLoop for abstract loop, using hints: "
-            f"{', '.join(str(h) for h in _hints) if _hints else None}",
-            get_log_lvl())
-        log("\n".join((f"\t\tState {idx + first}\n"
-                       f"\t\t  State assigns: {', '.join(f'{serialize(k)} : {serialize(v)}' for k, v in assign.items())}\n"
-                       f"\t\t  State: {', '.join(serialize(s) for s in state)}\n"
-                       f"\t\t  Hint state: {', '.join(serialize(s) for s in region)}\n"
-                       f"\t\t  Trans assigns: {', '.join(f'{serialize(k)} = {serialize(v)}' for k, v in t_eqs.items())}\n"
-                       f"\t\t  Trans: {', '.join(serialize(t) for t in trans)}\n"
-                       f"\t\t  Hint assigns: {', '.join(f'{serialize(k)} = {serialize(v)}' for k, v in h_eq.items())}\n"
-                       f"\t\t  Hint trans: {', '.join(serialize(t) for t in h_trans)}")
-                      for idx, (assign, state, t_eqs, trans,
-                                region, h_eq, h_trans) in
-                      enumerate(zip(conc_assigns, abst_states,
-                                    abst_eqs, abst_trans,
-                                    hints_states, hints_eqs, hints_trans))),
-            get_log_lvl())
-        log(f"\t\tState {len(conc_assigns) + first - 1}\n"
-            f"\t\t  State assigns: {', '.join(f'{serialize(k)} : {serialize(v)}' for k, v in conc_assigns[-1].items())}\n"
-            f"\t\t  State: {', '.join(serialize(s) for s in abst_states[-1])}\n"
-            f"\t\t  Hint State: {', '.join(serialize(s) for s in hints_states[-1])}",
-            get_log_lvl())
-        # try synth Funnel-loop.
-        for nontermarg, num_ineqs in \
-            FunnelLoop.factory(env, symbs, trace[first:], conc_assigns,
-                               abst_states, abst_eqs, abst_trans,
-                               hints_symbs, hints_states, hints_eqs, hints_trans,
-                               hints_rfs, first):
-            log(f"\n\tUsing template: {nontermarg.desc_template()}, "
-                f"num ineqs: {num_ineqs}", get_log_lvl())
-            log(nontermarg.describe(indent="\t"), get_log_lvl() + 1)
-            model = instantiate_funnel_template(nontermarg)
-            if model:
-                return False, (trace, nontermarg, model)
-    assert rank_rel in {None, False} or isinstance(rank_rel, RankFun)
-    return True, rank_rel if rank_rel else None
-
-
-def instantiate_rf_template(ranker: Ranker, rf: RankFun,
-                            states: List[FrozenSet[FNode]],
-                            trans: List[FrozenSet[FNode]]) \
-        -> Union[Optional[bool], Dict[FNode, FNode]]:
-    assert isinstance(ranker, Ranker)
-    assert isinstance(ranker.env, PysmtEnv)
-    assert isinstance(rf, RankFun)
-    assert isinstance(states, list)
-    assert all(isinstance(s, frozenset) for s in states)
-    assert all(isinstance(p, FNode) for s in states for p in s)
-    assert all(p in ranker.env.formula_manager.formulae.values()
-               for s in states for p in s)
-    assert isinstance(trans, list)
-    assert all(isinstance(t, frozenset) for t in trans)
-    assert all(isinstance(p, FNode) for t in trans for p in t)
-    assert all(p in ranker.env.formula_manager.formulae.values()
-               for t in trans for p in t)
-    learn = None
-    model = None
-    if get_use_ef_rf():
-        model, learn = ranker.ef_instantiate(rf, states, trans)
-        assert all(c in ranker.env.formula_manager.formulae.values()
-                   for c in learn)
-        assert all(s in ranker.env.formula_manager.get_all_symbols()
-                   for c in learn for s in ranker.env.fvo.walk(c))
-        assert all(p in ranker.env.formula_manager.get_all_symbols()
-                   for p in rf.params)
-        assert all(ranker.env.fvo.walk(c) <= rf.params
-                   for c in learn)
-
-    if model is None and get_use_motzkin_rf():
-        model = ranker.motzkin_instantiate(rf, states, trans,
-                                           extra=learn if get_rf_learn_ef()
-                                           else None)
-    if model is not None and model is not False:
-        assert isinstance(model, dict)
-        assert all(isinstance(k, FNode) for k in model)
-        assert all(isinstance(v, FNode) for v in model.values())
-        assert all(k in ranker.env.formula_manager.formulae.values()
-                   for k in model)
-        assert all(v in ranker.env.formula_manager.formulae.values()
-                   for v in model.values())
-        if __debug__:
-            err, msg = ranker._debug_check(model, rf, states, trans)
-            assert err, msg
-    return model
-
-
-def instantiate_funnel_template(funnel_t: FunnelLoop) \
-        -> Union[Optional[bool], Dict[FNode, FNode]]:
-    assert isinstance(funnel_t, FunnelLoop)
-    learn = None
-    model = None
-    if get_use_ef():
-        model, learn = funnel_t.ef_instantiate()
-        assert all(c in funnel_t.env.formula_manager.formulae.values()
-                   for c in learn)
-        assert all(s in funnel_t.env.formula_manager.get_all_symbols()
-                   for c in learn
-                   for s in funnel_t.env.fvo.walk(c))
-        assert all(p in funnel_t.env.formula_manager.get_all_symbols()
-                   for p in frozenset(funnel_t.parameters))
-        assert all(funnel_t.env.fvo.walk(c) <= frozenset(funnel_t.parameters)
-                   for c in learn)
-    if model is None and get_use_motzkin():
-        model = funnel_t.motzkin_instantiate(extra=learn if get_fun_learn_ef()
-                                             else None)
-    if model is not None and model is not False:
-        assert isinstance(model, dict)
-        assert all(isinstance(k, FNode) for k in model)
-        assert all(isinstance(v, FNode) for v in model.values())
-        assert all(k in funnel_t.env.formula_manager.formulae.values()
-                   for k in model)
-        assert all(v in funnel_t.env.formula_manager.formulae.values()
-                   for v in model.values())
-        if __debug__:
-            valid, msg = funnel_t._debug_check(model)
-            assert valid, msg
-    return model
-
-
-def _get_loop_components(env: PysmtEnv, symbs: FrozenSet[FNode],
-                         abst_states: List[FrozenSet[FNode]],
-                         abst_trans: List[FrozenSet[FNode]],
-                         td: TimesDistributor, cn: Canonizer,
-                         known_eqs: List[Dict[FNode, FNode]] = None) \
-                    -> Tuple[List[FrozenSet[FNode]],
-                             List[Dict[FNode, FNode]],
-                             List[FrozenSet[FNode]]]:
-    assert isinstance(env, PysmtEnv)
-    assert isinstance(symbs, frozenset)
-    assert all(isinstance(s, FNode) for s in symbs)
-    assert all(s.is_symbol() for s in symbs)
-    assert all(s in env.formula_manager.get_all_symbols() for s in symbs)
-    assert isinstance(abst_states, list)
-    assert all(isinstance(preds, frozenset) for preds in abst_states)
-    assert all(isinstance(p, FNode) for preds in abst_states for p in preds)
-    assert all(p in env.formula_manager.formulae.values()
-               for preds in abst_states for p in preds)
-    assert isinstance(abst_trans, list)
-    assert all(isinstance(preds, frozenset) for preds in abst_trans)
-    assert all(isinstance(p, FNode) for preds in abst_trans for p in preds)
-    assert all(p in env.formula_manager.formulae.values()
-               for preds in abst_trans for p in preds)
-    assert known_eqs is None or isinstance(known_eqs, list)
-    assert known_eqs is None or all(isinstance(eq, dict) for eq in known_eqs)
-    assert known_eqs is None or all(isinstance(k, FNode)
-                                    for eq in known_eqs for k in eq)
-    assert known_eqs is None or all(isinstance(v, FNode)
-                                    for eq in known_eqs for v in eq.values())
-    assert known_eqs is None or all(k in env.formula_manager.formulae.values()
-                                    for eq in known_eqs for k in eq)
-    assert known_eqs is None or all(v in env.formula_manager.formulae.values()
-                                    for eq in known_eqs for v in eq)
-    assert len(abst_trans) == len(abst_states) - 1
-    assert all(cn(p) == p for s in abst_states for p in s)
-    assert all(cn(p) == p for t in abst_trans for p in t)
-    assert known_eqs is None or len(known_eqs) == len(abst_trans)
-    assert isinstance(td, TimesDistributor)
-    assert isinstance(cn, Canonizer)
-
-    simpl = env.simplifier.simplify
-    subst = env.substituter.substitute
-    mgr = env.formula_manager
-    get_free_vars = env.fvo.walk
-
-    res_states: List[Set[FNode]] = [set() for _ in abst_states]
-    res_trans: List[Set[FNode]] = [set() for _ in abst_trans]
-    # list of next symbol equalities
-    res_eqs: List[Dict[FNode, FNode]] = [dict() for _ in abst_trans]
-    for idx, abst_state in enumerate(abst_states):
-        preds = list(abst_state)
-        if idx == len(abst_states) - 1:
-            # consider what we learned about first state.
-            preds.extend(res_states[0])
-        elif known_eqs is not None:
-            eqs = known_eqs[idx]
-        else:
-            eqs = dict()
-        abst_t_ineqs = []
-        if idx < len(abst_trans):
-            # first consider equalities
-            preds.extend(t for t in abst_trans[idx] if t.is_equals())
-            abst_t_ineqs = [t for t in abst_trans[idx] if not t.is_equals()]
-        while preds:
-            pred = preds.pop()
-            assert len(env.ao.get_atoms(pred)) == 1
-            assert not pred.is_true()
-            assert not pred.is_not()
-            pred = cn(pred)
-            assert pred.is_lt() or pred.is_le() or pred.is_equals() or \
-                pred.is_literal()
-            if pred.is_equals():
-                symb, expr, is_next_s = eq2assign(env, pred, td)
-                if symb is not None:
-                    if symb.is_true():
-                        continue
-                    if is_next_s:
-                        assert isinstance(symb, FNode)
-                        assert expr is not None
-                        assert isinstance(expr, FNode)
-                        assert symb.is_symbol()
-                        if symb in res_eqs[idx] or \
-                           symb in eqs:
-                            # symb = a & symb = b -> a = b
-                            eq = res_eqs[idx][symb] if symb in res_eqs[idx] \
-                                else eqs[symb]
-                            eq = simpl(mgr.Equals(eq, expr))
-                            if not eq.is_true():
-                                preds.append(eq)
-                        else:
-                            res_eqs[idx][symb] = expr
-                        continue
-                    if idx > 0:
-                        x_pred = mgr.Equals(symb_to_next(mgr, symb),
-                                            to_next(mgr, expr, symbs))
-                        prev_eqs = known_eqs[idx - 1] if known_eqs else {}
-                        x_pred = simpl(subst(x_pred, {**res_eqs[idx - 1],
-                                                      **prev_eqs}))
-                        symb, expr, is_next_s = eq2assign(env, x_pred, td)
-                        if symb is not None:
-                            if symb.is_true():
-                                continue
-                            if is_next_s:
-                                assert isinstance(symb, FNode)
-                                assert expr is not None
-                                assert isinstance(expr, FNode)
-                                assert symb.is_symbol()
-                                assert symb not in res_eqs[idx - 1]
-                                assert known_eqs is None or \
-                                    symb not in known_eqs[idx - 1]
-                                res_eqs[idx - 1][symb] = expr
-                                continue
-            assert all(symb_is_curr(s) for s in get_free_vars(pred))
-            res_states[idx].add(pred)
-        all_eqs = {**(res_eqs[idx]), **eqs} if idx < len(res_eqs) else {}
-        # consider transition inequalities, apply all_eqs rewritings.
-        while abst_t_ineqs:
-            pred = abst_t_ineqs.pop()
-            assert len(env.ao.get_atoms(pred)) == 1
-            assert not pred.is_not()
-            assert not pred.is_true()
-            assert not pred.is_equals()
-            assert cn(pred) == pred
-            if all_eqs:
-                pred = cn(simpl(subst(pred, all_eqs)))
-            if pred.is_true():
-                continue
-            assert pred.is_lt() or pred.is_le() or pred.is_literal()
-
-            if all(symb_is_curr(s) for s in get_free_vars(pred)):
-                res_states[idx].add(pred)
+            if interp is None:
+                interp = floop.back_prop(impl)
+            if interp is not None:
+                log(f"\tCandidate loop {floop_count} "
+                    "unrealisable by predicate back-propagation in funnel "
+                    f"{max(0, interp[0])}.", get_log_lvl())
             else:
-                res_trans[idx].add(pred)
+                new_rfs = [rf for rf in floop.inst_inner_rfs(impl) - rfs
+                           if not rf.is_trivial()]
+                rfs.update(new_rfs)
+                bmc.refine_rfs(new_rfs)
+                interp = floop.rm_deadlocks(impl)
+                if interp is not None:
+                    log(f"\tCandidate loop {floop_count} empty by "
+                        f"deadlock removal in funnel {max(0, interp[0])}; "
+                        f"learn: {'' if interp[0] == -1 else env.serializer.serialize(interp[1])}.",
+                        get_log_lvl())
+                else:
+                    interp = floop.rm_redundant_preds(impl)
+                    if interp is not None:
+                        log(f"\tCandidate loop {floop_count} unrealisable by "
+                            f"redundant removal in funnel {max(0, interp[0])}; "
+                            f"learn: {'' if interp[0] == -1 else env.serializer.serialize(interp[1])}.",
+                            get_log_lvl())
+            # itp is None: floop template can correspond to actual floop.
+            # itp[0] == -1: no floop for template, no compact reason.
+            # itp[0] >= 0: no floop for template, refine with itp[1].
+            assert interp is None or interp[0] != -1 or interp[1] is None or \
+                (isinstance(interp[0], int) and isinstance(interp[1], FNode) and
+                 0 <= interp[0] < len(assigns))
+            if interp is None:
+                # floop template might correspond to some concrete floop.
+                assert floop._check_first_state(impl) is None
+                floops.append((floop_count, floop))
+            else:
+                if interp[0] == -1:
+                    # -1 signals that floop is unrealisable, but no extra info.
+                    interp = None
+                assert interp is None or isinstance(interp, tuple)
+                assert interp is None or len(interp) == 2
+                assert interp is None or isinstance(interp[0], int)
+                assert interp is None or 0 <= interp[0] < len(assigns)
+                assert interp is None or isinstance(interp[1], FNode)
+                assert interp is None or  \
+                    interp[1] in env.formula_manager.formulae.values()
+                break  # simpler floops "empty" for the same reason.
 
-    assert len(res_eqs) == len(res_states) - 1
-    assert len(res_eqs) == len(res_trans)
-    assert all(symb_is_curr(s) for state in res_states
-               for pred in state for s in get_free_vars(pred))
-    assert all(symb_is_next(s) for eq in res_eqs for s in eq.keys())
-    assert all((all(len(get_free_vars(t)) == 0 for t in trans) or
-                any(symb_is_next(s) for t in trans
-                    for s in get_free_vars(t)))
-               for trans in res_trans)
-    assert known_eqs is None or all(k not in res_eq
-                                    for eqs, res_eq in zip(known_eqs, res_eqs)
-                                    for k in eqs)
-    return ([frozenset(s) for s in res_states], res_eqs,
-            [frozenset(t) for t in res_trans])
+        # analyse floop templates from simpler to most complex.
+        if len(floops) > 0:
+            log("\tTry instantiate Funnel-Loop from remaining candidates for "
+                f"path {path_count}", get_log_lvl())
+            x_h_symbs = frozenset(symb2next(env, s) for s in h_symbs)
+            for idx, floop_templ in reversed(floops):
+                # introduce parametric expressions in transition relation.
+                floop_templ.uapprox_trans(x_h_symbs)
+                _log_floop(floop_templ, idx)
+                # increasingly introduce predicates on regions.
+                for num_ineqs, floop in floop_templ.uapprox_regs():
+                    log(f"\tUsing {num_ineqs} parametric inequalities.",
+                        get_log_lvl())
+                    if floop.instantiate(impl):
+                        return floop
+
+        log("\tNo remaining candidates, generate next path.\n", get_log_lvl())
+        # refine next candidates if we found some interpolants or
+        # we have not discovered any ranking function.
+        if interp is not None:
+            assert 0 <= interp[0] < len(assigns)
+            assert isinstance(interp[1], FNode)
+            itps = [None for _ in assigns]
+            itps[interp[0]] = interp[1]
+            # admit generation of same candidate if one of interps holds.
+            bmc.refine_loop([chain(assigns2fnodes(env, assign),
+                                   reg, tr, h_reg, h_tr)
+                             for assign, reg, tr, h_reg, h_tr in
+                             zip(assigns, regions, trans,
+                                 h_regions, h_trans)],
+                            itps)
+        elif remove_loop is True:
+            if len(floops) > 0:
+                # refine by removing most specific floop.
+                bmc.refine_loop(list(floops[-1][1].candidate_steps(len(assigns))))
+            # avoid generating same candidate loop until extra bmc unrolling.
+            bmc.remove_loop_tmp([chain(assigns2fnodes(env, assign),
+                                       reg, tr, h_reg, h_tr)
+                                 for assign, reg, tr, h_reg, h_tr in
+                                 zip(assigns, regions, trans,
+                                     h_regions, h_trans)])
+
+    return None
 
 
-def _extract_dependencies(mgr: FormulaManager,
-                          exprs: Iterable) -> Dict[FNode, Set[FNode]]:
-    """List of symbols that appear in expression where a symbol in symbs"""
-    assert isinstance(exprs, Iterable)
+def _loop_impl(bmc: BMC, fair: FNode, model: Model, first: int,
+               impl: Implicant) -> \
+        Tuple[List[Dict[FNode, FNode]],
+              List[Set[FNode]], List[Set[FNode]],
+              FrozenSet[FNode],
+              List[Set[FNode]], List[Set[FNode]],
+              Dict[Tuple[int, int], RankFun]]:
+    """Return implicant corresponding to trace model.
+    Returns: <Assigns, Regions, Trans, Hint symbs, hint regs, hint trans, hint rfs>.
+    Does not repeat lback: length = bmc.k - first."""
+    assert model.get_value(bmc.totime(fair, bmc.k)).is_true()
+    assert all(len(bmc.env.fvo.get_free_variables(p) & bmc.enc_symbs) == 0
+               for p in bmc.orig_ts.trans)
+    h_symbs, h_regions, h_assumes, h_trans, h_rfs = \
+        bmc.hints_comp(model, first, bmc.k)
+    assert len(h_regions) == len(h_assumes)
+    assert len(h_regions) == len(h_trans)
+    assert len(h_regions) == bmc.k - first
+    if impl.get_merge_ineqs():
+        for idx, (h_reg, h_tr) in enumerate(zip(h_regions, h_trans)):
+            h_regions[idx] = impl.merge_ineqs(h_reg)
+            h_trans[idx] = impl.merge_ineqs(h_tr)
+    env = bmc.env
+    cn = bmc.cn
+    totime = bmc.totime
 
-    rv = defaultdict(set)
-    get_free_vars = mgr.env.fvo.walk
-    for ineq in chain.from_iterable(exprs):
-        assert isinstance(ineq, FNode), type(ineq)
-        assert ineq in mgr.formulae.values()
-        assert len(ExprAtTime.collect_times(mgr, ineq)) == 0
-        symbs = get_free_vars(ineq)
-        if any(symb_is_next(s) for s in symbs) and \
-           any(symb_is_curr(s) for s in symbs):
-            curr_symbs = frozenset(s if symb_is_curr(s)
-                                   else symb_to_curr(mgr, s)
-                                   for s in symbs)
-            for s in filter(symb_is_next, symbs):
-                rv[s].update(curr_symbs)
-    return rv
+    def gen_fms(step: int, x_step: int) -> Iterator[FNode]:
+        """Generate formula for which we want to find an implicant"""
+        assert isinstance(step, int)
+        assert isinstance(x_step, int)
+        assert first <= step < x_step <= bmc.k
+        yield from (cn(totime(pred, step)) for pred in bmc.orig_ts.trans)
+        yield from (cn(totime(pred, x_step))
+                    for pred in h_assumes[x_step - first if x_step < bmc.k
+                                          else 0])
+        if step == bmc.k - 1:
+            yield cn(totime(fair, bmc.k))
+
+    bool_symbs = bmc.fair_symbs | frozenset(s for s in bmc.symbs
+                                            if s.symbol_type().is_bool_type())
+    assert len(bool_symbs & bmc.enc_symbs) == 0
+    true = env.formula_manager.TRUE()
+    assigns: List[Dict[FNode, FNode]] = [dict() for _ in range(first, bmc.k)]
+    regions: List[Set[FNode]] = [set() for _ in range(first, bmc.k)]
+    trans: List[Set[FNode]] = [set() for _ in range(first, bmc.k)]
+
+    for step, (h_reg, h_assume, h_t) in enumerate(zip(h_regions, h_assumes,
+                                                      h_trans),
+                                                  start=first):
+        assert first <= step < bmc.k
+        x_step = step + 1
+        assume = {cn(totime(p, step)): true
+                  for p in chain(h_reg, h_t, h_assume)}
+        assume.update((cn(totime(p, x_step)), true)
+                      for p in h_regions[x_step - first if x_step < bmc.k
+                                         else 0])
+        # assume assignments for boolean symbols.
+        assume.update((s, model.get_value(s))
+                      for s in (totime(s, step)
+                                for s in bool_symbs))
+        # add boolean symbols to assignments.
+        assigns[step - first].update((s, model.get_value(t_s))
+                                     for s, t_s in ((s, totime(s, step))
+                                                    for s in bool_symbs))
+        # assume assignments for next boolean symbols.
+        assume.update((s, model.get_value(s))
+                      for s in (totime(s, x_step)
+                                for s in bool_symbs))
+        # add each predicate to the corresponding region or trans
+        for p in impl(gen_fms(step, x_step), model, assume):
+            assert not p.is_true()
+            assert not p.is_false()
+            assert cn(p) == p
+            assert is_atom(p)
+            assert len(env.ao.get_atoms(p)) == 1
+            assert len(env.fvo.get_free_variables(p)) >= 1
+            assert model.get_value(p).is_true()
+            is_next = get_times(env, p)
+            assert len(is_next) in {1, 2}
+            assert min(is_next) >= step
+            assert max(is_next) <= step + 1
+            c_time = min(is_next)
+            idx = c_time - first
+            p = cn(totime(p, -c_time - 1))
+            assert len(get_times(env, p)) == 0
+            assert cn(p) == p
+            if len(is_next) == 1:
+                assert len(regions) == bmc.k - first
+                assert idx <= bmc.k - first
+                regions[idx % (bmc.k - first)].add(p)
+            else:
+                assert len(is_next) == 2
+                assert idx < bmc.k - first
+                trans[idx].add(p)
+    if impl.get_merge_ineqs():
+        for idx, (reg, tr) in enumerate(zip(regions, trans)):
+            regions[idx] = impl.merge_ineqs(reg)
+            trans[idx] = impl.merge_ineqs(tr)
+    assert len(regions) == bmc.k - first
+    assert len(regions) == len(trans)
+    assert len(regions) == len(assigns)
+    assert len(regions) == len(h_regions)
+    assert len(regions) == len(h_trans)
+    assert all(s in (bmc.symbs | bmc.fair_symbs) for assign in assigns
+               for s in assign)
+    assert all(env.fvo.get_free_variables(p) <= bmc.symbs
+               for reg in regions for p in reg)
+    assert all(env.fvo.get_free_variables(p) <= bmc.symbs
+               for reg in h_regions for p in reg)
+    assert all(env.fvo.get_free_variables(p) <= bmc.symbs |
+               frozenset(symb2next(env, s) for s in bmc.symbs)
+               for tr in trans for p in tr)
+    assert all(env.fvo.get_free_variables(p) <= bmc.symbs |
+               frozenset(symb2next(env, s) for s in bmc.symbs)
+               for tr in h_trans for p in tr)
+    if __debug__:
+        if impl.get_merge_ineqs():
+            for idx, (reg, tr, h_reg, h_tr) in enumerate(zip(regions, trans,
+                                                             h_regions, h_trans)):
+                assert regions[idx] == impl.merge_ineqs(reg)
+                assert trans[idx] == impl.merge_ineqs(tr)
+                assert h_regions[idx] == impl.merge_ineqs(h_reg)
+                assert h_trans[idx] == impl.merge_ineqs(h_tr)
+        # trace is a model for regions and transitions
+        assert all(model.get_value(totime(p, step)).is_true()
+                   for step, preds in zip(range(first, bmc.k), regions)
+                   for p in preds)
+        assert all(model.get_value(totime(p, step)).is_true()
+                   for step, preds in zip(range(first, bmc.k), trans)
+                   for p in preds)
+        assert all(model.get_value(totime(p, step)).is_true()
+                   for step, preds in zip(range(first, bmc.k), h_regions)
+                   for p in preds)
+        assert all(model.get_value(totime(p, step)).is_true()
+                   for step, preds in zip(range(first, bmc.k), h_trans)
+                   for p in preds)
+        # each step implies the transition relation.
+        from expr_utils import to_next
+        from solver import Solver
+        mgr = env.formula_manager
+        get_free_vars = env.fvo.get_free_variables
+        for idx, _ in enumerate(regions):
+            x_idx = (idx + 1) % len(regions)
+            with Solver(env) as _solver:
+                # add curr assign, region, h_region, h_assume, trans and h_trans
+                _solver.add_assertions(assigns2fnodes(env, assigns[idx]))
+                _solver.add_assertions(regions[idx])
+                _solver.add_assertions(h_regions[idx])
+                _solver.add_assertions(h_assumes[idx])
+                _solver.add_assertions(trans[idx])
+                _solver.add_assertions(h_trans[idx])
+                # add next assign, region, h_region, h_assume
+                _solver.add_assertions(to_next(env, p,
+                                               bmc.symbs | bmc.enc_symbs |
+                                               bmc.fair_symbs)
+                                       for p in assigns2fnodes(env, assigns[x_idx]))
+                _solver.add_assertions(to_next(env, p, bmc.symbs)
+                                       for p in regions[x_idx])
+                _solver.add_assertions(to_next(env, p, bmc.symbs)
+                                       for p in h_regions[x_idx])
+                _solver.add_assertions(to_next(env, p, bmc.symbs)
+                                       for p in h_assumes[x_idx])
+                _solver.push()
+                # Is Sat.
+                assert _solver.solve() is True
+                # Implies transition rel.
+                for _tr in bmc.orig_ts.trans:
+                    if len(get_free_vars(_tr) & bmc.fair_symbs) == 0:
+                        _solver.add_assertion(mgr.Not(_tr))
+                        assert _solver.solve() is False
+                        _solver.pop()
+                        _solver.push()
+    # end debug
+    return assigns, regions, trans, h_symbs, h_regions, h_trans, h_rfs
 
 
-def _extract_constant_symbs(env: PysmtEnv,
-                            symbs: FrozenSet[FNode],
-                            trace: List[Dict[FNode, FNode]],
-                            first: int,
-                            states: List[FrozenSet[FNode]],
-                            trans: List[FrozenSet[FNode]],
-                            cn: Canonizer,
-                            totime: ExprAtTime) -> FrozenSet[FNode]:
+def _constant_symbs(env: PysmtEnv,
+                    symbs: FrozenSet[FNode],
+                    trace: List[Dict[FNode, FNode]],
+                    assigns: List[Dict[FNode, FNode]],
+                    regs: List[FrozenSet[FNode]],
+                    trans: List[FrozenSet[FNode]],
+                    cn: Canonizer, totime: ExprAtTime) -> FrozenSet[FNode]:
+    """Retrun subset of `symbs` that must follow a concrete lasso
+    in the candidate loop."""
     assert isinstance(env, PysmtEnv)
     assert isinstance(symbs, frozenset)
     assert all(isinstance(s, FNode) for s in symbs)
     assert all(s in env.formula_manager.get_all_symbols() for s in symbs)
-    assert all(s.symbol_type().is_real_type() or s.symbol_type().is_int_type()
+    assert all(s.symbol_type().is_real_type() or
+               s.symbol_type().is_int_type() or
+               s.symbol_type().is_bool_type()
                for s in symbs)
     assert isinstance(trace, list)
+    assert isinstance(assigns, list)
+    assert isinstance(regs, list)
+    assert isinstance(trans, list)
+    assert len(trace) == len(assigns) + 1
+    assert len(assigns) == len(regs)
+    assert len(assigns) == len(trans)
     assert all(isinstance(state, dict) for state in trace)
     assert all(isinstance(k, FNode) for state in trace for k in state)
     assert all(isinstance(v, FNode) for state in trace for v in state.values())
@@ -995,96 +413,80 @@ def _extract_constant_symbs(env: PysmtEnv,
                for state in trace for v in state.values())
     assert all(env.stc.walk(s) == env.stc.walk(v)
                for state in trace for s, v in state.items())
-    assert isinstance(states, list)
-    assert isinstance(trans, list)
-    assert len(states) + first == len(trace)
-    assert len(states) == len(trans) + 1
-    assert all(isinstance(s, frozenset) for s in states)
-    assert all(isinstance(t, frozenset) for t in trans)
-    assert all(cn(p) == p for t in trans for p in t)
-    assert all(isinstance(p, FNode) for s in states for p in s)
-    assert all(isinstance(p, FNode) for t in trans for p in t)
+    assert all(isinstance(state, dict) for state in assigns)
+    assert all(isinstance(k, FNode) for state in assigns for k in state)
+    assert all(isinstance(v, FNode) for state in assigns
+               for v in state.values())
+    assert all(k in env.formula_manager.get_all_symbols()
+               for state in assigns for k in state)
+    assert all(v in env.formula_manager.formulae.values()
+               for state in assigns for v in state.values())
+    assert all(env.stc.walk(s) == env.stc.walk(v)
+               for state in assigns for s, v in state.items())
+    assert all(isinstance(ps, frozenset) for ps in chain(regs, trans))
+    assert all(isinstance(p, FNode) for ps in chain(regs, trans) for p in ps)
     assert all(p in env.formula_manager.formulae.values()
-               for s in states for p in s)
-    assert all(p in env.formula_manager.formulae.values()
-               for t in trans for p in t)
-    assert all(s in env.formula_manager.get_all_symbols()
-               for state in states for p in state
-               for s in env.fvo.walk(p))
-    assert all(s in env.formula_manager.get_all_symbols()
-               for tr in trans for p in tr
-               for s in env.fvo.walk(p))
-    assert all(isinstance(tr, frozenset) for tr in trans)
-    assert all(isinstance(p, FNode) for tr in trans for p in tr)
-    assert all(p in env.formula_manager.formulae.values()
-               for tr in trans for p in tr)
-    assert all(s in env.formula_manager.get_all_symbols()
-               for tr in trans for p in tr for s in env.fvo.walk(p))
-    assert all(cn(p) == p for tr in trans for p in tr)
+               for ps in chain(regs, trans) for p in ps)
+    assert all(cn(p) == p for ps in chain(regs, trans) for p in ps)
     assert isinstance(totime, ExprAtTime)
     assert totime.env == env
     assert isinstance(cn, Canonizer)
     assert cn.env == env
-    assert isinstance(first, int)
-    assert first >= 0
-    assert first < len(trace)
 
     mgr = env.formula_manager
-    res = set()
-    to_analyse_symbs = []
+    # integer or real -valued symbs that can correspond to lasso.
+    symbs = frozenset(s for s in symbs if trace[0][s] == trace[-1][s] and
+                      (s.symbol_type().is_int_type() or
+                      s.symbol_type().is_real_type()))
+    res = []
+    to_analyse = []
     for s in symbs:
-        assert env.stc.get_type(s).is_int_type() or \
-            env.stc.get_type(s).is_real_type()
-        if trace[first][s] == trace[-1][s]:
-            # collect all symbols x such that x' = x holds in every transition.
-            eq = cn(mgr.Equals(symb_to_next(mgr, s), s))
-            if all(eq in tr for tr in trans):
-                res.add(s)
-            else:
-                to_analyse_symbs.append(s)
-    if len(to_analyse_symbs) > 0:
-        assert all(env.stc.get_type(s).is_int_type() or
-                   env.stc.get_type(s).is_real_type()
-                   for s in to_analyse_symbs)
-        assertions = []
-        # states
-        assertions.extend(totime(pred, first + idx)
-                          for idx, state in enumerate(states)
-                          for pred in state)
+        eq = cn(mgr.Equals(symb2next(env, s), s))
+        if all(eq in tr for tr in trans):
+            res.append(s)
+        else:
+            to_analyse.append(s)
+
+    if len(to_analyse) > 0:
+        # regs
+        assertions = [totime(pred, idx)
+                      for idx, reg in enumerate(regs)
+                      for pred in reg]
         # abst_trans & hint_trans
-        assertions.extend(totime(pred, first + idx)
+        assertions.extend(totime(pred, idx)
                           for idx, tr in enumerate(trans)
                           for pred in tr)
         # add assignments we already discovered.
-        assertions.extend(assign2fnode(env, totime(s, idx + first),
-                                       step[s])
-                          for idx, step in enumerate(trace[first:])
+        assertions.extend(assign2fnode(env, totime(s, idx), step[s])
+                          for idx, step in enumerate(trace)
                           for s in res)
         assert all(isinstance(p, FNode) for p in assertions)
-        with MultiSolver(env, get_extract_const_symbs_timeout(),
+        with MultiSolver(env, get_const_symbs_timeout(),
                          log_lvl=get_log_lvl() + 1) as solver:
             solver.add_assertions(assertions)
             solver.push()
-            while to_analyse_symbs:
-                s = to_analyse_symbs.pop()
+            while to_analyse:
+                s = to_analyse.pop()
                 # unsat (states & trans & s_0 = v_0 & !(/\ s_i = v_i))
-                solver.add_assertion(mgr.Equals(totime(s, first),
-                                                trace[first][s]))
+                solver.add_assertion(mgr.Equals(totime(s, 0),
+                                                trace[0][s]))
                 solver.add_assertion(mgr.Not(mgr.And(
-                    mgr.Equals(totime(s, idx + first + 1), x_step[s])
-                    for idx, x_step in enumerate(trace[first+1:]))))
+                    mgr.Equals(totime(s, idx + 1), x_step[s])
+                    for idx, x_step in enumerate(trace[1:]))))
                 try:
                     sat = solver.solve()
                 except SolverReturnedUnknownResultError:
                     sat = None
+                    solver.reset_assertions()
                     solver.add_assertions(assertions)
                     solver.push()
                 solver.pop()
                 if sat is False:
                     res.add(s)
-                    for idx, step in enumerate(trace[first:]):
-                        eq = mgr.Equals(totime(s, idx + first), step[s])
+                    for idx, step in enumerate(trace):
+                        eq = mgr.Equals(totime(s, idx), step[s])
                         solver.add_assertion(eq)
+                        assertions.append(eq)
                 solver.push()
 
     if __debug__:
@@ -1092,22 +494,22 @@ def _extract_constant_symbs(env: PysmtEnv,
         # check validity of constant symbs.
         with Solver(env=env) as _solver:
             # abst_states & hint_states
-            for idx, state in enumerate(states):
-                c_time = idx + first
+            for idx, state in enumerate(regs):
+                c_time = idx
                 for pred in state:
                     assert isinstance(pred, FNode)
                     _solver.add_assertion(totime(pred, c_time))
             for idx, tr in enumerate(trans):
-                c_time = idx + first
+                c_time = idx
                 for pred in tr:
                     _solver.add_assertion(totime(pred, c_time))
             for s in res:
-                _solver.add_assertion(assign2fnode(env, totime(s, first),
-                                                   trace[first][s]))
+                _solver.add_assertion(assign2fnode(env, totime(s, 0),
+                                                   trace[0][s]))
             disj = []
-            for idx, x_step in enumerate(trace[first+1:]):
+            for idx, x_step in enumerate(trace[1:]):
                 for s in res:
-                    eq = assign2fnode(env, totime(s, idx + first + 1),
+                    eq = assign2fnode(env, totime(s, idx + 1),
                                       x_step[s])
                     disj.append(eq)
             _solver.add_assertion(mgr.Not(mgr.And(disj)))
@@ -1116,86 +518,117 @@ def _extract_constant_symbs(env: PysmtEnv,
     return frozenset(res)
 
 
-def _apply_assigns(env: PysmtEnv,
-                   symbs: FrozenSet[FNode],
-                   assign_lst: List[Dict[FNode, FNode]],
-                   state_lst: List[FrozenSet[FNode]],
-                   trans_lst: List[FrozenSet[FNode]],
-                   cn: Canonizer) \
-                -> Tuple[List[FrozenSet[FNode]], List[FrozenSet[FNode]]]:
-    assert isinstance(env, PysmtEnv)
-    assert isinstance(symbs, frozenset)
+def _model2trace(symbs: FrozenSet[FNode], model: Model, last: int,
+                 totime: ExprAtTime) -> List[Dict[FNode, FNode]]:
+    assert isinstance(symbs, (set, frozenset))
     assert all(isinstance(s, FNode) for s in symbs)
-    assert all(s in env.formula_manager.get_all_symbols() for s in symbs)
-    assert isinstance(assign_lst, list)
-    assert all(isinstance(assign, dict) for assign in assign_lst)
-    assert all(isinstance(k, FNode) for assign in assign_lst for k in assign)
-    assert all(isinstance(v, FNode)
-               for assign in assign_lst for v in assign.values())
-    assert all(k in env.formula_manager.get_all_symbols()
-               for assign in assign_lst for k in assign)
-    assert all(not symb_is_next(k)
-               for assign in assign_lst for k in assign)
-    assert all(env.fvo.walk(v) <= symbs
-               for assign in assign_lst for v in assign.values())
+    assert hasattr(model, "get_value")
+    assert isinstance(last, int)
+    assert last > 0
+    assert isinstance(totime, ExprAtTime)
+    assert all(s in totime.env.formula_manager.get_all_symbols()
+               for s in symbs)
+    return [{s: model.get_value(totime(s, t))
+             for s in symbs} for t in range(last + 1)]
+
+def _log_trace(env: PysmtEnv,
+               trace: List[Dict[FNode, FNode]],
+               lback: int, last: int, totime: ExprAtTime,
+               idx: int) -> None:
+    assert isinstance(env, PysmtEnv)
+    assert isinstance(trace, list)
+    assert len(trace) == last + 1
+    assert all(isinstance(state, dict) for state in trace)
+    assert all(s in env.formula_manager.get_all_symbols()
+               for state in trace for s in state)
     assert all(v in env.formula_manager.formulae.values()
-               for assign in assign_lst for v in assign.values())
-    assert isinstance(state_lst, list)
-    assert all(isinstance(state, frozenset) for state in state_lst)
-    assert all(isinstance(s, FNode) for state in state_lst for s in state)
-    assert all(s in env.formula_manager.formulae.values()
-               for state in state_lst for s in state)
-    assert all(not s.is_false() for state in state_lst for s in state)
-    assert all(not symb_is_next(s)
-               for state in state_lst for p in state for s in env.fvo.walk(p))
-    assert isinstance(trans_lst, list)
-    assert all(isinstance(trans, frozenset) for trans in trans_lst)
-    assert all(isinstance(t, FNode) for trans in trans_lst for t in trans)
-    assert all(t in env.formula_manager.formulae.values()
-               for trans in trans_lst for t in trans)
-    assert all(not t.is_false() for trans in trans_lst for t in trans)
-    assert all(any(symb_is_next(s) for s in env.fvo.walk(t))
-               for trans in trans_lst for t in trans)
-    assert len(assign_lst) == len(state_lst)
-    assert len(state_lst) == len(trans_lst) + 1
-    assert isinstance(cn, Canonizer)
-    assert cn.env == env
+               for state in trace for v in state.values())
+    assert all(v.is_constant() for state in trace
+               for v in state.values())
+    assert all(frozenset(trace[0].keys()) == frozenset(step.keys())
+               for step in trace)
+    assert isinstance(lback, int)
+    assert 0 <= lback < last
+    assert isinstance(last, int)
+    assert isinstance(totime, ExprAtTime)
+    assert totime.env == env
+    assert isinstance(idx, int)
+    if get_log_lvl() > get_verbosity():
+        return
+    serialize = env.serializer.serialize
+    symbs = sorted(trace[0].keys(), key=lambda s: s.symbol_name())
+    log(f"\tTrace {idx}: lback {lback}, length {last + 1};", get_log_lvl())
+    for t, state in enumerate(trace):
+        log(f"\tState {t}", get_log_lvl())
+        log("\n".join(f"\t\t{serialize(s)}: {serialize(state[s])}"
+                      for s in symbs),
+            get_log_lvl())
 
-    simpl = env.simplifier.simplify
-    subst = env.substituter.substitute
-    get_free_vars = env.fvo.walk
-    mgr = env.formula_manager
-    x_symbs = frozenset(symb_to_next(mgr, s) for s in symbs)
+def _log_candidate_loop(env: PysmtEnv,
+                        assigns: List[Dict[FNode, FNode]],
+                        regs: List[Set[FNode]],
+                        trans: List[Set[FNode]],
+                        h_regs: List[Set[FNode]],
+                        h_trans: List[Set[FNode]],
+                        h_rfs: Dict[Tuple[int, int], RankFun]) -> None:
+    assert isinstance(env, PysmtEnv)
+    assert isinstance(assigns, list)
+    assert all(isinstance(state, dict) for state in assigns)
+    assert all(frozenset(state.keys()) <=
+               frozenset(env.formula_manager.get_all_symbols())
+               for state in assigns)
+    assert all(frozenset(state.values()) <=
+               frozenset(env.formula_manager.formulae.values())
+               for state in assigns)
+    assert isinstance(regs, list)
+    assert all(isinstance(reg, (set, frozenset)) for reg in regs)
+    assert all(reg <= frozenset(env.formula_manager.formulae.values())
+               for reg in regs)
+    assert isinstance(trans, list)
+    assert all(isinstance(tr, (set, frozenset)) for tr in trans)
+    assert all(tr <= frozenset(env.formula_manager.formulae.values())
+               for tr in trans)
+    assert isinstance(h_regs, list)
+    assert all(isinstance(reg, (set, frozenset)) for reg in h_regs)
+    assert all(reg <= frozenset(env.formula_manager.formulae.values())
+               for reg in h_regs)
+    assert isinstance(h_trans, list)
+    assert all(isinstance(tr, (set, frozenset)) for tr in h_trans)
+    assert all(tr <= frozenset(env.formula_manager.formulae.values())
+               for tr in h_trans)
+    assert isinstance(h_rfs, dict)
+    assert all(isinstance(k, tuple) for k in h_rfs)
+    assert all(len(k) == 2 for k in h_rfs)
+    assert all(isinstance(k[0], int) and isinstance(k[1], int)
+               for k in h_rfs)
+    assert len(assigns) == len(regs)
+    assert len(regs) == len(trans)
+    assert len(regs) == len(h_regs)
+    assert len(regs) == len(h_trans)
+    assert all(isinstance(rf, RankFun) for rf in h_rfs.values())
+    if get_log_lvl() > get_verbosity():
+        return
+    serialize = env.serializer.serialize
+    log("\n\tCandidate loop", get_log_lvl())
+    for idx, (state, reg, h_reg, tr, h_tr) in enumerate(
+            zip(assigns, regs, h_regs, trans, h_trans)):
+        log(f"\tRegion {idx}", get_log_lvl())
+        log("\n".join(f"\t\t{serialize(s)} := {serialize(state[s])}"
+                      for s in sorted(state.keys(),
+                                      key=lambda s: s.symbol_name())))
+        log("\n".join(f"\t\t{serialize(p)}" for p in reg),
+            get_log_lvl())
+        log("\n".join(f"\t\t{serialize(p)}\t(hint)" for p in h_reg),
+            get_log_lvl())
+        log(f"\tTransition {idx} -- {idx + 1}", get_log_lvl())
+        log("\n".join(f"\t\t{serialize(p)}" for p in tr),
+            get_log_lvl())
+        log("\n".join(f"\t\t{serialize(p)}\t(hint)" for p in h_tr),
+            get_log_lvl())
 
-    res_state_lst = [set(filter(is_not_true, (cn(simpl(subst(s, assign)))
-                                              for s in state)))
-                     for assign, state in zip(assign_lst, state_lst)]
-    res_trans_lst = []
-    for assign, x_assign, trans, res_state in zip(assign_lst, assign_lst[1:],
-                                                  trans_lst, res_state_lst):
-        res_trans = set()
-        for p in (cn(simpl(subst(subst(t, assign),
-                                 {symb_to_next(mgr, k): v
-                                  for k, v in x_assign.items()})))
-                  for t in trans):
-            if p.is_true():
-                continue
-            if len(get_free_vars(p) & x_symbs) > 0:
-                res_trans.add(p)
-            else:
-                assert get_free_vars(p) <= symbs
-                res_state.add(p)
-        res_trans_lst.append(res_trans)
 
-    assert all(not s.is_false()
-               for state in res_state_lst for s in state)
-    assert all(get_free_vars(s) <= symbs
-               for state in res_state_lst for s in state)
-    assert all(not s.is_true()
-               for state in res_state_lst for s in state)
-    assert all(len(get_free_vars(t) & x_symbs) > 0
-               for trans in res_trans_lst for t in trans)
-    assert all(cn(s) == s for state in res_state_lst for s in state)
-    assert all(cn(t) == t for trans in res_trans_lst for t in trans)
-    return ([frozenset(state) for state in res_state_lst],
-            [frozenset(trans) for trans in res_trans_lst])
+def _log_floop(floop: FLoop, num) -> None:
+    assert isinstance(floop, FLoop)
+    if get_log_lvl() > get_verbosity():
+        return
+    log(f"\n\tCandidate loop {num}:\n{floop}", get_log_lvl())

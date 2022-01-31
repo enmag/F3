@@ -1,4 +1,4 @@
-from typing import Tuple, Optional, Iterable, FrozenSet
+from typing import Tuple, Optional, Iterable
 from collections import defaultdict
 from fractions import Fraction
 from io import StringIO
@@ -9,8 +9,7 @@ import pysmt.typing as types
 from pysmt.typing import PySMTType
 
 from rewritings import TimesDistributor
-from utils import default_key, symb_is_next
-from expr_at_time import ExprAtTime
+from expr_utils import fnode_key, symb_is_next
 
 # TODO: here we parse a FNode in multiple places
 # TODO: refactor in a single function.
@@ -52,8 +51,7 @@ class Ineq:
             from solver import Solver
             mgr = self.env.formula_manager
             with Solver(env=env) as _solver:
-                eq = mgr.Iff(ineq, self.pysmt_ineq())
-                n_eq = mgr.Not(eq)
+                n_eq = mgr.Not(mgr.Iff(ineq, self.pysmt_ineq()))
                 _solver.add_assertion(n_eq)
                 assert _solver.solve() is False
 
@@ -106,10 +104,10 @@ class Ineq:
     def pysmt_ineq(self) -> FNode:
         "Convert Ineq into FNode"
         mgr = self.env.formula_manager
-        expr = sorted([k if v.is_one()
+        expr = sorted((k if v.is_one()
                        else mgr.Times(k, v.pysmt_expr())
-                       for k, v in self.lhs.items() if not v.is_zero()],
-                      key=default_key)
+                       for k, v in self.lhs.items() if not v.is_zero()),
+                      key=fnode_key)
         expr = mgr.Plus(expr) if expr else self.rhs.number(0)
         rhs = self.rhs.pysmt_expr()
         if self.is_eq():
@@ -187,7 +185,7 @@ class Ineq:
                     else:
                         assert False, f"Unhandled op: {arg}"
                         # symbs.append(arg)
-                symbs.sort(key=default_key)
+                symbs.sort(key=fnode_key)
                 symbs = mgr.Times(symbs)
                 coeff = mgr.Times(pysmt_num(const), *_params)
                 lhs[symbs].plus_fnode(coeff)
@@ -204,6 +202,20 @@ class Ineq:
             else:
                 assert False, curr
 
+        if ineq.is_equals():
+            # minimise number of -1
+            tot_coefs = 0
+            neg_coefs = 0
+            for expr in lhs.values():
+                for val in expr.symb2coef.values():
+                    if val != 0:
+                        tot_coefs += 1
+                        if val < 0:
+                            neg_coefs += 1
+            if neg_coefs > tot_coefs / 2:
+                for expr in lhs.values():
+                    expr.times_fnode(expr.number(-1))
+                return lhs, rhs
         rhs.times(m_one_expr)
         return lhs, rhs
 
@@ -403,6 +415,7 @@ class Expr:
             curr = stack.pop()
             if curr.is_constant() or \
                len(get_free_vars(curr)) == 0:
+                assert self.simplify(curr).is_constant()
                 val = self.simplify(curr).constant_value()
                 self.symb2coef[one] += val
                 if self.symb2coef[one] == 0:
@@ -441,9 +454,10 @@ class Expr:
                         symbs.append(factor)
                     else:
                         symbs.append(factor)
-                        print(f"Expr - Unhandled op: {factor}")
+                        print("EXPR - Unhandled op: "
+                              f"{self.env.serializer.serialize(factor)}")
                 symbs = self.mgr.Times(sorted(symbs,
-                                              key=default_key)) \
+                                              key=fnode_key)) \
                     if symbs else one
                 if symbs is not one and do_to_real:
                     symbs = self.mgr.ToReal(symbs)
@@ -503,7 +517,7 @@ class Expr:
                         else:
                             if not k1.is_one():
                                 symbs.append(k1)
-                        symbs.sort(key=default_key)
+                        symbs.sort(key=fnode_key)
                         symbs = self.mgr.Times(symbs)
                         self.symb2coef[symbs] += v0 * v1
         return self
@@ -514,7 +528,7 @@ class Expr:
 
     def pysmt_expr(self) -> FNode:
         "Convert Expr into FNode"
-        keys = sorted(self.symb2coef.keys(), key=default_key)
+        keys = sorted(self.symb2coef.keys(), key=fnode_key)
         to_add = [self._fnode_times(k, self.symb2coef[k])
                   for k in keys if self.symb2coef[k] != 0]
         if to_add:
@@ -560,9 +574,8 @@ class Expr:
 
 
 def eq2assign(env: PysmtEnv, equality: FNode,
-              td: TimesDistributor,
-              _time: Optional[int] = None) -> Tuple[FNode, Optional[FNode],
-                                                    Optional[bool]]:
+              td: TimesDistributor) -> Tuple[FNode, Optional[FNode],
+                                             Optional[bool]]:
     """Return k, v where k is a symbol and v is an expression.
     Return None, None if the rewriting failed.
 
@@ -577,8 +590,6 @@ def eq2assign(env: PysmtEnv, equality: FNode,
         return equality, None, None
     assert equality.is_equals()
     assert len(equality.args()) == 2
-    assert _time is None or isinstance(_time, int)
-    assert _time is None or _time >= 0
 
     mgr = env.formula_manager
     expr_type = env.stc.get_type(equality.arg(0))
@@ -596,11 +607,10 @@ def eq2assign(env: PysmtEnv, equality: FNode,
     _symb = None
     _coef = None
     _is_next = False
-    for k in sorted(expr.symb2coef.keys(), key=default_key):
+    for k in sorted(expr.symb2coef.keys(), key=fnode_key):
         v = expr.symb2coef[k]
         if k.is_symbol() and v != 0:
-            is_next = ExprAtTime.get_symb_time(mgr, k)[1] == _time if _time \
-                      else symb_is_next(k)
+            is_next = symb_is_next(k)
             if not _is_next or is_next:
                 assert not isinstance(v, FNode)
                 if v in {-1, 1} or (not _is_next and is_next):

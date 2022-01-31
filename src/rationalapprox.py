@@ -1,5 +1,13 @@
+from typing import FrozenSet, Set, Dict, Optional, Union
 from fractions import Fraction
 from collections import defaultdict
+
+from pysmt.environment import Environment as PysmtEnv
+from pysmt.fnode import FNode
+from pysmt.exceptions import SolverReturnedUnknownResultError
+import pysmt.typing as types
+
+from utils import log
 
 _TOLERANCE = 10**-3
 _VAL_BOUND = 10000
@@ -64,6 +72,46 @@ class RationalApprox:
             res.extend(continued_fraction(val, self.maxlen))
         assert len(res) <= self.maxlen
         return sign * eval_continued_frac(res[:maxlen], bound=get_val_bound())
+
+    def simpl_model(self, env: PysmtEnv, solver,
+                    params: Union[Set[FNode], FrozenSet[FNode]],
+                    whole: Optional[FNode] = None) -> Dict[FNode, FNode]:
+        assert isinstance(env, PysmtEnv)
+        assert isinstance(params, (set, frozenset))
+        assert all(isinstance(p, FNode) for p in params)
+        assert whole is None or whole in params
+        assert all(p in env.formula_manager.get_all_symbols() for p in params)
+        assert all(p.symbol_type().is_int_type() or
+                   p.symbol_type().is_real_type()
+                   for p in params)
+        mgr = env.formula_manager
+        model = solver.get_values(params)
+
+        if whole is not None and model[whole].is_constant(_type=types.REAL):
+            d_val = model[whole]
+            # remove denominator from d_val
+            assert hasattr(d_val.constant_value(), "numerator")
+            assert hasattr(d_val.constant_value(), "denominator")
+            assert d_val.constant_value().denominator > 0
+            simpl = env.simplifier.simplify
+            den = mgr.Real(d_val.constant_value().denominator)
+            model = {p: simpl(mgr.Times(model[p], den))
+                     for p in params}
+            assert model[whole].constant_value() == d_val.constant_value().numerator
+
+        for k, v in model.items():
+            val = self(v.constant_value())
+            val = mgr.Real(val) if v.is_real_constant() \
+                else mgr.Int(int(val))
+            eq = mgr.Equals(k, val)
+            solver.add_assertion(eq)
+        try:
+            if solver.solve() is True:
+                return solver.get_values(params)
+        except SolverReturnedUnknownResultError:
+            pass
+        log("\tModel simplification failed")
+        return model
 
 
 # def approx_num(val, maxlen):

@@ -39,7 +39,7 @@ class TimesDistributor(PysmtTimesDistributor):
         assert formula in self.env.formula_manager.formulae.values()
         return self.walk(formula, **kwargs)
 
-    def walk_div(self, formula: FNode, args, **_) -> FNode:
+    def walk_div(self, _, args, **__) -> FNode:
         """
         From k0(a + b) / (k1(c+d)) to (k0/k1 * a/(c+d)) + (k0/k1 * b/(c+d)),
         where k0, k1 are constants.

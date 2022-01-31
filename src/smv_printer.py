@@ -9,7 +9,7 @@ from pysmt.walkers.generic import handles
 from pysmt.typing import PySMTType, INT, REAL, BOOL
 import pysmt.operators as op
 
-from smv_prefixes import NEXT_MONITOR_PREFIX
+from expr_utils import name_is_next, name2curr, symb_is_frozen, symb_is_curr
 
 
 class SMVPrinter(HRPrinter):
@@ -18,13 +18,38 @@ class SMVPrinter(HRPrinter):
     """
 
     def smvtype(self, pysmt_t) -> None:
-        if pysmt_t.is_bool_type():
-            self.write("boolean")
-        elif pysmt_t.is_int_type():
-            self.write("integer")
-        else:
-            assert pysmt_t.is_real_type(), str(pysmt_t)
-            self.write("real")
+        self.write(smv_type(pysmt_t))
+
+    def decl_symbs(self, symbs) -> None:
+        symbs = frozenset(symbs)
+        frozenvars = frozenset(s for s in symbs if symb_is_frozen(s))
+        statevars = frozenvars - symbs
+        for decl_str, symbs in [("FROZENVAR", frozenvars),
+                                ("VAR", statevars)]:
+            self.write(f"  {decl_str}\n")
+            for s in symbs:
+                assert isinstance(s, FNode)
+                assert s in self.env.formula_manager.get_all_symbols()
+                assert symb_is_curr(s)
+                self.write("    ")
+                self.walk(s)
+                self.write(" : ")
+                self.smvtype(s.symbol_type())
+                self.write(";\n")
+            self.write("\n")
+
+    def write_module(self, name: str) -> None:
+        self.write(f"MODULE {name}\n")
+
+    def write_init(self, fm: FNode) -> None:
+        self.write("  INIT ")
+        self.walk(fm)
+        self.write(";\n")
+
+    def write_trans(self, fm: FNode) -> None:
+        self.write("  TRANS ")
+        self.walk(fm)
+        self.write(";\n")
 
     def __init__(self, stream: StringIO, env: PysmtEnv = None):
         assert env is None or isinstance(env, PysmtEnv)
@@ -103,8 +128,8 @@ class SMVPrinter(HRPrinter):
         name = formula.symbol_name()
         if self._next_op_re.fullmatch(name):
             self.write(formula.symbol_name())
-        elif name.startswith(NEXT_MONITOR_PREFIX):
-            name = name[len(NEXT_MONITOR_PREFIX):]
+        elif name_is_next(name):
+            name = name2curr(name)
             self.write(f"next({name})")
         else:
             HRPrinter.walk_symbol(self, formula)
@@ -440,13 +465,11 @@ def ltl_to_smv(env: PysmtEnv, solver, enc, ltl) -> str:
 def smv_type(symb_sort: PySMTType) -> str:
     """Translate pysmt type into the corresponding smv type"""
     assert isinstance(symb_sort, PySMTType)
-    res = ""
     if symb_sort == INT:
-        res = "integer"
-    elif symb_sort == REAL:
-        res = "real"
-    elif symb_sort == BOOL:
-        res = "boolean"
-    else:
-        assert False, f"unknown type `{symb_sort}`"
-    return res
+        return "integer"
+    if symb_sort == REAL:
+        return "real"
+    if symb_sort == BOOL:
+        return "boolean"
+    assert False, f"unknown type `{symb_sort}`"
+    return ""
