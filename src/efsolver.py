@@ -151,7 +151,7 @@ def efsolve(env, x1: Union[Set[FNode], FrozenSet[FNode]],
                 else:
                     assert eres is False
                     log("\t\tEF-SMT found UNSAT.", get_log_lvl())
-                return False, learn
+                return eres, learn
 
             # eres is True
             assert eres is True
