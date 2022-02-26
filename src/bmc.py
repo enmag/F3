@@ -189,7 +189,7 @@ class BMC:
 
         self.symb2monitor = \
             {s: new_frozen(self.env, f"{s.symbol_name()}", s.symbol_type())
-             for s in self.symbs}
+             for s in self.symbs | self.fair_symbs}
 
         self._in_loop = new_symb(self.env, "inloop")
         ts.add_symb(self._in_loop)
@@ -206,10 +206,12 @@ class BMC:
                                mgr.And(mgr.Not(s) for s in self.fair_symbs))]
                   if self.fair_symbs else []))
         # inloop' -> inloop | start.
-        ts.add_trans(mgr.Or(mgr.Not(symb2next(self.env, self._in_loop)),
+        x_in_loop = symb2next(self.env, self._in_loop)
+        ts.add_trans(mgr.Or(mgr.Not(x_in_loop),
                             self._in_loop, start_loop))
-        # ts.add_trans(mgr.Implies(self._in_loop,
-        #                          symb_to_next(mgr, self._in_loop)))
+        # inloop -> inloop'
+        ts.add_trans(mgr.Implies(self._in_loop, x_in_loop))
+
         self.ts = ts
 
         # monitors and symbols agree on truth assignment of all lback_atms
@@ -294,16 +296,17 @@ class BMC:
                 return None
 
         model = self.solver.get_model()
-        lback = self._lback_time(model)
+        is_lasso = False
         if self.last_k < self.k:
             self.last_k = self.k
             if __debug__:
                 dbg_asserts = frozenset(self.solver.assertions)
-            _model = self._concretize_loop(lback)
+            _model = self._concretize_loop()
             assert dbg_asserts == frozenset(self.solver.assertions)
             if _model is not None:
-                return True, _model, lback
-        return False, model, lback
+                model = _model
+                is_lasso = True
+        return is_lasso, model, self._lback_time(model)
 
     def step(self) -> None:
         # remove bad and not_visited.
@@ -443,14 +446,12 @@ class BMC:
         return (frozenset(chain.from_iterable(h.owned_symbs for h in hints)),
                 regions, assumes, trans, rfs)
 
-    def _concretize_loop(self, lback: int) -> Optional[Model]:
-        assert isinstance(lback, int)
-        assert lback >= 0
-        assert lback < self.k
+    def _concretize_loop(self) -> Optional[Model]:
         self.solver.push()
+        assert frozenset(self.symb2monitor.keys()) <= self.orig_ts.symbs
         self.solver.add_assertions(assigns2fnodes(
             self.env,
-            {self.totime(s, self.k): self.totime(s, lback)
+            {self.totime(s, self.k): self.symb2monitor[s]
              for s in self.orig_ts.symbs}))
         try:
             sat = self.solver.solve()
