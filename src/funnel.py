@@ -338,7 +338,6 @@ class Funnel:
         assertions.extend(self.totime(p, len(self.regs))
                           for p in chain(last_reg, last_h_reg))
         res = []
-        lasso_symbs = list(lasso_symbs)
         states = list(self.states)
         states.append(last_state)
         with MultiSolver(self.env, Funnel.get_const_symbs_timeout(),
@@ -346,8 +345,7 @@ class Funnel:
                          solver_names=["msat"]) as solver:
             solver.add_assertions(assertions)
             solver.push()
-            while len(lasso_symbs) > 0:
-                s = lasso_symbs.pop()
+            for s in lasso_symbs:
                 # unsat (states & trans & s_0 = v_0 & !(/\ s_i = v_i))
                 solver.add_assertion(mgr.Equals(self.totime(s, 0),
                                                 states[0][s]))
@@ -473,10 +471,9 @@ class Funnel:
 
     def learn_eqs(self, preds: Iterable[FNode],
                   eqs: Dict[FNode, FNode],
-                  impl: Implicant,
-                  track: bool = False) -> Tuple[Union[Dict[FNode, Set[FNode]],
-                                                      Set[FNode]],
-                                                Set[FNode], Set[FNode]]:
+                  impl: Implicant) -> Tuple[Union[Dict[FNode, Set[FNode]],
+                                                  Set[FNode]],
+                                            Set[FNode], Set[FNode]]:
         """Add in eqs the next assignments extracted from preds,
         return tuple partitioning the remaining preds in:
         current only, curr-next and next-only.
@@ -495,8 +492,7 @@ class Funnel:
         mgr = self.env.formula_manager
         eq_preds: List[FNode] = []
         ineq_preds: List[FNode] = []
-        curr_only: Union[Dict[FNode, Set[FNode]], Set[FNode]] = \
-            defaultdict(set) if track else set()
+        curr_only: Set[FNode] = set()
         curr_next: Set[FNode] = set()
         next_only: Set[FNode] = set()
         # partition preds in eq_preds and ineq_preds.
@@ -514,7 +510,7 @@ class Funnel:
             assert _pred.is_equals()
             pred = simpl(subst(_pred, eqs))
             if pred.is_false():
-                return {pred: pred} if track else set([pred]), set(), set()
+                return set([pred]), set(), set()
             if pred.is_true():
                 continue
             symb, expr, is_next_s = eq2assign(self.env, pred,
@@ -538,10 +534,7 @@ class Funnel:
                     continue
             symbs = get_free_vars(pred)
             if all(symb_is_curr(s) for s in symbs):
-                if track:
-                    curr_only[self.cn(pred)].add(_pred)
-                else:
-                    curr_only.add(self.cn(pred))
+                curr_only.add(self.cn(pred))
             elif all(symb_is_next(s) for s in symbs):
                 next_only.add(self.cn(pred))
             else:
@@ -554,15 +547,12 @@ class Funnel:
             assert _pred.is_lt() or _pred.is_le()
             pred = self.cn(simpl(subst(_pred, eqs)))
             if pred.is_false():
-                return {pred: pred} if track else set([pred]), set(), set()
+                return set([pred]), set(), set()
             if pred.is_true():
                 continue
             symbs = get_free_vars(pred)
             if all(symb_is_curr(s) for s in symbs):
-                if track:
-                    curr_only[pred].add(_pred)
-                else:
-                    curr_only.add(pred)
+                curr_only.add(pred)
             elif all(symb_is_next(s) for s in symbs):
                 next_only.add(pred)
             else:
@@ -574,7 +564,7 @@ class Funnel:
         assert all(self.cn(p) == p for p in curr_next)
         assert all(self.cn(p) == p for p in next_only)
         if __debug__:
-            # curr_only & curr_next & next_only <-> _orig
+            # curr_only & curr_next & next_only & eqs <-> _orig
             mgr = self.env.formula_manager
             new = [c for c in curr_only]
             new.extend(curr_next)
@@ -809,6 +799,7 @@ class Funnel:
         self.regs[0] = set(impl.rm_redundant_conjs(self.regs[0], assumes))
         # Remove redundant preds from other regs and trans.
         # assume first reg, h_regs, h_trans and eqs.
+        assumes = {self.totime(k, 0): v for k, v in assumes.items()}
         assumes.update((self.totime(p, 0), true)
                        for p in self.regs[0])
         assumes.update((self.totime(p, t), true)
