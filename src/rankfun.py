@@ -1,5 +1,5 @@
 from __future__ import annotations
-from typing import Iterator, FrozenSet, Set, Union, Dict
+from typing import Iterable, FrozenSet, Set, Union, Dict
 
 from pysmt.environment import Environment as PysmtEnv
 from pysmt.fnode import FNode
@@ -90,7 +90,7 @@ class RankFun():
         """Return same RankFun in given environment"""
         assert False, "RankFun is virtual"
 
-    def param_constrs(self) -> Iterator[FNode]:
+    def param_constrs(self) -> Iterable[FNode]:
         """Return constraints over the parameters"""
         assert False, "RankFun is virtual"
         return []
@@ -115,6 +115,7 @@ class RankFun():
                                          for s in self.symbs))
         self._is_constant = self.env.formula_manager.Equals(self.expr,
                                                             self.x_expr)
+
 
 class RRankFun(RankFun):
     """Represents a real-valued ranking function.
@@ -163,10 +164,10 @@ class RRankFun(RankFun):
                         norm(self.expr), norm(self.delta),
                         frozenset(norm(p) for p in self.params))
 
-    def param_constrs(self) -> Iterator[FNode]:
+    def param_constrs(self) -> Iterable[FNode]:
         if self.params:
             mgr = self.env.formula_manager
-            yield mgr.LT(mgr.Real(0), self.delta)
+            return [mgr.LT(mgr.Real(0), self.delta)]
         return []
 
     def __eq__(self, other) -> bool:
@@ -217,7 +218,7 @@ class IRankFun(RankFun):
                         subst(self.expr, model),
                         frozenset())
 
-    def param_constrs(self) -> Iterator[FNode]:
+    def param_constrs(self) -> Iterable[FNode]:
         return []
 
     def to_env(self, env: PysmtEnv) -> IRankFun:
