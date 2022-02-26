@@ -44,5 +44,6 @@ def main(opts):
 if __name__ == "__main__":
     argp = config_args()
     argp.add_argument("benchmarks", nargs='*', type=str,
-                      help="python file describing the problem to be solved.")
+                      help="python file or directory containing "
+                      "the problems to be solved.")
     main(argp.parse_args())
