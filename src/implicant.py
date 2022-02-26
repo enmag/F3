@@ -203,7 +203,8 @@ class Implicant(DagWalker):
                         except SolverReturnedUnknownResultError:
                             sat = None
                             solver.add_assertions(fms)
-                            solver.add_assertions(curr)
+                            solver.add_assertions(res)
+                            solver.add_assertion(curr)
                             solver.push()
                         solver.pop()
                         if sat is False:
@@ -546,29 +547,48 @@ class Implicant(DagWalker):
                             _solver.add_assertions(assume)
                         assert _solver.solve() is False
             if Implicant.get_minimize_core():
-                k = self._find_redundant_ineq(cores)
+                k = self._find_redundant_ineq(cores, assume)
                 if k is not None:
                     assert k in cores
                     cores.pop(k)
         return cores
 
-    def _find_redundant_ineq(self, cores: Dict[str, FNode]) -> Optional[str]:
+    def _find_redundant_ineq(self, cores: Dict[str, FNode],
+                             assume: List[FNode]) -> Optional[str]:
         """Possibly expensive check, consider only subset of predicates.
         Find ineq in cores that can be safely removed."""
+        mgr = self.env.formula_manager
+        assertions = list(assume) if assume else []
+        ineqs = []
+        k_ineqs = []
+        for k, v in cores.items():
+            if k.startswith(Implicant._keep_pref()) and \
+               (v.is_lt() or v.is_le()):
+                ineqs.append(v)
+                k_ineqs.append(k)
+            else:
+                assertions.append(v)
         with MultiSolver(self.env,
                          timeout=Implicant.get_timeout(),
                          solver_names=["msat"]) as solver:
-            for c_k, c_v in cores.items():
-                if c_k.startswith(Implicant._keep_pref()) and \
-                   (c_v.is_lt() or c_v.is_le()):
+
+            solver.add_assertions(assertions)
+            while len(ineqs) > 0:
+                assert len(ineqs) == len(k_ineqs)
+                v = ineqs[-1]
+                ineqs[-1] = mgr.Not(v)
+                try:
+                    assert len(solver.assertions) == len(assertions)
+                    if solver.solve(ineqs) is False:
+                        assert cores[k_ineqs[-1]] == v
+                        return k_ineqs[-1]
+                except SolverReturnedUnknownResultError:
                     solver.reset_assertions()
-                    solver.add_assertions(o_v for o_k, o_v in cores.items()
-                                          if c_k != o_k)
-                    try:
-                        if solver.solve() is False:
-                            return c_k
-                    except SolverReturnedUnknownResultError:
-                        pass
+                    solver.add_assertions(assertions)
+                ineqs.pop()
+                k_ineqs.pop()
+                solver.add_assertion(v)
+                assertions.append(v)
         return None
 
     def _get_children(self, fm: FNode):
@@ -621,6 +641,7 @@ class Implicant(DagWalker):
     def walk_and(self, fm, args) -> Tuple[FrozenSet[FNode], FrozenSet[FNode]]:
         assert len(args) >= 2
         assert all(len(arg) == 2 for arg in args)
+        # pairs: <formula, neg_impl>
         pairs = list(zip(fm.args(), [arg[0] for arg in args]))
         fm, neg = pairs.pop()
         # find child assigned to false with min rank.
