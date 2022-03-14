@@ -220,8 +220,7 @@ def motzkin_transpose(env: PysmtEnv, ineqs: Iterator[FNode],
         i_mat_constr = i_mat_constr.pysmt_expr()
         # le_mat + lt_mat + eq_mat = 0
         if any_r and any_i:
-            mat_constr = mgr.ToReal(i_mat_constr)
-            mat_constr = mgr.Plus(r_mat_constr, mat_constr)
+            mat_constr = mgr.Plus(r_mat_constr, mgr.ToReal(i_mat_constr))
             mat_constr = mgr.Equals(mat_constr, r_0)
         elif any_r:
             assert not any_i
