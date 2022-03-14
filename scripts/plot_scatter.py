@@ -7,7 +7,7 @@ from collections import defaultdict
 import matplotlib.pyplot as plt
 from matplotlib.ticker import MaxNLocator
 
-from parse_results import parse_results, TO
+from parse_results import parse_results, TO, Resources
 from config import Config
 
 
@@ -29,7 +29,15 @@ tool2name = {"anant": "Anant",
              "uppaal": "Uppaal"}
 
 
-def plot_comparison(results, bench_names,
+def resouce2time(in_data):
+    assert isinstance(in_data, Resources)
+    assert in_data.usr_time is not None
+    assert in_data.sys_time is not None
+    assert in_data.wc_time is not None
+    return max(in_data.wc_time, in_data.usr_time + in_data.sys_time)
+
+
+def plot_comparison(results, bench_names, resource2value,
                     title=None, legend=False,
                     show_x_timeout=False, show_y_timeout=False,
                     x_label=True, y_label=True,
@@ -48,6 +56,8 @@ def plot_comparison(results, bench_names,
     x_tool = tools[0]
     if "f3" in tools:
         x_tool = "f3"
+    elif "nuxmvbmc" in tools:
+        x_tool = "nuxmvbmc"
     elif "nuxmv" in tools:
         x_tool = "nuxmv"
 
@@ -70,9 +80,12 @@ def plot_comparison(results, bench_names,
                     assert isinstance(v, tuple)
                     assert len(v) == 2
                     assert v[0] in {"timeout", "correct", "unknown", "memout"}
-                    assert isinstance(v[1], float)
+                    assert isinstance(v[1], Resources)
+                    val = resource2value(v[1])
+                    assert isinstance(val, (float, int))
+                    assert v[0] != "correct" or val > 0, (t_name, k, val)
                     benchmarks.add(k)
-                    name_to_res[k] = v
+                    name_to_res[k] = (v[0], val)
         tool_results[t_name] = name_to_res
     benchmarks = frozenset(benchmarks)
     for t_name in tools:
@@ -120,8 +133,8 @@ def plot_comparison(results, bench_names,
                                                        y_data):
             assert isinstance(x_t, str)
             assert isinstance(y_t, str)
-            assert isinstance(x_s, float)
-            assert isinstance(y_s, float)
+            assert isinstance(x_s, (float, int))
+            assert isinstance(y_s, (float, int))
             if verbose:
                 print(f"< {bench_label} > "
                       f"{x_tool}: {x_t}, {x_s} <--> "
@@ -162,6 +175,8 @@ def plot_comparison(results, bench_names,
                                         (undef_x_x, undef_x_y),
                                         (undef_y_x, undef_y_y),
                                         (undef_both_x, undef_both_y)]):
+            max_v = max(max_v, max(xs) if xs else max_v, max(ys) if ys else max_v)
+            min_v = min(min_v, min(xs) if xs else min_v, min(ys) if ys else min_v)
             if xs:
                 assert len(xs) == len(ys)
                 assert isinstance(marker_colors[idx], str)
@@ -385,7 +400,8 @@ def main(opts):
                                          "nuxmvbmc", "f3", "oldf3", "t2",
                                          "ultimate_term"])
         res = {t_name: results[t_name] for t_name in c_tools}
-        plot_comparison(res, ["software_nontermination"], verbose=verbose)
+        plot_comparison(res, ["software_nontermination"], resouce2time,
+                        verbose=verbose)
 
     if config.nonterm_ns:
         print("\nNON-LINEAR SOFTWARE TERMINATION\n")
@@ -393,7 +409,8 @@ def main(opts):
         c_tools = all_tools & frozenset(["anant", "aprove", "irankfinder",
                                          "nuxmvbmc", "f3", "oldf3", "t2"])
         res = {t_name: results[t_name] for t_name in c_tools}
-        plot_comparison(res, ["nonlinear_software"], verbose=verbose)
+        plot_comparison(res, ["nonlinear_software"], resouce2time,
+                        verbose=verbose)
 
     if config.fltl_maxp:
         print("\nMAX-PLUS\n")
@@ -401,7 +418,8 @@ def main(opts):
                                          "nuxmvbmc", "f3", "oldf3", "t2",
                                          "ultimate_term"])
         res = {t_name: results[t_name] for t_name in c_tools}
-        plot_comparison(res, ["maxplus"], verbose=verbose)
+        plot_comparison(res, ["maxplus"], resouce2time,
+                        verbose=verbose)
 
     if config.fltl_its:
         print("\nLTL INFINITE STATE TRANSITION SYSTEMS\n")
@@ -412,6 +430,7 @@ def main(opts):
         plot_comparison(res, ["airbag", "bakery_simple_bug", "bounded_counter",
                               "semaphore", "simple_int_loops",
                               "simple_real_loops"],
+                        resouce2time,
                         verbose=verbose)
 
     # TIMED AUTOMATA
@@ -425,6 +444,7 @@ def main(opts):
         plot_comparison(res, ["ta_tinvar_critical_region", "ta_tinvar_csma_cd",
                               "ta_tinvar_fddi", "ta_tinvar_fischer",
                               "ta_tinvar_lynch", "ta_tinvar_train"],
+                        resouce2time,
                         verbose=verbose)
 
     if config.finvar_ta:
@@ -438,6 +458,7 @@ def main(opts):
         plot_comparison(res, ["ta_finvar_critical_region", "ta_finvar_csma_cd",
                               "ta_finvar_fddi", "ta_finvar_fischer",
                               "ta_finvar_lynch", "ta_finvar_train"],
+                        resouce2time,
                         verbose=verbose)
 
     if config.tltl_ta:
@@ -450,6 +471,7 @@ def main(opts):
         plot_comparison(res, ["ta_tltl_critical_region", "ta_tltl_csma_cd",
                               "ta_tltl_fddi", "ta_tltl_fischer",
                               "ta_tltl_lynch", "ta_tltl_train"],
+                        resouce2time,
                         verbose=verbose)
 
     if config.fltl_ta:
@@ -463,6 +485,7 @@ def main(opts):
         plot_comparison(res, ["ta_fltl_critical_region", "ta_fltl_csma_cd",
                               "ta_fltl_fddi", "ta_fltl_fischer",
                               "ta_fltl_lynch", "ta_fltl_train"],
+                        resouce2time,
                         verbose=verbose)
 
     if config.tmtl_ta:
@@ -475,6 +498,7 @@ def main(opts):
         plot_comparison(res, ["ta_tmtl_critical_region", "ta_tmtl_csma_cd",
                               "ta_tmtl_fddi", "ta_tmtl_fischer",
                               "ta_tmtl_lynch", "ta_tmtl_train"],
+                        resouce2time,
                         verbose=verbose)
 
     if config.fmtl_ta:
@@ -488,6 +512,7 @@ def main(opts):
         plot_comparison(res, ["ta_fmtl_critical_region", "ta_fmtl_csma_cd",
                               "ta_fmtl_fddi", "ta_fmtl_fischer",
                               "ta_fmtl_lynch", "ta_fmtl_train"],
+                        resouce2time,
                         verbose=verbose)
 
     if config.fltl_tts:
@@ -498,6 +523,7 @@ def main(opts):
         res = {t_name: results[t_name] for t_name in c_tools}
         plot_comparison(res, ["tts_csma_backoff", "tts_dynamic_fischer",
                               "tts_dynamic_lynch", "tts_token_ring", "tts"],
+                        resouce2time,
                         verbose=verbose)
 
     if config.fltl_hs:
@@ -506,7 +532,7 @@ def main(opts):
         c_tools = all_tools & frozenset(["aprove", "irankfinder", "nuxmvbmc",
                                          "f3", "oldf3"])
         res = {t_name: results[t_name] for t_name in c_tools}
-        plot_comparison(res, ["hybrid_system"], verbose=verbose)
+        plot_comparison(res, ["hybrid_system"], resouce2time, verbose=verbose)
 
     if config.hint_combs:
         print("\nSCALING WRONG HINTS COMBINATIONS\n")
