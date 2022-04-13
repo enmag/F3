@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE nta PUBLIC '-//Uppaal Team//DTD Flat System 1.1//EN' 'http://www.it.uu.se/research/group/darts/uppaal/flat-1_2.dtd'>
+<nta>
+  <declaration>
+    const int N = {proc_num};
+
+    const int LAMDA = 404;
+    const int SIGMA = 13;
+
+    typedef int[0, N - 1] id_t;
+    int j;
+
+    chan begin, end, busy;
+    chan cd[N];
+  </declaration>
+  <template>
+    <name>Bus</name>
+    <declaration>clock x;</declaration>
+    <location id="id0">
+      <name>idle</name>
+    </location>
+    <location id="id1">
+      <name>active</name>
+    </location>
+    <location id="id2">
+      <name>collision</name>
+      <label kind="invariant">x &lt; SIGMA</label>
+    </location>
+    <location id="id3">
+      <name>transmit</name>
+      <urgent/>
+    </location>
+    <init ref="id0"/>
+    <transition>
+      <source ref="id3"/>
+      <target ref="id3"/>
+      <label kind="guard">j &lt; N-1</label>
+      <label kind="synchronisation">cd[j]!</label>
+      <label kind="assignment">x = 0, j = j + 1</label>
+    </transition>
+    <transition>
+      <source ref="id3"/>
+      <target ref="id0"/>
+      <label kind="guard">j == N - 1</label>
+      <label kind="synchronisation">cd[j]!</label>
+      <label kind="assignment">j = 0, x = 0</label>
+    </transition>
+    <transition>
+      <source ref="id0"/>
+      <target ref="id1"/>
+      <label kind="synchronisation">begin?</label>
+      <label kind="assignment">x = 0</label>
+    </transition>
+    <transition>
+      <source ref="id1"/>
+      <target ref="id0"/>
+      <label kind="synchronisation">end?</label>
+      <label kind="assignment">x = 0</label>
+    </transition>
+    <transition>
+      <source ref="id1"/>
+      <target ref="id1"/>
+      <label kind="guard">x &gt;= SIGMA</label>
+      <label kind="synchronisation">busy!</label>
+    </transition>
+    <transition>
+      <source ref="id1"/>
+      <target ref="id2"/>
+      <label kind="guard">x &lt; SIGMA</label>
+      <label kind="synchronisation">begin?</label>
+      <label kind="assignment">x = 0</label>
+    </transition>
+    <transition>
+      <source ref="id2"/>
+      <target ref="id3"/>
+      <label kind="guard">x &lt; SIGMA</label>
+      <label kind="synchronisation">cd[j]!</label>
+      <label kind="assignment">x = 0, j = j + 1</label>
+    </transition>
+  </template>
+  <template>
+    <name>Station</name>
+    <parameter>const id_t id</parameter>
+    <declaration>clock x;</declaration>
+    <location id="id4">
+      <name>wait</name>
+    </location>
+    <location id="id5">
+      <name>transm</name>
+      <label kind="invariant">x &lt;= LAMDA</label>
+    </location>
+    <location id="id6">
+      <name>retry</name>
+      <label kind="invariant">x &lt;= 2 * SIGMA</label>
+    </location>
+    <init ref="id4"/>
+    <transition>
+      <source ref="id4"/>
+      <target ref="id5"/>
+      <label kind="synchronisation">begin!</label>
+      <label kind="assignment">x = 0</label>
+    </transition>
+    <transition>
+      <source ref="id4"/>
+      <target ref="id4"/>
+      <label kind="synchronisation">cd[id]?</label>
+      <label kind="assignment">x = 0</label>
+    </transition>
+    <transition>
+      <source ref="id4"/>
+      <target ref="id6"/>
+      <label kind="synchronisation">cd[id]?</label>
+      <label kind="assignment">x = 0</label>
+    </transition>
+    <transition>
+      <source ref="id4"/>
+      <target ref="id6"/>
+      <label kind="synchronisation">busy?</label>
+      <label kind="assignment">x = 0</label>
+    </transition>
+    <transition>
+      <source ref="id5"/>
+      <target ref="id4"/>
+      <label kind="guard">x &gt;= LAMDA</label>
+      <label kind="synchronisation">end!</label>
+      <label kind="assignment">x = 0</label>
+    </transition>
+    <transition>
+      <source ref="id5"/>
+      <target ref="id6"/>
+      <label kind="guard">x &lt;= 2 * SIGMA</label>
+      <label kind="synchronisation">cd[id]?</label>
+      <label kind="assignment">x = 0</label>
+    </transition>
+    <transition>
+      <source ref="id6"/>
+      <target ref="id5"/>
+      <label kind="guard">x &lt;= 2 * SIGMA</label>
+      <label kind="synchronisation">begin!</label>
+      <label kind="assignment">x = 0</label>
+    </transition>
+    <transition>
+      <source ref="id6"/>
+      <target ref="id6"/>
+      <label kind="guard">x &lt;= 2 * SIGMA</label>
+      <label kind="synchronisation">cd[id]?</label>
+      <label kind="assignment">x = 0</label>
+    </transition>
+  </template>
+  <system>
+  B = Bus();
+{components_decl}
+    system B, {components_list};
+  </system>
+</nta>

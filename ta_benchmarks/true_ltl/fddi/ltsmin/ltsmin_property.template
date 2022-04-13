@@ -1,0 +1,1 @@
+([] <> R_counter == {max_pid}) -> ( {all_f_idle} )

@@ -1,0 +1,3 @@
+{defines}
+
+#property G ( {proc_mutual_exclusion} )

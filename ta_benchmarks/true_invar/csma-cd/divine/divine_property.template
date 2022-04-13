@@ -1,0 +1,5 @@
+#define s0_x (S0.x > 2 * SIGMA)
+#define s0_tr (S0.transm)
+{defines}
+
+#property G !(s0_x && s0_tr && ({any_transm}))

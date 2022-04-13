@@ -1,0 +1,4 @@
+#define control3 (controller.controller3)
+#define cnt (controller.cnt)
+
+#property G !(control3 && cnt > 0)

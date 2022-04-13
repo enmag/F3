@@ -1,0 +1,4 @@
+#define id_0 (id == 0)
+{defines}
+
+#property G ({spec})

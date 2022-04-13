@@ -1,0 +1,132 @@
+-- CSMA-CD
+-- In a broadcast network with a multi-access bus, the problem of assigning the bus to only one of many competing stations arises.
+-- The CSMA/CD protocol (Carrier Sense, Multiple-Access with Collision Detection) describes one solution.
+-- Roughly, whenever a station has data to send, if first listens to the bus.
+-- If the bus is idle (i.e., no other station is transmitting), the station begins to send a message.
+-- If it detects a busy bus in this process, it waits a random amount of time and then repeats the operation.
+MODULE main
+DEFINE
+  LAMBDA := 404;
+  SIGMA := 13;
+  SIGMA2 := 26;
+
+VAR
+  bus : Bus(SIGMA);
+{stations_decl}
+
+  -- stations can not move together.
+TRANS {stations_stuttering};
+-- not all stutter
+TRANS !bus.evt_stutter | {exists_station_not_stuttering};
+
+-- sync bus and stations
+TRANS bus.evt_begin <-> ({any_begin});
+TRANS bus.evt_end <-> ({any_end});
+TRANS bus.evt_busy <-> ({any_busy});
+TRANS bus.evt_cd <-> ({any_cd});
+TRANS {cd_events};
+
+
+MODULE Station(LAMBDA, SIGMA2)
+VAR
+  event : {{stutter, begin, end, busy, cd}};
+DEFINE
+  evt_stutter := event = stutter;
+  evt_begin := event = begin;
+  evt_end := event = end;
+  evt_busy := event = busy;
+  evt_cd := event = cd;
+VAR
+  l : {{wait, transm, retry}};
+  x : clock((l = wait & next(l) = wait) |
+            (l = wait & next(l) = transm) |
+            (l = wait & next(l) = retry) |
+            (l = transm & next(l) = wait) |
+            (l = transm & next(l) = retry) |
+            (l = retry & next(l) = retry) |
+            (l = retry & next(l) = transm));
+
+TRANS evt_stutter -> (next(l) = l);
+
+INIT l = wait;
+
+INVAR l = transm -> x <= LAMBDA;
+INVAR l = retry -> x <= SIGMA2;
+
+-- wait -> (wait | transm | retry1 | retry2)
+TRANS (!evt_stutter & l = wait) -> (next(l) = wait | next(l) = transm | next(l) = retry);
+-- wait -> wait
+TRANS (!evt_stutter & l = wait & next(l) = wait) -> (evt_cd);
+-- wait -> transm
+TRANS (!evt_stutter & l = wait & next(l) = transm) -> (evt_begin);
+-- wait -> retry1 | retry2
+TRANS (!evt_stutter & l = wait & next(l) = retry) -> (evt_cd | evt_busy);
+
+-- transm -> (wait | retry)
+TRANS (!evt_stutter & l = transm) -> (next(l) = wait | next(l) = retry);
+-- transm -> wait
+TRANS (!evt_stutter & l = transm & next(l) = wait) -> (evt_end & x >= LAMBDA);
+-- transm -> retry
+TRANS (!evt_stutter & l = transm & next(l) = retry) -> (evt_cd & x <= SIGMA2);
+
+-- retry -> (retry | transm)
+TRANS (!evt_stutter & l = retry) -> (next(l) = retry | next(l) = transm);
+-- retry -> retry
+TRANS (!evt_stutter & l = retry & next(l) = retry) -> (evt_cd & x <= SIGMA2);
+-- retry -> transm
+TRANS (!evt_stutter & l = retry & next(l) = transm) -> (evt_begin & x <= SIGMA2);
+
+
+
+MODULE Bus(SIGMA)
+DEFINE
+  N := {max_station_id};
+  evt_stutter := event = stutter;
+  evt_begin := event = begin;
+  evt_end := event = end;
+  evt_busy := event = busy;
+  evt_cd := event = cd;
+VAR
+  event : {{stutter, begin, end, busy, cd}};
+  cd_id : 0..{max_station_id};
+VAR
+  j : 0..{max_station_id};
+  l : {{idle, active, collision, transmit}}; -- location of the timed automata
+  x : clock((l = idle & next(l) = active) |
+            (l = active & next(l) = idle) |
+            (l = active & next(l) = collision) |
+            (l = collision & next(l) = transmit) |
+            (l = transmit & next(l) = transmit) |
+            (l = transmit & next(l) = idle));
+
+TRANS evt_stutter -> (next(l) = l & next(j) = j);
+
+INIT j = 0 & l = idle;
+
+-- no time elapse in location transmit
+URGENT l = transmit;
+
+-- location invariant.
+INVAR l = collision -> x < SIGMA;
+
+-- idle -> active
+TRANS (!evt_stutter & l = idle) -> (next(l) = active & evt_begin & next(j) = j);
+
+-- active -> (idle | active | collision)
+TRANS (!evt_stutter & l = active) -> (next(j) = j & (next(l) = idle | next(l) = active | next(l) = collision));
+-- active -> idle
+TRANS (!evt_stutter & l = active & next(l) = idle) -> (evt_end);
+-- active -> active
+TRANS (!evt_stutter & l = active & next(l) = active) -> (evt_busy & x >= SIGMA);
+-- active -> collision
+TRANS (!evt_stutter & l = active & next(l) = collision) -> (evt_begin & x < SIGMA);
+
+-- collision -> transmit
+TRANS (!evt_stutter & l = collision) -> (next(l) = transmit & x < SIGMA & evt_cd & cd_id = j & next(j) = j + 1);
+
+-- transmit -> (transmit | idle)
+TRANS (!evt_stutter & l = transmit) -> (next(l) = transmit | next(l) = idle);
+-- transmit -> transmit
+TRANS (!evt_stutter & l = transmit & next(l) = transmit) -> (j < N & next(j) = j + 1 & evt_cd & cd_id = j);
+-- transmit -> idle
+TRANS (!evt_stutter & l = transmit & next(l) = idle) -> (j = N & evt_cd & cd_id = j & next(j) = 0);

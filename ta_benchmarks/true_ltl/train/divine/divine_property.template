@@ -1,0 +1,4 @@
+#define g2 (gate.g2)
+{defines}
+
+#property G ({spec})

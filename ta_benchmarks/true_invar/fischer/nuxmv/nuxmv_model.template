@@ -1,0 +1,47 @@
+@TIME_DOMAIN continuous
+MODULE P(pid, id, turn)
+DEFINE k := 2;
+VAR
+  l : {{idle, wait, req, cs}};
+  x : clock;
+
+INIT l = idle;
+INIT x = 0;
+INVAR (l = req) -> x<=k;
+
+TRANS (turn != pid) -> (next(l) = l);
+TRANS (turn = pid & l = idle) ->  next(l) = req
+TRANS (turn = pid & l = req)  ->  next(l) = wait
+TRANS (turn = pid & l = wait) -> (next(l) = idle | next(l) = cs);
+TRANS (turn = pid & l = cs)   ->  next(l) = idle
+
+
+TRANS (turn = pid) -> next(id) =
+  case
+    l = req & next(l) = wait : pid;
+    l = cs  & next(l) = idle : 0;
+    TRUE : id;
+  esac;
+
+TRANS next(x) =
+  case
+    turn = pid & ((l = idle & next(l = req)) |
+                  (l = wait & next(l = idle)) |
+                  (l = req & next(l = wait))): 0;
+                  TRUE : x;
+  esac;
+
+TRANS (l = idle & next(l = req)) -> id = 0;
+TRANS (l = req & next(l = wait)) -> x <= k;
+TRANS (l = wait & next(l = idle)) -> x > k & id != pid;
+TRANS (l = wait & next(l = cs)) -> x > k & id = pid;
+
+MODULE main
+VAR
+  id : 0..{proc_num};
+  turn : 1..{proc_num};
+{proc_decls}
+
+INIT id = 0;
+
+INVARSPEC {mut_excl};

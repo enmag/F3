@@ -14,6 +14,26 @@ TO = 3600
 MEM_LIM = 31457280
 
 
+def check_correct_limits(in_file):
+    re_cputimelim = re.compile(r"(?:cpu)?time_limit (?P<num>\d+)")
+    re_rssmemlim = re.compile(r"(?:rss)?mem_limit: (?P<num>\d+)")
+    with open(in_file, mode='r', encoding="utf-8", errors="ignore") as lines:
+        for line in lines:
+            line = line.strip()
+            match = re_cputimelim.match(line)
+            if match:
+                val = int(match.groupdict()["num"])
+                if val != TO:
+                    raise Exception(f"Wrong cputime_limit: {val}, "
+                                    f"expected: {TO}")
+            match = re_rssmemlim.match(line)
+            if match:
+                val = int(match.groupdict()["num"])
+                if val != MEM_LIM:
+                    raise Exception(f"Wrong rssmem_limit: {val}, "
+                                    f"expected: {MEM_LIM}")
+
+
 class Resources:
     re_retval = re.compile(r"retval\s+(?P<num>\d+)")
     re_wc_time = re.compile(r"(?:(?:wall-clock time)|(?:real\s*:))\s+(?P<num>\d+(?:\.\d+)?)")
@@ -243,13 +263,13 @@ known_errors["aprove"] = frozenset(chain(
     # wrong results
     (f"bakery_simple_bug_{str(i).zfill(4)}" for i in range(2, 31)),
     (f"semaphore_{str(i).zfill(4)}" for i in range(2, 14)),
-    (f"critical_region_{str(i).zfill(4)}" for i in range(2, 14)),
-    (f"csma_{str(i).zfill(4)}" for i in range(2, 17)),
-    (f"fddi_{str(i).zfill(4)}" for i in range(2, 13)),
-    (f"fischer_{str(i).zfill(4)}" for i in range(2, 31)),
-    (f"lynch_protocol_{str(i).zfill(4)}" for i in range(2, 6)),
-    (f"lynch_protocol_{str(i).zfill(4)}" for i in range(6, 18)),
-    (f"train_gate_{str(i).zfill(4)}" for i in range(2, 25)),
+    (f"fltl_critical_region_{str(i).zfill(4)}" for i in range(2, 14)),
+    (f"fltl_csma_{str(i).zfill(4)}" for i in range(2, 17)),
+    (f"fltl_fddi_{str(i).zfill(4)}" for i in range(2, 13)),
+    (f"fltl_fischer_{str(i).zfill(4)}" for i in range(2, 31)),
+    (f"fltl_lynch_protocol_{str(i).zfill(4)}" for i in range(2, 6)),
+    (f"fltl_lynch_protocol_{str(i).zfill(4)}" for i in range(6, 18)),
+    (f"fltl_train_gate_{str(i).zfill(4)}" for i in range(2, 25)),
     (f"csma_backoff_{str(i).zfill(4)}" for i in range(2, 14)),
     (f"dynamic_fischer_{str(i).zfill(4)}" for i in range(2, 20)),
     (f"dynamic_lynch_{str(i).zfill(4)}" for i in range(2, 14)),
@@ -410,7 +430,8 @@ known_errors["irankfinder"] = frozenset(chain(
     (f"csma_backoff_{str(i).zfill(4)}" for i in range(23, 31)),
     (f"token_ring_{str(i).zfill(4)}" for i in range(22, 31))
 ))
-known_errors["ltsmin"] = frozenset([])
+known_errors["ltsmin"] = frozenset(f"fddi_{str(i).zfill(4)}"
+                                   for i in range(2, 31))
 known_errors["nuxmv"] = frozenset([])
 known_errors["nuxmvbmc"] = frozenset([])
 known_errors["t2"] = frozenset([])
@@ -569,6 +590,7 @@ def check_atmoc(stdout, stderr, expected_res) -> str:
     else:
         correct = re.compile(r"Property\s+\d+\s+.*does\s+not\s+hold")
         wrong = re.compile(r"Property\s+\d+\s+.*holds")
+    timeout = re.compile(r"Killed")
     error = re.compile(r"(\s+error\s+)|(exception)|(Exception)|(cannot open)|(must be built)",
                        re.IGNORECASE)
     res = None
@@ -583,6 +605,12 @@ def check_atmoc(stdout, stderr, expected_res) -> str:
                 res = "wrong"
             if error.search(line):
                 res = "error"
+    if res is None:
+        with open(stderr, mode='r', encoding='utf-8', errors='replace') as in_f:
+            for line in in_f:
+                if timeout.search(line):
+                    res = "timeout"
+                    break
     if res is None:
         res = "none"
     if res in {"none", "error", "wrong"}:
@@ -665,6 +693,7 @@ def check_divine(stdout, stderr, expected_res) -> str:
     memout = re.compile(r".*(Cannot\s+allocate\s+memory)|(std::bad_alloc)")
     unknown = re.compile(r"Segmentation fault", re.IGNORECASE)
     error = re.compile(r"(exception)|(TIMEOUT)|(\s+error)|(parse)", re.IGNORECASE)
+    timeout = re.compile(r"Killed")
     res = None
     with open(stderr, 'r', encoding='utf-8', errors='replace') as in_f:
         for line in in_f:
@@ -684,6 +713,9 @@ def check_divine(stdout, stderr, expected_res) -> str:
                 res = "unknown"
             elif error.search(line) and res != "memout":
                 res = "error"
+            elif timeout.search(line):
+                assert res is None
+                res = "timeout"
     if res is None:
         res = "none"
     if res in {"none", "error", "wrong"}:
@@ -763,33 +795,48 @@ def check_ltsmin(stdout, stderr, expected_res) -> str:
         wrong = re.compile(r"State space has \d+ states, 0 are accepting")
     error = re.compile(r"(\s+error\s+)|(cannot open)|(syntax)|(segfault)|(SEGFAULT)",
                        re.IGNORECASE)
-    memout = re.compile(r"buffer overflow")
+    memout = re.compile(r"(buffer overflow)|(bad_alloc)|(out of memory)|"
+                        r"(not enough memory)|(mmap failed for size)|"
+                        r"(Error: hash table full)")
+    segfault = re.compile(r"Segmentation fault")
     completed = re.compile(r"LTSMIN DONE")
     res = None
+    has_finish = False
     with open(stdout, 'r', encoding='utf-8', errors='replace') as in_f:
         for line in in_f:
             line = line.strip()
-            if completed.match(line):
+            if completed.search(line):
                 has_finish = True
             if error.search(line):
                 res = "error"
+            if memout.search(line):
+                res = "memout"
     if res is None:
         with open(stderr, 'r', encoding='utf-8', errors='replace') as in_f:
             for line in in_f:
                 line = line.strip()
                 if correct.search(line):
-                    assert res is None
+                    assert res is None, res
                     res = "correct"
                 elif wrong.search(line):
-                    assert res is None
+                    assert res is None, res
                     res = "wrong"
                 if memout.search(line):
                     res = "memout"
+                    break
                 if error.search(line):
                     res = "error"
+                    break
+                if segfault.search(line):
+                    res = "segfault"
+                    break
     if res is None:
-        res = "none"
-    if res in {"none", "error", "wrong"}:
+        if has_finish and expected_res:
+            res = "correct"
+        else:
+            res = "none"
+
+    if res in {"none", "error", "wrong", "segfault", "memout"}:
         if label not in known_errors["ltsmin"]:
             print(f"Found LTSmin {res.upper()} in {stderr}")
             res = "error"
@@ -1013,6 +1060,7 @@ def check_uppaal(stdout, stderr, expected_res) -> str:
     else:
         correct = re.compile(r".*Formula is NOT satisfied")
         wrong = re.compile(r".*Formula is satisfied")
+    memout = re.compile(r"Out of memory")
     error = re.compile(r"(syntax error)|(undefined)", re.IGNORECASE)
     res = None
     with open(stdout, 'r', encoding='utf-8', errors='replace') as in_f:
@@ -1024,6 +1072,8 @@ def check_uppaal(stdout, stderr, expected_res) -> str:
             elif wrong.match(line):
                 assert res is None, res
                 res = "wrong"
+            elif memout.search(line):
+                res = "memout"
             if res is None and error.search(line):
                 res = "error"
     if res is None:
@@ -1059,22 +1109,24 @@ tool2check_f = {
 
 
 def parse_results(base_dir, tool_name, config: Config):
-    global TO
-
     tool_name = tool_name.lower()
     check_result = tool2check_f[tool_name]
     tool_ext = tool2ext[tool_name]
     results = {}
     for _d0 in sorted(os.listdir(base_dir)):
+        # benchmark dir.
         assert _d0 in Config.all_dirs, (_d0, Config.all_dirs)
         if config.is_dir2read(_d0) is False:
             continue
-        expected_res = config.expected_res(_d0)
         d0 = os.path.join(base_dir, _d0)
         if os.path.isdir(d0):
+            expected_res = config.expected_res(_d0)
             for _d1 in sorted(os.listdir(d0)):
                 d1 = os.path.join(d0, _d1)
-                if os.path.isdir(d1):
+                if os.path.isfile(d1):
+                    if d1.endswith(".stats"):
+                        check_correct_limits(d1)
+                elif os.path.isdir(d1):
                     for stdout in sorted(glob(f"{d1}/**/*.stdout",
                                               recursive=True)):
                         bench_type = []
@@ -1121,9 +1173,9 @@ def parse_results(base_dir, tool_name, config: Config):
                         else:
                             res = check_result(stdout, stderr, expected_res)
                         assert res in {"error", "timeout", "correct",
-                                       "unknown", "memout"}
+                                       "unknown", "memout"}, res
                         assert data.retval is None or res != "correct" or \
-                            data.retval == 0
+                            data.retval == 0, stdout
                         if res == "error":
                             assert label not in known_errors[tool_name]
                             res = "unknown"

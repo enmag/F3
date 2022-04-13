@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE nta PUBLIC '-//Uppaal Team//DTD Flat System 1.1//EN' 'http://www.it.uu.se/research/group/darts/uppaal/flat-1_2.dtd'>
+<nta>
+  <declaration>
+    const int SA = 20;
+    const int td = 0;
+    const int TRTT = 120;
+    const int N = {proc_num};
+    typedef int[0, N - 1] id_t;
+    chan tt[N];
+    chan rt[N];
+  </declaration>
+  <template>
+    <name>RING</name>
+    <declaration>clock x; id_t counter;</declaration>
+    <location id="id0">
+      <name>ring_to_counter</name>
+      <label kind="invariant">x &lt;= td</label>
+    </location>
+    <location id="id1">
+      <name>ring_counter</name>
+    </location>
+    <init ref="id0"/>
+    <transition>
+      <source ref="id1"/>
+      <target ref="id0"/>
+      <label kind="guard">counter == N - 1</label>
+      <label kind="synchronisation">rt[counter]?</label>
+      <label kind="assignment">x := 0, counter := 0</label>
+    </transition>
+    <transition>
+      <source ref="id1"/>
+      <target ref="id0"/>
+      <label kind="guard">counter &lt; N - 1</label>
+      <label kind="synchronisation">rt[counter]?</label>
+      <label kind="assignment">x := 0, counter := counter + 1</label>
+    </transition>
+    <transition>
+      <source ref="id0"/>
+      <target ref="id1"/>
+      <label kind="guard">x &lt;= td</label>
+      <label kind="synchronisation">tt[counter]!</label>
+    </transition>
+  </template>
+  <template>
+    <name>ST</name>
+    <parameter>id_t id</parameter>
+    <declaration>clock x, y, z;</declaration>
+    <location id="id2">
+      <name>station_z_idle</name>
+    </location>
+    <location id="id3">
+      <name>station_z_sync</name>
+      <label kind="invariant">x&lt;=SA</label>
+    </location>
+    <location id="id4">
+      <name>station_z_async</name>
+      <label kind="invariant">z&lt;=TRTT</label>
+    </location>
+    <location id="id5">
+      <name>station_y_idle</name>
+    </location>
+    <location id="id6">
+      <name>station_y_sync</name>
+      <label kind="invariant">x&lt;=SA</label>
+    </location>
+    <location id="id7">
+      <name>station_y_async</name>
+      <label kind="invariant">y&lt;=TRTT</label>
+    </location>
+    <init ref="id2"/>
+    <transition>
+      <source ref="id2"/>
+      <target ref="id3"/>
+      <label kind="synchronisation">tt[id] ?</label>
+      <label kind="assignment">y := 0, x:= 0</label>
+    </transition>
+    <transition>
+      <source ref="id3"/>
+      <target ref="id5"/>
+      <label kind="guard">x &gt;= SA &amp;&amp; z &gt;= TRTT</label>
+      <label kind="synchronisation">rt[id] !</label>
+    </transition>
+    <transition>
+      <source ref="id3"/>
+      <target ref="id4"/>
+      <label kind="guard">x &gt;= SA &amp;&amp; z &lt; TRTT</label>
+    </transition>
+    <transition>
+      <source ref="id4"/>
+      <target ref="id5"/>
+      <label kind="synchronisation">rt[id] !</label>
+    </transition>
+    <transition>
+      <source ref="id5"/>
+      <target ref="id6"/>
+      <label kind="synchronisation">tt[id] ?</label>
+      <label kind="assignment">z := 0, x:= 0</label>
+    </transition>
+    <transition>
+      <source ref="id6"/>
+      <target ref="id2"/>
+      <label kind="guard">x &gt;= SA &amp;&amp; y &gt;= TRTT</label>
+      <label kind="synchronisation">rt[id] !</label>
+    </transition>
+    <transition>
+      <source ref="id6"/>
+      <target ref="id7"/>
+      <label kind="guard">x &gt;= SA &amp;&amp; y &lt; TRTT</label>
+    </transition>
+    <transition>
+      <source ref="id7"/>
+      <target ref="id2"/>
+      <label kind="synchronisation">rt[id] !</label>
+    </transition>
+  </template>
+  <system>
+    R = RING();
+{comps_decl}
+  system R, {comps_list};</system>
+</nta>

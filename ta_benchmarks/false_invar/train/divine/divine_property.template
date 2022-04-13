@@ -1,0 +1,3 @@
+#define obj (cnt != {proc_num})
+
+#property G obj

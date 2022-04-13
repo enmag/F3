@@ -1,0 +1,1 @@
+[] ((gate_l == 0 && (X gate_l == 1)) -> <> (gate_l == 2 && X gate_l == 3))

@@ -1,0 +1,1 @@
+([] <> z.reset) -> ([] ((gate.g0 /\ (X gate.g1)) -> <> (gate.g2 /\ X gate.g3)))

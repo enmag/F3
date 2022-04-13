@@ -1,0 +1,4 @@
+#define b_transm (B.transmit)
+{defines}
+
+#property G (b_transm -> F ({any_transm}))

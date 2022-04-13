@@ -1001,6 +1001,7 @@ class RFFunnel(Funnel):
                                     self.trans, self.h_trans))
                       for p in chain(reg, h_reg, tr, h_tr,
                                      assigns2fnodes(self.env, eq))]
+        # RFFunnel either loop-back or move to next.
         assertions.append(self.totime(
             mgr.Or(mgr.And(chain(last_reg, last_h_reg)),
                    mgr.And(chain(self.regs[0], self.h_regs[0]))),

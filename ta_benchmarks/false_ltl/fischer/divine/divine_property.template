@@ -1,0 +1,4 @@
+#define p0_wait (P0.wait)
+#define p0_cs (P0.cs)
+
+#property ((G F p0_wait) -> (G F p0_cs))

@@ -1,0 +1,4 @@
+#define max_c (R.counter >= N - 1)
+{defines}
+
+#property (G F max_c) -> ({all_f_idle})

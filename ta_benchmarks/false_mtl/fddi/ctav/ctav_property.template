@@ -1,0 +1,1 @@
+([] <> z.reset) -> ([] (S0.station_z_idle -> <>[<=5] S1.station_y_idle))

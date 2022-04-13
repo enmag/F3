@@ -1,0 +1,4 @@
+#define v_n1 (v1 != 1)
+#define p0_cs (P0.CS7)
+
+#property (F G v_n1) || (G F p0_cs)

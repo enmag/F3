@@ -1,0 +1,1 @@
+[] ! (S0_x > 2 * SIGMA && S0_is_transm == 1 && ({any_transm}))

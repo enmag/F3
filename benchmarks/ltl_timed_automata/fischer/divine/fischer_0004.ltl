@@ -1,4 +1,0 @@
-#define proc_wait (P0.wait)
-#define proc_cs (P0.cs)
-
-#property (G F proc_wait) -> (G F proc_cs)

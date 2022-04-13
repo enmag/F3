@@ -1,0 +1,111 @@
+MODULE main
+DEFINE
+  a := 2;
+  b := 5;
+  c := 1;
+  d := 2;
+  e := 1;
+VAR
+  gate : Gate(c, d);
+  controller : Controller(e);
+{train_decls}
+
+{only_1_train_moves}
+
+TRANS controller.evt_lower <-> gate.evt_lower;
+TRANS controller.evt_rise <-> gate.evt_rise;
+TRANS controller.evt_approach <-> ({or_train_approach});
+TRANS controller.evt_exit <-> ({or_train_exit});
+
+INVARSPEC ! (controller.l = c3 & controller.cnt > 0);
+
+
+MODULE Train(a, b)
+DEFINE
+  evt_stutter := event = stutter;
+  evt_approach := event = approach;
+  evt_exit := event = exit;
+  evt_move := event = move;
+VAR event : {{stutter, approach, exit, move}};
+VAR
+  l : {{t0, t1, t2, t3}};
+  x : clock(l = t0 & next(l) = t1);
+
+INIT l = t0;
+
+INVAR (l != t0) -> (x <= b);
+
+TRANS evt_stutter -> (next(l) = l);
+
+-- t0 -> t1
+TRANS (!evt_stutter & l = t0) -> (next(l) = t1 & evt_approach);
+-- t1 -> t2
+TRANS (!evt_stutter & l = t1) -> (next(l) = t2 & x > a & evt_move);
+-- t2 -> t3
+TRANS (!evt_stutter & l = t2) -> (next(l) = t3 & evt_move);
+-- t3 -> t0
+TRANS (!evt_stutter & l = t3) -> (next(l) = t0 & x <= b & evt_exit);
+
+
+MODULE Gate(c, d)
+DEFINE
+  evt_stutter := event = stutter;
+  evt_lower := event = lower;
+  evt_rise := event = rise;
+  evt_move := event = move;
+VAR event : {{stutter, lower, rise, move}};
+VAR
+  l : {{g0, g1, g2, g3}};
+  y : clock((l = g0 & next(l) = g1) |
+            (l = g2 & next(l) = g3));
+
+INIT l = g0;
+
+INVAR l = g1 -> y <= c;
+INVAR l = g3 -> y <= d;
+
+TRANS evt_stutter -> (next(l) = l);
+
+-- g0 -> g1
+TRANS (!evt_stutter & l = g0) -> (next(l) = g1 & evt_lower);
+-- g1 -> g2
+TRANS (!evt_stutter & l = g1) -> (next(l) = g2 & y <= c & evt_move);
+-- g2 -> g3
+TRANS (!evt_stutter & l = g2) -> (next(l) = g3 & evt_rise);
+-- g3 -> g0
+TRANS (!evt_stutter & l = g3) -> (next(l) = g0 & y >= c & y <= d & evt_move);
+
+MODULE Controller(e)
+DEFINE
+  evt_stutter := event = stutter;
+  evt_approach := event = approach;
+  evt_exit := event = exit;
+  evt_lower := event = lower;
+  evt_rise := event = rise;
+VAR event : {{stutter, approach, exit, lower, rise}};
+VAR
+  cnt : 0..{proc_num};
+  l : {{c0, c1, c2, c3}};
+  z : clock((l = c0 & next(l) = c1) |
+            (l = c2 & next(l) = c3));
+
+INIT l = c0 & cnt = 0;
+
+INVAR (l = c1 | l = c3) -> (z <= e);
+
+TRANS evt_stutter -> (next(l) = l & next(cnt) = cnt);
+
+-- c0 -> c1
+TRANS (!evt_stutter & l = c0) -> (next(l) = c1 & evt_approach & next(cnt) = 1);
+-- c1 -> [c1 | c2]
+TRANS (!evt_stutter & l = c1) -> (next(l) = c1 | next(l) = c2);
+TRANS (!evt_stutter & l = c1 & next(l) = c1) -> ((evt_approach & next(cnt) = cnt + 1) | (evt_exit & next(cnt) = cnt - 1));
+TRANS (l = c1 & next(l) = c2) -> (evt_lower & z = e & next(cnt) = cnt);
+-- c2 -> [c2 | c3]
+TRANS (!evt_stutter & l = c2) -> (next(l) = c2 | next(l) = c3);
+TRANS (!evt_stutter & l = c2 & next(l) = c2) -> ((cnt > 1 & evt_exit & next(cnt) = cnt - 1) | (evt_approach & next(cnt) = cnt + 1));
+TRANS (l = c2 & next(l) = c3) -> (cnt = 1 & evt_exit & next(cnt) = 0);
+-- c3 -> [c2 | c0]
+TRANS (!evt_stutter & l = c3) -> (next(l) = c2 | next(l) = c0);
+TRANS (l = c3 & next(l) = c2) -> (z <= e & evt_approach & next(cnt) = cnt + 1);
+TRANS (l = c3 & next(l) = c0) -> (z <= e & evt_rise & next(cnt) = cnt);

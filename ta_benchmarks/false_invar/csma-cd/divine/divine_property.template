@@ -1,0 +1,4 @@
+#define b_coll (B.collision)
+{defines}
+
+#property G !(b_coll && ({any_pair_transm}))

@@ -1,0 +1,1 @@
+[] !(S0.transm /\ "S0.x > 2 * SIGMA" /\ ({any_transm}))

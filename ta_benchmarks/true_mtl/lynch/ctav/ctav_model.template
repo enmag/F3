@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE nta PUBLIC '-//Uppaal Team//DTD Flat System 1.1//EN' 'http://www.it.uu.se/research/group/darts/uppaal/flat-1_2.dtd'>
+<nta>
+  <declaration>
+    const int N = {proc_num};
+    typedef int[1, N] Pid;
+    int v1;
+    bool v2;
+    const int T = 16;
+  </declaration>
+  <template>
+    <name>NonZeno</name>
+    <declaration>clock x;</declaration>
+    <location id="zeno0">
+      <name>acc</name>
+      <label kind="invariant">x &lt;= 1</label>
+    </location>
+    <location id="zeno1">
+      <name>reset</name>
+      <label kind="invariant">x&lt;=0</label>
+    </location>
+    <init ref="zeno0"/>
+    <transition>
+      <source ref="zeno0"/>
+      <target ref="zeno1"/>
+      <label kind="guard">x &gt;= 1</label>
+      <label kind="assignment">x := 0</label>
+    </transition>
+    <transition>
+      <source ref="zeno1"/>
+      <target ref="zeno0"/>
+      <label kind="assignment">x := 0</label>
+    </transition>
+  </template>
+
+  <template>
+    <name>P</name>
+    <parameter>const Pid i</parameter>
+    <declaration>clock c;</declaration>
+    <location id="id0">
+      <name>L9</name>
+      <label kind="invariant">c &lt;= T</label>
+    </location>
+    <location id="id1">
+      <name>L8</name>
+      <label kind="invariant">c &lt;= T</label>
+    </location>
+    <location id="id2">
+      <name>CS7</name>
+    </location>
+    <location id="id3">
+      <name>L6</name>
+    </location>
+    <location id="id4">
+      <name>L5</name>
+      <label kind="invariant">c &lt;= T</label>
+    </location>
+    <location id="id5">
+      <name>L4</name>
+    </location>
+    <location id="id6">
+      <name>L3</name>
+    </location>
+    <location id="id7">
+      <name>L2</name>
+      <label kind="invariant">c &lt;= T</label>
+    </location>
+    <location id="id8">
+      <name>L1</name>
+    </location>
+    <init ref="id8"/>
+    <transition>
+      <source ref="id0"/>
+      <target ref="id8"/>
+      <label kind="assignment">v1 := 0</label>
+    </transition>
+    <transition>
+      <source ref="id1"/>
+      <target ref="id0"/>
+      <label kind="assignment">v2 := false, c := 0</label>
+    </transition>
+    <transition>
+      <source ref="id2"/>
+      <target ref="id1"/>
+      <label kind="assignment">c := 0</label>
+    </transition>
+    <transition>
+      <source ref="id5"/>
+      <target ref="id8"/>
+      <label kind="guard">v2</label>
+    </transition>
+    <transition>
+      <source ref="id3"/>
+      <target ref="id8"/>
+      <label kind="guard">v1 != i</label>
+    </transition>
+    <transition>
+      <source ref="id6"/>
+      <target ref="id8"/>
+      <label kind="guard">v1 != i</label>
+    </transition>
+    <transition>
+      <source ref="id3"/>
+      <target ref="id2"/>
+      <label kind="guard">v1 == i</label>
+    </transition>
+    <transition>
+      <source ref="id4"/>
+      <target ref="id3"/>
+      <label kind="assignment">v2 := true, c := 0</label>
+    </transition>
+    <transition>
+      <source ref="id5"/>
+      <target ref="id4"/>
+      <label kind="guard">!v2</label>
+      <label kind="assignment">c := 0</label>
+    </transition>
+    <transition>
+      <source ref="id6"/>
+      <target ref="id5"/>
+      <label kind="guard">v1 == i &amp;&amp; c &gt; T</label>
+    </transition>
+    <transition>
+      <source ref="id7"/>
+      <target ref="id6"/>
+      <label kind="assignment">v1 := i, c := 0</label>
+    </transition>
+    <transition>
+      <source ref="id8"/>
+      <target ref="id7"/>
+      <label kind="guard">v1 == 0</label>
+      <label kind="assignment">c := 0</label>
+    </transition>
+  </template>
+  <system>
+    z = NonZeno();
+    {proc_decls}
+  system z, {proc_list};</system>
+</nta>

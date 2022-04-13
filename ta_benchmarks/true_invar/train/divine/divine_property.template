@@ -1,0 +1,4 @@
+#define gt (cnt > 0)
+#define c_c3 (controller.controller3)
+
+#property G ! (c_c3 && gt)

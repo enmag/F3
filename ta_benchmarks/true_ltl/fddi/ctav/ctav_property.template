@@ -1,0 +1,1 @@
+([] <> z.reset) -> (([] <> "R.counter == N - 1") -> ({all_f_idle}))

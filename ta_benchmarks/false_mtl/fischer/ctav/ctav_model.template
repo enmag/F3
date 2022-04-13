@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE nta PUBLIC '-//Uppaal Team//DTD Flat System 1.1//EN' 'http://www.it.uu.se/research/group/darts/uppaal/flat-1_2.dtd'>
+<nta>
+  <declaration>
+    typedef int[1,{proc_num}] pid_t;
+    int id;
+    const int k = 2;
+  </declaration>
+  <template>
+    <name>NonZeno</name>
+    <declaration>clock x;</declaration>
+    <location id="zeno0">
+      <name>acc</name>
+      <label kind="invariant">x &lt;= 1</label>
+    </location>
+    <location id="zeno1">
+      <name>reset</name>
+      <label kind="invariant">x&lt;=0</label>
+    </location>
+    <init ref="zeno0"/>
+    <transition>
+      <source ref="zeno0"/>
+      <target ref="zeno1"/>
+      <label kind="guard">x &gt;= 1</label>
+      <label kind="assignment">x := 0</label>
+    </transition>
+    <transition>
+      <source ref="zeno1"/>
+      <target ref="zeno0"/>
+      <label kind="assignment">x := 0</label>
+    </transition>
+  </template>
+  <template>
+    <name>P</name>
+    <parameter>const pid_t pid</parameter>
+    <declaration>clock x;</declaration>
+    <location id="id0">
+      <name>wait</name>
+    </location>
+    <location id="id1">
+      <name>req</name>
+      <label kind="invariant">x&lt;=k</label>
+    </location>
+    <location id="id2">
+      <name>idle</name>
+    </location>
+    <location id="id3">
+      <name>cs</name>
+    </location>
+    <init ref="id2"/>
+    <transition>
+      <source ref="id0"/>
+      <target ref="id2"/>
+      <label kind="guard">x &gt; k &amp;&amp; id != pid</label>
+      <label kind="assignment">x = 0</label>
+    </transition>
+    <transition>
+      <source ref="id2"/>
+      <target ref="id1"/>
+      <label kind="guard">id== 0</label>
+      <label kind="assignment">x = 0</label>
+    </transition>
+    <transition>
+      <source ref="id1"/>
+      <target ref="id0"/>
+      <label kind="guard">x&lt;=k</label>
+      <label kind="assignment">x = 0,id = pid</label>
+    </transition>
+    <transition>
+      <source ref="id0"/>
+      <target ref="id3"/>
+      <label kind="guard">x&gt;k &amp;&amp; id==pid</label>
+    </transition>
+    <transition>
+      <source ref="id3"/>
+      <target ref="id2"/>
+      <label kind="assignment">id = 0</label>
+    </transition>
+  </template>
+  <system>
+    z = NonZeno();
+    {component_decls}
+  system z, {components_list};</system>
+</nta>

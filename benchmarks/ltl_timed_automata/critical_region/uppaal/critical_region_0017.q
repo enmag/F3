@@ -1,1 +1,0 @@
-ltl.not_all_error --> id == 0

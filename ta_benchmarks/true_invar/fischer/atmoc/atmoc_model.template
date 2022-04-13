@@ -1,0 +1,38 @@
+MODULE P(pid, id, turn)
+DEFINE K := 2;
+VAR
+  l : {{idle, req, wait, cs}};
+  x : clock((l = idle & next(l) = req)
+            | (l = wait & next(l) = req)
+            | (l = req & next(l) = wait));
+
+INIT l = idle;
+INVAR l = req -> x <= K;
+
+TRANS (turn != pid) -> (next(l) = l)
+TRANS (turn = pid & l = idle) ->  next(l = req)
+TRANS (turn = pid & l = req)  ->  next(l = wait)
+TRANS (turn = pid & l = wait) -> (next(l = idle) | next(l = cs));
+TRANS (turn = pid & l = cs)   ->  next(l = idle)
+
+TRANS (turn = pid) -> next(id) =
+  case
+    l = req & next(l = wait) : pid;
+    l = cs & next(l = idle)  : 0;
+    TRUE                                   : id;
+  esac;
+
+TRANS (l = idle & next(l = req)) -> id = 0
+TRANS (l = req & next(l = wait)) -> x <= K
+TRANS (l = wait & next(l = idle)) -> x > K & id != pid
+TRANS (l = wait & next(l = cs)) -> x > K & id = pid
+
+MODULE main
+VAR
+  id : 0..{proc_num};
+  turn : 1..{proc_num};
+{proc_decls}
+
+INIT id = 0;
+
+INVARSPEC {mut_excl};

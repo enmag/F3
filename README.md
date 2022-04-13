@@ -17,14 +17,15 @@ The file `INSTALL_DOCKER` details the commands that can be used to build the Doc
 
 ## Benchmarks
 The directory benchmarks contains a collection of software (non)termination and LTL model checking problems.
-More details on the benchmarks are provided in `benchmarks/README`.
+All benchmarks about timed-automata can be found in the directory `ta_benchmarks`.
+More details on the benchmarks are provided in `benchmarks/README` and `ta_benchmarks/README`.
 The benchmarks are organised in the following categories:
-* LS : linear software programs (directory `software_nontermination`),
-* NS : non-linear software programs (directory `nonlinear_software`),
-* ITS : LTL model checking on infinite state transition systems (directory `ltl_infinite_state`),
-* TA : LTL model checking on timed automata (directory `ltl_timed_automata`)
-* TTS : LTL model checking on timed transition systems (directory `ltl_timed_transition_system`)
-* HS : LTL model checking on hybrid systems (directory `ltl_hybrid_system`)
+* LS : linear software programs (directory `benchmarks/software_nontermination`),
+* NS : non-linear software programs (directory `benchmarks/nonlinear_software`),
+* ITS : LTL model checking on infinite state transition systems (directory `benchmarks/ltl_infinite_state`),
+* TA : Invariant, LTL and MTL model checking on timed automata (directory `ta_benchmarks`)
+* TTS : LTL model checking on timed transition systems (directory `benchmarks/ltl_timed_transition_system`)
+* HS : LTL model checking on hybrid systems (directory `benchmarks/ltl_hybrid_system`)
 
 Each directory contains the benchmarks in the input language of a number of tools including F3.
 
