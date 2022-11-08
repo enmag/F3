@@ -195,8 +195,9 @@ def search_nonterm(ts: TransSystem, fairness: FNode,
         assert isinstance(floop, FLoop)
         log(f"\n\tFound funnel-loop:\n {floop}", _LOG_LVL)
         if out_dir:
+            assert False, "not implemented in newer version."
             out_f = path_join(out_dir, f"{label}.smv")
-            with open(out_f, 'w') as out:
+            with open(out_f, 'w', enc="utf-8") as out:
                 floop.to_smv(ts, orig_trans, fairness, out,
                              orig_ltl=orig_ltl)
         return True

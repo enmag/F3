@@ -35,7 +35,7 @@ def transition_system(env: PysmtEnv) -> Tuple[FrozenSet[FNode], FNode, FNode, FN
         mgr.Implies(mgr.And(mgr.Equals(pc, ints[1]),
                             mgr.Not(mgr.GE(x, y))), mgr.Equals(x_pc, m_1)),
         # pc = 1 & (x >= y) : 2,
-        mgr.Implies(mgr.And(mgr.Equals(pc, m_1), mgr.GE(x, y)),
+        mgr.Implies(mgr.And(mgr.Equals(pc, ints[1]), mgr.GE(x, y)),
                     mgr.Equals(x_pc, ints[2])),
         # pc = 2 : 3,
         mgr.Implies(mgr.Equals(pc, ints[2]), mgr.Equals(x_pc, ints[3])),

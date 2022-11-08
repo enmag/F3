@@ -63,11 +63,18 @@ def search_floop(ts: TransSystem, fair: FNode,
         assert isinstance(lback, int)
         assert 0 <= lback < bmc.k
         if __debug__:
+            _mgr = env.formula_manager
             # no learned ranking function should decrease in loop.
             for rf in rfs:
-                _fm = env.formula_manager.And(rf.is_ranked(), rf.is_decr())
+                _fm = _mgr.And(rf.is_ranked(), rf.is_decr())
                 _fm = bmc.totime(_fm, lback, bmc.k)
                 assert model.get_value(_fm).is_false()
+            # model satisfies unrolling.
+            _prob = bmc.totime(_mgr.And(ts.init), 0)
+            for _time in range(bmc.k):
+                _prob = _mgr.And(_prob, bmc.totime(_mgr.And(ts.trans), _time))
+            _prob = _mgr.And(_prob, bmc.totime(fair, bmc.k))
+            assert model.get_value(_prob).is_true()
         if is_lasso is True:
             return fgen.make_lasso(ts.symbs, model, lback, bmc.k)
         assigns, regions, trans, h_symbs, h_regions, h_trans, h_rfs = \
